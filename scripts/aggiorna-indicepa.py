@@ -1,6 +1,6 @@
 """Scarica da IndicePA (licenza CC BY 4.0) gli indirizzi PEC usati dagli strumenti:
 - faccio-ricorso/src/dati/prefetture.js: Prefetture e Commissariati del Governo
-- chiedo-gli-atti/src/dati/enti.json: tutti gli enti con una PEC
+- chiedo-gli-atti/src/dati/enti.js: tutti gli enti con una PEC
 Uso: python3 scripts/aggiorna-indicepa.py   (richiede: pip install openpyxl)
 """
 import csv, io, json, pathlib, urllib.request, datetime
@@ -58,7 +58,10 @@ for r in foglio('enti'):
         continue
     comune, prov = luogo.get(r['Codice_IPA'], ('', ''))
     sito = (r['Sito_istituzionale'] or '').strip().removeprefix('https://').removeprefix('http://').rstrip('/')
-    enti.append([r['Denominazione_ente'].strip(), r['Codice_Categoria'], comune, prov, pec, sito])
+    sigla = (r.get('Acronimo') or '').strip()
+    enti.append([r['Denominazione_ente'].strip(), r['Codice_Categoria'], comune, prov, pec, sito, sigla])
 uscita = {'aggiornato': oggi, 'fonte': 'IndicePA, dataset Enti, CC BY 4.0', 'categorie': cat, 'enti': enti}
-(RADICE / 'chiedo-gli-atti/src/dati/enti.json').write_text(json.dumps(uscita, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+(RADICE / 'chiedo-gli-atti/src/dati/enti.js').write_text(
+    '// Enti con PEC da IndicePA (CC BY 4.0), aggiornato il ' + oggi + '. Rigenerare con: python3 scripts/aggiorna-indicepa.py\n'
+    'export default ' + json.dumps(uscita, ensure_ascii=False, separators=(',', ':')) + ';\n', encoding='utf-8')
 print('enti', len(enti))

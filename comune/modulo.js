@@ -75,6 +75,15 @@ export function creaModulo({ form, sezioni, domande, chiave, alCambio }) {
       $('#d-' + d.id, form).hidden = !vis;
       if (!vis && stato.risposte[d.id] !== undefined) delete stato.risposte[d.id];
     }
+    // Una sezione senza domande visibili sparisce.
+    for (const s of sezioni) {
+      const sue = domande.filter((d) => d.sezione === s.id);
+      const el = $('#s-' + s.id, form);
+      if (el) el.hidden = sue.length > 0 && sue.every((d) => d.visibile && !d.visibile(stato.risposte));
+    }
+    // Numerazione solo delle sezioni visibili.
+    const visibili = sezioni.filter((s) => !$('#s-' + s.id, form)?.hidden);
+    visibili.forEach((s, i) => { const n = $('#t-' + s.id + ' .n', form); if (n) n.textContent = `${i + 1} di ${visibili.length}`; });
   }
 
   function riempi() {

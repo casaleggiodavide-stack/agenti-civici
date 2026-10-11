@@ -194,3 +194,11 @@ input.numero { max-width: 120px; font-family: var(--cifre); }
   .scheda { break-inside: avoid; }
   .scheda .dettaglio { display: grid !important; }
 }
+
+/* Barra della famiglia di strumenti */
+.famiglia { max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center; padding-block: 12px; border-bottom: 1px solid var(--riga); font-size: var(--s0); }
+.famiglia b { font-family: var(--cifre); font-size: var(--s-1); font-weight: 400; color: var(--inchiostro-3); margin-right: 4px; }
+.famiglia a { color: var(--inchiostro-2); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
+.famiglia a:hover { color: var(--inchiostro); }
+.famiglia a[aria-current="page"] { color: var(--inchiostro); border-bottom-color: var(--accento); font-weight: 600; }
+@media print { .famiglia { display: none; } }

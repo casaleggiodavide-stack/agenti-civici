@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenti civici</title>
+<meta name="description" content="Strumenti aperti al servizio del cittadino, che funzionano senza chiedere niente a nessuno: bonus che ti spettano, ricorso alle multe, accesso agli atti della pubblica amministrazione.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="comune/stile.css">
+<style>
+  .strumenti { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 8px; }
+  .strumento { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 22px; display: grid; gap: 10px; align-content: start; text-decoration: none; color: inherit; border-top: 4px solid var(--accento); }
+  .strumento:hover { border-color: var(--accento); }
+  .strumento h2 { font-size: var(--s3); font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+  .strumento p { margin: 0; color: var(--inchiostro-2); font-size: var(--s0); }
+  .strumento ul { margin: 0; padding-left: 18px; color: var(--inchiostro-2); font-size: var(--s0); display: grid; gap: 4px; }
+  .strumento .vai { color: var(--accento); font-weight: 600; font-size: var(--s0); }
+  .principi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 28px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--riga); font-size: var(--s0); color: var(--inchiostro-2); }
+  .principi b { display: block; color: var(--inchiostro); margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div class="max">
+  <header class="testata" style="grid-template-columns:1fr">
+    <div>
+      <div class="occhiello">Al servizio del cittadino</div>
+      <h1>Agenti civici</h1>
+      <p class="promessa" style="max-width:52ch">Strumenti aperti che funzionano senza chiedere niente a nessuno: niente accordi con la pubblica amministrazione, niente server, niente registrazione. Solo norme pubbliche, dati aperti e i tuoi diritti.</p>
+    </div>
+  </header>
+
+  <main class="strumenti">
+    <a class="strumento" href="mi-spetta/" data-strumento="mi-spetta">
+      <div class="occhiello">Bonus e prestazioni</div>
+      <h2>Mi spetta</h2>
+      <p>A quali bonus e prestazioni pubbliche hai diritto, quanto valgono e come chiederli.</p>
+      <ul><li>24 prestazioni nazionali, regole 2026</li><li>Assegno unico con la tabella INPS ufficiale</li><li>Fonte citata per ogni esito</li></ul>
+      <span class="vai">Scopri cosa ti spetta</span>
+    </a>
+    <a class="strumento" href="faccio-ricorso/" data-strumento="faccio-ricorso">
+      <div class="occhiello">Multe stradali</div>
+      <h2>Faccio ricorso?</h2>
+      <p>Controlla la multa: termini, motivi oggettivi, quanto rischi. Se conviene, il ricorso è pronto.</p>
+      <ul><li>Notifica, autovelox, taratura, strisce blu, ZTL</li><li>Prefetto o Giudice di Pace, con i costi</li><li>PEC di tutte le Prefetture</li></ul>
+      <span class="vai">Controlla la tua multa</span>
+    </a>
+    <a class="strumento" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti">
+      <div class="occhiello">Trasparenza</div>
+      <h2>Chiedo gli atti</h2>
+      <p>Chiedi documenti e dati a qualsiasi ente pubblico, e sai cosa fare se tace o rifiuta.</p>
+      <ul><li>FOIA, accesso semplice o documentale</li><li>23.705 enti con la loro PEC</li><li>Riesame e ricorsi già pronti</li></ul>
+      <span class="vai">Prepara la richiesta</span>
+    </a>
+  </main>
+
+  <section class="principi" aria-label="Come funzionano">
+    <div><b>Nessun dato inviato</b>Tutto il calcolo avviene sul tuo dispositivo.</div>
+    <div><b>Nessuna AI che inventa</b>Regole scritte come codice, testate e citate. Se manca un dato, lo diciamo.</div>
+    <div><b>Anche per gli assistenti AI</b>Un server MCP permette a Claude e ad altri assistenti di usare le stesse regole.</div>
+    <div><b>Aperto</b>Codice con licenza AGPL, dati IndicePA CC BY 4.0, nessun tracciamento.</div>
+  </section>
+
+  <footer class="piede">
+    <p>Non è un sito della pubblica amministrazione e non dà pareri legali. Le regole sono verificate sulle fonti ufficiali alla data indicata in ogni strumento.</p>
+  </footer>
+</div>
+</body>
+</html>
