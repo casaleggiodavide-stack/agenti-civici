@@ -1,0 +1,15 @@
+{
+  "name": "mi-spetta",
+  "version": "0.1.0",
+  "description": "A cosa ho diritto: navigatore aperto di bonus e prestazioni pubbliche italiane. Regole come codice, tutto nel browser, server MCP per gli assistenti AI.",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "mcp": "node mcp/server.js",
+    "sito": "python3 -m http.server 8080",
+    "artifact": "node scripts/artifact.mjs"
+  }
+}

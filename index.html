@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi spetta</title>
+<meta name="description" content="Scopri in pochi minuti a quali bonus e prestazioni pubbliche hai diritto in Italia. Gratis, senza registrazione, le risposte restano sul tuo dispositivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="web/stile.css">
+</head>
+<body>
+<a class="salta" href="#risultati">Vai ai risultati</a>
+<header class="testata">
+  <div class="testata-in">
+    <div class="marchio">
+      <h1>Mi spetta</h1>
+      <p class="promessa">Scopri a quali bonus e prestazioni pubbliche hai diritto. Rispondi a quello che sai: i risultati si aggiornano mentre scrivi.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Nessun dato inviato.</b> Le risposte restano su questo dispositivo.</li>
+      <li><b>Nessuna registrazione.</b> Niente SPID, email o telefono.</li>
+      <li><b>Regole scritte e citate.</b> Ogni esito rimanda alla fonte ufficiale.</li>
+    </ul>
+  </div>
+</header>
+
+<div class="esempi" id="esempi">
+  <span class="esempi-etichetta">Prova con un esempio</span>
+  <button type="button" data-esempio="famiglia">Famiglia con due figli piccoli</button>
+  <button type="button" data-esempio="pensionata">Pensionata che vive da sola</button>
+  <button type="button" data-esempio="giovane">Giovane in affitto</button>
+  <button type="button" data-esempio="disoccupato">Ha appena perso il lavoro</button>
+</div>
+<div class="avviso-esempio" id="avviso-esempio" hidden>
+  <span>Stai guardando un esempio, non i tuoi dati.</span>
+  <button type="button" id="ricomincia-esempio">Ricomincia con i tuoi dati</button>
+</div>
+
+<main class="corpo">
+  <form class="questionario" id="questionario" autocomplete="off" novalidate>
+    <!-- generato da web/app.js a partire da src/situazione.js -->
+  </form>
+
+  <section class="risultati" id="risultati" aria-live="polite">
+    <div class="riepilogo" id="riepilogo"></div>
+    <div id="elenco"></div>
+  </section>
+</main>
+
+<footer class="piede">
+  <p><b>Mi spetta è una stima informativa, non un parere.</b> Decide sempre l'ente che eroga la prestazione. Le regole sono quelle nazionali verificate alla data indicata in ogni scheda; Regioni e Comuni hanno altri bonus che qui non ci sono ancora.</p>
+  <p>Non è un sito della pubblica amministrazione. Codice aperto, regole in chiaro, nessun tracciamento. Ispirato a <a href="https://github.com/betagouv/aides-jeunes">1jeune1solution e Mes Aides</a>, i simulatori pubblici francesi costruiti sullo stesso principio.</p>
+  <p><button type="button" id="cancella" class="link">Cancella le mie risposte da questo dispositivo</button></p>
+</footer>
+
+<div class="barra-mobile" id="barra-mobile">
+  <a href="#risultati" id="barra-mobile-testo">Vedi i risultati</a>
+</div>
+
+<script type="module" src="web/app.js"></script>
+</body>
+</html>
