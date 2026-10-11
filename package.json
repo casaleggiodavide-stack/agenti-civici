@@ -1,15 +1,15 @@
 {
-  "name": "mi-spetta",
-  "version": "0.1.0",
-  "description": "A cosa ho diritto: navigatore aperto di bonus e prestazioni pubbliche italiane. Regole come codice, tutto nel browser, server MCP per gli assistenti AI.",
+  "name": "agenti-civici",
+  "version": "0.2.0",
+  "description": "Agenti civici al servizio del cittadino: strumenti aperti che funzionano senza chiedere niente a nessuno. Mi spetta, Faccio ricorso?, Chiedo gli atti.",
   "type": "module",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "engines": { "node": ">=20" },
   "scripts": {
-    "test": "node --test test/*.test.js",
-    "mcp": "node mcp/server.js",
-    "sito": "python3 -m http.server 8080",
-    "artifact": "node scripts/artifact.mjs"
+    "test": "node scripts/sincronizza-comune.mjs --verifica && node --test comune/test/*.test.js mi-spetta/test/*.test.js faccio-ricorso/test/*.test.js chiedo-gli-atti/test/*.test.js",
+    "sincronizza": "node scripts/sincronizza-comune.mjs",
+    "link": "node mi-spetta/scripts/controlla-link.mjs && node scripts/controlla-link.mjs",
+    "sito": "python3 -m http.server 8093"
   }
 }
