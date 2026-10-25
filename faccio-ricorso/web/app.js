@@ -7,6 +7,7 @@ import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/cale
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta } from '../src/regole.js';
 import { ricorsoPrefetto, ricorsoGiudiceDiPace, oggettoEmail } from '../src/documento.js';
+import { montaFoto } from '../src/comune/foto.js';
 
 const ESEMPI = {
   tardiva: {
@@ -158,3 +159,9 @@ $$('[data-esempio]').forEach((b) => b.addEventListener('click', () => { document
 $('#esci-esempio').addEventListener('click', () => modulo.ricarica());
 $('#cancella').addEventListener('click', () => modulo.azzera());
 modulo.aggiorna();
+montaFoto({
+  contenitore: $('#foto'), strumento: 'Faccio ricorso?', domande: DOMANDE, oggi: new Date().toISOString().slice(0, 10),
+  cosa: 'la prima pagina del verbale della multa',
+  note: 'Il campo modo indica come è arrivato il verbale. data_notifica è la data in cui la persona lo ha ricevuto (ricevuta, avviso di giacenza o PEC): se sul verbale c\'è solo la data di spedizione, mettila in data_spedizione.',
+  alRisultato: (r) => modulo.imposta({ ...modulo.risposte, ...r }),
+});

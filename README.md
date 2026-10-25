@@ -22,6 +22,17 @@ cd agenti-civici && python3 -m http.server 8080
 
 Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages con il workflow `.github/workflows/pagine.yml` (Settings > Pages > Source: GitHub Actions), che pubblica solo le pagine degli strumenti dopo che i test sono passati.
 
+## Compila da una foto
+
+Dentro claude.ai ogni strumento mostra il riquadro «Compila da una foto» (`comune/foto.js`): si fotografa il documento (verbale, carta d'imbarco, bolletta, estratto conto, risposta dell'ente, attestazione ISEE) e Claude, con l'account di chi usa la pagina, legge i dati e riempie le domande. Regole:
+
+- Claude legge solo i campi del questionario che sono scritti nel documento, senza dedurre; i dubbi li elenca.
+- Nome, codice fiscale, data di nascita, indirizzo, email, telefono e IBAN non vengono trascritti: il controllo in `comune/campi.js` li scarta anche se arrivano.
+- La pagina chiede di ricontrollare ogni campo: fa fede il documento.
+- Fuori da claude.ai (GitHub Pages, file locali) il riquadro non appare, perché non c'è un lettore di immagini nel browser.
+
+Anche l'Assistente accetta la foto di un documento insieme al messaggio.
+
 ## L'Assistente civico
 
 `assistente/` non ha un server suo: usa la capacità `sample` delle pagine pubblicate su claude.ai, cioè Claude con l'account e i limiti di chi apre la pagina. Claude non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
@@ -45,6 +56,10 @@ Rispetta robots.txt, compresi i divieti rivolti solo agli agenti di Anthropic (C
 
 Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una issue quando c'è qualcosa da guardare; gli orari automatici sono commentati e vanno accesi a mano.
 
+## Altri strumenti civici
+
+La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi Puliti](https://www.fiumipuliti.it/), la qualità dei fiumi misurata dai cittadini (Associazione Gianroberto Casaleggio), e [Alberi per il futuro](https://www.alberiperilfuturo.it/), piantare alberi con il proprio Comune intorno al 21 novembre. L'Assistente li suggerisce quando c'entrano.
+
 ## Dagli assistenti AI (MCP)
 
 `mcp/server.js` espone i tre strumenti come strumenti MCP, senza dipendenze: `valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`. Per Claude Desktop:
@@ -56,7 +71,7 @@ Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una
 ## Controlli
 
 ```bash
-npm test                                # 87 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
+npm test                                # 89 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```

@@ -8,6 +8,7 @@ import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta } from '../src/regole.js';
 import { richiesta, riesame, ricorso, sostitutivo, OGGETTI } from '../src/documenti.js';
 import { caricaEnti, cerca } from '../src/enti.js';
+import { montaFoto } from '../src/comune/foto.js';
 
 // Enti reali dall'elenco IndicePA, usati negli esempi.
 const ENTI = {
@@ -219,3 +220,10 @@ $$('[data-esempio]').forEach((b) => b.addEventListener('click', () => { document
 $('#esci-esempio').addEventListener('click', () => modulo.ricarica());
 $('#cancella').addEventListener('click', () => { elenco.cancella(); modulo.azzera(); });
 modulo.aggiorna();
+
+montaFoto({
+  contenitore: $('#foto'), strumento: 'Chiedo gli atti', domande: DOMANDE, oggi: new Date().toISOString().slice(0, 10),
+  cosa: 'la risposta dell\'ente, la ricevuta di invio della richiesta o la richiesta stessa',
+  note: 'Dalle ricevute PEC si legge la data di invio; dalle risposte dell\'ente la data e l\'esito. Il nome dell\'ente scrivilo nel campo che lo riguarda solo se il dizionario lo prevede.',
+  alRisultato: (r) => modulo.imposta({ ...modulo.risposte, ...r }),
+});

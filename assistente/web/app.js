@@ -4,6 +4,7 @@
 
 import { $, $$, esc, eur, copia, stampa, mailto, testoDa, archivio } from '../src/comune/interfaccia.js';
 import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { preparaImmagine } from '../src/comune/foto.js';
 import { iso, oggi, data } from '../src/comune/date.js';
 import { creaStrumenti } from '../src/strumenti.js';
 import { istruzioni } from '../src/istruzioni.js';
@@ -14,6 +15,9 @@ const datiPersonali = archivio('assistente-dati-personali-v1');
 const MAX_TURNI = 16;
 
 let sample = null;
+let immagini = null; // limiti per le foto, se questa vista le può mandare
+let allegato = null;
+let foto = 0; // foto già mandate: Claude non le rivede nei turni successivi
 let turni = [];
 let ctl = null;
 let corrente = null; // il messaggio dell'assistente in scrittura
@@ -75,6 +79,8 @@ const ERRORI = {
   refused: 'Non posso rispondere a questa richiesta così com\'è. Prova a riformularla.',
   prompt_too_large: 'La conversazione è diventata troppo lunga. Inizia una nuova conversazione.',
   empty_completion: 'Non è arrivata una risposta. Prova a riformulare la domanda.',
+  image_rejected: 'La foto non è stata accettata: prova con una foto JPEG o PNG più piccola.',
+  images_unavailable: 'Questa vista non può mandare foto a Claude: scrivi i dati del documento.',
   upstream_error: 'Si è interrotta la connessione con Claude. Puoi riprovare inviando di nuovo il messaggio.',
   tools_unavailable: 'Questa versione dell\'app di Claude non permette all\'assistente di usare i suoi strumenti di calcolo.',
   capability_disabled: 'L\'assistente non può usare Claude in questa vista. Puoi usare direttamente gli strumenti dalla barra in alto.',
@@ -82,6 +88,7 @@ const ERRORI = {
 
 function contesto() {
   const pezzi = Object.entries(raccolti).map(([k, v]) => `${k}: ${JSON.stringify(v)}`);
+  if (foto) pezzi.push(`foto: la persona ha già mandato ${foto} ${foto === 1 ? 'foto' : 'foto'} di documenti nei turni precedenti; non le puoi più vedere, usa i dati che ne hai ricavato`);
   return pezzi.length
     ? `DATI GIÀ RACCOLTI NEI TURNI PRECEDENTI (passati agli strumenti; riusali e aggiornali, non richiederli):\n${pezzi.join('\n')}`
     : 'Nessun dato raccolto finora.';
@@ -103,8 +110,10 @@ async function invia(testo) {
   if (!testo || ctl) return;
   await avvio;
   if (!sample) return;
-  aggiungiMessaggio('tu', testo);
-  turni.push({ role: 'user', content: testo });
+  const conFoto = allegato;
+  aggiungiMessaggio('tu', conFoto ? `${testo}\n[foto allegata: ${conFoto.name || 'documento'}]` : testo);
+  turni.push({ role: 'user', content: conFoto ? `${testo}\n\n[La persona ha allegato la foto di un documento: leggila e usane i dati negli strumenti. Non ripetere nome, codice fiscale, indirizzo o IBAN che vedi.]` : testo });
+  togliAllegato();
   $('#domanda').value = '';
   corrente = aggiungiMessaggio('ai', '');
   corrente.querySelector('.testo').innerHTML = '<p class="stato">Sto pensando…</p>';
@@ -112,7 +121,10 @@ async function invia(testo) {
   $('#ferma').hidden = false;
   $('#invia').disabled = true;
   try {
+    const opzioni = {};
+    if (conFoto) opzioni.images = [await preparaImmagine(conFoto, immagini).catch(() => { throw { code: 'image_rejected' }; })];
     const { text, truncated } = await sample(preparaInput(), {
+      ...opzioni,
       tools: strumenti,
       signal: ctl.signal,
       modelTier: 'default',
@@ -121,6 +133,7 @@ async function invia(testo) {
     corrente.querySelector('.testo').innerHTML = md(text);
     corrente.querySelector('.stato').textContent = truncated ? 'Risposta interrotta per lunghezza: chiedimi di continuare.' : '';
     turni.push({ role: 'assistant', content: text });
+    if (conFoto) foto += 1;
   } catch (e) {
     const codice = e?.code || 'upstream_error';
     const parziale = codice === 'refused' ? '' : e?.text;
@@ -131,6 +144,7 @@ async function invia(testo) {
       // Nessuna risposta: il messaggio torna nella casella per poterlo rimandare.
       turni.pop();
       if (!$('#domanda').value) $('#domanda').value = testo;
+      if (conFoto && !allegato) { allegato = conFoto; $('#allegato').hidden = false; $('#allegato').textContent = `Foto ancora allegata: ${conFoto.name || 'documento'}.`; }
     }
     if (codice === 'cancelled') {
       if (parziale) corrente.querySelector('.stato').textContent = 'Interrotto.';
@@ -147,6 +161,23 @@ async function invia(testo) {
     $('#invia').disabled = !sample;
   }
 }
+
+function togliAllegato() {
+  allegato = null;
+  $('#allegato').hidden = true;
+  $('#allegato').innerHTML = '';
+}
+
+$('#foto-file').addEventListener('change', (e) => {
+  const f = e.target.files?.[0];
+  e.target.value = '';
+  if (!f) return;
+  allegato = f;
+  $('#allegato').hidden = false;
+  $('#allegato').innerHTML = `Foto allegata: ${esc(f.name || 'documento')}. Partirà con il prossimo messaggio. <button type="button" class="link" id="togli-foto">Togli</button>`;
+  $('#togli-foto').addEventListener('click', togliAllegato);
+  $('#domanda').focus();
+});
 
 // ---------- Pannello: risultati, documenti, promemoria ----------
 
@@ -312,4 +343,9 @@ const avvio = (async () => {
   const limiti = await s.limits().catch(() => null);
   if (!limiti?.tools) { mostraNonDisponibile('tools_unavailable'); return; }
   sample = s;
+  if (limiti.images) {
+    immagini = limiti.images;
+    $('#foto-file').accept = [...(immagini.mediaTypes || []), 'image/heic', 'image/heif'].join(',');
+    $('#allega').hidden = false;
+  }
 })();

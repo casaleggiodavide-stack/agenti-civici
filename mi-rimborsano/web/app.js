@@ -7,6 +7,7 @@ import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/cale
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta, VERIFICATO } from '../src/regole.js';
 import { lettera, oggetto } from '../src/documento.js';
+import { montaFoto } from '../src/comune/foto.js';
 
 const ESEMPI = {
   volo: { caso: 'volo', volo_tipo: 'ritardo', data_volo: '2026-09-12', da: 'CTA', a: 'CDG', ritardo_ore: 4, causa_volo: 'guasto', compagnia: 'Compagnia Esempio', numero_volo: 'XX 1234', gia_reclamato: false },
@@ -97,3 +98,9 @@ $$('[data-esempio]').forEach((b) => b.addEventListener('click', () => modulo.imp
 $('#esci-esempio').addEventListener('click', () => modulo.ricarica());
 $('#cancella').addEventListener('click', () => modulo.azzera());
 modulo.aggiorna();
+montaFoto({
+  contenitore: $('#foto'), strumento: 'Mi rimborsano?', domande: DOMANDE, oggi: new Date().toISOString().slice(0, 10),
+  cosa: 'la carta d\'imbarco, il biglietto, il rapporto PIR del bagaglio, la bolletta, la fattura del telefono o l\'estratto conto',
+  note: 'Il campo caso va sempre indicato (volo, bagaglio, treno, bolletta, telefono, banca). Gli aeroporti si indicano con il codice IATA. I ritardi non sono quasi mai scritti su questi documenti: non inventarli.',
+  alRisultato: (r) => modulo.imposta({ ...modulo.risposte, ...r }),
+});

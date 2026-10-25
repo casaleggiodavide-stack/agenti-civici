@@ -4,6 +4,7 @@
 import { valuta, valoreAnnuo } from '../src/motore.js';
 import { SEZIONI, DOMANDE, CONDIZIONI_18_21, etaDa } from '../src/situazione.js';
 import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { montaFoto } from '../src/comune/foto.js';
 
 const CHIAVE = 'mi-spetta-risposte-v1';
 const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0, useGrouping: 'always' });
@@ -329,3 +330,10 @@ $('#cancella').addEventListener('click', () => {
 costruisciQuestionario();
 riempiForm();
 ricalcola();
+
+montaFoto({
+  contenitore: $('#foto'), strumento: 'Mi spetta', domande: DOMANDE, oggi: new Date().toISOString().slice(0, 10), condizioniFigli: CONDIZIONI_18_21,
+  cosa: 'l\'attestazione ISEE (la pagina con il valore ISEE e i componenti del nucleo)',
+  note: 'Dall\'attestazione ISEE leggi il valore ISEE (usa quello per le prestazioni familiari se c\'è, altrimenti l\'ordinario), il patrimonio mobiliare se indicato e, per i figli, solo mese e anno di nascita (AAAA-MM). Non dedurre lavoro, casa o cittadinanza.',
+  alRisultato: (r) => { if (inEsempio) esciDaEsempio(false); risposte = { ...risposte, ...r }; riempiForm(); ricalcola(); },
+});

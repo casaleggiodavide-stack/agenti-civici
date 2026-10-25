@@ -20,64 +20,16 @@ import { valuta as valutaReclamo } from '../../mi-rimborsano/src/regole.js';
 import { DOMANDE as D_RECLAMI } from '../../mi-rimborsano/src/domande.js';
 import { lettera, oggetto as oggettoReclamo } from '../../mi-rimborsano/src/documento.js';
 
-// I dati personali non passano mai dalla conversazione: si completano nel pannello.
-const PERSONALI = new Set(['nome', 'nascita', 'residenza', 'codice_fiscale', 'recapito', 'telefono', 'comune_firma', 'luogo', 'indirizzo', 'iban', 'riferimento', 'codice_fornitura', 'numero_linea']);
+import { normalizza as normalizzaCampi, dizionario as dizionarioCampi } from './comune/campi.js';
 
-/**
- * Pulisce le risposte che Claude passa a uno strumento: tiene solo i campi
- * noti, converte i tipi, scarta i valori non validi e lo dice.
- */
+/** Pulisce le risposte che Claude passa a uno strumento (vedi comune/campi.js). */
 export function normalizza(domande, grezze, extra = {}) {
-  const risposte = {};
-  const avvisi = [];
-  const perId = Object.fromEntries(domande.map((d) => [d.id, d]));
-  for (const [k, v] of Object.entries(grezze || {})) {
-    if (v === null || v === undefined || v === '') continue;
-    if (PERSONALI.has(k)) { avvisi.push(`${k}: i dati personali non si chiedono in chat, si completano nel pannello`); continue; }
-    const d = perId[k];
-    if (!d) {
-      if (extra[k]) risposte[k] = extra[k](v);
-      else avvisi.push(`${k}: campo sconosciuto, ignorato`);
-      continue;
-    }
-    if (d.tipo === 'numero' || d.tipo === 'euro') {
-      const n = typeof v === 'number' ? v : Number(String(v).replace(/[€\s]/g, '').replace(/\.(?=\d{3}(\D|$))/g, '').replace(',', '.'));
-      if (Number.isFinite(n)) risposte[k] = n; else avvisi.push(`${k}: numero non valido (${v})`);
-    } else if (d.tipo === 'si_no') {
-      const s = String(v).toLowerCase();
-      if (v === true || s === 'true' || s === 'si' || s === 'sì') risposte[k] = true;
-      else if (v === false || s === 'false' || s === 'no') risposte[k] = false;
-      else if (s === 'non_so' && d.nonSo) risposte[k] = 'non_so';
-      else avvisi.push(`${k}: usa true o false`);
-    } else if (d.tipo === 'scelta' || d.tipo === 'elenco') {
-      const ammessi = d.opzioni.map((o) => o[0]);
-      if (ammessi.includes(String(v))) risposte[k] = String(v); else avvisi.push(`${k}: valore non ammesso (${v}); ammessi: ${ammessi.join(', ')}`);
-    } else if (d.tipo === 'data') {
-      if (dataCal(String(v))) risposte[k] = String(v).slice(0, 10); else avvisi.push(`${k}: data non valida, usa AAAA-MM-GG`);
-    } else if (d.tipo === 'figli') {
-      if (Array.isArray(v)) {
-        risposte[k] = v.filter((f) => f && /^\d{4}-\d{2}/.test(String(f.nascita || ''))).map((f) => ({
-          nascita: String(f.nascita).slice(0, 7),
-          disabile: f.disabile === true || f.disabile === 'true',
-          condizione: CONDIZIONI_18_21.some((c) => c[0] === f.condizione) ? f.condizione : undefined,
-        }));
-        if (risposte[k].length !== v.length) avvisi.push('figli: ogni figlio vuole nascita nel formato AAAA-MM');
-      } else avvisi.push('figli: serve un elenco di oggetti {nascita: "AAAA-MM"}');
-    } else {
-      risposte[k] = String(v).slice(0, 2000);
-    }
-  }
-  return { risposte, avvisi };
+  return normalizzaCampi(domande, grezze, { extra, condizioniFigli: CONDIZIONI_18_21 });
 }
 
 /** Dizionario dei campi di uno strumento, compatto, per le istruzioni. */
 export function dizionario(domande) {
-  return domande.filter((d) => !PERSONALI.has(d.id)).map((d) => {
-    let tipo = d.tipo === 'euro' ? 'numero in euro' : d.tipo === 'si_no' ? (d.nonSo ? 'true|false|non_so' : 'true|false') : d.tipo === 'data' ? 'AAAA-MM-GG' : d.tipo;
-    if (d.tipo === 'scelta' || d.tipo === 'elenco') tipo = d.id === 'provincia' ? `sigla di provincia (es. MI, RM, NA, AO)` : d.opzioni.length > 40 ? `codice IATA dell'aeroporto (es. FCO, MXP, NAP, CDG, JFK); se non è tra i ${d.opzioni.length - 1} in elenco l'avviso lo dice: allora usa "altro" e indica distanza_km` : d.opzioni.map((o) => o[0]).join('|');
-    if (d.tipo === 'figli') tipo = `elenco di {nascita: "AAAA-MM", disabile?: true|false, condizione?: ${CONDIZIONI_18_21.map((c) => c[0]).join('|')} (solo 18-21 anni)}`;
-    return `- ${d.id} (${tipo}): ${d.etichetta}`;
-  }).join('\n');
+  return dizionarioCampi(domande, { condizioniFigli: CONDIZIONI_18_21 });
 }
 
 const fonte = (f) => f && { titolo: f.titolo, url: f.url };

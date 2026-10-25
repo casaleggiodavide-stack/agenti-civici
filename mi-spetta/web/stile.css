@@ -207,3 +207,12 @@ input.numero { max-width: 120px; font-family: var(--cifre); }
 .calendario { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: var(--s-1); }
 .calendario::before { content: "Aggiungi al calendario:"; color: var(--inchiostro-3); }
 @media print { .calendario { display: none; } }
+
+/* Compila da una foto (solo dentro claude.ai) */
+.foto { display: grid; gap: 10px; background: var(--carta); border: 1px dashed var(--accento); border-radius: 8px; padding: 14px 16px; margin: 0 auto 18px; max-width: 1180px; }
+.foto p { margin: 4px 0 0; color: var(--inchiostro-2); max-width: 70ch; }
+.foto .foto-scegli { justify-self: start; cursor: pointer; background: var(--accento); color: var(--sul-accento); border-radius: 6px; padding: 9px 14px; font-weight: 600; }
+.foto .foto-esito:empty { display: none; }
+.foto .foto-esito { margin: 0; color: var(--inchiostro); }
+.foto .foto-errore { color: #A8361B; }
+@media print { .foto { display: none; } }
