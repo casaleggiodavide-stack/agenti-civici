@@ -82,5 +82,5 @@ export function leggiAncora() {
 export function scriviAncora(param) {
   try {
     history.replaceState(null, '', '#' + new URLSearchParams(param).toString());
-  } catch { /* dentro claude.ai l'indirizzo può non essere modificabile */ }
+  } catch { /* in una pagina incorporata l'indirizzo può non essere modificabile */ }
 }

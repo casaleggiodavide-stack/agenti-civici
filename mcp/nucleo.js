@@ -1,9 +1,9 @@
 // Server MCP degli agenti civici, senza dipendenze: mette a disposizione di un
-// assistente AI (Claude, ChatGPT, altri) le stesse regole dei tre strumenti,
+// assistente AI le stesse regole degli strumenti,
 // così risponde con norme e scadenze verificate invece che a memoria.
 // Questo file è il nucleo, uguale per tutti i trasporti: server.js lo espone
-// su stdio (Claude Desktop, Claude Code), http.js via internet (ChatGPT,
-// connettori di claude.ai). Nessun dato viene salvato o registrato.
+// su stdio (app desktop e riga di comando), http.js via internet (connettori
+// remoti degli assistenti). Nessun dato viene salvato o registrato.
 
 import { valuta as valutaPrestazioni, PRESTAZIONI } from '../mi-spetta/src/motore.js';
 import { NOME_REGIONE } from '../mi-spetta/src/situazione.js';
@@ -23,6 +23,8 @@ import { readFileSync } from 'node:fs';
 import { controlli as controlliBilancio, ripartizione, entrate as entrateBilancio, FONTI as FONTI_BILANCIO } from '../bilancio-comune/src/spiegazioni.js';
 import { INDICATORI, livello, PAROLE_LIVELLO, procedure, FONTI as FONTI_APPALTI } from '../appalti/src/indicatori.js';
 import { cercaIn } from '../comune/schede.js';
+import { cerca as cercaPratica, trova as trovaPratica } from '../navigatore/src/cerca.js';
+import { PRATICHE } from '../navigatore/src/pratiche.js';
 
 export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.5.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
@@ -166,6 +168,7 @@ const STRUMENTI_SCHEDE = [
   ['mi-spetta', 'Mi spetta', 'A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali con le regole 2026, importi, requisiti, come chiederle e fonti. Strumento: valuta_prestazioni.'],
   ['faccio-ricorso', 'Faccio ricorso?', 'Controllo di una multa stradale: termini di notifica, autovelox e taratura, ZTL, strisce blu, costi del ricorso al Prefetto e al Giudice di Pace, PEC della Prefettura e ricorso da completare. Strumento: valuta_multa.'],
   ['chiedo-gli-atti', 'Chiedo gli atti', 'Accesso agli atti verso qualsiasi ente pubblico: FOIA, accesso civico semplice, accesso documentale; richiesta, riesame e ricorsi, scadenze, 23.705 enti con PEC da IndicePA. Strumenti: cerca_ente, prepara_accesso_atti.'],
+  ['navigatore', 'Navigatore dei servizi', 'Cosa devo fare per…: schede verificate sulle fonti ufficiali per le pratiche più comuni (anagrafe e documenti, famiglia, stranieri, salute, scuola, lavoro, fisco, auto, casa), con passi, documenti, costi, tempi e scadenze. Strumento: trova_pratica.'],
   ['bilancio-comune', 'Il bilancio del mio Comune', 'Bilancio dei Comuni italiani dai rendiconti ufficiali OpenBDAP: spesa per finalità e per abitante rispetto ai Comuni della stessa grandezza, entrate, avanzo o disavanzo, debito, pagamenti ai fornitori, parametri di deficitarietà. Strumento: bilancio_comune.'],
   ['appalti', 'Red flag sugli appalti', 'Segnali di rischio negli appalti di Comuni, ASL, Regioni e altri enti sui dati aperti ANAC del 2025: affidamenti diretti, gare con una sola offerta, concentrazione dei fornitori, frazionamenti sotto soglia. Strumento: appalti_ente.'],
   ['mi-rimborsano', 'Mi rimborsano?', 'Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Strumento: valuta_reclamo.'],
@@ -259,17 +262,43 @@ TOOLS.push(
   { name: 'appalti_ente', title: 'Red flag sugli appalti', description: 'Indicatori di rischio negli appalti di un ente pubblico italiano (Comune, ASL, Regione, università…) sulle procedure pubblicate nel 2025 secondo i dati aperti ANAC: affidamenti senza gara, gare con una sola offerta, peso del primo fornitore, affidamenti appena sotto soglia, cumuli allo stesso fornitore, tempi brevi, esclusioni; con confronto tra enti simili e metodi OCP/Cardinal/ANAC. Un segnale non è un illecito.', inputSchema: { type: 'object', properties: { ente: { type: 'string', description: 'Nome dell\'ente, es. «Comune di Napoli» o «ASL Napoli 1»' }, cf: { type: 'string', description: 'Codice fiscale dell\'ente, in alternativa' } } } },
 );
 
+function testoPratica(p) {
+  return [
+    `# ${p.titolo}`, p.chi, `Dove: ${p.dove}`,
+    `Online: ${p.online.stato === 'si' ? 'sì' : p.online.stato}${p.online.url ? ` (${p.online.url})` : ''}${p.online.note ? `. ${p.online.note}` : ''}`,
+    '\n## Passi', ...p.passi.map((x, i) => `${i + 1}. ${x}`),
+    '\n## Cosa serve', ...p.documenti.map((x) => `- ${x}`),
+    `\nCosto: ${p.costo || 'non indicato dalle fonti ufficiali'}`, `Tempi: ${p.tempi || 'non indicati dalle fonti ufficiali'}`,
+    p.scadenze ? `Scadenze: ${p.scadenze}` : '',
+    p.attenzione.length ? '\n## Attenzione\n' + p.attenzione.map((x) => `- ${x}`).join('\n') : '',
+    '\nFonti: ' + [...p.fonti, ...p.norme].map((f) => `${f.titolo} (${f.url})`).join(' ; '),
+    `Scheda verificata il ${p.verificato}: prima di muoversi controllare la pagina ufficiale.`,
+  ].filter(Boolean).join('\n');
+}
+
+function rispostaPratica({ domanda = '', id } = {}) {
+  const p = id ? trovaPratica(id) : cercaPratica(domanda, 1)[0]?.pratica;
+  if (!p) {
+    const altre = cercaPratica(domanda, 5).map((r) => r.pratica.titolo);
+    return { content: [{ type: 'text', text: `Nessuna scheda verificata per «${domanda}». ${altre.length ? `Le più vicine: ${altre.join('; ')}.` : ''} Non improvvisare: indica l'ufficio competente e il sito ufficiale.` }], structuredContent: { trovata: false } };
+  }
+  const simili = cercaPratica(domanda, 4).map((r) => r.pratica).filter((x) => x.id !== p.id).map((x) => ({ id: x.id, titolo: x.titolo }));
+  return { content: [{ type: 'text', text: testoPratica(p) + (simili.length ? `\n\nAltre schede vicine: ${simili.map((x) => `${x.titolo} (id ${x.id})`).join('; ')}` : '') }], structuredContent: { pratica: p, simili } };
+}
+
+TOOLS.push({ name: 'trova_pratica', title: 'Navigatore dei servizi', description: `Navigatore dei servizi pubblici: «cosa devo fare per…». Trova la scheda verificata sulle fonti ufficiali tra ${PRATICHE.length} pratiche (residenza, carta d'identità, passaporto, SPID, nascita, matrimonio, decesso e successione, permesso di soggiorno, cittadinanza, medico di base, scuola, ISEE, 730, NASpI, pensione, patente, passaggio di proprietà, affitto, invalidità…) e restituisce passi, documenti, costi, tempi, scadenze e fonti. Se non c'è una scheda lo dice.`, inputSchema: { type: 'object', properties: { domanda: { type: 'string', description: 'La domanda con parole del cittadino, es. «ho venduto la macchina»' }, id: { type: 'string', description: 'Id di una scheda già trovata, in alternativa' } } } });
+
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
 for (const t of TOOLS) {
   t.title ||= TITOLI[t.name];
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+const GESTORI = { trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [
-  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
+  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',
   'Non sono pareri legali: decide sempre l\'ente o il giudice. Per i casi complessi indica un patronato, un CAF, un\'associazione di consumatori o un avvocato.',

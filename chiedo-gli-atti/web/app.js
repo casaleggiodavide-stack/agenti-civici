@@ -3,7 +3,7 @@
 import { $, $$, esc, copia, stampa, mailto, testoDa, vaiAllaDomanda, archivio } from '../src/comune/interfaccia.js';
 import { creaModulo } from '../src/comune/modulo.js';
 import { data } from '../src/comune/date.js';
-import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { pulsantiCalendario, scaricaIcs, incorporata } from '../src/comune/calendario.js';
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta } from '../src/regole.js';
 import { richiesta, riesame, ricorso, sostitutivo, OGGETTI } from '../src/documenti.js';
@@ -117,7 +117,7 @@ function pannelloScadenze(v) {
         titolo: `${s.titolo}${v.ente ? ': ' + v.ente.nome : ''}`,
         data: s.data,
         descrizione: `${s.testo}${v.ente?.pec ? ` PEC dell'ente: ${v.ente.pec}.` : ''} Promemoria creato con Chiedo gli atti.`,
-      }, { conIcs: !dentroClaude() });
+      }, { conIcs: !incorporata() });
       return `<li class="${cls}"><span class="quando">${esc(data(s.data).toLocaleDateString('it-IT', { day: 'numeric', month: 'short', timeZone: 'UTC' }))}<small>${quando}</small></span><span class="cosa"><b>${esc(s.titolo)}</b><span>${esc(s.testo)}</span>${promemoria}</span></li>`;
     }).join('')}</ul>
   </section>`;

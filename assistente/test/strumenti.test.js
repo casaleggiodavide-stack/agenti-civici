@@ -1,4 +1,4 @@
-// Gli strumenti dell'assistente provati come li chiamerebbe Claude.
+// Gli strumenti dell'assistente provati come li chiamerebbe il modello.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { creaStrumenti, normalizza } from '../src/strumenti.js';

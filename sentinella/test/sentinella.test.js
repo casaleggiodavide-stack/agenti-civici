@@ -16,12 +16,12 @@ test('raccogliFonti: tutte le fonti dei tre strumenti, senza doppioni, con chi l
   assert.ok(f.some((x) => x.url.includes('art201')));
 });
 
-test('robots.txt: rispetta i divieti generali e quelli rivolti solo agli agenti di Anthropic', () => {
+test('robots.txt: rispetta i divieti generali e quelli rivolti solo ai crawler di intelligenza artificiale', () => {
   const r = 'User-agent: *\nDisallow: /privato/\nAllow: /privato/pubblico\n\nUser-agent: Googlebot\nDisallow: /';
   assert.equal(robotsConsente(r, 'https://x.it/pagina'), true);
   assert.equal(robotsConsente(r, 'https://x.it/privato/a'), false);
   assert.equal(robotsConsente(r, 'https://x.it/privato/pubblico/b'), true);
-  // Un divieto solo per ClaudeBot ferma anche noi.
+  // Un divieto rivolto solo a un crawler di AI ferma anche noi.
   assert.equal(robotsConsente('User-agent: ClaudeBot\nDisallow: /', 'https://x.it/'), false);
   assert.equal(robotsConsente('User-agent: anthropic-ai\nUser-agent: GPTBot\nDisallow: /norme', 'https://x.it/norme/1'), false);
   // Gruppi con più agenti, «Disallow:» vuoto, caratteri jolly e fine riga.

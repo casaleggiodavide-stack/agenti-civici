@@ -1,5 +1,5 @@
-# Server MCP degli agenti civici su Render (piano gratuito), per ChatGPT e i
-# connettori di claude.ai. Nessuna dipendenza da installare, nessun dato salvato.
+# Server MCP degli agenti civici su Render (piano gratuito), per i
+# connettori remoti degli assistenti AI. Nessuna dipendenza da installare, nessun dato salvato.
 # Si attiva da Render: New > Blueprint > questo repository.
 services:
   - type: web

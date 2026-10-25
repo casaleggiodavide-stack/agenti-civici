@@ -195,7 +195,7 @@ input[type="date"] { max-width: 220px; font-family: var(--cifre); }
 .calendario a, .calendario .link { color: var(--accento); }
 @media print { .calendario { display: none; } }
 
-/* Compila da una foto (solo dentro claude.ai) */
+/* Compila da una foto (solo dove c'è l'assistente AI) */
 .foto { display: grid; gap: 10px; background: var(--carta); border: 1px dashed var(--accento); border-radius: 8px; padding: 14px 16px; margin: 0 0 18px; }
 .foto p { margin: 4px 0 0; font-size: var(--s0); color: var(--inchiostro-2); max-width: 70ch; }
 .foto .foto-scegli { justify-self: start; cursor: pointer; }

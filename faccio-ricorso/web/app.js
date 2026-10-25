@@ -3,7 +3,7 @@
 import { $, $$, esc, eur, copia, stampa, mailto, testoDa, vaiAllaDomanda } from '../src/comune/interfaccia.js';
 import { creaModulo } from '../src/comune/modulo.js';
 import { data } from '../src/comune/date.js';
-import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { pulsantiCalendario, scaricaIcs, incorporata } from '../src/comune/calendario.js';
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta } from '../src/regole.js';
 import { ricorsoPrefetto, ricorsoGiudiceDiPace, oggettoEmail } from '../src/documento.js';
@@ -72,7 +72,7 @@ function pannelloScadenze(v, r) {
         titolo: `${s.titolo}${r.numero_verbale ? ', verbale ' + r.numero_verbale : ''}`,
         data: s.data,
         descrizione: `${s.testo}${v.destinatari.prefetto && s.id === 'prefetto' ? ` PEC: ${v.destinatari.prefetto.pec}.` : ''} Promemoria creato con Faccio ricorso?: verifica sempre le date sul verbale.`,
-      }, { conIcs: !dentroClaude() });
+      }, { conIcs: !incorporata() });
       return `<li class="${cls}"><span class="quando">${esc(d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', timeZone: 'UTC' }))}<small>${quando}</small></span><span class="cosa"><b>${esc(s.titolo)}</b><span>${esc(s.testo)}</span>${promemoria}</span></li>`;
     }).join('')}</ul>
   </section>`;

@@ -1,4 +1,4 @@
-// Controllo dei campi che arrivano da Claude (dalla chat dell'assistente o
+// Controllo dei campi che arrivano dall'assistente AI (dalla chat dell'assistente o
 // dalla lettura di una foto): tiene solo i campi noti, converte i tipi,
 // scarta i valori non validi e i dati personali, e dice cosa ha scartato.
 
@@ -59,7 +59,7 @@ export function normalizza(domande, grezze, opz = {}) {
   return { risposte, avvisi };
 }
 
-/** Dizionario dei campi di uno strumento, compatto, per le istruzioni a Claude. */
+/** Dizionario dei campi di uno strumento, compatto, per le istruzioni all'assistente AI. */
 export function dizionario(domande, opz = {}) {
   const { condizioniFigli = [], personali = PERSONALI } = opz;
   return domande.filter((d) => !personali.has(d.id)).map((d) => {

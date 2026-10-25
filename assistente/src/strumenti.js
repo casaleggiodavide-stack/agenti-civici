@@ -1,4 +1,4 @@
-// Gli strumenti dell'assistente civico: funzioni della pagina che Claude può
+// Gli strumenti dell'assistente civico: funzioni della pagina che l'assistente AI può
 // chiamare. Ognuna usa uno dei motori di regole degli agenti civici, quindi
 // numeri, soglie, termini e indirizzi vengono sempre dalle regole verificate,
 // mai dalla memoria del modello. I risultati sono piccoli e in dati semplici.
@@ -22,7 +22,7 @@ import { lettera, oggetto as oggettoReclamo } from '../../mi-rimborsano/src/docu
 
 import { normalizza as normalizzaCampi, dizionario as dizionarioCampi } from './comune/campi.js';
 
-/** Pulisce le risposte che Claude passa a uno strumento (vedi comune/campi.js). */
+/** Pulisce le risposte che l'assistente AI passa a uno strumento (vedi comune/campi.js). */
 export function normalizza(domande, grezze, extra = {}) {
   return normalizzaCampi(domande, grezze, { extra, condizioniFigli: CONDIZIONI_18_21 });
 }

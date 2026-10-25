@@ -1,9 +1,9 @@
-// Interfaccia dell'Assistente civico. La conversazione passa da Claude con
-// l'account di chi usa la pagina (capacità «sample» delle pagine claude.ai);
+// Interfaccia dell'Assistente civico. La conversazione passa dall'assistente AI con
+// l'account di chi usa la pagina (capacità «sample» della piattaforma che ospita la pagina);
 // i calcoli, i documenti e i dati personali restano nel browser.
 
 import { $, $$, esc, eur, copia, stampa, mailto, testoDa, archivio } from '../src/comune/interfaccia.js';
-import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { pulsantiCalendario, scaricaIcs, incorporata } from '../src/comune/calendario.js';
 import { preparaImmagine } from '../src/comune/foto.js';
 import { iso, oggi, data } from '../src/comune/date.js';
 import { creaStrumenti } from '../src/strumenti.js';
@@ -17,7 +17,7 @@ const MAX_TURNI = 16;
 let sample = null;
 let immagini = null; // limiti per le foto, se questa vista le può mandare
 let allegato = null;
-let foto = 0; // foto già mandate: Claude non le rivede nei turni successivi
+let foto = 0; // foto già mandate: l'assistente non le rivede nei turni successivi
 let turni = [];
 let ctl = null;
 let corrente = null; // il messaggio dell'assistente in scrittura
@@ -72,18 +72,18 @@ function aggiungiMessaggio(chi, testo, classe = '') {
 }
 
 const ERRORI = {
-  not_granted: 'Per usare l\'assistente serve il tuo permesso a usare Claude da questa pagina. Puoi darlo ricaricando la pagina, oppure usare direttamente gli strumenti dalla barra in alto.',
-  sampling_disabled: 'Claude non è disponibile per questo account. Puoi usare direttamente gli strumenti dalla barra in alto.',
+  not_granted: 'Per usare l\'assistente serve il tuo permesso a usare l\'intelligenza artificiale da questa pagina. Puoi darlo ricaricando la pagina, oppure usare direttamente gli strumenti dalla barra in alto.',
+  sampling_disabled: 'L\'intelligenza artificiale non è disponibile per questo account. Puoi usare direttamente gli strumenti dalla barra in alto.',
   rate_limited: 'Troppe richieste in poco tempo, o hai raggiunto il limite di utilizzo del tuo account. Riprova tra qualche minuto.',
-  session_expired: 'La sessione è scaduta: accedi di nuovo a Claude e riprova.',
+  session_expired: 'La sessione è scaduta: accedi di nuovo e riprova.',
   refused: 'Non posso rispondere a questa richiesta così com\'è. Prova a riformularla.',
   prompt_too_large: 'La conversazione è diventata troppo lunga. Inizia una nuova conversazione.',
   empty_completion: 'Non è arrivata una risposta. Prova a riformulare la domanda.',
   image_rejected: 'La foto non è stata accettata: prova con una foto JPEG o PNG più piccola.',
-  images_unavailable: 'Questa vista non può mandare foto a Claude: scrivi i dati del documento.',
-  upstream_error: 'Si è interrotta la connessione con Claude. Puoi riprovare inviando di nuovo il messaggio.',
-  tools_unavailable: 'Questa versione dell\'app di Claude non permette all\'assistente di usare i suoi strumenti di calcolo.',
-  capability_disabled: 'L\'assistente non può usare Claude in questa vista. Puoi usare direttamente gli strumenti dalla barra in alto.',
+  images_unavailable: 'Questa vista non può mandare foto all\'assistente: scrivi i dati del documento.',
+  upstream_error: 'Si è interrotta la connessione con l\'assistente. Puoi riprovare inviando di nuovo il messaggio.',
+  tools_unavailable: 'Questa versione dell\'app non permette all\'assistente di usare i suoi strumenti di calcolo.',
+  capability_disabled: 'L\'assistente non può usare l\'intelligenza artificiale in questa vista. Puoi usare direttamente gli strumenti dalla barra in alto.',
 };
 
 function contesto() {
@@ -197,7 +197,7 @@ function sezioneRisultato(id, html) {
 }
 
 const linkFonte = (f) => (f ? ` <a href="${esc(f.url)}" target="_blank" rel="noopener">fonte</a>` : '');
-const calendario = (titolo, giorno, descrizione) => pulsantiCalendario({ titolo, data: giorno, descrizione }, { conIcs: !dentroClaude() });
+const calendario = (titolo, giorno, descrizione) => pulsantiCalendario({ titolo, data: giorno, descrizione }, { conIcs: !incorporata() });
 
 function mostraRisultato(tipo, v) {
   if (tipo === 'prestazioni') {
@@ -299,10 +299,10 @@ function mostraNonDisponibile(codice) {
   const el = $('#non-disponibile');
   const link = 'usa direttamente <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>, <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a> e <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>: fanno gli stessi calcoli, con un modulo da compilare.';
   const perche = !codice
-    ? 'L\'assistente conversazionale funziona quando questa pagina è aperta dentro Claude, sul sito claude.ai o nell\'app, perché usa Claude con il tuo account.'
+    ? 'L\'assistente conversazionale funziona quando questa pagina è aperta dentro la piattaforma di intelligenza artificiale che la ospita, con il tuo account. Su questo sito è disponibile la versione senza chat.'
     : codice === 'tools_unavailable'
-      ? 'Questa versione dell\'app di Claude non permette all\'assistente di usare i suoi strumenti di calcolo, e senza di loro preferisce non rispondere. Aggiorna l\'app.'
-      : 'L\'assistente non può usare Claude da questa pagina: il permesso non è stato dato o non è disponibile per il tuo account.';
+      ? 'Questa versione dell\'app non permette all\'assistente di usare i suoi strumenti di calcolo, e senza di loro preferisce non rispondere. Aggiorna l\'app.'
+      : 'L\'assistente non può usare l\'intelligenza artificiale da questa pagina: il permesso non è stato dato o non è disponibile per il tuo account.';
   el.hidden = false;
   el.innerHTML = `${perche} Intanto ${link}`;
   $('#invia').disabled = true;
@@ -310,7 +310,7 @@ function mostraNonDisponibile(codice) {
   aggiornaLinkFamiglia(el);
 }
 
-// Nella versione pubblicata su claude.ai i link tra strumenti vengono riscritti
+// Nella versione pubblicata come pagina dell'assistente i link tra strumenti vengono riscritti
 // verso gli indirizzi pubblicati; qui riusiamo quelli della barra in alto.
 function aggiornaLinkFamiglia(el) {
   $$('a[data-strumento]', el).forEach((a) => {
@@ -338,7 +338,7 @@ $$('[data-esempio]').forEach((b) => b.addEventListener('click', () => invia(b.da
 const avvio = (async () => {
   const s = window.claude && typeof window.claude.use === 'function' ? await window.claude.use('sample') : null;
   if (!s) { mostraNonDisponibile(); return; }
-  // Se la pagina gira dentro Claude ma senza strumenti, l'assistente non risponde:
+  // Se la pagina gira dentro la piattaforma ma senza strumenti, l'assistente non risponde:
   // senza i motori di regole dovrebbe inventare cifre e scadenze.
   const limiti = await s.limits().catch(() => null);
   if (!limiti?.tools) { mostraNonDisponibile('tools_unavailable'); return; }

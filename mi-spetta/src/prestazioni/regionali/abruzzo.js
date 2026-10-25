@@ -1,7 +1,7 @@
 // Abruzzo: misure regionali verificate il 25/10/2026. Gran parte del sito
 // regionale (www2.regione.abruzzo.it) è vietata dal robots.txt: le regole vengono
 // dagli atti su trasparenza, BURAT, coesione e dal gestore TUA.
-// Esclusa la borsa ADSU (dipende dall'ateneo; ADSU Chieti-Pescara vieta gli agenti Anthropic).
+// Esclusa la borsa ADSU (dipende dall'ateneo; ADSU Chieti-Pescara vieta i crawler di intelligenza artificiale).
 
 import { VERIFICATO_REGIONI, req, iseeEntro, figlioTra } from '../_comuni.js';
 

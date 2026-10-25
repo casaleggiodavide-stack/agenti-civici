@@ -1,5 +1,5 @@
 // Piemonte: misure regionali verificate il 25/10/2026.
-// Escluse: borse EDISU (sito vietato agli agenti Anthropic dal robots.txt; dipendono dall'ateneo).
+// Escluse: borse EDISU (sito vietato ai crawler di intelligenza artificiale dal robots.txt; dipendono dall'ateneo).
 
 import { VERIFICATO_REGIONI, req, iseeEntro, figlioTra } from '../_comuni.js';
 

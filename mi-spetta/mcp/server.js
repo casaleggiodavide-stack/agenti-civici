@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Server MCP di «Mi spetta», senza dipendenze.
-// Permette a un assistente (Claude, ChatGPT, altri agenti) di usare le
+// Permette a un assistente AI di usare le
 // stesse regole del sito invece di indovinare a quali bonus ha diritto una
 // persona. Protocollo: JSON-RPC 2.0 su stdio, un messaggio per riga.
 

@@ -37,7 +37,7 @@ Poi apri `http://localhost:8080`. Per metterlo online gratis basta GitHub Pages:
 
 ## Usarlo da un assistente AI (MCP)
 
-`mcp/server.js` espone le stesse regole come strumenti MCP, senza dipendenze. Un assistente che lo usa risponde con il motore e le fonti invece che a memoria. Per Claude Desktop, nel file di configurazione:
+`mcp/server.js` espone le stesse regole come strumenti MCP, senza dipendenze. Un assistente che lo usa risponde con il motore e le fonti invece che a memoria. Nel file di configurazione MCP dell'app:
 
 ```json
 {

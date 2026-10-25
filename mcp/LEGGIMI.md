@@ -1,4 +1,4 @@
-# Gli agenti civici dentro Claude e ChatGPT
+# Gli agenti civici dentro il tuo assistente AI
 
 Il server MCP mette le regole degli agenti civici a disposizione di un assistente AI. Così l'assistente risponde con importi, termini e PEC verificati sulle fonti ufficiali, invece che a memoria.
 
@@ -10,13 +10,16 @@ Strumenti (tutti in sola lettura, nessun dato salvato):
 | `valuta_multa` | Faccio ricorso?: controllo della multa, scadenze, costi, Prefettura con PEC, testo del ricorso |
 | `cerca_ente`, `prepara_accesso_atti` | Chiedo gli atti: ente pubblico con PEC, tipo di accesso, scadenze, richiesta e ricorsi |
 | `valuta_reclamo` | Mi rimborsano?: voli, bagagli, treni, bollette, telefono, banche; importo, termini, lettera di messa in mora |
-| `search`, `fetch` | Cerca e leggi le schede (91 prestazioni e gli strumenti), anche per la ricerca approfondita di ChatGPT |
+| `trova_pratica` | Navigatore dei servizi: cosa devo fare per… passi, documenti, costi, tempi e fonti delle pratiche più comuni |
+| `bilancio_comune` | Il bilancio del mio Comune: spesa, entrate e conti dal rendiconto ufficiale, con il confronto con i Comuni simili |
+| `appalti_ente` | Red flag sugli appalti: segnali di rischio negli appalti di un ente pubblico, dai dati aperti ANAC |
+| `search`, `fetch` | Cerca e leggi le schede (prestazioni e strumenti), anche per le funzioni di ricerca approfondita |
 
-## Claude Desktop
+## App desktop con estensioni MCP
 
-**Con l'estensione (consigliato).** Scarica [agenti-civici.mcpb](https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb) dall'ultima versione e aprilo con un doppio clic: Claude Desktop chiede conferma e la installa. Serve solo Claude Desktop, che contiene già Node.
+**Con l'estensione (consigliato).** Scarica [agenti-civici.mcpb](https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb) dall'ultima versione e aprilo con un doppio clic: l'app chiede conferma e la installa. Il formato MCPB contiene già tutto, non serve installare Node.
 
-**A mano.** In Impostazioni, Sviluppatore, Modifica configurazione, aggiungi:
+**A mano.** Nel file di configurazione MCP dell'app aggiungi:
 
 ```json
 {
@@ -29,24 +32,13 @@ Strumenti (tutti in sola lettura, nessun dato salvato):
 }
 ```
 
-## Claude Code
+La stessa configurazione vale per gli assistenti da riga di comando e per gli editor (Cursor, VS Code, Windsurf): comando `npx` con gli stessi argomenti.
 
-```bash
-claude mcp add agenti-civici -- npx -y --package=github:casaleggiodavide-stack/agenti-civici agenti-civici-mcp
-```
+## Assistenti via internet
 
-## ChatGPT e claude.ai (via internet)
-
-ChatGPT e i connettori di claude.ai usano un server raggiungibile da internet. Il server è `mcp/http.js` (Streamable HTTP senza stato); `render.yaml` lo pubblica gratis su Render.
-
-- **ChatGPT**: Impostazioni, App e connettori, Impostazioni avanzate, attiva la modalità sviluppatore; poi Crea, incolla l'indirizzo del server seguito da `/mcp`, autenticazione «Nessuna».
-- **claude.ai**: Impostazioni, Connettori, Aggiungi connettore personalizzato, incolla lo stesso indirizzo.
+Gli assistenti che si collegano a un connettore remoto usano un server raggiungibile da internet. Il server è `mcp/http.js` (Streamable HTTP senza stato); `render.yaml` lo pubblica gratis su Render. Nelle impostazioni dei connettori dell'assistente si aggiunge un connettore personalizzato con l'indirizzo del server seguito da `/mcp` e autenticazione «Nessuna».
 
 Indirizzo pubblico: da indicare qui dopo la pubblicazione su Render.
-
-## Altri client (Cursor, VS Code, Windsurf)
-
-Usano la stessa configurazione di Claude Desktop (`command` `npx` con gli stessi `args`), nel file di configurazione MCP del client.
 
 ## Provarlo in locale
 

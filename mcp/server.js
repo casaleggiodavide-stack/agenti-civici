@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Server MCP degli agenti civici su stdio (un messaggio JSON-RPC per riga),
-// per Claude Desktop, Claude Code e gli altri client locali. Le regole sono in
+// per le app desktop, la riga di comando e gli altri client locali. Le regole sono in
 // nucleo.js; per l'uso via internet c'è http.js.
 import { createInterface } from 'node:readline';
 import { gestisci } from './nucleo.js';

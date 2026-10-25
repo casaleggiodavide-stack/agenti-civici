@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navigatore dei servizi</title>
+<meta name="description" content="Cosa devo fare per… cambiare residenza, rinnovare la carta d'identità, fare l'ISEE, chiedere la NASpI, passare la proprietà dell'auto: i passi, i documenti, i costi e i termini, verificati sulle pagine ufficiali.">
+<link rel="icon" href="src/comune/marchio.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  .cerca { display: grid; gap: 8px; max-width: 760px; }
+  .cerca label { font-weight: 600; font-size: var(--s1); }
+  .cerca input { max-width: none; font-size: var(--s2); padding: 12px 14px; }
+  .risultati { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 10px 12px; }
+  .risultati ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; }
+  .risultati li + li { border-top: 1px solid var(--riga-tenue); }
+  .risultati button { all: unset; box-sizing: border-box; display: grid; width: 100%; padding: 9px 6px; cursor: pointer; }
+  .risultati button:hover, .risultati button:focus-visible { background: var(--accento-tenue); outline: none; }
+  .risultati small { color: var(--inchiostro-3); font-size: var(--s-1); }
+  .risultati p { margin: 0; font-size: var(--s0); }
+  .scheda-box { margin-top: 22px; }
+  .scheda h2 { font-size: var(--s3); }
+  .scheda h3 { font-size: var(--s1); margin: 18px 0 6px; }
+  .scheda .chi { font-size: var(--s1); color: var(--inchiostro-2); }
+  .fatti { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 14px; }
+  .fatti > div { background: var(--fondo); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; align-content: start; }
+  .fatti span { font-family: var(--cifre); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--inchiostro-3); }
+  .fatti b { font-weight: 600; font-size: var(--s0); }
+  .fatti .btn { justify-self: start; }
+  .due { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; }
+  @media (max-width: 860px) { .due { grid-template-columns: minmax(0, 1fr); } }
+  .documenti { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: var(--s0); color: var(--inchiostro-2); }
+  .scadenza { margin-top: 14px; background: var(--accento-tenue); border-left: 4px solid var(--accento); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: var(--s0); }
+  .attenzione ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+  .fatti small { font-size: var(--s-1); color: var(--inchiostro-3); }
+  .attenzione { margin-top: 16px; background: var(--forse-tenue); border-left: 4px solid var(--forse); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: var(--s0); }
+  .collegati { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .titolo-argomenti { font-size: var(--s2); margin: 40px 0 10px; }
+  .argomenti { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .argomento { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 16px; }
+  .argomento h3 { font-size: var(--s1); margin: 0 0 8px; }
+  .argomento ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: var(--s0); }
+  .argomento .link { text-align: left; }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
+    <a href="../assistente/" data-strumento="assistente">Assistente</a>
+    <a href="../navigatore/" data-strumento="navigatore" aria-current="page">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune" >Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M24 44 V5 M16 44 H32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle class="m-nodo" cx="7" cy="40" r="2.6"/><path d="M9 39 C14 36 18 36 24 36 M24 9 H37 L41 13 L37 17 H24 M24 22 H11 L7 26 L11 30 H24" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h1>Navigatore dei servizi</h1>
+      <p class="promessa">Cosa devo fare per…? Scrivilo con parole tue: trovi i passi, i documenti, quanto costa, i termini e il link al servizio ufficiale.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Solo fonti ufficiali,</b> citate per ogni scheda: ministeri, INPS, Agenzia delle Entrate, Normattiva.</li>
+      <li><b>Niente inventato.</b> Se una pratica non è in elenco te lo dice, invece di improvvisare.</li>
+      <li><b>Attento ai siti a pagamento:</b> ti porta sempre al servizio pubblico, quasi sempre gratuito.</li>
+    </ul>
+  </header>
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Per esempio</span>
+    <button type="button" data-esempio="mi trasferisco in un altro comune">Mi trasferisco</button>
+    <button type="button" data-esempio="mi scade la carta d'identità">Carta d'identità scaduta</button>
+    <button type="button" data-esempio="ho perso il lavoro">Ho perso il lavoro</button>
+    <button type="button" data-esempio="ho venduto la macchina">Ho venduto l'auto</button>
+    <button type="button" data-esempio="è morto mio padre">Un lutto in famiglia</button>
+  </div>
+
+  <main>
+    <form class="cerca" id="cerca" role="search">
+      <label for="domanda">Cosa devi fare?</label>
+      <input type="search" id="domanda" placeholder="Per esempio: rinnovare il passaporto, cambiare medico, fare l'ISEE" autocomplete="off" aria-controls="risultati">
+      <div class="risultati" id="risultati" hidden aria-live="polite"></div>
+    </form>
+    <div id="scheda" class="scheda-box" aria-live="polite"></div>
+    <h2 class="titolo-argomenti">Tutte le pratiche, per argomento</h2>
+    <div id="argomenti" class="argomenti"></div>
+  </main>
+
+  <footer class="piede">
+    <p><b>Il Navigatore dei servizi non è un sito della pubblica amministrazione</b> e non sostituisce gli uffici. Ogni scheda riassume le pagine ufficiali indicate tra le fonti, lette e verificate alla data scritta in fondo alla scheda: regole, costi e tempi possono cambiare, e alcuni dipendono dal Comune o dalla Regione. Prima di muoverti controlla la pagina ufficiale.</p>
+    <p>Diffida dei siti che chiedono soldi per pratiche gratuite o che imitano i siti pubblici: i servizi ufficiali hanno indirizzi che finiscono in .gov.it, .interno.it, .inps.it, agenziaentrate.gov.it e simili. Codice aperto, nessun tracciamento.</p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // Compila da una foto: la persona fotografa il documento (verbale, bolletta,
-// carta d'imbarco, attestazione ISEE…) e Claude, con l'account di chi usa la
+// carta d'imbarco, attestazione ISEE…) e l'assistente AI, con l'account di chi usa la
 // pagina, ne legge i dati che servono al questionario. Funziona solo dentro
-// claude.ai (capacità «sample» con immagini); altrove il riquadro non appare.
+// la piattaforma dell'assistente AI (capacità «sample» con immagini); altrove il riquadro non appare.
 // I dati della persona (nome, codice fiscale, indirizzo, IBAN) non vengono
 // trascritti, e ogni campo letto va ricontrollato: decide il documento.
 
@@ -9,16 +9,16 @@ import { esc } from './interfaccia.js';
 import { normalizza, dizionario, PERSONALI_FOTO } from './campi.js';
 
 const ERRORI = {
-  not_granted: 'Per leggere la foto serve il permesso a usare Claude da questa pagina.',
-  sampling_disabled: 'Claude non è disponibile per questo account.',
-  images_unavailable: 'Questa vista non può mandare immagini a Claude.',
+  not_granted: 'Per leggere la foto serve il permesso a usare l\'assistente AI da questa pagina.',
+  sampling_disabled: 'L\'assistente AI non è disponibile per questo account.',
+  images_unavailable: 'Questa vista non può mandare immagini all\'assistente AI.',
   rate_limited: 'Troppe richieste o limite di utilizzo raggiunto: riprova tra qualche minuto.',
-  session_expired: 'La sessione è scaduta: accedi di nuovo a Claude e riprova.',
+  session_expired: 'La sessione è scaduta: accedi di nuovo e riprova.',
   image_rejected: 'L\'immagine non è stata accettata: prova con una foto JPEG o PNG più piccola.',
   invalid_json: 'Non sono riuscito a leggere il documento: prova con una foto più nitida, dritta e ben illuminata.',
   refused: 'La foto non è stata letta. Prova con un\'altra foto del documento.',
   empty_completion: 'Non è arrivata una risposta: riprova.',
-  upstream_error: 'Si è interrotta la connessione con Claude: riprova.',
+  upstream_error: 'Si è interrotta la connessione con l\'assistente AI: riprova.',
   formato: 'Questo formato di foto non si apre qui: prova con una foto JPEG o PNG (sull\'iPhone: Impostazioni, Fotocamera, Formati, Più compatibile).',
 };
 
@@ -46,7 +46,7 @@ export async function preparaImmagine(file, immagini) {
   return new Promise((ok, no) => tela.toBlob((b) => (b ? ok(b) : no(new Error('conversione non riuscita'))), 'image/jpeg', 0.85));
 }
 
-/** Il testo per Claude: cosa c'è nella foto, quali campi leggere, in che forma rispondere. */
+/** Il testo per l'assistente AI: cosa c'è nella foto, quali campi leggere, in che forma rispondere. */
 export function istruzioniLettura({ strumento, cosa, domande, oggi, condizioniFigli, note = '' }) {
   return `Sei il lettore di documenti di «${strumento}», uno strumento civico italiano. Nella foto c'è ${cosa}. Oggi è il ${oggi}.
 
@@ -76,7 +76,7 @@ export async function leggiFoto({ lettore: l, file, strumento, cosa, domande, og
 
 /**
  * Mette nel contenitore il riquadro «Compila da una foto». Se la vista non
- * può mandare immagini a Claude, il contenitore resta nascosto.
+ * può mandare immagini all'assistente AI, il contenitore resta nascosto.
  * @param {object} p { contenitore, strumento, cosa, domande, oggi, condizioniFigli, note, alRisultato(risposte) }
  */
 export async function montaFoto(p) {
@@ -89,7 +89,7 @@ export async function montaFoto(p) {
   box.classList.add('foto');
   box.innerHTML = `
     <div><b>Compila da una foto</b>
-    <p>Fotografa ${esc(p.cosa)}: Claude legge i dati e riempie le domande. La foto passa da Claude con il tuo account e non viene salvata qui. Nome, codice fiscale e indirizzo non vengono trascritti: se preferisci, coprili prima di scattare.</p></div>
+    <p>Fotografa ${esc(p.cosa)}: l'assistente AI legge i dati e riempie le domande. La foto passa dall'assistente con il tuo account e non viene salvata qui. Nome, codice fiscale e indirizzo non vengono trascritti: se preferisci, coprili prima di scattare.</p></div>
     <label class="btn btn-primario foto-scegli">Scegli o scatta una foto<input type="file" accept="${esc((l.immagini.mediaTypes || ['image/jpeg', 'image/png']).join(',') + ',image/heic,image/heif')}" hidden></label>
     <p class="foto-esito" role="status" aria-live="polite"></p>`;
   const input = box.querySelector('input[type=file]');

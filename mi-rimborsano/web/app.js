@@ -3,7 +3,7 @@
 import { $, $$, esc, copia, stampa, mailto, testoDa, vaiAllaDomanda } from '../src/comune/interfaccia.js';
 import { creaModulo } from '../src/comune/modulo.js';
 import { data } from '../src/comune/date.js';
-import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
+import { pulsantiCalendario, scaricaIcs, incorporata } from '../src/comune/calendario.js';
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta, VERIFICATO } from '../src/regole.js';
 import { lettera, oggetto } from '../src/documento.js';
@@ -43,7 +43,7 @@ function pannelloScadenze(v) {
       const d = data(s.data);
       const cls = s.scaduta ? 'scaduta' : s.giorniMancanti <= 5 ? 'vicina' : '';
       const quando = s.scaduta ? 'passata' : s.giorniMancanti === 0 ? 'oggi' : `tra ${s.giorniMancanti} giorni`;
-      const promemoria = s.scaduta ? '' : pulsantiCalendario({ titolo: s.titolo, data: s.data, descrizione: `${s.testo} Promemoria creato con Mi rimborsano?: verifica sempre le date.` }, { conIcs: !dentroClaude() });
+      const promemoria = s.scaduta ? '' : pulsantiCalendario({ titolo: s.titolo, data: s.data, descrizione: `${s.testo} Promemoria creato con Mi rimborsano?: verifica sempre le date.` }, { conIcs: !incorporata() });
       return `<li class="${cls}"><span class="quando">${esc(d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }))}<small>${quando}</small></span><span class="cosa"><b>${esc(s.titolo)}</b><span>${esc(s.testo)}</span>${promemoria}</span></li>`;
     }).join('')}</ul>
   </section>`;

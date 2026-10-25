@@ -1,7 +1,7 @@
 // Promemoria delle scadenze: ogni termine calcolato dagli agenti civici
 // diventa un evento di calendario. Tre forme:
 //   - link a Google Calendar e a Outlook (funzionano ovunque, anche nelle
-//     pagine pubblicate su claude.ai dove i file .ics non si possono salvare);
+//     pagine incorporate in un'altra applicazione, dove i file .ics non si possono salvare);
 //   - file .ics con avviso qualche giorno prima (per il sito pubblico).
 // Gli eventi sono «tutto il giorno», nel giorno di scadenza.
 
@@ -88,7 +88,7 @@ function hash(s) {
   return h;
 }
 
-/** HTML dei pulsanti «aggiungi al calendario» per una scadenza. `conIcs` solo fuori da claude.ai. */
+/** HTML dei pulsanti «aggiungi al calendario» per una scadenza. `conIcs` solo se la pagina non è incorporata. */
 export function pulsantiCalendario(p, { conIcs = false } = {}) {
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const etichetta = esc(p.titolo);
@@ -99,7 +99,7 @@ export function pulsantiCalendario(p, { conIcs = false } = {}) {
     + '</span>';
 }
 
-/** Fuori da claude.ai: scarica un .ics creato nel browser. */
+/** Se la pagina non è incorporata: scarica un .ics creato nel browser. */
 export function scaricaIcs(p) {
   const blob = new Blob([ics(p)], { type: 'text/calendar;charset=utf-8' });
   const a = document.createElement('a');
@@ -110,5 +110,5 @@ export function scaricaIcs(p) {
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
 
-/** Siamo dentro una pagina pubblicata su claude.ai (dove i download diretti sono bloccati)? */
-export const dentroClaude = () => typeof window !== 'undefined' && window.parent !== window;
+/** La pagina è incorporata in un'altra applicazione (dove i download diretti sono bloccati)? */
+export const incorporata = () => typeof window !== 'undefined' && window.parent !== window;

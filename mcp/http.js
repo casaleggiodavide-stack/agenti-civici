@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Server MCP degli agenti civici via internet (Streamable HTTP, senza stato),
-// per ChatGPT e per i connettori personalizzati di claude.ai. Le regole sono in
+// per i connettori remoti degli assistenti AI. Le regole sono in
 // nucleo.js. Nessun dato viene salvato o registrato: niente log delle domande,
 // niente cookie, niente sessioni. Uso: PORT=8080 node mcp/http.js
 import { createServer } from 'node:http';
@@ -35,7 +35,7 @@ function invia(res, stato, corpo, tipo = 'application/json') {
 const PAGINA = `Agenti civici, server MCP (${INFO.version})
 
 Strumenti: ${TOOLS.map((t) => t.name).join(', ')}.
-Indirizzo da aggiungere in ChatGPT o tra i connettori di claude.ai: questo indirizzo seguito da /mcp
+Indirizzo da aggiungere tra i connettori del tuo assistente AI: questo indirizzo seguito da /mcp
 Codice e istruzioni: https://github.com/casaleggiodavide-stack/agenti-civici
 Nessun dato viene salvato. Non sono pareri legali: decide sempre l'ente o il giudice.
 `;

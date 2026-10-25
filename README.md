@@ -8,7 +8,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
-| [Assistente civico](assistente/) | Lo stesso lavoro in conversazione: racconti il problema con parole tue, l'assistente fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona dentro claude.ai o l'app di Claude, con l'account di chi lo usa; fuori da Claude rimanda agli strumenti. |
+| [Assistente civico](assistente/) | Lo stesso lavoro in conversazione: racconti il problema con parole tue, l'assistente fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
@@ -16,7 +16,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 | [Red flag sugli appalti](appalti/) | Segnali di rischio sulle 1,45 milioni di procedure pubblicate nel 2025 da 19.356 stazioni appaltanti (dati aperti ANAC, CC BY-SA 4.0): affidamenti senza gara, gare con una sola offerta, peso del primo fornitore, affidamenti appena sotto soglia, cumuli allo stesso fornitore, tempi brevi sopra soglia UE, esclusioni. Metodi OCP, Cardinal e ANAC, segnale oltre il 75° percentile degli enti simili, in house contati a parte, nomi delle persone fisiche nascosti, richiesta degli atti pronta per ogni gara. Dati preparati da `scripts/appalti-anac.py`. |
 | [Chiedo gli atti](chiedo-gli-atti/) | Chiedi documenti e dati a qualsiasi ente: sceglie tra FOIA, accesso civico semplice e accesso documentale, prepara richiesta, riesame e ricorsi, calcola le scadenze. 23.705 enti con PEC da IndicePA. |
 
-Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) si aggiunge in un clic a Google Calendar o Outlook, oppure si scarica come file `.ics` fuori da claude.ai.
+Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) si aggiunge in un clic a Google Calendar o Outlook, oppure si scarica come file `.ics` quando la pagina non è incorporata in un'altra applicazione.
 
 Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte come codice, testate e citate), l'esito «serve un dato» invece di un'ipotesi, nessun parere legale.
 
@@ -30,22 +30,22 @@ Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages con i
 
 ## Compila da una foto
 
-Dentro claude.ai ogni strumento mostra il riquadro «Compila da una foto» (`comune/foto.js`): si fotografa il documento (verbale, carta d'imbarco, bolletta, estratto conto, risposta dell'ente, attestazione ISEE) e Claude, con l'account di chi usa la pagina, legge i dati e riempie le domande. Regole:
+Quando la pagina è aperta dentro un assistente AI, ogni strumento mostra il riquadro «Compila da una foto» (`comune/foto.js`): si fotografa il documento (verbale, carta d'imbarco, bolletta, estratto conto, risposta dell'ente, attestazione ISEE) e l'assistente, con l'account di chi usa la pagina, legge i dati e riempie le domande. Regole:
 
-- Claude legge solo i campi del questionario che sono scritti nel documento, senza dedurre; i dubbi li elenca.
+- L'assistente legge solo i campi del questionario che sono scritti nel documento, senza dedurre; i dubbi li elenca.
 - Nome, codice fiscale, data di nascita, indirizzo, email, telefono e IBAN non vengono trascritti: il controllo in `comune/campi.js` li scarta anche se arrivano.
 - La pagina chiede di ricontrollare ogni campo: fa fede il documento.
-- Fuori da claude.ai (GitHub Pages, file locali) il riquadro non appare, perché non c'è un lettore di immagini nel browser.
+- Altrove (GitHub Pages, file locali) il riquadro non appare, perché non c'è un lettore di immagini nel browser.
 
 Anche l'Assistente accetta la foto di un documento insieme al messaggio.
 
 ## L'Assistente civico
 
-`assistente/` non ha un server suo: usa la capacità `sample` delle pagine pubblicate su claude.ai, cioè Claude con l'account e i limiti di chi apre la pagina. Claude non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
+`assistente/` non ha un server suo: usa la capacità `sample` della piattaforma che ospita la pagina, cioè un modello di intelligenza artificiale con l'account e i limiti di chi la apre. Il modello non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
 
 - Cifre, soglie, termini e PEC arrivano solo dai risultati degli strumenti, con la fonte.
 - Nome, codice fiscale e indirizzo non passano dalla chat: i documenti si completano nel pannello accanto, e quei dati restano nel browser (si cancellano con il pulsante in fondo alla pagina).
-- Se la vista di Claude non permette alla pagina di usare i suoi strumenti, l'assistente non risponde e rimanda ai tre strumenti: senza i motori di regole dovrebbe inventare.
+- Se la vista non permette alla pagina di usare i suoi strumenti, l'assistente non risponde e rimanda ai tre strumenti: senza i motori di regole dovrebbe inventare.
 
 Si pubblica con `node scripts/prepara-assistente.mjs <cartella> '<link>'`, che conserva i percorsi del repository perché l'assistente importa i motori degli altri strumenti.
 
@@ -58,7 +58,7 @@ Le regole valgono finché non cambia la fonte. `npm run sentinella` rilegge tutt
 - nuove circolari e atti con parole chiave dei tre strumenti;
 - revisioni a calendario: regole verificate da più di 120 giorni, rivalutazioni di gennaio, aggiornamento biennale delle sanzioni stradali.
 
-Rispetta robots.txt, compresi i divieti rivolti solo agli agenti di Anthropic (ClaudeBot, Claude-User, anthropic-ai), e legge un sito per volta con due secondi tra una richiesta e l'altra. Lo stato dell'ultima lettura è in `sentinella/stato.json`. Il feed della Gazzetta contiene solo l'ultimo numero: va letto ogni giorno con `npm run sentinella -- --solo-feed` (rapporto in `sentinella/rapporto-feed.md`).
+Rispetta robots.txt, compresi i divieti rivolti solo ai crawler di intelligenza artificiale, e legge un sito per volta con due secondi tra una richiesta e l'altra. Lo stato dell'ultima lettura è in `sentinella/stato.json`. Il feed della Gazzetta contiene solo l'ultimo numero: va letto ogni giorno con `npm run sentinella -- --solo-feed` (rapporto in `sentinella/rapporto-feed.md`).
 
 Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una issue quando c'è qualcosa da guardare; gli orari automatici sono commentati e vanno accesi a mano.
 
@@ -68,7 +68,7 @@ La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi P
 
 ## Dagli assistenti AI (MCP)
 
-`mcp/` contiene un server MCP senza dipendenze con nove strumenti in sola lettura (`valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`, `valuta_reclamo`, `bilancio_comune`, `appalti_ente`, `search`, `fetch`). Il nucleo è `mcp/nucleo.js`; `mcp/server.js` lo espone su stdio (Claude Desktop, Claude Code, Cursor), `mcp/http.js` via internet (ChatGPT, connettori di claude.ai; `render.yaml` per pubblicarlo su Render). `npm run estensione` prepara l'estensione per Claude Desktop, `dist/agenti-civici.mcpb`. Istruzioni per ogni app in [mcp/LEGGIMI.md](mcp/LEGGIMI.md).
+`mcp/` contiene un server MCP senza dipendenze con dieci strumenti in sola lettura (`valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`, `valuta_reclamo`, `trova_pratica`, `bilancio_comune`, `appalti_ente`, `search`, `fetch`). Il nucleo è `mcp/nucleo.js`; `mcp/server.js` lo espone su stdio (app desktop, riga di comando, editor), `mcp/http.js` via internet (connettori remoti; `render.yaml` per pubblicarlo su Render). `npm run estensione` prepara l'estensione per le app desktop, `dist/agenti-civici.mcpb`. Istruzioni per ogni app in [mcp/LEGGIMI.md](mcp/LEGGIMI.md).
 
 ## Controlli
 
@@ -86,7 +86,7 @@ Carta #F5F1E8, inchiostro #17202E, filo rosso #C2362B (su fondo scuro #F06A55); 
 
 - `comune/`: codice condiviso (logica a tre valori, scadenze con festività italiane e sospensione feriale, questionari, stile). Si copia dentro ogni strumento con `npm run sincronizza`, così ogni strumento resta pubblicabile da solo.
 - `mi-spetta/`, `faccio-ricorso/`, `chiedo-gli-atti/`: uno strumento per cartella, con `src/` (regole e dati), `web/` (interfaccia), `test/`.
-- `assistente/`: l'Assistente civico (strumenti per Claude, istruzioni, interfaccia della chat).
+- `assistente/`: l'Assistente civico (strumenti per il modello, istruzioni, interfaccia della chat).
 - `sentinella/`: controllo delle fonti; `scripts/sentinella.mjs` lo esegue.
 - `mcp/`: server per gli assistenti AI.
 

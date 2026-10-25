@@ -18,7 +18,7 @@ import { FONTI as FONTI_APPALTI, VERIFICATO as VER_APPALTI } from '../appalti/sr
 
 export const AGENTE = 'AgentiCivici-Sentinella/1.0 (controllo settimanale delle fonti normative; rispetta robots.txt)';
 // Ci fermiamo davanti a un divieto rivolto a uno qualsiasi di questi agenti,
-// anche se il divieto riguarda solo gli agenti di Anthropic.
+// anche se il divieto riguarda solo i crawler di intelligenza artificiale.
 export const AGENTI_ROBOTS = ['agenticivici-sentinella', 'claudebot', 'claude-user', 'claude-searchbot', 'anthropic-ai'];
 
 // Il feed della Gazzetta ha solo l'ultimo numero: va letto ogni giorno
