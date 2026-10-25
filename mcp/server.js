@@ -15,8 +15,11 @@ import { DOMANDE as D_ATTI } from '../chiedo-gli-atti/src/domande.js';
 import { richiesta, riesame, ricorso, sostitutivo } from '../chiedo-gli-atti/src/documenti.js';
 import { indicizza, cerca } from '../chiedo-gli-atti/src/enti.js';
 import DATI_ENTI from '../chiedo-gli-atti/src/dati/enti.js';
+import { valuta as valutaReclamo } from '../mi-rimborsano/src/regole.js';
+import { DOMANDE as D_RECLAMI } from '../mi-rimborsano/src/domande.js';
+import { lettera } from '../mi-rimborsano/src/documento.js';
 
-const INFO = { name: 'agenti-civici', version: '0.2.0' };
+const INFO = { name: 'agenti-civici', version: '0.3.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -49,6 +52,11 @@ function testo(html) {
 }
 
 const TOOLS = [
+  {
+    name: 'valuta_reclamo',
+    description: 'Mi rimborsano?: dice se spetta un rimborso, un indennizzo o una compensazione per volo in ritardo o cancellato (Reg. 261/2004), bagaglio (Montreal), treno (Reg. 2021/782), bolletta (prescrizione di due anni, ARERA), telefono e internet (indennizzi AGCOM), addebito bancario non autorizzato (d.lgs. 11/2010). Restituisce verdetto, importo, controlli, scadenze, passi e la lettera di messa in mora da completare. Il campo caso è obbligatorio; aeroporti con codice IATA.',
+    inputSchema: { ...schema(D_RECLAMI, { oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }), required: ['caso'] },
+  },
   {
     name: 'valuta_prestazioni',
     description: 'Mi spetta: a quali bonus e prestazioni pubbliche italiane (INPS, Comuni, ARERA, fisco) ha diritto una persona, con importo, requisiti, dati mancanti, come fare domanda e fonte ufficiale. Tutti i campi sono facoltativi.',
@@ -132,7 +140,21 @@ function rispostaAccesso(args = {}) {
   return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
 }
 
-const GESTORI = { valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+function rispostaReclamo(args = {}) {
+  const { oggi, ...r } = args;
+  const v = valutaReclamo(r, oggi ? { oggi } : {});
+  const righe = [`# ${v.verdetto.titolo}`, v.verdetto.testo];
+  if (v.importo) righe.push(`Importo: ${v.importo.testo}`);
+  if (v.voci.length) righe.push('\n## Controlli', ...v.voci.map((x) => `- [${x.esito}] ${x.titolo}: ${x.spiegazione}`));
+  if (v.scadenze.length) righe.push('\n## Scadenze', ...v.scadenze.map((s) => `- ${s.data}${s.scaduta ? ' (passata)' : ''}: ${s.titolo}. ${s.testo}`));
+  if (v.passi.length) righe.push('\n## Passi', ...v.passi.map((p) => `- ${p.titolo}: ${p.testo} ${p.link}`));
+  if (v.documento) righe.push('\n## Lettera\n' + testo(lettera(r, v)));
+  righe.push('\nFonti: ' + v.fonti.map((f) => f.url).join(' ; '));
+  righe.push('Stima informativa basata su norme pubbliche verificate al 25/10/2026: non è un parere legale.');
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+
+const GESTORI = { valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 const scrivi = (o) => process.stdout.write(JSON.stringify({ jsonrpc: '2.0', ...o }) + '\n');
 createInterface({ input: process.stdin }).on('line', (riga) => {
@@ -143,7 +165,7 @@ createInterface({ input: process.stdin }).on('line', (riga) => {
   const notifica = id === undefined || id === null;
   try {
     if (method === 'initialize') {
-      return scrivi({ id, result: { protocolVersion: params?.protocolVersion || '2025-06-18', capabilities: { tools: {} }, serverInfo: INFO, instructions: 'Strumenti civici italiani con regole verificate: bonus e prestazioni (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti). Riporta sempre fonti e scadenze, e ricorda che non sono pareri legali.' } });
+      return scrivi({ id, result: { protocolVersion: params?.protocolVersion || '2025-06-18', capabilities: { tools: {} }, serverInfo: INFO, instructions: 'Strumenti civici italiani con regole verificate: bonus e prestazioni (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi (valuta_reclamo). Riporta sempre fonti e scadenze, e ricorda che non sono pareri legali.' } });
     }
     if (method === 'ping') return scrivi({ id, result: {} });
     if (method === 'tools/list') return scrivi({ id, result: { tools: TOOLS } });

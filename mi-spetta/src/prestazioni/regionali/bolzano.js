@@ -21,8 +21,8 @@ export const bolzanoAssegnoFigli = {
     };
   },
   finestra: { testo: 'Rinnovo ogni anno dal 1° gennaio al 30 settembre; una domanda fatta dopo decorre dal mese successivo.' },
-  come: { testo: 'Tramite i patronati oppure online su myCIVIS, con l\'ISEE dell\'anno in corso.', link: 'https://civis.bz.it/it/servizi/servizio.html?id=1039624' },
-  fonti: [{ titolo: 'myCIVIS, Assegno provinciale per i figli', url: 'https://civis.bz.it/it/servizi/servizio.html?id=1039624' }],
+  come: { testo: 'Tramite i patronati oppure online su myCIVIS, con l\'ISEE dell\'anno in corso.', link: 'https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1039624' },
+  fonti: [{ titolo: 'myCIVIS, Assegno provinciale per i figli', url: 'https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1039624' }],
   verificato: VERIFICATO_REGIONI,
 };
 
@@ -41,8 +41,8 @@ export const bolzanoAssegnoNucleo = {
     };
   },
   finestra: { testo: 'Con domanda entro un anno dalla nascita si hanno gli arretrati; il termine ultimo è a 3 anni dalla nascita. La domanda vale tre anni.' },
-  come: { testo: 'Tramite i patronati oppure online su myCIVIS.', link: 'https://civis.bz.it/it/servizi/servizio.html?id=1002540' },
-  fonti: [{ titolo: 'myCIVIS, Assegno provinciale al nucleo familiare', url: 'https://civis.bz.it/it/servizi/servizio.html?id=1002540' }],
+  come: { testo: 'Tramite i patronati oppure online su myCIVIS.', link: 'https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1002540' },
+  fonti: [{ titolo: 'myCIVIS, Assegno provinciale al nucleo familiare', url: 'https://mycivis.civis.bz.it/it/Services/ServiceDetail/?lid=1002540' }],
   verificato: VERIFICATO_REGIONI,
 };
 

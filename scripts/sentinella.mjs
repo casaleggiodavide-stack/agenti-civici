@@ -33,23 +33,28 @@ async function scarica(url) {
 async function robots(url) {
   const { origin } = new URL(url);
   if (!robotsCache.has(origin)) {
-    let testo = '';
+    let esito;
     try {
       const r = await scarica(origin + '/robots.txt');
       // Un robots.txt assente vale «tutto consentito»; un errore del server vale «fermati».
-      testo = r.ok ? await r.text() : r.status >= 500 ? 'User-agent: *\nDisallow: /' : '';
-    } catch { testo = 'User-agent: *\nDisallow: /'; }
-    robotsCache.set(origin, testo);
+      esito = { testo: r.ok ? await r.text() : r.status >= 500 ? 'User-agent: *\nDisallow: /' : '' };
+    } catch (e) {
+      // Se il sito non risponde non si legge niente, ma non è un divieto: lo diciamo.
+      esito = { errore: `sito non raggiungibile (${e.cause?.code || e.name || 'errore di rete'})` };
+    }
+    robotsCache.set(origin, esito);
   }
   return robotsCache.get(origin);
 }
 
 async function leggi(url, { grezzo = false } = {}) {
-  if (!robotsConsente(await robots(url), url)) return { ok: false, bloccata: true, errore: 'vietato da robots.txt' };
+  const rb = await robots(url);
+  if (rb.errore) return { ok: false, errore: rb.errore };
+  if (!robotsConsente(rb.testo, url)) return { ok: false, bloccata: true, errore: 'vietato da robots.txt' };
   try {
     const r = await scarica(url);
     // Dopo un reindirizzamento ricontrolliamo robots sul nuovo indirizzo.
-    if (r.redirected && !robotsConsente(await robots(r.url), r.url)) return { ok: false, bloccata: true, errore: 'vietato da robots.txt dopo il reindirizzamento' };
+    if (r.redirected && !robotsConsente((await robots(r.url)).testo ?? 'User-agent: *\nDisallow: /', r.url)) return { ok: false, bloccata: true, errore: 'vietato da robots.txt dopo il reindirizzamento' };
     if (!r.ok) return { ok: false, stato: r.status, errore: `HTTP ${r.status}` };
     const tipo = r.headers.get('content-type') || '';
     if (/pdf|octet-stream/.test(tipo)) {

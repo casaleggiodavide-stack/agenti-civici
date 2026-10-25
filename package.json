@@ -14,6 +14,6 @@
     "link": "node mi-spetta/scripts/controlla-link.mjs && node scripts/controlla-link.mjs",
     "sito": "python3 -m http.server 8093",
     "mcp": "node mcp/server.js",
-    "sentinella": "node scripts/sentinella.mjs"
+    "sentinella": "node --use-system-ca scripts/sentinella.mjs"
   }
 }
