@@ -11,6 +11,8 @@ Strumenti (tutti in sola lettura, nessun dato salvato):
 | `cerca_ente`, `prepara_accesso_atti` | Chiedo gli atti: ente pubblico con PEC, tipo di accesso, scadenze, richiesta e ricorsi |
 | `valuta_reclamo` | Mi rimborsano?: voli, bagagli, treni, bollette, telefono, banche; importo, termini, lettera di messa in mora |
 | `trova_pratica` | Navigatore dei servizi: cosa devo fare per… passi, documenti, costi, tempi e fonti delle pratiche più comuni |
+| `prepara_segnalazione` | Segnalazioni urbane: chi deve intervenire su una buca, un lampione, rifiuti, barriere, con la PEC e la segnalazione pronta |
+| `reclamo_pa` | Reclami alla PA: pratica ferma o disservizio, potere sostitutivo, difensore civico, termini e lettera |
 | `bilancio_comune` | Il bilancio del mio Comune: spesa, entrate e conti dal rendiconto ufficiale, con il confronto con i Comuni simili |
 | `appalti_ente` | Red flag sugli appalti: segnali di rischio negli appalti di un ente pubblico, dai dati aperti ANAC |
 | `search`, `fetch` | Cerca e leggi le schede (prestazioni e strumenti), anche per le funzioni di ricerca approfondita |

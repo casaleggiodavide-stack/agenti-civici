@@ -146,6 +146,8 @@ POSTI = [
     ('index.html', '<a class="strumento" href="mi-rimborsano/" data-strumento="mi-rimborsano">', 'mi-rimborsano'),
     ('index.html', '<a class="strumento" href="bilancio-comune/" data-strumento="bilancio-comune">', 'bilancio-comune'),
     ('index.html', '<a class="strumento" href="appalti/" data-strumento="appalti">', 'appalti'),
+    ('index.html', '<a class="strumento" href="segnalazioni/" data-strumento="segnalazioni">', 'segnalazioni'),
+    ('index.html', '<a class="strumento" href="reclami-pa/" data-strumento="reclami-pa">', 'reclami-pa'),
     ('index.html', '<a class="strumento" href="catalogo/#governo">', 'governa'),
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
@@ -164,7 +166,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>

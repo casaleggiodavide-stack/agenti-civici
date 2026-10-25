@@ -25,8 +25,14 @@ import { INDICATORI, livello, PAROLE_LIVELLO, procedure, FONTI as FONTI_APPALTI 
 import { cercaIn } from '../comune/schede.js';
 import { cerca as cercaPratica, trova as trovaPratica } from '../navigatore/src/cerca.js';
 import { PRATICHE } from '../navigatore/src/pratiche.js';
+import { valuta as valutaSegnalazione } from '../segnalazioni/src/regole.js';
+import { DOMANDE as D_SEGN } from '../segnalazioni/src/domande.js';
+import { documento as docSegnalazione } from '../segnalazioni/src/documento.js';
+import { valuta as valutaReclamoPa } from '../reclami-pa/src/regole.js';
+import { DOMANDE as D_RECPA } from '../reclami-pa/src/domande.js';
+import { lettera as letteraPa, destinatario as destinatarioPa } from '../reclami-pa/src/documento.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.5.0' };
+export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.6.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -169,6 +175,8 @@ const STRUMENTI_SCHEDE = [
   ['faccio-ricorso', 'Faccio ricorso?', 'Controllo di una multa stradale: termini di notifica, autovelox e taratura, ZTL, strisce blu, costi del ricorso al Prefetto e al Giudice di Pace, PEC della Prefettura e ricorso da completare. Strumento: valuta_multa.'],
   ['chiedo-gli-atti', 'Chiedo gli atti', 'Accesso agli atti verso qualsiasi ente pubblico: FOIA, accesso civico semplice, accesso documentale; richiesta, riesame e ricorsi, scadenze, 23.705 enti con PEC da IndicePA. Strumenti: cerca_ente, prepara_accesso_atti.'],
   ['navigatore', 'Navigatore dei servizi', 'Cosa devo fare per…: schede verificate sulle fonti ufficiali per le pratiche più comuni (anagrafe e documenti, famiglia, stranieri, salute, scuola, lavoro, fisco, auto, casa), con passi, documenti, costi, tempi e scadenze. Strumento: trova_pratica.'],
+  ['segnalazioni', 'Segnalazioni urbane', 'Buche, lampioni, rifiuti, veicoli abbandonati, barriere, perdite, scarichi: chi deve intervenire, con la PEC, e la segnalazione formale con sollecito. Strumento: prepara_segnalazione.'],
+  ['reclami-pa', 'Reclami alla PA', 'Pratica ferma, preavviso di rigetto, disservizio, sanità, servizi digitali, privacy: titolare del potere sostitutivo, difensori civici regionali, termini e lettere. Strumento: reclamo_pa.'],
   ['bilancio-comune', 'Il bilancio del mio Comune', 'Bilancio dei Comuni italiani dai rendiconti ufficiali OpenBDAP: spesa per finalità e per abitante rispetto ai Comuni della stessa grandezza, entrate, avanzo o disavanzo, debito, pagamenti ai fornitori, parametri di deficitarietà. Strumento: bilancio_comune.'],
   ['appalti', 'Red flag sugli appalti', 'Segnali di rischio negli appalti di Comuni, ASL, Regioni e altri enti sui dati aperti ANAC del 2025: affidamenti diretti, gare con una sola offerta, concentrazione dei fornitori, frazionamenti sotto soglia. Strumento: appalti_ente.'],
   ['mi-rimborsano', 'Mi rimborsano?', 'Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Strumento: valuta_reclamo.'],
@@ -286,6 +294,38 @@ function rispostaPratica({ domanda = '', id } = {}) {
   return { content: [{ type: 'text', text: testoPratica(p) + (simili.length ? `\n\nAltre schede vicine: ${simili.map((x) => `${x.titolo} (id ${x.id})`).join('; ')}` : '') }], structuredContent: { pratica: p, simili } };
 }
 
+function rispostaSegnalazione(args = {}) {
+  const { comune, oggi, ...r } = args;
+  if (comune && !r.ente) r.ente = cerca(enti(), `comune ${comune}`, 20).find((e) => e.cat === 'L6' && /^comune /i.test(e.nome));
+  const v = valutaSegnalazione(r, { enti: enti().righe, oggi });
+  const righe = [`# ${v.verdetto.titolo}`, v.verdetto.testo];
+  if (v.telefoni.length) righe.push('\n## Telefoni', ...v.telefoni.map((t) => `- ${t.numero}: ${t.chi}. ${t.quando || ''}`));
+  if (v.destinatari.length) righe.push('\n## A chi scrivere', ...v.destinatari.map((d) => `- [${d.ruolo}] ${d.nome}${d.pec ? `, PEC ${d.pec}` : ''}. ${d.perche || ''} ${d.dove || ''}`));
+  if (v.voci.length) righe.push('\n## Controlli', ...v.voci.map((x) => `- [${x.esito}] ${x.titolo}: ${x.spiegazione}`));
+  if (v.scadenze.length) righe.push('\n## Promemoria', ...v.scadenze.map((x) => `- ${x.data}: ${x.titolo}. ${x.testo}`));
+  if (v.documento) righe.push(`\n## ${v.documento.tipo === 'sollecito' ? 'Sollecito' : 'Segnalazione'}\n` + testo(docSegnalazione(r, v)));
+  righe.push('\nFonti: ' + v.fonti.map((f) => f.url).join(' ; '));
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+
+function rispostaReclamoPa(args = {}) {
+  const { ente_nome: nome, oggi, ...r } = args;
+  if (nome && !r.ente) r.ente = cerca(enti(), nome, 1)[0];
+  const v = valutaReclamoPa(r, { oggi });
+  const righe = [`# ${v.verdetto.titolo}`, v.verdetto.testo];
+  if (v.voci.length) righe.push('\n## Controlli', ...v.voci.map((x) => `- [${x.esito}] ${x.titolo}: ${x.spiegazione}`));
+  if (v.scadenze.length) righe.push('\n## Scadenze', ...v.scadenze.map((x) => `- ${x.data}${x.scaduta ? ' (passata)' : ''}: ${x.titolo}. ${x.testo}`));
+  if (v.passi.length) righe.push('\n## Passi', ...v.passi.map((x) => `- ${x.titolo}: ${x.testo}`));
+  if (v.documento) { const d = destinatarioPa(r, v); righe.push(`\n## Lettera a ${d.nome || '[ente]'}${d.pec ? `, PEC ${d.pec}` : ''}\n` + testo(letteraPa(r, v))); }
+  righe.push('\nFonti: ' + v.fonti.map((f) => f.url).join(' ; '), AVVERTENZA);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+
+TOOLS.push(
+  { name: 'prepara_segnalazione', title: 'Segnalazioni urbane', description: 'Segnalazioni urbane indipendenti: per una buca, un marciapiede, un lampione, rifiuti abbandonati, un veicolo abbandonato, alberi, barriere architettoniche, segnaletica, perdite d\'acqua, scarichi, amianto, rumore, edifici pubblici o animali dice chi deve intervenire (Comune, Provincia, ANAS, agenzia per l\'ambiente, ASL, gestori) con la PEC, i numeri da chiamare se c\'è pericolo, e prepara la segnalazione o il sollecito. Il Comune si indica con comune.', inputSchema: schema(D_SEGN, { comune: { type: 'string', description: 'Nome del Comune, es. «Lecce»' }, oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+  { name: 'reclamo_pa', title: 'Reclami alla PA', description: 'Reclami alla PA e difensore civico: per una pratica ferma, un preavviso di rigetto, un disservizio, una prestazione sanitaria negata, un servizio digitale che non funziona o un problema di dati personali indica il passo giusto (sollecito, titolare del potere sostitutivo, difensore civico regionale, Garante, giudice), calcola i termini della legge 241/1990 e prepara la lettera. L\'ente si indica con ente_nome.', inputSchema: schema(D_RECPA, { ente_nome: { type: 'string', description: 'Nome dell\'ente, es. «Comune di Bari»' }, oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+);
+
 TOOLS.push({ name: 'trova_pratica', title: 'Navigatore dei servizi', description: `Navigatore dei servizi pubblici: «cosa devo fare per…». Trova la scheda verificata sulle fonti ufficiali tra ${PRATICHE.length} pratiche (residenza, carta d'identità, passaporto, SPID, nascita, matrimonio, decesso e successione, permesso di soggiorno, cittadinanza, medico di base, scuola, ISEE, 730, NASpI, pensione, patente, passaggio di proprietà, affitto, invalidità…) e restituisce passi, documenti, costi, tempi, scadenze e fonti. Se non c'è una scheda lo dice.`, inputSchema: { type: 'object', properties: { domanda: { type: 'string', description: 'La domanda con parole del cittadino, es. «ho venduto la macchina»' }, id: { type: 'string', description: 'Id di una scheda già trovata, in alternativa' } } } });
 
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
@@ -294,11 +334,11 @@ for (const t of TOOLS) {
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+const GESTORI = { prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [
-  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
+  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), segnalazioni di problemi in strada (prepara_segnalazione), reclami verso uffici pubblici e difensore civico (reclamo_pa), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',
   'Non sono pareri legali: decide sempre l\'ente o il giudice. Per i casi complessi indica un patronato, un CAF, un\'associazione di consumatori o un avvocato.',

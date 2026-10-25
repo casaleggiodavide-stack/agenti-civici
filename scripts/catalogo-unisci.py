@@ -14,6 +14,8 @@ QUI = {
   'Dati civici come tool per ogni assistente': ('fatto', 'Server MCP degli agenti civici', 'https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md', 'dieci strumenti dentro gli assistenti AI'),
   'Assistente unico ai servizi con fonti': ('parziale', 'Assistente civico', SITO + 'assistente/', 'per ora bonus, multe, accesso agli atti e reclami'),
   'Sorveglianza dei siti pubblici': ('parziale', 'Sentinella delle regole', 'https://github.com/casaleggiodavide-stack/agenti-civici/tree/main/sentinella', 'sorveglia le 190 fonti usate dagli agenti'),
+  'Reclami alla PA e difensore civico': ('fatto', 'Reclami alla PA', SITO + 'reclami-pa/', 'potere sostitutivo, difensori civici regionali, termini calcolati e lettere pronte'),
+  'Segnalazioni urbane indipendenti': ('fatto', 'Segnalazioni urbane', SITO + 'segnalazioni/', 'chi deve intervenire, PEC dall\'Indice PA, segnalazione e sollecito pronti'),
   'Navigatore dei servizi con fonti': ('fatto', 'Navigatore dei servizi', SITO + 'navigatore/', '40 pratiche verificate sulle fonti ufficiali, cercabili con parole di tutti i giorni'),
   'Nomine pubbliche: Le carte del potere': ('arrivo', None, None, 'in arrivo'),
 }

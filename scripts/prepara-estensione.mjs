@@ -16,7 +16,7 @@ const uscita = join(radice, 'dist/agenti-civici.mcpb');
 rmSync(cartella, { recursive: true, force: true });
 mkdirSync(join(cartella, 'server/mcp'), { recursive: true });
 for (const f of ['nucleo.js', 'server.js']) cpSync(join(radice, 'mcp', f), join(cartella, 'server/mcp', f));
-for (const t of ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore']) {
+for (const t of ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa']) {
   cpSync(join(radice, t, 'src'), join(cartella, 'server', t, 'src'), { recursive: true, filter: (p) => !/\/test\/|\.test\.js$|\.css$/.test(p) });
   if (existsSync(join(radice, t, 'dati'))) cpSync(join(radice, t, 'dati'), join(cartella, 'server', t, 'dati'), { recursive: true });
 }
