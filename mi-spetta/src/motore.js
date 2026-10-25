@@ -40,6 +40,8 @@ export function valuta(risposte, opzioni = {}) {
   const risultati = [];
 
   for (const p of PRESTAZIONI) {
+    // Le misure regionali si valutano solo per chi ha detto di risiedere in quella Regione.
+    if (p.regione && p.regione !== s.regione) continue;
     let r;
     try {
       r = p.valuta(s, oggi);
@@ -57,6 +59,7 @@ export function valuta(risposte, opzioni = {}) {
       id: p.id,
       nome: p.nome,
       ente: p.ente,
+      regione: p.regione || null,
       categoria: p.categoria,
       sintesi: p.sintesi,
       esito,

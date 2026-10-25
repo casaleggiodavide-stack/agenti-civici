@@ -6,6 +6,7 @@ import { assegnoSociale, quattordicesima, esoneroCanoneTv } from './anziani.js';
 import { bonusSocialeBollette, contributoLuce25000, bonusTari, detrazioneAffitto, detrazioneAffittoGiovani } from './casa.js';
 import { esenzioneTicket, bonusPsicologo, trattamentoIntegrativo, cuneoFiscale, naspi } from './salute-lavoro.js';
 import * as famiglia from './famiglia.js';
+import { REGIONALI } from './regionali/index.js';
 
 export const PRESTAZIONI = [
   ...Object.values(famiglia),
@@ -25,4 +26,5 @@ export const PRESTAZIONI = [
   trattamentoIntegrativo,
   cuneoFiscale,
   naspi,
+  ...REGIONALI,
 ];

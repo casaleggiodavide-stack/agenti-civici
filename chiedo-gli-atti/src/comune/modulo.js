@@ -14,7 +14,7 @@ function campo(d) {
   const ph = d.segnaposto ? ` placeholder="${esc(d.segnaposto)}"` : '';
   switch (d.tipo) {
     case 'numero':
-      return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}<input type="number" inputmode="numeric" id="${id}" name="${d.id}" style="max-width:140px"${desc}${ph}>`;
+      return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}<input type="number" inputmode="${d.passo ? 'decimal' : 'numeric'}"${d.passo ? ` step="${d.passo}"` : ''} id="${id}" name="${d.id}" style="max-width:140px"${desc}${ph}>`;
     case 'euro':
       return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}<div class="euro"><input type="text" inputmode="decimal" id="${id}" name="${d.id}"${desc}${ph || ' placeholder="es. 173,00"'}></div>`;
     case 'data':

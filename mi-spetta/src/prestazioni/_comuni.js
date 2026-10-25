@@ -70,3 +70,22 @@ export function sogliaMobiliareADI(s) {
 }
 
 export const LAVORO_DIPENDENTE = ['dipendente_indeterminato', 'dipendente_determinato'];
+
+// ---------- Misure regionali ----------
+
+/** Data dell'ultima verifica delle misure regionali. */
+export const VERIFICATO_REGIONI = '2026-10-25';
+
+/** Residenza nella Regione da almeno n anni (la Regione è già filtrata dal motore). */
+export function residenzaRegioneAlmeno(s, anni, nome) {
+  const ok = s.anniResidenzaRegione === null ? null : s.anniResidenzaRegione >= anni;
+  return req(`Residenza in ${nome} da almeno ${anni} ${anni === 1 ? 'anno' : 'anni'}`, ok, 'anni_residenza_regione');
+}
+
+/** Almeno un figlio con età in [da, a) anni; null se i figli non sono stati indicati. */
+export function figlioTra(s, da, a, testo) {
+  if (!s.figliRisposta) return req(testo, null, 'figli');
+  const noti = s.figli.filter((f) => f.anni !== null);
+  if (noti.some((f) => f.anni >= da && f.anni < a)) return req(testo, true, 'figli');
+  return req(testo, noti.length === s.figli.length ? false : null, 'figli');
+}

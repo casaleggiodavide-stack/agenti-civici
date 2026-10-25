@@ -2,6 +2,17 @@
 // Ogni domanda è facoltativa: una risposta mancante diventa null e il
 // motore la segnala come «dato mancante» invece di indovinarla.
 
+// Regioni e Province autonome: le misure regionali si valutano solo per la propria.
+export const REGIONI = [
+  ['abruzzo', 'Abruzzo'], ['basilicata', 'Basilicata'], ['calabria', 'Calabria'], ['campania', 'Campania'],
+  ['emilia_romagna', 'Emilia-Romagna'], ['friuli_venezia_giulia', 'Friuli Venezia Giulia'], ['lazio', 'Lazio'],
+  ['liguria', 'Liguria'], ['lombardia', 'Lombardia'], ['marche', 'Marche'], ['molise', 'Molise'],
+  ['bolzano', 'Provincia autonoma di Bolzano'], ['trento', 'Provincia autonoma di Trento'], ['piemonte', 'Piemonte'],
+  ['puglia', 'Puglia'], ['sardegna', 'Sardegna'], ['sicilia', 'Sicilia'], ['toscana', 'Toscana'], ['umbria', 'Umbria'],
+  ['valle_d_aosta', 'Valle d\'Aosta'], ['veneto', 'Veneto'],
+];
+export const NOME_REGIONE = Object.fromEntries(REGIONI);
+
 export const SEZIONI = [
   { id: 'tu', titolo: 'Chi sei' },
   { id: 'famiglia', titolo: 'La tua famiglia' },
@@ -24,6 +35,20 @@ export const DOMANDE = [
       ['extra_ue_lungo', 'Extra UE con permesso di soggiorno UE di lungo periodo, protezione internazionale o carta di soggiorno'],
       ['extra_ue_altro', 'Extra UE con un altro permesso di soggiorno'],
     ],
+  },
+  {
+    id: 'regione', sezione: 'tu', tipo: 'scelta', etichetta: 'In quale Regione hai la residenza?',
+    aiuto: 'Serve per le misure regionali. Se non la indichi vedi solo quelle nazionali.',
+    opzioni: REGIONI,
+  },
+  {
+    id: 'anni_residenza_regione', sezione: 'tu', tipo: 'numero', etichetta: 'Da quanti anni risiedi in questa Regione?',
+    visibile: (r) => Boolean(r.regione), min: 0, max: 110,
+  },
+  {
+    id: 'icef', sezione: 'soldi', tipo: 'numero', etichetta: 'Il tuo indicatore ICEF (Provincia di Trento)',
+    aiuto: 'Un numero tra 0 e 1, per esempio 0,25. Lo trovi nell\'attestazione ICEF del CAF o del patronato.',
+    visibile: (r) => r.regione === 'trento', min: 0, max: 1, passo: 0.01,
   },
   {
     id: 'anni_residenza', sezione: 'tu', tipo: 'numero', etichetta: 'Da quanti anni vivi in Italia senza interruzioni?',
@@ -141,6 +166,7 @@ export function etaDa(nascita, oggi) {
 
 /** Dalle risposte grezze ai dati che usano le regole. */
 export function arricchisci(r, oggi) {
+  const regione = REGIONI.some(([id]) => id === r.regione) ? r.regione : null;
   const figli = (Array.isArray(r.figli) ? r.figli : []).map((f) => {
     const e = etaDa(f.nascita, oggi);
     return {
@@ -173,6 +199,9 @@ export function arricchisci(r, oggi) {
     eta,
     cittadinanza: r.cittadinanza || null,
     anniResidenza,
+    regione,
+    anniResidenzaRegione: regione ? num(r.anni_residenza_regione) : null,
+    icef: regione === 'trento' ? num(r.icef) : null,
     coniuge,
     coniugeEta,
     seiMadre: bool(r.sei_madre),

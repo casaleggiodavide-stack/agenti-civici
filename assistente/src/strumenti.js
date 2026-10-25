@@ -71,7 +71,7 @@ export function normalizza(domande, grezze, extra = {}) {
 export function dizionario(domande) {
   return domande.filter((d) => !PERSONALI.has(d.id)).map((d) => {
     let tipo = d.tipo === 'euro' ? 'numero in euro' : d.tipo === 'si_no' ? (d.nonSo ? 'true|false|non_so' : 'true|false') : d.tipo === 'data' ? 'AAAA-MM-GG' : d.tipo;
-    if (d.tipo === 'scelta' || d.tipo === 'elenco') tipo = d.opzioni.length > 12 ? `sigla di provincia (es. MI, RM, NA, AO)` : d.opzioni.map((o) => o[0]).join('|');
+    if (d.tipo === 'scelta' || d.tipo === 'elenco') tipo = d.id === 'provincia' ? `sigla di provincia (es. MI, RM, NA, AO)` : d.opzioni.map((o) => o[0]).join('|');
     if (d.tipo === 'figli') tipo = `elenco di {nascita: "AAAA-MM", disabile?: true|false, condizione?: ${CONDIZIONI_18_21.map((c) => c[0]).join('|')} (solo 18-21 anni)}`;
     return `- ${d.id} (${tipo}): ${d.etichetta}`;
   }).join('\n');
