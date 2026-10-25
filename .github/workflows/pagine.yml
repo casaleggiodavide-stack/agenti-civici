@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir _sito
           cp index.html LICENSE _sito/
+          mkdir -p _sito/comune && cp comune/stile.css _sito/comune/
           for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti; do
             mkdir -p _sito/$d
             cp $d/index.html _sito/$d/
