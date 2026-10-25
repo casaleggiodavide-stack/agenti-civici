@@ -220,3 +220,24 @@ h1 { font-weight: 800; }
 
 /* Testo solo per i lettori di schermo */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Illustrazioni al tratto (scripts/illustrazioni.py): inchiostro, carta e filo rosso */
+.scena { background: var(--riga-tenue); border-radius: 6px; margin: -8px -8px 6px; aspect-ratio: 16 / 7; display: grid; place-items: center; overflow: hidden; color: var(--inchiostro-2); }
+.scena-svg { width: 100%; height: 100%; display: block; }
+.scena-assistente { aspect-ratio: auto; height: 170px; }
+.scena-mondo { aspect-ratio: 32 / 7; margin: 0 0 14px; max-height: 190px; }
+.s-l { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.s-t { fill: none; stroke: var(--accento); stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; }
+.s-r { fill: var(--accento); }
+.s-p { fill: var(--accento-tenue); }
+.s-c { fill: var(--carta); }
+.s-testo { font-family: var(--titoli, var(--testo)); font-size: 15px; font-weight: 800; fill: var(--inchiostro); }
+.s-piccolo { font-size: 13px; }
+.scena-eroe { order: 2; width: 100%; color: var(--inchiostro-2); }
+.testata:has(.scena-eroe) { grid-template-columns: minmax(0, 1fr) minmax(260px, 400px) !important; }
+@media (max-width: 760px) { .testata:has(.scena-eroe) { grid-template-columns: minmax(0, 1fr) !important; } .scena-eroe { order: 0; max-width: 360px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .scena .s-t, .scena-eroe .s-t { stroke-dasharray: 900; stroke-dashoffset: 900; animation: filo 2.4s ease-out forwards; }
+  @keyframes filo { to { stroke-dashoffset: 0; } }
+}
+.scena-testata { max-width: 340px; aspect-ratio: 16 / 7; margin: 0 0 14px; }
