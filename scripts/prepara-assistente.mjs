@@ -18,7 +18,7 @@ for (const d of CARTELLE) cpSync(join(radice, d), join(dest, d), { recursive: tr
 let html = readFileSync(join(radice, 'assistente/index.html'), 'utf8');
 const stile = (html.match(/<style>[\s\S]*?<\/style>/) || [''])[0];
 const intest = html.match(/<head>([\s\S]*?)<\/head>/)[1].split('\n').filter((r) => /<title>|<link /.test(r)).join('\n')
-  .replace('href="src/', 'href="assistente/src/');
+  .replaceAll('href="src/', 'href="assistente/src/');
 let body = html.match(/<body>([\s\S]*?)<\/body>/)[1].replace('src="web/app.js"', 'src="assistente/web/app.js"');
 body = body.replaceAll('href="../assistente/"', 'href="#"');
 for (const [nome, url] of Object.entries(link)) body = body.replaceAll(`href="../${nome}/"`, `href="${url}" target="_top"`);
