@@ -68,7 +68,7 @@ Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una
 
 ## Altri strumenti civici
 
-La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi Puliti](https://www.fiumipuliti.it/), la qualità dei fiumi misurata dai cittadini (Associazione Gianroberto Casaleggio), e [Alberi per il futuro](https://www.alberiperilfuturo.it/), piantare alberi con il proprio Comune intorno al 21 novembre. L'Assistente li suggerisce quando c'entrano.
+La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi Puliti](https://www.fiumipuliti.it/), la qualità dei fiumi misurata dai cittadini (Associazione Gianroberto Casaleggio), e [Alberi per il futuro](alberi/), l'iniziativa nata da un'idea di Gianroberto Casaleggio: una pagina con le edizioni dal 2015, la guida per chiedere l'area al Comune e gli alberi ai vivai pubblici di ogni Regione, e le lettere pronte. L'Assistente li suggerisce quando c'entrano.
 
 ## Dagli assistenti AI (MCP)
 

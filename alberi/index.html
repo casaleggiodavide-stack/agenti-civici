@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberi per il futuro</title>
+<meta name="description" content="Alberi per il futuro: ogni anno, intorno al 21 novembre, cittadini e Comuni piantano alberi insieme. Come chiedere lo spazio al Comune, dove avere gli alberi gratis, come piantarli e curarli. Le edizioni dal 2015, i numeri e le foto.">
+<link rel="icon" href="web/logo-alberi.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  :root { --verde: #5c9a1b; --verde-tenue: #eef5e2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --verde: #9ccc4a; --verde-tenue: #233019; } }
+  :root[data-theme="dark"] { --verde: #9ccc4a; --verde-tenue: #233019; }
+  .logo-alberi { display: block; height: 92px; width: auto; margin: 4px 0 10px; }
+  @media (max-width: 560px) { .logo-alberi { height: 70px; } }
+  .h1-nascosto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .foto-testata { margin: 16px 0 14px; } .foto-testata img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: center 55%; border-radius: 10px; }
+  @media (max-width: 560px) { .foto-testata img { height: 210px; } }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
+  .conto { background: var(--verde-tenue); border-left: 5px solid var(--verde); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 6px 0 26px; display: grid; gap: 4px; }
+  .conto b { font-size: var(--s2); font-family: var(--titoli, inherit); }
+  .conto p { margin: 0; max-width: 70ch; color: var(--inchiostro-2); }
+  .sezione { margin: 34px 0; }
+  .sezione > h2 { font-size: var(--s3); margin: 0 0 8px; }
+  .sezione > p { max-width: 70ch; color: var(--inchiostro-2); }
+  .storia { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+  @media (max-width: 820px) { .storia { grid-template-columns: 1fr; } }
+  .storia p { max-width: 64ch; }
+  .storia figure { margin: 0; } .storia img { width: 100%; border-radius: 8px; display: block; }
+  .cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 8px 0 18px; }
+  .cifre div { background: var(--carta); border: 1px solid var(--riga); border-top: 4px solid var(--verde); border-radius: 8px; padding: 12px 14px; }
+  .cifre b { display: block; font-family: var(--cifre); font-size: var(--s3); font-variant-numeric: tabular-nums; }
+  .cifre span { font-size: var(--s-1); color: var(--inchiostro-3); }
+  .tabella-edizioni { width: 100%; border-collapse: collapse; font-size: var(--s0); background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .tabella-edizioni th { text-align: left; font-family: var(--cifre); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: .05em; color: var(--inchiostro-3); padding: 0; border-bottom: 1px solid var(--riga); }
+  .tabella-edizioni th button { all: unset; cursor: pointer; display: block; padding: 8px 10px; }
+  .tabella-edizioni th[aria-sort="descending"] button::after { content: " ↓"; } .tabella-edizioni th[aria-sort="ascending"] button::after { content: " ↑"; }
+  .tabella-edizioni td { padding: 9px 10px; border-bottom: 1px solid var(--riga-tenue); vertical-align: top; }
+  .tabella-edizioni td.n { font-family: var(--cifre); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tabella-edizioni td.anno { font-family: var(--cifre); font-weight: 600; }
+  .tabella-edizioni small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  .tabella-edizioni .fonti-riga a { font-size: var(--s-1); margin-right: 8px; }
+  .galleria { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .galleria figure { margin: 0; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; overflow: hidden; }
+  .galleria img { display: block; width: 100%; height: 170px; object-fit: cover; }
+  .galleria figcaption { padding: 8px 10px 10px; margin: 0; font-family: inherit; font-size: var(--s-1); color: var(--inchiostro-2); }
+  .galleria figcaption b { font-family: var(--cifre); color: var(--verde); margin-right: 4px; }
+  .passi-alberi { list-style: none; counter-reset: p; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .passi-alberi > li { counter-increment: p; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 18px 14px 62px; position: relative; }
+  .passi-alberi > li::before { content: counter(p); position: absolute; left: 16px; top: 14px; width: 32px; height: 32px; border-radius: 50%; background: var(--verde); color: #fff; font-family: var(--cifre); font-weight: 600; display: grid; place-items: center; }
+  .passi-alberi h3 { margin: 2px 0 6px; font-size: var(--s1); }
+  .passi-alberi p, .passi-alberi li li { max-width: 72ch; color: var(--inchiostro-2); font-size: var(--s0); }
+  .passi-alberi ul { margin: 6px 0; padding-left: 18px; display: grid; gap: 4px; }
+  .passi-alberi .fonte-passo { font-size: var(--s-1); color: var(--inchiostro-3); }
+  .passi-alberi .quando { display: inline-block; font-family: var(--cifre); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--verde); margin-bottom: 2px; }
+  .vivaio { background: var(--fondo); border: 1px solid var(--riga); border-left: 4px solid var(--verde); border-radius: 6px; padding: 10px 14px; margin-top: 8px; font-size: var(--s0); display: grid; gap: 4px; }
+  .vivaio small { color: var(--inchiostro-3); }
+  .cerca-ente { display: grid; gap: 8px; }
+  .cerca-ente input { max-width: none; }
+  .risultati-enti { list-style: none; margin: 0; padding: 0; border: 1px solid var(--riga); border-radius: 6px; overflow: hidden; }
+  .risultati-enti li + li { border-top: 1px solid var(--riga-tenue); }
+  .risultati-enti button { all: unset; box-sizing: border-box; display: block; width: 100%; padding: 9px 12px; cursor: pointer; font-size: var(--s0); }
+  .risultati-enti button:hover, .risultati-enti button:focus-visible { background: var(--accento-tenue); outline: none; }
+  .risultati-enti small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  .ente-scelto { background: var(--fondo); border: 1px solid var(--riga); border-left: 4px solid var(--verde); border-radius: 6px; padding: 10px 12px; font-size: var(--s0); display: grid; gap: 2px; }
+  .campi-lettera { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .campi-lettera label { display: grid; gap: 4px; font-size: var(--s-1); color: var(--inchiostro-3); }
+  .campi-lettera input, .campi-lettera select, .campi-lettera textarea { max-width: none; font-size: var(--s0); }
+  .scegli-lettera { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+  .scegli-lettera button { font: inherit; font-size: var(--s0); background: var(--carta); border: 1px solid var(--riga); border-radius: 999px; padding: 6px 12px; cursor: pointer; color: var(--inchiostro); }
+  .scegli-lettera button[aria-pressed="true"] { background: var(--inchiostro); color: var(--fondo); border-color: var(--inchiostro); }
+  .pec { font-family: var(--cifre); font-size: var(--s-1); }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
+    <a href="../assistente/" data-strumento="assistente">Assistente</a>
+    <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi" aria-current="page">Alberi per il futuro</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <h1 class="h1-nascosto">Alberi per il futuro</h1>
+      <img class="logo-alberi" src="web/logo-alberi.png" alt="Alberi per il futuro" width="434" height="179">
+      <p class="promessa">Un gruppo di cittadini, un pezzo di terra pubblica, qualche alberello. Ogni anno, intorno al 21 novembre, si pianta insieme. Qui trovi come si fa: lo spazio dal Comune, gli alberi dai vivai pubblici, la messa a dimora e la cura.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Un'idea di Gianroberto Casaleggio,</b> nata nel 2015 a Reggio Emilia e a Milano.</li>
+      <li><b id="g-totale">Oltre 57.000 alberi</b> in circa 250 città nelle prime cinque edizioni.</li>
+      <li><b>Le lettere sono pronte,</b> per il Comune e per il vivaio: le mandi tu, dalla tua PEC o email.</li>
+    </ul>
+  </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="In un prato ai margini di una cittadina, in una mattina di novembre, una nonna, un padre con il figlio, due ragazzi e una donna con l'annaffiatoio mettono a dimora giovani alberi con il tubo di protezione" loading="eager" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale. Le foto vere delle edizioni sono più in basso.</figcaption></figure><!--/foto-->
+
+  <div class="conto" id="conto" aria-live="polite"></div>
+
+  <main>
+    <section class="sezione" aria-labelledby="t-cose">
+      <div class="occhiello">L'iniziativa</div>
+      <h2 id="t-cose">Che cos'è</h2>
+      <div class="storia">
+        <div id="storia"></div>
+        <figure><img src="web/edizioni/2016-milano.jpg" alt="Otto foto di alberelli con il tubo di protezione cresciuti in un grande prato di Milano" loading="lazy" width="1022" height="421"><figcaption>Gli alberi piantati a Milano nel 2015, sette mesi dopo. Foto: Blog delle Stelle.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="sezione" aria-labelledby="t-numeri">
+      <div class="occhiello">Dal 2015</div>
+      <h2 id="t-numeri">Le edizioni in numeri</h2>
+      <div class="cifre" id="cifre"></div>
+      <div class="scorri"><table class="tabella-edizioni" id="edizioni"></table></div>
+      <p style="font-size:var(--s-1);color:var(--inchiostro-3);margin-top:8px" id="nota-numeri"></p>
+    </section>
+
+    <section class="sezione" aria-labelledby="t-foto">
+      <div class="occhiello">Le edizioni passate</div>
+      <h2 id="t-foto">Le foto</h2>
+      <div class="galleria" id="galleria"></div>
+    </section>
+
+    <section class="sezione" aria-labelledby="t-come">
+      <div class="occhiello">Organizzala nel tuo Comune</div>
+      <h2 id="t-come">Come si fa, passo per passo</h2>
+      <p>Vale per qualsiasi anno. Bastano poche persone e un'area pubblica: il Comune dà lo spazio e il permesso, gli alberi si possono avere gratis da un vivaio pubblico. Contate circa due mesi dalla prima lettera alla piantumazione.</p>
+      <ol class="passi-alberi" id="passi"></ol>
+    </section>
+
+    <section class="sezione pannello" aria-labelledby="t-lettere" id="lettere">
+      <div class="occhiello">Pronte da mandare</div>
+      <h2 id="t-lettere">Le lettere</h2>
+      <div class="scegli-lettera" role="group" aria-label="Quale lettera">
+        <button type="button" data-lettera="comune" aria-pressed="true">Al Comune, per l'area e il permesso</button>
+        <button type="button" data-lettera="vivaio" aria-pressed="false">Al vivaio, per gli alberi</button>
+      </div>
+      <div class="colonna">
+        <div class="cerca-ente">
+          <label for="cerca-ente" class="etichetta">Il tuo Comune</label>
+          <input type="text" id="cerca-ente" placeholder="es. Comune di Pavia" autocomplete="off" aria-controls="risultati-enti">
+          <ul class="risultati-enti" id="risultati-enti" hidden></ul>
+          <div id="ente-scelto"></div>
+        </div>
+        <div class="campi-lettera" id="campi"></div>
+      </div>
+      <div id="documento" style="margin-top:16px"></div>
+    </section>
+
+    <section class="sezione" aria-labelledby="t-fonti">
+      <div class="occhiello">Le regole</div>
+      <h2 id="t-fonti">Norme e fonti</h2>
+      <ul class="fonti" id="fonti"></ul>
+    </section>
+  </main>
+
+  <footer class="piede">
+    <p><b>Alberi per il futuro</b> è un'iniziativa nata da un'idea di Gianroberto Casaleggio e portata avanti negli anni da cittadini e amministrazioni di tutta Italia. Il logo è dell'iniziativa. Le foto delle edizioni passate vengono dagli articoli del Blog delle Stelle indicati sotto ogni anno; i numeri sono quelli dichiarati a ogni edizione.</p>
+    <p>Questa pagina non è un sito della pubblica amministrazione. Le lettere le mandi tu: i dati che scrivi restano su questo dispositivo. Indirizzi PEC dei Comuni da IndicePA (licenza CC BY 4.0). Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Cancella i dati delle lettere da questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>
