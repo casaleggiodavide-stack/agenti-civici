@@ -16,20 +16,34 @@ def svg(corpo, etichetta, vb='0 0 320 140'):
     return f'<svg class="scena-svg" viewBox="{vb}" role="img" aria-label="{etichetta}" preserveAspectRatio="xMidYMid meet">{corpo}</svg>'
 
 
+
+def persona(x, y, s=1.0, rossa=False, braccio=None):
+    """Mezzo busto: testa e spalle. y è la base delle spalle."""
+    r = 9 * s
+    corpo = f'M{x - 16 * s:.1f} {y:.1f} C{x - 16 * s:.1f} {y - 24 * s:.1f} {x + 16 * s:.1f} {y - 24 * s:.1f} {x + 16 * s:.1f} {y:.1f} Z'
+    riempi = 'var(--accento-tenue)' if rossa else 'var(--carta)'
+    b = ''
+    if braccio == 'su':
+        b = f'<path class="s-l" d="M{x + 10 * s:.1f} {y - 16 * s:.1f} L{x + 18 * s:.1f} {y - 44 * s:.1f}"/><circle class="s-l" cx="{x + 18.5 * s:.1f}" cy="{y - 47 * s:.1f}" r="{3 * s:.1f}" style="fill:var(--carta)"/>'
+    return (f'<path class="s-l" d="{corpo}" style="fill:{riempi}"/>'
+            f'<circle class="s-l" cx="{x}" cy="{y - 30 * s:.1f}" r="{r:.1f}" style="fill:var(--carta)"/>{b}')
+
 NODO = lambda x, y, r=5: f'<circle class="s-r" cx="{x}" cy="{y}" r="{r}"/>'
 
 SCENE = {
     # Il labirinto della burocrazia, il filo che porta fuori, la porta aperta
     'eroe': svg(
-        '<rect class="s-p" x="232" y="34" width="56" height="92" rx="4"/>'
-        '<path class="s-l" d="M40 130 V20 H220 V130 M70 130 V50 H190 V100 M100 20 V80 H160 M130 130 V110 M220 75 H190" />'
-        '<path class="s-l" d="M232 126 V34 H288 V126" />'
-        '<path class="s-l" d="M240 126 V44 L276 38 V120 Z" style="fill:var(--carta)"/>'
-        '<circle class="s-r" cx="268" cy="82" r="2.6"/>'
-        f'{NODO(22, 130, 6)}'
-        '<path class="s-t" d="M28 128 C44 124 52 112 55 96 V34 H205 V115 H145 V93 C145 86 118 86 115 93 V65 H175 V88 M175 88 C182 96 200 92 205 78 C212 66 226 72 240 76" />'
-        '<circle class="s-l" cx="300" cy="66" r="7" style="fill:var(--carta)"/><path class="s-l" d="M300 73 V104 M300 104 L292 126 M300 104 L308 126 M300 82 L288 94 M300 82 L312 92"/>',
-        'Un labirinto di muri e, dentro, un filo rosso che parte da un nodo, attraversa i corridoi ed esce da una porta aperta, dove aspetta una persona', '0 0 320 140'),
+        '<path class="s-l" d="M20 170 V40 H150 V170 M44 170 V64 H126 V140 M68 40 V110 H102 M88 170 V150 M150 100 H126" />'
+        '<path class="s-l" d="M108 52 H138 V64 H108 Z M112 76 H140 V88 H112 Z" style="fill:var(--carta)"/>'
+        f'{NODO(10, 170, 6)}'
+        '<path class="s-t" d="M16 168 C28 164 32 150 32 130 V52 H138 V152 H114 V124 C114 116 82 116 80 124 V78 H114 V100 M114 100 C124 110 140 108 150 102 C164 94 176 104 186 112"/>'
+        '<circle class="s-l" cx="214" cy="84" r="10" style="fill:var(--carta)"/><path class="s-l" d="M214 94 V130 M214 130 L204 160 M214 130 L224 160 M214 104 L196 116 M214 104 L234 116" />'
+        '<path class="s-t" d="M186 112 C190 116 194 116 196 116 M234 116 C262 122 280 110 300 112"/>'
+        + persona(320, 160, 1.0) + persona(360, 150, 1.05, rossa=True, braccio='su') + persona(402, 160, 1.0) + persona(440, 152, 0.95) +
+        '<rect class="s-l" x="352" y="30" width="96" height="40" rx="12" style="fill:var(--carta)"/><path class="s-l" d="M376 70 L370 82 L390 70" style="fill:var(--carta)"/>'
+        '<path class="s-t" d="M374 50 L384 60 L404 40"/><path class="s-l" d="M412 46 H434 M412 56 H428"/>'
+        '<path class="s-t" d="M300 112 C310 114 314 120 316 124"/>',
+        'Una persona esce dal labirinto delle carte tenendo un filo rosso e lo porta a un gruppo di cittadini che discutono e votano: tecnologia per superare la burocrazia e partecipare', '0 0 470 180'),
 
     'assistente': svg(
         '<rect class="s-l" x="70" y="26" width="130" height="44" rx="14" style="fill:var(--carta)"/><path class="s-l" d="M92 70 L86 84 L106 70" style="fill:var(--carta)"/>'
@@ -116,6 +130,23 @@ SCENE = {
         f'{NODO(24, 112)}<path class="s-t" d="M30 110 C34 96 36 88 40 86 M210 96 C222 96 226 80 236 74"/><path class="s-t" d="M248 112 L258 122 L278 102"/>',
         'Lo sportello di un ufficio pubblico con il campanello, una pratica e una lettera che parte'),
 
+    'burocrazia': svg(
+        '<path class="s-l" d="M40 150 H150 V136 H40 Z M46 136 V122 H144 V136 M52 122 V108 H138 V122 M58 108 V94 H132 V108" style="fill:var(--carta)"/>'
+        '<path class="s-l" d="M64 94 V82 H126 V94" style="fill:var(--carta)"/><path class="s-l" d="M70 86 H120"/>'
+        + persona(230, 150, 1.15) +
+        '<rect class="s-l" x="252" y="96" width="30" height="46" rx="5" style="fill:var(--carta)"/><rect class="s-p" x="257" y="104" width="20" height="26" rx="2"/>'
+        f'{NODO(24, 150, 5)}<path class="s-t" d="M30 148 C36 120 60 70 100 66 C140 62 160 96 190 110 C206 118 216 112 224 110 M250 112 C254 112 256 110 258 112"/>'
+        '<path class="s-t" d="M262 118 L268 124 L280 110"/><path class="s-l" d="M300 70 H372 V130 H300 Z M300 82 H372" style="fill:var(--carta)"/><path class="s-t" d="M312 100 L322 110 L340 92"/><path class="s-l" d="M346 100 H362 M346 112 H358"/>'
+        '<path class="s-t" d="M282 104 C290 100 294 98 300 98"/>',
+        'Una persona con il telefono lascia alle spalle una pila di moduli: il filo rosso la porta a un documento già pronto e spuntato', '0 0 400 170'),
+    'partecipazione': svg(
+        '<ellipse class="s-l" cx="200" cy="150" rx="150" ry="14" style="fill:var(--carta)"/>'
+        + persona(90, 140, 1.0) + persona(140, 132, 1.0, braccio='su') + persona(200, 128, 1.1, rossa=True) + persona(262, 132, 1.0, braccio='su') + persona(312, 140, 1.0) +
+        '<rect class="s-l" x="160" y="22" width="80" height="44" rx="8" style="fill:var(--carta)"/><path class="s-l" d="M172 54 V42 M188 54 V34 M204 54 V46 M220 54 V30"/>'
+        f'{NODO(24, 150, 5)}<path class="s-t" d="M30 148 C50 120 70 110 90 110 C110 110 120 100 140 100 S180 96 200 98 S240 100 262 100 S300 108 312 110 C330 112 350 120 370 130"/>'
+        '<path class="s-t" d="M168 50 C180 44 194 46 206 40 S226 30 234 28"/>',
+        'Cinque persone intorno a un tavolo, due con la mano alzata, unite dallo stesso filo rosso; sopra, un grafico: partecipare alle scelte con i dati', '0 0 400 170'),
+
     'governa': svg(
         '<path class="s-l" d="M70 50 L160 18 L250 50 Z" style="fill:var(--carta)"/><path class="s-l" d="M80 54 H240 M92 58 V110 M124 58 V110 M156 58 V110 M188 58 V110 M220 58 V110 M70 114 H250 M62 122 H258"/>'
         '<path class="s-l" d="M160 18 V4"/><path class="s-r" d="M161 4 H180 L174 9 L180 14 H161 Z"/>',
@@ -152,6 +183,8 @@ POSTI = [
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
     ('index.html', '<a class="strumento" href="catalogo/#servizi">', 'diritto'),
+    ('index.html', '<!--scena:burocrazia-->', 'burocrazia'),
+    ('index.html', '<!--scena:partecipazione-->', 'partecipazione'),
     ('index.html', '<h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli agenti civici nel mondo</h2>', 'mondo'),
 ]
 
@@ -232,5 +265,74 @@ def main():
     print(len(POSTI) + 1, 'scene inserite')
 
 
+
+# ---------------------------------------------------------------------------
+# Loghi degli strumenti: una piastrella con il pittogramma in inchiostro e il
+# filo rosso che parte dal nodo. Stessa famiglia del marchio.
+# ---------------------------------------------------------------------------
+
+def _logo(corpo, filo, nodo):
+    x, y = nodo
+    return (f'<rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/>{corpo}'
+            f'<path class="lg-t" d="{filo}"/><circle class="lg-n" cx="{x}" cy="{y}" r="3.4"/>')
+
+LOGHI = {
+    'assistente': ('Assistente civico', _logo('<path class="lg-i" d="M15 17 H49 V39 H31 L22 47 V39 H15 Z"/>', 'M15 52 C20 50 21 44 22 41 M22 28 C26 23 30 33 34 28 S41 24 43 28', (12, 53))),
+    'navigatore': ('Navigatore dei servizi', _logo('<path class="lg-i" d="M32 52 V12 M24 52 H40 M32 16 H45 L50 21 L45 26 H32 M32 31 H19 L14 36 L19 41 H32"/>', 'M14 52 C20 49 24 47 32 47', (11, 53))),
+    'mi-spetta': ('Mi spetta', _logo('<ellipse class="lg-i" cx="28" cy="44" rx="13" ry="5"/><path class="lg-i" d="M15 44 V36 M41 44 V36"/><ellipse class="lg-i" cx="28" cy="36" rx="13" ry="5"/><path class="lg-i" d="M15 36 V28 M41 36 V28"/><ellipse class="lg-i" cx="28" cy="28" rx="13" ry="5"/>', 'M14 53 C30 54 40 44 42 34 M38 18 L43 23 L52 12', (11, 52))),
+    'faccio-ricorso': ('Faccio ricorso?', _logo('<path class="lg-i" d="M18 13 H38 L46 21 V51 H18 Z M38 13 V21 H46"/><path class="lg-i" d="M24 30 H40 M24 37 H36"/>', 'M52 46 H31 C25 46 25 40 31 40 H35 M33 37 L36 40 L33 43', (52, 52))),
+    'chiedo-gli-atti': ('Chiedo gli atti', _logo('<path class="lg-i" d="M14 27 L32 15 L50 27 Z M18 31 V47 M26 31 V47 M38 31 V47 M46 31 V47 M14 51 H50"/>', 'M12 41 C20 41 26 37 32 37 V47', (9, 41))),
+    'mi-rimborsano': ('Mi rimborsano?', _logo('<path class="lg-i" d="M30 36 H50 V50 H30 Z M30 41 H50"/>', 'M14 44 C13 22 40 14 42 28 M38 24 L42 29 L46 24', (13, 49))),
+    'reclami-pa': ('Reclami alla PA', _logo('<path class="lg-i" d="M14 44 H50 M17 44 C17 30 47 30 47 44 M32 30 V25 M28 25 H36"/><path class="lg-i" d="M12 50 H52"/>', 'M14 22 C22 14 34 14 42 20 M38 16 L42 20 L38 24', (11, 26))),
+    'segnalazioni': ('Segnalazioni urbane', _logo('<path class="lg-i" d="M32 50 C22 38 18 32 18 25 A14 14 0 0 1 46 25 C46 32 42 38 32 50 Z"/><path class="lg-i" d="M32 18 V27"/><circle class="lg-n" cx="32" cy="32" r="2.2"/>', 'M12 52 C18 52 22 50 26 46', (9, 53))),
+    'bilancio-comune': ('Il bilancio del mio Comune', _logo('<path class="lg-i" d="M13 50 H51 M19 50 V36 M28 50 V28 M37 50 V33 M46 50 V22"/>', 'M14 30 C20 24 24 18 28 20 S36 28 40 22 L49 14', (12, 33))),
+    'appalti': ('Red flag sugli appalti', _logo('<path class="lg-i" d="M20 52 V12"/>', 'M21 14 H47 L41 21 L47 28 H21 M14 52 H20', (12, 52))),
+    'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
+}
+
+STILE_LOGO = ('.lg-f{fill:var(--carta,#FFFDF8);stroke:var(--inchiostro,#17202E);stroke-width:2.4}'
+              '.lg-i{fill:none;stroke:var(--inchiostro,#17202E);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}'
+              '.lg-t{fill:none;stroke:var(--accento,#C2362B);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}'
+              '.lg-n{fill:var(--accento,#C2362B)}')
+
+
+def logo_svg(nome, classe='logo-strumento', titolo=True):
+    etichetta, corpo = LOGHI[nome]
+    return f'<svg class="{classe}" viewBox="0 0 64 64" role="img" aria-label="Logo di {etichetta}">{corpo}</svg>'
+
+
+def favicon(nome):
+    """Versione autonoma per la scheda del browser: colori fissi, niente variabili."""
+    _, corpo = LOGHI[nome]
+    stile = STILE_LOGO.replace('var(--carta,#FFFDF8)', '#FFFDF8').replace('var(--inchiostro,#17202E)', '#17202E').replace('var(--accento,#C2362B)', '#C2362B')
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><style>{stile}</style>{corpo}</svg>\n'
+
+
+def applica_loghi():
+    nomi_h1 = {'assistente': 'Assistente civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
+               'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti'}
+    for t, h1 in nomi_h1.items():
+        cartella = os.path.join(REPO, t)
+        open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))
+        p = os.path.join(cartella, 'index.html')
+        s = open(p, encoding='utf-8').read()
+        blocco = f'<!--logo:{t}--><div class="titolo-logo">{logo_svg(t)}<h1>{h1}</h1></div><!--/logo-->'
+        if f'<!--logo:{t}-->' in s:
+            s = re.sub(rf'<!--logo:{re.escape(t)}-->.*?<!--/logo-->', lambda m: blocco, s, count=1, flags=re.S)
+        else:
+            s = s.replace(f'<h1>{h1}</h1>', blocco, 1)
+        s = re.sub(r'<link rel="icon" href="src/comune/marchio\.svg" type="image/svg\+xml">', '<link rel="icon" href="src/logo.svg" type="image/svg+xml">', s)
+        open(p, 'w', encoding='utf-8').write(s)
+    # home: il logo dentro la scena di ogni scheda
+    p = os.path.join(REPO, 'index.html')
+    s = open(p, encoding='utf-8').read()
+    for t in list(nomi_h1):
+        s = re.sub(rf'(<!--scena:{re.escape(t)}--><div class="scena scena-{re.escape(t)}">)(?:<!--logo-->.*?<!--/logo-->)?', lambda m, t=t: m.group(1) + f'<!--logo-->{logo_svg(t, "logo-scheda")}<!--/logo-->', s, count=1, flags=re.S)
+    open(p, 'w', encoding='utf-8').write(s)
+
+
+
 if __name__ == '__main__':
     main()
+    applica_loghi()

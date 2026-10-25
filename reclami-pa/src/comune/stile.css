@@ -235,10 +235,22 @@ h1 { font-weight: 800; }
 .s-testo { font-family: var(--titoli, var(--testo)); font-size: 15px; font-weight: 800; fill: var(--inchiostro); }
 .s-piccolo { font-size: 13px; }
 .scena-eroe { order: 2; width: 100%; color: var(--inchiostro-2); }
-.testata:has(.scena-eroe) { grid-template-columns: minmax(0, 1fr) minmax(260px, 400px) !important; }
+.testata:has(.scena-eroe) { grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr) !important; }
 @media (max-width: 760px) { .testata:has(.scena-eroe) { grid-template-columns: minmax(0, 1fr) !important; } .scena-eroe { order: 0; max-width: 360px; } }
 @media (prefers-reduced-motion: no-preference) {
   .scena .s-t, .scena-eroe .s-t { stroke-dasharray: 900; stroke-dashoffset: 900; animation: filo 2.4s ease-out forwards; }
   @keyframes filo { to { stroke-dashoffset: 0; } }
 }
 .scena-testata { max-width: 340px; aspect-ratio: 16 / 7; margin: 0 0 14px; }
+
+/* Loghi degli strumenti (scripts/illustrazioni.py) */
+.lg-f { fill: var(--carta); stroke: var(--inchiostro); stroke-width: 2.4; }
+.lg-i { fill: none; stroke: var(--inchiostro); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.lg-t { fill: none; stroke: var(--accento); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.lg-n { fill: var(--accento); }
+.titolo-logo { display: flex; align-items: center; gap: 14px; }
+.titolo-logo h1 { margin: 0; }
+.logo-strumento { width: 64px; height: 64px; flex: none; filter: drop-shadow(0 2px 0 var(--riga)); }
+@media (max-width: 560px) { .logo-strumento { width: 48px; height: 48px; } }
+.scena { position: relative; }
+.logo-scheda { position: absolute; left: 10px; bottom: 10px; width: 46px; height: 46px; filter: drop-shadow(0 2px 0 var(--riga)); }
