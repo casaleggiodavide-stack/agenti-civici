@@ -6,14 +6,14 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 
 const radice = new URL('../', import.meta.url);
 const STRUMENTI = ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'assistente', 'mi-rimborsano'];
 const verifica = process.argv.includes('--verifica');
-const file = readdirSync(new URL("comune/", radice)).filter((f) => f.endsWith(".js") || f.endsWith(".css"));
+const file = readdirSync(new URL("comune/", radice)).filter((f) => f.endsWith(".js") || f.endsWith(".css") || f.endsWith(".svg"));
 let diversi = 0;
 for (const s of STRUMENTI) {
   if (!existsSync(new URL(`${s}/`, radice))) continue;
   const dest = new URL(`${s}/src/comune/`, radice);
   mkdirSync(dest, { recursive: true });
   for (const f of file) {
-    const intest = f.endsWith('.css') ? '/* Copia di comune/' + f + ': non modificare qui, usa npm run sincronizza. */\n' : '// Copia di comune/' + f + ': non modificare qui, usa npm run sincronizza.\n';
+    const intest = f.endsWith('.svg') ? '' : f.endsWith('.css') ? '/* Copia di comune/' + f + ': non modificare qui, usa npm run sincronizza. */\n' : '// Copia di comune/' + f + ': non modificare qui, usa npm run sincronizza.\n';
     const testo = intest + readFileSync(new URL(`comune/${f}`, radice), 'utf8');
     const qui = new URL(f, dest);
     const attuale = existsSync(qui) ? readFileSync(qui, 'utf8') : null;

@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chiedo gli atti</title>
 <meta name="description" content="Chiedi documenti e dati a qualsiasi ente pubblico italiano: sceglie il tipo di accesso giusto, prepara la richiesta e il riesame, calcola le scadenze. Gratis, nessun dato inviato.">
+<link rel="icon" href="src/comune/marchio.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="src/comune/stile.css">
 <style>
   .cerca-ente { display: grid; gap: 8px; padding-block: 4px 12px; }
@@ -29,7 +30,7 @@
 <body>
 <div class="max">
   <nav class="famiglia" aria-label="Agenti civici">
-    <b>Agenti civici</b>
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
   <a href="../assistente/" data-strumento="assistente">Assistente</a>
     <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
     <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
@@ -39,6 +40,7 @@
 
   <header class="testata">
     <div>
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M16 42 V7 H36 V42 M10 42 H42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="5" cy="30" r="2.6"/><path d="M7 30 C14 30 18 24 24 24 H31" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <h1>Chiedo gli atti</h1>
       <p class="promessa">Chiedi documenti e dati a qualsiasi ente pubblico. Scegliamo insieme lo strumento giusto, la richiesta è pronta da inviare e, se l'ente tace o rifiuta, sai cosa fare dopo.</p>
     </div>

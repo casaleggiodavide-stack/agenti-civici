@@ -1,4 +1,8 @@
+<img src="comune/marchio.svg" width="72" alt="Il marchio degli agenti civici: un filo rosso legato a un nodo che attraversa un labirinto">
+
 # Agenti civici
+
+**Il filo per uscire dal labirinto.** La burocrazia è un labirinto; questi strumenti sono il filo di Arianna: un capo resta legato all'ingresso, alla fonte ufficiale, e il filo accompagna una regola dopo l'altra fino a quello che ti spetta. I passi e la firma restano tuoi.
 
 Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere niente a nessuno**: niente accordi con la pubblica amministrazione, niente server, niente chiavi API, niente registrazione. Solo norme pubbliche, dati aperti e calcoli che girano nel browser.
 
@@ -71,6 +75,10 @@ npm test                                # 93 casi: date e calendario, quattro st
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```
+
+## Identità visiva
+
+Carta #F5F1E8, inchiostro #17202E, filo rosso #C2362B (su fondo scuro #F06A55); titoli in Bricolage Grotesque, testo in Atkinson Hyperlegible. Ogni fonte ha accanto il suo «nodo» rosso. Il marchio è in `comune/marchio.svg`, le icone degli strumenti in `scripts/applica-marca.py`.
 
 ## Struttura
 

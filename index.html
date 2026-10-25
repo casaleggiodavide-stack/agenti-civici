@@ -5,14 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agenti civici</title>
 <meta name="description" content="Strumenti aperti al servizio del cittadino, che funzionano senza chiedere niente a nessuno: bonus che ti spettano, ricorso alle multe, accesso agli atti della pubblica amministrazione.">
+<link rel="icon" href="comune/marchio.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="comune/stile.css">
 <style>
   .strumenti { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 8px; }
-  .strumento { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 22px; display: grid; gap: 10px; align-content: start; text-decoration: none; color: inherit; border-top: 4px solid var(--accento); }
-  .strumento:hover { border-color: var(--accento); }
+  .strumento { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 22px; display: grid; gap: 10px; align-content: start; text-decoration: none; color: inherit; }
+  .strumento:hover { border-color: var(--inchiostro); }
+  .strumento .vai::after { content: " →"; }
+  @media (max-width: 640px) { .testata > svg { width: 84px; height: 92px; } }
   .strumento h2 { font-size: var(--s3); font-weight: 800; margin: 0; letter-spacing: -0.01em; }
   .strumento p { margin: 0; color: var(--inchiostro-2); font-size: var(--s0); }
   .strumento ul { margin: 0; padding-left: 18px; color: var(--inchiostro-2); font-size: var(--s0); display: grid; gap: 4px; }
@@ -23,16 +26,19 @@
 </head>
 <body>
 <div class="max">
-  <header class="testata" style="grid-template-columns:1fr">
+  <header class="testata" style="grid-template-columns:auto minmax(0,1fr);align-items:center">
+    <svg viewBox="0 0 64 70" width="132" height="144" role="img" aria-label="Il marchio degli agenti civici: un filo rosso legato a un nodo che attraversa un labirinto"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="3.4"/></svg>
     <div>
       <div class="occhiello">Al servizio del cittadino</div>
-      <h1>Agenti civici</h1>
-      <p class="promessa" style="max-width:52ch">Strumenti aperti che funzionano senza chiedere niente a nessuno: niente accordi con la pubblica amministrazione, niente server, niente registrazione. Solo norme pubbliche, dati aperti e i tuoi diritti.</p>
+      <h1>agenti civici</h1>
+      <p class="promessa" style="max-width:40ch;font-family:var(--titoli);font-weight:700;color:var(--inchiostro)">Il filo per uscire dal labirinto.</p>
+      <p class="promessa" style="max-width:56ch;margin-top:8px">Strumenti aperti che funzionano senza chiedere niente a nessuno: niente accordi con la pubblica amministrazione, niente server, niente registrazione. Solo norme pubbliche, dati aperti e i tuoi diritti.</p>
     </div>
   </header>
 
   <main class="strumenti">
     <a class="strumento" href="assistente/" data-strumento="assistente" style="grid-column:1/-1">
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M8 8 H40 V30 H22 L14 38 V30 H8 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="15" cy="19" r="2.6"/><path d="M17 19 C21 13 25 25 29 19 S33 16 34 17" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="occhiello">Novità · in conversazione, dentro Claude</div>
       <h2>Assistente civico</h2>
       <p>Racconta il tuo problema con parole tue: l'assistente fa le domande giuste e usa le regole degli strumenti qui sotto per rispondere, preparare il documento e segnarti le scadenze in calendario.</p>
@@ -40,6 +46,7 @@
       <span class="vai">Parla con l'assistente</span>
     </a>
     <a class="strumento" href="mi-spetta/" data-strumento="mi-spetta">
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><circle cx="28" cy="22" r="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="7" cy="41" r="2.6"/><path d="M9 39 C15 34 18 30 24 26" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="occhiello">Bonus e prestazioni</div>
       <h2>Mi spetta</h2>
       <p>A quali bonus e prestazioni pubbliche hai diritto, quanto valgono e come chiederli.</p>
@@ -47,6 +54,7 @@
       <span class="vai">Scopri cosa ti spetta</span>
     </a>
     <a class="strumento" href="faccio-ricorso/" data-strumento="faccio-ricorso">
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M12 5 H28 L34 11 V43 H12 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="33" r="2.6"/><path d="M40 33 H25 C19 33 19 23 25 23 H31 M28 19 L32 23 L28 27" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="occhiello">Multe stradali</div>
       <h2>Faccio ricorso?</h2>
       <p>Controlla la multa: termini, motivi oggettivi, quanto rischi. Se conviene, il ricorso è pronto.</p>
@@ -54,6 +62,7 @@
       <span class="vai">Controlla la tua multa</span>
     </a>
     <a class="strumento" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti">
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M16 42 V7 H36 V42 M10 42 H42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="5" cy="30" r="2.6"/><path d="M7 30 C14 30 18 24 24 24 H31" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="occhiello">Trasparenza</div>
       <h2>Chiedo gli atti</h2>
       <p>Chiedi documenti e dati a qualsiasi ente pubblico, e sai cosa fare se tace o rifiuta.</p>
@@ -61,6 +70,7 @@
       <span class="vai">Prepara la richiesta</span>
     </a>
     <a class="strumento" href="mi-rimborsano/" data-strumento="mi-rimborsano">
+      <svg class="icona" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M28 32 H43 V42 H28 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="9" cy="36" r="2.6"/><path d="M9 33 C9 12 34 8 34 22 C34 28 28 30 22 30 M25 26 L21 30 L25 34" class="m-filo" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="occhiello">Reclami e rimborsi</div>
       <h2>Mi rimborsano?</h2>
       <p>Volo in ritardo, treno soppresso, bagaglio perso, maxi-bolletta, internet che non va, addebito truffa: quanto ti spetta e la lettera pronta.</p>

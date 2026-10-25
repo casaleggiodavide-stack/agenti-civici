@@ -1,14 +1,14 @@
 /* Mi spetta — stile. Una scala tipografica, due temi, nessun colore fuori dai token. */
 :root {
-  --fondo: #F2F5F6;
-  --carta: #FFFFFF;
-  --inchiostro: #15212C;
-  --inchiostro-2: #455361;
-  --inchiostro-3: #6C7A86;
-  --riga: #D3DBE0;
-  --riga-tenue: #E6EBEE;
-  --accento: #3346A8;
-  --accento-tenue: #E3E7F8;
+  --fondo: #F5F1E8;
+  --carta: #FFFDF8;
+  --inchiostro: #17202E;
+  --inchiostro-2: #2B3444;
+  --inchiostro-3: #5D6270;
+  --riga: #DED6C4;
+  --riga-tenue: #EDE6D6;
+  --accento: #C2362B;
+  --accento-tenue: #F6E3DF;
   --sul-accento: #FFFFFF;
   --si: #16734A;
   --si-tenue: #DCF0E5;
@@ -24,15 +24,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --fondo: #0F151A; --carta: #161F27; --inchiostro: #E6EBEE; --inchiostro-2: #AAB6C0; --inchiostro-3: #7F8D99;
-    --riga: #2A3540; --riga-tenue: #212B34; --accento: #93A2F2; --accento-tenue: #232B52; --sul-accento: #0F151A;
+    --fondo: #111824; --carta: #17202E; --inchiostro: #F5F1E8; --inchiostro-2: #C9CED8; --inchiostro-3: #9AA1AE;
+    --riga: #2C3647; --riga-tenue: #1E2737; --accento: #F06A55; --accento-tenue: #3A2026; --sul-accento: #111824;
     --si: #62CF9C; --si-tenue: #15372A; --forse: #E5B65E; --forse-tenue: #382C12; --chiuso: #EBA06C; --chiuso-tenue: #3A2414;
     --no: #7F8D99; --no-tenue: #1D2730;
   }
 }
 :root[data-theme="dark"] {
-  --fondo: #0F151A; --carta: #161F27; --inchiostro: #E6EBEE; --inchiostro-2: #AAB6C0; --inchiostro-3: #7F8D99;
-  --riga: #2A3540; --riga-tenue: #212B34; --accento: #93A2F2; --accento-tenue: #232B52; --sul-accento: #0F151A;
+  --fondo: #111824; --carta: #17202E; --inchiostro: #F5F1E8; --inchiostro-2: #C9CED8; --inchiostro-3: #9AA1AE;
+  --riga: #2C3647; --riga-tenue: #1E2737; --accento: #F06A55; --accento-tenue: #3A2026; --sul-accento: #111824;
   --si: #62CF9C; --si-tenue: #15372A; --forse: #E5B65E; --forse-tenue: #382C12; --chiuso: #EBA06C; --chiuso-tenue: #3A2414;
   --no: #7F8D99; --no-tenue: #1D2730;
 }
@@ -216,3 +216,17 @@ input.numero { max-width: 120px; font-family: var(--cifre); }
 .foto .foto-esito { margin: 0; color: var(--inchiostro); }
 .foto .foto-errore { color: #A8361B; }
 @media print { .foto { display: none; } }
+
+/* Identità «Il filo per uscire dal labirinto» (25/10/2026): titoli in Bricolage Grotesque,
+   il filo rosso per accenti e collegamenti, il nodo accanto a ogni fonte. */
+:root { --titoli: "Bricolage Grotesque", var(--testo); }
+h1, h2, .verdetto .titolo, .strumento h2 { font-family: var(--titoli); letter-spacing: -0.02em; }
+h1 { font-weight: 800; }
+.m-filo { stroke: var(--accento); }
+.m-nodo { fill: var(--accento); }
+.icona { display: block; color: var(--inchiostro); flex: none; }
+.famiglia .marchio { display: inline-flex; align-items: center; gap: 8px; font-family: var(--titoli); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--inchiostro); margin-right: 8px; }
+.famiglia .marchio .segno-marchio { color: var(--inchiostro); }
+.testata .icona { margin-bottom: 10px; }
+.btn-primario { background: var(--inchiostro) !important; border-color: var(--inchiostro) !important; color: var(--fondo) !important; }
+.fonti a::before { content: ""; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--accento); margin-right: 0.45em; vertical-align: 0.05em; }
