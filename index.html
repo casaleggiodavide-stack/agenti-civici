@@ -22,6 +22,10 @@
   .strumento .vai { color: var(--accento); font-weight: 600; font-size: var(--s0); }
   .principi { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 28px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--riga); font-size: var(--s0); color: var(--inchiostro-2); }
   .principi b { display: block; color: var(--inchiostro); margin-bottom: 2px; }
+  .griglia-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  @media (max-width: 720px) { .griglia-2 { grid-template-columns: minmax(0, 1fr) !important; } }
+  .griglia-2 .strumento p { margin: 6px 0 0; }
+  .gruppi h3 { font-family: var(--titoli); font-size: var(--s2); font-weight: 800; margin: 4px 0 0; }
 </style>
 </head>
 <body>
@@ -116,7 +120,7 @@
     <section class="mondo" aria-labelledby="t-mondo" style="margin-top:44px">
     <h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli agenti civici nel mondo</h2>
     <p style="margin:0 0 16px;color:var(--inchiostro-2);max-width:70ch">Questi strumenti non nascono dal nulla. Nel 2026 molti Paesi usano già l'intelligenza artificiale per servire, informare e far partecipare i cittadini: alcuni casi funzionano, altri sono stati chiusi. L'Atlante ne censisce circa 110, con le fonti.</p>
-    <div class="strumenti" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="strumenti griglia-2">
       <div class="strumento" style="cursor:default"><div class="occhiello">Dal chatbot all'agente</div><p>Corea del Sud, Emirati, Regno Unito ed Estonia passano dall'assistente che risponde a quello che <b>completa la pratica</b>: trova il beneficio, compila la domanda, la fa solo confermare.</p></div>
       <div class="strumento" style="cursor:default"><div class="occhiello">I fallimenti insegnano</div><p>Il chatbot di New York consigliava di violare la legge ed è stato chiuso; DoNotPay è stato sanzionato. La lezione: <b>nessuna risposta senza fonte</b>, mai pareri legali.</p></div>
       <div class="strumento" style="cursor:default"><div class="occhiello">I dati diventano strumenti</div><p>Stati Uniti e Regno Unito espongono norme, statistiche e atti come strumenti per gli assistenti AI. Chi rende i dati leggibili dagli agenti diventa <b>infrastruttura</b>.</p></div>
@@ -124,11 +128,11 @@
     </div>
     <h3 style="font-size:var(--s2);margin:28px 0 6px">Cosa si può fare, e per chi</h3>
     <p style="margin:0 0 14px;color:var(--inchiostro-2);max-width:70ch">Il catalogo divide gli strumenti possibili in quattro gruppi. Per ognuno: cosa esiste già nel mondo, cosa manca in Italia, cosa è stato fatto qui.</p>
-    <div class="strumenti" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-      <a class="strumento" href="catalogo/#governo"><div class="occhiello">01 · Governo nazionale e locale</div><h2>Per chi governa</h2><p>Assistente unico ai servizi, rete di agenti tra enti, agente proattivo dei benefici, registro pubblico degli agenti AI, sedute del consiglio trascritte.</p><span class="vai">13 strumenti</span></a>
-      <a class="strumento" href="catalogo/#trasparenza"><div class="occhiello">02 · Trasparenza</div><h2>Per chi controlla</h2><p>Il mio parlamentare, Gazzetta in chiaro, nomine pubbliche, appalti, bilanci, accesso agli atti, lobby e conflitti d'interesse.</p><span class="vai">15 strumenti</span></a>
-      <a class="strumento" href="catalogo/#aggregazioni"><div class="occhiello">03 · Partiti e aggregazioni</div><h2>Per chi si organizza</h2><p>Intervistatore civico, mappa delle opinioni, programma versionato, assemblee sorteggiate, voto interno certificato, fondi in chiaro.</p><span class="vai">14 strumenti</span></a>
-      <a class="strumento" href="catalogo/#servizi"><div class="occhiello">04 · Accesso ai servizi</div><h2>Per chi ha diritto</h2><p>Bonus e sussidi, servizi con fonti, multe, reclami, diritti di inquilini e consumatori, lettere ai rappresentanti.</p><span class="vai">13 strumenti</span></a>
+    <div class="strumenti griglia-2 gruppi">
+      <a class="strumento" href="catalogo/#governo"><div class="occhiello">01 · Governo nazionale e locale</div><h3>Per chi governa</h3><p>Assistente unico ai servizi, rete di agenti tra enti, agente proattivo dei benefici, registro pubblico degli agenti AI, sedute del consiglio trascritte.</p><span class="vai">13 strumenti</span></a>
+      <a class="strumento" href="catalogo/#trasparenza"><div class="occhiello">02 · Trasparenza</div><h3>Per chi controlla</h3><p>Il mio parlamentare, Gazzetta in chiaro, nomine pubbliche, appalti, bilanci, accesso agli atti, lobby e conflitti d'interesse.</p><span class="vai">15 strumenti</span></a>
+      <a class="strumento" href="catalogo/#aggregazioni"><div class="occhiello">03 · Partiti e aggregazioni</div><h3>Per chi si organizza</h3><p>Intervistatore civico, mappa delle opinioni, programma versionato, assemblee sorteggiate, voto interno certificato, fondi in chiaro.</p><span class="vai">14 strumenti</span></a>
+      <a class="strumento" href="catalogo/#servizi"><div class="occhiello">04 · Accesso ai servizi</div><h3>Per chi ha diritto</h3><p>Bonus e sussidi, servizi con fonti, multe, reclami, diritti di inquilini e consumatori, lettere ai rappresentanti.</p><span class="vai">13 strumenti</span></a>
     </div>
     <p style="margin:16px 0 0"><a href="mondo/">Leggi l'Atlante degli agenti civici nel mondo</a> · <a href="catalogo/">Apri il catalogo completo</a></p>
   </section>
