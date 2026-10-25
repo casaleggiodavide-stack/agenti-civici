@@ -10,6 +10,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  .foto-testata { margin: 16px 0 4px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
+  body:has(.foto-testata) .scena-testata { display: none; }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
+</style>
 </head>
 <body>
 <div class="max">
@@ -39,6 +44,7 @@
       <li><b>Dice anche quando non spetta.</b> E quando una regola è incerta.</li>
     </ul>
   </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="Una giovane in aeroporto, seduta accanto al trolley, guarda il telefono con un mezzo sorriso di sollievo" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <div class="esempi">
     <span class="esempi-etichetta">Prova con un esempio</span>

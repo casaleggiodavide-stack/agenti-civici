@@ -44,6 +44,9 @@
   .argomento h3 { font-size: var(--s1); margin: 0 0 8px; }
   .argomento ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: var(--s0); }
   .argomento .link { text-align: left; }
+  .foto-testata { margin: 16px 0 4px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
+  body:has(.foto-testata) .scena-testata { display: none; }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
 </style>
 </head>
 <body>
@@ -74,6 +77,7 @@
       <li><b>Attento ai siti a pagamento:</b> ti porta sempre al servizio pubblico, quasi sempre gratuito.</li>
     </ul>
   </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="Un uomo sui gradini di un municipio con i portici controlla sul telefono i passi di una pratica, con la carta d'identità e una cartellina in mano" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <div class="esempi">
     <span class="esempi-etichetta">Per esempio</span>
