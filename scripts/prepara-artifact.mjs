@@ -13,7 +13,7 @@ for (const d of ['src', 'web', 'dati']) if (existsSync(new URL(`${strumento}/${d
 let html = readFileSync(new URL(`${strumento}/index.html`, radice), 'utf8');
 const stile = (html.match(/<style>[\s\S]*?<\/style>/) || [''])[0];
 const intest = html.match(/<head>([\s\S]*?)<\/head>/)[1].split('\n').filter((r) => /<title>|<link /.test(r)).join('\n');
-let body = html.match(/<body>([\s\S]*?)<\/body>/)[1];
+let body = html.match(/<body>([\s\S]*?)<\/body>/)[1].replaceAll(`href="../${strumento}/"`, 'href="#"');
 for (const [nome, url] of Object.entries(link)) body = body.replaceAll(`href="../${nome}/"`, `href="${url}" target="_top"`);
 writeFileSync(`${dest}/${strumento}.html`, `${intest}\n${stile}\n${body}`);
 console.log(`${dest}/${strumento}.html pronto`);

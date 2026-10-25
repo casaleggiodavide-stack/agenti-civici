@@ -57,7 +57,7 @@ tabella();
 
 // ---------- Le foto ----------
 
-$('#galleria').innerHTML = FOTO.map((f) => `<figure><img src="web/edizioni/${esc(f.file)}" alt="${esc(f.testo)}" loading="lazy" decoding="async"><figcaption><b>${f.anno}</b>${esc(f.testo)}</figcaption></figure>`).join('')
+$('#galleria').innerHTML = FOTO.map((f) => `<figure><img src="${esc(new URL(`edizioni/${f.file}`, import.meta.url).href)}" alt="${esc(f.testo)}" loading="lazy" decoding="async"><figcaption><b>${f.anno}</b>${esc(f.testo)}</figcaption></figure>`).join('')
   + '<p style="grid-column:1/-1;font-size:var(--s-1);color:var(--inchiostro-3);margin:0">Foto dagli articoli del Blog delle Stelle sulle edizioni, indicati nella tabella.</p>';
 
 // ---------- I passi ----------
