@@ -16,6 +16,12 @@ import * as lombardia from './lombardia.js';
 import * as valleDAosta from './valle_d_aosta.js';
 import * as piemonte from './piemonte.js';
 import * as abruzzo from './abruzzo.js';
+import * as sardegna from './sardegna.js';
+import * as sicilia from './sicilia.js';
+import * as calabria from './calabria.js';
+import * as campania from './campania.js';
+import * as basilicata from './basilicata.js';
+import * as puglia from './puglia.js';
 
 export const REGIONALI = [
   ...Object.values(toscana),
@@ -33,4 +39,10 @@ export const REGIONALI = [
   ...Object.values(valleDAosta),
   ...Object.values(piemonte),
   ...Object.values(abruzzo),
+  ...Object.values(sardegna),
+  ...Object.values(sicilia),
+  ...Object.values(calabria),
+  ...Object.values(campania),
+  ...Object.values(basilicata),
+  ...Object.values(puglia),
 ];

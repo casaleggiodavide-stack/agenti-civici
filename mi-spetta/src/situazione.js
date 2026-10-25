@@ -37,7 +37,7 @@ export const DOMANDE = [
     ],
   },
   {
-    id: 'regione', sezione: 'tu', tipo: 'scelta', etichetta: 'In quale Regione hai la residenza?',
+    id: 'regione', sezione: 'tu', tipo: 'elenco', etichetta: 'In quale Regione hai la residenza?',
     aiuto: 'Serve per le misure regionali. Se non la indichi vedi solo quelle nazionali.',
     opzioni: REGIONI,
   },

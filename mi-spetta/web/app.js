@@ -61,7 +61,11 @@ function campo(d) {
   const desc = d.aiuto ? ` aria-describedby="${id}-aiuto"` : '';
   if (d.tipo === 'numero') {
     return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}
-      <input class="numero" type="number" inputmode="numeric" id="${id}" name="${d.id}" min="${d.min ?? 0}" max="${d.max ?? 999}"${desc}>`;
+      <input class="numero" type="number" inputmode="${d.passo ? 'decimal' : 'numeric'}" id="${id}" name="${d.id}" min="${d.min ?? 0}" max="${d.max ?? 999}"${d.passo ? ` step="${d.passo}"` : ''}${desc}>`;
+  }
+  if (d.tipo === 'elenco') {
+    return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}
+      <select id="${id}" name="${d.id}"${desc}><option value="">Non indicata</option>${d.opzioni.map(([v, t]) => `<option value="${v}">${esc(t)}</option>`).join('')}</select>`;
   }
   if (d.tipo === 'euro') {
     return `<label for="${id}">${esc(d.etichetta)}</label>${aiuto}
@@ -118,7 +122,7 @@ function riempiForm() {
       $('#q-' + d.id + '-no').checked = v === false;
     } else if (d.tipo === 'scelta') {
       d.opzioni.forEach(([val], i) => { $('#q-' + d.id + '-' + i).checked = v === val; });
-    }
+    } else if (d.tipo === 'elenco') $('#q-' + d.id).value = v ?? '';
   }
   $('#nessun-figlio').checked = Array.isArray(risposte.figli) && risposte.figli.length === 0;
   disegnaFigli();
@@ -178,6 +182,7 @@ function aggiornaDaForm(ev) {
     else if (d.tipo === 'euro') risposte[d.id] = leggiNumero(t.value);
     else if (d.tipo === 'si_no') risposte[d.id] = t.value === 'si';
     else if (d.tipo === 'scelta') risposte[d.id] = t.value;
+    else if (d.tipo === 'elenco') risposte[d.id] = t.value || undefined;
   }
   if (inEsempio) esciDaEsempio(false);
   ricalcola();
