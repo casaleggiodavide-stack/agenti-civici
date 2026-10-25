@@ -1,6 +1,6 @@
 # Pubblica il sito su GitHub Pages dopo che i controlli sono passati.
 # Va attivato in Settings > Pages > Source: GitHub Actions.
-# Pubblica solo le pagine degli strumenti: niente dati dell'osservatorio né stato della sentinella.
+# Pubblica solo le pagine degli strumenti, senza lo stato della sentinella.
 name: Pagine
 on:
   workflow_run:

@@ -153,10 +153,16 @@ export function nonLeggibile(testo) {
 
 export const impronta = (testo) => createHash('sha256').update(testo).digest('hex').slice(0, 16);
 
-/** Quanto è cambiato un testo, in parole: 0 identico, 1 tutto diverso. */
+/**
+ * Le parole di un testo come impronte brevi: bastano a misurare quanto cambia
+ * una pagina senza conservarne il testo (lo stato è pubblico su GitHub).
+ */
+export const parole = (testo) => [...new Set(String(testo).split(' ').filter(Boolean).map((w) => createHash('sha256').update(w).digest('hex').slice(0, 6)))].sort();
+
+/** Quanto è cambiato un testo, in parole: 0 identico, 1 tutto diverso. Accetta testi o elenchi di parole. */
 export function quotaCambiata(prima, dopo) {
-  const a = new Set(String(prima).split(' '));
-  const b = new Set(String(dopo).split(' '));
+  const a = new Set(Array.isArray(prima) ? prima : String(prima).split(' '));
+  const b = new Set(Array.isArray(dopo) ? dopo : String(dopo).split(' '));
   const uniti = new Set([...a, ...b]);
   if (!uniti.size) return 0;
   let comuni = 0;
@@ -171,7 +177,9 @@ export function confronta(prima, ora) {
   if (prima.impronta === ora.impronta) return { esito: 'uguale' };
   const comparsi = (ora.importi || []).filter((x) => !(prima.importi || []).includes(x));
   const spariti = (prima.importi || []).filter((x) => !(ora.importi || []).includes(x));
-  const quota = prima.testo && ora.testo ? quotaCambiata(prima.testo, ora.testo) : null;
+  const pa = prima.parole || (prima.testo ? parole(prima.testo) : null);
+  const pb = ora.parole || (ora.testo ? parole(ora.testo) : null);
+  const quota = pa?.length && pb?.length ? quotaCambiata(pa, pb) : null;
   // Sotto il 2% di parole diverse e senza importi toccati è quasi sempre una data o un contatore.
   const minore = quota !== null && quota < 0.02 && !comparsi.length && !spariti.length;
   return { esito: minore ? 'ritocco' : 'cambiata', quota, comparsi, spariti };

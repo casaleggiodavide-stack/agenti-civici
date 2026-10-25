@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import {
-  AGENTE, FEED, raccogliFonti, robotsConsente, testoVisibile, importi, impronta,
+  AGENTE, FEED, raccogliFonti, robotsConsente, testoVisibile, importi, impronta, parole,
   confronta, nonLeggibile, vociFeed, pertinenza, revisioni, rapporto, giorno,
 } from '../sentinella/sentinella.js';
 
@@ -54,14 +54,14 @@ async function leggi(url, { grezzo = false } = {}) {
     const tipo = r.headers.get('content-type') || '';
     if (/pdf|octet-stream/.test(tipo)) {
       const b = Buffer.from(await r.arrayBuffer());
-      return { ok: true, stato: r.status, finale: r.url, impronta: impronta(b.toString('latin1')), importi: [], testo: '' };
+      return { ok: true, stato: r.status, finale: r.url, impronta: impronta(b.toString('latin1')), importi: [], parole: [] };
     }
     const corpo = await r.text();
     if (grezzo) return { ok: true, stato: r.status, corpo };
     const testo = testoVisibile(corpo);
     const errore = nonLeggibile(testo);
     if (errore) return { ok: false, illeggibile: true, stato: r.status, errore };
-    return { ok: true, stato: r.status, finale: r.url, impronta: impronta(testo), importi: importi(testo), testo };
+    return { ok: true, stato: r.status, finale: r.url, impronta: impronta(testo), importi: importi(testo), parole: parole(testo) };
   } catch (e) {
     return { ok: false, errore: e.cause?.code || e.name || String(e) };
   }
@@ -80,8 +80,8 @@ for (const f of fonti) {
     const cambiata = f.confronto.esito === 'cambiata' || f.confronto.esito === 'nuova';
     stato.fonti[f.url] = {
       titolo: f.titolo, impronta: ora.impronta, importi: ora.importi,
-      // Teniamo il testo solo per misurare quanto cambia la volta dopo.
-      testo: ora.testo.slice(0, 60000),
+      // Solo le impronte delle parole, per misurare quanto cambia la volta dopo.
+      parole: ora.parole,
       letta: oggi, cambiata: cambiata ? oggi : prima?.cambiata || oggi,
     };
   } else {
