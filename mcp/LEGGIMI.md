@@ -13,6 +13,7 @@ Strumenti (tutti in sola lettura, nessun dato salvato):
 | `trova_pratica` | Navigatore dei servizi: cosa devo fare per… passi, documenti, costi, tempi e fonti delle pratiche più comuni |
 | `prepara_segnalazione` | Segnalazioni urbane: chi deve intervenire su una buca, un lampione, rifiuti, barriere, con la PEC e la segnalazione pronta |
 | `reclamo_pa` | Reclami alla PA: pratica ferma o disservizio, potere sostitutivo, difensore civico, termini e lettera |
+| `raccolte_firme` | Raccolte firme in corso: firme online, obiettivo, scadenza, probabilità e link per firmare |
 | `bilancio_comune` | Il bilancio del mio Comune: spesa, entrate e conti dal rendiconto ufficiale, con il confronto con i Comuni simili |
 | `appalti_ente` | Red flag sugli appalti: segnali di rischio negli appalti di un ente pubblico, dai dati aperti ANAC |
 | `search`, `fetch` | Cerca e leggi le schede (prestazioni e strumenti), anche per le funzioni di ricerca approfondita |

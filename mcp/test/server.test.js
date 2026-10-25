@@ -16,7 +16,7 @@ function sessione(messaggi) {
   });
 }
 
-test('server MCP: dodici strumenti, risposte con fonti e documenti', async () => {
+test('server MCP: tredici strumenti, risposte con fonti e documenti', async () => {
   const [init, lista, multa, ente, atti] = await sessione([
     { id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'test', version: '1' } } },
     { method: 'notifications/initialized' },
@@ -26,7 +26,7 @@ test('server MCP: dodici strumenti, risposte con fonti e documenti', async () =>
     { id: 5, method: 'tools/call', params: { name: 'prepara_accesso_atti', arguments: { cosa: 'Elenco delle consulenze affidate nel 2025 con importo e affidatario', ente_nome: 'Comune di Lecce', oggi: '2026-10-11' } } },
   ]);
   assert.equal(init.result.serverInfo.name, 'agenti-civici');
-  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch', 'bilancio_comune', 'appalti_ente', 'prepara_segnalazione', 'reclamo_pa', 'trova_pratica']);
+  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch', 'bilancio_comune', 'appalti_ente', 'prepara_segnalazione', 'reclamo_pa', 'raccolte_firme', 'trova_pratica']);
   const tm = multa.result.content[0].text;
   assert.match(tm, /Verbale spedito dopo 99 giorni/);
   assert.match(tm, /protocollo\.prefna@pec\.interno\.it/);

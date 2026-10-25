@@ -16,7 +16,7 @@ test('initialize, tools/list e una chiamata via HTTP', async () => {
   const notifica = await post({ jsonrpc: '2.0', method: 'notifications/initialized' });
   assert.equal(notifica.status, 202);
   const lista = await (await post({ jsonrpc: '2.0', id: 2, method: 'tools/list' })).json();
-  assert.equal(lista.result.tools.length, 12);
+  assert.equal(lista.result.tools.length, 13);
   const treno = await (await post({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'valuta_reclamo', arguments: { caso: 'treno', ritardo_minuti: 75, prezzo_treno: 40, causa_treno: 'guasto', oggi: '2026-10-25' } } })).json();
   assert.match(treno.result.content[0].text, /10 €/);
 });

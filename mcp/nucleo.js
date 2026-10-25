@@ -31,8 +31,10 @@ import { documento as docSegnalazione } from '../segnalazioni/src/documento.js';
 import { valuta as valutaReclamoPa } from '../reclami-pa/src/regole.js';
 import { DOMANDE as D_RECPA } from '../reclami-pa/src/domande.js';
 import { lettera as letteraPa, destinatario as destinatarioPa } from '../reclami-pa/src/documento.js';
+import RACCOLTE, { LETTO as LETTO_FIRME, SERIE as SERIE_FIRME } from '../raccolte-firme/dati/raccolte.js';
+import { stima as stimaFirme, LIVELLI as LIVELLI_FIRME, dettaglio as dettaglioFirme, FONTI as FONTI_FIRME } from '../raccolte-firme/src/stima.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.6.0' };
+export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.7.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -326,6 +328,18 @@ TOOLS.push(
   { name: 'reclamo_pa', title: 'Reclami alla PA', description: 'Reclami alla PA e difensore civico: per una pratica ferma, un preavviso di rigetto, un disservizio, una prestazione sanitaria negata, un servizio digitale che non funziona o un problema di dati personali indica il passo giusto (sollecito, titolare del potere sostitutivo, difensore civico regionale, Garante, giudice), calcola i termini della legge 241/1990 e prepara la lettera. L\'ente si indica con ente_nome.', inputSchema: schema(D_RECPA, { ente_nome: { type: 'string', description: 'Nome dell\'ente, es. «Comune di Bari»' }, oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
 );
 
+function rispostaFirme({ cerca: q = '', solo_attive: attive = true } = {}) {
+  const parole = norm(q).split(/[^a-z0-9]+/).filter((w) => w.length > 2);
+  const lista = RACCOLTE.map((x) => ({ x, s: stimaFirme(x, { oggi: LETTO_FIRME, serie: SERIE_FIRME[x.id] }) }))
+    .filter(({ x, s }) => (!attive || s.attiva) && parole.every((w) => norm(`${x.titolo} ${x.breve}`).includes(w)));
+  const righe = [`# Raccolte firme ${attive ? 'in corso' : ''} (dati della piattaforma pubblica del Ministero della Giustizia, letti il ${LETTO_FIRME})`];
+  for (const { x, s } of lista.slice(0, 40)) righe.push(`- ${x.titolo} (${x.tipo === 'referendum' ? 'referendum' : 'proposta di legge'}): ${x.firme.toLocaleString('it-IT')} firme online su ${x.quorum?.toLocaleString('it-IT')}${x.fine ? `, scadenza ${x.fine}` : ', senza scadenza indicata'}. Stima: ${LIVELLI_FIRME[s.livello][0]}${s.servono ? `; servono ${Math.round(s.servono)} firme al giorno, ritmo ${Math.round(s.ritmo || 0)}` : ''}. Firma: ${dettaglioFirme(x.id)}`);
+  righe.push('\nLe firme su carta non sono comprese. Metodo: ritmo delle firme confrontato con quello necessario fino alla scadenza. Fonte: ' + FONTI_FIRME.piattaforma.url);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: { letto: LETTO_FIRME, raccolte: lista.map(({ x, s }) => ({ ...x, stima: s })) } };
+}
+
+TOOLS.push({ name: 'raccolte_firme', title: 'Raccolte firme in corso', description: 'Le raccolte firme online per proposte di legge di iniziativa popolare e referendum sulla piattaforma pubblica del Ministero della Giustizia: firme online, obiettivo, scadenza, stima della probabilità di arrivare all\'obiettivo e link per firmare. Filtra con cerca (parole del titolo).', inputSchema: { type: 'object', properties: { cerca: { type: 'string', description: 'Parole da cercare, es. «sanità»' }, solo_attive: { type: 'boolean', description: 'Solo quelle in corso (predefinito sì)' } } } });
+
 TOOLS.push({ name: 'trova_pratica', title: 'Navigatore dei servizi', description: `Navigatore dei servizi pubblici: «cosa devo fare per…». Trova la scheda verificata sulle fonti ufficiali tra ${PRATICHE.length} pratiche (residenza, carta d'identità, passaporto, SPID, nascita, matrimonio, decesso e successione, permesso di soggiorno, cittadinanza, medico di base, scuola, ISEE, 730, NASpI, pensione, patente, passaggio di proprietà, affitto, invalidità…) e restituisce passi, documenti, costi, tempi, scadenze e fonti. Se non c'è una scheda lo dice.`, inputSchema: { type: 'object', properties: { domanda: { type: 'string', description: 'La domanda con parole del cittadino, es. «ho venduto la macchina»' }, id: { type: 'string', description: 'Id di una scheda già trovata, in alternativa' } } } });
 
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
@@ -334,11 +348,11 @@ for (const t of TOOLS) {
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+const GESTORI = { raccolte_firme: rispostaFirme, prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [
-  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), segnalazioni di problemi in strada (prepara_segnalazione), reclami verso uffici pubblici e difensore civico (reclamo_pa), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
+  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), segnalazioni di problemi in strada (prepara_segnalazione), reclami verso uffici pubblici e difensore civico (reclamo_pa), raccolte firme in corso (raccolte_firme), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',
   'Non sono pareri legali: decide sempre l\'ente o il giudice. Per i casi complessi indica un patronato, un CAF, un\'associazione di consumatori o un avvocato.',

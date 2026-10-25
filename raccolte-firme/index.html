@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raccolte firme in corso</title>
+<meta name="description" content="Le raccolte firme online per proposte di legge di iniziativa popolare e referendum: quante firme hanno, quanto manca, la scadenza e la probabilità di arrivare all'obiettivo, dai dati della piattaforma pubblica del Ministero della Giustizia.">
+<link rel="icon" href="src/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  .cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 8px 0 18px; }
+  .cifre div { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 12px 14px; }
+  .cifre b { display: block; font-family: var(--cifre); font-size: var(--s3); font-variant-numeric: tabular-nums; }
+  .cifre span { font-size: var(--s-1); color: var(--inchiostro-3); }
+  .filtri-raccolte { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 14px; }
+  .filtri-raccolte button { font: inherit; font-size: var(--s0); background: var(--carta); border: 1px solid var(--riga); border-radius: 999px; padding: 6px 12px; cursor: pointer; color: var(--inchiostro); }
+  .filtri-raccolte button[aria-pressed="true"] { background: var(--inchiostro); color: var(--fondo); border-color: var(--inchiostro); }
+  .filtri-raccolte .sep { width: 12px; }
+  .filtri-raccolte input { max-width: 320px; margin-left: auto; }
+  .raccolte { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+  .raccolta { background: var(--carta); border: 1px solid var(--riga); border-left: 5px solid var(--neutro); border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; align-content: start; }
+  .raccolta[data-tono="si"] { border-left-color: var(--si); } .raccolta[data-tono="forse"] { border-left-color: var(--forse); } .raccolta[data-tono="no"] { border-left-color: var(--no); }
+  .raccolta h3 { font-size: var(--s1); margin: 0; line-height: 1.3; }
+  .raccolta p { margin: 0; font-size: var(--s0); color: var(--inchiostro-2); }
+  .raccolta .numeri { font-family: var(--cifre); font-variant-numeric: tabular-nums; font-size: var(--s0); }
+  .raccolta .numeri b { font-size: var(--s2); }
+  .barra { height: 10px; background: var(--riga-tenue); border-radius: 5px; overflow: hidden; position: relative; }
+  .barra span { display: block; height: 100%; background: var(--accento); border-radius: 5px; }
+  .barra i { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--inchiostro-3); }
+  .raccolta small { color: var(--inchiostro-3); font-size: var(--s-1); }
+  .raccolta .azioni { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tabella-concluse { width: 100%; border-collapse: collapse; font-size: var(--s0); background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .tabella-concluse th { text-align: left; font-family: var(--cifre); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: .05em; color: var(--inchiostro-3); padding: 0; border-bottom: 1px solid var(--riga); }
+  .tabella-concluse th button { all: unset; cursor: pointer; display: block; padding: 8px 10px; }
+  .tabella-concluse th[aria-sort="descending"] button::after { content: " ↓"; } .tabella-concluse th[aria-sort="ascending"] button::after { content: " ↑"; }
+  .tabella-concluse td { padding: 8px 10px; border-bottom: 1px solid var(--riga-tenue); vertical-align: top; }
+  .tabella-concluse td.n { font-family: var(--cifre); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .foto-testata { margin: 16px 0 14px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
+  body:has(.foto-testata) .scena-testata { display: none; }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
+    <a href="../assistente/" data-strumento="assistente">Assistente</a>
+    <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme" aria-current="page">Raccolte firme</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:raccolte-firme--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un banchetto con un modulo e due persone che firmano dal telefono: le raccolte firme" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="40" y="60" width="150" height="10" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M56 70 L48 130 M174 70 L182 130"/><rect class="s-l" x="70" y="30" width="44" height="30" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M78 40 H106 M78 48 H98"/><path class="s-l" d="M224.0 130.0 C224.0 106.0 256.0 106.0 256.0 130.0 Z" style="fill:var(--carta)"/><circle class="s-l" cx="240" cy="100.0" r="9.0" style="fill:var(--carta)"/><path class="s-l" d="M269.2 124.0 C269.2 98.8 302.8 98.8 302.8 124.0 Z" style="fill:var(--accento-tenue)"/><circle class="s-l" cx="286" cy="92.5" r="9.5" style="fill:var(--carta)"/><rect class="s-l" x="254" y="76" width="18" height="30" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M20 130 H300"/><circle class="s-r" cx="24" cy="100" r="5"/><path class="s-t" d="M30 100 C40 92 60 96 70 92 M114 46 C150 40 190 60 210 70 C224 78 240 84 254 88"/><path class="s-t" d="M150 52 C156 46 160 58 166 52"/></svg></div><!--/scena-->
+      <!--logo:raccolte-firme--><div class="titolo-logo"><svg class="logo-strumento" viewBox="0 0 64 64" role="img" aria-label="Logo di Raccolte firme in corso"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M17 12 H41 L47 18 V52 H17 Z M41 12 V18 H47 M23 24 H39 M23 31 H35"/><path class="lg-t" d="M12 50 C18 50 20 42 25 42 S30 48 34 44 S40 38 44 42 L52 34"/><circle class="lg-n" cx="9" cy="50" r="3.4"/></svg><h1>Raccolte firme in corso</h1></div><!--/logo-->
+      <p class="promessa">Le proposte di legge e i referendum che si possono firmare online: quante firme hanno, quanto manca, la scadenza e quanto è probabile che arrivino all'obiettivo.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Dati ufficiali,</b> dalla piattaforma pubblica del Ministero della Giustizia, aggiornati ogni giorno.</li>
+      <li><b>Metodo dichiarato:</b> confronto tra il ritmo delle firme e quello che servirebbe fino alla scadenza.</li>
+      <li><b>Per firmare</b> si va sulla piattaforma con SPID o CIE: qui c'è il link diretto.</li>
+    </ul>
+  </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="A un banchetto in piazza una volontaria mostra a una passante come firmare una proposta dal telefono; un signore aspetta il suo turno e una coppia legge un volantino" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+  
+
+  
+
+  <main>
+    <div class="cifre" id="riepilogo"></div>
+    <div class="filtri-raccolte" role="group" aria-label="Filtra">
+      <button type="button" data-f="attive" aria-pressed="true">In corso</button>
+      <button type="button" data-f="concluse" aria-pressed="false">Concluse</button>
+      <span class="sep"></span>
+      <button type="button" data-t="tutte" aria-pressed="true">Tutte</button>
+      <button type="button" data-t="legge" aria-pressed="false">Proposte di legge</button>
+      <button type="button" data-t="referendum" aria-pressed="false">Referendum</button>
+      <input type="search" id="cerca-raccolta" placeholder="Cerca per parola: sanità, animali, guerra…" aria-label="Cerca una raccolta">
+    </div>
+    <div id="elenco" class="raccolte" aria-live="polite"></div>
+    <section class="pannello" aria-labelledby="t-metodo" style="margin-top:28px">
+      <div class="occhiello">Come leggiamo i numeri</div>
+      <h2 id="t-metodo">Il metodo</h2>
+      <div id="metodo"></div>
+    </section>
+  </main>
+
+  <footer class="piede">
+    <p><b>Raccolte firme in corso non è un sito della pubblica amministrazione</b> e non raccoglie firme: per firmare si usa la piattaforma pubblica, con SPID, CIE o CNS. I numeri sono le firme online mostrate dalla piattaforma: non comprendono quelle raccolte su carta ai banchetti o nei Comuni, quindi una raccolta può arrivare all'obiettivo anche se qui non risulta.</p>
+    <p>Fonte: piattaforma per la raccolta delle firme degli elettori del Ministero della Giustizia, riuso non commerciale con citazione della fonte. Codice aperto, nessun tracciamento.</p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

@@ -147,6 +147,15 @@ SCENE = {
         '<path class="s-t" d="M168 50 C180 44 194 46 206 40 S226 30 234 28"/>',
         'Cinque persone intorno a un tavolo, due con la mano alzata, unite dallo stesso filo rosso; sopra, un grafico: partecipare alle scelte con i dati', '0 0 400 170'),
 
+    'raccolte-firme': svg(
+        '<rect class="s-l" x="40" y="60" width="150" height="10" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M56 70 L48 130 M174 70 L182 130"/>'
+        '<rect class="s-l" x="70" y="30" width="44" height="30" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M78 40 H106 M78 48 H98"/>'
+        + persona(240, 130, 1.0) + persona(286, 124, 1.05, rossa=True) +
+        '<rect class="s-l" x="254" y="76" width="18" height="30" rx="3" style="fill:var(--carta)"/>'
+        '<path class="s-l" d="M20 130 H300"/>'
+        f'{NODO(24, 100, 5)}<path class="s-t" d="M30 100 C40 92 60 96 70 92 M114 46 C150 40 190 60 210 70 C224 78 240 84 254 88"/><path class="s-t" d="M150 52 C156 46 160 58 166 52"/>',
+        'Un banchetto con un modulo e due persone che firmano dal telefono: le raccolte firme', '0 0 320 140'),
+
     'governa': svg(
         '<path class="s-l" d="M70 50 L160 18 L250 50 Z" style="fill:var(--carta)"/><path class="s-l" d="M80 54 H240 M92 58 V110 M124 58 V110 M156 58 V110 M188 58 V110 M220 58 V110 M70 114 H250 M62 122 H258"/>'
         '<path class="s-l" d="M160 18 V4"/><path class="s-r" d="M161 4 H180 L174 9 L180 14 H161 Z"/>',
@@ -179,6 +188,7 @@ POSTI = [
     ('index.html', '<a class="strumento" href="appalti/" data-strumento="appalti">', 'appalti'),
     ('index.html', '<a class="strumento" href="segnalazioni/" data-strumento="segnalazioni">', 'segnalazioni'),
     ('index.html', '<a class="strumento" href="reclami-pa/" data-strumento="reclami-pa">', 'reclami-pa'),
+    ('index.html', '<a class="strumento" href="raccolte-firme/" data-strumento="raccolte-firme">', 'raccolte-firme'),
     ('index.html', '<a class="strumento" href="catalogo/#governo">', 'governa'),
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
@@ -197,7 +207,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
@@ -287,6 +297,7 @@ LOGHI = {
     'segnalazioni': ('Segnalazioni urbane', _logo('<path class="lg-i" d="M32 50 C22 38 18 32 18 25 A14 14 0 0 1 46 25 C46 32 42 38 32 50 Z"/><path class="lg-i" d="M32 18 V27"/><circle class="lg-n" cx="32" cy="32" r="2.2"/>', 'M12 52 C18 52 22 50 26 46', (9, 53))),
     'bilancio-comune': ('Il bilancio del mio Comune', _logo('<path class="lg-i" d="M13 50 H51 M19 50 V36 M28 50 V28 M37 50 V33 M46 50 V22"/>', 'M14 30 C20 24 24 18 28 20 S36 28 40 22 L49 14', (12, 33))),
     'appalti': ('Red flag sugli appalti', _logo('<path class="lg-i" d="M20 52 V12"/>', 'M21 14 H47 L41 21 L47 28 H21 M14 52 H20', (12, 52))),
+    'raccolte-firme': ('Raccolte firme in corso', _logo('<path class="lg-i" d="M17 12 H41 L47 18 V52 H17 Z M41 12 V18 H47 M23 24 H39 M23 31 H35"/>', 'M12 50 C18 50 20 42 25 42 S30 48 34 44 S40 38 44 42 L52 34', (9, 50))),
     'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
 }
 
@@ -311,7 +322,7 @@ def favicon(nome):
 def applica_loghi():
     nomi_h1 = {'assistente': 'Assistente civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
-               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti'}
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso'}
     for t, h1 in nomi_h1.items():
         cartella = os.path.join(REPO, t)
         open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))
