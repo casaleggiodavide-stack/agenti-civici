@@ -25,9 +25,7 @@
   .archivio li { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
   .archivio ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
   .controlli .c-att .segno { color: var(--forse); }
-  .foto-testata { margin: 16px 0 4px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
   body:has(.foto-testata) .scena-testata { display: none; }
-  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
 </style>
 </head>
 <body>
@@ -60,7 +58,7 @@
       <li><b>È un tuo diritto, ed è gratis.</b> Per il FOIA non devi nemmeno spiegare perché.</li>
     </ul>
   </header>
-  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="Un'insegnante in pensione alla scrivania di casa legge documenti pubblici con l'evidenziatore e il computer acceso" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+  <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><img src="web/foto.jpg" alt="Un'insegnante in pensione alla scrivania di casa legge documenti pubblici con l'evidenziatore e il computer acceso" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici <span>· Chiedo gli atti</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <div class="esempi">
     <span class="esempi-etichetta">Prova con un esempio</span>
