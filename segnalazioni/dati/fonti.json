@@ -1,0 +1,1262 @@
+{
+ "verificato_il": "2026-10-25",
+ "categorie": [
+  {
+   "id": "buca",
+   "nome": "Buca o dissesto della carreggiata",
+   "esempi": [
+    "buca profonda",
+    "asfalto sgretolato",
+    "tombino sporgente o sprofondato",
+    "avvallamento"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - ufficio tecnico / lavori pubblici (manutenzione strade)",
+     "ruolo": "ente proprietario delle strade comunali e di tutte le strade urbane nei centri abitati salvo l'eccezione dell'art. 2, comma 7 CdS"
+    },
+    {
+     "ente": "Provincia o Città metropolitana - settore viabilità",
+     "ruolo": "ente proprietario e gestore delle strade provinciali (SP)"
+    },
+    {
+     "ente": "ANAS S.p.A. - Struttura territoriale regionale",
+     "ruolo": "gestore delle strade statali (SS) e di alcune autostrade non a pedaggio; Servizio Clienti 'Pronto Anas' 800 841 148 h24 per emergenze e pericoli; PEC servizioclienti@postacert.stradeanas.it o PEC della struttura territoriale (elenco su https://www.stradeanas.it/it/contatti/posta-elettronica-certificata)"
+    },
+    {
+     "ente": "Regione o società/ente regionale delegato",
+     "ruolo": "strade regionali (SR) dove esistono"
+    },
+    {
+     "ente": "Concessionario autostradale",
+     "ruolo": "autostrade a pedaggio in concessione (CdS art. 14, comma 3)"
+    },
+    {
+     "ente": "Polizia locale (o polizia stradale/carabinieri fuori dai centri abitati)",
+     "ruolo": "accertamento del pericolo, transennamento e segnalazione urgente all'ente proprietario"
+    }
+   ],
+   "come_capire_chi_e_competente": "1) Guarda i cartelli: sigla SS su fondo blu = statale (ANAS, salvo tratti passati a regioni/province); SP su fondo blu = provinciale (Provincia o Città metropolitana); SR = regionale (esiste solo in alcune regioni, spesso gestita da province o società regionali); A su fondo verde = autostrada (concessionario o ANAS); strade comunali extraurbane su fondo bianco (DPR 495/1992 art. 129). 2) Cerca il cippo o cartello chilometrico con sigla e progressiva (es. 'SP 12 km 4'), da riportare nella segnalazione. 3) Dentro il centro abitato (tra i cartelli di inizio e fine località) la strada è sempre comunale, tranne i tratti interni di SS, SR o SP in centri abitati con non più di 10.000 abitanti (CdS art. 2, comma 7). 4) Per le statali si può verificare con lo strumento 'Cerca strada' della pagina ANAS per regione (https://www.stradeanas.it/it/anas-per-regione). 5) Nel dubbio indirizzare la PEC al Comune chiedendo di inoltrare all'ente competente: per l'art. 18-bis, comma 2, L. 241/1990 i termini decorrono dal ricevimento da parte dell'ufficio competente.",
+   "norme": [
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "D.lgs. 285/1992 (Codice della strada), art. 2 - Definizione e classificazione delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art2"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "Codice civile, art. 2043 - Risarcimento per fatto illecito",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2043"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    },
+    {
+     "titolo": "L. 241/1990, art. 2 - Conclusione del procedimento",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2"
+    }
+   ],
+   "urgenza": "Chiamare il 112 (o la polizia locale) se la buca è grande, al buio o su strada veloce e c'è pericolo immediato per veicoli, moto, bici o pedoni; su strade statali anche Pronto Anas 800 841 148, che per ANAS è l'unico canale per segnalazioni di emergenza in tempo reale (PEC ed email non sono gestite in tempo reale).",
+   "cosa_chiedere": [
+    "sopralluogo e messa in sicurezza immediata (segnaletica di pericolo, transenne)",
+    "riparazione definitiva entro un termine indicato",
+    "comunicazione del nome del responsabile del procedimento e dei tempi previsti",
+    "ricevuta con numero di protocollo (art. 18-bis L. 241/1990)"
+   ],
+   "note": "Allegare foto con data, posizione GPS o indirizzo e, fuori città, sigla e km della strada. La segnalazione serve anche a documentare che l'ente custode conosceva il pericolo (art. 2051 c.c.)."
+  },
+  {
+   "id": "marciapiede",
+   "nome": "Marciapiede rotto o dissestato",
+   "esempi": [
+    "mattonelle divelte",
+    "radici che sollevano il marciapiede",
+    "cordolo rotto",
+    "gradino pericoloso"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - ufficio tecnico / lavori pubblici",
+     "ruolo": "il marciapiede è pertinenza della strada: ne risponde l'ente proprietario (nei centri abitati di regola il Comune)"
+    },
+    {
+     "ente": "Provincia, ANAS o altro ente proprietario",
+     "ruolo": "per i marciapiedi lungo tratti di SP/SS fuori dai centri abitati o nei centri con non più di 10.000 abitanti"
+    },
+    {
+     "ente": "Polizia locale",
+     "ruolo": "pericolo immediato per i pedoni"
+    }
+   ],
+   "come_capire_chi_e_competente": "1) Guarda i cartelli: sigla SS su fondo blu = statale (ANAS, salvo tratti passati a regioni/province); SP su fondo blu = provinciale (Provincia o Città metropolitana); SR = regionale (esiste solo in alcune regioni, spesso gestita da province o società regionali); A su fondo verde = autostrada (concessionario o ANAS); strade comunali extraurbane su fondo bianco (DPR 495/1992 art. 129). 2) Cerca il cippo o cartello chilometrico con sigla e progressiva (es. 'SP 12 km 4'), da riportare nella segnalazione. 3) Dentro il centro abitato (tra i cartelli di inizio e fine località) la strada è sempre comunale, tranne i tratti interni di SS, SR o SP in centri abitati con non più di 10.000 abitanti (CdS art. 2, comma 7). 4) Per le statali si può verificare con lo strumento 'Cerca strada' della pagina ANAS per regione (https://www.stradeanas.it/it/anas-per-regione). 5) Nel dubbio indirizzare la PEC al Comune chiedendo di inoltrare all'ente competente: per l'art. 18-bis, comma 2, L. 241/1990 i termini decorrono dal ricevimento da parte dell'ufficio competente.",
+   "norme": [
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "D.lgs. 285/1992 (Codice della strada), art. 2 - Definizione e classificazione delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art2"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "D.P.R. 503/1996 - Eliminazione delle barriere architettoniche negli edifici, spazi e servizi pubblici (artt. 1 e 5)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24;503~art1"
+    },
+    {
+     "titolo": "L. 104/1992, art. 24 - Eliminazione o superamento delle barriere architettoniche",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104~art24"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    }
+   ],
+   "urgenza": "112 o polizia locale solo se c'è un pericolo immediato (voragine, cavi scoperti, cedimento); altrimenti segnalazione ordinaria.",
+   "cosa_chiedere": [
+    "messa in sicurezza",
+    "ripristino della pavimentazione",
+    "se il problema impedisce il passaggio a persone con disabilità, intervento nell'ambito del PEBA"
+   ],
+   "note": "Se il marciapiede è anche una barriera architettonica conviene citare L. 104/1992 art. 24, comma 9 e DPR 503/1996 (vedi categoria barriere_architettoniche)."
+  },
+  {
+   "id": "lampione_spento",
+   "nome": "Lampione spento o illuminazione pubblica guasta",
+   "esempi": [
+    "lampione spento",
+    "intera via al buio",
+    "palo inclinato o danneggiato",
+    "sportello del palo aperto con cavi esposti"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - ufficio illuminazione pubblica / lavori pubblici",
+     "ruolo": "titolare del servizio di illuminazione pubblica sulle strade comunali; spesso la manutenzione è affidata a un gestore o appaltatore il cui numero è riportato sul palo o sul sito del Comune (da verificare caso per caso)"
+    },
+    {
+     "ente": "Ente proprietario della strada (Provincia, ANAS, concessionario)",
+     "ruolo": "impianti di illuminazione delle proprie strade, quando presenti (CdS art. 14, comma 1, lett. a: impianti e servizi della strada)"
+    },
+    {
+     "ente": "Polizia locale o 112",
+     "ruolo": "cavi elettrici scoperti o palo pericolante"
+    }
+   ],
+   "come_capire_chi_e_competente": "Di solito il Comune; sul palo può esserci una targhetta con numero e gestore della manutenzione. Fuori dai centri abitati vale la regola dell'ente proprietario della strada (vedi categoria buca).",
+   "norme": [
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    }
+   ],
+   "urgenza": "112 (che gira la chiamata a vigili del fuoco o polizia) se ci sono cavi scoperti, scintille o un palo che rischia di cadere.",
+   "cosa_chiedere": [
+    "ripristino dell'illuminazione",
+    "indicazione del numero identificativo del palo e del gestore",
+    "messa in sicurezza di cavi o sostegni danneggiati"
+   ],
+   "note": "Non ho trovato un obbligo normativo nazionale specifico che imponga al Comune di illuminare una certa strada: l'obbligo di mantenere efficienti gli impianti esistenti si ricava dall'art. 14 CdS (impianti e servizi delle strade) e dalla responsabilità del custode (art. 2051 c.c.). Altre fonti (regolamenti comunali, contratti di servizio, leggi regionali sull'inquinamento luminoso) non sono state verificate."
+  },
+  {
+   "id": "rifiuti_abbandonati",
+   "nome": "Rifiuti abbandonati o discarica abusiva",
+   "esempi": [
+    "sacchi lasciati in strada",
+    "ingombranti abbandonati",
+    "calcinacci",
+    "discarica abusiva in un terreno"
+   ],
+   "chi": [
+    {
+     "ente": "Gestore del servizio rifiuti urbani (igiene urbana)",
+     "ruolo": "raccolta dei rifiuti giacenti su strade e aree pubbliche, che sono rifiuti urbani (art. 183 d.lgs. 152/2006); per ARERA i recapiti per segnalare disservizi sono sugli avvisi di pagamento e sul sito del gestore"
+    },
+    {
+     "ente": "Comune - ufficio ambiente",
+     "ruolo": "titolare del servizio; il Sindaco ordina la rimozione al responsabile e al proprietario dell'area (art. 192 d.lgs. 152/2006)"
+    },
+    {
+     "ente": "Polizia locale",
+     "ruolo": "accertamento dell'illecito, identificazione del responsabile, sanzioni (art. 255)"
+    },
+    {
+     "ente": "ARPA regionale",
+     "ruolo": "rifiuti pericolosi o grandi quantità, rischio per suolo o acque"
+    },
+    {
+     "ente": "ASL - dipartimento di prevenzione",
+     "ruolo": "rischio igienico-sanitario o amianto (vedi categoria amianto)"
+    },
+    {
+     "ente": "Carabinieri / 112",
+     "ruolo": "rogo di rifiuti in corso o reati ambientali gravi"
+    }
+   ],
+   "come_capire_chi_e_competente": "Area pubblica o strada aperta al pubblico: gestore rifiuti e Comune. Area privata: il Comune (Sindaco) ordina la rimozione al responsabile in solido con il proprietario se a lui imputabile. Su strade provinciali o statali la pulizia della sede stradale spetta anche all'ente proprietario (CdS art. 14). Il nome del gestore è sull'avviso di pagamento TARI o sul sito del Comune.",
+   "norme": [
+    {
+     "titolo": "D.lgs. 152/2006, art. 183, comma 1, lett. b-ter) - Definizione di rifiuti urbani",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art183"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 192 - Divieto di abbandono",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art192"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 255 - Abbandono di rifiuti non pericolosi",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art255"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 15 - Atti vietati",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art15"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 50 - Competenze del sindaco",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art50"
+    }
+   ],
+   "urgenza": "112 se i rifiuti bruciano, se ostacolano la circolazione creando pericolo o se si vede qualcuno abbandonare rifiuti con un veicolo (annotare la targa senza esporsi).",
+   "cosa_chiedere": [
+    "rimozione e pulizia dell'area",
+    "accertamento del responsabile e applicazione delle sanzioni",
+    "se l'area è privata, ordinanza sindacale di rimozione ai sensi dell'art. 192, comma 3",
+    "eventuali misure di prevenzione (videosorveglianza, art. 255, comma 1-ter)"
+   ],
+   "note": "ARERA (TQRIF, delibera 15/2022) prevede un servizio di pronto intervento del gestore per i rifiuti abbandonati che creano pericolo o ostacolano la viabilità e un numero verde gratuito: il dettaglio è emerso da estratti di ricerca sul sito ARERA, senza aver letto il testo integrale (PDF), quindi va verificato prima di citarlo."
+  },
+  {
+   "id": "cassonetti_pieni",
+   "nome": "Cassonetti pieni, rotti o mancato svuotamento",
+   "esempi": [
+    "cassonetto stracolmo",
+    "raccolta saltata",
+    "cassonetto rotto o rovesciato",
+    "cestini pieni"
+   ],
+   "chi": [
+    {
+     "ente": "Gestore del servizio rifiuti urbani",
+     "ruolo": "raccolta e svuotamento; i recapiti per segnalare disservizi e reclami sono sugli avvisi di pagamento e sul sito del gestore (ARERA, delibera 444/2019 e TQRIF)"
+    },
+    {
+     "ente": "Comune - ufficio ambiente",
+     "ruolo": "titolare del servizio e del contratto; di regola è il gestore 'tariffe e rapporto con gli utenti' che invia l'avviso di pagamento"
+    },
+    {
+     "ente": "Sportello per il consumatore Energia e Ambiente (ARERA)",
+     "ruolo": "assistenza e reclami di seconda istanza se il gestore non risponde"
+    }
+   ],
+   "come_capire_chi_e_competente": "Il nome del gestore è sull'avviso di pagamento TARI o sul sito del Comune; se le attività sono divise, il riferimento per l'utente è chi invia gli avvisi di pagamento, che coincide generalmente con il Comune (ARERA, Atlante per il consumatore).",
+   "norme": [
+    {
+     "titolo": "D.lgs. 152/2006, art. 198 - Competenze dei comuni (rifiuti)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art198"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 183, comma 1, lett. b-ter) - Definizione di rifiuti urbani",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art183"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    }
+   ],
+   "urgenza": "Di norma non è un'emergenza da 112; lo è solo se un cassonetto rovesciato blocca la strada creando pericolo o se c'è un incendio.",
+   "cosa_chiedere": [
+    "svuotamento",
+    "riparazione o sostituzione del contenitore",
+    "ripristino della frequenza di raccolta prevista dalla carta della qualità del servizio",
+    "risposta scritta al reclamo"
+   ],
+   "note": "Per ARERA il gestore deve rispondere ai reclami scritti entro termini fissati dalla regolazione (non verificato sul testo integrale; l'Atlante ARERA ha una pagina dedicata ai tempi di risposta ai reclami)."
+  },
+  {
+   "id": "veicolo_abbandonato",
+   "nome": "Veicolo abbandonato",
+   "esempi": [
+    "auto senza targa",
+    "auto ferma da mesi con gomme a terra",
+    "carcassa di moto",
+    "rimorchio abbandonato"
+   ],
+   "chi": [
+    {
+     "ente": "Polizia locale (o altro organo di polizia stradale)",
+     "ruolo": "accerta lo stato di abbandono con verbale, verifica che non sia rubato, notifica al proprietario e dispone il trasporto provvisorio a un centro di raccolta (DM 460/1999)"
+    },
+    {
+     "ente": "Prefettura",
+     "ruolo": "individua annualmente i centri di raccolta (DM 460/1999, art. 1)"
+    },
+    {
+     "ente": "Centro di raccolta autorizzato",
+     "ruolo": "custodia e, dopo 60 giorni senza reclamo, demolizione e cancellazione dal PRA"
+    },
+    {
+     "ente": "Comune",
+     "ruolo": "se il veicolo è in area privata in evidente abbandono rientra tra i rifiuti (d.lgs. 209/2003 art. 3) e si applica la disciplina sui rifiuti (art. 192 d.lgs. 152/2006)"
+    }
+   ],
+   "come_capire_chi_e_competente": "Su strada o area pubblica: polizia locale. Su area privata: Comune (ufficio ambiente) e polizia locale. Un'auto senza targa o priva di parti essenziali fa presumere l'abbandono; un'auto semplicemente ferma a lungo ma integra e targata non è automaticamente abbandonata.",
+   "norme": [
+    {
+     "titolo": "D.M. Interno 22 ottobre 1999, n. 460 - Veicoli rinvenuti e non reclamati",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:ministero.interno:decreto:1999-10-22;460"
+    },
+    {
+     "titolo": "D.lgs. 209/2003, art. 3 - Definizioni (veicolo fuori uso)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-06-24;209~art3"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 231 - Veicoli fuori uso non disciplinati dal d.lgs. 209/2003",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art231"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 192 - Divieto di abbandono",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art192"
+    }
+   ],
+   "urgenza": "112 se il veicolo perde carburante o liquidi, è incendiato, ostruisce un passaggio creando pericolo o si sospetta sia rubato o legato a un reato.",
+   "cosa_chiedere": [
+    "accertamento dello stato di abbandono",
+    "verbale di constatazione e verifica che non sia rubato",
+    "rimozione e conferimento al centro di raccolta"
+   ],
+   "note": "Il termine di 60 giorni decorre dalla notifica al proprietario o, se non identificabile, dal rinvenimento (DM 460/1999, art. 1, comma 2). Il DM 460/1999 si applica finché non viene adottato il nuovo decreto previsto dall'art. 231, comma 3 d.lgs. 152/2006 (vigente al 25/10/2026 secondo Normattiva)."
+  },
+  {
+   "id": "alberi_verde",
+   "nome": "Alberi pericolanti, rami caduti o verde incolto",
+   "esempi": [
+    "albero inclinato o con radici sollevate",
+    "ramo spezzato sospeso",
+    "rami caduti sulla carreggiata",
+    "erba alta che copre i cartelli",
+    "siepe privata che invade il marciapiede"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - servizio verde pubblico / lavori pubblici",
+     "ruolo": "manutenzione del verde pubblico e degli alberi su aree comunali"
+    },
+    {
+     "ente": "Ente proprietario della strada (Comune, Provincia, ANAS)",
+     "ruolo": "alberi e verde nelle pertinenze stradali (CdS art. 14)"
+    },
+    {
+     "ente": "Proprietario privato del fondo confinante",
+     "ruolo": "obbligo di tagliare siepi e rami che invadono la strada o coprono la segnaletica e di rimuovere alberi caduti (CdS art. 29); la polizia locale accerta la violazione"
+    },
+    {
+     "ente": "Vigili del fuoco (115 tramite 112)",
+     "ruolo": "albero o ramo che sta per cadere su strada, persone o edifici"
+    },
+    {
+     "ente": "Sindaco",
+     "ruolo": "ordinanza contingibile e urgente se c'è grave pericolo per l'incolumità pubblica (TUEL art. 54, comma 4)"
+    }
+   ],
+   "come_capire_chi_e_competente": "Albero su area pubblica o nel verde stradale: ente proprietario dell'area o della strada. Albero o siepe su terreno privato che sporge sulla strada: il proprietario, con segnalazione alla polizia locale per l'applicazione dell'art. 29 CdS.",
+   "norme": [
+    {
+     "titolo": "D.lgs. 285/1992, art. 29 - Piantagioni e siepi",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art29"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 54 - Attribuzioni del sindaco come ufficiale del Governo",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art54"
+    },
+    {
+     "titolo": "L. 10/2013 (spazi verdi urbani), art. 6",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2013-01-14;10~art6"
+    }
+   ],
+   "urgenza": "112 subito se un albero o un grosso ramo è caduto sulla strada, sta per cadere o ha abbattuto cavi.",
+   "cosa_chiedere": [
+    "verifica di stabilità dell'albero da parte di un tecnico",
+    "messa in sicurezza o potatura",
+    "sfalcio del verde che riduce la visibilità o copre la segnaletica",
+    "se il verde è privato, accertamento e diffida al proprietario ex art. 29 CdS"
+   ],
+   "note": "Per la manutenzione del verde pubblico non ho trovato un obbligo nazionale puntuale (la L. 10/2013 è di promozione): l'obbligo concreto deriva dalla custodia (art. 2051 c.c.), dall'art. 14 CdS per il verde stradale e dai regolamenti comunali del verde (non verificati)."
+  },
+  {
+   "id": "barriere_architettoniche",
+   "nome": "Barriere architettoniche nello spazio pubblico",
+   "esempi": [
+    "marciapiede senza scivolo",
+    "scivolo ostruito",
+    "gradini senza alternativa all'ingresso di un ufficio pubblico",
+    "semaforo senza segnale acustico",
+    "percorso tattile interrotto",
+    "cartello che ostruisce il passaggio"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - ufficio tecnico / lavori pubblici / ufficio PEBA o disability manager se presente",
+     "ruolo": "adozione e attuazione del PEBA, che comprende gli spazi urbani"
+    },
+    {
+     "ente": "Ente proprietario dell'edificio pubblico (Comune, Provincia, Regione, Stato)",
+     "ruolo": "PEBA per i propri edifici (L. 41/1986 art. 32, comma 21)"
+    },
+    {
+     "ente": "Regione",
+     "ruolo": "nomina un commissario se comune o provincia non adottano il piano (L. 41/1986 art. 32, comma 22)"
+    },
+    {
+     "ente": "Polizia locale",
+     "ruolo": "ostacoli abusivi su marciapiedi e scivoli (es. veicoli in sosta, occupazioni di suolo)"
+    }
+   ],
+   "come_capire_chi_e_competente": "Per strade e marciapiedi: l'ente proprietario della strada (di regola il Comune in centro abitato). Per un edificio: l'amministrazione proprietaria o che lo usa. In Friuli Venezia Giulia esiste anche il sistema regionale 'Segnala la Barriera' (vedi piattaforme).",
+   "norme": [
+    {
+     "titolo": "L. 41/1986, art. 32, commi 20-22 - Piani di eliminazione delle barriere architettoniche (PEBA)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1986-02-28;41~art32"
+    },
+    {
+     "titolo": "L. 104/1992, art. 24 - Eliminazione o superamento delle barriere architettoniche",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104~art24"
+    },
+    {
+     "titolo": "D.P.R. 503/1996 - Eliminazione delle barriere architettoniche negli edifici, spazi e servizi pubblici (artt. 1 e 5)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24;503~art1"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    }
+   ],
+   "urgenza": "Di regola non è un'emergenza; 112 solo se la barriera crea un pericolo immediato (es. persona in carrozzina bloccata in situazione rischiosa).",
+   "cosa_chiedere": [
+    "rimozione della barriera indicando luogo preciso e ostacolo",
+    "indicazione se il Comune ha adottato il PEBA e se l'intervento vi è compreso, con i tempi previsti",
+    "copia o link del PEBA vigente"
+   ],
+   "note": "Il termine del comma 21 (un anno dall'entrata in vigore della L. 41/1986) è da tempo scaduto: molti comuni non hanno ancora un PEBA aggiornato (dato non verificato in questa ricerca). Chiedere se esiste il PEBA è un modo concreto per ottenere una risposta."
+  },
+  {
+   "id": "segnaletica",
+   "nome": "Segnaletica mancante, danneggiata o illeggibile",
+   "esempi": [
+    "stop divelto",
+    "cartello girato o coperto",
+    "strisce pedonali cancellate",
+    "semaforo guasto",
+    "specchio parabolico rotto"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - ufficio traffico / polizia locale / lavori pubblici",
+     "ruolo": "segnaletica nei centri abitati, anche su strade non comunali (CdS art. 37, comma 1, lett. b), e sulle strade private aperte all'uso pubblico"
+    },
+    {
+     "ente": "Ente proprietario della strada (Provincia, ANAS, Regione, concessionario)",
+     "ruolo": "segnaletica fuori dai centri abitati (CdS art. 37, comma 1, lett. a)"
+    },
+    {
+     "ente": "Polizia locale o 112",
+     "ruolo": "semaforo spento o segnale di precedenza mancante in incrocio pericoloso"
+    }
+   ],
+   "come_capire_chi_e_competente": "Dentro il centro abitato: quasi sempre il Comune (art. 37 CdS). Fuori: l'ente proprietario della strada, riconoscibile da sigla e cippo chilometrico (vedi categoria buca).",
+   "norme": [
+    {
+     "titolo": "D.lgs. 285/1992, art. 37 - Apposizione e manutenzione della segnaletica stradale",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art37"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 15 - Atti vietati",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art15"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    }
+   ],
+   "urgenza": "112 o polizia locale se manca un segnale di stop/precedenza o un semaforo è guasto in un incrocio trafficato.",
+   "cosa_chiedere": [
+    "ripristino del segnale indicando quale manca e dove",
+    "segnaletica provvisoria nell'attesa",
+    "rifacimento della segnaletica orizzontale"
+   ],
+   "note": "Se il segnale è stato danneggiato da qualcuno, l'art. 15 CdS prevede sanzioni e ripristino a carico dell'autore."
+  },
+  {
+   "id": "perdita_acqua",
+   "nome": "Perdita d'acqua o guasto di fognatura",
+   "esempi": [
+    "acqua che sgorga dall'asfalto",
+    "tombino che trabocca",
+    "perdita da un idrante",
+    "fognatura intasata o che rigurgita"
+   ],
+   "chi": [
+    {
+     "ente": "Gestore del servizio idrico integrato",
+     "ruolo": "acquedotto, fognatura e depurazione; deve avere un numero di pronto intervento gratuito, attivo 24 ore su 24, pubblicato sul sito, sulla Carta dei servizi e in ogni bolletta (ARERA)"
+    },
+    {
+     "ente": "Ente di governo d'ambito (EGA/ATO)",
+     "ruolo": "organizza il servizio idrico nell'ambito territoriale e vigila sul gestore (d.lgs. 152/2006 art. 147)"
+    },
+    {
+     "ente": "Comune",
+     "ruolo": "se la gestione non è affidata a un gestore o per il danno alla strada comunale"
+    },
+    {
+     "ente": "Ente proprietario della strada",
+     "ruolo": "messa in sicurezza della carreggiata danneggiata"
+    }
+   ],
+   "come_capire_chi_e_competente": "Il nome del gestore e il numero di pronto intervento sono sulla bolletta dell'acqua o sul sito del Comune o del gestore; ARERA indica di rivolgersi al gestore locale del servizio idrico integrato, o al gestore dell'acquedotto se i servizi sono divisi.",
+   "norme": [
+    {
+     "titolo": "D.lgs. 152/2006, art. 147 - Organizzazione territoriale del servizio idrico integrato",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art147"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    },
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    }
+   ],
+   "urgenza": "Per perdite abbondanti, rischio di gelo, acqua potabile alterata o fognatura che rigurgita chiamare subito il pronto intervento del gestore: per ARERA il tecnico deve arrivare entro 3 ore in queste situazioni di pericolo. 112 se c'è una voragine o un allagamento che mette in pericolo persone o veicoli.",
+   "cosa_chiedere": [
+    "intervento di riparazione",
+    "messa in sicurezza della strada",
+    "conferma del numero di pratica della chiamata di pronto intervento"
+   ],
+   "note": "La PEC serve a documentare; per le emergenze va usato il telefono di pronto intervento perché il tempo massimo di 3 ore decorre dalla segnalazione telefonica. Fonte: ARERA, Atlante per il consumatore (delibera 655/2015, RQSII)."
+  },
+  {
+   "id": "scarichi_odori",
+   "nome": "Scarichi anomali, inquinamento o cattivi odori",
+   "esempi": [
+    "liquido scuro in un canale o torrente",
+    "schiuma in un corso d'acqua",
+    "odori persistenti da un impianto",
+    "fumi da un camino industriale",
+    "moria di pesci"
+   ],
+   "chi": [
+    {
+     "ente": "ARPA/APPA (agenzia regionale per la protezione ambientale)",
+     "ruolo": "controllo delle fonti di inquinamento con campionamenti, analisi, sopralluoghi e ispezioni (L. 132/2016, art. 3)"
+    },
+    {
+     "ente": "Comune - ufficio ambiente e polizia locale",
+     "ruolo": "primo accertamento; il Sindaco può adottare ordinanze per emergenze di igiene pubblica (TUEL art. 50, comma 5)"
+    },
+    {
+     "ente": "ASL - dipartimento di prevenzione",
+     "ruolo": "rischi sanitari degli ambienti di vita legati a inquinanti ambientali (d.lgs. 502/1992, art. 7-ter)"
+    },
+    {
+     "ente": "Gestore del servizio idrico",
+     "ruolo": "se l'origine è la fognatura pubblica o un depuratore"
+    },
+    {
+     "ente": "Carabinieri / 112",
+     "ruolo": "reati ambientali in corso o sversamenti gravi"
+    }
+   ],
+   "come_capire_chi_e_competente": "Per l'accertamento tecnico ARPA della propria regione; per l'atto amministrativo (ordinanze, sanzioni) il Comune; per i rischi per la salute l'ASL. Conviene inviare una sola PEC a ARPA e Comune insieme.",
+   "norme": [
+    {
+     "titolo": "L. 132/2016, art. 3 - Funzioni del Sistema nazionale a rete per la protezione dell'ambiente (SNPA: ISPRA e ARPA/APPA)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-06-28;132~art3"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 50 - Competenze del sindaco",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art50"
+    },
+    {
+     "titolo": "D.lgs. 502/1992, artt. 7-bis e 7-ter - Dipartimento di prevenzione delle ASL",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-12-30;502~art7ter"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 192 - Divieto di abbandono",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art192"
+    }
+   ],
+   "urgenza": "112 se lo sversamento è in corso, se ci sono fumi densi o odore di gas o sostanze chimiche, o se ci sono persone che stanno male.",
+   "cosa_chiedere": [
+    "sopralluogo e campionamento",
+    "individuazione della fonte",
+    "comunicazione degli esiti dei controlli (accesso all'informazione ambientale, d.lgs. 195/2005, citato dalla L. 132/2016 art. 3: norma non letta direttamente)"
+   ],
+   "note": "Annotare data, ora, durata e direzione del vento per gli odori; foto e video per gli scarichi. Non prelevare campioni da soli."
+  },
+  {
+   "id": "amianto",
+   "nome": "Amianto (coperture o materiali sospetti, abbandono di eternit)",
+   "esempi": [
+    "tettoia in cemento-amianto deteriorata",
+    "lastre di eternit abbandonate",
+    "materiale friabile in un edificio pubblico"
+   ],
+   "chi": [
+    {
+     "ente": "ASL - dipartimento di prevenzione (servizio igiene e sanità pubblica o PSAL)",
+     "ruolo": "analisi dei materiali degli edifici e registro dell'amianto friabile (L. 257/1992, art. 12)"
+    },
+    {
+     "ente": "Regione",
+     "ruolo": "piani regionali amianto e disposizione della rimozione quando necessaria, a spese del proprietario (L. 257/1992, artt. 10 e 12)"
+    },
+    {
+     "ente": "Comune - ufficio ambiente",
+     "ruolo": "ordinanze nei confronti del proprietario; rimozione dei rifiuti contenenti amianto abbandonati su area pubblica tramite ditte specializzate"
+    },
+    {
+     "ente": "ARPA",
+     "ruolo": "supporto tecnico e analisi ambientali, secondo l'organizzazione regionale"
+    }
+   ],
+   "come_capire_chi_e_competente": "Copertura o materiale in un edificio: ASL e Comune. Lastre abbandonate in strada o in un campo: Comune (rifiuto, art. 192 d.lgs. 152/2006) e ASL. La ripartizione esatta tra ASL, ARPA e Comune dipende dalla legge e dal piano regionale (non verificati regione per regione).",
+   "norme": [
+    {
+     "titolo": "L. 257/1992 (amianto), artt. 10 e 12",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-03-27;257~art12"
+    },
+    {
+     "titolo": "D.lgs. 502/1992, artt. 7-bis e 7-ter - Dipartimento di prevenzione delle ASL",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-12-30;502~art7ter"
+    },
+    {
+     "titolo": "D.lgs. 152/2006, art. 192 - Divieto di abbandono",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art192"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 50 - Competenze del sindaco",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art50"
+    }
+   ],
+   "urgenza": "112 se c'è un incendio di materiale contenente amianto o un crollo che lo frantuma. Non toccare né spostare il materiale.",
+   "cosa_chiedere": [
+    "sopralluogo e valutazione dello stato del materiale",
+    "eventuale ordinanza di bonifica al proprietario",
+    "rimozione dei rifiuti contenenti amianto abbandonati, tramite ditta autorizzata"
+   ],
+   "note": "Il sito del Ministero della salute (salute.gov.it) non è stato consultabile: risponde con una pagina anti-bot (HTTP 403), quindi le indicazioni ministeriali sull'amianto non sono state verificate."
+  },
+  {
+   "id": "rumore",
+   "nome": "Rumore e inquinamento acustico",
+   "esempi": [
+    "locale con musica alta di notte",
+    "cantiere fuori orario",
+    "impianto di condizionamento rumoroso",
+    "schiamazzi ripetuti"
+   ],
+   "chi": [
+    {
+     "ente": "Comune - polizia locale e ufficio ambiente",
+     "ruolo": "controllo sul rumore da traffico, sorgenti fisse, macchine rumorose, attività all'aperto e autorizzazioni in deroga (L. 447/1995, artt. 6 e 14)"
+    },
+    {
+     "ente": "ARPA",
+     "ruolo": "misurazioni fonometriche su richiesta del Comune o della Provincia (L. 447/1995, art. 14, comma 1)"
+    },
+    {
+     "ente": "Polizia, Carabinieri / 112",
+     "ruolo": "disturbo del riposo in corso (c.p. art. 659), soprattutto di notte"
+    },
+    {
+     "ente": "Sindaco",
+     "ruolo": "ordinanze per la tutela della tranquillità e del riposo dei residenti (TUEL art. 50, comma 5)"
+    }
+   ],
+   "come_capire_chi_e_competente": "Rumore continuo da un'attività o impianto: Comune (che si avvale di ARPA per le misure). Disturbo occasionale in corso di notte: forze di polizia.",
+   "norme": [
+    {
+     "titolo": "L. 447/1995 (Legge quadro sull'inquinamento acustico), artt. 6 e 14",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1995-10-26;447~art14"
+    },
+    {
+     "titolo": "Codice penale, art. 659 - Disturbo delle occupazioni o del riposo delle persone",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art659"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 50 - Competenze del sindaco",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art50"
+    }
+   ],
+   "urgenza": "Per il disturbo in corso (es. di notte) si possono chiamare polizia locale o 112; non è un'emergenza sanitaria.",
+   "cosa_chiedere": [
+    "controllo e misurazione fonometrica",
+    "verifica delle autorizzazioni dell'attività e degli orari",
+    "adozione dei provvedimenti previsti dal regolamento comunale"
+   ],
+   "note": "Per il reato di cui al primo comma dell'art. 659 c.p. serve la querela della persona offesa, salvo spettacoli e ritrovi pubblici: una semplice segnalazione al Comune non equivale a querela."
+  },
+  {
+   "id": "edificio_pubblico_degrado",
+   "nome": "Degrado di un edificio pubblico",
+   "esempi": [
+    "cornicione che si stacca",
+    "intonaco che cade su un marciapiede",
+    "scuola con infiltrazioni",
+    "ringhiera pericolante in un parco",
+    "edificio pubblico abbandonato e aperto"
+   ],
+   "chi": [
+    {
+     "ente": "Ente proprietario dell'edificio (Comune, Provincia, Regione, Stato, ASL, ente previdenziale)",
+     "ruolo": "manutenzione e messa in sicurezza (art. 2051 c.c.; c.p. art. 677 per edifici che minacciano rovina)"
+    },
+    {
+     "ente": "Comune per scuole dell'infanzia, primarie e medie; Provincia o Città metropolitana per le superiori",
+     "ruolo": "manutenzione ordinaria e straordinaria degli edifici scolastici (L. 23/1996, art. 3; L. 56/2014, art. 1, comma 85)"
+    },
+    {
+     "ente": "Sindaco",
+     "ruolo": "ordinanza contingibile e urgente per grave pericolo per l'incolumità pubblica (TUEL art. 54, comma 4)"
+    },
+    {
+     "ente": "Vigili del fuoco (115 tramite 112)",
+     "ruolo": "crollo in atto o minacciato (d.lgs. 139/2006, art. 24)"
+    }
+   ],
+   "come_capire_chi_e_competente": "Chiedere o cercare chi è proprietario o utilizzatore dell'edificio (targa all'ingresso, sito dell'ente); per le scuole conta il grado della scuola. Nel dubbio scrivere al Comune, che ha comunque poteri d'urgenza sul pericolo per l'incolumità pubblica.",
+   "norme": [
+    {
+     "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+    },
+    {
+     "titolo": "Codice penale, art. 677 - Omissione di lavori in edifici o costruzioni che minacciano rovina",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art677"
+    },
+    {
+     "titolo": "D.lgs. 267/2000 (TUEL), art. 54 - Attribuzioni del sindaco come ufficiale del Governo",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art54"
+    },
+    {
+     "titolo": "L. 23/1996, art. 3 - Competenze degli enti locali in edilizia scolastica",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1996-01-11;23~art3"
+    },
+    {
+     "titolo": "L. 56/2014, art. 1, commi 44 e 85 - Funzioni di province e città metropolitane",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2014-04-07;56~art1"
+    },
+    {
+     "titolo": "D.lgs. 139/2006, art. 24 - Interventi di soccorso pubblico dei Vigili del fuoco",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-03-08;139~art24"
+    },
+    {
+     "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+    }
+   ],
+   "urgenza": "112 subito se cadono parti dell'edificio, ci sono crepe che si allargano o pericolo di crollo: interviene il soccorso tecnico dei vigili del fuoco.",
+   "cosa_chiedere": [
+    "sopralluogo tecnico",
+    "messa in sicurezza (transennamento, rimozione delle parti pericolanti)",
+    "programma e tempi dei lavori"
+   ],
+   "note": "Se l'edificio è privato, il riferimento è il Comune (ordinanze) e la polizia locale; l'art. 677 c.p. riguarda il proprietario dell'edificio."
+  },
+  {
+   "id": "animali",
+   "nome": "Animali vaganti, feriti o carcasse in strada (categoria aggiuntiva per il ruolo dell'ASL)",
+   "esempi": [
+    "cane randagio",
+    "animale ferito sulla carreggiata",
+    "carcassa di animale",
+    "colonia felina in condizioni igieniche critiche"
+   ],
+   "chi": [
+    {
+     "ente": "ASL - servizi veterinari (dipartimento di prevenzione)",
+     "ruolo": "controllo della popolazione di cani e gatti e sanità pubblica veterinaria (L. 281/1991, art. 2; d.lgs. 502/1992, art. 7-ter)"
+    },
+    {
+     "ente": "Comune / polizia locale",
+     "ruolo": "gestione dei canili e del randagismo secondo la legge regionale (non verificata)"
+    },
+    {
+     "ente": "Ente proprietario della strada",
+     "ruolo": "rimozione di carcasse e ostacoli dalla carreggiata (CdS art. 14, pulizia della strada)"
+    },
+    {
+     "ente": "112 o Pronto Anas 800 841 148 sulle statali",
+     "ruolo": "animale in carreggiata che crea pericolo"
+    }
+   ],
+   "come_capire_chi_e_competente": "Animale vivo: servizi veterinari ASL e polizia locale. Carcassa o animale sulla carreggiata: ente proprietario della strada e, se c'è pericolo, 112.",
+   "norme": [
+    {
+     "titolo": "L. 281/1991 (animali d'affezione e randagismo), art. 2",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1991-08-14;281~art2"
+    },
+    {
+     "titolo": "D.lgs. 502/1992, artt. 7-bis e 7-ter - Dipartimento di prevenzione delle ASL",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-12-30;502~art7ter"
+    },
+    {
+     "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+    }
+   ],
+   "urgenza": "112 se l'animale è sulla carreggiata e mette a rischio la circolazione; ANAS indica 112 o Pronto Anas per animali abbandonati sulle sue strade.",
+   "cosa_chiedere": [
+    "recupero dell'animale da parte del servizio veterinario",
+    "rimozione della carcassa",
+    "verifica del microchip se l'animale è domestico"
+   ],
+   "note": "La ripartizione dettagliata tra ASL e Comune dipende dalle leggi regionali sul randagismo, non verificate."
+  }
+ ],
+ "norme": [
+  {
+   "id": "cds_2",
+   "titolo": "D.lgs. 285/1992 (Codice della strada), art. 2 - Definizione e classificazione delle strade",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art2",
+   "cosa_dice": "Le strade si distinguono in statali, regionali, provinciali e comunali (enti proprietari: Stato, regione, provincia, comune); dentro i centri abitati le strade urbane sono sempre comunali, salvo i tratti interni di statali, regionali o provinciali che attraversano centri abitati fino a 10.000 abitanti (comma 7).",
+   "vigente_dal": "14-12-2024"
+  },
+  {
+   "id": "cds_14",
+   "titolo": "D.lgs. 285/1992, art. 14 - Poteri e compiti degli enti proprietari delle strade",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14",
+   "cosa_dice": "L'ente proprietario provvede alla manutenzione, gestione e pulizia delle strade, pertinenze, arredo, impianti e servizi, al controllo tecnico della loro efficienza e alla segnaletica; per le strade in concessione i compiti li esercita il concessionario, per le vicinali il comune.",
+   "vigente_dal": "7-11-1998 (con comma 2-bis aggiunto successivamente, testo letto il 25/10/2026)"
+  },
+  {
+   "id": "cds_15",
+   "titolo": "D.lgs. 285/1992, art. 15 - Atti vietati",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art15",
+   "cosa_dice": "Vieta di danneggiare strade, pertinenze e segnaletica, sporcarle o gettare rifiuti dai veicoli, con sanzioni e obbligo di ripristino a carico dell'autore: utile quando il danno o i rifiuti hanno un responsabile identificabile."
+  },
+  {
+   "id": "cds_29",
+   "titolo": "D.lgs. 285/1992, art. 29 - Piantagioni e siepi",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art29",
+   "cosa_dice": "I proprietari dei fondi confinanti con la strada devono tenere siepi e rami in modo da non restringere la strada né coprire la segnaletica, e rimuovere al più presto alberi o rami caduti sulla carreggiata (sanzione da 173 a 694 euro)."
+  },
+  {
+   "id": "cds_37",
+   "titolo": "D.lgs. 285/1992, art. 37 - Apposizione e manutenzione della segnaletica stradale",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art37",
+   "cosa_dice": "La segnaletica spetta all'ente proprietario fuori dai centri abitati e al comune dentro i centri abitati (anche su strade non comunali, con l'eccezione dei tratti di strade non comunali in centri sotto i 10.000 abitanti per alcuni segnali) e sulle strade private aperte all'uso pubblico."
+  },
+  {
+   "id": "cds_226",
+   "titolo": "D.lgs. 285/1992, art. 226 - Archivio nazionale delle strade",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art226",
+   "cosa_dice": "Istituisce presso il MIT l'archivio nazionale delle strade, con dati tecnici e giuridici di ogni strada trasmessi dagli enti proprietari; la norma non prevede una consultazione pubblica."
+  },
+  {
+   "id": "reg_cds_129",
+   "titolo": "D.P.R. 495/1992 (Regolamento del Codice della strada), art. 129 - Segnali di identificazione strade e progressive distanziometriche",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1992-12-16;495~art129",
+   "cosa_dice": "Le strade si identificano con lettere e cifre: autostrade su fondo verde, statali e provinciali su fondo blu, comunali extraurbane su fondo bianco; i cippi o cartelli chilometrici indicano la progressiva in km."
+  },
+  {
+   "id": "cc_2051",
+   "titolo": "Codice civile, art. 2051 - Danno cagionato da cosa in custodia",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051",
+   "cosa_dice": "Chi ha in custodia una cosa risponde del danno che questa provoca, salvo provi il caso fortuito; una segnalazione formale documenta che il custode (l'ente) era a conoscenza del pericolo."
+  },
+  {
+   "id": "cc_2043",
+   "titolo": "Codice civile, art. 2043 - Risarcimento per fatto illecito",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2043",
+   "cosa_dice": "Chi con dolo o colpa cagiona ad altri un danno ingiusto deve risarcirlo; la conoscenza documentata del pericolo rileva per valutare la colpa dell'ente."
+  },
+  {
+   "id": "tua_183",
+   "titolo": "D.lgs. 152/2006, art. 183, comma 1, lett. b-ter) - Definizione di rifiuti urbani",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art183",
+   "cosa_dice": "Sono rifiuti urbani anche quelli di qualunque natura giacenti su strade e aree pubbliche o private ad uso pubblico, sulle spiagge e sulle rive dei corsi d'acqua: la loro raccolta rientra quindi nel servizio pubblico di gestione dei rifiuti urbani."
+  },
+  {
+   "id": "tua_192",
+   "titolo": "D.lgs. 152/2006, art. 192 - Divieto di abbandono",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art192",
+   "cosa_dice": "Abbandono e deposito incontrollato di rifiuti sono vietati; chi viola deve rimuoverli e ripristinare i luoghi in solido con il proprietario dell'area a cui sia imputabile per dolo o colpa, e il Sindaco ordina con ordinanza le operazioni e il termine, poi procede d'ufficio in danno degli obbligati."
+  },
+  {
+   "id": "tua_255",
+   "titolo": "D.lgs. 152/2006, art. 255 - Abbandono di rifiuti non pericolosi",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art255",
+   "cosa_dice": "Punisce l'abbandono di rifiuti (ammenda da 1.500 a 18.000 euro per i privati, più gravi per imprese; da 1.000 a 3.000 euro per rifiuti urbani lasciati accanto ai cassonetti; accertamento anche da videosorveglianza) e punisce con l'arresto fino a un anno chi non ottempera all'ordinanza del Sindaco ex art. 192.",
+   "vigente_dal": "8-10-2025"
+  },
+  {
+   "id": "tua_198",
+   "titolo": "D.lgs. 152/2006, art. 198 - Competenze dei comuni (rifiuti)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art198",
+   "cosa_dice": "I comuni concorrono alla gestione dei rifiuti urbani nell'ambito territoriale ottimale e ne disciplinano con regolamento raccolta, trasporto e conferimento."
+  },
+  {
+   "id": "tua_231",
+   "titolo": "D.lgs. 152/2006, art. 231 - Veicoli fuori uso non disciplinati dal d.lgs. 209/2003",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art231",
+   "cosa_dice": "I veicoli rinvenuti da organi pubblici o non reclamati sono conferiti ai centri di raccolta secondo un decreto del Ministro dell'interno; fino alla sua adozione si applica il DM 22 ottobre 1999, n. 460."
+  },
+  {
+   "id": "dlgs_209_3",
+   "titolo": "D.lgs. 209/2003, art. 3 - Definizioni (veicolo fuori uso)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-06-24;209~art3",
+   "cosa_dice": "Un veicolo è 'fuori uso' (rifiuto) anche quando è rinvenuto da organi pubblici e non reclamato o quando, anche in area privata, risulta in evidente stato di abbandono (comma 2, lett. b e d)."
+  },
+  {
+   "id": "dm_460_1999",
+   "titolo": "D.M. Interno 22 ottobre 1999, n. 460 - Veicoli rinvenuti e non reclamati",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:ministero.interno:decreto:1999-10-22;460",
+   "cosa_dice": "Gli organi di polizia stradale che trovano su area pubblica un veicolo che appare abbandonato (senza targa o privo di parti essenziali) redigono un verbale, verificano che non sia rubato, lo notificano al proprietario e lo portano provvisoriamente a un centro di raccolta; dopo 60 giorni dalla notifica (o dal rinvenimento se il proprietario non è identificabile) senza reclamo è considerato cosa abbandonata e può essere demolito.",
+   "nota_url": "La URN non è del tipo urn:nir:stato perché l'autorità emanante è il Ministero dell'interno; la pagina Normattiva risponde correttamente."
+  },
+  {
+   "id": "l41_1986_32",
+   "titolo": "L. 41/1986, art. 32, commi 20-22 - Piani di eliminazione delle barriere architettoniche (PEBA)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1986-02-28;41~art32",
+   "cosa_dice": "Le amministrazioni devono adottare piani di eliminazione delle barriere architettoniche per gli edifici pubblici esistenti (comma 21, termine di un anno dal 1986); se comuni e province non li adottano, la regione nomina un commissario (comma 22)."
+  },
+  {
+   "id": "l104_1992_24",
+   "titolo": "L. 104/1992, art. 24 - Eliminazione o superamento delle barriere architettoniche",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104~art24",
+   "cosa_dice": "Impone il rispetto delle norme sull'accessibilità per le opere su edifici pubblici e aperti al pubblico e stabilisce (comma 9) che i PEBA comprendano anche gli spazi urbani: percorsi accessibili, semafori acustici per non vedenti, rimozione della segnaletica che ostacola le persone con disabilità."
+  },
+  {
+   "id": "dpr_503_1996",
+   "titolo": "D.P.R. 503/1996 - Eliminazione delle barriere architettoniche negli edifici, spazi e servizi pubblici (artt. 1 e 5)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24;503~art1",
+   "cosa_dice": "Definisce le barriere architettoniche (anche la mancanza di segnalazioni per non vedenti e sordi), si applica a edifici e spazi pubblici nuovi o ristrutturati e chiede di migliorare la fruibilità anche di quelli esistenti (art. 1, comma 4); per i marciapiedi il dislivello con la carreggiata non deve superare 15 cm (art. 5).",
+   "url_art5": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1996-07-24;503~art5"
+  },
+  {
+   "id": "l241_2",
+   "titolo": "L. 241/1990, art. 2 - Conclusione del procedimento",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2",
+   "cosa_dice": "Se il procedimento consegue obbligatoriamente a un'istanza o va avviato d'ufficio, l'amministrazione deve concluderlo con provvedimento espresso entro 30 giorni se non è previsto un termine diverso (comma 2, riferito alle amministrazioni statali e agli enti nazionali); in caso di inerzia si può chiedere l'intervento del titolare del potere sostitutivo (commi 9-bis e 9-ter), che conclude entro metà del termine originario."
+  },
+  {
+   "id": "l241_29",
+   "titolo": "L. 241/1990, art. 29 - Ambito di applicazione",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art29",
+   "cosa_dice": "Regioni ed enti locali regolano i propri procedimenti ma non possono dare garanzie inferiori ai livelli essenziali, tra cui l'obbligo di concludere il procedimento entro il termine prefissato e le disposizioni sulla presentazione di istanze e segnalazioni (commi 2-bis, 2-ter, 2-quater)."
+  },
+  {
+   "id": "l241_18bis",
+   "titolo": "L. 241/1990, art. 18-bis - Presentazione di istanze, segnalazioni o comunicazioni",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis",
+   "cosa_dice": "Per ogni istanza, segnalazione o comunicazione va rilasciata subito una ricevuta, anche telematica, con i termini di risposta ove previsti; la data di protocollo deve essere quella di effettiva presentazione e l'atto produce effetti anche senza ricevuta."
+  },
+  {
+   "id": "cp_328",
+   "titolo": "Codice penale, art. 328 - Rifiuto di atti d'ufficio. Omissione",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art328",
+   "cosa_dice": "Punisce il pubblico ufficiale che rifiuta un atto urgente per ragioni di sicurezza pubblica o igiene e sanità, e quello che entro 30 giorni da una richiesta scritta di chi vi abbia interesse non compie l'atto né risponde spiegando il ritardo."
+  },
+  {
+   "id": "cp_677",
+   "titolo": "Codice penale, art. 677 - Omissione di lavori in edifici o costruzioni che minacciano rovina",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art677",
+   "cosa_dice": "Il proprietario (o chi è obbligato alla conservazione o vigilanza) di un edificio che minaccia rovina e non esegue i lavori per rimuovere il pericolo è sanzionato; se ne deriva pericolo per le persone scatta l'arresto fino a sei mesi o l'ammenda."
+  },
+  {
+   "id": "cp_659",
+   "titolo": "Codice penale, art. 659 - Disturbo delle occupazioni o del riposo delle persone",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1930-10-19;1398:1~art659",
+   "cosa_dice": "Punisce chi con schiamazzi, rumori o strumenti sonori disturba il riposo o le occupazioni delle persone; per il primo comma serve la querela della persona offesa, salvo spettacoli e ritrovi pubblici.",
+   "vigente_dal": "30-12-2022"
+  },
+  {
+   "id": "tuel_50",
+   "titolo": "D.lgs. 267/2000 (TUEL), art. 50 - Competenze del sindaco",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art50",
+   "cosa_dice": "Il sindaco adotta ordinanze contingibili e urgenti per emergenze sanitarie o di igiene pubblica locali e per situazioni di grave incuria o degrado del territorio e del decoro urbano (comma 5)."
+  },
+  {
+   "id": "tuel_54",
+   "titolo": "D.lgs. 267/2000 (TUEL), art. 54 - Attribuzioni del sindaco come ufficiale del Governo",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2000-08-18;267~art54",
+   "cosa_dice": "Il sindaco, come ufficiale del Governo, adotta provvedimenti anche contingibili e urgenti per prevenire ed eliminare gravi pericoli per l'incolumità pubblica e la sicurezza urbana (comma 4)."
+  },
+  {
+   "id": "l56_2014_1",
+   "titolo": "L. 56/2014, art. 1, commi 44 e 85 - Funzioni di province e città metropolitane",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2014-04-07;56~art1",
+   "cosa_dice": "Le province esercitano come funzioni fondamentali la costruzione e gestione delle strade provinciali e la gestione dell'edilizia scolastica (comma 85); le città metropolitane hanno le funzioni fondamentali delle province (comma 44)."
+  },
+  {
+   "id": "dlgs_112_1998_101",
+   "titolo": "D.lgs. 112/1998, art. 101 - Trasferimento delle strade non comprese nella rete nazionale",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-03-31;112~art101",
+   "cosa_dice": "Le strade ex statali non comprese nella rete nazionale sono passate al demanio delle regioni o, con legge regionale, degli enti locali, che ne curano anche la gestione: per questo le 'SR' esistono solo in alcune regioni e spesso sono gestite da province o società regionali."
+  },
+  {
+   "id": "l23_1996_3",
+   "titolo": "L. 23/1996, art. 3 - Competenze degli enti locali in edilizia scolastica",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1996-01-11;23~art3",
+   "cosa_dice": "Manutenzione ordinaria e straordinaria degli edifici scolastici: ai comuni per scuole dell'infanzia, primarie e medie; alle province per le scuole secondarie superiori."
+  },
+  {
+   "id": "tua_147",
+   "titolo": "D.lgs. 152/2006, art. 147 - Organizzazione territoriale del servizio idrico integrato",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-04-03;152~art147",
+   "cosa_dice": "Il servizio idrico è organizzato per ambiti territoriali ottimali definiti dalle regioni, con un ente di governo d'ambito a cui i comuni partecipano obbligatoriamente; la gestione è affidata a un gestore del servizio idrico integrato."
+  },
+  {
+   "id": "l132_2016_3",
+   "titolo": "L. 132/2016, art. 3 - Funzioni del Sistema nazionale a rete per la protezione dell'ambiente (SNPA: ISPRA e ARPA/APPA)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-06-28;132~art3",
+   "cosa_dice": "Il sistema delle agenzie ambientali monitora l'ambiente e controlla le fonti e i fattori di inquinamento con campionamenti, analisi, sopralluoghi e ispezioni, e dà supporto tecnico alle amministrazioni competenti."
+  },
+  {
+   "id": "l447_1995",
+   "titolo": "L. 447/1995 (Legge quadro sull'inquinamento acustico), artt. 6 e 14",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1995-10-26;447~art14",
+   "cosa_dice": "Il comune controlla l'inquinamento acustico da traffico, sorgenti fisse, macchine rumorose e attività all'aperto (art. 14, comma 2; art. 6) e autorizza le attività temporanee anche in deroga; i controlli si avvalgono delle agenzie regionali per l'ambiente.",
+   "url_art6": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1995-10-26;447~art6"
+  },
+  {
+   "id": "l257_1992",
+   "titolo": "L. 257/1992 (amianto), artt. 10 e 12",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-03-27;257~art12",
+   "cosa_dice": "Le ASL analizzano i rivestimenti degli edifici e tengono il registro dell'amianto floccato o friabile; le regioni dispongono la rimozione quando necessaria, a spese del proprietario (art. 12); i piani regionali prevedono la rilevazione sistematica delle situazioni di pericolo (art. 10).",
+   "url_art10": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-03-27;257~art10"
+  },
+  {
+   "id": "dlgs_502_1992_7ter",
+   "titolo": "D.lgs. 502/1992, artt. 7-bis e 7-ter - Dipartimento di prevenzione delle ASL",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-12-30;502~art7ter",
+   "cosa_dice": "Il dipartimento di prevenzione dell'ASL tutela la collettività dai rischi sanitari degli ambienti di vita, anche per gli inquinanti ambientali, e cura la sanità pubblica veterinaria."
+  },
+  {
+   "id": "l281_1991_2",
+   "titolo": "L. 281/1991 (animali d'affezione e randagismo), art. 2",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1991-08-14;281~art2",
+   "cosa_dice": "Il controllo della popolazione di cani e gatti è affidato ai servizi veterinari delle ASL; i cani vaganti catturati non possono essere soppressi e, se identificati, vanno restituiti al proprietario."
+  },
+  {
+   "id": "dlgs_139_2006_24",
+   "titolo": "D.lgs. 139/2006, art. 24 - Interventi di soccorso pubblico dei Vigili del fuoco",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-03-08;139~art24",
+   "cosa_dice": "Il Corpo nazionale dei vigili del fuoco interviene con immediatezza per incendi, rilasci incontrollati di energia, crolli strutturali improvvisi o minacciati, incidenti e calamità."
+  },
+  {
+   "id": "l10_2013_6",
+   "titolo": "L. 10/2013 (spazi verdi urbani), art. 6",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2013-01-14;10~art6",
+   "cosa_dice": "Regioni, province e comuni promuovono l'incremento e la manutenzione degli spazi verdi urbani nei limiti delle risorse: è una norma di promozione, non un obbligo puntuale di manutenzione esigibile dal cittadino."
+  }
+ ],
+ "segnalazione_vs_istanza": {
+  "sintesi": "Una segnalazione non apre sempre un procedimento con obbligo di risposta entro 30 giorni. L'art. 2 L. 241/1990 obbliga a concludere con provvedimento espresso solo i procedimenti che conseguono obbligatoriamente a un'istanza o vanno avviati d'ufficio. Per la giurisprudenza amministrativa raccolta dall'Ufficio del massimario, quando il privato sollecita poteri repressivi, inibitori o sanzionatori verso terzi, l'obbligo di provvedere sorge solo se ha uno specifico e rilevante interesse che distingue la sua posizione da quella della collettività (Cons. Stato, sez. IV, 14 dicembre 2004, n. 7975); per le istanze di autotutela l'obbligo è escluso, perché il privato può avanzare solo sollecitazioni prive di valore giuridicamente cogente (es. Cons. Stato, sez. IV, 21 maggio 2024, n. 4518). Al contrario, se l'esposto documenta fatti precisi che chiamano in causa poteri di vigilanza vincolati e doverosi (caso edilizio: art. 27 DPR 380/2001), l'amministrazione è tenuta a fare le verifiche (Cons. Stato, sez. IV, 18 dicembre 2024, n. 10185). Per una buca o un lampione, la manutenzione è un dovere d'ufficio dell'ente proprietario (art. 14 CdS), ma questo non trasforma automaticamente la segnalazione in un'istanza con diritto a un provvedimento entro 30 giorni.",
+  "fonte": {
+   "titolo": "Ufficio del massimario della Giustizia amministrativa, Rassegna monotematica 'Il silenzio nei rapporti fra amministrazioni e fra amministrazioni e privati', a cura di Laura Marzano, 2 marzo 2025, §§ 3.2, 3.3, 4.4",
+   "url": "https://www.giustizia-amministrativa.it/documents/20142/77374442/IL+SILENZIO+NEI+RAPPORTI+FRA+AMMINISTRAZIONI+E+PRIVATI.pdf/73548533-2fc5-c02d-c9a4-55400ecd7425?t=1742297542413"
+  },
+  "cosa_resta_comunque_utile": [
+   "art. 18-bis L. 241/1990: diritto alla ricevuta e data di protocollo certa anche per le semplici segnalazioni",
+   "art. 2051 c.c.: la segnalazione documenta che il custode conosceva il pericolo",
+   "art. 328, comma 2 c.p.: una richiesta scritta di chi vi abbia interesse, senza atto né risposta entro 30 giorni, può configurare omissione di atti d'ufficio (norma penale, da citare con prudenza)",
+   "art. 2, commi 9-bis e 9-ter L. 241/1990: in caso di inerzia su un procedimento vero e proprio si può chiedere l'intervento del titolare del potere sostitutivo"
+  ],
+  "consiglio_redazionale": "Nel testo non promettere un diritto a una risposta entro 30 giorni; scrivere piuttosto 'chiedo di essere informato sull'esito e sui tempi dell'intervento' e indicare se il segnalante ha un interesse diretto (residente frontista, utente abituale, persona con disabilità che usa quel percorso), perché è questo che può differenziare la sua posizione."
+ },
+ "esposto_e_pericolo": {
+  "regola": "Pericolo immediato per persone o veicoli: prima il telefono (112, numero unico di emergenza per polizia, carabinieri, vigili del fuoco, guardia costiera e soccorso sanitario; secondo 112.gov.it a ottobre 2026 il servizio con centrale unica di risposta copre 18 regioni), poi la PEC per documentare. Senza un'emergenza in corso: PEC all'ente competente con copia alla polizia locale. Se si ipotizza un reato (abbandono di rifiuti, edificio che minaccia rovina con pericolo per le persone, omissione di atti d'ufficio) l'esposto o la denuncia vanno a polizia locale, carabinieri, polizia di Stato o procura.",
+  "fonti": [
+   "https://112.gov.it/",
+   "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2006-03-08;139~art24"
+  ],
+  "vigili_del_fuoco": "115 o 112 solo per soccorso tecnico urgente: incendi, crolli in atto o minacciati, alberi caduti con pericolo, allagamenti (d.lgs. 139/2006, art. 24)."
+ },
+ "come_capire_chi_e_competente_strade": {
+  "regola": "1) Guarda i cartelli: sigla SS su fondo blu = statale (ANAS, salvo tratti passati a regioni/province); SP su fondo blu = provinciale (Provincia o Città metropolitana); SR = regionale (esiste solo in alcune regioni, spesso gestita da province o società regionali); A su fondo verde = autostrada (concessionario o ANAS); strade comunali extraurbane su fondo bianco (DPR 495/1992 art. 129). 2) Cerca il cippo o cartello chilometrico con sigla e progressiva (es. 'SP 12 km 4'), da riportare nella segnalazione. 3) Dentro il centro abitato (tra i cartelli di inizio e fine località) la strada è sempre comunale, tranne i tratti interni di SS, SR o SP in centri abitati con non più di 10.000 abitanti (CdS art. 2, comma 7). 4) Per le statali si può verificare con lo strumento 'Cerca strada' della pagina ANAS per regione (https://www.stradeanas.it/it/anas-per-regione). 5) Nel dubbio indirizzare la PEC al Comune chiedendo di inoltrare all'ente competente: per l'art. 18-bis, comma 2, L. 241/1990 i termini decorrono dal ricevimento da parte dell'ufficio competente.",
+  "archivio_nazionale_strade": {
+   "esiste": true,
+   "consultazione_pubblica": null,
+   "spiegazione": "L'archivio nazionale delle strade è previsto dall'art. 226 CdS presso il MIT ed è una sezione dell'AINOP (Archivio informatico nazionale delle opere pubbliche, beta dal 29/01/2019, portale ainop.mit.gov.it). La notizia MIT del 2019 annuncia una pubblicazione 'open' progressiva dei dati, ma non ho verificato una consultazione pubblica funzionante: il portale è un'applicazione JavaScript che non restituisce contenuti leggibili senza browser. Per ora non è utilizzabile come fonte automatica.",
+   "fonti": [
+    "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art226",
+    "https://www.mit.gov.it/node/9758",
+    "https://ainop.mit.gov.it/portale/"
+   ]
+  },
+  "anas": {
+   "pronto_anas": "800 841 148 (tutti i giorni h24; per informazioni, suggerimenti e reclami operatori lun-ven 8-20)",
+   "email": "servizioclienti@stradeanas.it",
+   "pec_servizio_clienti": "servizioclienti@postacert.stradeanas.it",
+   "pec_strutture_territoriali_url": "https://www.stradeanas.it/it/contatti/posta-elettronica-certificata",
+   "pagina_ufficiale": "https://www.stradeanas.it/it/contatti/servizio-clienti",
+   "cerca_strada": "https://www.stradeanas.it/it/anas-per-regione",
+   "pec_elencate": [
+    "anas@postacert.stradeanas.it",
+    "anas.abruzzo@postacert.stradeanas.it",
+    "anas.molise@postacert.stradeanas.it",
+    "anas.basilicata@postacert.stradeanas.it",
+    "anas.calabria@postacert.stradeanas.it",
+    "anas.a2@postacert.stradeanas.it",
+    "anas.campania@postacert.stradeanas.it",
+    "anas.emiliaromagna@postacert.stradeanas.it",
+    "anas.lazio@postacert.stradeanas.it",
+    "anas.liguria@postacert.stradeanas.it",
+    "anas.lombardia@postacert.stradeanas.it",
+    "anas.marche@postacert.stradeanas.it",
+    "anas.piemonte@postacert.stradeanas.it",
+    "anas.aosta@postacert.stradeanas.it",
+    "anas.puglia@postacert.stradeanas.it",
+    "anas.sardegna@postacert.stradeanas.it",
+    "anas.sassari@postacert.stradeanas.it",
+    "anas.sicilia@postacert.stradeanas.it",
+    "anas.toscana@postacert.stradeanas.it",
+    "anas.umbria@postacert.stradeanas.it",
+    "anas.veneto@postacert.stradeanas.it",
+    "anas.friuliveneziagiulia@postacert.stradeanas.it"
+   ],
+   "nota": "Nell'elenco PEC di ANAS non compare il Trentino-Alto Adige: lì le strade sono gestite dalle Province autonome (dato non verificato oltre l'assenza nell'elenco)."
+  },
+  "concessionari_autostradali": {
+   "fonte": "https://www.mit.gov.it/node/7524",
+   "nota": "Il MIT pubblica l'elenco delle tratte per società concessionaria (Autostrade per l'Italia, Autostrada del Brennero, Brescia-Verona-Vicenza-Padova, Autostrade Centro Padane, Autocamionale della Cisa, Autostrada dei Fiori, CAS, Autovie Venete, Milano Serravalle-Milano Tangenziali e altre), ma la pagina è del 2 febbraio 2018 e alcune concessioni sono cambiate da allora (non verificato quali). In autostrada per le emergenze si chiama il 112; i numeri dei singoli concessionari non sono stati verificati."
+  }
+ },
+ "piattaforme": [
+  {
+   "nome": "Decoro Urbano / WeDU",
+   "url": "https://www.decorourbano.org/",
+   "attiva": true,
+   "gestore": "Maiora Labs S.r.l., Roma (dal footer e dall'informativa privacy del sito)",
+   "cosa_fa_oggi": "Piattaforma di segnalazione del degrado urbano (buche, rifiuti, illuminazione, verde, vandalismo, edifici in degrado, segnaletica) con app, mappa pubblica e dashboard per i comuni aderenti. Ricostruita e rilanciata come 'WeDU' (post del 24/07/2026). Richiede registrazione con email e numero di telefono verificato via SMS; le segnalazioni passano da un moderatore. Con la 'modalità Osservatorio', per i comuni non aderenti la segnalazione viene inviata al Comune via PEC (prima consegna via PEC al Comune di Trani il 12/08/2026, secondo il blog) e resta pubblica sulla mappa. Dichiara una rete di oltre 7.800 comuni dal 2011.",
+   "fonti": [
+    "https://www.decorourbano.org/",
+    "https://www.decorourbano.org/come-funziona/cittadino",
+    "https://blog.decorourbano.org/nuove-versioni/decoro-urbano-restyling-piattaforma-rinnovata/",
+    "https://blog.decorourbano.org/news/prima-segnalazione-consegnata-pec-comune/",
+    "https://www.decorourbano.org/privacy"
+   ],
+   "nota": "È il concorrente più vicino a «Segnalazioni urbane indipendenti»: anche WeDU ora invia PEC ai comuni. Differenze verificabili: WeDU passa dalla propria PEC (segnalazioni@pec.decorourbano.org) e pubblica le segnalazioni; lo strumento progettato fa partire la PEC dal cittadino e copre anche enti diversi dal Comune (ANAS, Provincia, ARPA, ASL, gestori)."
+  },
+  {
+   "nome": "ePart",
+   "url": "https://www.epart.it/",
+   "attiva": true,
+   "gestore": "Posytron Engineering S.r.l. (footer del sito, piattaforma GeoWorkflow, versione 2.9.0.2)",
+   "cosa_fa_oggi": "Social network di segnalazioni civiche con mappa e app; mostra segnalazioni recenti di settembre e ottobre 2026 (es. Castellammare di Stabia, Pesaro, Messina) con stato 'Trasmesso all'U.R.P.' e dichiara 18.385 segnalazioni attive; i comuni possono aderire.",
+   "fonti": [
+    "https://www.epart.it/"
+   ]
+  },
+  {
+   "nome": "FixMyStreet (mySociety)",
+   "url": "https://fixmystreet.org/",
+   "attiva": null,
+   "cosa_fa_oggi": "Piattaforma open source britannica usata nel Regno Unito e da installazioni estere (la home di fixmystreet.org cita per esempio Svezia, Malesia, Zurigo). Non ho trovato un'installazione italiana attiva: i domini fixmystreet.it e www.fixmystreet.it non rispondono (nessuna connessione, 25/10/2026) e la home di fixmystreet.org non elenca siti italiani.",
+   "fonti": [
+    "https://fixmystreet.org/"
+   ],
+   "nota": "'attiva': null perché un'assenza non è dimostrabile: semplicemente non ne ho trovata nessuna."
+  },
+  {
+   "nome": "Segnala la Barriera - Regione Friuli Venezia Giulia (portale FVGAccessibile)",
+   "url": "https://accessibile.regione.fvg.it/portaleimmersive/DettaglioPerCittadini.aspx?Orig=1&ID=2d3d1106-f11f-46c1-ac92-b5116fb37f1a",
+   "attiva": true,
+   "gestore": "Regione Friuli Venezia Giulia, Servizio politiche per la rigenerazione urbana, la qualità dell'abitare e le infrastrutture per l'istruzione",
+   "cosa_fa_oggi": "Piattaforma regionale pubblica per segnalare barriere architettoniche sul territorio; la pagina regionale dice che il servizio è anonimo e non richiede autenticazione. Non ho aperto il portale di segnalazione vero e proprio.",
+   "fonti": [
+    "https://accessibile.regione.fvg.it/portaleimmersive/DettaglioPerCittadini.aspx?Orig=1&ID=2d3d1106-f11f-46c1-ac92-b5116fb37f1a"
+   ]
+  },
+  {
+   "nome": "Comuni-Chiamo",
+   "url": "https://www.comuni-chiamo.com/",
+   "attiva": null,
+   "cosa_fa_oggi": null,
+   "nota": "Non verificato: sia il sito sia il robots.txt rispondono con una verifica anti-bot (SiteGround captcha, HTTP 202). Come da istruzioni non l'ho aggirata."
+  },
+  {
+   "nome": "Pronto Anas (canale ufficiale ANAS, non una piattaforma civica)",
+   "url": "https://www.stradeanas.it/it/contatti/servizio-clienti",
+   "attiva": true,
+   "cosa_fa_oggi": "Numero verde 800 841 148 attivo tutti i giorni 24 ore su 24 per viabilità, emergenze e pericoli sulle strade ANAS; email servizioclienti@stradeanas.it, PEC servizioclienti@postacert.stradeanas.it, modulo 'Contattaci', live chat e tracciamento della pratica. ANAS precisa che le segnalazioni via email o PEC non sono gestite in tempo reale; le richieste complesse passano all'URP territoriale, che risponde entro 30 giorni solari.",
+   "fonti": [
+    "https://www.stradeanas.it/it/contatti/servizio-clienti",
+    "https://www.stradeanas.it/it/contatti/posta-elettronica-certificata"
+   ]
+  }
+ ],
+ "fonti_vietate_da_robots": [
+  {
+   "dominio": "normattiva.it",
+   "regola": "Disallow: /ricerca/ e /mfr/ricerca/ per tutti gli user-agent",
+   "effetto": "Ho usato solo gli URL permanenti /uri-res/N2Ls?urn:..., consentiti; nessuna pagina di ricerca."
+  },
+  {
+   "dominio": "salute.gov.it",
+   "regola": "Non è un divieto robots: il robots.txt stesso risponde HTTP 403 con una pagina anti-bot Gcore",
+   "effetto": "Sito non consultato; per l'ASL ho usato il d.lgs. 502/1992 e la L. 257/1992 su Normattiva."
+  },
+  {
+   "dominio": "comuni-chiamo.com",
+   "regola": "Non è un divieto robots: sito e robots.txt rispondono con una verifica captcha SiteGround",
+   "effetto": "Non aggirata; piattaforma non verificata."
+  },
+  {
+   "dominio": "ainop.mit.gov.it",
+   "regola": "robots.txt assente (404); il portale è un'applicazione JavaScript",
+   "effetto": "Contenuti non leggibili senza browser; la consultazione pubblica dell'archivio delle strade resta non verificata."
+  }
+ ],
+ "note": [
+  "Nessun dominio consultato ha regole robots.txt rivolte a ClaudeBot, anthropic-ai o Claude-User; ho controllato normattiva.it, stradeanas.it, mit.gov.it, vigilfuoco.it, interno.gov.it, decorourbano.org, blog.decorourbano.org, fixmystreet.org, fixmystreet.com, epart.it, arera.it, 112.gov.it, accessibile.regione.fvg.it (che ha regole solo per googlebot), snpambiente.it, funzionepubblica.gov.it e istat.it. giustizia-amministrativa.it non ha robots.txt (pagina 404).",
+  "I testi normativi sono stati letti su Normattiva il 25/10/2026 nella versione vigente mostrata (ultimo aggiornamento degli atti: CdS 24/04/2026, d.lgs. 152/2006 08/10/2026, L. 241/1990 20/04/2026, Codice civile 11/08/2026, Codice penale 15/09/2026, TUEL 06/10/2026).",
+  "L. 241/1990, art. 2, comma 2: il termine di 30 giorni è riferito testualmente alle amministrazioni statali e agli enti pubblici nazionali; per comuni, province e regioni valgono i loro regolamenti, ma senza garanzie inferiori (art. 29, commi 2-bis e 2-quater). In pratica anche gli enti locali applicano spesso 30 giorni come termine residuale, ma va verificato nel regolamento del singolo ente.",
+  "Gli importi in lire degli artt. 328, 659 e 677 c.p. sono quelli riportati nel testo Normattiva; la conversione in euro e gli aggiornamenti sanzionatori non sono stati verificati.",
+  "Il PDF del Massimario della giustizia amministrativa è stato salvato in automatico dallo strumento di lettura web in una cartella temporanea (tool-results della sessione) e letto con pdftotext: non è stato scaricato di proposito.",
+  "Alcune informazioni ARERA sui rifiuti (pronto intervento TQRIF, tempi dei reclami) vengono da estratti di ricerca sul sito arera.it e non dalla lettura del testo integrale: sono indicate come da verificare. Verificati direttamente su pagine ARERA: numero di pronto intervento idrico h24 in bolletta e arrivo entro 3 ore nelle situazioni di pericolo; recapiti del gestore rifiuti sugli avvisi di pagamento.",
+  "Le competenze regionali (gestione delle SR, ripartizione amianto tra ASL e ARPA, randagismo, regolamenti comunali su verde e illuminazione) variano da regione a regione e non sono state verificate una per una.",
+  "Il 112 ha la centrale unica di risposta in 18 regioni secondo 112.gov.it (dato del terzo trimestre 2026); dove non è attiva, il numero 112 resta valido ma la risposta e lo smistamento possono essere diversi (non verificato in dettaglio)."
+ ]
+}

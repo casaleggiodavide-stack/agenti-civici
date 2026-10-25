@@ -102,6 +102,20 @@ SCENE = {
         f'{NODO(30, 124)}<path class="s-t" d="M36 122 C70 118 90 112 104 100 C112 94 120 92 140 100 C150 104 154 110 160 112 M160 112 C196 116 230 96 262 104 C280 108 290 120 300 122"/>',
         'Un cartello stradale con le frecce e il filo rosso che indica la strada'),
 
+    'segnalazioni': svg(
+        '<path class="s-l" d="M20 118 H300"/><ellipse class="s-p" cx="120" cy="118" rx="44" ry="8"/><ellipse class="s-l" cx="120" cy="118" rx="44" ry="8"/>'
+        '<path class="s-l" d="M186 118 L200 62 H212 L226 118 Z" style="fill:var(--carta)"/><path class="s-r" d="M193 92 H219 L222 104 H190 Z"/><path class="s-l" d="M180 118 H232"/>'
+        '<rect class="s-l" x="244" y="30" width="44" height="76" rx="8" style="fill:var(--carta)"/><rect class="s-p" x="251" y="40" width="30" height="40" rx="3"/><circle class="s-l" cx="266" cy="94" r="4"/>'
+        f'{NODO(30, 96)}<path class="s-t" d="M36 94 C60 80 78 98 96 110 M150 110 C170 96 182 80 196 74 M222 70 C232 62 240 58 251 58"/>',
+        'Una buca nella strada, un cono stradale e un telefono che fotografa: la segnalazione'),
+
+    'reclami-pa': svg(
+        '<path class="s-l" d="M40 120 H200 V70 H40 Z" style="fill:var(--carta)"/><path class="s-l" d="M30 70 H210 M56 96 H112 M56 108 H96"/><rect class="s-p" x="132" y="84" width="52" height="28" rx="3"/><path class="s-l" d="M132 84 H184 V112 H132 Z M140 94 H176 M140 102 H166"/>'
+        '<path class="s-l" d="M150 52 C150 40 166 40 166 52 Z" style="fill:var(--carta)"/><path class="s-l" d="M146 52 H170 M158 36 V32"/>'
+        '<path class="s-l" d="M236 34 H290 V96 H236 Z" style="fill:var(--carta)"/><path class="s-l" d="M236 34 L263 62 L290 34"/>'
+        f'{NODO(24, 112)}<path class="s-t" d="M30 110 C34 96 36 88 40 86 M210 96 C222 96 226 80 236 74"/><path class="s-t" d="M248 112 L258 122 L278 102"/>',
+        'Lo sportello di un ufficio pubblico con il campanello, una pratica e una lettera che parte'),
+
     'governa': svg(
         '<path class="s-l" d="M70 50 L160 18 L250 50 Z" style="fill:var(--carta)"/><path class="s-l" d="M80 54 H240 M92 58 V110 M124 58 V110 M156 58 V110 M188 58 V110 M220 58 V110 M70 114 H250 M62 122 H258"/>'
         '<path class="s-l" d="M160 18 V4"/><path class="s-r" d="M161 4 H180 L174 9 L180 14 H161 Z"/>',
@@ -150,7 +164,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
