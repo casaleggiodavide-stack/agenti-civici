@@ -29,10 +29,11 @@ jobs:
           mkdir _sito
           cp index.html LICENSE _sito/
           mkdir -p _sito/comune && cp comune/stile.css _sito/comune/
-          for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti mi-rimborsano; do
+          for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti mi-rimborsano bilancio-comune appalti; do
             mkdir -p _sito/$d
             cp $d/index.html _sito/$d/
             cp -r $d/src $d/web _sito/$d/
+            if [ -d $d/dati ]; then cp -r $d/dati _sito/$d/; fi
           done
           # L'assistente importa i motori degli altri strumenti con percorsi ../../: ci sono già.
           find _sito -path '*/test/*' -delete

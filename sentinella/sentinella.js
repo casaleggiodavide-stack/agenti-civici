@@ -13,6 +13,8 @@ import { PRESTAZIONI } from '../mi-spetta/src/prestazioni/index.js';
 import { FONTI as FONTI_MULTE, VERIFICATO as VER_MULTE } from '../faccio-ricorso/src/regole.js';
 import { FONTI as FONTI_ATTI, VERIFICATO as VER_ATTI } from '../chiedo-gli-atti/src/regole.js';
 import { FONTI as FONTI_RECLAMI, VERIFICATO as VER_RECLAMI } from '../mi-rimborsano/src/regole.js';
+import { FONTI as FONTI_BILANCIO, VERIFICATO as VER_BILANCIO } from '../bilancio-comune/src/spiegazioni.js';
+import { FONTI as FONTI_APPALTI, VERIFICATO as VER_APPALTI } from '../appalti/src/indicatori.js';
 
 export const AGENTE = 'AgentiCivici-Sentinella/1.0 (controllo settimanale delle fonti normative; rispetta robots.txt)';
 // Ci fermiamo davanti a un divieto rivolto a uno qualsiasi di questi agenti,
@@ -55,6 +57,8 @@ export function raccogliFonti() {
   for (const f of Object.values(FONTI_MULTE)) metti(f.url, f.titolo, 'Faccio ricorso?', 'regole', VER_MULTE);
   for (const f of Object.values(FONTI_ATTI)) metti(f.url, f.titolo, 'Chiedo gli atti', 'regole', VER_ATTI);
   for (const f of Object.values(FONTI_RECLAMI)) metti(f.url, f.titolo, 'Mi rimborsano?', 'regole', VER_RECLAMI);
+  for (const f of Object.values(FONTI_BILANCIO)) metti(f.url, f.titolo, 'Il bilancio del mio Comune', 'regole', VER_BILANCIO);
+  for (const f of Object.values(FONTI_APPALTI)) metti(f.url, f.titolo, 'Red flag sugli appalti', 'regole', VER_APPALTI);
   return [...m.values()];
 }
 

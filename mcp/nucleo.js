@@ -19,8 +19,12 @@ import DATI_ENTI from '../chiedo-gli-atti/src/dati/enti.js';
 import { valuta as valutaReclamo } from '../mi-rimborsano/src/regole.js';
 import { DOMANDE as D_RECLAMI } from '../mi-rimborsano/src/domande.js';
 import { lettera } from '../mi-rimborsano/src/documento.js';
+import { readFileSync } from 'node:fs';
+import { controlli as controlliBilancio, ripartizione, entrate as entrateBilancio, FONTI as FONTI_BILANCIO } from '../bilancio-comune/src/spiegazioni.js';
+import { INDICATORI, livello, PAROLE_LIVELLO, procedure, FONTI as FONTI_APPALTI } from '../appalti/src/indicatori.js';
+import { cercaIn } from '../comune/schede.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.4.0' };
+export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.5.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -162,6 +166,8 @@ const STRUMENTI_SCHEDE = [
   ['mi-spetta', 'Mi spetta', 'A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali con le regole 2026, importi, requisiti, come chiederle e fonti. Strumento: valuta_prestazioni.'],
   ['faccio-ricorso', 'Faccio ricorso?', 'Controllo di una multa stradale: termini di notifica, autovelox e taratura, ZTL, strisce blu, costi del ricorso al Prefetto e al Giudice di Pace, PEC della Prefettura e ricorso da completare. Strumento: valuta_multa.'],
   ['chiedo-gli-atti', 'Chiedo gli atti', 'Accesso agli atti verso qualsiasi ente pubblico: FOIA, accesso civico semplice, accesso documentale; richiesta, riesame e ricorsi, scadenze, 23.705 enti con PEC da IndicePA. Strumenti: cerca_ente, prepara_accesso_atti.'],
+  ['bilancio-comune', 'Il bilancio del mio Comune', 'Bilancio dei Comuni italiani dai rendiconti ufficiali OpenBDAP: spesa per finalità e per abitante rispetto ai Comuni della stessa grandezza, entrate, avanzo o disavanzo, debito, pagamenti ai fornitori, parametri di deficitarietà. Strumento: bilancio_comune.'],
+  ['appalti', 'Red flag sugli appalti', 'Segnali di rischio negli appalti di Comuni, ASL, Regioni e altri enti sui dati aperti ANAC del 2025: affidamenti diretti, gare con una sola offerta, concentrazione dei fornitori, frazionamenti sotto soglia. Strumento: appalti_ente.'],
   ['mi-rimborsano', 'Mi rimborsano?', 'Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Strumento: valuta_reclamo.'],
 ];
 
@@ -205,17 +211,65 @@ TOOLS.push(
   { name: 'search', title: 'Cerca nelle schede', description: 'Cerca tra le schede degli agenti civici: le 91 prestazioni pubbliche nazionali e regionali di Mi spetta e gli strumenti (multe, accesso agli atti, reclami). Restituisce id, titolo e link; poi usa fetch per leggere la scheda.', inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'Parole da cercare, es. «nido Toscana» o «assegno sociale»' } }, required: ['query'] } },
   { name: 'fetch', title: 'Leggi una scheda', description: 'Legge per intero una scheda trovata con search: sintesi, Regione, quando e come chiederla, fonti ufficiali e data di verifica.', inputSchema: { type: 'object', properties: { id: { type: 'string', description: 'Id restituito da search, es. prestazione:toscana_nidi_gratis' } }, required: ['id'] } },
 );
+// ---------- Il bilancio del mio Comune e Red flag sugli appalti: schede precalcolate ----------
+
+const json = (rel) => JSON.parse(readFileSync(new URL(rel, import.meta.url), 'utf8'));
+const memo = {};
+const una = (k, f) => (memo[k] ??= f());
+
+function rispostaBilancio({ comune = '', istat } = {}) {
+  const { comuni } = una('comuni', () => json('../bilancio-comune/dati/comuni.json'));
+  const c = istat ? comuni.find((x) => x.istat === istat) : cercaIn(comuni, comune, { testoDi: (x) => `${x.nome} ${x.sigla}`, nomeDi: (x) => x.nome, pesoDi: (x) => Math.log10((x.pop || 1) + 1) / 2, limite: 1 })[0];
+  if (!c) return { isError: true, content: [{ type: 'text', text: `Comune non trovato: ${comune || istat}` }] };
+  const s = una('b' + c.sigla, () => json(`../bilancio-comune/dati/p/${c.sigla}.json`))[c.istat];
+  const conf = una('bconf', () => json('../bilancio-comune/dati/confronto.json'));
+  const sim = conf.fasce[s.fascia];
+  const eu = (n) => `${Math.round(n).toLocaleString('it-IT')} €`;
+  const righe = [`# Comune di ${s.nome} (${s.provincia}, ${s.regione}): rendiconto ${s.anno}`, `Abitanti al 1/1/2025: ${s.pop}. Spesa impegnata: ${eu(s.spesa_tot)} (${eu(s.spesa_tot / s.pop)} per abitante; mediana dei Comuni ${s.fascia}: ${eu(sim.spesa_pc)}).`];
+  righe.push('\n## Spesa per finalità (su 100 euro, per abitante, mediana Comuni simili)');
+  for (const r of ripartizione(s, sim).righe) righe.push(`- ${r.nome}: ${r.su100}% · ${eu(r.pc)}/ab.${r.pcSimili ? ` · mediana ${eu(r.pcSimili)}` : ''}`);
+  righe.push('\n## Entrate accertate');
+  for (const r of entrateBilancio(s).righe) righe.push(`- ${r.nome}: ${r.su100}% · ${eu(r.pc)}/ab.`);
+  righe.push('\n## Controlli sui conti');
+  for (const k of controlliBilancio(s, sim)) righe.push(`- [${k.tono}] ${k.titolo}. ${k.testo} (${k.fonte.url})`);
+  righe.push(`\nFonte: ${FONTI_BILANCIO.bdap.url}; popolazione ${FONTI_BILANCIO.istat.url}. Dati inviati dal Comune alla BDAP: il documento ufficiale è il rendiconto in Amministrazione trasparente.`);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: { scheda: s, mediane: sim } };
+}
+
+function rispostaAppalti({ ente = '', cf } = {}) {
+  const ind = una('aind', () => json('../appalti/dati/indice.json'));
+  const e = cf ? ind.enti.find((x) => x[1] === cf) : cercaIn(ind.enti, ente, { testoDi: (x) => `${x[6] ? 'comune ' : ''}${x[0]} ${x[2]} ${x[3]}`, nomeDi: (x) => x[0], pesoDi: (x) => (x[6] ? 3 : 0) + Math.log10(x[5] + 1), limite: 1 })[0];
+  if (!e) return { isError: true, content: [{ type: 'text', text: `Ente non trovato (servono almeno 5 procedure nel ${ind.anno}): ${ente || cf}` }] };
+  const s = una('a' + e[4], () => json(`../appalti/dati/p/${e[4]}.json`))[e[1]];
+  const eu = (n) => `${Math.round(n).toLocaleString('it-IT')} €`;
+  const righe = [`# ${e[6] ? 'Comune di ' : ''}${s.nome}: appalti pubblicati nel ${ind.anno}`, `${s.n} procedure, valore a base di gara ${eu(s.v)}. Confronto con: ${s.gruppo}.`, '\n## Come ha comprato'];
+  for (const p of procedure(s)) righe.push(`- ${p.nome}: ${p.n} procedure, ${eu(p.v)} (${p.quota.toFixed(1)}%)`);
+  righe.push('\n## Segnali di rischio (non sono illeciti: indicano procedure da guardare meglio)');
+  for (const i of INDICATORI) {
+    const v = s.ind[i.id];
+    righe.push(`- ${i.nome} [${PAROLE_LIVELLO[livello(i.id, v)][0]}]: ${v ? i.misura(v) : 'troppi pochi casi'}${v?.mediana !== undefined ? `; mediana enti simili ${v.mediana}%` : ''}. Fonte del metodo: ${i.fonti.map((f) => FONTI_APPALTI[f].url).join(' ; ')}`);
+  }
+  if (s.fornitori?.length) righe.push('\n## Fornitori principali', ...s.fornitori.map((f) => `- ${f.nome}: ${f.n} contratti, ${eu(f.v)} (${f.quota}%)`));
+  righe.push(`\nDati: ${FONTI_APPALTI.anac.url} (CC BY-SA 4.0). Per approfondire una gara: accesso civico agli atti con il CIG (prepara_accesso_atti).`);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: s };
+}
+
+TOOLS.push(
+  { name: 'bilancio_comune', title: 'Il bilancio del mio Comune', description: 'Il bilancio di un Comune italiano dal rendiconto ufficiale più recente (OpenBDAP, di solito il 2025): spesa per finalità e per abitante confrontata con la mediana dei Comuni della stessa fascia di abitanti, entrate, avanzo o disavanzo, debito, tempestività dei pagamenti, parametri di deficitarietà, con le norme.', inputSchema: { type: 'object', properties: { comune: { type: 'string', description: 'Nome del Comune, es. «Lecce»' }, istat: { type: 'string', description: 'Codice ISTAT a 6 cifre, in alternativa' } } } },
+  { name: 'appalti_ente', title: 'Red flag sugli appalti', description: 'Indicatori di rischio negli appalti di un ente pubblico italiano (Comune, ASL, Regione, università…) sulle procedure pubblicate nel 2025 secondo i dati aperti ANAC: affidamenti senza gara, gare con una sola offerta, peso del primo fornitore, affidamenti appena sotto soglia, cumuli allo stesso fornitore, tempi brevi, esclusioni; con confronto tra enti simili e metodi OCP/Cardinal/ANAC. Un segnale non è un illecito.', inputSchema: { type: 'object', properties: { ente: { type: 'string', description: 'Nome dell\'ente, es. «Comune di Napoli» o «ASL Napoli 1»' }, cf: { type: 'string', description: 'Codice fiscale dell\'ente, in alternativa' } } } },
+);
+
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
 for (const t of TOOLS) {
   t.title ||= TITOLI[t.name];
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+const GESTORI = { bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [
-  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo); search e fetch per consultare le schede.',
+  'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',
   'Non sono pareri legali: decide sempre l\'ente o il giudice. Per i casi complessi indica un patronato, un CAF, un\'associazione di consumatori o un avvocato.',

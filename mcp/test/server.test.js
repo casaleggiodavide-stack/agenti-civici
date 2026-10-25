@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { gestisci } from '../nucleo.js';
 
 function sessione(messaggi) {
   return new Promise((ok, ko) => {
@@ -15,7 +16,7 @@ function sessione(messaggi) {
   });
 }
 
-test('server MCP: sette strumenti, risposte con fonti e documenti', async () => {
+test('server MCP: nove strumenti, risposte con fonti e documenti', async () => {
   const [init, lista, multa, ente, atti] = await sessione([
     { id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'test', version: '1' } } },
     { method: 'notifications/initialized' },
@@ -25,7 +26,7 @@ test('server MCP: sette strumenti, risposte con fonti e documenti', async () => 
     { id: 5, method: 'tools/call', params: { name: 'prepara_accesso_atti', arguments: { cosa: 'Elenco delle consulenze affidate nel 2025 con importo e affidatario', ente_nome: 'Comune di Lecce', oggi: '2026-10-11' } } },
   ]);
   assert.equal(init.result.serverInfo.name, 'agenti-civici');
-  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch']);
+  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch', 'bilancio_comune', 'appalti_ente']);
   const tm = multa.result.content[0].text;
   assert.match(tm, /Verbale spedito dopo 99 giorni/);
   assert.match(tm, /protocollo\.prefna@pec\.interno\.it/);
@@ -55,4 +56,17 @@ test('search e fetch: trovare e leggere una misura regionale', async () => {
   assert.ok(scheda.url.startsWith('https://'));
   const [manca] = await sessione([{ id: 3, method: 'tools/call', params: { name: 'fetch', arguments: { id: 'prestazione:inventata' } } }]);
   assert.equal(manca.result.isError, true);
+});
+
+test('server MCP: bilancio di un Comune e segnali sugli appalti, con fonti', () => {
+  const b = gestisci({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'bilancio_comune', arguments: { comune: 'Termoli' } } }).result;
+  assert.match(b.content[0].text, /Comune di Termoli/);
+  assert.match(b.content[0].text, /16 giorni prima/);
+  assert.match(b.content[0].text, /openbdap\.rgs\.mef\.gov\.it/);
+  const a = gestisci({ jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'appalti_ente', arguments: { cf: '80014890638' } } }).result;
+  assert.match(a.content[0].text, /Comune di Napoli/);
+  assert.match(a.content[0].text, /in house/);
+  assert.match(a.content[0].text, /non sono illeciti/);
+  const x = gestisci({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'bilancio_comune', arguments: { comune: 'Paperopoli' } } }).result;
+  assert.equal(x.isError, true);
 });

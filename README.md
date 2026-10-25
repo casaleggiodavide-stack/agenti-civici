@@ -12,6 +12,8 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
+| [Il bilancio del mio Comune](bilancio-comune/) | Il rendiconto più recente di 7.808 Comuni (OpenBDAP, Ragioneria Generale dello Stato): spesa per finalità e per servizio, per abitante, accanto alla mediana dei Comuni della stessa fascia di abitanti; entrate; avanzo o disavanzo, debito, tempestività dei pagamenti, parametri di deficitarietà, con la norma per ogni controllo. Dati preparati da `scripts/bilancio-bdap.py`. |
+| [Red flag sugli appalti](appalti/) | Segnali di rischio sulle 1,45 milioni di procedure pubblicate nel 2025 da 19.356 stazioni appaltanti (dati aperti ANAC, CC BY-SA 4.0): affidamenti senza gara, gare con una sola offerta, peso del primo fornitore, affidamenti appena sotto soglia, cumuli allo stesso fornitore, tempi brevi sopra soglia UE, esclusioni. Metodi OCP, Cardinal e ANAC, segnale oltre il 75° percentile degli enti simili, in house contati a parte, nomi delle persone fisiche nascosti, richiesta degli atti pronta per ogni gara. Dati preparati da `scripts/appalti-anac.py`. |
 | [Chiedo gli atti](chiedo-gli-atti/) | Chiedi documenti e dati a qualsiasi ente: sceglie tra FOIA, accesso civico semplice e accesso documentale, prepara richiesta, riesame e ricorsi, calcola le scadenze. 23.705 enti con PEC da IndicePA. |
 
 Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) si aggiunge in un clic a Google Calendar o Outlook, oppure si scarica come file `.ics` fuori da claude.ai.
@@ -66,12 +68,12 @@ La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi P
 
 ## Dagli assistenti AI (MCP)
 
-`mcp/` contiene un server MCP senza dipendenze con sette strumenti in sola lettura (`valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`, `valuta_reclamo`, `search`, `fetch`). Il nucleo è `mcp/nucleo.js`; `mcp/server.js` lo espone su stdio (Claude Desktop, Claude Code, Cursor), `mcp/http.js` via internet (ChatGPT, connettori di claude.ai; `render.yaml` per pubblicarlo su Render). `npm run estensione` prepara l'estensione per Claude Desktop, `dist/agenti-civici.mcpb`. Istruzioni per ogni app in [mcp/LEGGIMI.md](mcp/LEGGIMI.md).
+`mcp/` contiene un server MCP senza dipendenze con nove strumenti in sola lettura (`valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`, `valuta_reclamo`, `bilancio_comune`, `appalti_ente`, `search`, `fetch`). Il nucleo è `mcp/nucleo.js`; `mcp/server.js` lo espone su stdio (Claude Desktop, Claude Code, Cursor), `mcp/http.js` via internet (ChatGPT, connettori di claude.ai; `render.yaml` per pubblicarlo su Render). `npm run estensione` prepara l'estensione per Claude Desktop, `dist/agenti-civici.mcpb`. Istruzioni per ogni app in [mcp/LEGGIMI.md](mcp/LEGGIMI.md).
 
 ## Controlli
 
 ```bash
-npm test                                # 93 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
+npm test                                # 103 casi: date e calendario, sette strumenti, misure regionali, assistente, sentinella, server MCP
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```
@@ -103,3 +105,13 @@ Oltre a quelli elencati in `mi-spetta/README.md`:
 ## Licenza
 
 Codice AGPL-3.0-or-later. Dati IndicePA con licenza CC BY 4.0. Mi spetta adatta il modello del simulatore francese Mes Aides / 1jeune1solution.
+
+
+## Aggiornare i dati di bilancio e appalti
+
+I file grezzi (alcuni gigabyte) stanno fuori dal repo, in `~/dati-civici/`. Si scaricano dai portali ufficiali (OpenBDAP «Rendiconto - Schemi di bilancio» e «Piano degli indicatori»; ANAC cig-AAAA, aggiudicazioni, aggiudicatari, partecipanti, varianti, stazioni appaltanti; ISTAT POSAS), poi:
+
+```
+python3 -I scripts/bilancio-bdap.py   # prima: serve anche agli appalti per riconoscere i Comuni
+python3 -I scripts/appalti-anac.py
+```

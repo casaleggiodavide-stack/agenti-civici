@@ -16,9 +16,12 @@ const uscita = join(radice, 'dist/agenti-civici.mcpb');
 rmSync(cartella, { recursive: true, force: true });
 mkdirSync(join(cartella, 'server/mcp'), { recursive: true });
 for (const f of ['nucleo.js', 'server.js']) cpSync(join(radice, 'mcp', f), join(cartella, 'server/mcp', f));
-for (const t of ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano']) {
+for (const t of ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti']) {
   cpSync(join(radice, t, 'src'), join(cartella, 'server', t, 'src'), { recursive: true, filter: (p) => !/\/test\/|\.test\.js$|\.css$/.test(p) });
+  if (existsSync(join(radice, t, 'dati'))) cpSync(join(radice, t, 'dati'), join(cartella, 'server', t, 'dati'), { recursive: true });
 }
+mkdirSync(join(cartella, 'server/comune'), { recursive: true });
+cpSync(join(radice, 'comune/schede.js'), join(cartella, 'server/comune/schede.js'));
 writeFileSync(join(cartella, 'server/package.json'), JSON.stringify({ type: 'module', private: true }, null, 2) + '\n');
 if (existsSync(join(radice, 'mcp/icona.png'))) cpSync(join(radice, 'mcp/icona.png'), join(cartella, 'icon.png'));
 
@@ -27,8 +30,8 @@ const manifest = {
   name: 'agenti-civici',
   display_name: 'Agenti civici',
   version: INFO.version,
-  description: 'Bonus e prestazioni, multe, accesso agli atti, reclami e rimborsi: le regole italiane verificate sulle fonti ufficiali, dentro Claude.',
-  long_description: 'Gli agenti civici sono strumenti aperti al servizio del cittadino. Con questa estensione Claude usa le loro regole invece della memoria: a quali bonus e prestazioni nazionali e regionali hai diritto, se conviene fare ricorso a una multa, come chiedere documenti a un ente pubblico, quanto ti spetta per un volo in ritardo, un treno, un bagaglio, una bolletta, un disservizio telefonico o un addebito non autorizzato. Ogni risposta cita la fonte. Non salva dati e non è un parere legale.',
+  description: 'Bonus e prestazioni, multe, accesso agli atti, reclami e rimborsi, bilanci dei Comuni e appalti: le regole italiane verificate sulle fonti ufficiali, dentro Claude.',
+  long_description: 'Gli agenti civici sono strumenti aperti al servizio del cittadino. Con questa estensione Claude usa le loro regole invece della memoria: a quali bonus e prestazioni nazionali e regionali hai diritto, se conviene fare ricorso a una multa, come chiedere documenti a un ente pubblico, quanto ti spetta per un volo in ritardo, un treno, un bagaglio, una bolletta, un disservizio telefonico o un addebito non autorizzato, come spende il tuo Comune e quali segnali di rischio ci sono nei suoi appalti. Ogni risposta cita la fonte. Non salva dati e non è un parere legale.',
   author: { name: 'Agenti civici', url: 'https://github.com/casaleggiodavide-stack/agenti-civici' },
   repository: { type: 'git', url: 'https://github.com/casaleggiodavide-stack/agenti-civici' },
   homepage: 'https://casaleggiodavide-stack.github.io/agenti-civici/',
