@@ -49,6 +49,9 @@
   .glossario { display: grid; gap: 10px; font-size: var(--s0); margin: 10px 0 0; }
   .glossario dt { font-weight: 600; } .glossario dd { margin: 0; color: var(--inchiostro-2); }
   .azioni-scheda { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .foto-testata { margin: 16px 0 4px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
+  .max:has(.foto-testata) .scena-testata { display: none; }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
 </style>
 </head>
 <body>
@@ -79,6 +82,7 @@
       <li><b>Nessun dato inviato.</b> Cerchi e leggi tutto sul tuo dispositivo.</li>
     </ul>
   </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="Una giovane e un signore anziano al tavolino di un bar in piazza guardano insieme grafici della spesa sul computer e su fogli stampati" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <div class="esempi">
     <span class="esempi-etichetta">Prova con</span>

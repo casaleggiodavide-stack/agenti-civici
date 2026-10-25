@@ -30,6 +30,9 @@
   .telefoni li { background: var(--no-tenue); border-left: 4px solid var(--no); padding: 8px 12px; border-radius: 0 6px 6px 0; }
   .telefoni b { font-family: var(--cifre); font-size: var(--s1); }
   .pec { font-family: var(--cifre); font-size: var(--s-1); }
+  .foto-testata { margin: 16px 0 4px; } .foto-testata img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 45%; border-radius: 10px; }
+  .max:has(.foto-testata) .scena-testata { display: none; }
+  figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
 </style>
 </head>
 <body>
@@ -60,6 +63,7 @@
       <li><b>Lascia traccia.</b> Protocollo, promemoria per il sollecito e i passi successivi se nessuno interviene.</li>
     </ul>
   </header>
+  <!--foto--><figure class="foto-testata"><img src="web/foto.jpg" alt="Un ragazzo accovacciato fotografa con il telefono una buca nel selciato di una via al tramonto; una signora con la borsa della spesa si ferma a guardare" loading="lazy" decoding="async" width="1600" height="895"><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <div class="esempi">
     <span class="esempi-etichetta">Prova con un esempio</span>

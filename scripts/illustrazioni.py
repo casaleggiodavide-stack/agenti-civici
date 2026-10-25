@@ -183,8 +183,6 @@ POSTI = [
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
     ('index.html', '<a class="strumento" href="catalogo/#servizi">', 'diritto'),
-    ('index.html', '<!--scena:burocrazia-->', 'burocrazia'),
-    ('index.html', '<!--scena:partecipazione-->', 'partecipazione'),
     ('index.html', '<h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli agenti civici nel mondo</h2>', 'mondo'),
 ]
 
@@ -253,7 +251,9 @@ def main():
     p = os.path.join(REPO, 'index.html')
     s = pagine[p]
     eroe = f'<!--scena:eroe--><div class="scena-eroe">{SCENE["eroe"]}</div><!--/scena-->'
-    if '<!--scena:eroe-->' in s:
+    if '<!--foto-->' in s:  # la testata ha una fotografia: niente disegno
+        pass
+    elif '<!--scena:eroe-->' in s:
         s = re.sub(r'<!--scena:eroe-->.*?<!--/scena-->', lambda m: eroe, s, count=1, flags=re.S)
     else:
         s = re.sub(r'(<header class="testata"[^>]*>\s*)<svg viewBox="0 0 64 70".*?</svg>', lambda m: m.group(1) + eroe, s, count=1, flags=re.S)
