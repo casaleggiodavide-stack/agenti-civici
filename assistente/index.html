@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistente civico</title>
+<meta name="description" content="Scrivi il tuo problema in parole tue: bonus che ti spettano, una multa da contestare, documenti da chiedere a un ente pubblico. L'assistente usa regole scritte e citate, e prepara i documenti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  .chat { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: min(72vh, 760px); }
+  .messaggi { padding: 18px; display: grid; gap: 14px; align-content: start; overflow-y: auto; max-height: min(64vh, 680px); }
+  .msg { max-width: 92%; display: grid; gap: 4px; }
+  .msg .chi { font-family: var(--cifre); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--inchiostro-3); }
+  .msg .testo { font-size: var(--s1); line-height: 1.55; overflow-wrap: anywhere; }
+  .msg .testo p { margin: 0 0 .6em; max-width: none; color: inherit; }
+  .msg .testo p:last-child { margin-bottom: 0; }
+  .msg .testo ul, .msg .testo ol { margin: 0 0 .6em; padding-left: 20px; }
+  .msg.tu { justify-self: end; }
+  .msg.tu .testo { background: var(--accento-tenue); padding: 10px 14px; border-radius: 12px 12px 2px 12px; }
+  .msg.ai .testo { padding: 2px 0; }
+  .msg .stato { font-size: var(--s-1); color: var(--inchiostro-3); font-style: italic; }
+  .msg.errore .testo { color: var(--no); }
+  .scrivi { border-top: 1px solid var(--riga); padding: 12px; display: grid; gap: 8px; }
+  .scrivi textarea { min-height: 64px; max-height: 220px; background: var(--fondo); }
+  .scrivi .riga { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+  .scrivi .nota { font-size: var(--s-1); color: var(--inchiostro-3); max-width: 60ch; margin: 0; }
+  .vuoto { color: var(--inchiostro-2); font-size: var(--s0); }
+  .vuoto b { color: var(--inchiostro); }
+  .risultato h3 { font-size: var(--s1); margin: 10px 0 4px; }
+  .risultato ul { margin: 4px 0 0; padding-left: 18px; font-size: var(--s0); color: var(--inchiostro-2); display: grid; gap: 4px; }
+  .risultato li b { color: var(--inchiostro); }
+  .dati-personali { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; margin: 10px 0 12px; }
+  .dati-personali label { display: grid; gap: 3px; font-size: var(--s-1); color: var(--inchiostro-3); }
+  .dati-personali input { max-width: none; font-size: var(--s0); padding: 7px 10px; }
+  .avviso-lungo { background: var(--forse-tenue); border-left: 4px solid var(--forse); padding: 12px 16px; border-radius: 0 6px 6px 0; font-size: var(--s0); }
+  .avviso-lungo a { color: var(--inchiostro); }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b>Agenti civici</b>
+    <a href="../assistente/" data-strumento="assistente" aria-current="page">Assistente</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <h1>Assistente civico</h1>
+      <p class="promessa">Scrivi il tuo problema con parole tue. L'assistente usa le regole scritte e citate degli agenti civici, ti dice cosa ti spetta e prepara i documenti.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Niente inventato.</b> Importi, termini e indirizzi vengono solo dalle regole verificate, con la fonte.</li>
+      <li><b>I tuoi dati restano qui.</b> Nome e codice fiscale si scrivono solo nel pannello dei documenti, mai in chat.</li>
+      <li><b>Bonus, multe, accesso agli atti.</b> Per il resto ti dice a chi rivolgerti.</li>
+    </ul>
+  </header>
+
+  <div class="avviso-lungo" id="non-disponibile" hidden></div>
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Per esempio</span>
+    <button type="button" data-esempio="Ho 71 anni, vivo da sola a Napoli con la pensione minima. Ho diritto a qualche aiuto?">Pensionata sola, quali aiuti?</button>
+    <button type="button" data-esempio="Mi è arrivata per posta una multa per un semaforo rosso a Torino, quattro mesi dopo il fatto. Posso fare ricorso?">Multa arrivata dopo 4 mesi</button>
+    <button type="button" data-esempio="Vorrei sapere quanto ha speso il Comune di Lecce in consulenze nel 2025. Come lo chiedo?">Le consulenze del mio Comune</button>
+    <button type="button" data-esempio="Aspettiamo un bambino a gennaio, io lavoro come dipendente e mio marito è autonomo. Che aiuti ci sono?">Aspettiamo un bambino</button>
+  </div>
+
+  <main class="corpo">
+    <section class="chat" aria-label="Conversazione con l'assistente">
+      <div class="messaggi" id="messaggi" aria-live="polite">
+        <div class="msg ai"><span class="chi">Assistente</span><div class="testo"><p>Ciao. Raccontami cosa ti serve: un aiuto economico a cui potresti avere diritto, una multa che pensi sia sbagliata, o dei documenti che vuoi chiedere a un ente pubblico.</p><p>Non scrivere nome, codice fiscale o indirizzo: se serve un documento lo completi nel pannello qui accanto, e quei dati restano su questo dispositivo.</p></div></div>
+      </div>
+      <form class="scrivi" id="scrivi">
+        <label for="domanda" class="etichetta" style="font-size:var(--s0)">Il tuo messaggio</label>
+        <textarea id="domanda" placeholder="Scrivi qui. Per esempio: ho 34 anni, due figli piccoli, ISEE 14.000 euro…"></textarea>
+        <div class="riga">
+          <p class="nota">Sono un'assistente AI: la conversazione passa da Claude con il tuo account. Le stime si basano su regole pubbliche verificate; decide sempre l'ente.</p>
+          <span style="display:flex;gap:8px">
+            <button type="button" class="btn" id="ferma" hidden>Ferma</button>
+            <button type="button" class="btn" id="nuova">Nuova conversazione</button>
+            <button type="submit" class="btn btn-primario" id="invia">Invia</button>
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <aside class="colonna appiccicosa" id="pannello" aria-label="Risultati e documenti">
+      <section class="pannello vuoto" id="pannello-vuoto">
+        <div class="occhiello">Cosa ho calcolato</div>
+        <p>Qui compaiono i risultati dei calcoli, con le fonti, i documenti pronti da completare e i promemoria per le scadenze. <b>È la parte da controllare:</b> la chat spiega, il pannello mostra i dati.</p>
+      </section>
+      <div id="risultati"></div>
+      <div id="documento"></div>
+      <div id="promemoria"></div>
+    </aside>
+  </main>
+
+  <footer class="piede">
+    <p><b>L'Assistente civico non è un avvocato e non è un ufficio pubblico.</b> Usa i motori di regole di Mi spetta, Faccio ricorso? e Chiedo gli atti, verificati sulle fonti ufficiali, e il modello di Claude per capire la tua situazione e spiegarti i risultati.</p>
+    <p><button type="button" class="link" id="cancella">Cancella i dati personali salvati su questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

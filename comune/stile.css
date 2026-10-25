@@ -187,3 +187,9 @@ input[type="date"] { max-width: 220px; font-family: var(--cifre); }
   .confronto td.euro-c:nth-child(2)::before { content: "Subito "; color: var(--inchiostro-3); font-family: var(--testo); }
   .confronto td.euro-c:nth-child(3):not(:empty)::before { content: "Se perdi "; color: var(--inchiostro-3); font-family: var(--testo); }
 }
+
+/* Promemoria in calendario */
+.calendario { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: var(--s-1); }
+.calendario::before { content: "Aggiungi al calendario:"; color: var(--inchiostro-3); }
+.calendario a, .calendario .link { color: var(--accento); }
+@media print { .calendario { display: none; } }

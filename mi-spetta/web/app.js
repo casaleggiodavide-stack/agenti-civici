@@ -3,6 +3,7 @@
 
 import { valuta, valoreAnnuo } from '../src/motore.js';
 import { SEZIONI, DOMANDE, CONDIZIONI_18_21, etaDa } from '../src/situazione.js';
+import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
 
 const CHIAVE = 'mi-spetta-risposte-v1';
 const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0, useGrouping: 'always' });
@@ -208,7 +209,8 @@ function scheda(r, aperta = false) {
   const segno = (ok) => (ok === true ? ['r-si', '✓'] : ok === false ? ['r-no', '✗'] : ['r-nd', '?']);
   const mancano = r.mancano.length && r.esito !== 'non_spetta'
     ? `<p class="mancano">Per saperlo: ${r.mancano.map((m) => `<button type="button" data-vai="${esc(m)}">${esc(ETICHETTE_DATI[m] || m)}</button>`).join(', ')}</p>` : '';
-  const finestra = r.finestra ? `<h4>Quando</h4><p>${esc(r.finestra.testo)}</p>` : '';
+  const apertaFinoA = r.finestra && r.finestra.a && r.esito !== 'chiusa' && r.esito !== 'non_spetta' ? r.finestra.a : null;
+  const finestra = r.finestra ? `<h4>Quando</h4><p>${esc(r.finestra.testo)}</p>${apertaFinoA ? pulsantiCalendario({ titolo: `Ultimo giorno per chiedere: ${r.nome}`, data: apertaFinoA, descrizione: `${r.finestra.testo} ${r.come?.link || ''} Promemoria creato con Mi spetta.` }, { conIcs: !dentroClaude() }) : ''}` : '';
   const come = r.come ? `<h4>Come fare</h4>
       ${r.come.testo ? `<p>${esc(r.come.testo)}</p>` : ''}
       ${r.come.passi ? `<ol class="passi">${r.come.passi.map((p) => `<li>${esc(p)}</li>`).join('')}</ol>` : ''}
@@ -267,6 +269,7 @@ function ricalcola() {
     document.querySelectorAll('.scheda').forEach((d) => { d.open = true; });
     window.print();
   });
+  document.querySelectorAll('[data-ics]').forEach((b) => b.addEventListener('click', () => scaricaIcs(JSON.parse(b.dataset.ics))));
   document.querySelectorAll('[data-vai]').forEach((b) => b.addEventListener('click', (e) => {
     e.preventDefault();
     vaiAllaDomanda(b.dataset.vai);

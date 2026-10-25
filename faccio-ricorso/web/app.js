@@ -3,6 +3,7 @@
 import { $, $$, esc, eur, copia, stampa, mailto, testoDa, vaiAllaDomanda } from '../src/comune/interfaccia.js';
 import { creaModulo } from '../src/comune/modulo.js';
 import { data } from '../src/comune/date.js';
+import { pulsantiCalendario, scaricaIcs, dentroClaude } from '../src/comune/calendario.js';
 import { SEZIONI, DOMANDE } from '../src/domande.js';
 import { valuta } from '../src/regole.js';
 import { ricorsoPrefetto, ricorsoGiudiceDiPace, oggettoEmail } from '../src/documento.js';
@@ -57,7 +58,7 @@ function pannelloMotivi(v) {
   </section>`;
 }
 
-function pannelloScadenze(v) {
+function pannelloScadenze(v, r) {
   if (!v.scadenze.length) return '';
   return `<section class="pannello" aria-labelledby="t-scad">
     <div class="occhiello">Calcolate dalla data di notifica</div>
@@ -66,7 +67,12 @@ function pannelloScadenze(v) {
       const d = data(s.data);
       const cls = s.scaduta ? 'scaduta' : s.giorniMancanti <= 5 ? 'vicina' : '';
       const quando = s.scaduta ? 'scaduta' : s.giorniMancanti === 0 ? 'oggi' : `tra ${s.giorniMancanti} giorni`;
-      return `<li class="${cls}"><span class="quando">${esc(d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', timeZone: 'UTC' }))}<small>${quando}</small></span><span class="cosa"><b>${esc(s.titolo)}</b><span>${esc(s.testo)}</span></span></li>`;
+      const promemoria = s.scaduta ? '' : pulsantiCalendario({
+        titolo: `${s.titolo}${r.numero_verbale ? ', verbale ' + r.numero_verbale : ''}`,
+        data: s.data,
+        descrizione: `${s.testo}${v.destinatari.prefetto && s.id === 'prefetto' ? ` PEC: ${v.destinatari.prefetto.pec}.` : ''} Promemoria creato con Faccio ricorso?: verifica sempre le date sul verbale.`,
+      }, { conIcs: !dentroClaude() });
+      return `<li class="${cls}"><span class="quando">${esc(d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', timeZone: 'UTC' }))}<small>${quando}</small></span><span class="cosa"><b>${esc(s.titolo)}</b><span>${esc(s.testo)}</span>${promemoria}</span></li>`;
     }).join('')}</ul>
   </section>`;
 }
@@ -136,12 +142,13 @@ function disegna(r, stato) {
       <p>${esc(v.verdetto.testo)}</p>
     </section>
     ${pannelloMotivi(v)}
-    ${pannelloScadenze(v)}
+    ${pannelloScadenze(v, r)}
     ${v.verdetto.tono === 'neutro' ? '' : pannelloCosti(v)}
     ${pannelloDocumento(r, v)}
     <section class="pannello"><div class="occhiello">Fonti, verificate l'11 ottobre 2026</div><ul class="fonti">${v.fonti.concat(...v.motivi.flatMap((m) => m.fonti)).filter((f, i, a) => a.findIndex((x) => x.url === f.url) === i).map((f) => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo)}</a></li>`).join('')}</ul></section>`;
 
   $$('[data-vai]').forEach((b) => b.addEventListener('click', () => vaiAllaDomanda(b.dataset.vai)));
+  $$('[data-ics]').forEach((b) => b.addEventListener('click', () => scaricaIcs(JSON.parse(b.dataset.ics))));
   $$('input[name="doc"]').forEach((i) => i.addEventListener('change', () => { documentoAttivo = i.value; disegna(modulo.risposte, { esempio: modulo.esempio }); }));
   $('#copia')?.addEventListener('click', () => copia(testoDa($('#foglio').innerHTML), $('#esito-copia')));
   $('#stampa')?.addEventListener('click', () => stampa($('#foglio').innerHTML));

@@ -202,3 +202,8 @@ input.numero { max-width: 120px; font-family: var(--cifre); }
 .famiglia a:hover { color: var(--inchiostro); }
 .famiglia a[aria-current="page"] { color: var(--inchiostro); border-bottom-color: var(--accento); font-weight: 600; }
 @media print { .famiglia { display: none; } }
+
+/* Promemoria in calendario */
+.calendario { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: var(--s-1); }
+.calendario::before { content: "Aggiungi al calendario:"; color: var(--inchiostro-3); }
+@media print { .calendario { display: none; } }
