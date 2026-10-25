@@ -1,0 +1,427 @@
+<title>Atlante degli Agenti Civici</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 70%27%3E%3Cpath d=%27M12 52 V12 H52 V52 H22 V22 H42 V42 H32%27 fill=%27none%27 stroke=%27%2317202E%27 stroke-width=%275%27 stroke-linecap=%27round%27/%3E%3Cpath d=%27M17 64 V17 H47 V47 H27 V27 H37 V37%27 fill=%27none%27 stroke=%27%23C2362B%27 stroke-width=%273.4%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%2717%27 cy=%2764%27 r=%274%27 fill=%27%23C2362B%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F5F1E8; --ink:#17202E; --ink-2:#2B3444; --ink-3:#5D6270;
+  --line:#DED6C4; --line-soft:#EDE6D6; --panel:#EDE6D6;
+  --accent:#C2362B; --accent-ink:#FFFFFF; --accent-soft:#F6E3DF;
+  --ok:#16734A; --ok-bg:#DCF0E5; --pilot:#8F5B00; --pilot-bg:#F7EACB;
+  --dead:#7A4A2E; --dead-bg:#F1E4D8; --int:#2B3444; --int-bg:#E3DED2; --comm:#5D6270; --comm-bg:#EDE6D6;
+  --build:#C2362B; --integrate:#2B3444; --hybrid:#8F5B00;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Atkinson Hyperlegible Next","Segoe UI",system-ui,Helvetica,Arial,sans-serif;
+  --mono:"Atkinson Hyperlegible Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111824; --ink:#F5F1E8; --ink-2:#C9CED8; --ink-3:#9AA1AE;
+    --line:#2C3647; --line-soft:#1E2737; --panel:#17202E;
+    --accent:#F06A55; --accent-ink:#111824; --accent-soft:#3A2026;
+    --ok:#62CF9C; --ok-bg:#15372A; --pilot:#E5B65E; --pilot-bg:#382C12; --dead:#E0A88A; --dead-bg:#3A281D;
+    --int:#C9CED8; --int-bg:#243044; --comm:#9AA1AE; --comm-bg:#1E2737;
+    --build:#F06A55; --integrate:#C9CED8; --hybrid:#E5B65E;
+  }
+}
+:root[data-theme="dark"]{
+    --paper:#111824; --ink:#F5F1E8; --ink-2:#C9CED8; --ink-3:#9AA1AE;
+    --line:#2C3647; --line-soft:#1E2737; --panel:#17202E;
+    --accent:#F06A55; --accent-ink:#111824; --accent-soft:#3A2026;
+    --ok:#62CF9C; --ok-bg:#15372A; --pilot:#E5B65E; --pilot-bg:#382C12; --dead:#E0A88A; --dead-bg:#3A281D;
+    --int:#C9CED8; --int-bg:#243044; --comm:#9AA1AE; --comm-bg:#1E2737;
+    --build:#F06A55; --integrate:#C9CED8; --hybrid:#E5B65E;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-block:0 96px;padding-inline:clamp(16px,4vw,40px)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto}
+.prose{max-width:70ch}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:700;letter-spacing:-0.015em;margin-top:72px;padding-top:24px;border-top:2px solid var(--ink)}
+h3{font-size:20px;font-weight:700;margin-top:36px}
+p{margin:12px 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+header{padding-block:56px 32px;border-bottom:1px solid var(--line)}
+header .lede{font-size:19px;color:var(--ink-2);max-width:62ch;margin-top:18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.verbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:32px}
+.verb{background:var(--panel);padding:16px 18px;border-top:3px solid var(--accent)}
+.verb b{font-family:var(--display);font-size:20px;display:block;margin-bottom:6px}
+.verb span{color:var(--ink-2);font-size:14.5px}
+.findings{counter-reset:f;list-style:none;padding:0;margin:20px 0 0;display:grid;gap:14px}
+.findings li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.findings li::before{counter-increment:f;content:counter(f,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:4px}
+.findings b{display:block;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:18px 0 8px;font-size:13.5px;color:var(--ink-2)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:2px 8px;border-radius:3px;white-space:nowrap;vertical-align:middle}
+.p-qui{background:var(--accent);color:var(--accent-ink)}
+.p-ok{background:var(--ok-bg);color:var(--ok)}
+.p-pilot{background:var(--pilot-bg);color:var(--pilot)}
+.p-dead{background:var(--dead-bg);color:var(--dead)}
+.p-int{background:var(--int-bg);color:var(--int)}
+.p-comm{background:var(--comm-bg);color:var(--comm)}
+.tablewrap{overflow-x:auto;margin:18px 0 8px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th{text-align:left;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--panel)}
+td{padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.name{font-weight:600;white-space:nowrap}
+td.name small{display:block;font-weight:400;color:var(--ink-3);font-family:var(--mono);font-size:11.5px;margin-top:2px}
+td .src{font-size:12px;color:var(--ink-3);display:block;margin-top:4px}
+.gap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid var(--line);margin-top:20px}
+.gap > div{padding:18px 20px;border-bottom:1px solid var(--line)}
+.gap > div:nth-child(odd){border-right:1px solid var(--line)}
+.gap > div:nth-last-child(-n+2){border-bottom:0}
+.gap .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.gap .v{font-weight:600}
+.gap .d{color:var(--ink-2);font-size:14px;margin-top:4px}
+.mode{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:2px 7px;border-radius:3px;white-space:nowrap;border:1px solid currentColor}
+.m-build{color:var(--build)} .m-int{color:var(--integrate)} .m-hyb{color:var(--hybrid)}
+.effort{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+.phase{border:1px solid var(--line);padding:18px 20px;background:var(--panel)}
+.phase .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.phase b{font-family:var(--display);font-size:19px;display:block;margin-bottom:8px}
+.phase ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--ink-2)}
+.phase li{margin:4px 0}
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 18px;margin:22px 0;max-width:70ch}
+.callout p{margin:6px 0}
+.risks{display:grid;gap:10px;margin-top:16px;padding:0;list-style:none}
+.risks li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:15px}
+.risks li b{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--dead);padding-top:3px}
+.sources{columns:2;column-gap:32px;font-size:13.5px;color:var(--ink-2);margin-top:16px}
+.sources li{break-inside:avoid;margin-bottom:6px}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);font-family:var(--mono)}
+@media (max-width:640px){
+  .risks li{grid-template-columns:1fr;gap:4px}
+  .sources{columns:1}
+  .gap > div:nth-child(odd){border-right:0}
+  .gap > div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .gap > div:last-child{border-bottom:0}
+}
+.marchio{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-bottom:22px}
+.marchio a{color:inherit;border:0}
+.m-filo{stroke:var(--accent)} .m-nodo{fill:var(--accent)}
+.verb{border-top-color:var(--accent)}
+.sources a::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:2px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="marchio"><svg viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg><a href="https://casaleggiodavide-stack.github.io/agenti-civici/" target="_top">agenti civici · il filo per uscire dal labirinto</a></div>
+  <div class="eyebrow">Mappatura mondiale · 14 settembre 2026, stato degli strumenti aggiornato al 25 ottobre 2026</div>
+  <h1>Atlante degli Agenti Civici</h1>
+  <p class="lede">Cosa esiste oggi, nel mondo, di intelligenza artificiale che aiuta i cittadini a <strong>partecipare</strong>, <strong>monitorare</strong> e <strong>interagire</strong> con lo Stato e con la società. E un catalogo ragionato di ciò che un sito degli agenti civici potrebbe costruire, integrare o federare.</p>
+  <div class="meta">
+    <span>5 filoni di ricerca · ~220 ricerche web</span>
+    <span>~110 strumenti censiti</span>
+    <span>Fonti citate in coda</span>
+  </div>
+  <div class="verbs">
+    <div class="verb"><b>Partecipare</b><span>Consultazioni, deliberazione, petizioni, assemblee, bilancio partecipativo, voto informato.</span></div>
+    <div class="verb"><b>Monitorare</b><span>Parlamento, leggi e gazzette, appalti e spesa, promesse, nomine, fact‑checking, accesso agli atti.</span></div>
+    <div class="verb"><b>Interagire</b><span>Servizi e pratiche, sussidi, diritti, multe, reclami, lettere ai rappresentanti, segnalazioni urbane.</span></div>
+    <div class="verb"><b>Infrastruttura</b><span>Dati agent‑ready (MCP/API), identità e deleghe, modelli, regole AI Act.</span></div>
+  </div>
+</header>
+
+<h2 id="sintesi">In sintesi</h2>
+<ol class="findings">
+  <li><b>Il baricentro si sta spostando dal rispondere all'agire.</b> Corea del Sud (agente che compila e paga per il cittadino, beta da fine settembre 2026), Emirati (servizi "agentici" per legge, obiettivo 50% entro 2028), Germania (Deutschland‑App che compila i moduli), Regno Unito (GOV.UK Chat con roadmap "task completion"). Il 2025 era l'anno dei chatbot; il 2026 è l'anno degli agenti che completano pratiche.</li>
+  <li><b>Il sensemaking con LLM è diventato una commodity.</b> Talk to the City, Jigsaw Sensemaker, Consult (UK), Go Vocal, Panoramic (Make.org) fanno tutti la stessa cosa: leggere migliaia di contributi e sintetizzarli. Il vantaggio competitivo non è più lo strumento, ma chi possiede il flusso di input e chi legge la sintesi.</li>
+  <li><b>I dati civici stanno diventando "tool" per gli assistenti generalisti.</b> Server MCP ufficiali (GPO govinfo, Census negli USA; GDS e National Archives in alfa nel Regno Unito) e community (Congress, OpenStates, Parlamento Europeo, MuckRock, open‑parlamento per l'Italia). Chi espone i dati in modo leggibile dagli agenti diventa infrastruttura.</li>
+  <li><b>Il civic tech storico usa l'AI dietro le quinte, non davanti al cittadino.</b> mySociety, Openpolis, Regards Citoyens, Civio: LLM per classificare, mai per generare risposte pubbliche. Scelta deliberata per evitare allucinazioni e responsabilità. Lo spazio "assistente conversazionale sui dati civici" è quasi vuoto.</li>
+  <li><b>I fallimenti insegnano più dei successi.</b> NYC MyCity chiuso nel gennaio 2026 dopo aver consigliato di violare la legge; Albert (Francia) non generalizzato per risposte errate; AuroraAI (Finlandia) dismesso; DoNotPay sanzionato dalla FTC. Denominatore comune: chatbot generativo senza fonti verificate davanti a una burocrazia non digitalizzata.</li>
+  <li><b>La delega ad agenti software è il buco nero regolatorio.</b> IT‑Wallet apre le deleghe dal 15 ottobre 2026, ma solo a persone fisiche. EUDI Wallet e SPID/CIE non prevedono un agente che agisce "per conto di". Chi definisce lo standard dei mandati digitali ad agenti definisce il prossimo decennio.</li>
+  <li><b>L'Italia ha dati e silos, non un layer conversazionale.</b> Roma (Julia 2.5), Firenze, INPS, Emilia‑Romagna hanno chatbot; Openpolis, ANAC, Normattiva, Camera e Senato hanno dati aperti. Nessuno collega le due cose. È esattamente lo spazio per un sito degli agenti civici.</li>
+</ol>
+
+<h2 id="mappa">La mappa: cosa esiste oggi</h2>
+<p class="prose">Ogni tabella copre uno dei quattro verbi. Lo stato è quello verificato a settembre 2026.</p>
+<div class="legend">
+  <span><span class="pill p-ok">attivo</span> in produzione per i cittadini</span>
+  <span><span class="pill p-pilot">pilota</span> sperimentale o in beta</span>
+  <span><span class="pill p-int">interno</span> usato da funzionari/operatori, non dal cittadino</span>
+  <span><span class="pill p-comm">community</span> open source o volontario, non istituzionale</span>
+  <span><span class="pill p-dead">dismesso</span> chiuso o ridimensionato</span>
+</div>
+
+<h3>A · Assistenti e agenti delle istituzioni (Interagire)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Paese · ente</th><th>Cosa fa per il cittadino</th><th>Forma tecnica</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td class="name">Bürokratt<small>ria.ee</small></td><td>Estonia · RIA</td><td>Rete di assistenti testo/voce su 50+ siti e 100+ servizi; nel 2026 diventa rete di agenti per istituzione, interoperabile anche cross‑border (Diia ucraina).</td><td>Open source, moduli LLM/RAG, LLM estone</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">GOV.UK Chat<small>gds.blog.gov.uk</small></td><td>Regno Unito · GDS</td><td>Risponde in linguaggio semplice con fonti su tutto GOV.UK; lanciato nell'app il 14/5/2026, sul sito entro fine anno; prossimo passo completare pratiche.</td><td>LLM+RAG su cloud commerciale, accuratezza 76→90%</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Albert → Assistant IA<small>DINUM</small></td><td>Francia</td><td>Doveva assistere gli sportelli France Services; a gennaio 2026 non generalizzato per risposte errate. Ora strumento interno su Mistral per 10.000 agenti.</td><td>LLM open (Mistral/Llama)</td><td><span class="pill p-dead">ridimensionato</span></td></tr>
+<tr><td class="name">Deutschland‑App<small>Bund, SAP + T‑Systems</small></td><td>Germania</td><td>Chatbot GenAI che compila semanticamente i campi delle pratiche (Kindergeld, residenza). Test estate 2026. Critica: chatbot davanti a burocrazia non digitale.</td><td>LLM in front‑end di app federale</td><td><span class="pill p-pilot">pilota</span></td></tr>
+<tr><td class="name">ISSA / AEAT + ALIA<small>Seguridad Social, Agencia Tributaria</small></td><td>Spagna</td><td>Assistenti virtuali per pratiche previdenziali e fiscali; ALIA è la famiglia di LLM pubblici in spagnolo e lingue coufficiali.</td><td>Chatbot; LLM sovrano in pilota</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">GPJ + AMALIA<small>gov.pt</small></td><td>Portogallo</td><td>Guia Prático da Justiça (primo governo con tecnologia ChatGPT, 2023); AMALIA è l'LLM aperto in portoghese europeo che entrerà negli assistenti gov.pt fino al 2027.</td><td>GPT‑4 via Microsoft; LLM sovrano</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Publio<small>op.europa.eu</small></td><td>UE · Ufficio Pubblicazioni</td><td>Assistente conversazionale su diritto UE, pubblicazioni, Whoiswho, testo e voce; programma "Chatbots &amp; Interoperability" per reti di assistenti pubblici.</td><td>LLM+RAG multilingue</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">"AI for All"<small>MSIT</small></td><td>Corea del Sud</td><td>Chatbot gratuito per 52 milioni di cittadini e agente proattivo che individua i benefici spettanti, notifica e <em>compila la domanda</em>, anche via messenger e SMS. Beta fine settembre 2026, "un agente per cittadino" dal 2027.</td><td>≥50% modelli coreani, operatori telco</td><td><span class="pill p-pilot">beta</span></td></tr>
+<tr><td class="name">Agentic AI for Government<small>u.ae</small></td><td>Emirati Arabi</td><td>Framework nazionale (aprile 2026) e primo pacchetto di servizi agentici; obiettivo 50% dei servizi in forma agentica entro il 2028; U‑Ask, Rashid, Rammas come chatbot.</td><td>Governance per legge + agenti</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Ask Jamie · LifeSG · registro agenti<small>GovTech</small></td><td>Singapore</td><td>Chatbot su 70+ siti (in superamento), matching agentico dei benefici in LifeSG, sandbox e <em>registro degli agenti AI</em> per 150.000 funzionari.</td><td>Chatbot + agenti registrati</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Bhashini · Jugalbandi · UMANG<small>Digital India</small></td><td>India</td><td>Piattaforma linguistica in 36 lingue su 500+ siti, voice AI per reclami con routing al ministero, assistenti vocali su WhatsApp.</td><td>Modelli aperti (Sarvam), infrastruttura sovrana</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Ventanilla 24/7<small>gob.mx</small></td><td>Messico</td><td>Assistente GenAI che identifica la pratica giusta nel catalogo federale da domande in linguaggio naturale; oltre 1 milione di chat nei primi 4 mesi.</td><td>LLM su catalogo pratiche</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Boti<small>Buenos Aires</small></td><td>Argentina</td><td>Assistente WhatsApp dal 2019, dal 2024 con GPT‑4o per pratiche e turismo; carico operativo dimezzato; sottoposto ad audit pubblico.</td><td>WhatsApp + Azure OpenAI</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">govinfo MCP · Census MCP<small>GPO, US Census</small></td><td>USA federale</td><td>Primi server MCP ufficiali: "API universale per agenti" sui documenti federali; pilota US Digital Corps con accuratezza da ~0% a 95%.</td><td>MCP server istituzionale</td><td><span class="pill p-pilot">preview</span></td></tr>
+<tr><td class="name">MyCity Chatbot<small>NYC</small></td><td>USA · New York</td><td>Consigliava di violare la legge (mance, voucher); audit del Comptroller; chiuso nel gennaio 2026 dall'amministrazione Mamdani.</td><td>Azure OpenAI senza guardrail</td><td><span class="pill p-dead">dismesso</span></td></tr>
+<tr><td class="name">Gennai · Myna App<small>Digital Agency</small></td><td>Giappone</td><td>Piattaforma AI governativa con 30+ app, parte open source, 180.000 dipendenti; citizen‑facing dal 2027.</td><td>Open source parziale; OpenAI</td><td><span class="pill p-int">interno</span></td></tr>
+<tr><td class="name">Vlam · CANChat · GovAI Chat<small>NL, CA, AU</small></td><td>Paesi Bassi, Canada, Australia</td><td>Assistenti sovrani per i funzionari; nessuno ancora rivolto al cittadino.</td><td>LLM open su data center governativi</td><td><span class="pill p-int">interno</span></td></tr>
+<tr><td class="name">GovGuide · eCitizen bot · Mbaza<small>Nigeria, Kenya, Ruanda</small></td><td>Africa</td><td>Chatbot in lingue locali su piattaforme Meta; bot kiswahili open source (GovStack); agente vocale WhatsApp/SMS in kinyarwanda.</td><td>LLM+RAG, canali messaging</td><td><span class="pill p-pilot">pilota</span></td></tr>
+</tbody></table></div>
+
+<h3>B · Partecipazione e deliberazione (Partecipare)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Chi</th><th>Cosa fa</th><th>Forma tecnica</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td class="name">Talk to the City<small>talktothe.city</small></td><td>AI Objectives Institute</td><td>Clusterizza migliaia di opinioni da testo, interviste, trascrizioni in una mappa navigabile. Usato in Yemen (18 governatorati), European Rural Parliament, Team Mirai.</td><td>Open source, LLM commerciali</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Sensemaking Tools<small>Jigsaw</small></td><td>Google Jigsaw</td><td>Categorizza, ordina le citazioni, sintetizza accordi e disaccordi. Bowling Green KY: −28 giorni di lavoro; replicato in South Carolina, Nevada, New Hampshire.</td><td>Open source, Gemini</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Pol.is<small>compdemocracy.org</small></td><td>Computational Democracy Project</td><td>Clustering delle votazioni su affermazioni; la base di vTaiwan, degli input di allineamento di OpenAI, di Team Mirai. Ora con topic modeling e report narrativi via LLM.</td><td>Open source, statistica + LLM</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Consult (suite Humphrey)<small>i.AI</small></td><td>Regno Unito</td><td>Analizza le risposte alle consultazioni pubbliche: 50.000 risposte in ~2 ore a £240; concordanza con esperti 83% (tra esperti 55%). Stima £20M/anno risparmiati.</td><td>LLM classificatore, AI Exemplar</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Panoramic · Democratic Commons<small>Make.org</small></td><td>Francia</td><td>Sintesi brevi e "sourced" dei dibattiti per cittadini e parlamentari; pilota CESE sul fine vita; 50+ ricercatori sui bias democratici degli LLM.</td><td>LLM; ricerca</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Decidim · decidim‑ai<small>decidim.org</small></td><td>Barcellona / Metadecidim</td><td>La piattaforma partecipativa più diffusa (Milano, Bologna, ParteciPa, Brasil Participativo). Il modulo AI fa solo spam detection bayesiana; LLM in sperimentazione.</td><td>Open source Ruby</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">CONSUL "Civic Assistant"<small>consuldemocracy.org</small></td><td>Fondazione CONSUL</td><td>Progetto 2025‑27 (Google Impact Fund): assistente LLM open source per input vocale, traduzione, "smart proposals"; release 2.5 con traduzioni LLM.</td><td>Open source</td><td><span class="pill p-pilot">in sviluppo</span></td></tr>
+<tr><td class="name">Your Priorities · Policy Synth<small>citizens.is</small></td><td>Citizens Foundation (Islanda)</td><td>Agenti LLM che trasformano input civici in proposte di policy; usato dal New Jersey (2026) e dal progetto ERIC sui diritti UE.</td><td>Open source, agenti</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Comhairle<small>CrownShy, Scozia</small></td><td>Scozia</td><td>Integra Polis, Jitsi e Talk to the City; "Elicitation Bot" che intervista i cittadini al posto del modulo; 1.000+ residenti sul piano casa di South Staffordshire.</td><td>Open source, LLM interviewer</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Deliberation.io<small>Stanford + MIT</small></td><td>USA</td><td>Dialogo socratico con AI, visualizzazione preferenze, sintesi di policy; Washington DC prima città a usarlo (2025).</td><td>Open source</td><td><span class="pill p-pilot">pilota</span></td></tr>
+<tr><td class="name">Habermas Machine<small>DeepMind</small></td><td>Google DeepMind</td><td>Due LLM producono dichiarazioni di gruppo preferite ai mediatori umani (5.700 partecipanti, Science 2024). Nessun prodotto; forte critica accademica ("ottimizzare il consenso non è deliberare").</td><td>Ricerca</td><td><span class="pill p-comm">ricerca</span></td></tr>
+<tr><td class="name">Team Mirai · Idobata · AI Anno<small>github.com/team-mirai</small></td><td>Giappone</td><td>Partito "AI‑native": avatar del candidato risponde a 8.600 domande; chatbot che trasforma le opinioni in pull request al programma; 11 seggi alla Camera bassa 2026; tool open source su fondi politici e riassunti di legge.</td><td>Open source, Polis + T3C + LLM</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Global Dialogues · Alignment Assemblies<small>cip.org</small></td><td>Collective Intelligence Project</td><td>10.000+ partecipanti in 70+ paesi sul governo dell'AI; dal 2026 infrastruttura permanente; con laboratori di AI e il governo di Taiwan.</td><td>Polis + LLM + sondaggi</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">AI Legislative Studio<small>VANK</small></td><td>Corea del Sud</td><td>"I am the AI Legislator": trasforma idee dei cittadini in bozze di legge; giuria di 200 cittadini sorteggiati valuta i modelli AI nazionali.</td><td>LLM drafting</td><td><span class="pill p-pilot">pilota</span></td></tr>
+<tr><td class="name">Smartvote LLM<small>UZH</small></td><td>Svizzera</td><td>LLM+RAG che compila i questionari del voting advice per candidati e partiti; Wahl‑O‑Mat (DE) e euandi (UE) restano classici; in Italia il Navigatore politico è fermo al 2022.</td><td>LLM+RAG</td><td><span class="pill p-pilot">pilota</span></td></tr>
+<tr><td class="name">Change.org "write with AI"<small>change.org</small></td><td>Change.org</td><td>Assistente che scrive titolo, testo e destinatario. Studio su 1,5M petizioni: testi più omogenei, esiti invariati.</td><td>OpenAI</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Have Your Say · Citizens' Panels · ECI<small>ec.europa.eu</small></td><td>UE</td><td>Consultazioni, panel da 150 cittadini sorteggiati, iniziativa dei cittadini (4 sopra 1 milione di firme). Nessuna AI dichiarata; critica di "citizenwashing".</td><td>Piattaforme classiche</td><td><span class="pill p-ok">attivo</span></td></tr>
+</tbody></table></div>
+
+<h3>C · Monitoraggio, trasparenza, accountability (Monitorare)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Chi</th><th>Cosa fa</th><th>Forma tecnica</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td class="name">ParlamentAI<small>parlament.ai</small></td><td>Germania · privato</td><td>Legge tutti i documenti del Bundestag ogni ora, produce briefing giornalieri con citazioni, incrocia registro lobby e Abgeordnetenwatch. Il modello dell'"agente che legge gli atti".</td><td>LLM+RAG (modelli ospitati in UE, Mistral)</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Digital Democracy<small>CalMatters</small></td><td>USA · California</td><td>Voti, donazioni, trascrizioni di ogni audizione; AI fa emergere pattern; newsletter automatica settimanale sui voti del proprio eletto; premio da 1,8M$/anno per l'espansione nazionale.</td><td>AI custom + newsroom</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">TheyWorkForYou · WhatDoTheyKnow<small>mySociety</small></td><td>Regno Unito</td><td>Parlamento e FOIA; LLM usati solo per classificare (RuleBox, Llama fine‑tuned); rifiuto esplicito di generare risposte al pubblico; framework AI pubblico.</td><td>Open source (Alaveteli), LLM interno</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">OpenParlamento · OpenPNRR · Openbilanci<small>Openpolis</small></td><td>Italia</td><td>Monitoraggio quotidiano di Camere e Governo con alert email; PNRR e bilanci comunali. Nessun layer LLM; esiste un MCP server di terzi (open‑parlamento‑mcp).</td><td>Dati + API, ML classico</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Plural Analyzer · Open States<small>pluralpolicy.com</small></td><td>USA</td><td>LLM che riassume i bill di 50 stati; tracker della legislazione sull'AI (1.561 bill in 45 stati nel 2026).</td><td>LLM; dati aperti</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Quorum · FiscalNote Copilot<small>commerciali</small></td><td>USA / globale</td><td>Public affairs a pagamento: riassunti, talking point, drafting; FiscalNote serve anche l'Assemblea Nazionale coreana. Il civico è in ritardo rispetto al commerciale.</td><td>SaaS LLM</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">HowTheyVote.eu · Parltrack · Integrity Watch<small>UE</small></td><td>Community / TI</td><td>Voti nominali del Parlamento Europeo, scraper di dossier ed emendamenti, interessi finanziari e lobby dei MEP. Successori di VoteWatch (chiuso 2022).</td><td>Open source, dump dati</td><td><span class="pill p-comm">community</span></td></tr>
+<tr><td class="name">Cardinal · Opentender · DOZORRO<small>OCP, GTI, TI Ukraine</small></td><td>Globale / UE / Ucraina</td><td>72+ red flag sugli appalti in formato OCDS (Rust, open source); indicatori di rischio in 36 giurisdizioni; ML che stima il rischio corruzione dei tender e li smista alle ONG.</td><td>Regole + ML classico</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Alice · Sofia · Monica<small>TCU / CGU</small></td><td>Brasile</td><td>Alice legge i bandi dalla Gazzetta e manda alert agli auditor; Sofia aiuta a scrivere le relazioni. Il modello istituzionale di lettura automatica delle gazzette.</td><td>NLP classico</td><td><span class="pill p-int">interno</span></td></tr>
+<tr><td class="name">Rosie (Serenata de Amor)<small>serenata.ai</small></td><td>Brasile · OK Brasil</td><td>ML open source sui rimborsi spese dei deputati: 3M+ rimborsi, 17.700 sospetti. Oggi in bassa attività.</td><td>Open source ML</td><td><span class="pill p-comm">manutenzione</span></td></tr>
+<tr><td class="name">Full Fact AI · Chequeabot · Factiverse<small>UK, AR, NO</small></td><td>Fact‑checker</td><td>Triage di 300.000 frasi al giorno da TV e parlamento; claim matching; API commerciale con 350.000 fact‑check. Usati da 40+ organizzazioni in 30 paesi.</td><td>NLP + LLM, human in the loop</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Pagella Politica · Facta<small>Italia</small></td><td>Italia</td><td>Fact‑checking politico; progetto HATEDEMICS su hate speech; patto anti‑deepfake dei partiti (gennaio 2026). Nessun tool AI pubblico stand‑alone.</td><td>Redazione + AI interna</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Klaxon · DocumentCloud · Aleph Pro<small>MuckRock, OCCRP</small></td><td>Giornalismo investigativo</td><td>Alert su cambiamenti di pagine web; classificazione e riassunto di documenti; 4 miliardi di documenti con risk scoring di entità e reti; muckrock‑mcp per agenti.</td><td>Open source + LLM add‑on</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">citymeetings.nyc<small>indipendente</small></td><td>USA · New York</td><td>Trascrive le sedute del consiglio comunale, le divide in capitoli, riassume e manda newsletter. Un solo sviluppatore.</td><td>Whisper + LLM</td><td><span class="pill p-comm">community</span></td></tr>
+<tr><td class="name">Polimeter<small>McMaster / Laval</small></td><td>Canada</td><td>Traccia le promesse elettorali (352 di Trudeau 2021) codificate a mano da politologi. Nessuna AI.</td><td>Manuale</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">normattiva_2_md · Gazzetta Ufficiale RAG<small>onData, Apify</small></td><td>Italia · community</td><td>Conversione delle norme in Markdown leggibile dagli LLM; actor commerciale con alert tematici sulla Gazzetta. Normattiva Open Data ufficiale presentato a luglio 2026.</td><td>Open source / commerciale</td><td><span class="pill p-comm">community</span></td></tr>
+<tr><td class="name">Monithon · iMonitor 2.0<small>monithon.eu</small></td><td>Italia / 7 paesi UE</td><td>Monitoraggio civico degli appalti e dei fondi pubblici con formazione dal 28/9/2026; con TI‑Italia e Info.nodes. Nessuna AI.</td><td>Metodologia + piattaforma</td><td><span class="pill p-ok">attivo</span></td></tr>
+</tbody></table></div>
+
+<h3>D · Strumenti per agire verso lo Stato e la società (Interagire, lato cittadino)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Chi</th><th>Cosa fa</th><th>Forma tecnica</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td class="name">Resistbot<small>resist.bot</small></td><td>USA · no‑profit</td><td>Via SMS: GenAI scrive la lettera al rappresentante partendo da testo libero o da un disegno di legge, l'utente approva, consegna via email, fax o posta.</td><td>LLM + consegna fisica</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Rentervention "Renny"<small>Law Center for Better Housing</small></td><td>USA · Chicago</td><td>Chatbot per inquilini: spiega i diritti, genera la lettera al padrone di casa e <em>invia la raccomandata</em> per conto dell'utente, con escalation a operatori umani.</td><td>GenAI + azione</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Bailey B. · Roxanne · JustFix<small>legal aid USA</small></td><td>Florida, NYC</td><td>Chatbot RAG su materiali curati per inquilini (fino a 40 documenti generabili); riparazioni casa (~5.000 utenti); "Who Owns What" e lettere di reclamo, open source.</td><td>RAG, open source</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Upsolve<small>upsolve.org</small></td><td>USA · no‑profit</td><td>"Paralegale AI" + staff per il fallimento personale; oltre 1 miliardo di dollari di debiti cancellati (marzo 2026).</td><td>LLM guidato + umani</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">DoNotPay<small>donotpay.com</small></td><td>USA · privato</td><td>Ex "robot lawyer": ordine FTC (febbraio 2025), 193.000$ di sanzione, divieto di dichiararsi pari a un avvocato. Oggi generatore di documenti.</td><td>LLM chiuso</td><td><span class="pill p-dead">ridimensionato</span></td></tr>
+<tr><td class="name">Caddy<small>Citizens Advice + i.AI</small></td><td>Regno Unito</td><td>Copilota LLM per gli operatori di Citizens Advice (non per il cittadino): tempi di risposta dimezzati in RCT, rollout su 250 sedi, open source.</td><td>Open source, LLM</td><td><span class="pill p-int">interno</span></td></tr>
+<tr><td class="name">SNAP Policy Navigator<small>Code for America</small></td><td>USA</td><td>Assistente AI per i caseworker dei sussidi alimentari; CfA ha servito 6,2M persone con GetCalFresh. IRS Direct File cancellato per il 2026.</td><td>LLM, interno</td><td><span class="pill p-int">interno</span></td></tr>
+<tr><td class="name">Elliot<small>Tiassisto24</small></td><td>Italia · privato</td><td>Foto del verbale, parere AI sulla ricorribilità a 2,99€, poi ricorso a pagamento con umani. Unico caso italiano "cittadino → Stato" con AI trovato.</td><td>LLM + servizio</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">SeeClickFix · FixMyStreet · Ushahidi<small>CivicPlus, mySociety</small></td><td>USA, UK, globale</td><td>Segnalazioni urbane con intake AI e chatbot comunali; triage NLP dei report; crowdsourcing in crisi con ML.</td><td>Open source (FMS, Ushahidi)</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Reclame Aqui<small>Brasile</small></td><td>Brasile · privato</td><td>Reclami vocali, categorizzazione e mascheramento dati via AI; utenti lamentano disattivazione automatica di reclami legittimi.</td><td>AI proprietaria</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Boundless<small>USA</small></td><td>USA · privato</td><td>Pratiche di immigrazione preparate con AI e riviste da avvocati, 500‑1.000 pratiche a settimana.</td><td>LLM + umani</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">BallotReady · chatbot generalisti<small>USA</small></td><td>USA</td><td>API elettorale per 40.000 seggi al voto il 3/11/2026; i test 2026 mostrano ChatGPT/Gemini con errori fattuali quasi a zero ma risposte incomplete. Il canale è diventato il chatbot generalista.</td><td>API; LLM generalisti</td><td><span class="pill p-ok">attivo</span></td></tr>
+</tbody></table></div>
+
+<h3>E · Infrastruttura per agenti civici</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Chi</th><th>Cosa abilita</th><th>Forma tecnica</th><th>Stato</th></tr></thead>
+<tbody>
+<tr><td class="name">civic‑ai‑tools<small>github.com/npstorey</small></td><td>MIT · community</td><td>MCP server per 559 portali open data Socrata e Data Commons; directory di MCP civici; framework anti‑allucinazione.</td><td>Open source MCP</td><td><span class="pill p-comm">community</span></td></tr>
+<tr><td class="name">Congress MCP · OpenStates MCP · EP MCP · muckrock‑mcp · open‑parlamento‑mcp<small>community</small></td><td>USA, UE, Italia</td><td>Espongono i dati parlamentari e FOIA come tool per qualunque assistente. Nessuno è ufficiale; quello italiano è di un singolo sviluppatore.</td><td>Open source MCP</td><td><span class="pill p-comm">community</span></td></tr>
+<tr><td class="name">Congress.gov API · dati.camera.it · dati.senato.it · ANAC OCDS · Normattiva Open Data<small>istituzionali</small></td><td>USA, Italia</td><td>Le API grezze su cui costruire: bill e record USA; SPARQL/CSV delle Camere; appalti in formato OCDS; norme in formato aperto (portale luglio 2026).</td><td>REST, SPARQL, CSV</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">PDND<small>PagoPA</small></td><td>Italia</td><td>Catalogo delle API tra PA (target 2.000 e‑service entro fine 2026), API v3 con DPoP. Nessun percorso per agenti AI come consumatori dei dati.</td><td>API REST con voucher</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">IT‑Wallet · EUDI Wallet · eIDAS 2<small>PagoPA, UE</small></td><td>Italia, UE</td><td>10M+ attivazioni, deleghe digitali dal 15/10/2026 ma solo a persone fisiche; EUDI obbligatorio dal 24/12/2026. Manca il layer "chi agisce per chi" per gli agenti; proposte di "mandati digitali qualificati" e Agent Identity Protocol.</td><td>Identità digitale</td><td><span class="pill p-pilot">in evoluzione</span></td></tr>
+<tr><td class="name">AI Act art. 50 · sandbox nazionali · Legge 132/2025<small>UE, Italia</small></td><td>UE, Italia</td><td>Dal 2/8/2026 ogni agente deve dichiararsi AI; sandbox regolatorie operative; legge italiana con decreti attuativi da giugno 2026 e linee guida AgID su adozione, sviluppo e procurement.</td><td>Regole</td><td><span class="pill p-ok">in vigore</span></td></tr>
+<tr><td class="name">LLM sovrani<small>AMALIA, ALIA, TAIDE, ALLaM, LLM estone, Sarvam</small></td><td>PT, ES, TW, SA, EE, IN</td><td>Modelli pubblici nazionali per lingua e sovranità dei dati; l'Italia non ne ha uno in uso nei servizi ai cittadini.</td><td>Open weights</td><td><span class="pill p-ok">attivo</span></td></tr>
+<tr><td class="name">Humanity AI · Mozilla Democracy x AI · AI Civics<small>filantropia</small></td><td>USA, globale</td><td>500M$ in 5 anni (MacArthur, Omidyar, Ford, Mozilla), open call estate 2026; coorte Mozilla da 50k$; 3M$ su "AI Civics" (Data &amp; Society). Fonti di finanziamento disponibili.</td><td>Grant</td><td><span class="pill p-ok">aperti</span></td></tr>
+<tr><td class="name">Civic Tech Field Guide<small>directory.civictech.guide</small></td><td>Community</td><td>La directory mondiale dei progetti civic tech, con sezione "Civic AI Tools". Il riferimento da non duplicare ma da federare.</td><td>Directory</td><td><span class="pill p-ok">attivo</span></td></tr>
+</tbody></table></div>
+
+<h2 id="italia">L'Italia rispetto al resto del mondo</h2>
+<p class="prose">Quello che c'è, quello che manca, e dove un sito degli agenti civici trova spazio libero.</p>
+<div class="gap">
+  <div><div class="k">Assistente nazionale unico</div><div class="v">Manca</div><div class="d">Estonia, UK, Messico, Portogallo, Corea ne hanno o ne stanno lanciando uno. L'Italia ha silos: Julia 2.5 a Roma (160.000 contenuti, 90 servizi, 80 lingue), FestinaLente a Firenze, INPS, ER2Digit in Emilia‑Romagna.</div></div>
+  <div><div class="k">Delega ad agenti software</div><div class="v">Manca ovunque, Italia inclusa</div><div class="d">IT‑Wallet dal 15/10/2026 consente fino a 5 deleghe a persone per 2 anni. Nessuno standard per un agente che agisce "per conto di" su SPID/CIE/EUDI.</div></div>
+  <div><div class="k">Dati parlamentari agent‑ready</div><div class="v">Solo community</div><div class="d">Camera e Senato espongono SPARQL e CSV; l'unico MCP è open‑parlamento‑mcp di un singolo sviluppatore. Openpolis ha alert ma non un layer conversazionale.</div></div>
+  <div><div class="k">Gazzetta e norme</div><div class="v">Dati sì, agente no</div><div class="d">Normattiva Open Data (luglio 2026) e normattiva_2_md di onData; nessun servizio pubblico di alert personalizzati come Alice (Brasile) o ParlamentAI (Germania).</div></div>
+  <div><div class="k">Appalti e anticorruzione</div><div class="v">Vademecum, non tool</div><div class="d">ANAC pubblica OCDS e raccomanda i red flag (agosto 2026); nessuno li calcola davanti al cittadino. Cardinal è pronto per farlo.</div></div>
+  <div><div class="k">Partecipazione</div><div class="v">Decidim senza AI</div><div class="d">ParteciPa.gov.it (7 consultazioni, 11.000 utenti), Milano Partecipa, Bologna Partecipa. Nessun sensemaking; il Senato non ha ancora petizioni online.</div></div>
+  <div><div class="k">Voto informato</div><div class="v">Fermo al 2022</div><div class="d">Navigatore politico e ITAMAT sono VAA classici; la Svizzera sta compilando i questionari con LLM+RAG.</div></div>
+  <div><div class="k">Cittadino → Stato</div><div class="v">Un solo caso privato</div><div class="d">Elliot per le multe. Niente equivalenti di Resistbot, Rentervention, Upsolve, Caddy.</div></div>
+</div>
+
+<h2 id="catalogo">Catalogo degli strumenti possibili</h2>
+<p class="prose">Quelli già fatti su questo sito sono segnati in rosso, con il link. Ogni riga dice cosa farebbe lo strumento, se conviene costruirlo, integrare un terzo o fare un ibrido, da quale base partire e quanto costa in ordine di grandezza. Il criterio di priorità è: rischio legale basso, dati già disponibili, nessun equivalente italiano.</p>
+<div class="legend">
+  <span><span class="mode m-build">costruire</span> sviluppo proprio</span>
+  <span><span class="mode m-int">integrare</span> terzi o open source già pronti</span>
+  <span><span class="mode m-hyb">ibrido</span> base di terzi con sviluppo proprio sopra</span>
+  <span class="effort">sforzo: S = settimane · M = 2‑4 mesi · L = 6+ mesi</span>
+</div>
+
+<h3>Monitorare</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Cosa fa per il cittadino</th><th>Modalità</th><th>Base da cui partire</th><th>Sforzo</th></tr></thead>
+<tbody>
+<tr><td class="name">Lettore della Gazzetta Ufficiale</td><td>Ogni giorno legge GU e Normattiva, riassume in linguaggio semplice, manda alert per tema o territorio ("norme che toccano il mio Comune, la mia professione"). Il modello Alice/ParlamentAI applicato all'Italia.</td><td><span class="mode m-build">costruire</span></td><td>Normattiva Open Data, normattiva_2_md (onData), Klaxon per i cambiamenti</td><td class="effort">M</td></tr>
+<tr><td class="name">Agente parlamentare</td><td>Chat e briefing con citazioni su atti, voti, emendamenti, interrogazioni, decreti attuativi; "cosa ha votato il mio deputato questa settimana" (come la newsletter di Digital Democracy).</td><td><span class="mode m-hyb">ibrido</span></td><td>dati.camera.it, dati.senato.it, Openpolis (partner), open‑parlamento‑mcp</td><td class="effort">M</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/appalti/" target="_top">Red flag sugli appalti</a> <span class="pill p-qui">fatto qui</span></td><td>Calcola i 72+ indicatori di rischio sui dati ANAC in OCDS e li mostra per Comune, stazione appaltante, fornitore; alert sulle gare della propria zona.</td><td><span class="mode m-int">integrare</span></td><td>Cardinal (OCP, Rust, open source), ANAC OCDS, vademecum ANAC agosto 2026</td><td class="effort">S‑M</td></tr>
+<tr><td class="name">Nomine pubbliche <span class="pill p-qui">in arrivo: Le carte del potere</span></td><td>Osservatorio delle nomine, incarichi in scadenza e "rosa" dei profili per fatti verificati. Wikinomine copre già questo spazio.</td><td><span class="mode m-build">costruire</span></td><td>Wikinomine (in corso), Openpolis nomine, Integrity Watch come riferimento</td><td class="effort">in corso</td></tr>
+<tr><td class="name">Riassunti dei consigli comunali</td><td>Trascrive gli streaming delle sedute, divide in capitoli, riassume, avvisa quando si parla di un tema seguito. Da Roma e Milano ai piccoli Comuni.</td><td><span class="mode m-build">costruire</span></td><td>citymeetings.nyc come modello, Whisper per la trascrizione</td><td class="effort">M</td></tr>
+<tr><td class="name">Tracker delle promesse</td><td>Estrae le promesse dai programmi elettorali e dai discorsi, le collega ad atti e stanziamenti, aggiorna lo stato con revisione umana.</td><td><span class="mode m-hyb">ibrido</span></td><td>Polimeter come metodologia, Pagella Politica come partner editoriale</td><td class="effort">M‑L</td></tr>
+<tr><td class="name">PNRR e fondi europei</td><td>Agente che spiega a un cittadino cosa è finanziato nel suo territorio, milestone raggiunte e in ritardo, con monitoraggio civico strutturato.</td><td><span class="mode m-int">integrare</span></td><td>OpenPNRR (Openpolis), Monithon/iMonitor 2.0, OpenCoesione</td><td class="effort">S</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/chiedo-gli-atti/" target="_top">Accesso civico generalizzato assistito</a> <span class="pill p-qui">fatto qui</span></td><td>Aiuta a scrivere un'istanza FOIA italiana corretta (dopo la guida ICO: l'AI spesso peggiora le richieste), la protocolla, segue i termini di 30 giorni, ricorre in caso di silenzio.</td><td><span class="mode m-hyb">ibrido</span></td><td>Alaveteli (mySociety), esperienza WhatDoTheyKnow e FragDenStaat</td><td class="effort">M</td></tr>
+<tr><td class="name">Assistente al fact‑checking</td><td>Segnala se un'affermazione è già stata verificata, con link alla verifica; watch su dichiarazioni dei politici in TV e parlamento.</td><td><span class="mode m-int">integrare</span></td><td>Factiverse API, Full Fact AI, Pagella Politica/Facta (partner)</td><td class="effort">S</td></tr>
+<tr><td class="name">Lobby e conflitti d'interesse</td><td>Incrocia registro trasparenza, dichiarazioni patrimoniali dei parlamentari e incarichi. In seconda fase.</td><td><span class="mode m-build">costruire</span></td><td>Integrity Watch EU, LobbyFacts, dati Camera/Senato sui redditi</td><td class="effort">L</td></tr>
+</tbody></table></div>
+
+<h3>Partecipare</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Cosa fa per il cittadino</th><th>Modalità</th><th>Base da cui partire</th><th>Sforzo</th></tr></thead>
+<tbody>
+<tr><td class="name">Sensemaking delle consultazioni</td><td>Prende migliaia di contributi (ParteciPa, Have Your Say, consigli comunali, sondaggi) e restituisce una mappa dei temi, dei punti di accordo e disaccordo, con citazioni. Funziona sia per chi consulta sia per chi partecipa.</td><td><span class="mode m-int">integrare</span></td><td>Talk to the City, Jigsaw Sensemaking Tools, Pol.is (tutti open source)</td><td class="effort">S</td></tr>
+<tr><td class="name">Intervistatore civico</td><td>Al posto del modulo, un agente che fa domande in linguaggio naturale, approfondisce e struttura la risposta. Usato da Comhairle (Scozia) e Idobata (Team Mirai).</td><td><span class="mode m-hyb">ibrido</span></td><td>Comhairle Elicitation Bot, Harmonica, T3C per l'analisi</td><td class="effort">S‑M</td></tr>
+<tr><td class="name">Assistente alle consultazioni pubbliche</td><td>Spiega di cosa tratta una consultazione (UE o italiana), cosa cambia per l'utente, e lo aiuta a scrivere un contributo pertinente. Con firma umana obbligatoria e trasparenza sull'uso dell'AI, per non alimentare l'astroturfing.</td><td><span class="mode m-build">costruire</span></td><td>Have Your Say, ParteciPa.gov.it, Publio per il diritto UE</td><td class="effort">M</td></tr>
+<tr><td class="name">Petizioni con destinatario giusto</td><td>Aiuta a formulare la petizione, verifica i fatti citati, indica l'organo competente (Camera, Regione, Comune, ECI) e il canale di deposito con SPID/CIE.</td><td><span class="mode m-build">costruire</span></td><td>Piattaforma petizioni Camera, ECI; lezione Change.org (omogeneizzazione senza esiti)</td><td class="effort">M</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/bilancio-comune/" target="_top">Bilancio partecipativo spiegato</a> <span class="pill p-qui">in parte: il bilancio spiegato</span></td><td>Agente che legge il bilancio del Comune (Openbilanci) e aiuta a formulare proposte compatibili con i capitoli di spesa; modulo per Decidim/CONSUL.</td><td><span class="mode m-hyb">ibrido</span></td><td>Openbilanci, Decidim (Milano, Bologna), CONSUL Civic Assistant, Camelot</td><td class="effort">M</td></tr>
+<tr><td class="name">Voto informato con LLM</td><td>Questionario di affinità aggiornato con RAG sui programmi e sui voti reali dei partiti (non solo dichiarazioni), spiegabile riga per riga.</td><td><span class="mode m-build">costruire</span></td><td>Smartvote LLM (UZH) come metodo, dati OpenParlamento sui voti</td><td class="effort">M</td></tr>
+<tr><td class="name">Dibattito assistito</td><td>Mappa degli argomenti, rilevazione di bias e fallacie, sintesi di gruppo. Camelot for Debate copre già parte di questo.</td><td><span class="mode m-int">integrare</span></td><td>Camelot for Debate, Kialo, Deliberation.io</td><td class="effort">S</td></tr>
+<tr><td class="name">Assemblee cittadine con sorteggio</td><td>Sorteggio stratificato, briefing generati e verificati, sensemaking tra i tavoli; da offrire a Comuni e Regioni.</td><td><span class="mode m-hyb">ibrido</span></td><td>Sortition Foundation (metodo), DemocracyNext, Stanford Online Deliberation Platform</td><td class="effort">L</td></tr>
+<tr><td class="name">Dalla proposta alla bozza di legge</td><td>Trasforma una proposta di cittadini in un articolato con relazione, verificandone la compatibilità con le norme vigenti. Modello VANK (Corea).</td><td><span class="mode m-build">costruire</span></td><td>Normattiva, AI Legislative Studio come riferimento</td><td class="effort">L</td></tr>
+</tbody></table></div>
+
+<h3>Interagire</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Cosa fa per il cittadino</th><th>Modalità</th><th>Base da cui partire</th><th>Sforzo</th></tr></thead>
+<tbody>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/navigatore/" target="_top">Navigatore dei servizi pubblici</a> <span class="pill p-qui">in costruzione</span></td><td>"Cosa devo fare per…": risposta con fonti ufficiali, passi, documenti, scadenze, link diretto al servizio. Solo fonti verificate, citazione obbligatoria, mai consigli legali. Il GOV.UK Chat italiano che nessuno ha fatto.</td><td><span class="mode m-build">costruire</span></td><td>Siti istituzionali, Julia 2.5 come precedente, RAG con guardrail</td><td class="effort">M‑L</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/mi-spetta/" target="_top">Navigatore bonus e sussidi</a> <span class="pill p-qui">fatto qui</span></td><td>Poche domande e restituisce a cosa si ha diritto (bonus, ISEE, agevolazioni regionali e comunali), con la lista dei documenti. Poi, in seconda fase, precompila la domanda (modello Corea/LifeSG).</td><td><span class="mode m-build">costruire</span></td><td>INPS, Agenzia Entrate, portali regionali; mRelief/Benefit Kitchen come modello</td><td class="effort">M</td></tr>
+<tr><td class="name">Lettera al rappresentante</td><td>Scrivi in tre righe cosa vuoi dire, l'agente identifica il parlamentare/consigliere giusto, redige la lettera, tu approvi, invio via PEC o email con ricevuta. Il Resistbot italiano.</td><td><span class="mode m-build">costruire</span></td><td>Resistbot come modello, anagrafica eletti Openpolis, PEC</td><td class="effort">S‑M</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/mi-rimborsano/" target="_top">Diritti in pratica: inquilini, consumatori, lavoratori</a> <span class="pill p-qui">in parte: consumatori</span></td><td>Spiega i diritti in una situazione concreta e genera la lettera formale (diffida, reclamo, richiesta) con base normativa. Senza "consulenza legale": documenti standard più rinvio a professionisti e associazioni.</td><td><span class="mode m-hyb">ibrido</span></td><td>Rentervention, Bailey B., JustFix (open source); partner: associazioni consumatori, sindacati</td><td class="effort">M</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/faccio-ricorso/" target="_top">Multe e sanzioni</a> <span class="pill p-qui">fatto qui</span></td><td>Foto del verbale, spiegazione, valutazione dei vizi ricorrenti, modello di ricorso a Prefetto o Giudice di Pace. Da integrare con un partner esistente.</td><td><span class="mode m-int">integrare</span></td><td>Elliot (Tiassisto24) o equivalente</td><td class="effort">S</td></tr>
+<tr><td class="name">Reclami alla PA e difensore civico</td><td>Reclamo formale a un ufficio pubblico, poi escalation a difensore civico, URP, Garante, con tracciamento dei termini di risposta.</td><td><span class="mode m-build">costruire</span></td><td>Modelli Reclame Aqui e Resolver; PEC</td><td class="effort">M</td></tr>
+<tr><td class="name">Segnalazioni urbane con triage</td><td>Foto e posizione, l'agente classifica, individua l'ufficio competente e segue la pratica; dashboard pubblica delle segnalazioni aperte per Comune.</td><td><span class="mode m-int">integrare</span></td><td>FixMyStreet (open source), triage NLP; interoperabile con app comunali</td><td class="effort">S‑M</td></tr>
+<tr><td class="name">Assistente elettorale</td><td>Dove, quando e come si vota, documenti, voto fuori sede, come si legge la scheda; risposte solo da fonti ufficiali (Viminale, Comuni).</td><td><span class="mode m-build">costruire</span></td><td>Dati Viminale/Eligendo; lezione test 2026 sui chatbot generalisti</td><td class="effort">S</td></tr>
+</tbody></table></div>
+
+<h3>Infrastruttura (ciò che rende possibile tutto il resto)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Strumento</th><th>Cosa abilita</th><th>Modalità</th><th>Base da cui partire</th><th>Sforzo</th></tr></thead>
+<tbody>
+<tr><td class="name"><a href="https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md" target="_top">MCP server dei dati civici italiani</a> <span class="pill p-qui">fatto qui</span></td><td>Un unico endpoint che espone Camera, Senato, Normattiva, ANAC, Openpolis, ISTAT, OpenCoesione a qualunque assistente AI e agli agenti di terzi. Open source. È il pezzo che fa del sito un'infrastruttura, non un altro chatbot.</td><td><span class="mode m-build">costruire</span></td><td>civic‑ai‑tools (MIT), open‑parlamento‑mcp, govinfo MCP come precedente ufficiale</td><td class="effort">M</td></tr>
+<tr><td class="name"><a href="https://casaleggiodavide-stack.github.io/agenti-civici/catalogo/" target="_top">Directory e registro degli agenti civici</a> <span class="pill p-qui">in parte: il catalogo</span></td><td>Il sito stesso: catalogo di agenti (propri e di terzi), con scheda su fonti usate, modello, chi lo gestisce, limiti dichiarati, conformità AI Act. Federato con Civic Tech Field Guide, non duplicato.</td><td><span class="mode m-build">costruire</span></td><td>Civic Tech Field Guide, registro agenti di Singapore come ispirazione</td><td class="effort">S‑M</td></tr>
+<tr><td class="name">Kit di fiducia: fonti, citazioni, dichiarazione AI <span class="pill p-qui">fatto qui, in ogni strumento</span></td><td>Componente comune a tutti gli agenti: risposta solo con citazione verificabile, rifiuto quando la fonte manca, banner "stai parlando con un'AI" (art. 50 AI Act), log pubblico degli errori segnalati.</td><td><span class="mode m-build">costruire</span></td><td>Framework anti‑allucinazione di civic‑ai‑tools, AI Framework di mySociety</td><td class="effort">S</td></tr>
+<tr><td class="name">Accesso con SPID/CIE e profilo civico</td><td>Login con identità digitale per personalizzare (mio Comune, miei eletti, miei temi) senza che l'agente agisca per conto dell'utente.</td><td><span class="mode m-int">integrare</span></td><td>SPID/CIE OpenID Connect, IT‑Wallet</td><td class="effort">S</td></tr>
+<tr><td class="name">Mandato digitale ad agenti</td><td>Proposta di standard e pilota: come un cittadino delega un agente a compiere un atto (inviare una PEC, depositare un'istanza) con limiti, durata e revoca verificabili. Nessuno lo ha ancora fatto; è advocacy oltre che software.</td><td><span class="mode m-build">costruire</span></td><td>EUDI Wallet/OpenID4VP, Agent Identity Protocol, proposta "mandati digitali qualificati"</td><td class="effort">L</td></tr>
+<tr><td class="name">Modelli e hosting europei</td><td>Scelta di modelli con hosting UE (cloud europei, Mistral, modelli open) e possibilità di modello sovrano quando disponibile.</td><td><span class="mode m-int">integrare</span></td><td>ParlamentAI e Vlam come esempi</td><td class="effort">S</td></tr>
+<tr><td class="name"><a href="https://github.com/casaleggiodavide-stack/agenti-civici/tree/main/sentinella" target="_top">Watcher di siti pubblici</a> <span class="pill p-qui">in parte: sulle fonti degli agenti</span></td><td>Sorveglia le pagine di Comuni, Regioni, ministeri e avvisa quando cambiano (bandi, delibere, avvisi). Alimenta gli altri agenti.</td><td><span class="mode m-int">integrare</span></td><td>Klaxon (MuckRock, open source)</td><td class="effort">S</td></tr>
+<tr><td class="name">Finanziamento</td><td>Le open call disponibili nel 2026: Humanity AI (500M$ in 5 anni), Mozilla Democracy x AI, Google.org (ha finanziato CONSUL e Comhairle), programmi UE (NGI, Democracy Shield).</td><td><span class="mode m-int">integrare</span></td><td>Vedi tabella E</td><td class="effort">—</td></tr>
+</tbody></table></div>
+
+<h2 id="percorso">Un percorso possibile</h2>
+<p class="prose">Tre fasi, ordinate per rischio crescente. La prima produce valore in settimane con dati già pubblici e senza responsabilità legali; l'ultima è quella in cui nessuno al mondo è ancora arrivato.</p>
+<div class="phases">
+  <div class="phase"><div class="k">Fase 1 · leggere e avvisare</div><b>Agenti che osservano</b><ul>
+    <li>MCP server dei dati civici italiani (open source)</li>
+    <li>Lettore della Gazzetta con alert per tema</li>
+    <li>Agente parlamentare con briefing e citazioni</li>
+    <li>Red flag appalti con Cardinal su ANAC</li>
+    <li>Sensemaking con Talk to the City su consultazioni esistenti</li>
+    <li>Directory degli agenti civici (il sito)</li>
+  </ul></div>
+  <div class="phase"><div class="k">Fase 2 · spiegare e preparare</div><b>Agenti che assistono</b><ul>
+    <li>Navigatore dei servizi e dei bonus, solo fonti ufficiali</li>
+    <li>Lettera al rappresentante con approvazione umana</li>
+    <li>Diritti in pratica con partner (consumatori, inquilini, lavoro)</li>
+    <li>Petizioni e contributi alle consultazioni</li>
+    <li>Intervistatore civico e voto informato con LLM</li>
+    <li>Login SPID/CIE per la personalizzazione</li>
+  </ul></div>
+  <div class="phase"><div class="k">Fase 3 · agire per conto di</div><b>Agenti delegati</b><ul>
+    <li>Standard e pilota del mandato digitale ad agenti</li>
+    <li>Invio PEC, deposito istanze FOIA, ricorsi con delega verificabile</li>
+    <li>Precompilazione di domande di sussidio (modello Corea)</li>
+    <li>Segnalazioni e reclami seguiti fino alla chiusura</li>
+    <li>Assemblee cittadine con sorteggio e sensemaking</li>
+  </ul></div>
+</div>
+
+<div class="callout">
+  <p><strong>Cosa distingue il progetto dagli altri cento chatbot.</strong> Tre scelte: esporre i dati civici come infrastruttura per tutti gli agenti (MCP), non solo per il proprio; rispondere sempre con fonte citata e rifiutare quando manca; affrontare per primi il problema della delega, che è il vero collo di bottiglia del 2027.</p>
+</div>
+
+<h2 id="rischi">Cosa non fare, imparato dagli altri</h2>
+<ul class="risks">
+  <li><b>Allucinazioni</b><span>NYC MyCity consigliava di trattenere le mance e rifiutare i voucher: chiuso nel gennaio 2026. Albert non è stato generalizzato per risposte errate. Regola: nessuna risposta senza fonte, e un banner che dice cosa l'agente non sa.</span></li>
+  <li><b>Consulenza legale</b><span>DoNotPay sanzionato dalla FTC; New York discute una legge che vieta ai chatbot risposte "sostanziali" da professione regolata; la Cassazione ha multato di 5.000€ un avvocato per giurisprudenza inventata. Regola: documenti standard e informazione, mai parere; rinvio a professionisti e associazioni.</span></li>
+  <li><b>Astroturfing</b><span>In California 20.000+ commenti generati con AI, identità usate senza consenso, 22 eletti chiedono un'indagine. Change.org: testi omogenei, esiti invariati. Regola: firma umana, dichiarazione dell'uso di AI, limiti per utente, nessun invio massivo.</span></li>
+  <li><b>Rappresentatività</b><span>I campioni auto‑selezionati online vengono spacciati per volontà popolare (critica a Team Mirai e alla Habermas Machine). Regola: mostrare sempre chi ha partecipato e non estrarre "consenso" dove non c'è, come ha scelto Recursive Public.</span></li>
+  <li><b>Moderazione cieca</b><span>Reclame Aqui disattiva reclami legittimi in automatico. Regola: ogni decisione automatica su un contributo è appellabile a un umano.</span></li>
+  <li><b>Chatbot davanti alla carta</b><span>La critica alla Deutschland‑App: un'interfaccia conversazionale su una burocrazia non digitalizzata sposta il problema. Regola: partire dove i dati e i canali esistono già (Gazzetta, Parlamento, ANAC, PEC).</span></li>
+  <li><b>AI Act</b><span>Dal 2 agosto 2026 ogni agente deve dichiararsi tale (art. 50); i sistemi che influenzano diritti o accesso a servizi possono ricadere nell'alto rischio dal dicembre 2027. Regola: registro pubblico degli agenti con modello, fonti e limiti, come chiede AgID nelle linee guida.</span></li>
+</ul>
+
+<h2 id="fonti">Fonti principali</h2>
+<ul class="sources">
+  <li><a href="https://www.ria.ee/en/state-information-system/personal-services/burokratt">Bürokratt (RIA, Estonia)</a></li>
+  <li><a href="https://gds.blog.gov.uk/2026/05/14/gov-uk-chat-launches/">GOV.UK Chat launches (GDS, maggio 2026)</a></li>
+  <li><a href="https://acteurspublics.fr/articles/de-chatbot-experimental-a-socle-interministeriel-pour-lia-de-letat-le-parcours-dalbert-ia/">Albert: da chatbot a socle interministériel (Acteurs Publics)</a></li>
+  <li><a href="https://netzpolitik.org/2026/kritik-an-deutschland-app-menschenzentrierte-verwaltung-statt-vorgeschaltetem-chatbot/">Critica alla Deutschland‑App (netzpolitik)</a></li>
+  <li><a href="https://www.koreatimes.co.kr/business/tech-science/20260904/korea-to-provide-free-ai-agents-for-all-citizens-through-messenger-texts">Corea: agenti AI gratuiti per tutti i cittadini (Korea Times)</a></li>
+  <li><a href="https://u.ae/en/about-the-uae/digital-uae/digital-technology/Agentic-AI-for-Government-Services">Agentic AI for Government Services (u.ae)</a></li>
+  <li><a href="https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law">Chiusura del chatbot MyCity (The Markup)</a></li>
+  <li><a href="https://fedscoop.com/federal-goverment-mcp-improve-ai-access-public-data/">Server MCP federali USA (FedScoop)</a></li>
+  <li><a href="https://www.weforum.org/publications/making-agentic-ai-work-for-government-a-readiness-framework/">WEF, Making agentic AI work for government</a></li>
+  <li><a href="https://www.oecd.org/en/publications/artificial-intelligence-and-the-future-of-citizen-participation_a1ee2e0a-en.html">OCSE, AI and the Future of Citizen Participation (giugno 2026)</a></li>
+  <li><a href="https://talktothe.city/about">Talk to the City</a> · <a href="https://jigsaw-code.github.io/sensemaking-tools/">Jigsaw Sensemaking Tools</a> · <a href="https://github.com/compdemocracy/polis">Pol.is</a></li>
+  <li><a href="https://www.gov.uk/government/news/government-built-humphrey-ai-tool-reviews-responses-to-consultation-for-first-time-in-bid-to-save-millions">Consult / Humphrey (i.AI)</a></li>
+  <li><a href="https://about.make.org/articles-en/introducing-panoramic-ai-bridging-the-gap-between-citizens-and-institutions">Panoramic (Make.org)</a></li>
+  <li><a href="https://consuldemocracy.org/2025/07/open-source-llm-powered-civic-assistant-2/">CONSUL Civic Assistant</a> · <a href="https://docs.decidim.org/en/develop/services/aitools.html">decidim‑ai</a></li>
+  <li><a href="https://www.schneier.com/essays/archives/2026/08/rewiring-democracy-citizen-science-leads-to-civic-ai-in-scotland.html">Comhairle (Schneier, agosto 2026)</a></li>
+  <li><a href="https://github.com/team-mirai/policy/">Team Mirai (GitHub)</a> · <a href="https://www.schneier.com/blog/archives/2026/03/team-mirai-and-democracy.html">Team Mirai and democracy</a></li>
+  <li><a href="https://www.science.org/doi/10.1126/science.adq2852">Habermas Machine (Science)</a></li>
+  <li><a href="https://arxiv.org/html/2511.13949v3">AI e petizioni su Change.org (arXiv)</a></li>
+  <li><a href="https://www.sierraclub.org/press-releases/2026/03/california-lawmakers-urge-attorney-general-investigate-ai-astroturf-campaign">Astroturfing AI in California</a></li>
+  <li><a href="https://parlament.ai/">ParlamentAI</a> · <a href="https://calmatters.digitaldemocracy.org/">Digital Democracy (CalMatters)</a></li>
+  <li><a href="https://www.mysociety.org/category/ai/">mySociety, uso dell'AI</a> · <a href="https://www.mysociety.org/2026/07/21/new-icoguidance-using-ai-when-making-an-foi-request/">Guida ICO su AI e FOI</a></li>
+  <li><a href="https://www.open-contracting.org/2024/06/12/cardinal-an-open-source-library-to-calculate-public-procurement-red-flags/">Cardinal (Open Contracting Partnership)</a></li>
+  <li><a href="https://ti-ukraine.org/en/news/dozorro-artificial-intelligence-to-find-violations-in-prozorro-how-it-works/">DOZORRO</a> · <a href="https://atricon.org.br/tcu-usa-tecnologia-para-combater-fraudes/">Alice, Sofia, Monica (TCU)</a></li>
+  <li><a href="https://fullfact.org/ai/">Full Fact AI</a> · <a href="https://chequeado.com/chequeabot/">Chequeabot</a> · <a href="https://www.factiverse.ai/">Factiverse</a></li>
+  <li><a href="https://www.muckrock.com/news/archives/2026/sep/09/four-new-ecosystem-services-available/">MuckRock, servizi gratuiti (settembre 2026)</a> · <a href="https://citymeetings.nyc/">citymeetings.nyc</a></li>
+  <li><a href="https://resist.bot/about">Resistbot</a> · <a href="https://rentervention.com/">Rentervention</a> · <a href="https://www.justfix.org/">JustFix</a></li>
+  <li><a href="https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-finalizes-order-donotpay-prohibits-deceptive-ai-lawyer-claims-imposes-monetary-relief-requires">Ordine FTC su DoNotPay</a></li>
+  <li><a href="https://ai.gov.uk/knowledge-hub/tools/caddy/">Caddy (Citizens Advice + i.AI)</a> · <a href="https://codeforamerica.org/news/anthropic-partnership/">Code for America, assistente per i sussidi</a></li>
+  <li><a href="https://tiassisto24.it/multe">Elliot (Tiassisto24)</a></li>
+  <li><a href="https://github.com/npstorey/civic-ai-tools">civic‑ai‑tools (MCP)</a> · <a href="https://glama.ai/mcp/servers/giuliogarofalo/open-parlamento-mcp">open‑parlamento‑mcp</a></li>
+  <li><a href="https://www.comune.roma.it/web/it/notizia/presentazione-julia-2-5-portale-istituzionale.page">Julia 2.5 (Roma Capitale)</a> · <a href="https://www.regione.emilia-romagna.it/notizie/2026/aprile/chatbot-comuni">ER2Digit</a></li>
+  <li><a href="https://www.agid.gov.it/it/notizie/linee-guida-su-ia-nella-pa-al-la-consultazione-pubblica-su-sviluppo-e-procurement">Linee guida AgID IA nella PA</a> · <a href="https://docs.italia.it/italia/piano-triennale-ict/pianotriennale-ict-doc/it/2024-2026-agg-2026/capitolo-5_dati-e-intelligenza-artificiale/intelligenza-artificiale-per-la-pubblica-amministrazione.html">Piano Triennale 2026</a></li>
+  <li><a href="https://www.ipzs.it/news/lista-news/dettaglio-news/2026/07/08/presentato-al-forum-pa-il-nuovo-portale-open-data-di-normattiva">Normattiva Open Data</a> · <a href="https://github.com/ondata/normattiva_2_md">normattiva_2_md</a></li>
+  <li><a href="https://www.lavoripubblici.it/news/anac-dati-aperti-appalti-ia-pubblica-amministrazione-38610">ANAC, open data appalti e IA (agosto 2026)</a></li>
+  <li><a href="https://lentepubblica.it/cittadini-e-imprese/it-wallet-cambia-da-settembre-2026-i-nuovi-documenti-in-arrivo-sullapp-io/">IT‑Wallet, deleghe e nuovi documenti</a> · <a href="https://www.agendadigitale.eu/documenti/come-autorizzare-gli-agenti-ai-con-mandati-digitali-verificabili/">Mandati digitali verificabili per agenti AI</a></li>
+  <li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-enisa-eu-digital-wallet-ai-agent-identity/">EUDI Wallet e identità degli agenti (CSA/ENISA)</a> · <a href="https://arxiv.org/pdf/2603.24775">Agent Identity Protocol</a></li>
+  <li><a href="https://www.agendadigitale.eu/sicurezza/ai-act-cosa-entra-in-vigore-dal-2-agosto-2026-e-cosa-slitta/">AI Act: cosa entra in vigore dal 2 agosto 2026</a></li>
+  <li><a href="https://openpnrr.it/">OpenPNRR</a> · <a href="https://parlamento19.openpolis.it">OpenParlamento</a> · <a href="https://www.monithon.eu/blog/2026/01/13/imonitor-2-0-monitoraggio-civico-dei-fondi-pubblici-in-7-paesi-europei/">iMonitor 2.0</a></li>
+  <li><a href="https://www.camelot.vote/debate">Camelot for Debate</a> · <a href="https://partecipa.gov.it/">ParteciPa</a></li>
+  <li><a href="https://omidyar.com/update/new-grants-to-shape-ai/">Humanity AI (grant)</a> · <a href="https://directory.civictech.guide/">Civic Tech Field Guide</a></li>
+</ul>
+
+<p class="prose" style="margin-top:40px">Il <a href="https://casaleggiodavide-stack.github.io/agenti-civici/catalogo/" target="_top">catalogo degli agenti civici</a> riunisce in un'unica vista gli strumenti fatti qui, quelli in costruzione, quelli che esistono già in Italia e nel mondo e quelli da fare, divisi per chi governa, per chi controlla, per chi si organizza e per chi ha diritto.</p>
+<footer>Ricerca condotta il 14 settembre 2026 su fonti pubbliche. Alcune voci (chatbot di Torino, Genova, Napoli; Ballotpedia AI; Democracy.io) non sono state verificate e sono state escluse dalle tabelle.</footer>
+</div>
