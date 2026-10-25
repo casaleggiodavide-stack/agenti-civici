@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La visita nei tempi</title>
+<meta name="description" content="Classe di priorità sulla ricetta, data proposta dal CUP: calcola il tempo massimo garantito e prepara la richiesta all'ASL di attivare il percorso di tutela, pagando solo il ticket. Piano nazionale liste d'attesa 2026-2028 e decreto-legge 73/2024.">
+<link rel="icon" href="src/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  body:has(.foto-testata) .scena-testata { display: none; }
+  .cerca-ente { display: grid; gap: 8px; padding-block: 4px 12px; }
+  .cerca-ente input { max-width: none; }
+  .risultati-enti { list-style: none; margin: 0; padding: 0; border: 1px solid var(--riga); border-radius: 6px; overflow: hidden; }
+  .risultati-enti li + li { border-top: 1px solid var(--riga-tenue); }
+  .risultati-enti button { all: unset; box-sizing: border-box; display: block; width: 100%; padding: 9px 12px; cursor: pointer; font-size: var(--s0); }
+  .risultati-enti button:hover, .risultati-enti button:focus-visible { background: var(--accento-tenue); outline: none; }
+  .risultati-enti small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  .ente-scelto { background: var(--fondo); border: 1px solid var(--riga); border-left: 4px solid var(--accento); border-radius: 6px; padding: 10px 12px; font-size: var(--s0); display: grid; gap: 2px; }
+  .ente-scelto b { font-size: var(--s1); }
+  .ente-scelto span { color: var(--inchiostro-2); }
+  .urgente { border-left: 5px solid var(--no); background: var(--no-tenue); } .urgente .titolo { font-weight: 800; font-size: var(--s1); margin: 0 0 4px; }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
+  <a href="../assistente/" data-strumento="assistente">Assistente</a>
+  <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../garanzia/" data-strumento="garanzia">Garanzia e recesso</a>
+    <a href="../liste-attesa/" data-strumento="liste-attesa" aria-current="page">Liste d'attesa</a>
+    <a href="../truffe/" data-strumento="truffe">È una truffa?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:liste-attesa--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="40" y="30" width="110" height="96" rx="6" style="fill:var(--carta)"/><path class="s-l" d="M40 52 H150 M66 22 V38 M124 22 V38 M58 70 H70 M86 70 H98 M114 70 H126 M58 90 H70 M86 90 H98 M58 108 H70"/><circle class="s-p" cx="120" cy="92" r="10"/><circle class="s-l" cx="120" cy="92" r="10"/><circle class="s-l" cx="232" cy="74" r="40" style="fill:var(--carta)"/><path class="s-l" d="M232 46 V74 L252 86"/><path class="s-l" d="M281.6 132.0 C281.6 110.4 310.4 110.4 310.4 132.0 Z" style="fill:var(--accento-tenue)"/><circle class="s-l" cx="296" cy="105.0" r="8.1" style="fill:var(--carta)"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/></svg></div><!--/scena-->
+      <!--logo:liste-attesa--><div class="titolo-logo"><svg class="logo-strumento" viewBox="0 0 64 64" role="img" aria-label="Logo di La visita nei tempi"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M14 18 H50 V52 H14 Z M14 28 H50 M24 12 V22 M40 12 V22"/><path class="lg-t" d="M10 53 C20 53 24 46 28 40 L34 34"/><circle class="lg-n" cx="8" cy="53" r="3.4"/></svg><h1>La visita nei tempi</h1></div><!--/logo-->
+      <p class="promessa">Il CUP ti ha dato una data lontanissima? Con la classe di priorità della ricetta calcoliamo il tempo massimo garantito e prepariamo la richiesta all'ASL: devono trovarti loro un posto nei tempi, al costo del ticket.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>I tempi del Piano nazionale 2026-2028:</b> U 72 ore, B 10 giorni, D 30 o 60, P 120, dal primo contatto con il CUP.</li>
+      <li><b>Il percorso di tutela è un diritto:</b> l'ASL deve trovarti la prestazione, anche in libera professione o nel privato accreditato, senza costi oltre al ticket.</li>
+      <li><b>Nessun dato sanitario inviato.</b> La lettera la mandi tu, dalla tua PEC.</li>
+    </ul>
+  </header>
+  <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><img src="web/foto.jpg" alt="Un signore anziano e sua figlia al tavolo di cucina: lei indica una data sul calendario tenendo la ricetta, lui guarda il calendario sul telefono" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici <span>· La visita nei tempi</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+  
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Prova con un esempio</span>
+    <button type="button" data-esempio="cardio">Visita cardiologica B tra cinque mesi</button>
+    <button type="button" data-esempio="eco">Ecografia D a dicembre</button>
+    <button type="button" data-esempio="lista">In lista e mai richiamato</button>
+    <button type="button" data-esempio="controllo">Visita di controllo</button>
+  </div>
+  <div class="avviso" id="avviso-esempio" hidden>
+    <span>Stai guardando un esempio, non i tuoi dati.</span>
+    <button type="button" id="esci-esempio">Ricomincia con i tuoi dati</button>
+  </div>
+
+  <div id="foto" hidden></div>
+
+  <main class="corpo">
+    <div class="colonna">
+      
+      <form class="colonna" id="questionario" autocomplete="off" novalidate></form>
+    </div>
+    <div class="colonna appiccicosa" id="esito" aria-live="polite"></div>
+  </main>
+
+  <footer class="piede">
+    <p><b>La visita nei tempi non è un medico e non è un ufficio dell'ASL.</b> Applica il Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26 giugno 2026) e il decreto-legge 73/2024 nel testo vigente al 25 ottobre 2026. Le Regioni adottano i loro piani entro il 22 dicembre 2026 e possono precisare tempi e procedure: controlla anche la pagina della tua ASL. Se stai male, chiama il medico, la guardia medica o il 112.</p><p>Non è un sito della pubblica amministrazione. Indirizzi PEC delle aziende sanitarie da IndicePA (licenza CC BY 4.0). Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Cancella le risposte da questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

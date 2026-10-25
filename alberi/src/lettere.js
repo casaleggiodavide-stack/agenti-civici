@@ -2,7 +2,7 @@
 // pubblico per le piantine. HTML semplice, che diventa testo da copiare in una PEC.
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const vuoto = (s, segnaposto) => (String(s || '').trim() ? esc(String(s).trim()) : `<span class="da-completare">[${esc(segnaposto)}]</span>`);
+const vuoto = (s, segnaposto) => (String(s || '').trim() ? esc(String(s).trim()) : `<span class="campo-vuoto">[${esc(segnaposto)}]</span>`);
 const giorno = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 const comuneDi = (d) => d.ente?.nome || 'Comune di [nome del Comune]';
 

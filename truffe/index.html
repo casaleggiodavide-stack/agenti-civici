@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>È una truffa?</title>
+<meta name="description" content="Un SMS del pacco, una telefonata della «banca», un messaggio di un familiare con un nuovo numero, un investimento miracoloso: i segnali di truffa, i siti oscurati dalla CONSOB, cosa fare subito e le scadenze se hai già pagato.">
+<link rel="icon" href="src/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  body:has(.foto-testata) .scena-testata { display: none; }
+  .domini { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; font-size: var(--s0); }
+  .domini li { display: grid; gap: 2px; } .domini code { font-family: var(--cifre); font-size: var(--s-1); word-break: break-all; } .domini span { color: var(--inchiostro-3); font-size: var(--s-1); }
+  .inviato { white-space: pre-wrap; font-family: var(--cifre); font-size: var(--s-1); background: var(--fondo); border: 1px solid var(--riga); border-radius: 6px; padding: 8px 10px; max-height: 200px; overflow: auto; }
+  .parere[data-tono="no"] { border-left: 5px solid var(--no); } .parere[data-tono="forse"] { border-left: 5px solid var(--forse); }
+  #q-testo { min-height: 130px; }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Agenti civici">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici</b>
+  <a href="../assistente/" data-strumento="assistente">Assistente</a>
+  <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../garanzia/" data-strumento="garanzia">Garanzia e recesso</a>
+    <a href="../liste-attesa/" data-strumento="liste-attesa">Liste d'attesa</a>
+    <a href="../truffe/" data-strumento="truffe" aria-current="page">È una truffa?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:truffe--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un telefono con un messaggio, un amo da pesca e una lente che esamina il link: riconoscere le truffe" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="56" y="16" width="70" height="116" rx="10" style="fill:var(--carta)"/><path class="s-l" d="M82 122 H100"/><path class="s-l" d="M66 36 H116 V70 H80 L72 78 V70 H66 Z" style="fill:var(--carta)"/><path class="s-p" d="M72 46 H110 V52 H72 Z"/><path class="s-l" d="M72 60 H100"/><path class="s-l" d="M170 10 V60 C170 78 196 78 196 60 V54"/><path class="s-l" d="M196 54 L190 62 M196 54 L202 62"/><circle class="s-l" cx="256" cy="80" r="26" style="fill:var(--carta);fill-opacity:.85"/><path class="s-l" d="M274 98 L298 122"/><path class="s-t" d="M244 80 H268"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C40 110 48 104 56 100 M126 54 C150 60 156 70 170 66 M206 80 C218 80 222 80 230 80"/></svg></div><!--/scena-->
+      <!--logo:truffe--><div class="titolo-logo"><svg class="logo-strumento" viewBox="0 0 64 64" role="img" aria-label="Logo di È una truffa?"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M16 10 H38 V54 H16 Z M23 48 H31"/><path class="lg-t" d="M48 8 V30 C48 40 36 40 36 31 V28"/><circle class="lg-n" cx="48" cy="8" r="3.4"/></svg><h1>È una truffa?</h1></div><!--/logo-->
+      <p class="promessa">Un SMS del pacco, una telefonata della «banca», un familiare con un numero nuovo, un investimento miracoloso: incolla il messaggio e guardiamo insieme i segnali, prima di cliccare o pagare. E se è già successo, cosa fare subito.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Non diciamo mai «è sicuro».</b> Elenchiamo i segnali trovati e ti diciamo come verificare dal canale ufficiale.</li>
+      <li><b>I link si leggono, non si aprono:</b> confronto con i siti ufficiali, con l'Indice delle pubbliche amministrazioni e con i siti oscurati dalla CONSOB.</li>
+      <li><b>Il testo resta qui.</b> Il secondo parere dell'assistente AI, facoltativo, riceve il testo senza dati personali.</li>
+    </ul>
+  </header>
+  <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><img src="web/foto.jpg" alt="Una signora sul divano guarda perplessa un messaggio sul telefono mentre il nipote le indica lo schermo e le spiega" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici <span>· È una truffa?</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+  
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Prova con un esempio</span>
+    <button type="button" data-esempio="pacco">SMS: pacco in giacenza</button>
+    <button type="button" data-esempio="antifrode">Telefonata del finto antifrode</button>
+    <button type="button" data-esempio="mamma">«Ciao mamma, nuovo numero»</button>
+    <button type="button" data-esempio="trading">Gruppo di trading sui social</button>
+  </div>
+  <div class="avviso" id="avviso-esempio" hidden>
+    <span>Stai guardando un esempio, non i tuoi dati.</span>
+    <button type="button" id="esci-esempio">Ricomincia con i tuoi dati</button>
+  </div>
+
+  <div id="foto" hidden></div>
+
+  <main class="corpo">
+    <div class="colonna">
+      
+      <form class="colonna" id="questionario" autocomplete="off" novalidate></form>
+    </div>
+    <div class="colonna appiccicosa" id="esito" aria-live="polite"></div>
+  </main>
+
+  <footer class="piede">
+    <p><b>È una truffa? non è la polizia e non è la tua banca.</b> Aiuta a riconoscere i segnali più comuni e a non perdere le scadenze (13 mesi per contestare alla banca un'operazione non autorizzata, d.lgs. 11/2010; tre mesi per la querela, art. 124 del codice penale), con le norme verificate il 25 ottobre 2026. Nessuno strumento può garantire che un messaggio sia autentico: verifica sempre dal canale ufficiale. Se hai perso soldi, chiama subito la banca e denuncia.</p><p>Siti oscurati: domini dai comunicati della CONSOB, citati come fonte. Siti delle pubbliche amministrazioni da IndicePA (licenza CC BY 4.0). Non è un sito della pubblica amministrazione. Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Cancella le risposte da questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

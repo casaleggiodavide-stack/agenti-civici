@@ -18,6 +18,7 @@ NOMI = {
     'faccio-ricorso': 'Faccio ricorso?', 'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?',
     'bilancio-comune': 'Il bilancio del Comune', 'appalti': 'Red flag appalti', 'segnalazioni': 'Segnalazioni urbane',
     'reclami-pa': 'Reclami alla PA', 'raccolte-firme': 'Raccolte firme', 'alberi': 'Alberi per il futuro',
+    'garanzia': 'Garanzia e recesso', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?',
 }
 # home: la firma dice la sezione
 HOME = {'piazza.jpg': None, 'cucina.jpg': 'Meno burocrazia', 'assemblea.jpg': 'Più partecipazione'}

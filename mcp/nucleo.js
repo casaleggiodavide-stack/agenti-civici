@@ -20,6 +20,15 @@ import { valuta as valutaReclamo } from '../mi-rimborsano/src/regole.js';
 import { DOMANDE as D_RECLAMI } from '../mi-rimborsano/src/domande.js';
 import { lettera } from '../mi-rimborsano/src/documento.js';
 import { readFileSync } from 'node:fs';
+import { valuta as valutaGaranzia } from '../garanzia/src/regole.js';
+import { DOMANDE as D_GAR } from '../garanzia/src/domande.js';
+import { lettera as letteraGar, destinatario as destGar } from '../garanzia/src/documento.js';
+import { valuta as valutaAttesa } from '../liste-attesa/src/regole.js';
+import { DOMANDE as D_ATT } from '../liste-attesa/src/domande.js';
+import { lettera as letteraAtt, destinatario as destAtt } from '../liste-attesa/src/documento.js';
+import { valuta as valutaTruffa } from '../truffe/src/regole.js';
+import { DOMANDE as D_TRU } from '../truffe/src/domande.js';
+import { sitiPubblici } from '../truffe/src/segnali.js';
 import { controlli as controlliBilancio, ripartizione, entrate as entrateBilancio, FONTI as FONTI_BILANCIO } from '../bilancio-comune/src/spiegazioni.js';
 import { INDICATORI, livello, PAROLE_LIVELLO, procedure, FONTI as FONTI_APPALTI } from '../appalti/src/indicatori.js';
 import { cercaIn } from '../comune/schede.js';
@@ -34,7 +43,7 @@ import { lettera as letteraPa, destinatario as destinatarioPa } from '../reclami
 import RACCOLTE, { LETTO as LETTO_FIRME, SERIE as SERIE_FIRME } from '../raccolte-firme/dati/raccolte.js';
 import { stima as stimaFirme, LIVELLI as LIVELLI_FIRME, dettaglio as dettaglioFirme, FONTI as FONTI_FIRME } from '../raccolte-firme/src/stima.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.7.0' };
+export const INFO = { name: 'agenti-civici', title: 'Agenti civici', version: '0.8.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -183,6 +192,12 @@ const STRUMENTI_SCHEDE = [
   ['appalti', 'Red flag sugli appalti', 'Segnali di rischio negli appalti di Comuni, ASL, Regioni e altri enti sui dati aperti ANAC del 2025: affidamenti diretti, gare con una sola offerta, concentrazione dei fornitori, frazionamenti sotto soglia. Strumento: appalti_ente.'],
   ['mi-rimborsano', 'Mi rimborsano?', 'Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Strumento: valuta_reclamo.'],
 ];
+
+STRUMENTI_SCHEDE.push(
+  ['garanzia', 'Si è rotto o ci ho ripensato', 'Garanzia legale di due anni (12 mesi in più con la riparazione per i contratti dal 31/7/2026), obbligo di riparazione del fabbricante, recesso di 14 giorni dagli acquisti online e fuori dai negozi, rimborso entro 14 giorni: date calcolate e lettere, dal Codice del consumo vigente. Strumento: garanzia_recesso.'],
+  ['liste-attesa', 'La visita nei tempi', 'Tempi massimi delle visite e degli esami per classe di priorità (U 72 ore, B 10 giorni, D 30/60, P 120) dal Piano nazionale liste d\'attesa 2026-2028, percorso di tutela a carico dell\'ASL con il solo ticket, richiesta all\'ASL pronta. Strumento: visita_nei_tempi.'],
+  ['truffe', 'È una truffa?', 'Segnali di truffa in SMS, email, chat e telefonate: domini che imitano banche, Poste ed enti pubblici, siti oscurati dalla CONSOB, conto di sicurezza, codici, «ciao mamma»; cosa fare subito e scadenze per contestare alla banca (13 mesi) e per la querela (3 mesi). Strumento: e_una_truffa.']
+);
 
 const SCHEDE = [
   ...STRUMENTI_SCHEDE.map(([slug, titolo, testo]) => ({ id: `strumento:${slug}`, title: titolo, text: testo, url: `${SITO}${slug}/`, metadata: { tipo: 'strumento' } })),
@@ -342,13 +357,54 @@ TOOLS.push({ name: 'raccolte_firme', title: 'Raccolte firme in corso', descripti
 
 TOOLS.push({ name: 'trova_pratica', title: 'Navigatore dei servizi', description: `Navigatore dei servizi pubblici: «cosa devo fare per…». Trova la scheda verificata sulle fonti ufficiali tra ${PRATICHE.length} pratiche (residenza, carta d'identità, passaporto, SPID, nascita, matrimonio, decesso e successione, permesso di soggiorno, cittadinanza, medico di base, scuola, ISEE, 730, NASpI, pensione, patente, passaggio di proprietà, affitto, invalidità…) e restituisce passi, documenti, costi, tempi, scadenze e fonti. Se non c'è una scheda lo dice.`, inputSchema: { type: 'object', properties: { domanda: { type: 'string', description: 'La domanda con parole del cittadino, es. «ho venduto la macchina»' }, id: { type: 'string', description: 'Id di una scheda già trovata, in alternativa' } } } });
 
+function rigaDoc(v, righe) {
+  if (v.voci?.length) righe.push('\n## Controlli', ...v.voci.map((x) => `- [${x.esito}] ${x.titolo}: ${x.spiegazione}`));
+  if (v.scadenze?.length) righe.push('\n## Scadenze', ...v.scadenze.map((x) => `- ${x.data}${x.scaduta ? ' (passata)' : ''}: ${x.titolo}. ${x.testo}`));
+  if (v.passi?.length) righe.push('\n## Passi', ...v.passi.map((x) => `- ${x.titolo}: ${x.testo}`));
+}
+function rispostaGaranzia({ oggi, ...r } = {}) {
+  const v = valutaGaranzia(r, { oggi });
+  const righe = [`# ${v.verdetto.titolo}`, v.verdetto.testo];
+  rigaDoc(v, righe);
+  if (v.documento) righe.push(`\n## Lettera${destGar(r, v) ? ` a ${destGar(r, v)}` : ''}\n` + testo(letteraGar(r, v)));
+  righe.push('\nFonti: ' + v.fonti.map((f) => f.url).join(' ; '), AVVERTENZA);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+function rispostaAttesa({ asl_nome: nome, oggi, ...r } = {}) {
+  if (nome && !r.ente) r.ente = cerca(enti(), nome, 40).find((t) => ['L7', 'L8'].includes(t.cat));
+  const v = valutaAttesa(r, { oggi });
+  const righe = [v.urgente ? 'ATTENZIONE: se i sintomi peggiorano o la classe è U, prima il medico, la guardia medica o il 112/118.' : '', `# ${v.verdetto.titolo}`, v.verdetto.testo].filter(Boolean);
+  rigaDoc(v, righe);
+  if (v.documento) { const d = destAtt(r); righe.push(`\n## Richiesta a ${d.nome || '[ASL di residenza]'}${d.pec ? `, PEC ${d.pec}` : ''}\n` + testo(letteraAtt(r, v))); }
+  righe.push('\nFonti: ' + v.fonti.map((f) => f.url).join(' ; '), AVVERTENZA);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+let SITI_PA = null;
+function rispostaTruffa({ oggi, ...r } = {}) {
+  SITI_PA ||= sitiPubblici(DATI_ENTI);
+  const v = valutaTruffa(r, { oggi, siti: SITI_PA });
+  const righe = [`# ${v.verdetto.titolo}`, v.verdetto.testo];
+  if (v.segnali.length) righe.push('\n## Segnali', ...v.segnali.map((x) => `- [${x.forza}] ${x.titolo}: ${x.testo}`));
+  if (v.domini.length) righe.push('\n## Link letti (non aperti)', ...v.domini.map((d) => `- ${d.host}: ${d.nota || 'nessuna informazione'}`));
+  if (v.azioni.length) righe.push('\n## Cosa fare subito', ...v.azioni.map((a) => `- ${a}`));
+  if (v.scadenze.length) righe.push('\n## Scadenze', ...v.scadenze.map((x) => `- ${x.data}: ${x.titolo}. ${x.testo}`));
+  righe.push('\nNon dire mai che un messaggio è sicuro. Fonti: ' + v.fonti.map((f) => f.url).join(' ; '), AVVERTENZA);
+  return { content: [{ type: 'text', text: righe.join('\n') }], structuredContent: v };
+}
+
+TOOLS.push(
+  { name: 'garanzia_recesso', title: 'Si è rotto o ci ho ripensato', description: 'Garanzia legale e recesso dal Codice del consumo vigente: per un oggetto difettoso calcola la fine della garanzia del venditore (due anni, 12 mesi in più con la riparazione per i contratti dal 31/7/2026), la prescrizione e la presunzione del primo anno, e l\'obbligo di riparazione del fabbricante; per un acquisto online o fuori dai negozi calcola l\'ultimo giorno per recedere (14 giorni, 12 mesi in più senza informativa) e il termine del rimborso; prepara la lettera al venditore.', inputSchema: schema(D_GAR, { oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+  { name: 'visita_nei_tempi', title: 'La visita nei tempi', description: 'Liste d\'attesa: dalla classe di priorità della ricetta (U, B, D, P) e dalla data del primo contatto con il CUP calcola il tempo massimo del Piano nazionale 2026-2028, il richiamo dalla prelista e la disdetta; se la data proposta è oltre il termine prepara la richiesta all\'ASL di attivare il percorso di tutela (DL 73/2024 art. 3), pagando solo il ticket. L\'ASL si indica con asl_nome.', inputSchema: schema(D_ATT, { asl_nome: { type: 'string', description: 'Nome dell\'azienda sanitaria, es. «ASL Bari»' }, oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+  { name: 'e_una_truffa', title: 'È una truffa?', description: 'Controlla un messaggio sospetto (SMS, email, chat, telefonata): segnali di truffa con regole scritte, domini che imitano banche, Poste, corrieri ed enti pubblici, siti oscurati dalla CONSOB, richieste di codici o di spostare soldi; dice cosa fare subito e, se c\'è stato un pagamento, le scadenze per contestare alla banca e per la querela. Non dice mai che un messaggio è sicuro. Non mettere nel testo dati personali.', inputSchema: schema(D_TRU, { oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+);
+
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
 for (const t of TOOLS) {
   t.title ||= TITOLI[t.name];
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { raccolte_firme: rispostaFirme, prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+const GESTORI = { garanzia_recesso: rispostaGaranzia, visita_nei_tempi: rispostaAttesa, e_una_truffa: rispostaTruffa, raccolte_firme: rispostaFirme, prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [

@@ -156,6 +156,27 @@ SCENE = {
         f'{NODO(24, 100, 5)}<path class="s-t" d="M30 100 C40 92 60 96 70 92 M114 46 C150 40 190 60 210 70 C224 78 240 84 254 88"/><path class="s-t" d="M150 52 C156 46 160 58 166 52"/>',
         'Un banchetto con un modulo e due persone che firmano dal telefono: le raccolte firme', '0 0 320 140'),
 
+    'garanzia': svg(
+        '<rect class="s-l" x="40" y="34" width="78" height="92" rx="6" style="fill:var(--carta)"/><circle class="s-l" cx="79" cy="86" r="24" style="fill:var(--carta)"/><circle class="s-p" cx="79" cy="86" r="15"/><path class="s-l" d="M48 50 H110 M54 42 H64"/>'
+        '<path class="s-l" d="M150 70 L200 52 L250 70 L200 88 Z" style="fill:var(--carta)"/><path class="s-l" d="M150 70 V112 L200 130 L250 112 V70 M200 88 V130"/>'
+        '<path class="s-l" d="M268 30 H300 V70 L295 66 L290 70 L285 66 L280 70 L275 66 L268 70 Z" style="fill:var(--carta)"/><path class="s-l" d="M274 40 H294 M274 48 H290"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 38 108 40 104 M118 70 C132 66 140 66 150 70 M250 70 C262 62 264 56 268 52"/><path class="s-t" d="M214 40 C228 28 248 30 258 40 M252 32 L258 40 L249 43"/>',
+        'Una lavatrice, un pacco da restituire con la freccia del reso e lo scontrino: garanzia e recesso', '0 0 320 140'),
+    'liste-attesa': svg(
+        '<rect class="s-l" x="40" y="30" width="110" height="96" rx="6" style="fill:var(--carta)"/><path class="s-l" d="M40 52 H150 M66 22 V38 M124 22 V38 M58 70 H70 M86 70 H98 M114 70 H126 M58 90 H70 M86 90 H98 M58 108 H70"/>'
+        '<circle class="s-p" cx="120" cy="92" r="10"/><circle class="s-l" cx="120" cy="92" r="10"/>'
+        '<circle class="s-l" cx="232" cy="74" r="40" style="fill:var(--carta)"/><path class="s-l" d="M232 46 V74 L252 86"/>'
+        + persona(296, 132, 0.9, rossa=True) +
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/>',
+        'Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite', '0 0 320 140'),
+    'truffe': svg(
+        '<rect class="s-l" x="56" y="16" width="70" height="116" rx="10" style="fill:var(--carta)"/><path class="s-l" d="M82 122 H100"/>'
+        '<path class="s-l" d="M66 36 H116 V70 H80 L72 78 V70 H66 Z" style="fill:var(--carta)"/><path class="s-p" d="M72 46 H110 V52 H72 Z"/><path class="s-l" d="M72 60 H100"/>'
+        '<path class="s-l" d="M170 10 V60 C170 78 196 78 196 60 V54"/><path class="s-l" d="M196 54 L190 62 M196 54 L202 62"/>'
+        '<circle class="s-l" cx="256" cy="80" r="26" style="fill:var(--carta);fill-opacity:.85"/><path class="s-l" d="M274 98 L298 122"/><path class="s-t" d="M244 80 H268"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C40 110 48 104 56 100 M126 54 C150 60 156 70 170 66 M206 80 C218 80 222 80 230 80"/>',
+        'Un telefono con un messaggio, un amo da pesca e una lente che esamina il link: riconoscere le truffe', '0 0 320 140'),
+
     'governa': svg(
         '<path class="s-l" d="M70 50 L160 18 L250 50 Z" style="fill:var(--carta)"/><path class="s-l" d="M80 54 H240 M92 58 V110 M124 58 V110 M156 58 V110 M188 58 V110 M220 58 V110 M70 114 H250 M62 122 H258"/>'
         '<path class="s-l" d="M160 18 V4"/><path class="s-r" d="M161 4 H180 L174 9 L180 14 H161 Z"/>',
@@ -189,6 +210,9 @@ POSTI = [
     ('index.html', '<a class="strumento" href="segnalazioni/" data-strumento="segnalazioni">', 'segnalazioni'),
     ('index.html', '<a class="strumento" href="reclami-pa/" data-strumento="reclami-pa">', 'reclami-pa'),
     ('index.html', '<a class="strumento" href="raccolte-firme/" data-strumento="raccolte-firme">', 'raccolte-firme'),
+    ('index.html', '<a class="strumento" href="garanzia/" data-strumento="garanzia">', 'garanzia'),
+    ('index.html', '<a class="strumento" href="liste-attesa/" data-strumento="liste-attesa">', 'liste-attesa'),
+    ('index.html', '<a class="strumento" href="truffe/" data-strumento="truffe">', 'truffe'),
     ('index.html', '<a class="strumento" href="catalogo/#governo">', 'governa'),
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
@@ -207,7 +231,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
@@ -298,6 +322,9 @@ LOGHI = {
     'bilancio-comune': ('Il bilancio del mio Comune', _logo('<path class="lg-i" d="M13 50 H51 M19 50 V36 M28 50 V28 M37 50 V33 M46 50 V22"/>', 'M14 30 C20 24 24 18 28 20 S36 28 40 22 L49 14', (12, 33))),
     'appalti': ('Red flag sugli appalti', _logo('<path class="lg-i" d="M20 52 V12"/>', 'M21 14 H47 L41 21 L47 28 H21 M14 52 H20', (12, 52))),
     'raccolte-firme': ('Raccolte firme in corso', _logo('<path class="lg-i" d="M17 12 H41 L47 18 V52 H17 Z M41 12 V18 H47 M23 24 H39 M23 31 H35"/>', 'M12 50 C18 50 20 42 25 42 S30 48 34 44 S40 38 44 42 L52 34', (9, 50))),
+    'garanzia': ('Si è rotto o ci ho ripensato', _logo('<path class="lg-i" d="M20 12 H44 V52 L40 48 L36 52 L32 48 L28 52 L24 48 L20 52 Z M26 22 H38 M26 30 H38"/>', 'M10 40 C10 28 18 22 26 38 M22 36 L26 39 L29 34', (9, 44))),
+    'liste-attesa': ('La visita nei tempi', _logo('<path class="lg-i" d="M14 18 H50 V52 H14 Z M14 28 H50 M24 12 V22 M40 12 V22"/>', 'M10 53 C20 53 24 46 28 40 L34 34', (8, 53))),
+    'truffe': ('È una truffa?', _logo('<path class="lg-i" d="M16 10 H38 V54 H16 Z M23 48 H31"/>', 'M48 8 V30 C48 40 36 40 36 31 V28', (48, 8))),
     'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
 }
 
@@ -322,7 +349,7 @@ def favicon(nome):
 def applica_loghi():
     nomi_h1 = {'assistente': 'Assistente civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
-               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso'}
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?'}
     for t, h1 in nomi_h1.items():
         cartella = os.path.join(REPO, t)
         open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))
