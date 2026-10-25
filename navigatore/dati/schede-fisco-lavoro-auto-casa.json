@@ -1,0 +1,1192 @@
+{
+ "verificato_il": "2026-10-25",
+ "pratiche": [
+  {
+   "id": "isee-dsu",
+   "titolo": "Ottenere l'ISEE (DSU precompilata online o al CAF)",
+   "sinonimi": [
+    "fare l'isee",
+    "isee precompilato",
+    "dsu online",
+    "rinnovare l'isee",
+    "isee corrente",
+    "attestazione isee",
+    "isee al caf",
+    "dichiarazione sostitutiva unica",
+    "isee scaduto"
+   ],
+   "chi": "Il dichiarante del nucleo familiare. Nella DSU precompilata i componenti maggiorenni autorizzano la precompilazione con SPID, CIE o CNS.",
+   "dove": "INPS (Portale unico ISEE, app INPS Mobile) oppure CAF convenzionato con INPS.",
+   "online": "sì",
+   "online_url": "https://servizi2.inps.it/servizi/PortaleUnicoIsee",
+   "passi": [
+    "Decidi se fare da solo sul Portale unico ISEE (con SPID, CIE o CNS) o farti aiutare da un CAF.",
+    "Online: scegli la DSU precompilata; i componenti maggiorenni del nucleo autorizzano l'uso dei dati di Agenzia delle Entrate e INPS.",
+    "In alternativa alla precompilazione fornisci gli elementi di riscontro (un dato di reddito e uno di patrimonio mobiliare per ogni maggiorenne, riferiti al secondo anno prima della DSU).",
+    "Controlla, completa e invia la DSU.",
+    "Scarica l'attestazione ISEE dal portale (o ritirala dall'ente/CAF che ha ricevuto la DSU)."
+   ],
+   "documenti": [
+    "SPID, CIE o CNS (per l'online)",
+    "dati dei componenti del nucleo familiare",
+    "se non usi la precompilazione: un dato di reddito e uno di patrimonio mobiliare per ogni maggiorenne",
+    "al CAF: documento d'identità e mandato al CAF"
+   ],
+   "costo": "Gratuito online. Al CAF: assistenza gratuita in base alla convenzione con INPS (fonte: INPS, notizia Osservatorio DSU/ISEE febbraio 2026).",
+   "tempi": "Attestazione disponibile entro 10 giorni lavorativi dalla ricezione della DSU (scheda INPS Portale unico ISEE).",
+   "scadenze_obblighi": "L'ISEE vale fino al 31 dicembre dell'anno di presentazione della DSU. ISEE corrente: 6 mesi se si aggiornano solo i redditi (da aggiornare entro 2 mesi da variazioni occupazionali o dei trattamenti), fino al 31 dicembre se si aggiornano i patrimoni.",
+   "norma": {
+    "riferimento": "DPCM 5 dicembre 2013, n. 159, art. 10 (DSU)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.consiglio.ministri:decreto:2013-12-05;159~art10"
+   },
+   "fonti": [
+    {
+     "titolo": "INPS - Portale unico ISEE (scheda servizio)",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.Portale-unico-ISEE.html"
+    },
+    {
+     "titolo": "INPS - Osservatorio su DSU e ISEE: i dati 2016-2025",
+     "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.02.osservatorio-su-dsu-e-isee-i-dati-2016-2025.html"
+    }
+   ],
+   "attenzione": [
+    "Ogni anno dal 1° gennaio serve una nuova DSU: l'ISEE dell'anno prima non vale più.",
+    "Esistono ISEE diversi (minorenni con genitori non coniugati, università, socio-sanitario, residenze): chiedi quello giusto per la prestazione.",
+    "Se la tua situazione è peggiorata (lavoro perso, redditi calati) valuta l'ISEE corrente, che però ha durata limitata.",
+    "Dal 2026 per alcune prestazioni familiari (tra cui l'Assegno unico) si usa un ISEE specifico: vedi la scheda Assegno unico."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "730-precompilato",
+   "titolo": "Dichiarazione dei redditi: 730 precompilato",
+   "sinonimi": [
+    "730 precompilato",
+    "fare il 730 da solo",
+    "dichiarazione dei redditi online",
+    "730 2027",
+    "scadenza 730",
+    "730 senza sostituto",
+    "modello redditi precompilato",
+    "rimborso irpef 730",
+    "730 integrativo"
+   ],
+   "chi": "Nel 2026 (redditi 2025): lavoratori dipendenti e assimilati, pensionati, chi ha redditi di terreni e fabbricati, di capitale, di lavoro autonomo senza partita IVA, alcuni redditi diversi e a tassazione separata. Anche senza sostituto d'imposta. Chi non era residente in Italia nel 2025 e/o 2026 deve usare il modello Redditi PF.",
+   "dove": "Agenzia delle Entrate (area riservata, applicazione web precompilata). In alternativa: sostituto d'imposta che presta assistenza, CAF o professionista abilitato.",
+   "online": "sì",
+   "online_url": "https://infoprecompilata.agenziaentrate.gov.it/portale/accedi-precompilata",
+   "passi": [
+    "Entra nell'area riservata con SPID, CIE, CNS o credenziali Fisconline/Entratel (anche come tutore, genitore, persona di fiducia o erede).",
+    "Apri il 730 precompilato e il foglio riepilogativo; puoi usare la modalità semplificata.",
+    "Indica, se vuoi, il sostituto d'imposta che farà il conguaglio e compila la scheda 8, 5 e 2 per mille.",
+    "Controlla i dati; se mancano spese detraibili o redditi, aggiungili (si genera un nuovo 730-3).",
+    "Invia la dichiarazione e conserva la ricevuta con il protocollo nell'area riservata."
+   ],
+   "documenti": [
+    "SPID, CIE, CNS o credenziali Fisconline/Entratel",
+    "documenti delle spese da aggiungere o correggere",
+    "IBAN per il rimborso se non c'è sostituto d'imposta"
+   ],
+   "costo": "Gratuito se presentato direttamente online all'Agenzia. CAF e professionisti: importo non regolato dalla fonte (null).",
+   "tempi": "Rimborsi tramite busta paga/pensione o accredito sul conto: tempi non indicati dalla fonte letta (null).",
+   "scadenze_obblighi": "2026: consultazione dal 30 aprile, invio dal 14 maggio al 30 settembre 2026 (scaduto). Redditi PF precompilato: invio dal 27 maggio al 2 novembre 2026. 730 integrativo tipo 2 via precompilata fino al 10 novembre 2026; dal 10 novembre 2026 al 1° febbraio 2027 Redditi 'tardivo'. 2027: calendario operativo non ancora pubblicato; per norma la precompilata è messa a disposizione entro il 30 aprile e si invia entro il 30 settembre (artt. 66 e 68 del testo unico adempimenti e accertamento, d.lgs. 141/2026).",
+   "norma": {
+    "riferimento": "D.Lgs. 5 agosto 2026, n. 141 (Testo unico adempimenti e accertamento), allegato, artt. 66 e 68; fino al 31/12/2026 art. 1 d.lgs. 175/2014",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-08-05;141:1~art68"
+   },
+   "fonti": [
+    {
+     "titolo": "Agenzia Entrate - La dichiarazione precompilata 2026",
+     "url": "https://www.agenziaentrate.gov.it/portale/la-dichiarazione-precompilata-20261"
+    },
+    {
+     "titolo": "Agenzia Entrate - La presentazione e le operazioni successive",
+     "url": "https://www.agenziaentrate.gov.it/portale/la-presentazione-e-le-operazioni-successive4"
+    },
+    {
+     "titolo": "Agenzia Entrate - 730/2026 Chi può presentare il 730",
+     "url": "https://www.agenziaentrate.gov.it/portale/730-2026/chi-puo-presentare-il-730"
+    }
+   ],
+   "attenzione": [
+    "Se accetti il 730 senza modifiche non ci sono controlli documentali sugli oneri comunicati da terzi; se modifichi, i controlli riguardano le voci cambiate.",
+    "La detrazione al 19% richiede di regola pagamenti tracciabili (salvo farmaci, dispositivi medici e prestazioni di strutture pubbliche o accreditate).",
+    "Con più di quattro immobili in locazione breve non si può usare il 730 (serve Redditi PF).",
+    "Per redditi sopra 75.000 euro la procedura applica automaticamente il nuovo limite alle spese detraibili.",
+    "Il servizio web è solo in italiano."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "codice-fiscale",
+   "titolo": "Codice fiscale: richiederlo o avere il duplicato della tessera",
+   "sinonimi": [
+    "chiedere il codice fiscale",
+    "codice fiscale neonato",
+    "codice fiscale stranieri",
+    "duplicato tessera sanitaria",
+    "ho perso la tessera sanitaria",
+    "tesserino codice fiscale",
+    "certificato di attribuzione codice fiscale",
+    "tessera sanitaria rubata"
+   ],
+   "chi": "Chi non ha ancora un codice fiscale; chi ha perso o rovinato la tessera sanitaria o il tesserino.",
+   "dove": "Neonati: il Comune all'iscrizione in anagrafe. Stranieri: Sportello unico immigrazione o Questura. Italiani all'estero: consolato. Tutti gli altri: qualsiasi ufficio dell'Agenzia delle Entrate. Duplicato tessera sanitaria: area riservata Agenzia Entrate, ASL o ufficio dell'Agenzia.",
+   "online": "parziale",
+   "online_url": "https://www.agenziaentrate.gov.it/portale/richiesta-del-duplicato-della-tessera-sanitaria",
+   "passi": [
+    "Per un nuovo codice: compila e firma il modello AA4/8.",
+    "Invialo via PEC all'ufficio con copia del documento (non serve se firmi digitalmente) oppure portalo in ufficio su appuntamento.",
+    "Ricevi il certificato di attribuzione: vale finché non arriva a casa la tessera sanitaria o il tesserino.",
+    "Per il duplicato della tessera: entra nell'area riservata con SPID, CIE o CNS e indica il motivo (furto/smarrimento, sostituzione tecnica, mancato recapito).",
+    "La nuova tessera arriva al domicilio fiscale o a un altro indirizzo indicato."
+   ],
+   "documenti": [
+    "modello AA4/8",
+    "documento d'identità valido (cittadini italiani o UE)",
+    "extra UE: passaporto valido (con visto se richiesto) o attestazione consolare con foto o permesso di soggiorno o carta d'identità del comune",
+    "per minori: documento del genitore",
+    "neonati in casi urgenti: atto di nascita o dichiarazione di nascita"
+   ],
+   "costo": null,
+   "tempi": null,
+   "scadenze_obblighi": "Nessuna scadenza di legge per la richiesta.",
+   "norma": {
+    "riferimento": "DPR 29 settembre 1973, n. 605 (dal 1/1/2027 confluisce nel d.lgs. 141/2026)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1973-09-29;605~art1!vig=2026-10-25"
+   },
+   "fonti": [
+    {
+     "titolo": "Agenzia Entrate - Il Codice Fiscale (cittadini)",
+     "url": "https://www.agenziaentrate.gov.it/portale/codice-fiscale-e-tessera-sanitaria/che-cos-cittadini"
+    },
+    {
+     "titolo": "Agenzia Entrate - Richiesta di riemissione della Tessera Sanitaria",
+     "url": "https://www.agenziaentrate.gov.it/portale/richiesta-del-duplicato-della-tessera-sanitaria"
+    },
+    {
+     "titolo": "Agenzia Entrate - Carta dei servizi: codice fiscale e tessera sanitaria",
+     "url": "https://www.agenziaentrate.gov.it/portale/agenzia/amministrazione-trasparente/servizi-erogati/carta-servizi/i-nostri-servizi/area-identificazione-del-contribuente/codice-fiscale-e-tessera-sanitaria"
+    }
+   ],
+   "attenzione": [
+    "L'unico codice fiscale valido è quello rilasciato dall'Agenzia: i codici calcolati da siti e app non valgono.",
+    "Chi non è iscritto al Servizio sanitario nazionale riceve il tesserino del codice fiscale, non la tessera sanitaria.",
+    "Per il duplicato del solo tesserino esiste un servizio online senza autenticazione; per la tessera sanitaria serve l'area riservata.",
+    "Online puoi anche stampare una copia della tessera in corso di validità."
+   ],
+   "note": "Costo e tempi di rilascio non indicati nelle pagine ufficiali lette.",
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "pagare-pagopa-f24",
+   "titolo": "Pagare un avviso pagoPA o un modello F24 online",
+   "sinonimi": [
+    "pagare avviso pagopa",
+    "pagare multa pagopa",
+    "codice avviso pagopa",
+    "pagare f24 online",
+    "f24 web",
+    "f24 home banking",
+    "pagare tasse online",
+    "pagare con app io"
+   ],
+   "chi": "Chiunque debba pagare un avviso pagoPA di una pubblica amministrazione o versare imposte con F24. Il pagamento telematico dell'F24 è obbligatorio per i titolari di partita IVA, per gli F24 con compensazioni di crediti e per gli F24 a saldo zero.",
+   "dove": "pagoPA: app IO, sito dell'ente creditore, checkout pagoPA, home banking, app di pagamento, banche, ATM, uffici postali, esercenti convenzionati. F24: servizi F24 web/F24 online dell'Agenzia delle Entrate, home banking, oppure (solo non titolari di partita IVA senza compensazioni) banca, posta o sportello Agenzia Entrate-Riscossione.",
+   "online": "sì",
+   "online_url": "https://checkout.pagopa.it/",
+   "passi": [
+    "pagoPA: tieni a portata di mano l'avviso (codice avviso o QR code).",
+    "Scegli il canale: app IO, checkout pagoPA, sito dell'ente o home banking (voce pagoPA).",
+    "Prima di confermare, controlla la commissione del gestore (PSP) e cambialo se ne trovi uno più conveniente.",
+    "Conserva la ricevuta (in app IO resta archiviata).",
+    "F24: entra nei servizi telematici dell'Agenzia con SPID, CIE o CNS, compila l'F24 web e scegli la data di addebito sul tuo conto."
+   ],
+   "documenti": [
+    "avviso pagoPA con codice avviso o QR code",
+    "per F24 web: SPID, CIE o CNS e un conto presso banca o Poste convenzionate",
+    "codici tributo e importi dell'F24"
+   ],
+   "costo": "pagoPA: commissione variabile secondo il PSP scelto (simulatore costi su pagopa.gov.it). F24 web: servizio gratuito, nessuna commissione dell'Agenzia.",
+   "tempi": "F24 web: l'addebito avviene alla data di scadenza indicata, anche se l'F24 è inviato prima.",
+   "scadenze_obblighi": "Le scadenze sono quelle del tributo o dell'avviso. Un F24 telematico inviato per errore si può annullare fino al terzultimo giorno lavorativo prima della data di versamento.",
+   "norma": {
+    "riferimento": "D.Lgs. 7 marzo 2005, n. 82 (CAD), art. 5 (pagamenti elettronici tramite pagoPA)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-03-07;82~art5"
+   },
+   "fonti": [
+    {
+     "titolo": "pagoPA - Dove pagare",
+     "url": "https://www.pagopa.gov.it/it/cittadini/dove-pagare/"
+    },
+    {
+     "titolo": "Agenzia Entrate - F24: come effettuare i versamenti (cittadini)",
+     "url": "https://www.agenziaentrate.gov.it/portale/schede/pagamenti/f24/come-effettuare-versamenti-f24-cittadini"
+    },
+    {
+     "titolo": "Agenzia Entrate - F24: compilazione e invio via web (cittadini)",
+     "url": "https://www.agenziaentrate.gov.it/portale/web/guest/schede/pagamenti/f24/compilazione-invio-f24-via-web-cittadini"
+    }
+   ],
+   "attenzione": [
+    "F24 web non accetta carte di credito: addebita il conto corrente.",
+    "Con crediti in compensazione o saldo zero l'F24 cartaceo non è ammesso.",
+    "Sui canali pagoPA la commissione cambia da gestore a gestore: confrontala prima di pagare."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "rateizzare-cartella-ader",
+   "titolo": "Rateizzare una cartella dell'Agenzia delle Entrate-Riscossione",
+   "sinonimi": [
+    "rateizzare cartella esattoriale",
+    "rate cartella equitalia",
+    "rateizza adesso",
+    "piano di rateizzazione ader",
+    "dilazione cartelle",
+    "quante rate cartella",
+    "decadenza rateizzazione",
+    "prorogare rateizzazione"
+   ],
+   "chi": "Chi ha cartelle o avvisi affidati all'Agenzia delle Entrate-Riscossione e si trova in temporanea difficoltà economica.",
+   "dove": "Agenzia delle Entrate-Riscossione (area riservata, app Equiclick, PEC, sportelli).",
+   "online": "sì",
+   "online_url": "https://www.agenziaentrateriscossione.gov.it/it/cittadini/Rateizzazione/istanze-a-semplice-richiesta/",
+   "passi": [
+    "Entra nell'area riservata di AdER con SPID, CIE o CNS e apri il servizio 'Rateizza adesso'.",
+    "Scegli quali cartelle/avvisi rateizzare e il numero di rate.",
+    "Per importi fino a 120.000 euro dichiara la temporanea difficoltà economica (senza documenti) se chiedi fino a 84 rate (domande 2025-2026).",
+    "Per più rate o importi oltre 120.000 euro documenta la difficoltà con i modelli previsti (ISEE per persone fisiche) e invia via PEC o allo sportello.",
+    "Ricevi il piano e i moduli di pagamento (o attiva l'addebito SDD) e paga la prima rata."
+   ],
+   "documenti": [
+    "SPID, CIE o CNS (online)",
+    "in alternativa modello RS via PEC",
+    "per richieste documentate: ISEE (persone fisiche e ditte individuali in regime semplificato) e modelli di documentazione"
+   ],
+   "costo": "Rata minima 50 euro. Sulle rate si pagano gli interessi di dilazione (tasso non indicato nelle pagine lette).",
+   "tempi": "Online, se ci sono i requisiti, il piano è disponibile subito.",
+   "scadenze_obblighi": "Rate mensili. Domande 2025-2026: fino a 84 rate su semplice richiesta (fino a 120.000 euro); 2027-2028: fino a 96; dal 2029: fino a 108. Con documentazione fino a 120 rate. Si decade se non si pagano 8 rate, anche non consecutive: il residuo diventa esigibile in un'unica soluzione e non è più rateizzabile.",
+   "norma": {
+    "riferimento": "Art. 19 DPR 602/1973 (fino al 31/12/2026); dal 1/1/2027 art. 105 del Testo unico versamenti e riscossione, d.lgs. 24 marzo 2025, n. 33",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2025-03-24;33:1~art105"
+   },
+   "fonti": [
+    {
+     "titolo": "AdER - Istanze a semplice richiesta",
+     "url": "https://www.agenziaentrateriscossione.gov.it/it/cittadini/Rateizzazione/istanze-a-semplice-richiesta/"
+    },
+    {
+     "titolo": "AdER - La rateizzazione dal 1° gennaio 2025",
+     "url": "https://www.agenziaentrateriscossione.gov.it/it/cittadini/Rateizzazione/la-rateizzazione/"
+    },
+    {
+     "titolo": "Normattiva - D.Lgs. 33/2025, allegato, art. 105",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2025-03-24;33:1~art105"
+    }
+   ],
+   "attenzione": [
+    "La soglia di 120.000 euro si calcola su ogni singola richiesta.",
+    "Dalla presentazione della domanda non si possono iscrivere nuovi fermi e ipoteche né avviare nuove esecuzioni (restano quelli già iscritti).",
+    "Chi ha già un piano non decaduto può chiederne una sola proroga se la situazione peggiora, invece di aprirne uno nuovo.",
+    "Le somme oggetto di verifica prima dell'accoglimento non sono rateizzabili."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "naspi-disoccupazione",
+   "titolo": "Domanda di disoccupazione NASpI",
+   "sinonimi": [
+    "naspi",
+    "disoccupazione inps",
+    "domanda disoccupazione",
+    "ho perso il lavoro",
+    "licenziato cosa fare",
+    "indennità di disoccupazione",
+    "naspi dimissioni",
+    "68 giorni naspi",
+    "importo naspi 2026"
+   ],
+   "chi": "Lavoratori dipendenti che hanno perso il lavoro involontariamente (anche apprendisti, soci di cooperativa subordinati, tempo determinato PA). Spetta anche con dimissioni per giusta causa e risoluzione consensuale nella procedura di conciliazione. Esclusi: dipendenti a tempo indeterminato della PA, operai agricoli a tempo determinato, chi ha i requisiti per la pensione di vecchiaia o anticipata.",
+   "dove": "INPS.",
+   "online": "sì",
+   "online_url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html",
+   "passi": [
+    "Dopo la fine del rapporto di lavoro, entra nel servizio INPS 'NASpI: invio domanda' (o rivolgiti a un patronato o al Contact center).",
+    "Compila la domanda: vale anche come dichiarazione di immediata disponibilità (DID).",
+    "Indica l'IBAN di un conto o libretto intestato o cointestato a te.",
+    "Entro 15 giorni stipula il patto di servizio personalizzato con il Centro per l'impiego.",
+    "Comunica a INPS eventuali nuovi lavori e il reddito presunto entro un mese."
+   ],
+   "documenti": [
+    "SPID, CIE o CNS",
+    "dati del rapporto di lavoro cessato",
+    "IBAN"
+   ],
+   "costo": "Domanda gratuita. Importo 2026: 75% della retribuzione media mensile se pari o inferiore a 1.456,72 euro, più il 25% della parte eccedente; massimo 1.584,70 euro al mese (circolare INPS n. 4 del 28/01/2026). Dal sesto mese si riduce del 3% al mese (dall'ottavo se hai almeno 55 anni).",
+   "tempi": "Decorre dall'ottavo giorno dopo la cessazione se la domanda è presentata entro l'ottavo giorno, altrimenti dal giorno dopo la domanda. Durata: metà delle settimane contributive degli ultimi 4 anni.",
+   "scadenze_obblighi": "Domanda entro 68 giorni dalla cessazione, a pena di decadenza. Requisito: almeno 13 settimane di contributi nei 4 anni precedenti. Il requisito delle 30 giornate di lavoro effettivo non si applica più dal 1° gennaio 2022.",
+   "norma": {
+    "riferimento": "D.Lgs. 4 marzo 2015, n. 22, artt. 3 e 6",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-03-04;22~art6"
+   },
+   "fonti": [
+    {
+     "titolo": "INPS - NASpI: indennità mensile di disoccupazione",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html"
+    },
+    {
+     "titolo": "INPS - Circolare n. 4 del 28/01/2026 (importi 2026)",
+     "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15147/Allegati/16539_Circolare-numero-4-del-28-01-2026.pdf"
+    },
+    {
+     "titolo": "Normattiva - D.Lgs. 22/2015, art. 3",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-03-04;22~art3"
+    }
+   ],
+   "attenzione": [
+    "Non si può presentare prima della fine del rapporto di lavoro.",
+    "Dal 2025: se nei 12 mesi prima hai lasciato con dimissioni volontarie un lavoro a tempo indeterminato, servono almeno 13 settimane di contributi dopo quelle dimissioni.",
+    "La scheda INPS riporta ancora gli importi 2023: per il 2026 valgono quelli della circolare n. 4/2026.",
+    "Si perde la NASpI se non partecipi senza giustificato motivo alle iniziative del Centro per l'impiego."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "pensione-vecchiaia",
+   "titolo": "Domanda di pensione di vecchiaia",
+   "sinonimi": [
+    "pensione di vecchiaia",
+    "quando vado in pensione",
+    "pensione a 67 anni",
+    "requisiti pensione 2026",
+    "domanda pensione inps",
+    "pensione 2027 67 anni e 1 mese",
+    "20 anni di contributi",
+    "pensione contributivo puro"
+   ],
+   "chi": "Lavoratori dipendenti e autonomi iscritti all'AGO, alla Gestione separata e ai fondi esclusivi o sostitutivi che hanno i requisiti di età e contributi.",
+   "dove": "INPS.",
+   "online": "sì",
+   "online_url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-vecchiaia.html",
+   "passi": [
+    "Verifica età e contributi nel tuo estratto conto INPS.",
+    "Presenta la domanda online sul sito INPS con SPID, CIE o CNS, oppure tramite Contact center (803 164 da fisso, 06 164 164 da cellulare) o patronato.",
+    "Se sei dipendente, il rapporto di lavoro deve cessare (il lavoro autonomo può continuare).",
+    "Attendi la decisione: termine ordinario 30 giorni (legge 241/1990), salvo termini più lunghi previsti dal regolamento INPS."
+   ],
+   "documenti": [
+    "SPID, CIE o CNS",
+    "dati anagrafici e IBAN per il pagamento"
+   ],
+   "costo": "Domanda gratuita.",
+   "tempi": "Termine ordinario 30 giorni. Decorrenza (AGO e Gestione separata): primo giorno del mese successivo alla maturazione dei requisiti o, a richiesta, del mese successivo alla domanda. Scuola: 1° settembre.",
+   "scadenze_obblighi": "Requisiti 2026: 67 anni di età e almeno 20 anni di contributi (per i contributivi puri la pensione deve essere almeno pari all'assegno sociale, oppure 71 anni con 5 anni di contribuzione effettiva). 2027: 67 anni e 1 mese; 2028: 67 anni e 3 mesi (circolare INPS n. 28 del 16/03/2026).",
+   "norma": {
+    "riferimento": "D.L. 6 dicembre 2011, n. 201, art. 24; legge 30 dicembre 2025, n. 199 (bilancio 2026) per l'adeguamento graduale",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2011-12-06;201~art24!vig=2026-10-25"
+   },
+   "fonti": [
+    {
+     "titolo": "INPS - Pensione di vecchiaia (scheda)",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-vecchiaia.html"
+    },
+    {
+     "titolo": "INPS - Pensioni: requisiti aggiornati per il 2027 e il 2028",
+     "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.03.pensioni-requisiti-aggiornati-per-il-2027-e-il-2028.html"
+    }
+   ],
+   "attenzione": [
+    "Dal 2027 l'età sale di 1 mese e nel 2028 di 3 mesi: chi compie 67 anni a fine 2026 o nel 2027 verifichi la data esatta.",
+    "Per il contributivo puro con 20 anni conta anche l'importo minimo (assegno sociale).",
+    "Esistono regole diverse per lavori gravosi, invalidi almeno all'80% e alcune categorie con 15 anni di contributi.",
+    "Il dipendente che non cessa il rapporto non riceve la pensione di vecchiaia."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "assegno-unico",
+   "titolo": "Assegno unico universale per i figli: domanda e rinnovo",
+   "sinonimi": [
+    "assegno unico",
+    "auu inps",
+    "rinnovo assegno unico",
+    "assegno unico 2026",
+    "assegno figli inps",
+    "assegno unico importo minimo",
+    "domanda assegno unico neonato",
+    "assegno unico arretrati"
+   ],
+   "chi": "Famiglie con figli a carico: minorenni (dal settimo mese di gravidanza), maggiorenni fino a 21 anni con reddito sotto 8.000 euro che studiano, fanno tirocinio o lavorano, sono disoccupati iscritti o fanno servizio civile; figli con disabilità senza limiti di età. Requisiti di cittadinanza/soggiorno, IRPEF e residenza o lavoro in Italia.",
+   "dove": "INPS.",
+   "online": "sì",
+   "online_url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html",
+   "passi": [
+    "Se hai già una domanda 'accolta' non serve una nuova domanda: l'assegno continua d'ufficio (salvo domanda decaduta, revocata o respinta).",
+    "Altrimenti presenta la domanda online sul sito o app INPS, al Contact center (803 164 / 06 164 164) o tramite patronato.",
+    "Ogni anno presenta una nuova DSU per avere l'ISEE aggiornato (vedi scheda ISEE).",
+    "Comunica le variazioni, ad esempio la nascita di un altro figlio."
+   ],
+   "documenti": [
+    "SPID, CIE o CNS",
+    "dati dei figli",
+    "IBAN",
+    "ISEE valido (facoltativo, ma senza ISEE si prende l'importo minimo)"
+   ],
+   "costo": "Domanda gratuita. Importi 2026 per figlio minore: da 203,8 euro (ISEE fino a 17.468,51 euro) a 58,3 euro (senza ISEE o con ISEE pari o superiore a 46.582,71 euro), più eventuali maggiorazioni (circolare INPS n. 7 del 30/01/2026).",
+   "tempi": "Domande dal 1° marzo al 30 giugno: arretrati da marzo. Domande dopo il 30 giugno: dal mese successivo alla presentazione.",
+   "scadenze_obblighi": "Senza ISEE valido da marzo si riceve l'importo minimo. DSU presentata entro il 30 giugno: diritto agli arretrati da marzo (per il 2026 il termine è scaduto).",
+   "norma": {
+    "riferimento": "D.Lgs. 29 dicembre 2021, n. 230",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2021-12-29;230"
+   },
+   "fonti": [
+    {
+     "titolo": "INPS - Assegno unico e universale per i figli a carico (scheda)",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html"
+    },
+    {
+     "titolo": "INPS - Assegno unico 2026: presentazione domanda e aggiornamento importi",
+     "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.02.assegno-unico-2026-presentazione-domanda-e-aggiornamento-importi.html"
+    }
+   ],
+   "attenzione": [
+    "Rinnovare la domanda non serve, rinnovare l'ISEE sì: è l'errore più comune.",
+    "Dal 2026 per l'assegno si usa l'ISEE per specifiche prestazioni familiari: gennaio e febbraio 2026 sono stati calcolati con l'ISEE valido al 31/12/2025.",
+    "Per i lavoratori non residenti l'importo è proporzionato alla durata del lavoro in Italia."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "dimissioni-online",
+   "titolo": "Dimissioni volontarie online",
+   "sinonimi": [
+    "dare le dimissioni",
+    "dimissioni online",
+    "modulo dimissioni ministero",
+    "revocare le dimissioni",
+    "dimissioni telematiche",
+    "risoluzione consensuale",
+    "dimissioni in maternità",
+    "dimissioni per giusta causa"
+   ],
+   "chi": "Lavoratori dipendenti del settore privato che si dimettono o firmano una risoluzione consensuale. Non si applica a lavoro domestico, pubblico impiego, dimissioni in sedi protette (art. 2113 c.c.) o davanti alle commissioni di certificazione.",
+   "dove": "Procedura telematica del Ministero del Lavoro; in alternativa patronati, sindacati, consulenti del lavoro, sedi dell'Ispettorato del lavoro, enti bilaterali, commissioni di certificazione. Lavoratrici madri e padri (figli fino a 3 anni): convalida presso l'Ispettorato territoriale del lavoro.",
+   "online": "sì",
+   "online_url": null,
+   "passi": [
+    "Accedi alla procedura telematica del Ministero del Lavoro (o rivolgiti a un intermediario abilitato).",
+    "Compila il modulo ministeriale con i dati del rapporto e la data di decorrenza.",
+    "Il modulo viene inviato al datore di lavoro e all'ufficio territoriale competente.",
+    "Se cambi idea, puoi revocare con la stessa procedura entro 7 giorni dall'invio.",
+    "In gravidanza o con figli fino a 3 anni: chiedi la convalida all'Ispettorato territoriale (anche con colloquio online, modulo INL 12)."
+   ],
+   "documenti": [
+    "identità digitale per la procedura online (modalità di accesso non verificate, vedi note)",
+    "dati del datore di lavoro e del rapporto"
+   ],
+   "costo": "Gratuito se fatto da soli; eventuali costi degli intermediari non indicati dalla fonte (null).",
+   "tempi": null,
+   "scadenze_obblighi": "Dimissioni non fatte con il modulo telematico sono inefficaci. Revoca entro 7 giorni. Assenza ingiustificata oltre il termine del CCNL o, in mancanza, oltre 15 giorni: il datore lo comunica all'Ispettorato e il rapporto si considera risolto per volontà del lavoratore.",
+   "norma": {
+    "riferimento": "D.Lgs. 14 settembre 2015, n. 151, art. 26 (comma 7-bis per l'assenza ingiustificata)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-09-14;151~art26"
+   },
+   "fonti": [
+    {
+     "titolo": "Normattiva - D.Lgs. 151/2015, art. 26",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-09-14;151~art26"
+    },
+    {
+     "titolo": "Ispettorato Nazionale del Lavoro - Servizi e modulistica per i lavoratori",
+     "url": "https://www.ispettorato.gov.it/servizi-e-modulistica/per-i-lavoratori/"
+    }
+   ],
+   "attenzione": [
+    "Le dimissioni volontarie in genere fanno perdere la NASpI; quelle per giusta causa no.",
+    "Chi altera i moduli rischia una sanzione da 5.000 a 30.000 euro.",
+    "Controlla nel tuo contratto collettivo il preavviso da rispettare.",
+    "Restare assente senza dimettersi può portare alla risoluzione 'per fatti concludenti'."
+   ],
+   "note": "Le pagine del Ministero del Lavoro (lavoro.gov.it, servizi.lavoro.gov.it, cliclavoro.gov.it) vietano nel robots.txt l'accesso a ClaudeBot, anthropic-ai e Claude-Web: non sono state lette. URL del servizio online e modalità di accesso (SPID/CIE) da verificare a mano sul sito del Ministero.",
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "did-centro-impiego",
+   "titolo": "Iscriversi al Centro per l'impiego e dare la DID",
+   "sinonimi": [
+    "iscrizione centro per l'impiego",
+    "did online",
+    "dichiarazione immediata disponibilità",
+    "stato di disoccupazione",
+    "siisl",
+    "patto di servizio",
+    "iscrizione disoccupazione",
+    "collocamento"
+   ],
+   "chi": "Persone senza lavoro (o già licenziate, durante il preavviso) che vogliono lo stato di disoccupazione e accedere alle politiche attive.",
+   "dove": "Sistema informativo unitario delle politiche del lavoro (piattaforma SIISL o portali regionali, a seconda della Regione) e Centro per l'impiego competente.",
+   "online": "sì",
+   "online_url": null,
+   "passi": [
+    "Rilascia la DID online: se chiedi NASpI o DIS-COLL la domanda INPS vale già come DID.",
+    "Registrati sulla piattaforma indicata (SIISL o portale della tua Regione), carica il CV e firma il Patto di attivazione digitale se richiesto.",
+    "Entro 30 giorni dalla DID contatta il Centro per l'impiego, secondo le sue modalità.",
+    "Firma il patto di servizio personalizzato (profilo, attività di ricerca, frequenza dei contatti)."
+   ],
+   "documenti": [
+    "identità digitale (SPID/CIE) per i servizi online",
+    "documento d'identità",
+    "CV"
+   ],
+   "costo": "Gratuito.",
+   "tempi": "Contatto con il CPI entro 30 giorni dalla DID; altrimenti convocazione d'ufficio.",
+   "scadenze_obblighi": "Per i percettori NASpI: patto di servizio entro 15 giorni dalla domanda. Lo stato di disoccupazione è sospeso per lavori subordinati fino a 6 mesi.",
+   "norma": {
+    "riferimento": "D.Lgs. 14 settembre 2015, n. 150, artt. 19 e 20",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-09-14;150~art19"
+   },
+   "fonti": [
+    {
+     "titolo": "Normattiva - D.Lgs. 150/2015, art. 20 (patto di servizio)",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2015-09-14;150~art20"
+    },
+    {
+     "titolo": "INPS - Piattaforma SIISL, NASpI e DIS-COLL: chiarimenti per gli utenti",
+     "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2025.07.piattaforma-siisl-naspi-e-dis-coll-chiarimenti-per-gli-utenti.html"
+    }
+   ],
+   "attenzione": [
+    "La procedura cambia da Regione a Regione: verifica sul sito del tuo Centro per l'impiego.",
+    "Malfunzionamenti di CV e Patto di attivazione digitale su SIISL non bloccano i pagamenti NASpI se hai i requisiti.",
+    "Se hai un patto valido ma senza DID, devi inserire una nuova DID al Centro per l'impiego.",
+    "Le sanzioni scattano se non partecipi alle attività proposte dal CPI."
+   ],
+   "note": "siisl.lavoro.gov.it non ha robots.txt ma è un'applicazione JavaScript senza contenuto leggibile; le pagine informative del Ministero (lavoro.gov.it) e di cliclavoro.gov.it sono vietate a ClaudeBot/anthropic-ai dal robots.txt e non sono state lette. URL del servizio non verificato.",
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "rinnovo-patente",
+   "titolo": "Rinnovare la patente di guida",
+   "sinonimi": [
+    "rinnovo patente",
+    "patente scaduta",
+    "visita medica patente",
+    "costo rinnovo patente",
+    "quando scade la patente",
+    "nuova patente per posta",
+    "rinnovo patente commissione medica",
+    "patente scade al compleanno"
+   ],
+   "chi": "Titolari di patente in scadenza. Scadenze per AM, A1, A2, A, B1, B, BE: ogni 10 anni fino a 50 anni, ogni 5 fino a 70, ogni 3 fino a 80, ogni 2 dopo gli 80. C e D: scadenze più brevi (C dopo i 65 anni in Commissione medica locale).",
+   "dove": "Medico abilitato (medico certificatore) oppure Commissione medica locale; Ministero delle infrastrutture e dei trasporti - Motorizzazione.",
+   "online": "parziale",
+   "online_url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/pagamenti-pagopa",
+   "passi": [
+    "Paga con pagoPA la tariffa N004 (diritti 10,20 euro + bollo 16,00 euro) dal Portale dell'automobilista con SPID o CIE.",
+    "Prenota la visita da un medico abilitato (o in Commissione medica locale se previsto).",
+    "Porta una foto tessera recente e le ricevute di pagamento.",
+    "Il medico trasmette online certificato, foto, firma e pagamenti e ti dà una ricevuta di conferma valida per guidare in Italia fino all'arrivo della nuova patente.",
+    "La nuova patente arriva per posta assicurata all'indirizzo indicato; paghi 7,32 euro al postino (o all'ufficio postale in caso di giacenza, entro 60 giorni)."
+   ],
+   "documenti": [
+    "patente da rinnovare",
+    "documento d'identità",
+    "una foto recente formato tessera",
+    "ricevuta pagoPA tariffa N004",
+    "ricevuta di pagamento della visita medica"
+   ],
+   "costo": "Diritti 10,20 euro + bollo 16,00 euro (tariffa N004, pagoPA) + recapito 7,32 euro (6,00 + IVA) + visita medica a tariffa variabile secondo la struttura. Tariffe diverse per Sicilia, Valle d'Aosta, Trentino-Alto Adige e Friuli-Venezia Giulia.",
+   "tempi": "Ricevuta immediata dopo visita con esito positivo; patente inviata per posta (tempi non indicati).",
+   "scadenze_obblighi": "AM, A, B e BE scadono il giorno del compleanno. Se rinnovi dopo la scadenza, la nuova validità parte comunque dalla vecchia scadenza (perdi i giorni trascorsi).",
+   "norma": {
+    "riferimento": "D.Lgs. 30 aprile 1992, n. 285 (Codice della strada), art. 126",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art126"
+   },
+   "fonti": [
+    {
+     "titolo": "MIT - Rinnovo patente",
+     "url": "https://www.mit.gov.it/node/180"
+    },
+    {
+     "titolo": "Portale dell'automobilista - Recapito al cittadino del duplicato della patente",
+     "url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/recapito_duplicato_patente_cittadino"
+    }
+   ],
+   "attenzione": [
+    "La ricevuta del medico vale solo in Italia: per guidare all'estero aspetta la nuova patente.",
+    "La patente non ritirata entro 60 giorni di giacenza viene distrutta.",
+    "Se la CML non ti dà la visita prima della scadenza puoi chiedere un permesso provvisorio di guida.",
+    "In alcuni casi dopo la visita serve completare la pratica in un ufficio della Motorizzazione."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "passaggio-proprieta-auto",
+   "titolo": "Passaggio di proprietà di un'auto o moto usata",
+   "sinonimi": [
+    "passaggio di proprietà",
+    "trapasso auto",
+    "vendere l'auto",
+    "comprare auto usata",
+    "costo passaggio di proprietà",
+    "atto di vendita auto",
+    "documento unico",
+    "ipt passaggio",
+    "sta aci"
+   ],
+   "chi": "Venditore (firma autenticata dell'atto) e acquirente (obbligato a trascrivere e a pagare l'IPT).",
+   "dove": "Qualsiasi Sportello telematico dell'automobilista (STA): uffici ACI-PRA, Motorizzazione, delegazioni ACI e agenzie di pratiche auto, anche in altra provincia. Autentica anche presso Comuni o notai.",
+   "online": "no",
+   "online_url": null,
+   "passi": [
+    "Prima di comprare verifica gratis online su aci.it fermi, ipoteche e altri vincoli sul veicolo.",
+    "Venditore e acquirente vanno a uno STA con documenti e Documento Unico (o carta di circolazione e certificato di proprietà).",
+    "Il venditore firma l'atto di vendita (in forma digitale allo STA) e la firma viene autenticata.",
+    "Si pagano IPT, emolumenti ACI, bolli e diritti.",
+    "Viene rilasciato il nuovo Documento Unico intestato all'acquirente (allo STA di ACI-PRA o Motorizzazione la trascrizione è contestuale)."
+   ],
+   "documenti": [
+    "documento d'identità valido del venditore",
+    "Documento Unico oppure carta di circolazione + certificato di proprietà",
+    "in caso di smarrimento: denuncia o dichiarazione sostitutiva"
+   ],
+   "costo": "IPT variabile secondo tipo di veicolo, kW e provincia di residenza dell'acquirente; emolumenti ACI 27,00 euro; imposta di bollo 32,00 euro per l'istanza unificata + 16 euro per il rilascio del Documento Unico (come riportato da ACI); diritti 10,20 euro; bollo 16 euro per l'atto digitale allo STA; più costi dei versamenti postali e dell'eventuale agenzia. Autentica gratuita negli STA di ACI-PRA e Motorizzazione. Motocicli (non ultratrentennali) esenti da IPT.",
+   "tempi": "Allo STA di ACI-PRA o Motorizzazione la trascrizione è immediata.",
+   "scadenze_obblighi": "Trascrizione entro 60 giorni dall'autentica della firma. Oltre: sanzione e interessi sull'IPT. Il Codice della strada prevede sanzioni da 727 a 3.629 euro per chi non osserva l'art. 94 e da 363 a 1.813 euro per chi circola senza aggiornamento.",
+   "norma": {
+    "riferimento": "D.Lgs. 30 aprile 1992, n. 285, art. 94",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art94"
+   },
+   "fonti": [
+    {
+     "titolo": "ACI - Passaggio di proprietà e Documento Unico",
+     "url": "https://www.aci.it/servizi/devo-vendere-la-mia-auto-cosa-devo-fare/"
+    },
+    {
+     "titolo": "ACI - Costi del passaggio di proprietà",
+     "url": "https://www.aci.it/servizi/costi-del-passaggio-di-proprieta/"
+    }
+   ],
+   "attenzione": [
+    "Il fermo amministrativo resta sul veicolo anche dopo la vendita, fino al pagamento del debito.",
+    "Un veicolo con fermo non può circolare.",
+    "L'IPT si paga alla provincia di residenza dell'acquirente: usa il calcolatore ACI o chiedi allo STA l'importo esatto.",
+    "Se l'atto è firmato da notaio o Comune serve poi comunque la trascrizione entro 60 giorni."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "bollo-auto",
+   "titolo": "Bollo auto: pagamento ed esenzioni",
+   "sinonimi": [
+    "pagare il bollo auto",
+    "bollo auto online",
+    "calcolo bollo",
+    "esenzione bollo disabili",
+    "bollo auto storiche",
+    "bollo scaduto",
+    "tassa automobilistica",
+    "bollo auto 30 anni"
+   ],
+   "chi": "Il proprietario del veicolo iscritto al PRA. La tassa è regionale: regole, termini e agevolazioni dipendono dalla Regione di residenza.",
+   "dove": "Regione di residenza (spesso tramite ACI); in Friuli-Venezia Giulia e Sardegna l'Agenzia delle Entrate. Pagamento con pagoPA (BolloNet ACI per le Regioni abilitate, siti regionali, delegazioni ACI, banche, Poste, tabaccai).",
+   "online": "sì",
+   "online_url": "https://www.aci.it/servizi/pagamento-bollo-on-line/",
+   "passi": [
+    "Calcola l'importo con il servizio ACI di calcolo bollo o sul sito della tua Regione.",
+    "Paga online con BolloNet (se la tua Regione è abilitata) accedendo con SPID o CIE, oppure sui canali pagoPA.",
+    "Scegli il prestatore di pagamento: la commissione dipende da lui.",
+    "Per l'esenzione disabili presenta la domanda all'ufficio tributi della Regione (FVG e Sardegna: Agenzia delle Entrate), solo il primo anno."
+   ],
+   "documenti": [
+    "targa e tipo di veicolo",
+    "SPID o CIE per BolloNet",
+    "per l'esenzione disabili: verbale della commissione e documenti richiesti dalla Regione"
+   ],
+   "costo": "Importo variabile per Regione, potenza e classe ambientale. Commissione variabile secondo il PSP pagoPA.",
+   "tempi": "Esenzione disabili: documenti entro 90 giorni dalla scadenza del termine di pagamento; poi vale anche negli anni successivi.",
+   "scadenze_obblighi": "Termini di pagamento fissati dalla Regione (null: non verificati su fonte regionale). Esenzione per un solo veicolo per disabile, entro 2.000 cc benzina/ibrido benzina, 2.800 cc diesel/ibrido diesel, 150 kW elettrico; veicolo intestato al disabile o al familiare che lo ha fiscalmente a carico. Esenzione per veicoli con oltre 30 anni non usati per attività professionali; riduzione del 50% per veicoli di 20-29 anni con certificato di rilevanza storica annotato.",
+   "norma": {
+    "riferimento": "Legge 27 dicembre 1997, n. 449, art. 8, comma 7 (esenzione disabili); legge 21 novembre 2000, n. 342, art. 63 (veicoli storici)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1997-12-27;449~art8!vig=2026-10-25"
+   },
+   "fonti": [
+    {
+     "titolo": "ACI - Pagamento bollo on line",
+     "url": "https://www.aci.it/servizi/pagamento-bollo-on-line/"
+    },
+    {
+     "titolo": "Agenzia Entrate - L'esenzione permanente dal pagamento del bollo",
+     "url": "https://www.agenziaentrate.gov.it/portale/web/guest/esenzione-permanente-dal-pagamento-del-bollo"
+    },
+    {
+     "titolo": "Normattiva - Legge 342/2000, art. 63",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2000-11-21;342~art63"
+    }
+   ],
+   "attenzione": [
+    "Le Regioni possono prevedere esenzioni o sconti in più (ad esempio per domiciliazione): controlla il sito della tua Regione.",
+    "Se vendi l'auto esente devi comunicarlo all'ufficio che ha concesso l'esenzione.",
+    "Per l'esenzione non serve esporre contrassegni sull'auto.",
+    "Le esenzioni bollo e IPT hanno requisiti diversi da IVA 4% e detrazione IRPEF."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "cambio-residenza-patente-libretto",
+   "titolo": "Cambio di residenza su patente e libretto (automatico)",
+   "sinonimi": [
+    "cambio residenza patente",
+    "cambio residenza libretto",
+    "aggiornare indirizzo patente",
+    "adesivo cambio residenza",
+    "tagliando residenza",
+    "residenza documento unico",
+    "trasloco patente",
+    "residenza carta di circolazione"
+   ],
+   "chi": "Chi cambia Comune di residenza o abitazione nello stesso Comune ed è titolare di patente e/o veicoli.",
+   "dove": "Comune (all'iscrizione anagrafica o cambio di abitazione) che comunica al Ministero delle infrastrutture e dei trasporti.",
+   "online": "parziale",
+   "online_url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/home",
+   "passi": [
+    "Quando chiedi la residenza o il cambio di abitazione, compila al Comune il modulo per l'aggiornamento dei dati di patente e veicoli.",
+    "Il Comune trasmette la variazione al Ministero (per la patente entro un mese dalla registrazione anagrafica).",
+    "Il Ministero aggiorna gli archivi: non arriva nessun adesivo.",
+    "Controlla l'indirizzo nell'area riservata del Portale dell'automobilista con SPID o CIE."
+   ],
+   "documenti": [
+    "modulo comunale per la richiesta di aggiornamento"
+   ],
+   "costo": "Nessun costo indicato dalla fonte (null).",
+   "tempi": "Il Comune comunica entro un mese dalla registrazione della variazione anagrafica (art. 116, c. 13 CdS).",
+   "scadenze_obblighi": "Nessun adempimento ulteriore se l'aggiornamento è andato a buon fine.",
+   "norma": {
+    "riferimento": "D.Lgs. 30 aprile 1992, n. 285, art. 116, comma 13 (patente) e art. 94, comma 2 (carta di circolazione)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art116"
+   },
+   "fonti": [
+    {
+     "titolo": "MIT - Cambio di residenza sulla patente di guida",
+     "url": "https://www.mit.gov.it/cambio-di-residenza-sulla-patente-di-guida"
+    }
+   ],
+   "attenzione": [
+    "Dal 2/3/2013 per la patente e dal 1/10/2020 per la carta di circolazione non viene più spedito l'adesivo: non va atteso.",
+    "Se l'indirizzo non risulta aggiornato: email uco.dgmot@servizidt.it o numero verde 800 232323 (da cellulare 06 45775927), tasti 1, 4, 2."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "comunicazione-ospitalita-cessione-fabbricato",
+   "titolo": "Comunicazione di ospitalità a stranieri e cessione di fabbricato",
+   "sinonimi": [
+    "comunicazione ospitalità",
+    "dichiarazione di ospitalità straniero",
+    "cessione di fabbricato",
+    "ospitare un parente straniero",
+    "affittare a stranieri questura",
+    "48 ore questura",
+    "modulo cessione fabbricato",
+    "denuncia ospitalità"
+   ],
+   "chi": "Ospitalità: chiunque dà alloggio od ospita uno straniero (extra UE) o apolide, anche se parente, o gli cede un immobile, a qualsiasi titolo e per qualsiasi durata. Cessione di fabbricato: chi cede la proprietà o l'uso esclusivo di un fabbricato per più di un mese.",
+   "dove": "Autorità locale di pubblica sicurezza: Questura o Commissariato competente per il luogo dell'immobile.",
+   "online": "parziale",
+   "online_url": null,
+   "passi": [
+    "Scarica il modulo della Questura competente (ospitalità o cessione di fabbricato).",
+    "Indica i tuoi dati, quelli della persona ospitata, gli estremi del passaporto o documento, l'indirizzo esatto dell'immobile e il titolo (ospitalità, locazione, comodato...).",
+    "Allega copie dei documenti richiesti (identità di entrambi, titolo sull'immobile).",
+    "Invia entro 48 ore: di persona, con raccomandata A/R o, dove la Questura lo prevede, via PEC.",
+    "Conserva la ricevuta (o le ricevute PEC di accettazione e consegna)."
+   ],
+   "documenti": [
+    "modulo della Questura",
+    "documento d'identità dell'ospitante",
+    "passaporto o documento dell'ospitato",
+    "titolo sull'immobile (es. contratto di proprietà o locazione)"
+   ],
+   "costo": "Gratuito (nessun costo indicato dalle fonti).",
+   "tempi": "Entro 48 ore dalla consegna dell'immobile o dall'inizio dell'ospitalità.",
+   "scadenze_obblighi": "48 ore. Sanzione per mancata comunicazione di ospitalità: da 500 a 3.500 euro (art. 7, c. 2-bis, d.lgs. 286/1998). Per la cessione di fabbricato l'art. 12 d.l. 59/1978 prevede una sanzione da 200.000 a 3.000.000 di lire (circa 103-1.549 euro).",
+   "norma": {
+    "riferimento": "D.Lgs. 25 luglio 1998, n. 286, art. 7; D.L. 21 marzo 1978, n. 59, art. 12; D.L. 20 giugno 2012, n. 79, art. 2 (assorbimento con la registrazione)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art7"
+   },
+   "fonti": [
+    {
+     "titolo": "Polizia di Stato - Ospitalità a cittadini extracomunitari",
+     "url": "https://www.poliziadistato.it/articolo/125a93e344e6c73863395263"
+    },
+    {
+     "titolo": "Polizia di Stato - Cessione di fabbricato",
+     "url": "https://www.poliziadistato.it/articolo/cessione-di-fabbricato"
+    },
+    {
+     "titolo": "Questura di Prato - Cessione fabbricato e comunicazione di ospitalità",
+     "url": "https://questure.poliziadistato.it/it/Prato/articolo/802604357908251c410909678"
+    }
+   ],
+   "attenzione": [
+    "L'ospitalità a stranieri extra UE va sempre comunicata, anche per un solo giorno e anche ai parenti.",
+    "La registrazione all'Agenzia delle Entrate di un contratto di locazione o comodato assorbe la cessione di fabbricato, ma non la comunicazione di ospitalità per lo straniero.",
+    "B&B, affittacamere e case vacanza comunicano gli ospiti solo online con 'Alloggiati Web'.",
+    "Le modalità (PEC, sportello, orari) cambiano da Questura a Questura; l'email ordinaria di solito non è accettata.",
+    "Il termine di 48 ore decorre dalla disponibilità effettiva dell'immobile, non dalla firma del contratto (indicazione della Questura di Prato)."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "registrazione-contratto-affitto",
+   "titolo": "Registrare un contratto d'affitto (modello RLI)",
+   "sinonimi": [
+    "registrare contratto affitto",
+    "registrazione contratto locazione",
+    "rli online",
+    "cedolare secca",
+    "imposta di registro affitto",
+    "quanto costa registrare l'affitto",
+    "proroga contratto affitto",
+    "risoluzione contratto affitto"
+   ],
+   "chi": "Locatore o conduttore (rispondono in solido delle imposte). Obbligatoria per tutti i contratti di locazione, tranne quelli abitativi che non superano complessivamente 30 giorni nell'anno con lo stesso inquilino.",
+   "dove": "Agenzia delle Entrate: servizio RLI web, ufficio (su appuntamento) o intermediario abilitato (CAF, professionisti, associazioni).",
+   "online": "sì",
+   "online_url": "https://www.agenziaentrate.gov.it/portale/schede/fabbricatiterreni/registrazione-di-un-nuovo-contratto/compilazione-e-invio-via-web-regime-ordinario",
+   "passi": [
+    "Firma il contratto con la clausola sull'APE ricevuto dall'inquilino.",
+    "Scegli tra regime ordinario e cedolare secca (ogni locatore sceglie per sé).",
+    "Compila il modello RLI nei servizi online dell'Agenzia (o fallo fare a un intermediario).",
+    "Paga imposta di registro e bollo con addebito sul conto (non dovute con cedolare secca).",
+    "Conserva la ricevuta di registrazione e comunica proroghe, cessioni e risoluzioni con RLI entro 30 giorni."
+   ],
+   "documenti": [
+    "contratto firmato",
+    "codici fiscali delle parti",
+    "dati catastali dell'immobile",
+    "APE (copia allegata se non si tratta di singola unità)",
+    "IBAN per l'addebito"
+   ],
+   "costo": "Regime ordinario (abitativo): imposta di registro 2% del canone annuo (minimo 67 euro per la prima annualità), base ridotta del 30% per canone concordato in comuni ad alta tensione abitativa; imposta di bollo 16 euro ogni 4 facciate o 100 righe per copia. Cedolare secca: niente registro e bollo, imposta sostitutiva 21% del canone annuo (10% per canone concordato). Servizio RLI web gratuito.",
+   "tempi": "Registrazione immediata online.",
+   "scadenze_obblighi": "Entro 30 giorni dalla stipula o dalla decorrenza, se anteriore. Pagamento annualità successive, proroghe e risoluzioni entro 30 giorni. Telematico obbligatorio per agenti immobiliari e per chi possiede almeno 10 immobili.",
+   "norma": {
+    "riferimento": "DPR 26 aprile 1986, n. 131, art. 17 (fino al 31/12/2026; poi d.lgs. 1 agosto 2025, n. 123); D.Lgs. 14 marzo 2011, n. 23, art. 3 (cedolare secca; dal 1/1/2027 d.lgs. 19 giugno 2026, n. 117)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2011-03-14;23~art3!vig=2026-10-25"
+   },
+   "fonti": [
+    {
+     "titolo": "Agenzia Entrate - Contratto di locazione o affitto di beni immobili (RLI)",
+     "url": "https://www.agenziaentrate.gov.it/portale/schede/fabbricatiterreni/registrazione-di-un-nuovo-contratto/schedainfo-regime-ordinario"
+    },
+    {
+     "titolo": "Agenzia Entrate - Registrazione di un nuovo contratto: quanto si paga (cittadini)",
+     "url": "https://www.agenziaentrate.gov.it/portale/schede/fabbricatiterreni/registrazione-di-un-nuovo-contratto/quanto-si-paga-regime-ordinario-cittadini"
+    },
+    {
+     "titolo": "Agenzia Entrate - Cedolare secca",
+     "url": "https://www.agenziaentrate.gov.it/portale/aree-tematiche/casa/affitto/cedolare-secca"
+    }
+   ],
+   "attenzione": [
+    "Con la cedolare secca il locatore rinuncia ad aggiornare il canone (anche ISTAT) per tutta la durata dell'opzione.",
+    "Cedolare secca solo per locatori persone fisiche e inquilini che non agiscono come impresa o professionisti; esclusa la sublocazione.",
+    "Locazioni brevi: dal 2026 cedolare solo se non più di due appartamenti (21% per uno, 26% dal secondo).",
+    "Il deposito cauzionale versato dall'inquilino non paga imposta di registro.",
+    "La registrazione del contratto assorbe la comunicazione di cessione di fabbricato alla Questura, ma non quella di ospitalità per inquilini extra UE."
+   ],
+   "note": "Sanzioni per registrazione tardiva non verificate sulle pagine lette (null).",
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "bonus-ristrutturazione-2026",
+   "titolo": "Bonus ristrutturazione casa 2026 (detrazione) e comunicazione ENEA",
+   "sinonimi": [
+    "bonus ristrutturazione 2026",
+    "detrazione 50 ristrutturazione",
+    "bonus casa 36",
+    "bonifico parlante",
+    "comunicazione enea",
+    "detrazione lavori casa",
+    "bonus ristrutturazione 2027",
+    "ristrutturazione abitazione principale"
+   ],
+   "chi": "Chi sostiene le spese di recupero edilizio su abitazioni e pertinenze: proprietari, titolari di diritti reali, ma anche inquilini, comodatari e familiari conviventi (questi ultimi solo con l'aliquota base).",
+   "dove": "Detrazione nella dichiarazione dei redditi (Agenzia delle Entrate); comunicazione all'ENEA per gli interventi con risparmio energetico o fonti rinnovabili.",
+   "online": "parziale",
+   "online_url": "https://bonusfiscali.enea.it/",
+   "passi": [
+    "Verifica se i lavori rientrano nella detrazione e se, prima di iniziare, serve la comunicazione all'ASL.",
+    "Paga con bonifico 'parlante' (causale, codice fiscale di chi detrae, partita IVA o codice fiscale di chi riceve).",
+    "Conserva fatture, ricevute dei bonifici, titoli edilizi o dichiarazione sostitutiva con la data di inizio lavori.",
+    "Se i lavori comportano risparmio energetico, invia la scheda all'ENEA entro 90 giorni dalla fine lavori su bonusfiscali.enea.it (accesso con SPID o CIE).",
+    "Indica le spese nella dichiarazione dei redditi: la detrazione si ripartisce in 10 quote annuali."
+   ],
+   "documenti": [
+    "fatture intestate a chi detrae",
+    "ricevute dei bonifici parlanti",
+    "titoli abilitativi o dichiarazione sostitutiva con data inizio lavori",
+    "eventuale comunicazione ASL",
+    "per condomini: delibera e tabella millesimale",
+    "per detentori: consenso del proprietario",
+    "ricevuta trasmissione ENEA"
+   ],
+   "costo": "Spese 2026: detrazione 50% per l'abitazione principale (spesa pagata da proprietario o titolare di diritto reale), 36% negli altri casi, limite 96.000 euro per unità. Spese 2027: 36% abitazione principale, 30% altri casi, limite 96.000 euro. 2028-2033: 30% con limite 48.000 euro. Comunicazione ENEA gratuita.",
+   "tempi": "Detrazione in 10 rate annuali.",
+   "scadenze_obblighi": "Comunicazione ENEA entro 90 giorni solari dalla fine lavori (per i lavori conclusi tra il 1/1/2026 e il 22/1/2026 i 90 giorni decorrono dal 22/1/2026). Sconto in fattura e cessione del credito non più possibili dal 17/2/2023, salvo eccezioni per alcune aree terremotate.",
+   "norma": {
+    "riferimento": "DPR 22 dicembre 1986, n. 917 (TUIR), art. 16-bis e D.L. 4 giugno 2013, n. 63, art. 16 (modificato dalla legge 199/2025); dal 1/1/2027 confluiscono nel d.lgs. 19 giugno 2026, n. 117",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1986-12-22;917~art16bis!vig=2026-10-25"
+   },
+   "fonti": [
+    {
+     "titolo": "Agenzia Entrate - La misura della detrazione e i limiti di detraibilità",
+     "url": "https://www.agenziaentrate.gov.it/portale/la-misura-della-detrazione-limiti-detraibilita"
+    },
+    {
+     "titolo": "Agenzia Entrate - Ristrutturazioni edilizie: che cos'è",
+     "url": "https://www.agenziaentrate.gov.it/portale/schede/agevolazioni/detrristredil36/schinfodetrristredil36"
+    },
+    {
+     "titolo": "ENEA - Online il portale per l'invio dati 2026",
+     "url": "https://www.efficienzaenergetica.enea.it/vi-segnaliamo/fisco-detrazioni-efficienza-energetica-online-portale-enea-per-invio-dati-2026.html"
+    }
+   ],
+   "attenzione": [
+    "Il 50% spetta solo a proprietari o titolari di diritti reali sull'abitazione principale; inquilini e familiari conviventi hanno il 36%.",
+    "Contano le date dei pagamenti: le spese pagate nel 2027 hanno aliquote più basse.",
+    "Escluse le caldaie uniche alimentate a combustibili fossili.",
+    "Con redditi oltre 75.000 euro c'è un tetto complessivo alle detrazioni (art. 16-ter TUIR)."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "voltura-luce-gas",
+   "titolo": "Voltura delle utenze luce e gas",
+   "sinonimi": [
+    "voltura luce",
+    "voltura gas",
+    "cambio intestatario bolletta",
+    "subentro contatore",
+    "voltura per decesso",
+    "costo voltura enel",
+    "intestare le utenze",
+    "trasloco utenze",
+    "portale offerte"
+   ],
+   "chi": "Chi entra in un immobile con fornitura attiva intestata a un'altra persona (voltura) o con contatore disattivato (subentro). Deve avere un titolo sull'immobile (proprietà, possesso o detenzione), anche autocertificato.",
+   "dove": "Il venditore che già serve l'immobile (voltura) o il venditore scelto (subentro). Per confrontare le offerte: Portale Offerte di ARERA-Acquirente Unico.",
+   "online": "parziale",
+   "online_url": "https://www.ilportaleofferte.it/portaleOfferte/",
+   "passi": [
+    "Scopri chi è il venditore attuale (se non lo sai: servizio Smart Info dello Sportello per il consumatore, gratuito).",
+    "Chiedi la voltura al venditore con le modalità che indica, fornendo il titolo sull'immobile e i dati della fornitura.",
+    "Se vuoi un'altra offerta, confrontale sul Portale Offerte prima o dopo la voltura.",
+    "Il venditore accetta entro 2 giorni lavorativi e comunica la cessazione al precedente intestatario; la registrazione richiede altri 2 giorni lavorativi."
+   ],
+   "documenti": [
+    "documento d'identità e codice fiscale",
+    "titolo sull'immobile o autocertificazione",
+    "codice POD (luce) o PDR (gas) e lettura del contatore",
+    "eventuale autocertificazione di estraneità al debito del precedente intestatario"
+   ],
+   "costo": "Mercato libero: dipende dal contratto. Luce in Maggior tutela o tutele graduali e gas in tutela della vulnerabilità: 23 euro di oneri amministrativi del venditore. Luce: nessun contributo ai distributori. Gas: per la voltura contributo del distributore da prezziario; per il subentro 30 euro (contatori fino a G6) + eventuale verifica di sicurezza 47 euro + imposte. Possibili imposta di bollo e deposito cauzionale.",
+   "tempi": "Voltura di norma in 4 giorni lavorativi.",
+   "scadenze_obblighi": "Nessun termine di legge per il cittadino indicato dalla fonte.",
+   "norma": {
+    "riferimento": "D.L. 28 marzo 2014, n. 47, art. 5 (titolo sull'immobile); delibera ARERA 102/2016/R/com",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2014-03-28;47~art5"
+   },
+   "fonti": [
+    {
+     "titolo": "ARERA - Quanto costa effettuare una voltura o un subentro? (elettricità)",
+     "url": "https://www.arera.it/atlante-per-il-consumatore/elettricita/il-contratto/voltura-e-subentro/quanto-costa-effettuare-una-voltura-o-un-subentro"
+    },
+    {
+     "titolo": "ARERA - Quanto costa effettuare una voltura o un subentro? (gas)",
+     "url": "https://www.arera.it/atlante-per-il-consumatore/gas/il-contratto/voltura-e-subentro/quanto-costa-effettuare-una-voltura-o-un-subentro"
+    },
+    {
+     "titolo": "ARERA - Quanto tempo occorre per ottenere la voltura?",
+     "url": "https://www.arera.it/atlante-per-il-consumatore/gas/il-contratto/voltura-e-subentro/quanto-tempo-occorre-per-ottenere-la-voltura"
+    }
+   ],
+   "attenzione": [
+    "Il venditore non può addebitarti i debiti del vecchio intestatario, salvo che tu non sia estraneo (es. erede o convivente).",
+    "Senza titolo sull'immobile non si possono allacciare utenze.",
+    "Nel mercato libero chiedi per iscritto i costi della voltura prima di firmare."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "invalidita-civile-legge-104",
+   "titolo": "Richiedere invalidità civile e Legge 104",
+   "sinonimi": [
+    "domanda invalidità civile",
+    "legge 104 come si fa",
+    "certificato medico introduttivo",
+    "riconoscimento handicap",
+    "visita commissione invalidità",
+    "aggravamento invalidità",
+    "valutazione di base",
+    "riforma disabilità 2026"
+   ],
+   "chi": "Cittadini italiani e UE residenti, cittadini extra UE con permesso di soggiorno di almeno un anno, per invalidità civile, cecità, sordità, disabilità (L. 104/1992) e collocamento mirato (L. 68/1999).",
+   "dove": "INPS (con commissioni ASL/INPS o Unità di valutazione di base); medico certificatore abilitato.",
+   "online": "sì",
+   "online_url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.domanda-invalidita-civile-e-accertamento-sanitario-50004.accertamento-sanitario.html",
+   "passi": [
+    "Vai da un medico certificatore abilitato: compila e invia online a INPS il certificato medico introduttivo e ti dà la ricevuta con il numero.",
+    "Nelle 60 province della sperimentazione (d.lgs. 62/2024) il certificato basta: è già la domanda di valutazione di base.",
+    "Nelle altre province, fino al 31/12/2026: presenta la domanda online a INPS (SPID, CIE o CNS) o tramite patronato o associazione (ANMIC, ENS, UIC, ANFFAS) entro 90 giorni, indicando il numero del certificato.",
+    "Vai alla visita con documento e documentazione medica (puoi portare un medico di fiducia); se non puoi spostarti il medico chiede la visita a domicilio almeno 5 giorni prima.",
+    "Ricevi il verbale (versione completa e versione con il solo giudizio finale)."
+   ],
+   "documenti": [
+    "certificato medico introduttivo (numero della ricevuta)",
+    "SPID, CIE o CNS (per i minori le credenziali del minore)",
+    "documento d'identità",
+    "documentazione sanitaria"
+   ],
+   "costo": "Domanda INPS gratuita. Costo del certificato del medico non indicato dalla fonte (null).",
+   "tempi": "Nelle Regioni con convenzione: conclusione entro 120 giorni dalla domanda completa; altrove 45 giorni da quando INPS riceve il verbale ASL.",
+   "scadenze_obblighi": "Certificato valido 90 giorni per abbinarlo alla domanda (procedura ordinaria). Ricorso in tribunale entro 6 mesi dalla comunicazione del provvedimento (art. 42, c. 3, d.l. 269/2003). Dal 1° gennaio 2027 la riforma è prevista a pieno regime in tutta Italia.",
+   "norma": {
+    "riferimento": "Legge 5 febbraio 1992, n. 104, art. 4 (come riformato dal d.lgs. 3 maggio 2024, n. 62); D.L. 19 febbraio 2026, n. 19, art. 7 (terza fase)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;104~art4"
+   },
+   "fonti": [
+    {
+     "titolo": "INPS - Domanda invalidità civile e accertamento sanitario",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.domanda-invalidita-civile-e-accertamento-sanitario-50004.accertamento-sanitario.html"
+    },
+    {
+     "titolo": "INPS - Certificato medico introduttivo - Invalidità civile",
+     "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.certificato-medico-introduttivo---invalidit--civile.html"
+    },
+    {
+     "titolo": "INPS - Avviata la terza fase sperimentale della riforma della disabilità",
+     "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.03.avviata-la-terza-fase-sperimentale-della-riforma-della-disabilit.html"
+    }
+   ],
+   "attenzione": [
+    "La procedura dipende dalla provincia di residenza: chiedi al medico se sei in una provincia della sperimentazione.",
+    "Fuori sperimentazione, se lasci passare 90 giorni il certificato scade e va rifatto.",
+    "Se salti la visita sei convocato una seconda volta; un'altra assenza equivale a rinuncia.",
+    "Non puoi presentare una nuova domanda per la stessa prestazione con una pratica aperta, salvo aggravamento.",
+    "Province della prima e seconda fase: Brescia, Catanzaro, Firenze, Forlì-Cesena, Frosinone, Perugia, Salerno, Sassari, Trieste; Alessandria, Aosta, Genova, Isernia, Lecce, Macerata, Matera, Palermo, Teramo, Trento, Vicenza; dal 1/3/2026 altre 40 (elenco nella notizia INPS)."
+   ],
+   "verificato_il": "2026-10-25"
+  },
+  {
+   "id": "contrassegno-disabili-cude",
+   "titolo": "Contrassegno disabili per il parcheggio (CUDE)",
+   "sinonimi": [
+    "contrassegno disabili",
+    "cude",
+    "pass invalidi",
+    "parcheggio disabili",
+    "rinnovo contrassegno disabili",
+    "permesso ztl disabili",
+    "tagliando invalidi",
+    "piattaforma cude targhe"
+   ],
+   "chi": "Persone con capacità di deambulazione impedita o sensibilmente ridotta (anche temporanea, per infortunio o malattia).",
+   "dove": "Comune di residenza (domanda al sindaco); certificazione dell'ufficio medico-legale dell'ASL. Registrazione delle targhe per le ZTL: Piattaforma CUDE del Ministero delle infrastrutture e dei trasporti.",
+   "online": "parziale",
+   "online_url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/piattaforma-cude",
+   "passi": [
+    "Fatti rilasciare dall'ufficio medico-legale dell'ASL la certificazione che accerta la ridotta capacità di deambulazione.",
+    "Presenta la domanda al Comune di residenza con la certificazione (modalità e moduli del tuo Comune).",
+    "Ritira il contrassegno: è personale e vale in tutta Italia, su qualsiasi veicolo che ti trasporta.",
+    "Se il tuo Comune aderisce, associa le targhe dei veicoli che usi nella Piattaforma CUDE (area riservata del Portale dell'automobilista) per entrare nelle ZTL di altri Comuni senza avvisarli.",
+    "Alla scadenza rinnova con il certificato del medico curante."
+   ],
+   "documenti": [
+    "domanda al Comune",
+    "certificazione dell'ufficio medico-legale ASL",
+    "per il rinnovo: certificato del medico curante",
+    "per la piattaforma: codice univoco del CUDE rilasciato dal Comune e SPID/CIE"
+   ],
+   "costo": null,
+   "tempi": null,
+   "scadenze_obblighi": "Validità 5 anni; rinnovo con certificato del medico curante. Contrassegno temporaneo per la durata indicata nella certificazione (rinnovo con nuova certificazione ASL). Va esposto in originale nella parte anteriore del veicolo.",
+   "norma": {
+    "riferimento": "DPR 16 dicembre 1992, n. 495, art. 381; DM 5 luglio 2021 (piattaforma unica nazionale)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1992-12-16;495~art381"
+   },
+   "fonti": [
+    {
+     "titolo": "Normattiva - DPR 495/1992, art. 381",
+     "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1992-12-16;495~art381"
+    },
+    {
+     "titolo": "Portale dell'automobilista - Piattaforma CUDE",
+     "url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/piattaforma-cude"
+    }
+   ],
+   "attenzione": [
+    "Il contrassegno è personale: usarlo senza la persona a bordo è un illecito.",
+    "Non tutti i Comuni aderiscono alla Piattaforma CUDE: verifica nell'elenco dei Comuni aderenti.",
+    "Il Comune può assegnare uno stallo personale gratuito in casi particolari e può prevedere la sosta gratuita sulle strisce blu se gli stalli riservati sono occupati.",
+    "Costi (bolli, diritti) e tempi di rilascio variano da Comune a Comune."
+   ],
+   "note": "Costi e tempi non indicati a livello nazionale: dipendono dal Comune.",
+   "verificato_il": "2026-10-25"
+  }
+ ],
+ "fonti_vietate_da_robots": [
+  {
+   "dominio": "www.lavoro.gov.it",
+   "regola": "User-agent: ClaudeBot / anthropic-ai / Claude-Web: Disallow: / (più Content-Signal ai-train=no)",
+   "effetto": "pagine del Ministero del Lavoro su dimissioni telematiche e politiche attive non lette"
+  },
+  {
+   "dominio": "servizi.lavoro.gov.it",
+   "regola": "stesso blocco ClaudeBot / anthropic-ai / Claude-Web: Disallow: /",
+   "effetto": "servizio dimissioni online non letto; URL del servizio lasciato null"
+  },
+  {
+   "dominio": "www.cliclavoro.gov.it",
+   "regola": "stesso blocco ClaudeBot / anthropic-ai / Claude-Web: Disallow: /",
+   "effetto": "non letto"
+  },
+  {
+   "dominio": "www.inps.it",
+   "regola": "Disallow: /content/dam/inps-site/moduli/*.pdf (per tutti)",
+   "effetto": "moduli PDF INPS non letti"
+  },
+  {
+   "dominio": "www.normattiva.it",
+   "regola": "Disallow: /ricerca/ e /mfr/ricerca/",
+   "effetto": "usati solo gli URN diretti, nessuna ricerca"
+  },
+  {
+   "dominio": "www.efficienzaenergetica.enea.it",
+   "regola": "Disallow: /*? (URL con parametri)",
+   "effetto": "lette solo pagine senza parametri"
+  },
+  {
+   "dominio": "www.poliziadistato.it / questure.poliziadistato.it",
+   "regola": "Disallow su alcuni articoli specifici (24545, 24465, 20979), /sendemail/, /search/",
+   "effetto": "nessuna pagina usata ricade nei divieti"
+  }
+ ],
+ "note": [
+  "robots.txt di www.agenziaentrate.gov.it, infoprecompilata.agenziaentrate.gov.it e www.agenziaentrateriscossione.gov.it risponde 403 Access Denied (Akamai) a qualsiasi client, browser compreso, mentre le pagine normali sono raggiungibili. Ho applicato la regola RFC 9309 (robots non disponibile con errore 4xx = nessuna restrizione) e ho letto le pagine senza aggirare nulla: segnalo comunque che il robots non è stato verificabile.",
+  "www.ilportaledellautomobilista.it non ha un robots.txt (l'URL reindirizza alla home): nessuna restrizione. ilportaleofferte.it, detrazionifiscali.enea.it e siisl.lavoro.gov.it: robots.txt assente (404). www.dimissionivolontarie.lavoro.gov.it non risponde.",
+  "Nessuna pagina bloccata da CAPTCHA o WAF. www.mit.gov.it via WebFetch dava errore di certificato TLS: le pagine sono state lette con una normale richiesta curl (user-agent predefinito, non falsificato).",
+  "pagopa.gov.it, siisl.lavoro.gov.it e bonusfiscali.enea.it sono applicazioni JavaScript: per pagoPA ho letto la pagina 'Dove pagare' dall'HTML statico; SIISL e il portale ENEA non hanno testo leggibile.",
+  "Importante per il Navigatore: molte norme fiscali cambiano numero dal 1° gennaio 2027 con i testi unici della riforma (d.lgs. 33/2025 versamenti e riscossione; d.lgs. 123/2025 registro; d.lgs. 117/2026 imposte sui redditi, che abroga tra l'altro art. 16-bis TUIR e art. 3 d.lgs. 23/2011; d.lgs. 141/2026 adempimenti e accertamento, che abroga art. 1 d.lgs. 175/2014 e il DPR 605/1973). Normattiva mostra già di default il testo in vigore dal 1/1/2027 (cioè 'abrogato'): per citare il testo vigente oggi ho aggiunto agli URN il suffisso !vig=2026-10-25. Le schede vanno riverificate a gennaio 2027.",
+  "Gli articoli dei testi unici sono nell'allegato del decreto: l'URN corretto usa ':1' dopo il numero (es. urn:nir:stato:decreto.legislativo:2026-08-05;141:1~art68).",
+  "Il decreto-legge sulla terza fase della riforma della disabilità è il D.L. 19 febbraio 2026, n. 19 (urn:nir:stato:decreto.legge:2026-02-19;19).",
+  "730: le date 2027 non sono ancora state pubblicate dall'Agenzia; ho riportato solo i termini di legge (30 aprile e 30 settembre). Il termine del 730 integrativo tramite CAF del 26 ottobre 2026 compare solo in un riassunto di ricerca e non è stato verificato su una pagina letta: non è stato inserito.",
+  "NASpI: la scheda INPS riporta ancora gli importi 2023; i valori 2026 vengono dal testo della circolare INPS n. 4/2026. WebFetch ha salvato in automatico una copia locale di quel PDF ufficiale nella cartella tool-results della sessione: è l'unico file scaricato, non è stato aperto altro.",
+  "Sanzione per mancata comunicazione di ospitalità: Normattiva riporta 500-3.500 euro (testo in vigore dal 15/11/2023). Diverse pagine delle Questure riportano ancora 160-1.100 euro, valori superati.",
+  "Bollo auto: i termini di pagamento e le agevolazioni aggiuntive sono regionali e non sono stati verificati Regione per Regione.",
+  "Ospitalità: nei Comuni senza Questura o Commissariato l'autorità locale di pubblica sicurezza può essere un'altra (es. il sindaco): non verificato, da completare con le pagine delle singole Questure.",
+  "Le citazioni testuali da Normattiva sono state usate solo per verificare i dati; nelle schede i testi sono parafrasati."
+ ]
+}

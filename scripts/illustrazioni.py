@@ -125,6 +125,7 @@ SCENE = {
 # Dove vanno le scene: (file, ancora dopo cui inserire, nome della scena)
 POSTI = [
     ('index.html', '<a class="strumento" href="assistente/" data-strumento="assistente" style="grid-column:1/-1">', 'assistente'),
+    ('index.html', '<a class="strumento" href="navigatore/" data-strumento="navigatore">', 'navigatore'),
     ('index.html', '<a class="strumento" href="mi-spetta/" data-strumento="mi-spetta">', 'mi-spetta'),
     ('index.html', '<a class="strumento" href="faccio-ricorso/" data-strumento="faccio-ricorso">', 'faccio-ricorso'),
     ('index.html', '<a class="strumento" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti">', 'chiedo-gli-atti'),

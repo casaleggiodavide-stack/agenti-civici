@@ -18,9 +18,9 @@ function banco() {
   return { t, visto, strumenti };
 }
 
-test('nove strumenti, nomi e schemi entro i limiti della piattaforma', () => {
+test('dieci strumenti, nomi e schemi entro i limiti della piattaforma', () => {
   const { strumenti } = banco();
-  assert.equal(strumenti.length, 9);
+  assert.equal(strumenti.length, 10);
   for (const s of strumenti) {
     assert.match(s.name, /^[A-Za-z0-9_-]{1,128}$/);
     assert.ok(new TextEncoder().encode(s.description).length <= 1024, s.name);
@@ -103,4 +103,15 @@ test('valuta_reclamo e mostra_lettera_reclamo: volo Catania-Parigi, 400 €, IBA
   assert.equal(d.mostrato, true);
   assert.doesNotMatch(visto.documenti[0].html, /IT60X054/);
   assert.match(visto.documenti[0].genera({ nome: 'Maria Prova', iban: 'IT00TEST' }), /Maria Prova[\s\S]*IT00TEST/);
+});
+
+test('trova_pratica: scheda del Navigatore con fonti, o «non trovata» senza inventare', () => {
+  const mostrati = [];
+  const s = creaStrumenti({ mostraRisultato: (t, v) => mostrati.push(t) }).find((x) => x.name === 'trova_pratica');
+  const r = s.execute({ domanda: 'ho venduto la macchina' });
+  assert.equal(r.trovata, true);
+  assert.equal(r.scheda.id, 'passaggio-proprieta-auto');
+  assert.ok(r.scheda.fonti.length);
+  assert.deepEqual(mostrati, ['pratica']);
+  assert.equal(s.execute({ domanda: 'zzzz qwerty' }).trovata, false);
 });

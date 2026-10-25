@@ -67,6 +67,10 @@ def https(f):
     return isinstance(f, dict) and str(f.get('url', '')).startswith('https://')
 
 
+def fonte(f):
+    return {'titolo': f.get('titolo') or f.get('riferimento') or f.get('nome') or f['url'], 'url': f['url']}
+
+
 def main():
     pratiche, verificati = [], set()
     for p in sorted(glob.glob(os.path.join(CARTELLA, 'dati', 'schede-*.json'))):
@@ -74,9 +78,11 @@ def main():
         verificati.add(d.get('verificato_il'))
         for s in d['pratiche']:
             on = s.get('online') or {}
+            if not isinstance(on, dict):  # forma alternativa: online «sì» + online_url
+                on = {'stato': on, 'url': s.get('online_url'), 'note': s.get('online_note')}
             stato = ONLINE.get(str(on.get('stato') or '').lower(), 'parziale' if on.get('url') else 'no')
-            fonti = [f for f in s.get('fonti', []) if https(f)]
-            norme = [f for f in (s.get('norma') if isinstance(s.get('norma'), list) else [s.get('norma')] if s.get('norma') else []) if https(f)]
+            fonti = [fonte(f) for f in s.get('fonti', []) if https(f)]
+            norme = [fonte(f) for f in (s.get('norma') if isinstance(s.get('norma'), list) else [s.get('norma')] if s.get('norma') else []) if https(f)]
             if not fonti:
                 raise SystemExit(f"scheda senza fonte https: {s['id']}")
             pid = s['id']

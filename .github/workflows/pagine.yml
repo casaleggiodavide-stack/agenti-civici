@@ -31,7 +31,7 @@ jobs:
           mkdir -p _sito/comune && cp comune/stile.css comune/marchio.svg _sito/comune/
           mkdir -p _sito/catalogo && cp catalogo/index.html _sito/catalogo/
           mkdir -p _sito/mondo && cp mondo/index.html _sito/mondo/
-          for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti mi-rimborsano bilancio-comune appalti; do
+          for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti mi-rimborsano bilancio-comune appalti navigatore; do
             mkdir -p _sito/$d
             cp $d/index.html _sito/$d/
             cp -r $d/src $d/web _sito/$d/

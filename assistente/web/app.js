@@ -225,6 +225,15 @@ function mostraRisultato(tipo, v) {
       ${v.importo ? `<p><b>${esc(v.importo.testo)}</b></p>` : ''}
       ${v.voci.length ? `<h3>Controlli</h3><ul>${v.voci.map((m) => `<li><b>${esc(m.titolo)}</b>: ${esc(m.spiegazione)}${linkFonte(m.fonti[0])}</li>`).join('')}</ul>` : ''}
       ${v.scadenze.length ? `<h3>Scadenze</h3><ul>${v.scadenze.map((s) => `<li><b>${esc(data(s.data).toLocaleDateString('it-IT', { timeZone: 'UTC' }))}</b> ${esc(s.titolo)}${s.scaduta ? ' (passata)' : calendario(s.titolo, s.data, s.testo)}</li>`).join('')}</ul>` : ''}`);
+  } else if (tipo === 'pratica') {
+    sezioneRisultato('pratica', `
+      <div class="occhiello">Navigatore dei servizi · verificata il ${esc(new Date(v.verificato).toLocaleDateString('it-IT'))}</div>
+      <h2>${esc(v.titolo)}</h2>
+      <p>${esc(v.dove || '')}${v.online?.url ? ` · <a href="${esc(v.online.url)}" target="_blank" rel="noopener">servizio ufficiale</a>` : ''}</p>
+      <h3>I passi</h3><ol>${v.passi.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+      ${v.documenti.length ? `<h3>Cosa serve</h3><ul>${v.documenti.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      <p><b>Costo:</b> ${esc(v.costo || 'non indicato dalle fonti')}${v.tempi ? `<br><b>Tempi:</b> ${esc(v.tempi)}` : ''}${v.scadenze ? `<br><b>Da non dimenticare:</b> ${esc(v.scadenze)}` : ''}</p>
+      <ul class="fonti">${[...v.fonti, ...v.norme].map((f) => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo)}</a></li>`).join('')}</ul>`);
   } else if (tipo === 'accesso') {
     sezioneRisultato('accesso', `
       <div class="occhiello">Chiedo gli atti · ${esc(v.ente?.nome || 'ente da scegliere')}</div>

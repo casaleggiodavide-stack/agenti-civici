@@ -19,6 +19,7 @@ import { data as dataCal } from './comune/date.js';
 import { valuta as valutaReclamo } from '../../mi-rimborsano/src/regole.js';
 import { DOMANDE as D_RECLAMI } from '../../mi-rimborsano/src/domande.js';
 import { lettera, oggetto as oggettoReclamo } from '../../mi-rimborsano/src/documento.js';
+import { cerca as cercaPratica, trova as trovaPratica } from '../../navigatore/src/cerca.js';
 
 import { normalizza as normalizzaCampi, dizionario as dizionarioCampi } from './comune/campi.js';
 
@@ -176,6 +177,18 @@ export function creaStrumenti(ui) {
         const genera = (p = {}) => lettera({ ...risposte, nome: p.nome, indirizzo: p.residenza, recapito: p.recapito, iban: p.iban, riferimento: p.riferimento, luogo: p.luogo }, v);
         ui.mostraDocumento?.({ titolo: 'Lettera di reclamo', html: genera(), genera, oggetto: oggettoReclamo(v.documento), pec: null });
         return { mostrato: true, destinatario: v.documento.destinatario };
+      },
+    },
+    {
+      name: 'trova_pratica',
+      description: 'Navigatore dei servizi: per «cosa devo fare per…» (residenza, carta d\'identità, passaporto, SPID, nascita, matrimonio, decesso e successione, permesso di soggiorno, cittadinanza, medico, scuola, ISEE, 730, NASpI, pensione, patente, auto, affitto, invalidità…). Cerca con le parole della persona e restituisce la scheda verificata: passi, documenti, costo, tempi, scadenze e fonti. Se non c\'è una scheda lo dice: allora non improvvisare.',
+      inputSchema: { type: 'object', properties: { domanda: { type: 'string', description: 'La richiesta con le parole della persona' }, id: { type: 'string', description: 'Id di una scheda già trovata, in alternativa' } } },
+      execute(input) {
+        const p = input.id ? trovaPratica(String(input.id)) : cercaPratica(String(input.domanda || ''), 1)[0]?.pratica;
+        if (!p) return { trovata: false, vicine: cercaPratica(String(input.domanda || ''), 4).map((r) => ({ id: r.pratica.id, titolo: r.pratica.titolo })) };
+        ui.mostraRisultato?.('pratica', p);
+        const { sinonimi, ...scheda } = p;
+        return { trovata: true, scheda, altre: cercaPratica(String(input.domanda || p.titolo), 4).map((r) => r.pratica).filter((x) => x.id !== p.id).map((x) => ({ id: x.id, titolo: x.titolo })) };
       },
     },
     {
