@@ -1,0 +1,43 @@
+# Pubblica il sito su GitHub Pages dopo che i controlli sono passati.
+# Va attivato in Settings > Pages > Source: GitHub Actions.
+# Pubblica solo le pagine degli strumenti: niente dati dell'osservatorio né stato della sentinella.
+name: Pagine
+on:
+  workflow_run:
+    workflows: [Controlli]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pagine
+  cancel-in-progress: true
+jobs:
+  pubblica:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepara il sito
+        run: |
+          mkdir _sito
+          cp index.html LICENSE _sito/
+          for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti; do
+            mkdir -p _sito/$d
+            cp $d/index.html _sito/$d/
+            cp -r $d/src $d/web _sito/$d/
+          done
+          # L'assistente importa i motori degli altri strumenti con percorsi ../../: ci sono già.
+          find _sito -path '*/test/*' -delete
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _sito
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,49 @@
+# Sentinella delle regole: rilegge le fonti ufficiali e apre una issue quando
+# c'è qualcosa da guardare. Gli orari automatici sono SPENTI: per attivarli
+# togliere il cancelletto dalle righe «schedule» qui sotto.
+name: Sentinella
+on:
+  workflow_dispatch:
+    inputs:
+      solo_feed:
+        description: 'Solo i feed (Gazzetta, INPS), senza rileggere le pagine'
+        type: boolean
+        default: false
+  # schedule:
+  #   - cron: '30 6 * * 1'      # pagine e feed, il lunedì alle 7:30 ora italiana (inverno)
+  #   - cron: '0 7 * * 2-6'     # solo feed, dal martedì al sabato (la Gazzetta esce ogni giorno)
+permissions:
+  contents: write
+  issues: write
+jobs:
+  sentinella:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Leggi le fonti
+        run: |
+          if [ "${{ inputs.solo_feed }}" = "true" ] || [ "${{ github.event.schedule }}" = "0 7 * * 2-6" ]; then
+            npm run sentinella -- --solo-feed
+            echo "RAPPORTO=sentinella/rapporto-feed.md" >> "$GITHUB_ENV"
+          else
+            npm run sentinella
+            echo "RAPPORTO=sentinella/rapporto.md" >> "$GITHUB_ENV"
+          fi
+      - name: Salva lo stato
+        run: |
+          git config user.name "Sentinella delle regole"
+          git config user.email "sentinella@users.noreply.github.com"
+          git add sentinella/stato.json sentinella/rapporto*.md
+          git diff --cached --quiet || git commit -m "Sentinella: lettura del $(date +%F)"
+          git push
+      - name: Apri una issue se c'è qualcosa da guardare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -qE '^## (Fonti cambiate|Fonti da sistemare|Nuove circolari|Revisioni)' "$RAPPORTO"; then
+            gh issue create --title "Sentinella: da controllare ($(date +%F))" --body-file "$RAPPORTO" --label sentinella || \
+            gh issue create --title "Sentinella: da controllare ($(date +%F))" --body-file "$RAPPORTO"
+          fi

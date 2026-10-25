@@ -4,9 +4,12 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
+| [Assistente civico](assistente/) | Lo stesso lavoro in conversazione: racconti il problema con parole tue, l'assistente fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona dentro claude.ai o l'app di Claude, con l'account di chi lo usa; fuori da Claude rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Chiedo gli atti](chiedo-gli-atti/) | Chiedi documenti e dati a qualsiasi ente: sceglie tra FOIA, accesso civico semplice e accesso documentale, prepara richiesta, riesame e ricorsi, calcola le scadenze. 23.705 enti con PEC da IndicePA. |
+
+Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) si aggiunge in un clic a Google Calendar o Outlook, oppure si scarica come file `.ics` fuori da claude.ai.
 
 Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte come codice, testate e citate), l'esito «serve un dato» invece di un'ipotesi, nessun parere legale.
 
@@ -16,7 +19,30 @@ Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte com
 cd agenti-civici && python3 -m http.server 8080
 ```
 
-Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages sulla cartella principale.
+Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages con il workflow `.github/workflows/pagine.yml` (Settings > Pages > Source: GitHub Actions), che pubblica solo le pagine degli strumenti dopo che i test sono passati.
+
+## L'Assistente civico
+
+`assistente/` non ha un server suo: usa la capacità `sample` delle pagine pubblicate su claude.ai, cioè Claude con l'account e i limiti di chi apre la pagina. Claude non calcola niente da solo: chiama sette strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso? e Chiedo gli atti. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
+
+- Cifre, soglie, termini e PEC arrivano solo dai risultati degli strumenti, con la fonte.
+- Nome, codice fiscale e indirizzo non passano dalla chat: i documenti si completano nel pannello accanto, e quei dati restano nel browser (si cancellano con il pulsante in fondo alla pagina).
+- Se la vista di Claude non permette alla pagina di usare i suoi strumenti, l'assistente non risponde e rimanda ai tre strumenti: senza i motori di regole dovrebbe inventare.
+
+Si pubblica con `node scripts/prepara-assistente.mjs <cartella> '<link>'`, che conserva i percorsi del repository perché l'assistente importa i motori degli altri strumenti.
+
+## Sentinella delle regole
+
+Le regole valgono finché non cambia la fonte. `npm run sentinella` rilegge tutte le fonti citate dai tre strumenti (60 pagine e PDF ufficiali) e i feed di INPS e Gazzetta Ufficiale, e scrive `sentinella/rapporto.md`:
+
+- fonti cambiate, con gli importi in euro comparsi o spariti (sotto il 2% di parole diverse e senza importi toccati è un «ritocco» e non si segnala);
+- link rotti, pagine vietate da robots.txt e pagine non leggibili in automatico (errori, controlli anti-bot: non si aggirano, si controllano a mano);
+- nuove circolari e atti con parole chiave dei tre strumenti;
+- revisioni a calendario: regole verificate da più di 120 giorni, rivalutazioni di gennaio, aggiornamento biennale delle sanzioni stradali.
+
+Rispetta robots.txt, compresi i divieti rivolti solo agli agenti di Anthropic (ClaudeBot, Claude-User, anthropic-ai), e legge un sito per volta con due secondi tra una richiesta e l'altra. Lo stato dell'ultima lettura è in `sentinella/stato.json`. Il feed della Gazzetta contiene solo l'ultimo numero: va letto ogni giorno con `npm run sentinella -- --solo-feed` (rapporto in `sentinella/rapporto-feed.md`).
+
+Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una issue quando c'è qualcosa da guardare; gli orari automatici sono commentati e vanno accesi a mano.
 
 ## Dagli assistenti AI (MCP)
 
@@ -29,7 +55,7 @@ Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages sulla
 ## Controlli
 
 ```bash
-npm test                                # 50 casi: date, tre strumenti, server MCP
+npm test                                # 69 casi: date e calendario, tre strumenti, assistente, sentinella, server MCP
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```
@@ -38,6 +64,8 @@ python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti
 
 - `comune/`: codice condiviso (logica a tre valori, scadenze con festività italiane e sospensione feriale, questionari, stile). Si copia dentro ogni strumento con `npm run sincronizza`, così ogni strumento resta pubblicabile da solo.
 - `mi-spetta/`, `faccio-ricorso/`, `chiedo-gli-atti/`: uno strumento per cartella, con `src/` (regole e dati), `web/` (interfaccia), `test/`.
+- `assistente/`: l'Assistente civico (strumenti per Claude, istruzioni, interfaccia della chat).
+- `sentinella/`: controllo delle fonti; `scripts/sentinella.mjs` lo esegue.
 - `mcp/`: server per gli assistenti AI.
 
 ## Punti da ricontrollare
