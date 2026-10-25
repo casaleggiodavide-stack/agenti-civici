@@ -47,6 +47,7 @@
     <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
     <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
     <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
   </nav>
 
   <header class="testata">
@@ -57,7 +58,7 @@
     <ul class="garanzie">
       <li><b>Niente inventato.</b> Importi, termini e indirizzi vengono solo dalle regole verificate, con la fonte.</li>
       <li><b>I tuoi dati restano qui.</b> Nome e codice fiscale si scrivono solo nel pannello dei documenti, mai in chat.</li>
-      <li><b>Bonus, multe, accesso agli atti.</b> Per il resto ti dice a chi rivolgerti.</li>
+      <li><b>Bonus, multe, accesso agli atti, reclami.</b> Per il resto ti dice a chi rivolgerti.</li>
     </ul>
   </header>
 
@@ -68,13 +69,14 @@
     <button type="button" data-esempio="Ho 71 anni, vivo da sola a Napoli con la pensione minima. Ho diritto a qualche aiuto?">Pensionata sola, quali aiuti?</button>
     <button type="button" data-esempio="Mi è arrivata per posta una multa per un semaforo rosso a Torino, quattro mesi dopo il fatto. Posso fare ricorso?">Multa arrivata dopo 4 mesi</button>
     <button type="button" data-esempio="Vorrei sapere quanto ha speso il Comune di Lecce in consulenze nel 2025. Come lo chiedo?">Le consulenze del mio Comune</button>
+    <button type="button" data-esempio="Il mio volo da Catania a Parigi del 12 settembre è arrivato con quattro ore di ritardo per un guasto. Mi spetta qualcosa?">Volo in ritardo di 4 ore</button>
     <button type="button" data-esempio="Aspettiamo un bambino a gennaio, io lavoro come dipendente e mio marito è autonomo. Che aiuti ci sono?">Aspettiamo un bambino</button>
   </div>
 
   <main class="corpo">
     <section class="chat" aria-label="Conversazione con l'assistente">
       <div class="messaggi" id="messaggi" aria-live="polite">
-        <div class="msg ai"><span class="chi">Assistente</span><div class="testo"><p>Ciao. Raccontami cosa ti serve: un aiuto economico a cui potresti avere diritto, una multa che pensi sia sbagliata, o dei documenti che vuoi chiedere a un ente pubblico.</p><p>Non scrivere nome, codice fiscale o indirizzo: se serve un documento lo completi nel pannello qui accanto, e quei dati restano su questo dispositivo.</p></div></div>
+        <div class="msg ai"><span class="chi">Assistente</span><div class="testo"><p>Ciao. Raccontami cosa ti serve: un aiuto economico a cui potresti avere diritto, una multa che pensi sia sbagliata, un rimborso che ti spetta (volo, treno, bolletta, telefono, banca), o dei documenti che vuoi chiedere a un ente pubblico.</p><p>Non scrivere nome, codice fiscale o indirizzo: se serve un documento lo completi nel pannello qui accanto, e quei dati restano su questo dispositivo.</p></div></div>
       </div>
       <form class="scrivi" id="scrivi">
         <label for="domanda" class="etichetta" style="font-size:var(--s0)">Il tuo messaggio</label>

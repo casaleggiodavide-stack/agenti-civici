@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const [dest, linkJson = '{}'] = process.argv.slice(2);
 const link = JSON.parse(linkJson);
 const radice = fileURLToPath(new URL('../', import.meta.url));
-const CARTELLE = ['assistente/src', 'assistente/web', 'mi-spetta/src', 'faccio-ricorso/src', 'chiedo-gli-atti/src'];
+const CARTELLE = ['assistente/src', 'assistente/web', 'mi-spetta/src', 'faccio-ricorso/src', 'chiedo-gli-atti/src', 'mi-rimborsano/src'];
 
 rmSync(dest, { recursive: true, force: true });
 mkdirSync(dest, { recursive: true });

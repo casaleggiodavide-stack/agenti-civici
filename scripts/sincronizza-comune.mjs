@@ -4,7 +4,7 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 
 const radice = new URL('../', import.meta.url);
-const STRUMENTI = ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'assistente'];
+const STRUMENTI = ['mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'assistente', 'mi-rimborsano'];
 const verifica = process.argv.includes('--verifica');
 const file = readdirSync(new URL("comune/", radice)).filter((f) => f.endsWith(".js") || f.endsWith(".css"));
 let diversi = 0;

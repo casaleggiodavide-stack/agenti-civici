@@ -5,8 +5,9 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 | Strumento | Cosa fa |
 |---|---|
 | [Assistente civico](assistente/) | Lo stesso lavoro in conversazione: racconti il problema con parole tue, l'assistente fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona dentro claude.ai o l'app di Claude, con l'account di chi lo usa; fuori da Claude rimanda agli strumenti. |
-| [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali con le regole 2026, importi, requisiti, come chiederle, fonti. |
+| [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
+| [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
 | [Chiedo gli atti](chiedo-gli-atti/) | Chiedi documenti e dati a qualsiasi ente: sceglie tra FOIA, accesso civico semplice e accesso documentale, prepara richiesta, riesame e ricorsi, calcola le scadenze. 23.705 enti con PEC da IndicePA. |
 
 Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) si aggiunge in un clic a Google Calendar o Outlook, oppure si scarica come file `.ics` fuori da claude.ai.
@@ -23,7 +24,7 @@ Poi apri `http://localhost:8080`. Per metterli online gratis: GitHub Pages con i
 
 ## L'Assistente civico
 
-`assistente/` non ha un server suo: usa la capacità `sample` delle pagine pubblicate su claude.ai, cioè Claude con l'account e i limiti di chi apre la pagina. Claude non calcola niente da solo: chiama sette strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso? e Chiedo gli atti. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
+`assistente/` non ha un server suo: usa la capacità `sample` delle pagine pubblicate su claude.ai, cioè Claude con l'account e i limiti di chi apre la pagina. Claude non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
 
 - Cifre, soglie, termini e PEC arrivano solo dai risultati degli strumenti, con la fonte.
 - Nome, codice fiscale e indirizzo non passano dalla chat: i documenti si completano nel pannello accanto, e quei dati restano nel browser (si cancellano con il pulsante in fondo alla pagina).
@@ -33,7 +34,7 @@ Si pubblica con `node scripts/prepara-assistente.mjs <cartella> '<link>'`, che c
 
 ## Sentinella delle regole
 
-Le regole valgono finché non cambia la fonte. `npm run sentinella` rilegge tutte le fonti citate dai tre strumenti (60 pagine e PDF ufficiali) e i feed di INPS e Gazzetta Ufficiale, e scrive `sentinella/rapporto.md`:
+Le regole valgono finché non cambia la fonte. `npm run sentinella` rilegge tutte le fonti citate dagli strumenti (187 pagine e PDF ufficiali, comprese le misure regionali) e i feed di INPS e Gazzetta Ufficiale, e scrive `sentinella/rapporto.md`:
 
 - fonti cambiate, con gli importi in euro comparsi o spariti (sotto il 2% di parole diverse e senza importi toccati è un «ritocco» e non si segnala);
 - link rotti, pagine vietate da robots.txt e pagine non leggibili in automatico (errori, controlli anti-bot: non si aggirano, si controllano a mano);
@@ -55,7 +56,7 @@ Su GitHub il workflow `.github/workflows/sentinella.yml` fa lo stesso e apre una
 ## Controlli
 
 ```bash
-npm test                                # 69 casi: date e calendario, tre strumenti, assistente, sentinella, server MCP
+npm test                                # 87 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```
@@ -68,11 +69,16 @@ python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti
 - `sentinella/`: controllo delle fonti; `scripts/sentinella.mjs` lo esegue.
 - `mcp/`: server per gli assistenti AI.
 
+## Misure regionali di Mi spetta
+
+Le misure regionali sono in `mi-spetta/src/prestazioni/regionali/`, un file per Regione, verificate il 25/10/2026 sui siti ufficiali (rispettando robots.txt: dove il sito regionale lo vieta si sono usati enti strumentali, bollettini o gestori). Si valutano solo per chi indica la propria Regione. Sono escluse le borse universitarie, che dipendono dall'ateneo frequentato e non dalla residenza, e le misure chiuse senza una nuova edizione in vista. Trento usa l'ICEF al posto dell'ISEE. Molte misure passano da Comuni o Ambiti sociali con date proprie: lo strumento lo dice e rimanda all'avviso locale.
+
 ## Punti da ricontrollare
 
 Oltre a quelli elencati in `mi-spetta/README.md`:
 
 - **Multe.** Che aprire un verbale sul portale della Polizia di Stato equivalga alla notifica: lo strumento lo tratta così per prudenza. Proroga del termine per il Prefetto se cade di domenica o festivo: lo strumento non la considera. Le periodicità di taratura del nuovo decreto MIT dell'8/6/2026 (allegato pubblicato solo come immagine). La competenza delle Prefetture sarde per i comuni delle nuove province.
+- **Reclami.** Il termine per chiedere la compensazione di un volo in Italia è incerto (Cassazione 4427/2024 esclude i 2 anni di Montreal ma non indica il termine): lo strumento consiglia di reclamare entro 6 mesi. Non è certo che la conciliazione ART sia obbligatoria anche per la sola compensazione. Il valore in euro dei DSP per i bagagli cambia ogni giorno. Il regolamento indennizzi AGCOM letto è quello della delibera 347/18/CONS. Le regole dell'ACF (Consob) non sono state lette perché il sito è dietro un controllo anti-bot.
 - **Accesso agli atti.** Il termine per chiedere il riesame (30 giorni è l'indicazione della Funzione pubblica, non della legge). L'elenco aggiornato dei difensori civici regionali. Il sito foia.gov.it non risponde all'11/10/2026: si usano i moduli ANAC e le circolari su docs.italia.it.
 
 ## Licenza

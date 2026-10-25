@@ -16,9 +16,12 @@ import { DOMANDE as D_ATTI } from '../../chiedo-gli-atti/src/domande.js';
 import { richiesta, riesame, ricorso, sostitutivo, OGGETTI } from '../../chiedo-gli-atti/src/documenti.js';
 import { caricaEnti, cerca } from '../../chiedo-gli-atti/src/enti.js';
 import { data as dataCal } from './comune/date.js';
+import { valuta as valutaReclamo } from '../../mi-rimborsano/src/regole.js';
+import { DOMANDE as D_RECLAMI } from '../../mi-rimborsano/src/domande.js';
+import { lettera, oggetto as oggettoReclamo } from '../../mi-rimborsano/src/documento.js';
 
 // I dati personali non passano mai dalla conversazione: si completano nel pannello.
-const PERSONALI = new Set(['nome', 'nascita', 'residenza', 'codice_fiscale', 'recapito', 'telefono', 'comune_firma', 'luogo']);
+const PERSONALI = new Set(['nome', 'nascita', 'residenza', 'codice_fiscale', 'recapito', 'telefono', 'comune_firma', 'luogo', 'indirizzo', 'iban', 'riferimento', 'codice_fornitura', 'numero_linea']);
 
 /**
  * Pulisce le risposte che Claude passa a uno strumento: tiene solo i campi
@@ -71,7 +74,7 @@ export function normalizza(domande, grezze, extra = {}) {
 export function dizionario(domande) {
   return domande.filter((d) => !PERSONALI.has(d.id)).map((d) => {
     let tipo = d.tipo === 'euro' ? 'numero in euro' : d.tipo === 'si_no' ? (d.nonSo ? 'true|false|non_so' : 'true|false') : d.tipo === 'data' ? 'AAAA-MM-GG' : d.tipo;
-    if (d.tipo === 'scelta' || d.tipo === 'elenco') tipo = d.id === 'provincia' ? `sigla di provincia (es. MI, RM, NA, AO)` : d.opzioni.map((o) => o[0]).join('|');
+    if (d.tipo === 'scelta' || d.tipo === 'elenco') tipo = d.id === 'provincia' ? `sigla di provincia (es. MI, RM, NA, AO)` : d.opzioni.length > 40 ? `codice IATA dell'aeroporto (es. FCO, MXP, NAP, CDG, JFK); se non è tra i ${d.opzioni.length - 1} in elenco l'avviso lo dice: allora usa "altro" e indica distanza_km` : d.opzioni.map((o) => o[0]).join('|');
     if (d.tipo === 'figli') tipo = `elenco di {nascita: "AAAA-MM", disabile?: true|false, condizione?: ${CONDIZIONI_18_21.map((c) => c[0]).join('|')} (solo 18-21 anni)}`;
     return `- ${d.id} (${tipo}): ${d.etichetta}`;
   }).join('\n');
@@ -193,6 +196,37 @@ export function creaStrumenti(ui) {
       },
     },
     {
+      name: 'valuta_reclamo',
+      description: 'Mi rimborsano?: dice se spetta un rimborso, un indennizzo o una compensazione per volo in ritardo o cancellato, bagaglio, treno, bolletta (anche prescrizione di due anni), telefono e internet, addebito bancario non autorizzato; con importo, termini, passi (reclamo, autorità, conciliazione) e fonti. Usa i campi del dizionario «Reclami»: il campo caso è obbligatorio.',
+      inputSchema: schemaRisposte('Risposte con i campi del dizionario Reclami; caso obbligatorio, gli altri solo se noti.'),
+      execute(input) {
+        ui.progresso?.('Controllo il caso con Mi rimborsano?…');
+        const { risposte, avvisi } = normalizza(D_RECLAMI, input.risposte);
+        const v = valutaReclamo(risposte, opz);
+        ui.mostraRisultato?.('reclamo', { ...v, risposte });
+        return {
+          verdetto: v.verdetto, importo: v.importo,
+          controlli: v.voci.map((x) => ({ titolo: x.titolo, esito: x.esito, spiegazione: x.spiegazione, manca: x.dato, fonte: fonte(x.fonti[0]) })),
+          scadenze: v.scadenze.map((x) => ({ data: x.data, titolo: x.titolo, testo: x.testo, passata: x.scaduta })),
+          passi: v.passi.map((x) => ({ titolo: x.titolo, testo: x.testo, link: x.link })),
+          lettera_disponibile: Boolean(v.documento), avvisi,
+        };
+      },
+    },
+    {
+      name: 'mostra_lettera_reclamo',
+      description: 'Mostra nel pannello la lettera di reclamo e messa in mora (o di eccezione di prescrizione per le bollette) preparata da Mi rimborsano?, da completare con i dati personali nel pannello. Usalo dopo valuta_reclamo, se lettera_disponibile è vero. Restituisce una conferma.',
+      inputSchema: schemaRisposte('Le stesse risposte passate a valuta_reclamo.'),
+      execute(input) {
+        const { risposte } = normalizza(D_RECLAMI, input.risposte);
+        const v = valutaReclamo(risposte, opz);
+        if (!v.documento) return { mostrato: false, motivo: 'Per questo caso non c\'è una lettera da preparare: ' + v.verdetto.titolo };
+        const genera = (p = {}) => lettera({ ...risposte, nome: p.nome, indirizzo: p.residenza, recapito: p.recapito, iban: p.iban, riferimento: p.riferimento, luogo: p.luogo }, v);
+        ui.mostraDocumento?.({ titolo: 'Lettera di reclamo', html: genera(), genera, oggetto: oggettoReclamo(v.documento), pec: null });
+        return { mostrato: true, destinatario: v.documento.destinatario };
+      },
+    },
+    {
       name: 'promemoria',
       description: 'Mostra alla persona i pulsanti per aggiungere una scadenza al suo calendario (Google, Outlook). Usalo per le scadenze restituite dagli altri strumenti, con la loro data esatta. Restituisce una conferma.',
       inputSchema: { type: 'object', properties: { titolo: { type: 'string' }, data: { type: 'string', description: 'AAAA-MM-GG, presa da un risultato di uno strumento' }, descrizione: { type: 'string' } }, required: ['titolo', 'data'] },
@@ -209,4 +243,5 @@ export const DIZIONARI = {
   'Mi spetta': () => dizionario(D_SPETTA),
   Multe: () => dizionario(D_MULTA),
   'Accesso agli atti': () => dizionario(D_ATTI),
+  Reclami: () => dizionario(D_RECLAMI),
 };

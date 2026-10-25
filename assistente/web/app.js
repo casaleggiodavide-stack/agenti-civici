@@ -9,7 +9,7 @@ import { creaStrumenti } from '../src/strumenti.js';
 import { istruzioni } from '../src/istruzioni.js';
 
 const OGGI = iso(oggi());
-const PERSONALI = [['nome', 'Nome e cognome'], ['nascita', 'Luogo e data di nascita'], ['residenza', 'Indirizzo di residenza'], ['codice_fiscale', 'Codice fiscale'], ['recapito', 'PEC o email'], ['luogo', 'Luogo in cui firmi']];
+const PERSONALI = [['nome', 'Nome e cognome'], ['nascita', 'Luogo e data di nascita'], ['residenza', 'Indirizzo di residenza'], ['codice_fiscale', 'Codice fiscale'], ['recapito', 'PEC o email'], ['iban', 'IBAN per i rimborsi'], ['riferimento', 'Codice di prenotazione o pratica'], ['luogo', 'Luogo in cui firmi']];
 const datiPersonali = archivio('assistente-dati-personali-v1');
 const MAX_TURNI = 16;
 
@@ -186,6 +186,14 @@ function mostraRisultato(tipo, v) {
       ${v.scadenze.length ? `<h3>Scadenze</h3><ul>${v.scadenze.map((s) => `<li><b>${esc(data(s.data).toLocaleDateString('it-IT', { timeZone: 'UTC' }))}</b> ${esc(s.titolo)}${s.scaduta ? ' (scaduta)' : calendario(s.titolo, s.data, s.testo)}</li>`).join('')}</ul>` : ''}
       ${v.costi ? `<h3>Costi</h3><ul>${v.costi.righe.map((c) => `<li><b>${esc(c.strada)}</b>: ${eur(c.costo)}${c.seRespinto ? `, se respinto ${c.id === 'gdp' ? 'fino a' : 'almeno'} ${eur(c.seRespinto)}` : ''}</li>`).join('')}</ul>` : ''}
       ${v.destinatari.prefetto ? `<p>${esc(v.destinatari.prefetto.nome)}, PEC ${esc(v.destinatari.prefetto.pec)}</p>` : ''}`);
+  } else if (tipo === 'reclamo') {
+    sezioneRisultato('reclamo', `
+      <div class="occhiello">Mi rimborsano? · ${esc(v.caso || 'reclamo')}</div>
+      <h2>${esc(v.verdetto.titolo)}</h2>
+      <p>${esc(v.verdetto.testo)}</p>
+      ${v.importo ? `<p><b>${esc(v.importo.testo)}</b></p>` : ''}
+      ${v.voci.length ? `<h3>Controlli</h3><ul>${v.voci.map((m) => `<li><b>${esc(m.titolo)}</b>: ${esc(m.spiegazione)}${linkFonte(m.fonti[0])}</li>`).join('')}</ul>` : ''}
+      ${v.scadenze.length ? `<h3>Scadenze</h3><ul>${v.scadenze.map((s) => `<li><b>${esc(data(s.data).toLocaleDateString('it-IT', { timeZone: 'UTC' }))}</b> ${esc(s.titolo)}${s.scaduta ? ' (passata)' : calendario(s.titolo, s.data, s.testo)}</li>`).join('')}</ul>` : ''}`);
   } else if (tipo === 'accesso') {
     sezioneRisultato('accesso', `
       <div class="occhiello">Chiedo gli atti · ${esc(v.ente?.nome || 'ente da scegliere')}</div>
@@ -242,7 +250,7 @@ function mostraPromemoria(p) {
 
 const strumenti = creaStrumenti({
   mostraRisultato(tipo, v) {
-    if (v.risposte) raccolti[tipo === 'multa' ? 'risposte_multa' : 'risposte_accesso'] = v.risposte.ente ? { ...v.risposte, ente: undefined, ente_nome: v.risposte.ente.nome } : v.risposte;
+    if (v.risposte) raccolti[tipo === 'multa' ? 'risposte_multa' : tipo === 'reclamo' ? 'risposte_reclamo' : 'risposte_accesso'] = v.risposte.ente ? { ...v.risposte, ente: undefined, ente_nome: v.risposte.ente.nome } : v.risposte;
     mostraRisultato(tipo, v);
   },
   mostraDocumento(d) { documento = d; disegnaDocumento(); },

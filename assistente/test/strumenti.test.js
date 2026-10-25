@@ -18,9 +18,9 @@ function banco() {
   return { t, visto, strumenti };
 }
 
-test('sette strumenti, nomi e schemi entro i limiti della piattaforma', () => {
+test('nove strumenti, nomi e schemi entro i limiti della piattaforma', () => {
   const { strumenti } = banco();
-  assert.equal(strumenti.length, 7);
+  assert.equal(strumenti.length, 9);
   for (const s of strumenti) {
     assert.match(s.name, /^[A-Za-z0-9_-]{1,128}$/);
     assert.ok(new TextEncoder().encode(s.description).length <= 1024, s.name);
@@ -90,4 +90,17 @@ test('promemoria: data valida mostrata, data inventata rifiutata con errore legg
   t.promemoria.execute({ titolo: 'Ricorso al Prefetto', data: '2026-11-19' });
   assert.equal(visto.promemoria[0].data, '2026-11-19');
   assert.throws(() => t.promemoria.execute({ titolo: 'x', data: 'entro fine mese' }), /data non valida/);
+});
+
+test('valuta_reclamo e mostra_lettera_reclamo: volo Catania-Parigi, 400 €, IBAN mai dalla chat', () => {
+  const { t, visto } = banco();
+  const risposte = { caso: 'volo', volo_tipo: 'ritardo', data_volo: '2026-09-12', da: 'CTA', a: 'CDG', ritardo_ore: '4', causa_volo: 'guasto', iban: 'IT60X0542811101000000123456' };
+  const r = t.valuta_reclamo.execute({ risposte });
+  assert.equal(r.importo.valore, 400);
+  assert.ok(r.avvisi.some((a) => a.startsWith('iban:')));
+  assert.equal(r.lettera_disponibile, true);
+  const d = t.mostra_lettera_reclamo.execute({ risposte });
+  assert.equal(d.mostrato, true);
+  assert.doesNotMatch(visto.documenti[0].html, /IT60X054/);
+  assert.match(visto.documenti[0].genera({ nome: 'Maria Prova', iban: 'IT00TEST' }), /Maria Prova[\s\S]*IT00TEST/);
 });
