@@ -14,7 +14,7 @@ Strumenti (tutti in sola lettura, nessun dato salvato):
 
 ## Claude Desktop
 
-**Con l'estensione.** Il file `agenti-civici.mcpb` si prepara con `npm run estensione` (in `dist/`) e sarà scaricabile dalle versioni su GitHub. Si apre con un doppio clic: Claude Desktop chiede conferma e la installa. Serve solo Claude Desktop, che contiene già Node.
+**Con l'estensione (consigliato).** Scarica [agenti-civici.mcpb](https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb) dall'ultima versione e aprilo con un doppio clic: Claude Desktop chiede conferma e la installa. Serve solo Claude Desktop, che contiene già Node.
 
 **A mano.** In Impostazioni, Sviluppatore, Modifica configurazione, aggiungi:
 
