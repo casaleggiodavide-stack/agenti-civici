@@ -62,16 +62,12 @@ La pagina d'ingresso segnala anche progetti di altri, già in funzione: [Fiumi P
 
 ## Dagli assistenti AI (MCP)
 
-`mcp/server.js` espone i tre strumenti come strumenti MCP, senza dipendenze: `valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`. Per Claude Desktop:
-
-```json
-{ "mcpServers": { "agenti-civici": { "command": "node", "args": ["/percorso/di/agenti-civici/mcp/server.js"] } } }
-```
+`mcp/` contiene un server MCP senza dipendenze con sette strumenti in sola lettura (`valuta_prestazioni`, `valuta_multa`, `cerca_ente`, `prepara_accesso_atti`, `valuta_reclamo`, `search`, `fetch`). Il nucleo è `mcp/nucleo.js`; `mcp/server.js` lo espone su stdio (Claude Desktop, Claude Code, Cursor), `mcp/http.js` via internet (ChatGPT, connettori di claude.ai; `render.yaml` per pubblicarlo su Render). `npm run estensione` prepara l'estensione per Claude Desktop, `dist/agenti-civici.mcpb`. Istruzioni per ogni app in [mcp/LEGGIMI.md](mcp/LEGGIMI.md).
 
 ## Controlli
 
 ```bash
-npm test                                # 89 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
+npm test                                # 93 casi: date e calendario, quattro strumenti, misure regionali, assistente, sentinella, server MCP
 node mi-spetta/scripts/controlla-link.mjs   # le fonti di Mi spetta rispondono
 python3 scripts/aggiorna-indicepa.py        # aggiorna PEC di Prefetture ed enti (richiede openpyxl)
 ```

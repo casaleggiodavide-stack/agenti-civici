@@ -15,7 +15,7 @@ function sessione(messaggi) {
   });
 }
 
-test('server MCP: cinque strumenti, risposte con fonti e documenti', async () => {
+test('server MCP: sette strumenti, risposte con fonti e documenti', async () => {
   const [init, lista, multa, ente, atti] = await sessione([
     { id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'test', version: '1' } } },
     { method: 'notifications/initialized' },
@@ -25,7 +25,7 @@ test('server MCP: cinque strumenti, risposte con fonti e documenti', async () =>
     { id: 5, method: 'tools/call', params: { name: 'prepara_accesso_atti', arguments: { cosa: 'Elenco delle consulenze affidate nel 2025 con importo e affidatario', ente_nome: 'Comune di Lecce', oggi: '2026-10-11' } } },
   ]);
   assert.equal(init.result.serverInfo.name, 'agenti-civici');
-  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti']);
+  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch']);
   const tm = multa.result.content[0].text;
   assert.match(tm, /Verbale spedito dopo 99 giorni/);
   assert.match(tm, /protocollo\.prefna@pec\.interno\.it/);
@@ -35,4 +35,24 @@ test('server MCP: cinque strumenti, risposte con fonti e documenti', async () =>
   const ta = atti.result.content[0].text;
   assert.match(ta, /Comune di Lecce/);
   assert.match(ta, /art\. 5, comma 2/);
+});
+
+test('tutti gli strumenti sono in sola lettura e hanno un titolo', async () => {
+  const [, lista] = await sessione([{ id: 1, method: 'initialize', params: {} }, { id: 2, method: 'tools/list' }]);
+  for (const t of lista.result.tools) {
+    assert.ok(t.title, t.name);
+    assert.equal(t.annotations.readOnlyHint, true, t.name);
+  }
+});
+
+test('search e fetch: trovare e leggere una misura regionale', async () => {
+  const [cerca] = await sessione([{ id: 1, method: 'tools/call', params: { name: 'search', arguments: { query: 'nido Toscana' } } }]);
+  const { results } = JSON.parse(cerca.result.content[0].text);
+  assert.equal(results[0].id, 'prestazione:toscana_nidi_gratis');
+  const [leggi] = await sessione([{ id: 2, method: 'tools/call', params: { name: 'fetch', arguments: { id: results[0].id } } }]);
+  const scheda = JSON.parse(leggi.result.content[0].text);
+  assert.match(scheda.text, /Regione: Toscana/);
+  assert.ok(scheda.url.startsWith('https://'));
+  const [manca] = await sessione([{ id: 3, method: 'tools/call', params: { name: 'fetch', arguments: { id: 'prestazione:inventata' } } }]);
+  assert.equal(manca.result.isError, true);
 });
