@@ -107,11 +107,6 @@ input[type="date"] { max-width: 220px; font-family: var(--cifre); }
 .pannello h2 { font-size: var(--s2); font-weight: 800; margin: 0 0 6px; text-wrap: balance; }
 .pannello > p { margin: 6px 0; color: var(--inchiostro-2); font-size: var(--s0); max-width: 66ch; }
 .occhiello { font-family: var(--cifre); font-size: var(--s-1); text-transform: uppercase; letter-spacing: 0.06em; color: var(--inchiostro-3); }
-.verdetto { border-left: 5px solid var(--neutro); }
-.verdetto[data-tono="si"] { border-left-color: var(--si); }
-.verdetto[data-tono="forse"] { border-left-color: var(--forse); }
-.verdetto[data-tono="no"] { border-left-color: var(--no); }
-.verdetto[data-tono="dato"] { border-left-color: var(--accento); }
 .verdetto .titolo { font-size: var(--s3); font-weight: 800; margin: 4px 0 6px; line-height: 1.15; text-wrap: balance; }
 
 .pill { font-family: var(--cifre); font-size: 12px; padding: 2px 8px; border-radius: 4px; white-space: nowrap; display: inline-block; }
@@ -283,7 +278,7 @@ h1 { font-weight: 800; }
 .famiglia a.sostieni:hover, .famiglia a.sostieni:focus-visible { background: var(--accento); color: var(--sul-accento); }
 .piede .crediti { color: var(--inchiostro); }
 .piede .crediti a.sostieni { font-weight: 700; color: var(--accento); white-space: nowrap; }
-.crediti-casa { margin: 34px 0 0; padding: 20px 22px; border-radius: 12px; background: var(--carta); border: 1px solid var(--riga); border-left: 6px solid var(--accento); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; align-items: center; }
+.crediti-casa { margin: 34px 0 0; padding: 20px 22px; border-radius: 12px; background: var(--carta); border: 1px solid var(--riga); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; align-items: center; }
 .crediti-casa h2 { font-size: var(--s2); margin: 2px 0 6px; }
 .crediti-casa p { margin: 0; max-width: 72ch; color: var(--inchiostro-2); }
 .crediti-casa .azioni { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -341,7 +336,6 @@ h1, h2, h3, .verdetto .titolo, .strumento h2 { font-family: var(--titoli); font-
 .sezione h2 { font-weight: 700; letter-spacing: -0.03em; }
 input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="search"], select, textarea { background: #0F0F0E; border-color: #34322F; border-radius: 4px; color: var(--inchiostro); }
 .si-no label { background: #0F0F0E; border-radius: 999px; }
-.verdetto { border-left-width: 3px; }
 .verdetto .titolo { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; }
 .fonti a::before { background: var(--accento); }
 
@@ -377,3 +371,27 @@ input[type="text"], input[type="number"], input[type="date"], input[type="email"
 .eroe-pannello .btn:hover { background: #0B0B0A; color: #E9E6DF; }
 .foto-banda .foto-ac-quadro { aspect-ratio: 32 / 9; }
 @media (max-width: 640px) { .foto-banda .foto-ac-quadro { aspect-ratio: 16 / 9; } .eroe { min-height: 0; padding-block: 120px 24px; } }
+
+/* Segnali (26/10/2026): niente strisce laterali. Ogni riquadro da notare ha il nodo del filo
+   in alto a destra, con un alone del suo colore che sfuma nel riquadro e un bordo sottile. */
+.verdetto, .crediti-casa, .catalogo-link, .conto, .vivaio, .ente-scelto, .raccolta, .ind, .telefoni li, .urgente, .avviso-lungo, .avviso-segnale, .attenzione, .scadenza, .parere, .scheda[data-esito] {
+  --tono: var(--accento);
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--tono) 38%, var(--riga)) !important;
+  background-image: radial-gradient(130% 120% at 100% 0%, color-mix(in srgb, var(--tono) 17%, transparent) 0%, transparent 48%) !important;
+  border-radius: 4px !important;
+  padding-right: 40px !important;
+}
+.verdetto::after, .crediti-casa::after, .catalogo-link::after, .conto::after, .vivaio::after, .ente-scelto::after, .raccolta::after, .ind::after, .telefoni li::after, .urgente::after, .avviso-lungo::after, .avviso-segnale::after, .attenzione::after, .scadenza::after, .parere::after, .scheda[data-esito]::after {
+  content: ""; position: absolute; top: 15px; right: 15px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--tono); box-shadow: 0 0 0 4px color-mix(in srgb, var(--tono) 20%, transparent), 0 0 16px 2px color-mix(in srgb, var(--tono) 55%, transparent);
+}
+.verdetto[data-tono="si"], .raccolta[data-tono="si"], .ind[data-tono="si"], .parere[data-tono="si"], .scheda[data-esito="spetta"] { --tono: var(--si); }
+.verdetto[data-tono="forse"], .raccolta[data-tono="forse"], .ind[data-tono="forse"], .parere[data-tono="forse"], .scheda[data-esito="probabile"], .avviso-lungo, .avviso-segnale, .attenzione { --tono: var(--forse); }
+.verdetto[data-tono="no"], .raccolta[data-tono="no"], .ind[data-tono="no"], .parere[data-tono="no"], .telefoni li, .urgente { --tono: var(--no); }
+.verdetto[data-tono="neutro"], .raccolta[data-tono="neutro"], .raccolta:not([data-tono]), .ind:not([data-tono]), .ind[data-tono="neutro"], .scheda[data-esito="chiusa"] { --tono: var(--neutro); }
+.conto, .vivaio { --tono: var(--verde, var(--si)); }
+@media (prefers-reduced-motion: no-preference) {
+  .verdetto::after { animation: pulsa 2.6s ease-in-out infinite; }
+  @keyframes pulsa { 50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--tono) 10%, transparent), 0 0 22px 4px color-mix(in srgb, var(--tono) 45%, transparent); } }
+}

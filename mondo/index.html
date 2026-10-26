@@ -14,6 +14,7 @@ h1,h2,h3{font-family:"Inter Tight","Bricolage Grotesque",system-ui,sans-serif !i
 h1{font-size:clamp(44px,7vw,96px) !important;line-height:.9 !important;letter-spacing:-.05em !important}
 .tag,.pill,small,th,.kicker,.eyebrow,.occhiello,footer{font-family:"JetBrains Mono",ui-monospace,monospace}
 .usabile,.card,.g a{border-radius:4px !important}
+.callout,.note,.nostro{position:relative;border:1px solid color-mix(in srgb,var(--accent,var(--filo)) 38%,var(--line))!important;background-image:radial-gradient(130% 120% at 100% 0%,color-mix(in srgb,var(--accent,var(--filo)) 17%,transparent) 0%,transparent 48%)!important;border-radius:4px!important;padding-right:40px!important}.callout::after,.note::after,.nostro::after{content:"";position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;background:var(--accent,var(--filo));box-shadow:0 0 0 4px color-mix(in srgb,var(--accent,var(--filo)) 20%,transparent),0 0 16px 2px color-mix(in srgb,var(--accent,var(--filo)) 55%,transparent)}
 </style><!--/identita-->
 </head>
 <body>
@@ -109,7 +110,7 @@ td .src{font-size:12px;color:var(--ink-3);display:block;margin-top:4px}
 .phase b{font-family:var(--display);font-size:19px;display:block;margin-bottom:8px}
 .phase ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--ink-2)}
 .phase li{margin:4px 0}
-.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 18px;margin:22px 0;max-width:70ch}
+.callout{background:var(--accent-soft);padding:14px 18px;margin:22px 0;max-width:70ch}
 .callout p{margin:6px 0}
 .risks{display:grid;gap:10px;margin-top:16px;padding:0;list-style:none}
 .risks li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:15px}

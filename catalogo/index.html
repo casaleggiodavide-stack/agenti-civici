@@ -16,15 +16,16 @@ h1,h2,h3{font-family:"Inter Tight","Bricolage Grotesque",system-ui,sans-serif !i
 h1{font-size:clamp(44px,7vw,96px) !important;line-height:.9 !important;letter-spacing:-.05em !important}
 .tag,.pill,small,th,.kicker,.eyebrow,.occhiello,footer{font-family:"JetBrains Mono",ui-monospace,monospace}
 .usabile,.card,.g a{border-radius:4px !important}
+.callout,.note,.nostro{position:relative;border:1px solid color-mix(in srgb,var(--accent,var(--filo)) 38%,var(--line))!important;background-image:radial-gradient(130% 120% at 100% 0%,color-mix(in srgb,var(--accent,var(--filo)) 17%,transparent) 0%,transparent 48%)!important;border-radius:4px!important;padding-right:40px!important}.callout::after,.note::after,.nostro::after{content:"";position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;background:var(--accent,var(--filo));box-shadow:0 0 0 4px color-mix(in srgb,var(--accent,var(--filo)) 20%,transparent),0 0 16px 2px color-mix(in srgb,var(--accent,var(--filo)) 55%,transparent)}
 
 [hidden]{display:none!important}
 .t-qui{background:var(--filo);color:#fff}
 .t-cantiere{background:var(--paper-2);color:var(--filo);border:1px dashed var(--filo)}
 .t-prio{border:1px solid var(--line);color:var(--ink-2)}
-.nostro{display:grid;gap:2px;margin:10px 0 4px;padding:10px 12px;border-left:4px solid var(--filo);background:var(--paper-2);border-radius:0 6px 6px 0;color:var(--ink);text-decoration:none}
+.nostro{display:grid;gap:2px;margin:10px 0 4px;padding:10px 12px;background:var(--paper-2);border-radius:4px;color:var(--ink);text-decoration:none}
 a.nostro b::after{content:" →";color:var(--filo)}
 .nostro span{font-size:13px;color:var(--ink-2)}
-.nostro.cantiere{border-left-style:dashed}
+.nostro.cantiere{border-style:dashed}
 .card[data-stato="fatto"],.card[data-stato="parziale"]{box-shadow:inset 0 3px 0 var(--filo)}
 .filtri{position:sticky;top:44px;z-index:4;background:var(--paper);padding:12px 0;margin-top:26px;border-bottom:1px solid var(--line);display:grid;gap:10px}
 .filtri .righe{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
@@ -154,7 +155,7 @@ section[data-s="svc"] .card .world a:not(.src){border-bottom-color:color-mix(in 
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--ink-2)}
 .legend .how{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
 
-.note{margin-top:22px;padding:16px 20px;background:var(--paper-2);border-left:4px solid var(--ink);font-size:14.5px;max-width:78ch}
+.note{margin-top:22px;padding:16px 20px;background:var(--paper-2);font-size:14.5px;max-width:78ch}
 .note b{font-weight:600}
 .note a{border-bottom:1px solid var(--line);color:var(--ink)}
 section[data-s="gov"] .note{border-color:var(--gov)} section[data-s="see"] .note{border-color:var(--see)} section[data-s="org"] .note{border-color:var(--org)} section[data-s="svc"] .note{border-color:var(--svc)}

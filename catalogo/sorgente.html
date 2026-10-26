@@ -7,6 +7,7 @@ h1,h2,h3{font-family:"Inter Tight","Bricolage Grotesque",system-ui,sans-serif !i
 h1{font-size:clamp(44px,7vw,96px) !important;line-height:.9 !important;letter-spacing:-.05em !important}
 .tag,.pill,small,th,.kicker,.eyebrow,.occhiello,footer{font-family:"JetBrains Mono",ui-monospace,monospace}
 .usabile,.card,.g a{border-radius:4px !important}
+.callout,.note,.nostro{position:relative;border:1px solid color-mix(in srgb,var(--accent,var(--filo)) 38%,var(--line))!important;background-image:radial-gradient(130% 120% at 100% 0%,color-mix(in srgb,var(--accent,var(--filo)) 17%,transparent) 0%,transparent 48%)!important;border-radius:4px!important;padding-right:40px!important}.callout::after,.note::after,.nostro::after{content:"";position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;background:var(--accent,var(--filo));box-shadow:0 0 0 4px color-mix(in srgb,var(--accent,var(--filo)) 20%,transparent),0 0 16px 2px color-mix(in srgb,var(--accent,var(--filo)) 55%,transparent)}
 </style><!--/identita-->
 <title>Agenti Civici</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
@@ -115,7 +116,7 @@ section[data-s="svc"] .card .world a:not(.src){border-bottom-color:color-mix(in 
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--ink-2)}
 .legend .how{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
 
-.note{margin-top:22px;padding:16px 20px;background:var(--paper-2);border-left:4px solid var(--ink);font-size:14.5px;max-width:78ch}
+.note{margin-top:22px;padding:16px 20px;background:var(--paper-2);font-size:14.5px;max-width:78ch}
 .note b{font-weight:600}
 .note a{border-bottom:1px solid var(--line);color:var(--ink)}
 section[data-s="gov"] .note{border-color:var(--gov)} section[data-s="see"] .note{border-color:var(--see)} section[data-s="org"] .note{border-color:var(--org)} section[data-s="svc"] .note{border-color:var(--svc)}

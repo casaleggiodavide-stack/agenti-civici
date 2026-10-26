@@ -50,8 +50,8 @@
   .glossario dt { font-weight: 600; } .glossario dd { margin: 0; color: var(--inchiostro-2); }
   .azioni-scheda { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .indicatori { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
-  .ind { background: var(--carta); border: 1px solid var(--riga); border-left: 5px solid var(--neutro); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
-  .ind[data-tono="no"] { border-left-color: var(--no); } .ind[data-tono="forse"] { border-left-color: var(--forse); } .ind[data-tono="si"] { border-left-color: var(--si); }
+  .ind { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+  .ind[data-tono="no"] { } .ind[data-tono="forse"] { } .ind[data-tono="si"] { }
   .ind h3 { font-size: var(--s1); margin: 0; }
   .ind .codice { font-family: var(--cifre); font-size: 11.5px; color: var(--inchiostro-3); }
   .ind .valore { font-family: var(--cifre); font-size: var(--s3); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -70,7 +70,7 @@
   .procedure td, .procedure th { padding: 7px 8px; border-bottom: 1px solid var(--riga-tenue); text-align: left; }
   .procedure th { font-family: var(--cifre); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: .05em; color: var(--inchiostro-3); border-bottom-color: var(--riga); }
   .procedure td.n { font-family: var(--cifre); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .avviso-segnale { background: var(--forse-tenue); border-left: 4px solid var(--forse); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: var(--s0); }
+  .avviso-segnale { background: var(--forse-tenue); padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: var(--s0); }
   body:has(.foto-testata) .scena-testata { display: none; }
 </style>
 </head>

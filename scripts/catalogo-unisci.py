@@ -62,10 +62,10 @@ css = '''
 .t-qui{background:var(--filo);color:#fff}
 .t-cantiere{background:var(--paper-2);color:var(--filo);border:1px dashed var(--filo)}
 .t-prio{border:1px solid var(--line);color:var(--ink-2)}
-.nostro{display:grid;gap:2px;margin:10px 0 4px;padding:10px 12px;border-left:4px solid var(--filo);background:var(--paper-2);border-radius:0 6px 6px 0;color:var(--ink);text-decoration:none}
+.nostro{display:grid;gap:2px;margin:10px 0 4px;padding:10px 12px;background:var(--paper-2);border-radius:4px;color:var(--ink);text-decoration:none}
 a.nostro b::after{content:" →";color:var(--filo)}
 .nostro span{font-size:13px;color:var(--ink-2)}
-.nostro.cantiere{border-left-style:dashed}
+.nostro.cantiere{border-style:dashed}
 .card[data-stato="fatto"],.card[data-stato="parziale"]{box-shadow:inset 0 3px 0 var(--filo)}
 .filtri{position:sticky;top:44px;z-index:4;background:var(--paper);padding:12px 0;margin-top:26px;border-bottom:1px solid var(--line);display:grid;gap:10px}
 .filtri .righe{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
