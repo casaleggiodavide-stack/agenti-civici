@@ -72,6 +72,8 @@
   .scegli-lettera button[aria-pressed="true"] { background: var(--inchiostro); color: var(--fondo); border-color: var(--inchiostro); }
   .pec { font-family: var(--cifre); font-size: var(--s-1); }
   .ente-scelto { --tono: var(--verde); }
+  :root:root:root { --verde: #9BD95A; --verde-tenue: rgba(155, 217, 90, .08); }
+  .conto b { color: var(--inchiostro); } .conto p { color: var(--inchiostro-2); }
 </style>
 </head>
 <body>
@@ -100,12 +102,12 @@
     <div>
       <h1 class="h1-nascosto">Alberi per il futuro</h1>
       <img class="logo-alberi" src="web/logo-alberi.png" alt="Alberi per il futuro" width="434" height="179">
-      <p class="promessa">Un gruppo di cittadini, un pezzo di terra pubblica, qualche alberello. Ogni anno, intorno al 21 novembre, si pianta insieme. Qui trovi come si fa: lo spazio dal Comune, gli alberi dai vivai pubblici, la messa a dimora e la cura.</p>
+      <p class="promessa">Un gruppo di cittadini, un pezzo di terra pubblica, qualche alberello. Ogni anno, intorno al 21 novembre, si pianta insieme, in tante città e con tanti promotori diversi. Qui trovi il formato da seguire: lo spazio dal Comune, gli alberi dai vivai pubblici, la messa a dimora e la cura.</p>
     </div>
     <ul class="garanzie">
-      <li><b>Un'idea di Gianroberto Casaleggio,</b> nata nel 2015 a Reggio Emilia e a Milano.</li>
+      <li><b>Un'idea di Gianroberto Casaleggio,</b> nata nel 2015. Dal 2024 la portano avanti gruppi e associazioni diverse, in tutta Italia.</li>
       <li><b id="g-totale">Oltre 57.000 alberi</b> in circa 250 città nelle prime cinque edizioni.</li>
-      <li><b>Le lettere sono pronte,</b> per il Comune e per il vivaio: le mandi tu, dalla tua PEC o email.</li>
+      <li><b>Il formato e le indicazioni</b> per chiunque voglia organizzarla, con le lettere pronte per il Comune e per il vivaio.</li>
     </ul>
   </header>
   <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><img style="object-position:center 58%" src="web/foto.jpg" alt="In un prato ai margini di una cittadina, in una mattina di novembre, una nonna, un padre con il figlio, due ragazzi e una donna con l'annaffiatoio mettono a dimora giovani alberi con il tubo di protezione. In bianco e nero, un filo rosso attraversa la scena" loading="eager" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="17" cy="64" r="4"/></svg>agenti civici <span>· Alberi per il futuro</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale. Le foto vere delle edizioni sono più in basso.</figcaption></figure><!--/foto-->
@@ -128,6 +130,12 @@
       <div class="cifre" id="cifre"></div>
       <div class="scorri"><table class="tabella-edizioni" id="edizioni"></table></div>
       <p style="font-size:var(--s-1);color:var(--inchiostro-3);margin-top:8px" id="nota-numeri"></p>
+      <div class="conto seme" style="margin:22px 0 0">
+        <div class="occhiello">Dal 2024</div>
+        <b>Un seme, tanti fronti</b>
+        <p>Dal 2024 Alberi per il futuro non ha più un solo promotore: la portano avanti gruppi di attivisti di associazioni diverse. Il seme dell'idea è sbocciato su più fronti, e oggi chiunque può organizzare la propria giornata nel proprio Comune: un'associazione, un comitato di quartiere, una scuola, un gruppo di cittadini.</p>
+        <p>Questo sito continua a sostenere i gruppi con il formato comune e le indicazioni da seguire, uguali per tutti, e con le lettere pronte. <a href="#t-come">Vai al formato</a></p>
+      </div>
     </section>
 
     <section class="sezione" aria-labelledby="t-foto">
@@ -137,9 +145,9 @@
     </section>
 
     <section class="sezione" aria-labelledby="t-come">
-      <div class="occhiello">Organizzala nel tuo Comune</div>
+      <div class="occhiello">Il formato · organizzala nel tuo Comune</div>
       <h2 id="t-come">Come si fa, passo per passo</h2>
-      <p>Vale per qualsiasi anno. Bastano poche persone e un'area pubblica: il Comune dà lo spazio e il permesso, gli alberi si possono avere gratis da un vivaio pubblico. Contate circa due mesi dalla prima lettera alla piantumazione.</p>
+      <p>È il formato comune dell'iniziativa: vale per qualsiasi anno e per chiunque la voglia organizzare, un'associazione, un comitato o un gruppo di cittadini. Bastano poche persone e un'area pubblica: il Comune dà lo spazio e il permesso, gli alberi si possono avere gratis da un vivaio pubblico. Contate circa due mesi dalla prima lettera alla piantumazione.</p>
       <ol class="passi-alberi" id="passi"></ol>
     </section>
 
@@ -171,7 +179,7 @@
 
   <footer class="piede">
     <!--crediti--><p class="crediti">Agenti civici è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
-    <p><b>Alberi per il futuro</b> è un'iniziativa nata da un'idea di Gianroberto Casaleggio e portata avanti negli anni da cittadini e amministrazioni di tutta Italia. Il logo è dell'iniziativa. Le foto delle edizioni passate vengono dagli articoli del Blog delle Stelle indicati sotto ogni anno; i numeri sono quelli dichiarati a ogni edizione.</p>
+    <p><b>Alberi per il futuro</b> è un'iniziativa nata nel 2015 da un'idea di Gianroberto Casaleggio. Dal 2024 la portano avanti gruppi di attivisti e associazioni diverse, insieme a cittadini e amministrazioni di tutta Italia; questo sito ne offre il formato e le indicazioni. Il logo è dell'iniziativa. Le foto delle edizioni passate vengono dagli articoli del Blog delle Stelle indicati sotto ogni anno; i numeri sono quelli dichiarati a ogni edizione.</p>
     <p>Questa pagina non è un sito della pubblica amministrazione. Le lettere le mandi tu: i dati che scrivi restano su questo dispositivo. Indirizzi PEC dei Comuni da IndicePA (licenza CC BY 4.0). Codice aperto, nessun tracciamento.</p>
     <p><button type="button" class="link" id="cancella">Cancella i dati delle lettere da questo dispositivo</button></p>
   </footer>

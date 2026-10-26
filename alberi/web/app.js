@@ -23,6 +23,7 @@ $('#conto').innerHTML = `<b>${prossima.giorni === 0 ? 'Oggi è la Giornata nazio
 $('#storia').innerHTML = `
   <p>Alberi per il futuro nasce nel 2015 da un'idea di <b>Gianroberto Casaleggio</b>: mille alberi in più a Reggio Emilia, poi un bosco urbano, un prato fiorito e un frutteto all'ex velodromo di Milano. Alberi pagati dai cittadini, piantati dai cittadini, che li potevano dedicare ai propri figli.</p>
   <p>Da allora, ogni anno intorno al 21 novembre, Giornata nazionale degli alberi, gruppi di cittadini chiedono al proprio Comune un'area pubblica e la riempiono di alberi, insieme a scuole, associazioni e amministrazioni di ogni colore. Nelle prime cinque edizioni sono stati messi a dimora ${esc(TOTALE.testo)}; dal 2019 c'è anche una festa di primavera per curare quelli già piantati.</p>
+  <p>Dal 2024 l'iniziativa è cresciuta oltre i suoi promotori: la portano avanti <b>gruppi di attivisti di associazioni diverse</b>, ognuno nella propria città. Il seme dell'idea è sbocciato su più fronti, e chiunque voglia può raccoglierlo: un'associazione, un comitato, una scuola, un gruppo di cittadini. Questo sito continua a sostenere tutti con lo stesso formato e le stesse indicazioni.</p>
   <p>Le regole sono semplici: <b>specie del posto</b>, scelte con l'ufficio verde del Comune; <b>alberi giovani</b>, che attecchiscono meglio; e un impegno a <b>curarli per i primi tre anni</b>, perché un albero piantato e poi lasciato senz'acqua d'estate spesso non arriva al secondo autunno.</p>`;
 
 // ---------- I numeri ----------
