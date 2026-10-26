@@ -27,6 +27,10 @@ Ogni scadenza calcolata (ricorso, riesame, ultimo giorno per chiedere un bonus) 
 
 Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte come codice, testate e citate), l'esito «serve un dato» invece di un'ipotesi, nessun parere legale.
 
+## Chi lo fa
+
+Agenti civici è un progetto dell'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
+
 ## Usarli
 
 ```bash

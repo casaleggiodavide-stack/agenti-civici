@@ -284,3 +284,17 @@ h1 { font-weight: 800; }
 .foto-ac-mini::before, .foto-bn::before { content: ""; position: absolute; left: 0; bottom: 4%; width: 11px; height: 11px; margin-left: -3px; border-radius: 50%; background: #C2362B; z-index: 1; pointer-events: none; }
 :nth-child(3n+2) > .foto-ac-mini::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20400%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M-4%20190%20C50%20200%2090%20150%20140%20150%20S200%20186%20250%20160%20S320%2060%20404%2070%22%20fill%3D%22none%22%20stroke%3D%22%23C2362B%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20vector-effect%3D%22non-scaling-stroke%22/%3E%3C/svg%3E"); }
 :nth-child(3n+3) > .foto-ac-mini::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20400%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M-4%20222%20C60%20214%2080%20182%20130%20184%20S210%20150%20250%20120%20S330%20110%20404%2030%22%20fill%3D%22none%22%20stroke%3D%22%23C2362B%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20vector-effect%3D%22non-scaling-stroke%22/%3E%3C/svg%3E"); }
+/* Sostieni l'iniziativa: nella barra e nel piede */
+.famiglia a.sostieni { margin-left: auto; color: var(--accento); font-weight: 700; border: 1.5px solid var(--accento); border-radius: 999px; padding: 2px 12px; }
+.famiglia a.sostieni:hover, .famiglia a.sostieni:focus-visible { background: var(--accento); color: var(--sul-accento); }
+.piede .crediti { color: var(--inchiostro); }
+.piede .crediti a.sostieni { font-weight: 700; color: var(--accento); white-space: nowrap; }
+.crediti-casa { margin: 34px 0 0; padding: 20px 22px; border-radius: 12px; background: var(--carta); border: 1px solid var(--riga); border-left: 6px solid var(--accento); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 24px; align-items: center; }
+.crediti-casa h2 { font-size: var(--s2); margin: 2px 0 6px; }
+.crediti-casa p { margin: 0; max-width: 72ch; color: var(--inchiostro-2); }
+.crediti-casa .azioni { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 720px) { .crediti-casa { grid-template-columns: 1fr; } }
+.banda-sostieni { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: center; padding-block: 10px; border-bottom: 1px solid var(--riga); font-size: var(--s-1); color: var(--inchiostro-3); }
+.banda-sostieni a { color: var(--inchiostro-2); }
+.banda-sostieni a.sostieni { color: var(--accento); font-weight: 700; border: 1.5px solid var(--accento); border-radius: 999px; padding: 2px 12px; text-decoration: none; }
+.banda-sostieni a.sostieni:hover { background: var(--accento); color: var(--sul-accento); }
