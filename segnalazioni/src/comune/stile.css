@@ -255,20 +255,24 @@ h1 { font-weight: 800; }
 .scena { position: relative; }
 .logo-scheda { position: absolute; left: 10px; bottom: 10px; width: 46px; height: 46px; filter: drop-shadow(0 2px 0 var(--riga)); }
 
-/* Cornice delle fotografie: stesso taglio, stessa luce, l'angolo rosso del marchio e la firma del sito */
+/* Cornice delle fotografie: bianco e nero, un solo dettaglio a colori, il filo rosso.
+   Le foto illustrative sono già in bianco e nero con il filo nella scena; le foto vere (archivi)
+   diventano in bianco e nero qui, e il filo lo disegna la pagina. */
 .foto-ac { margin: 16px 0 6px; }
-.foto-ac-quadro { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 21 / 8; background: var(--riga-tenue); box-shadow: 0 14px 34px -20px rgba(23, 32, 46, .5); }
-.foto-ac-quadro img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: sepia(.14) saturate(.86) contrast(1.05) brightness(1.02); }
-.foto-ac-quadro::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23, 32, 46, 0) 58%, rgba(23, 32, 46, .5) 100%); pointer-events: none; }
-.foto-ac-quadro::after { content: ""; position: absolute; left: 0; bottom: 0; width: 42%; height: 58%; border-left: 6px solid var(--accento); border-bottom: 6px solid var(--accento); border-bottom-left-radius: 12px; pointer-events: none; }
-.foto-ac-marca { position: absolute; left: 20px; bottom: 18px; z-index: 1; display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 7px; border-radius: 999px; background: rgba(255, 253, 248, .95); color: #17202E; font-family: var(--titoli, inherit); font-weight: 800; font-size: 13px; letter-spacing: -.01em; box-shadow: 0 2px 8px rgba(23, 32, 46, .25); }
+.foto-ac-quadro { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 21 / 8; background: #1d1d1d; box-shadow: 0 14px 34px -20px rgba(23, 32, 46, .5); }
+.foto-ac-quadro img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+.foto-ac-quadro::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, .45) 100%); pointer-events: none; }
+.foto-ac-marca { position: absolute; left: 20px; bottom: 18px; z-index: 1; display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 7px; border-radius: 999px; background: rgba(255, 253, 248, .95); color: #17202E; font-family: var(--titoli, inherit); font-weight: 800; font-size: 13px; letter-spacing: -.01em; box-shadow: 0 2px 8px rgba(0, 0, 0, .3); }
 .foto-ac-marca .segno-marchio { width: 17px; height: 19px; color: #17202E; }
 .foto-ac-marca .m-filo { stroke: #C2362B; } .foto-ac-marca .m-nodo { fill: #C2362B; }
 .foto-ac-marca span { font-weight: 600; color: #5D6270; }
 .foto-ac figcaption { font-size: 11.5px; color: var(--inchiostro-3); margin-top: 6px; font-family: var(--cifre); }
 .foto-ac.ac-lato .foto-ac-quadro { aspect-ratio: 16 / 10; }
-@media (max-width: 640px) { .foto-ac-quadro { aspect-ratio: 16 / 10; } .foto-ac-marca { left: 14px; bottom: 12px; font-size: 12px; } .foto-ac-quadro::after { border-width: 5px; } }
-/* Le foto piccole (gallerie, schede): stessa luce e angolo rosso sottile */
-.foto-ac-mini { position: relative; overflow: hidden; }
-.foto-ac-mini img { filter: sepia(.14) saturate(.86) contrast(1.05) brightness(1.02); }
-.foto-ac-mini::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40%; height: 50%; border-left: 4px solid var(--accento); border-bottom: 4px solid var(--accento); pointer-events: none; }
+@media (max-width: 640px) { .foto-ac-quadro { aspect-ratio: 16 / 10; } .foto-ac-marca { left: 14px; bottom: 12px; font-size: 12px; } }
+/* Le foto vere (archivi delle edizioni, schede): bianco e nero e il filo rosso disegnato, con il nodo */
+.foto-ac-mini, .foto-bn { position: relative; overflow: hidden; background: #1d1d1d; }
+.foto-ac-mini img, .foto-bn img { filter: grayscale(1) contrast(1.12) brightness(1.02); }
+.foto-ac-mini::after, .foto-bn::after { content: ""; position: absolute; inset: 0; filter: drop-shadow(0 1.5px 1px rgba(0, 0, 0, .55)); background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20400%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M-4%20214%20C40%20206%2070%20170%20110%20168%20S170%20196%20214%20172%20S280%2098%20330%20104%20S392%2070%20404%2052%22%20fill%3D%22none%22%20stroke%3D%22%23C2362B%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20vector-effect%3D%22non-scaling-stroke%22/%3E%3C/svg%3E") no-repeat center / 100% 100%; pointer-events: none; }
+.foto-ac-mini::before, .foto-bn::before { content: ""; position: absolute; left: 0; bottom: 4%; width: 11px; height: 11px; margin-left: -3px; border-radius: 50%; background: #C2362B; z-index: 1; pointer-events: none; }
+:nth-child(3n+2) > .foto-ac-mini::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20400%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M-4%20190%20C50%20200%2090%20150%20140%20150%20S200%20186%20250%20160%20S320%2060%20404%2070%22%20fill%3D%22none%22%20stroke%3D%22%23C2362B%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20vector-effect%3D%22non-scaling-stroke%22/%3E%3C/svg%3E"); }
+:nth-child(3n+3) > .foto-ac-mini::after { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20400%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M-4%20222%20C60%20214%2080%20182%20130%20184%20S210%20150%20250%20120%20S330%20110%20404%2030%22%20fill%3D%22none%22%20stroke%3D%22%23C2362B%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20vector-effect%3D%22non-scaling-stroke%22/%3E%3C/svg%3E"); }
