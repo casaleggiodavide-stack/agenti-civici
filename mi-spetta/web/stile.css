@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 /* Mi spetta — stile. Una scala tipografica, due temi, nessun colore fuori dai token. */
 :root {
   --fondo: #F5F1E8;
@@ -298,3 +299,88 @@ h1 { font-weight: 800; }
 .banda-sostieni a { color: var(--inchiostro-2); }
 .banda-sostieni a.sostieni { color: var(--accento); font-weight: 700; border: 1.5px solid var(--accento); border-radius: 999px; padding: 2px 12px; text-decoration: none; }
 .banda-sostieni a.sostieni:hover { background: var(--accento); color: var(--sul-accento); }
+
+/* ============================================================================
+   Identità 2026, seconda versione (26/10/2026): nero con grana, titoli in un grottesco
+   stretto, etichette in monospazio maiuscolo, bottoni a pillola, un solo accento: il filo
+   rosso. Il foglio dei documenti resta chiaro perché si stampa.
+   ============================================================================ */
+:root:root:root {
+  --fondo: #0B0B0A; --carta: #141413; --inchiostro: #F2EFE8; --inchiostro-2: #C9C5BC; --inchiostro-3: #8F8B83;
+  --riga: #2B2A28; --riga-tenue: #1B1B1A; --accento: #FF4A36; --accento-tenue: rgba(255, 74, 54, .14); --sul-accento: #0B0B0A;
+  --si: #62D29C; --si-tenue: rgba(98, 210, 156, .12); --forse: #F0C252; --forse-tenue: rgba(240, 194, 82, .12); --no: #EBA184; --no-tenue: rgba(235, 161, 132, .12);
+  --neutro: #8A8E94; --neutro-tenue: #1B1B1A;
+  --titoli: "Inter Tight", "Bricolage Grotesque", system-ui, sans-serif;
+  --cifre: "JetBrains Mono", "Atkinson Hyperlegible Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+body { background: var(--fondo) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%3E%3Cfilter%20id%3D%22g%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.85%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200%201%20%200%200%200%20.55%200%22/%3E%3C/filter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23g%29%22%20opacity%3D%22.09%22/%3E%3C/svg%3E"); color: var(--inchiostro); }
+::selection { background: var(--accento); color: #0B0B0A; }
+h1, h2, h3, .verdetto .titolo, .strumento h2 { font-family: var(--titoli); font-weight: 700; letter-spacing: -0.035em; }
+.testata h1 { font-size: clamp(40px, 6.4vw, 84px); line-height: .92; font-weight: 700; letter-spacing: -0.045em; }
+.promessa { font-size: var(--s2); color: var(--inchiostro-2); }
+
+/* Etichette, barra e numeri: monospazio maiuscolo */
+.occhiello, .esempi-etichetta, .sezione h2 .n, .famiglia, .pill, .scadenze .quando small, figcaption, .foto-ac figcaption { font-family: var(--cifre); }
+.occhiello { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--inchiostro-3); }
+.famiglia { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; gap: 6px 20px; padding-block: 16px; border-bottom-color: var(--riga); }
+.famiglia .marchio { font-family: var(--titoli); text-transform: none; letter-spacing: -0.03em; font-size: 19px; font-weight: 700; }
+.famiglia a { color: var(--inchiostro-3); }
+.famiglia a:hover { color: var(--inchiostro); }
+.famiglia a[aria-current="page"] { color: var(--inchiostro); font-weight: 500; border-bottom-color: var(--accento); }
+.famiglia a.sostieni { background: var(--accento); color: #0B0B0A; border: 0; padding: 7px 14px; font-weight: 600; }
+.famiglia a.sostieni:hover { background: #fff; color: #0B0B0A; }
+
+/* Bottoni a pillola */
+.btn, .esempi button, .avviso button, .scegli-lettera button, .filtri-raccolte button { border-radius: 999px; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
+.btn { padding: 11px 20px; background: transparent; border: 1px solid var(--inchiostro-3); color: var(--inchiostro); }
+.btn:hover { border-color: var(--inchiostro); }
+.btn-primario, .btn.btn-primario { background: var(--accento) !important; border-color: var(--accento) !important; color: #0B0B0A !important; }
+.btn-primario:hover { background: #fff !important; border-color: #fff !important; }
+.esempi button { background: transparent; border-color: var(--riga); color: var(--inchiostro-2); padding: 8px 14px; }
+.esempi button:hover { border-color: var(--accento); color: var(--inchiostro); }
+.avviso { border-radius: 4px; border: 1px solid var(--accento); background: var(--accento-tenue); }
+.avviso button { background: var(--accento); color: #0B0B0A; padding: 7px 14px; }
+
+/* Superfici: più nette */
+.sezione, .pannello, .strumento, .foto, .ente-scelto, .vivaio, .cifre div, .raccolta, .crediti-casa { border-radius: 4px; }
+.sezione, .pannello { background: var(--carta); border-color: var(--riga); }
+.sezione h2 { font-weight: 700; letter-spacing: -0.03em; }
+input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="search"], select, textarea { background: #0F0F0E; border-color: #34322F; border-radius: 4px; color: var(--inchiostro); }
+.si-no label { background: #0F0F0E; border-radius: 999px; }
+.verdetto { border-left-width: 3px; }
+.verdetto .titolo { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; }
+.fonti a::before { background: var(--accento); }
+
+/* Le illustrazioni su una griglia da disegno tecnico */
+.scena { background-color: #121211; background-image: linear-gradient(rgba(242, 239, 232, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 239, 232, .05) 1px, transparent 1px); background-size: 22px 22px; border-radius: 3px; color: #D9D5CC; }
+.lg-f { fill: #F2EFE8; stroke: #F2EFE8; }
+.lg-i { stroke: #0B0B0A; }
+.logo-strumento, .logo-scheda { filter: none; }
+
+/* Il foglio dei documenti resta chiaro */
+.foglio { box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8); border-radius: 2px; }
+
+/* Pagina d'ingresso: il pannello chiaro con la grana sopra il labirinto in prospettiva */
+.eroe { position: relative; min-height: clamp(460px, 74vh, 700px); display: grid; align-items: center; margin: 0 calc(-1 * clamp(16px, 3.5vw, 40px)); padding: 32px clamp(16px, 3.5vw, 40px); overflow: hidden; }
+.labirinto-3d { position: absolute; inset: 0; width: 100%; height: 100%; color: #F2EFE8; }
+.labirinto-3d .l-filo { stroke: var(--accento); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(255, 74, 54, .55)); }
+.labirinto-3d .l-nodo { fill: var(--accento); }
+.labirinto-3d .l-punto { fill: #F2EFE8; opacity: .85; }
+@media (prefers-reduced-motion: no-preference) {
+  .labirinto-3d .l-filo { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: filo3d 3.2s .3s cubic-bezier(.6, .05, .3, 1) forwards; }
+  @keyframes filo3d { to { stroke-dashoffset: 0; } }
+  .labirinto-3d .l-righe { transform-origin: 58% 52%; animation: respiro 18s ease-in-out infinite alternate; }
+  @keyframes respiro { from { transform: rotate(-1.2deg) scale(1); } to { transform: rotate(1.2deg) scale(1.03); } }
+}
+.eroe-pannello { position: relative; z-index: 1; max-width: 560px; background: #E9E6DF url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%3E%3Cfilter%20id%3D%22g%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.9%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200%20%200%200%200%200%200%20%200%200%200%200%200%20%200%200%200%20.6%200%22/%3E%3C/filter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23g%29%22%20opacity%3D%22.16%22/%3E%3C/svg%3E"); color: #0B0B0A; padding: clamp(24px, 4vw, 44px); border-radius: 2px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9); }
+.eroe-pannello .occhiello { color: #55524C; }
+.eroe-pannello h1 { font-size: clamp(52px, 8.6vw, 112px); line-height: .86; letter-spacing: -0.06em; margin: 10px 0 14px; color: #0B0B0A; }
+.eroe-filo { font-family: var(--titoli); font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 12px; }
+.eroe-filo::before { content: ""; display: inline-block; width: .5em; height: .5em; border-radius: 50%; background: var(--accento); margin-right: .35em; vertical-align: .08em; }
+.eroe-testo { font-size: var(--s1); color: #2B2925; margin: 0 0 22px; max-width: 48ch; }
+.eroe-azioni { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.eroe-pannello .btn { color: #0B0B0A; border-color: #0B0B0A; }
+.eroe-pannello .btn:hover { background: #0B0B0A; color: #E9E6DF; }
+.foto-banda .foto-ac-quadro { aspect-ratio: 32 / 9; }
+@media (max-width: 640px) { .foto-banda .foto-ac-quadro { aspect-ratio: 16 / 9; } .eroe { min-height: 0; padding-block: 120px 24px; } }

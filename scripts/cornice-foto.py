@@ -71,7 +71,7 @@ def main():
         file = re.search(r'comune/foto/([\w-]+\.jpg)', blocco).group(1)
         vecchia = classe_vecchia(blocco).replace('foto-ac', '').replace('ac-lato', '').split()
         toccati += 1
-        return cornice(blocco, HOME.get(file), ' '.join([c for c in vecchia if c] + ['ac-lato']))
+        return cornice(blocco, HOME.get(file), ' '.join([c for c in vecchia if c] + ([] if file == 'piazza.jpg' else ['ac-lato'])))
     s = re.sub(r'<!--foto-->.*?<!--/foto-->', rifai_home, s, flags=re.S)
     # niente più trattino rosso a parte: l'angolo rosso è nella cornice
     s = re.sub(r'\n  \.foto-eroe::after, \.foto-pilastro::after \{[^\n]*\n', '\n', s)
