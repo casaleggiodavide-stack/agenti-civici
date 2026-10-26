@@ -12,14 +12,14 @@ DONA = 'https://www.gianrobertocasaleggio.com/donazioni/'
 FUORI = 'target="_blank" rel="noopener"'
 
 BARRA = f'<!--sostieni--><a class="sostieni" href="{DONA}" {FUORI}>Sostieni l\'iniziativa</a><!--/sostieni-->'
-PIEDE = (f'<!--crediti--><p class="crediti">Agenti civici è un progetto dell\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a>, '
+PIEDE = (f'<!--crediti--><p class="crediti">Agenti civici è promosso dall\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a>, '
          f'senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. '
          f'<a class="sostieni" href="{DONA}" {FUORI}>Sostieni l\'iniziativa</a></p><!--/crediti-->')
 CASA = f'''<!--crediti-casa--><section class="crediti-casa" aria-labelledby="t-crediti">
     <div>
       <div class="occhiello">Chi c'è dietro</div>
-      <h2 id="t-crediti">Un progetto dell'Associazione Gianroberto Casaleggio</h2>
-      <p>Agenti civici è un progetto dell'Associazione Gianroberto Casaleggio, che non ha fini di lucro. Gli strumenti sono gratuiti, aperti, senza pubblicità e senza tracciamento: chiunque può usarli e controllarne le regole. Vivono grazie a chi decide di sostenerli.</p>
+      <h2 id="t-crediti">Promosso dall'Associazione Gianroberto Casaleggio</h2>
+      <p>Agenti civici è promosso dall'Associazione Gianroberto Casaleggio, che non ha fini di lucro. Gli strumenti sono gratuiti, aperti, senza pubblicità e senza tracciamento: chiunque può usarli e controllarne le regole. Vivono grazie a chi decide di sostenerli.</p>
     </div>
     <p class="azioni"><a class="btn btn-primario" href="{DONA}" {FUORI}>Sostieni l'iniziativa</a> <a class="btn" href="{ASSOCIAZIONE}" {FUORI}>L'Associazione</a></p>
   </section><!--/crediti-casa-->'''
@@ -44,14 +44,14 @@ def main():
         n += 1
     p = os.path.join(REPO, 'index.html')
     s = open(p, encoding='utf-8').read()
-    banda = (f'<!--banda--><div class="banda-sostieni"><span>Un progetto dell\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a></span>'
+    banda = (f'<!--banda--><div class="banda-sostieni"><span>Promosso dall\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a></span>'
              f'<a class="sostieni" href="{DONA}" {FUORI}>Sostieni l\'iniziativa</a></div><!--/banda-->')
     s = metti(s, 'banda', banda, lambda t, b: t.replace('<div class="max">', '<div class="max">\n  ' + b, 1))
     s = metti(s, 'crediti-casa', CASA, lambda t, b: t.replace('  <footer class="piede">', '  ' + b + '\n\n  <footer class="piede">', 1))
     s = metti(s, 'crediti', PIEDE, lambda t, b: t.replace('<footer class="piede">', '<footer class="piede">\n    ' + b, 1))
     open(p, 'w', encoding='utf-8').write(s)
     # Atlante e catalogo: hanno un loro piede semplice
-    semplice = (f'<!--crediti--><p style="margin:10px 0 0">Agenti civici è un progetto dell\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a>. '
+    semplice = (f'<!--crediti--><p style="margin:10px 0 0">Agenti civici è promosso dall\'<a href="{ASSOCIAZIONE}" {FUORI}>Associazione Gianroberto Casaleggio</a>. '
                 f'<a href="{DONA}" {FUORI} style="font-weight:700;color:#C2362B">Sostieni l\'iniziativa</a></p><!--/crediti-->')
     for f in ['mondo/atlante.html', 'mondo/index.html', 'catalogo/sorgente.html']:
         p = os.path.join(REPO, f)

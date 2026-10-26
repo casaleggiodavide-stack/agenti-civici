@@ -29,7 +29,7 @@ Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte com
 
 ## Chi lo fa
 
-Agenti civici è un progetto dell'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
+Agenti civici è promosso dall'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
 
 ## Usarli
 
