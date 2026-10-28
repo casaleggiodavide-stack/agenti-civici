@@ -59,6 +59,38 @@
   main .scheda-scrivano h2 { font-size: clamp(30px, 3.6vw, 48px); }
   .scrivano-battuta { font-family: var(--cifre); font-size: 13px; line-height: 1.55; color: var(--inchiostro); background: var(--carta-2, rgba(255,255,255,.04)); border: 1px solid var(--riga); border-radius: 3px; padding: 12px 14px; margin: 0; max-width: 60ch; }
   @media (max-width: 760px) { main .scheda-scrivano { grid-template-columns: minmax(0, 1fr); } main .scheda-scrivano > .scrivano-foto { min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--riga); } }
+  /* La mappa in alto: tutto quello che si può fare, in due colonne */
+  /* in questa pagina l'apertura è più bassa, così la mappa si vede già nella prima schermata */
+  .eroe { min-height: clamp(380px, 58vh, 560px); }
+  .mappa { margin: clamp(28px, 4vw, 48px) 0 clamp(28px, 4vw, 44px); }
+  .mappa-testa { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+  .mappa-testa .occhiello { width: 100%; }
+  .mappa-testa h2 { font-size: clamp(30px, 4.2vw, 56px); line-height: .95; letter-spacing: -0.045em; margin: 0; max-width: 18ch; }
+  .mappa-scrivano { display: inline-flex; gap: 8px; align-items: baseline; flex-wrap: wrap; border: 1px solid var(--accento); border-radius: 999px; padding: 10px 18px; text-decoration: none; color: var(--inchiostro); font-weight: 600; }
+  .mappa-scrivano span:first-child { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 400; color: var(--inchiostro-3); }
+  .mappa-scrivano:hover { background: color-mix(in srgb, var(--accento) 14%, transparent); }
+  .mappa-colonne { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--riga); }
+  .mappa-colonna { padding: 22px clamp(0px, 2vw, 28px) 8px 0; display: grid; align-content: start; gap: 8px; }
+  .mappa-colonna + .mappa-colonna { border-left: 1px solid var(--riga); padding-left: clamp(16px, 2.4vw, 32px); padding-right: 0; }
+  .mappa-colonna h3 { font-family: var(--titoli); font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -0.03em; margin: 0; display: flex; gap: 10px; align-items: baseline; }
+  .mappa-n { font-family: var(--cifre); font-size: 12px; font-weight: 400; color: var(--accento); letter-spacing: .08em; }
+  .mappa-colonna > p { margin: 0 0 6px; color: var(--inchiostro-2); max-width: 52ch; }
+  .mappa-colonna ol { list-style: none; margin: 0; padding: 0; counter-reset: voce; }
+  .mappa-voce { counter-increment: voce; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 2px 10px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--riga); text-decoration: none; color: var(--inchiostro); }
+  .mappa-voce::before { content: counter(voce, decimal-leading-zero); font-family: var(--cifre); font-size: 11px; color: var(--inchiostro-3); }
+  .mappa-azione { font-size: var(--s1); font-weight: 600; line-height: 1.25; }
+  .mappa-nome { grid-column: 2; font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
+  a.mappa-voce:hover .mappa-azione { color: var(--accento); }
+  a.mappa-voce:hover::before { color: var(--accento); }
+  a.mappa-voce:focus-visible { outline: 2px solid var(--accento); outline-offset: 2px; }
+  .mappa-voce.in-arrivo { color: var(--inchiostro-3); }
+  .mappa-voce.in-arrivo .mappa-azione { font-weight: 400; }
+  .mappa-tutti { font-family: var(--cifre); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .mappa-colonne { grid-template-columns: minmax(0, 1fr); }
+    .mappa-colonna, .mappa-colonna + .mappa-colonna { border-left: 0; padding: 20px 0 8px; }
+    .mappa-colonna + .mappa-colonna { border-top: 1px solid var(--riga); }
+  }
 </style>
 </head>
 <body>
@@ -71,9 +103,30 @@
       <h1>Lo Scrivano civico</h1>
       <p class="eroe-filo">Il filo per uscire dal labirinto.</p>
       <p class="eroe-testo">Come lo scrivano pubblico che un tempo sedeva vicino agli uffici, legge le tue carte e ti scrive la lettera giusta. Tecnologia che mette la persona al centro: per superare la burocrazia inutile e per partecipare davvero alle scelte della società. Strumenti aperti e gratuiti, che funzionano senza chiedere niente a nessuno e usano solo norme pubbliche e dati aperti.</p>
-      <p class="eroe-azioni"><a class="btn btn-primario" href="#strumenti">Scegli uno strumento</a> <a class="btn" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p>
+      <p class="eroe-azioni"><a class="btn btn-primario" href="#cosa-puoi-fare">Cosa puoi fare</a> <a class="btn" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p>
     </div>
   </header>
+  <!--mappa--><section class="mappa" id="cosa-puoi-fare" aria-labelledby="t-mappa">
+    <div class="mappa-testa">
+      <div class="occhiello">Tutto quello che puoi fare</div>
+      <h2 id="t-mappa">Con la burocrazia e con la tua comunità</h2>
+      <a class="mappa-scrivano" href="assistente/" data-strumento="assistente"><span>Non sai da dove partire?</span> Racconta il problema allo Scrivano <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="mappa-colonne">
+      <div class="mappa-colonna">
+        <h3><span class="mappa-n">I</span> Davanti alla burocrazia</h3>
+        <p>Diritti, rimborsi, ricorsi e pratiche: le regole scritte, la scadenza e la lettera pronta.</p>
+        <ol><li><a class="mappa-voce" href="mi-spetta/" data-strumento="mi-spetta"><span class="mappa-azione">Sapere a quali aiuti hai diritto</span><span class="mappa-nome">Mi spetta</span></a></li><li><a class="mappa-voce" href="navigatore/" data-strumento="navigatore"><span class="mappa-azione">Capire cosa fare per una pratica</span><span class="mappa-nome">Navigatore dei servizi</span></a></li><li><a class="mappa-voce" href="faccio-ricorso/" data-strumento="faccio-ricorso"><span class="mappa-azione">Contestare una multa</span><span class="mappa-nome">Faccio ricorso?</span></a></li><li><a class="mappa-voce" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti"><span class="mappa-azione">Chiedere documenti a un ente pubblico</span><span class="mappa-nome">Chiedo gli atti</span></a></li><li><a class="mappa-voce" href="mi-rimborsano/" data-strumento="mi-rimborsano"><span class="mappa-azione">Farti rimborsare volo, treno, bolletta</span><span class="mappa-nome">Mi rimborsano?</span></a></li><li><a class="mappa-voce" href="reclami-pa/" data-strumento="reclami-pa"><span class="mappa-azione">Reclamare contro un ufficio che non risponde</span><span class="mappa-nome">Reclami alla PA</span></a></li><li><a class="mappa-voce" href="garanzia/" data-strumento="garanzia"><span class="mappa-azione">Far valere garanzia e diritto di recesso</span><span class="mappa-nome">Si è rotto o ci ho ripensato</span></a></li><li><a class="mappa-voce" href="liste-attesa/" data-strumento="liste-attesa"><span class="mappa-azione">Ottenere la visita nei tempi previsti</span><span class="mappa-nome">La visita nei tempi</span></a></li><li><a class="mappa-voce" href="truffe/" data-strumento="truffe"><span class="mappa-azione">Capire se un messaggio è una truffa</span><span class="mappa-nome">È una truffa?</span></a></li></ol>
+        <a class="mappa-tutti" href="#t-burocrazia">Le schede degli strumenti ↓</a>
+      </div>
+      <div class="mappa-colonna">
+        <h3><span class="mappa-n">II</span> Dentro la vita pubblica</h3>
+        <p>Guardare i conti, controllare chi decide, partecipare e prendersi cura dei luoghi.</p>
+        <ol><li><a class="mappa-voce" href="bilancio-comune/" data-strumento="bilancio-comune"><span class="mappa-azione">Leggere come spende il tuo Comune</span><span class="mappa-nome">Il bilancio del mio Comune</span></a></li><li><a class="mappa-voce" href="appalti/" data-strumento="appalti"><span class="mappa-azione">Controllare gli appalti pubblici</span><span class="mappa-nome">Red flag sugli appalti</span></a></li><li><a class="mappa-voce" href="segnalazioni/" data-strumento="segnalazioni"><span class="mappa-azione">Segnalare un problema nella tua strada</span><span class="mappa-nome">Segnalazioni urbane</span></a></li><li><a class="mappa-voce" href="raccolte-firme/" data-strumento="raccolte-firme"><span class="mappa-azione">Firmare referendum e leggi popolari</span><span class="mappa-nome">Raccolte firme in corso</span></a></li><li><a class="mappa-voce" href="alberi/" data-strumento="alberi"><span class="mappa-azione">Piantare alberi con il tuo Comune</span><span class="mappa-nome">Alberi per il futuro</span></a></li><li><a class="mappa-voce" href="https://www.fiumipuliti.it/" target="_blank" rel="noopener"><span class="mappa-azione">Misurare la salute dei fiumi</span><span class="mappa-nome">Fiumi Puliti</span></a></li><li class="mappa-voce in-arrivo"><span class="mappa-azione">Sapere chi siede sulle poltrone pubbliche</span><span class="mappa-nome">Le carte del potere · in arrivo</span></li></ol>
+        <a class="mappa-tutti" href="#t-partecipazione">Le schede degli strumenti ↓</a>
+      </div>
+    </div>
+  </section><!--/mappa-->
   <!--foto--><figure class="foto-ac foto-banda"><div class="foto-ac-quadro"><img src="comune/foto/piazza.jpg" alt="Una donna seduta su una panchina di una piazza italiana sorride guardando il telefono, accanto una cartellina di documenti; intorno vicini che chiacchierano e un bambino in bicicletta. In bianco e nero, un filo rosso attraversa la scena" fetchpriority="high" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>Lo Scrivano civico</span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <main id="strumenti">
