@@ -107,7 +107,7 @@ SCENE = {
         '<circle class="s-r" cx="128" cy="48" r="4"/><circle class="s-r" cx="196" cy="56" r="4"/><circle class="s-r" cx="146" cy="100" r="4"/><circle class="s-r" cx="186" cy="92" r="4"/>'
         '<path class="s-t" d="M128 48 C150 30 180 40 196 56 C206 70 200 84 186 92 C172 100 160 104 146 100"/>'
         f'{NODO(40, 120)}<path class="s-t" d="M46 118 C80 110 100 110 128 48" style="opacity:.55"/>',
-        'Un globo con quattro punti rossi legati da un filo: gli agenti civici nel mondo'),
+        'Un globo con quattro punti rossi legati da un filo: gli strumenti civici nel mondo'),
 
     'navigatore': svg(
         '<path class="s-l" d="M160 132 V16 M140 132 H180"/>'
@@ -217,7 +217,7 @@ POSTI = [
     ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
     ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
     ('index.html', '<a class="strumento" href="catalogo/#servizi">', 'diritto'),
-    ('index.html', '<h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli agenti civici nel mondo</h2>', 'mondo'),
+    ('index.html', '<h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli strumenti civici nel mondo</h2>', 'mondo'),
 ]
 
 
@@ -244,8 +244,8 @@ STILE_ESTERNO = '''<style>
 @media (prefers-reduced-motion:no-preference){.scena-est .s-t{stroke-dasharray:900;stroke-dashoffset:900;animation:filo 2.4s ease-out forwards}@keyframes filo{to{stroke-dashoffset:0}}}
 </style>'''
 ESTERNE = [  # (file, ancora, scena, variabili)
-    ('mondo/atlante.html', '  <h1>Atlante degli Agenti Civici</h1>', 'mondo', '--accento:var(--accent);--accento-tenue:var(--accent-soft);--carta:var(--paper);--riga-tenue:var(--panel);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
-    ('catalogo/sorgente.html', '  <h1>agenti civici</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
+    ('mondo/atlante.html', '  <h1>Atlante degli strumenti civici</h1>', 'mondo', '--accento:var(--accent);--accento-tenue:var(--accent-soft);--carta:var(--paper);--riga-tenue:var(--panel);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
+    ('catalogo/sorgente.html', '  <h1>Lo Scrivano civico</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
 ]
 
 
@@ -348,7 +348,7 @@ def favicon(nome):
 
 
 def applica_loghi():
-    nomi_h1 = {'assistente': 'Lo Scrivano civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
+    nomi_h1 = {'assistente': 'Chiedi allo Scrivano', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
                'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?'}
     for t, h1 in nomi_h1.items():

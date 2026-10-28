@@ -1,6 +1,6 @@
-<img src="comune/marchio.svg" width="72" alt="Il marchio degli agenti civici: un filo rosso legato a un nodo che attraversa un labirinto">
+<img src="comune/marchio.svg" width="72" alt="Il marchio dello Scrivano civico: un pennino il cui inchiostro rosso disegna un labirinto e finisce in un nodo">
 
-# Agenti civici
+# Lo Scrivano civico
 
 **Il filo per uscire dal labirinto.** La burocrazia è un labirinto; questi strumenti sono il filo di Arianna: un capo resta legato all'ingresso, alla fonte ufficiale, e il filo accompagna una regola dopo l'altra fino a quello che ti spetta. I passi e la firma restano tuoi.
 
@@ -8,7 +8,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
-| [Lo Scrivano civico](assistente/) | Il volto degli agenti civici, in conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
+| [Lo Scrivano civico](assistente/) | In conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
@@ -29,7 +29,7 @@ Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte com
 
 ## Chi lo fa
 
-Agenti civici è promosso dall'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
+Lo Scrivano civico è promosso dall'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
 
 ## Usarli
 

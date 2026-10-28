@@ -32,7 +32,7 @@ REGOLE = [  # (parola nell'id, categoria)
     ('isee', 'fisco'), ('730', 'fisco'), ('redditi', 'fisco'), ('pagopa', 'fisco'), ('f24', 'fisco'), ('rateizz', 'fisco'), ('cartell', 'fisco'),
     ('affitto', 'casa'), ('locazione', 'casa'), ('ristruttur', 'casa'), ('bonus-casa', 'casa'), ('voltura', 'casa'), ('utenze', 'casa'),
 ]
-# collegamenti con gli altri agenti civici: id pratica (o parte) -> chiavi di COLLEGATI
+# collegamenti con gli altri strumenti: id pratica (o parte) -> chiavi di COLLEGATI
 COLLEGA = {'isee': ['mi-spetta'], 'nido': ['mi-spetta'], 'assegno-unico': ['mi-spetta'], 'nascita': ['mi-spetta'], 'ticket': ['mi-spetta'],
            'naspi': ['mi-spetta'], 'invalidita': ['mi-spetta'], 'pensione': ['mi-spetta'], 'voltura': ['mi-rimborsano'], 'cartell': ['chiedo-gli-atti']}
 ONLINE = {'sì': 'si', 'si': 'si', 'yes': 'si', 'parziale': 'parziale', 'no': 'no'}

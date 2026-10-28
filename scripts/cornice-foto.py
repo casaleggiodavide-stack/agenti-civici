@@ -1,5 +1,5 @@
 """Cornice comune delle fotografie: rifà ogni blocco <!--foto-->…<!--/foto--> con lo stesso
-taglio, la stessa luce, l'angolo rosso del marchio e la firma «agenti civici · <sezione>».
+taglio, la stessa luce, l'angolo rosso del marchio e la firma «Lo Scrivano civico · <sezione>».
 Le regole CSS sono in comune/stile.css (.foto-ac). Si può rilanciare: è idempotente.
 Uso: python3 -I scripts/cornice-foto.py
 """
@@ -8,13 +8,10 @@ import re
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" '
-           'fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="m-filo" '
-           'd="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>'
-           '<circle class="m-nodo" cx="17" cy="64" r="4"/></svg>')
+MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>')
 
 NOMI = {
-    'assistente': 'Lo Scrivano civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta',
+    'assistente': 'In conversazione', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta',
     'faccio-ricorso': 'Faccio ricorso?', 'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?',
     'bilancio-comune': 'Il bilancio del Comune', 'appalti': 'Red flag appalti', 'segnalazioni': 'Segnalazioni urbane',
     'reclami-pa': 'Reclami alla PA', 'raccolte-firme': 'Raccolte firme', 'alberi': 'Alberi per il futuro',
@@ -33,7 +30,7 @@ def cornice(blocco, firma, classe_extra='', fuoco=None):
         img = img.replace('<img ', f'<img style="object-position:{fuoco}" ', 1)
     didascalia = re.search(r'<figcaption>.*?</figcaption>', blocco, re.S)
     didascalia = didascalia.group(0) if didascalia else '<figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption>'
-    marca = f'<span class="foto-ac-marca">{MARCHIO}agenti civici{f" <span>· {firma}</span>" if firma else ""}</span>'
+    marca = f'<span class="foto-ac-marca">{MARCHIO}Lo Scrivano civico{f" <span>· {firma}</span>" if firma else ""}</span>'
     classi = ' '.join(c for c in ['foto-ac', classe_extra] if c)
     return f'<!--foto--><figure class="{classi}"><div class="foto-ac-quadro">{img}{marca}</div>{didascalia}</figure><!--/foto-->'
 

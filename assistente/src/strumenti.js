@@ -1,5 +1,5 @@
 // Gli strumenti dell'assistente civico: funzioni della pagina che l'assistente AI può
-// chiamare. Ognuna usa uno dei motori di regole degli agenti civici, quindi
+// chiamare. Ognuna usa uno dei motori di regole dello Scrivano civico, quindi
 // numeri, soglie, termini e indirizzi vengono sempre dalle regole verificate,
 // mai dalla memoria del modello. I risultati sono piccoli e in dati semplici.
 //

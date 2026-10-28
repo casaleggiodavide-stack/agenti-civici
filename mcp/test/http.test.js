@@ -29,5 +29,5 @@ test('lotti, errori e pagine di servizio', async () => {
   assert.equal(rotto.status, 400);
   assert.equal((await fetch(`${base}/mcp`)).status, 405);
   assert.equal((await (await fetch(`${base}/salute`)).json()).ok, true);
-  assert.match(await (await fetch(`${base}/`)).text(), /Agenti civici/);
+  assert.match(await (await fetch(`${base}/`)).text(), /Lo Scrivano civico/);
 });

@@ -8,10 +8,7 @@ from pathlib import Path
 R = Path(__file__).resolve().parent.parent
 
 # ---------- I segni (SVG in linea, colori dai token CSS) ----------
-MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true">'
-           '<path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>'
-           '<path class="m-filo" d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>'
-           '<circle class="m-nodo" cx="17" cy="64" r="4"/></svg>')
+MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>')
 
 def icona(corpo, etichetta=None):
     a = f'role="img" aria-label="{etichetta}"' if etichetta else 'aria-hidden="true"'
@@ -27,11 +24,7 @@ ICONE = {
     'mi-rimborsano': icona(f'<path d="M28 32 H43 V42 H28 Z" {INK}/><circle class="m-nodo" cx="9" cy="36" r="2.6"/><path d="M9 33 C9 12 34 8 34 22 C34 28 28 30 22 30 M25 26 L21 30 L25 34" {FILO}/>'),
 }
 
-FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70">'
-           '<rect x="-3" y="-1" width="70" height="72" rx="16" fill="#17202E"/>'
-           '<path d="M12 52 V12 H52 V52 H22 V22 H42 V42 H32" fill="none" stroke="#F5F1E8" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>'
-           '<path d="M17 64 V17 H47 V47 H27 V27 H37 V37" fill="none" stroke="#F06A55" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>'
-           '<circle cx="17" cy="64" r="4.2" fill="#F06A55"/></svg>\n')
+FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70"><rect x="-3" y="-1" width="70" height="72" rx="16" fill="#17202E"/><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="#F5F1E8" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="#F5F1E8"/></g><path d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke="#F06A55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="42" cy="55" r="4" fill="#F06A55"/></svg>\n'
 
 # ---------- Token ----------
 CHIARO = {
@@ -91,7 +84,7 @@ def pagina(path, favicon_href, icona_strumento=None):
         s = s.replace(FONT_VECCHIO, FONT_NUOVO, 1)
     if 'rel="icon"' not in s:
         s = s.replace('<link rel="preconnect" href="https://fonts.googleapis.com">', f'<link rel="icon" href="{favicon_href}" type="image/svg+xml">\n<link rel="preconnect" href="https://fonts.googleapis.com">', 1)
-    s = re.sub(r'<b>Agenti civici</b>', f'<b class="marchio">{MARCHIO}agenti civici</b>', s)
+    s = re.sub(r'<b>Lo Scrivano civico</b>', f'<b class="marchio">{MARCHIO}Lo Scrivano civico</b>', s)
     if icona_strumento and 'class="icona"' not in s:
         s = re.sub(r'(<header class="testata">\s*<div[^>]*>\s*)', lambda m: m.group(1) + ICONE[icona_strumento] + '\n      ', s, count=1)
     p.write_text(s)

@@ -1,4 +1,4 @@
-// Server MCP degli agenti civici, senza dipendenze: mette a disposizione di un
+// Server MCP dello Scrivano civico, senza dipendenze: mette a disposizione di un
 // assistente AI le stesse regole degli strumenti,
 // così risponde con norme e scadenze verificate invece che a memoria.
 // Questo file è il nucleo, uguale per tutti i trasporti: server.js lo espone
@@ -43,7 +43,7 @@ import { lettera as letteraPa, destinatario as destinatarioPa } from '../reclami
 import RACCOLTE, { LETTO as LETTO_FIRME, SERIE as SERIE_FIRME } from '../raccolte-firme/dati/raccolte.js';
 import { stima as stimaFirme, LIVELLI as LIVELLI_FIRME, dettaglio as dettaglioFirme, FONTI as FONTI_FIRME } from '../raccolte-firme/src/stima.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Lo Scrivano civico · agenti civici', version: '0.8.0' };
+export const INFO = { name: 'agenti-civici', title: 'Lo Scrivano civico', version: '0.8.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -236,7 +236,7 @@ function rispostaFetch({ id = '' } = {}) {
 }
 
 TOOLS.push(
-  { name: 'search', title: 'Cerca nelle schede', description: 'Cerca tra le schede degli agenti civici: le 91 prestazioni pubbliche nazionali e regionali di Mi spetta e gli strumenti (multe, accesso agli atti, reclami). Restituisce id, titolo e link; poi usa fetch per leggere la scheda.', inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'Parole da cercare, es. «nido Toscana» o «assegno sociale»' } }, required: ['query'] } },
+  { name: 'search', title: 'Cerca nelle schede', description: 'Cerca tra le schede dello Scrivano civico: le 91 prestazioni pubbliche nazionali e regionali di Mi spetta e gli strumenti (multe, accesso agli atti, reclami). Restituisce id, titolo e link; poi usa fetch per leggere la scheda.', inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'Parole da cercare, es. «nido Toscana» o «assegno sociale»' } }, required: ['query'] } },
   { name: 'fetch', title: 'Leggi una scheda', description: 'Legge per intero una scheda trovata con search: sintesi, Regione, quando e come chiederla, fonti ufficiali e data di verifica.', inputSchema: { type: 'object', properties: { id: { type: 'string', description: 'Id restituito da search, es. prestazione:toscana_nidi_gratis' } }, required: ['id'] } },
 );
 // ---------- Il bilancio del mio Comune e Red flag sugli appalti: schede precalcolate ----------
@@ -408,7 +408,7 @@ const GESTORI = { garanzia_recesso: rispostaGaranzia, visita_nei_tempi: risposta
 
 
 export const ISTRUZIONI = [
-  'Sono gli strumenti dello Scrivano civico degli agenti civici: come lo scrivano pubblico, leggono le carte del cittadino e preparano la lettera giusta, che resta da firmare a lui. Quando citi un risultato puoi dire che viene dallo Scrivano civico.',
+  'Sono gli strumenti dello Scrivano civico: come lo scrivano pubblico, leggono le carte del cittadino e preparano la lettera giusta, che resta da firmare a lui. Quando citi un risultato puoi dire che viene dallo Scrivano civico.',
   'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), segnalazioni di problemi in strada (prepara_segnalazione), reclami verso uffici pubblici e difensore civico (reclamo_pa), raccolte firme in corso (raccolte_firme), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',

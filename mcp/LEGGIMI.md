@@ -1,6 +1,6 @@
-# Gli agenti civici dentro il tuo assistente AI
+# Lo Scrivano civico dentro il tuo assistente AI
 
-Il server MCP mette le regole degli agenti civici a disposizione di un assistente AI. Così l'assistente risponde con importi, termini e PEC verificati sulle fonti ufficiali, invece che a memoria.
+Il server MCP mette le regole dello Scrivano civico a disposizione di un assistente AI. Così l'assistente risponde con importi, termini e PEC verificati sulle fonti ufficiali, invece che a memoria.
 
 Strumenti (tutti in sola lettura, nessun dato salvato):
 

@@ -1,5 +1,5 @@
 // Copia di comune/interfaccia.js: non modificare qui, usa npm run sincronizza.
-// Piccoli strumenti condivisi dalle interfacce degli agenti civici.
+// Piccoli strumenti condivisi dalle interfacce dello Scrivano civico.
 
 export const $ = (sel, el = document) => el.querySelector(sel);
 export const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
