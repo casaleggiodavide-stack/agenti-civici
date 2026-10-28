@@ -14,7 +14,7 @@ MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><p
            '<circle class="m-nodo" cx="17" cy="64" r="4"/></svg>')
 
 NOMI = {
-    'assistente': 'Assistente civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta',
+    'assistente': 'Lo Scrivano civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta',
     'faccio-ricorso': 'Faccio ricorso?', 'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?',
     'bilancio-comune': 'Il bilancio del Comune', 'appalti': 'Red flag appalti', 'segnalazioni': 'Segnalazioni urbane',
     'reclami-pa': 'Reclami alla PA', 'raccolte-firme': 'Raccolte firme', 'alberi': 'Alberi per il futuro',

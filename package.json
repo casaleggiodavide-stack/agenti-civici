@@ -1,7 +1,7 @@
 {
   "name": "agenti-civici",
   "version": "0.8.0",
-  "description": "Agenti civici al servizio del cittadino: Assistente civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?, Il bilancio del mio Comune, Red flag sugli appalti, Navigatore dei servizi, Segnalazioni urbane, Reclami alla PA, Raccolte firme in corso e un server MCP per usarli dentro gli assistenti AI.",
+  "description": "Agenti civici al servizio del cittadino: Lo Scrivano civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?, Il bilancio del mio Comune, Red flag sugli appalti, Navigatore dei servizi, Segnalazioni urbane, Reclami alla PA, Raccolte firme in corso e un server MCP per usarli dentro gli assistenti AI.",
   "type": "module",
   "private": true,
   "license": "AGPL-3.0-or-later",

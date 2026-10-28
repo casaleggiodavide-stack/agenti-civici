@@ -1,4 +1,4 @@
-// Interfaccia dell'Assistente civico. La conversazione passa dall'assistente AI con
+// Interfaccia dello Scrivano civico. La conversazione passa dall'assistente AI con
 // l'account di chi usa la pagina (capacità «sample» della piattaforma che ospita la pagina);
 // i calcoli, i documenti e i dati personali restano nel browser.
 
@@ -65,7 +65,7 @@ function md(testo) {
 function aggiungiMessaggio(chi, testo, classe = '') {
   const el = document.createElement('div');
   el.className = `msg ${chi === 'tu' ? 'tu' : 'ai'} ${classe}`;
-  el.innerHTML = `<span class="chi">${chi === 'tu' ? 'Tu' : 'Assistente'}</span><div class="testo">${chi === 'tu' ? `<p>${esc(testo).replace(/\n/g, '<br>')}</p>` : md(testo)}</div><span class="stato"></span>`;
+  el.innerHTML = `<span class="chi">${chi === 'tu' ? 'Tu' : 'Scrivano'}</span><div class="testo">${chi === 'tu' ? `<p>${esc(testo).replace(/\n/g, '<br>')}</p>` : md(testo)}</div><span class="stato"></span>`;
   $('#messaggi').appendChild(el);
   el.scrollIntoView({ block: 'end', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   return el;
@@ -82,8 +82,8 @@ const ERRORI = {
   image_rejected: 'La foto non è stata accettata: prova con una foto JPEG o PNG più piccola.',
   images_unavailable: 'Questa vista non può mandare foto all\'assistente: scrivi i dati del documento.',
   upstream_error: 'Si è interrotta la connessione con l\'assistente. Puoi riprovare inviando di nuovo il messaggio.',
-  tools_unavailable: 'Questa versione dell\'app non permette all\'assistente di usare i suoi strumenti di calcolo.',
-  capability_disabled: 'L\'assistente non può usare l\'intelligenza artificiale in questa vista. Puoi usare direttamente gli strumenti dalla barra in alto.',
+  tools_unavailable: 'Questa versione dell\'app non permette allo Scrivano di usare i suoi strumenti di calcolo.',
+  capability_disabled: 'Lo Scrivano non può usare l\'intelligenza artificiale in questa vista. Puoi usare direttamente gli strumenti dalla barra in alto.',
 };
 
 function contesto() {
@@ -253,7 +253,7 @@ function disegnaDocumento() {
     <section class="pannello">
       <div class="occhiello">Documento</div>
       <h2>${esc(documento.titolo)}</h2>
-      <p>Completa qui i tuoi dati: restano su questo dispositivo e non vengono mandati all'assistente.</p>
+      <p>Completa qui i tuoi dati: restano su questo dispositivo e non vengono mandati allo Scrivano.</p>
       <div class="dati-personali">${PERSONALI.map(([id, et]) => `<label>${esc(et)}<input type="text" id="p-${id}" value="${esc(p[id] || '')}" autocomplete="off"></label>`).join('')}</div>
       <div class="foglio" id="foglio">${html}</div>
       <div class="azioni-doc">
@@ -308,10 +308,10 @@ function mostraNonDisponibile(codice) {
   const el = $('#non-disponibile');
   const link = 'usa direttamente <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>, <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a> e <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>: fanno gli stessi calcoli, con un modulo da compilare.';
   const perche = !codice
-    ? 'L\'assistente conversazionale funziona quando questa pagina è aperta dentro la piattaforma di intelligenza artificiale che la ospita, con il tuo account. Su questo sito è disponibile la versione senza chat.'
+    ? 'Lo Scrivano civico risponde in chat quando questa pagina è aperta dentro la piattaforma di intelligenza artificiale che la ospita, con il tuo account. Su questo sito è disponibile la versione senza chat.'
     : codice === 'tools_unavailable'
-      ? 'Questa versione dell\'app non permette all\'assistente di usare i suoi strumenti di calcolo, e senza di loro preferisce non rispondere. Aggiorna l\'app.'
-      : 'L\'assistente non può usare l\'intelligenza artificiale da questa pagina: il permesso non è stato dato o non è disponibile per il tuo account.';
+      ? 'Questa versione dell\'app non permette allo Scrivano di usare i suoi strumenti di calcolo, e senza di loro preferisce non rispondere. Aggiorna l\'app.'
+      : 'Lo Scrivano non può usare l\'intelligenza artificiale da questa pagina: il permesso non è stato dato o non è disponibile per il tuo account.';
   el.hidden = false;
   el.innerHTML = `${perche} Intanto ${link}`;
   $('#invia').disabled = true;

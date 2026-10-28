@@ -8,7 +8,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
-| [Assistente civico](assistente/) | Lo stesso lavoro in conversazione: racconti il problema con parole tue, l'assistente fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
+| [Lo Scrivano civico](assistente/) | Il volto degli agenti civici, in conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
@@ -48,15 +48,17 @@ Quando la pagina è aperta dentro un assistente AI, ogni strumento mostra il riq
 - La pagina chiede di ricontrollare ogni campo: fa fede il documento.
 - Altrove (GitHub Pages, file locali) il riquadro non appare, perché non c'è un lettore di immagini nel browser.
 
-Anche l'Assistente accetta la foto di un documento insieme al messaggio.
+Anche lo Scrivano accetta la foto di un documento insieme al messaggio.
 
-## L'Assistente civico
+## Lo Scrivano civico
+
+Lo Scrivano civico è il personaggio che dà un volto agli strumenti: come lo scrivano pubblico che sedeva vicino agli uffici, legge le carte e scrive la lettera giusta, e la firma resta di chi la manda. È un assistente AI e lo dice alla prima risposta; non ha volto, età né genere. Chi è, come parla e cosa non dice mai sono in [docs/scrivano.md](docs/scrivano.md).
 
 `assistente/` non ha un server suo: usa la capacità `sample` della piattaforma che ospita la pagina, cioè un modello di intelligenza artificiale con l'account e i limiti di chi la apre. Il modello non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
 
 - Cifre, soglie, termini e PEC arrivano solo dai risultati degli strumenti, con la fonte.
 - Nome, codice fiscale e indirizzo non passano dalla chat: i documenti si completano nel pannello accanto, e quei dati restano nel browser (si cancellano con il pulsante in fondo alla pagina).
-- Se la vista non permette alla pagina di usare i suoi strumenti, l'assistente non risponde e rimanda ai tre strumenti: senza i motori di regole dovrebbe inventare.
+- Se la vista non permette alla pagina di usare i suoi strumenti, lo Scrivano non risponde e rimanda ai tre strumenti: senza i motori di regole dovrebbe inventare.
 
 Si pubblica con `node scripts/prepara-assistente.mjs <cartella> '<link>'`, che conserva i percorsi del repository perché l'assistente importa i motori degli altri strumenti.
 
@@ -97,7 +99,7 @@ Carta #F5F1E8, inchiostro #17202E, filo rosso #C2362B (su fondo scuro #F06A55); 
 
 - `comune/`: codice condiviso (logica a tre valori, scadenze con festività italiane e sospensione feriale, questionari, stile). Si copia dentro ogni strumento con `npm run sincronizza`, così ogni strumento resta pubblicabile da solo.
 - `mi-spetta/`, `faccio-ricorso/`, `chiedo-gli-atti/`: uno strumento per cartella, con `src/` (regole e dati), `web/` (interfaccia), `test/`.
-- `assistente/`: l'Assistente civico (strumenti per il modello, istruzioni, interfaccia della chat).
+- `assistente/`: lo Scrivano civico (strumenti per il modello, istruzioni, interfaccia della chat).
 - `sentinella/`: controllo delle fonti; `scripts/sentinella.mjs` lo esegue.
 - `mcp/`: server per gli assistenti AI.
 

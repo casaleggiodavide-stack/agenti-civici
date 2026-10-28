@@ -311,7 +311,8 @@ def _logo(corpo, filo, nodo):
             f'<path class="lg-t" d="{filo}"/><circle class="lg-n" cx="{x}" cy="{y}" r="3.4"/>')
 
 LOGHI = {
-    'assistente': ('Assistente civico', _logo('<path class="lg-i" d="M15 17 H49 V39 H31 L22 47 V39 H15 Z"/>', 'M15 52 C20 50 21 44 22 41 M22 28 C26 23 30 33 34 28 S41 24 43 28', (12, 53))),
+    # lo Scrivano civico: il pennino, e l'inchiostro che diventa il filo
+    'assistente': ('Lo Scrivano civico', _logo('<path class="lg-i" d="M25 12 H39 L44 29 L32 49 L20 29 Z M32 33 V49"/><circle class="lg-i" cx="32" cy="29" r="2.6"/>', 'M32 49 C29 55 20 56 14 52', (11, 50))),
     'navigatore': ('Navigatore dei servizi', _logo('<path class="lg-i" d="M32 52 V12 M24 52 H40 M32 16 H45 L50 21 L45 26 H32 M32 31 H19 L14 36 L19 41 H32"/>', 'M14 52 C20 49 24 47 32 47', (11, 53))),
     'mi-spetta': ('Mi spetta', _logo('<ellipse class="lg-i" cx="28" cy="44" rx="13" ry="5"/><path class="lg-i" d="M15 44 V36 M41 44 V36"/><ellipse class="lg-i" cx="28" cy="36" rx="13" ry="5"/><path class="lg-i" d="M15 36 V28 M41 36 V28"/><ellipse class="lg-i" cx="28" cy="28" rx="13" ry="5"/>', 'M14 53 C30 54 40 44 42 34 M38 18 L43 23 L52 12', (11, 52))),
     'faccio-ricorso': ('Faccio ricorso?', _logo('<path class="lg-i" d="M18 13 H38 L46 21 V51 H18 Z M38 13 V21 H46"/><path class="lg-i" d="M24 30 H40 M24 37 H36"/>', 'M52 46 H31 C25 46 25 40 31 40 H35 M33 37 L36 40 L33 43', (52, 52))),
@@ -336,7 +337,7 @@ STILE_LOGO = ('.lg-f{fill:var(--carta,#FFFDF8);stroke:var(--inchiostro,#17202E);
 
 def logo_svg(nome, classe='logo-strumento', titolo=True):
     etichetta, corpo = LOGHI[nome]
-    return f'<svg class="{classe}" viewBox="0 0 64 64" role="img" aria-label="Logo di {etichetta}">{corpo}</svg>'
+    return f'<svg class="{classe}" viewBox="0 0 64 64" role="img" aria-label="Logo {'dello ' + etichetta[3:] if etichetta.startswith('Lo ') else 'di ' + etichetta}">{corpo}</svg>'
 
 
 def favicon(nome):
@@ -347,7 +348,7 @@ def favicon(nome):
 
 
 def applica_loghi():
-    nomi_h1 = {'assistente': 'Assistente civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
+    nomi_h1 = {'assistente': 'Lo Scrivano civico', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
                'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?'}
     for t, h1 in nomi_h1.items():

@@ -12,7 +12,7 @@ QUI = {
   'Red flag sugli appalti': ('fatto', 'Red flag sugli appalti', SITO + 'appalti/', '1,45 milioni di procedure ANAC del 2025, 19.356 enti'),
   'Il bilancio del mio Comune spiegato': ('fatto', 'Il bilancio del mio Comune', SITO + 'bilancio-comune/', 'rendiconti di 7.808 Comuni, confronto con i Comuni simili'),
   'Dati civici come tool per ogni assistente': ('fatto', 'Server MCP degli agenti civici', 'https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md', 'dieci strumenti dentro gli assistenti AI'),
-  'Assistente unico ai servizi con fonti': ('parziale', 'Assistente civico', SITO + 'assistente/', 'per ora bonus, multe, accesso agli atti e reclami'),
+  'Assistente unico ai servizi con fonti': ('parziale', 'Lo Scrivano civico', SITO + 'assistente/', 'per ora bonus, multe, accesso agli atti e reclami'),
   'Sorveglianza dei siti pubblici': ('parziale', 'Sentinella delle regole', 'https://github.com/casaleggiodavide-stack/agenti-civici/tree/main/sentinella', 'sorveglia le 190 fonti usate dagli agenti'),
   'Reclami alla PA e difensore civico': ('fatto', 'Reclami alla PA', SITO + 'reclami-pa/', 'potere sostitutivo, difensori civici regionali, termini calcolati e lettere pronte'),
   'Segnalazioni urbane indipendenti': ('fatto', 'Segnalazioni urbane', SITO + 'segnalazioni/', 'chi deve intervenire, PEC dall\'Indice PA, segnalazione e sollecito pronti'),
@@ -181,7 +181,7 @@ js = r'''
 '''
 s = s.replace('</footer>\n</div>', '</footer>\n</div>\n' + js, 1) if '</footer>\n</div>' in s else s + js
 # testi aggiornati
-s = s.replace("Gli strumenti già costruiti (Assistente civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
+s = s.replace("Gli strumenti già costruiti (Lo Scrivano civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
 s = s.replace('Agenti Civici · catalogo aggiornato al 14 settembre 2026', 'Agenti Civici · catalogo aggiornato al 25 ottobre 2026')
 s = re.sub(r'54 strumenti · 4 sezioni', f'{n} strumenti · fatti qui, in costruzione, esistenti altrove e da fare', s)
 open(out, 'w').write(s)
