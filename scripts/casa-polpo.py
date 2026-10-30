@@ -51,6 +51,7 @@ PAROLE = [
     ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
 ]
+ESEMPI_BREVI = [('Mi è arrivata una multa dopo quattro mesi', 'multa'), ('Il volo è arrivato con cinque ore di ritardo', 'volo in ritardo'), ('Ho 70 anni e la pensione minima: che aiuti ci sono?', 'aiuti per la pensione'), ('Davanti a casa c\'è una buca da mesi', 'buca in strada'), ('Mi è arrivato un SMS strano dalla banca', 'SMS strano')]
 ESEMPI = ['Mi è arrivata una multa dopo quattro mesi', 'Il volo è arrivato con cinque ore di ritardo', 'Ho 70 anni e la pensione minima: che aiuti ci sono?', 'Davanti a casa c\'è una buca da mesi', 'Mi è arrivato un SMS strano dalla banca']
 
 
@@ -132,15 +133,14 @@ def griglia():
 
 
 def chiedi():
-    esempi = ''.join(f'<button type="button" class="chiedi-esempio">{e}</button>' for e in ESEMPI)
+    esempi = ''.join(f'<button type="button" class="chiedi-esempio" data-testo="{e}">{breve}</button>' for e, breve in ESEMPI_BREVI)
     return f'''<section class="chiedi" aria-labelledby="t-chiedi">
-      <div class="chiedi-testa">{polpo_mini(None, classe='chiedi-polpo')}<div><h2 id="t-chiedi">Chiedi al Polpo</h2><p>Scrivi con parole tue cosa ti serve: il Polpo ti indica il braccio e lo strumento giusto. Quello che scrivi resta sul tuo dispositivo.</p></div></div>
       <form class="chiedi-form" novalidate>
-        <label for="chiedi-testo" class="sr-only">Cosa ti serve?</label>
-        <textarea id="chiedi-testo" rows="2" placeholder="Per esempio: mi è arrivata una multa dopo quattro mesi"></textarea>
+        <label id="t-chiedi" for="chiedi-testo">Chiedi al Polpo</label>
+        <input id="chiedi-testo" type="text" autocomplete="off" placeholder="Scrivi cosa ti serve…">
         <button type="submit" class="btn btn-primario">Chiedi</button>
       </form>
-      <div class="chiedi-esempi"><span>Prova con</span>{esempi}</div>
+      <p class="chiedi-esempi"><span>Prova:</span>{esempi}<span class="chiedi-nota">Resta sul tuo dispositivo.</span></p>
       <div class="chiedi-risposta" aria-live="polite" hidden></div>
     </section>
     <script>
@@ -177,7 +177,7 @@ def chiedi():
       }}
       f.addEventListener('submit', (e) => {{ e.preventDefault(); rispondi(t.value); }});
       t.addEventListener('keydown', (e) => {{ if (e.key === 'Enter' && !e.shiftKey) {{ e.preventDefault(); rispondi(t.value); }} }});
-      document.querySelectorAll('.chiedi-esempio').forEach((b) => b.addEventListener('click', () => {{ t.value = b.textContent; rispondi(t.value); }}));
+      document.querySelectorAll('.chiedi-esempio').forEach((b) => b.addEventListener('click', () => {{ t.value = b.dataset.testo; rispondi(t.value); }}));
       r.addEventListener('click', (e) => {{
         if (!e.target.closest('.chiedi-chat')) return;
         try {{ sessionStorage.setItem('polpo-domanda', t.value.slice(0, 2000)); }} catch {{ /* niente */ }}
@@ -196,7 +196,6 @@ def blocco():
       <h1>Polpo civico</h1>
       <p class="casa-motto">La burocrazia ha mille tentacoli. <span>Il Polpo ne ha otto, tutti dalla tua parte.</span></p>
     </div>
-    {chiedi()}
     <section class="giostra" aria-roledescription="carosello" aria-label="Le otto braccia del Polpo" style="--rot:0deg">
       <div class="giostra-scena">
         <svg class="polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo con gli occhialini e le sue otto braccia; il braccio in evidenza indica il mestiere descritto accanto">
@@ -204,6 +203,7 @@ def blocco():
         </svg>
       </div>
       <div class="giostra-pannello">
+        {chiedi()}
         <div class="g-testo" aria-live="polite">{pannello(0)}</div>
         <div class="g-comandi">
           <button type="button" class="g-freccia" data-passo="-1" aria-label="Braccio precedente">←</button>
@@ -282,34 +282,33 @@ def blocco():
 
 CSS = '''/*casa*/
   /* La pagina d'ingresso semplice: il Polpo e le otto braccia (scripts/casa-polpo.py) */
-  .casa { padding: clamp(18px, 3vw, 32px) 0 8px; }
+  .casa { padding: clamp(12px, 2vw, 22px) 0 8px; }
   .casa-testa { display: grid; gap: 8px; max-width: 900px; }
-  .casa-testa h1 { font-size: clamp(46px, 8vw, 104px); line-height: .88; letter-spacing: -0.06em; margin: 4px 0 6px; }
+  .casa-testa h1 { font-size: clamp(42px, 6.4vw, 84px); line-height: .88; letter-spacing: -0.06em; margin: 2px 0 4px; }
   .casa-motto { font-family: var(--titoli); font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 30ch; }
   .casa-motto span { color: var(--accento); }
-  .chiedi { position: relative; margin-top: clamp(16px, 2.6vw, 26px); background: var(--carta); border: 1px solid color-mix(in srgb, var(--accento) 45%, var(--riga)); border-radius: 6px; padding: clamp(16px, 3vw, 26px); display: grid; gap: 12px; max-width: 980px; background-image: radial-gradient(110% 90% at 100% 0%, color-mix(in srgb, var(--accento) 12%, transparent), transparent 55%); }
-  .chiedi-testa { display: flex; gap: 14px; align-items: center; }
-  .chiedi-polpo { width: 86px; height: 86px; flex: none; overflow: visible; }
-  .chiedi h2 { font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.04em; margin: 0; }
-  .chiedi-testa p { margin: 4px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
-  .chiedi-form { display: flex; gap: 10px; align-items: stretch; }
-  .chiedi-form textarea { flex: 1; min-height: 58px; max-width: none; resize: vertical; background: var(--fondo); border: 1px solid var(--riga); border-radius: 6px; padding: 12px 14px; font: inherit; font-size: var(--s1); color: var(--inchiostro); }
-  .chiedi-form textarea:focus { border-color: var(--accento); outline: none; }
-  .chiedi-form .btn { padding: 0 26px; justify-content: center; }
-  .chiedi-esempi { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  .chiedi-esempi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); margin-right: 4px; }
-  .chiedi-esempio { font: inherit; font-size: 13.5px; color: var(--inchiostro-2); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .chiedi { display: grid; gap: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--riga); }
+  .chiedi-form { display: flex; align-items: center; gap: 0; border: 1px solid color-mix(in srgb, var(--accento) 55%, var(--riga)); border-radius: 999px; background: var(--carta); padding: 4px 4px 4px 16px; }
+  .chiedi-form:focus-within { border-color: var(--accento); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accento) 22%, transparent); }
+  .chiedi-form label { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); white-space: nowrap; margin-right: 10px; }
+  .chiedi-form input { flex: 1; min-width: 0; border: 0; background: none; padding: 9px 6px; font: inherit; font-size: var(--s0); color: var(--inchiostro); max-width: none; box-shadow: none !important; }
+  .chiedi-form input:focus { outline: none; }
+  .chiedi-form .btn { border-radius: 999px; padding: 9px 18px; }
+  .chiedi-esempi { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0; font-size: 13px; }
+  .chiedi-esempi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
+  .chiedi-esempi .chiedi-nota { margin-left: auto; text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 12px; }
+  .chiedi-esempio { font: inherit; font-size: 13px; color: var(--inchiostro-2); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 3px 10px; cursor: pointer; }
   .chiedi-esempio:hover, .chiedi-esempio:focus-visible { border-color: var(--accento); color: var(--inchiostro); outline: none; }
-  .chiedi-risposta { border-top: 1px solid var(--riga); padding-top: 12px; display: grid; gap: 10px; }
-  .chiedi-risposta p { margin: 0; color: var(--inchiostro-2); }
+  .chiedi-risposta { display: grid; gap: 8px; padding: 10px 0 0; }
+  .chiedi-risposta p { margin: 0; color: var(--inchiostro-2); font-size: 14.5px; }
   .chiedi-n { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accento) !important; }
-  .chiedi-titolo { font-family: var(--titoli); font-size: clamp(19px, 2vw, 24px); letter-spacing: -0.03em; color: var(--inchiostro) !important; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .chiedi-titolo { font-family: var(--titoli); font-size: 19px; letter-spacing: -0.02em; color: var(--inchiostro) !important; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
   .chiedi-altri { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-  .chiedi-altri span { font-size: 14px; color: var(--inchiostro-3); }
-  .chiedi-chat { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-  @media (max-width: 620px) { .chiedi-form { flex-direction: column; } .chiedi-form .btn { padding: 12px 22px; } .chiedi-polpo { width: 64px; height: 64px; } }
+  .chiedi-altri span { font-size: 13px; color: var(--inchiostro-3); }
+  .chiedi-chat { font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+  @media (max-width: 520px) { .chiedi-form label { display: none; } .chiedi-esempi .chiedi-nota { margin-left: 0; } }
   .giostra { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(8px, 3vw, 40px); align-items: center; margin-top: clamp(8px, 2vw, 18px); }
-  .giostra-scena { aspect-ratio: 1; max-height: 620px; justify-self: center; width: 100%; }
+  .giostra-scena { aspect-ratio: 1; max-height: min(560px, 68vh); justify-self: center; width: 100%; }
   .polpo { width: 100%; height: 100%; overflow: visible; }
   .polpo .braccia { transform-box: view-box; transform-origin: 0 0; transform: rotate(var(--rot)); transition: transform .9s cubic-bezier(.6, .05, .25, 1); }
   .b { cursor: pointer; }
