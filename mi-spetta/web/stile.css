@@ -432,3 +432,15 @@ input[type="text"], input[type="number"], input[type="date"], input[type="email"
 .bp-chiedi { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--inchiostro); border: 1px solid var(--accento); border-radius: 999px; padding: 9px 14px; }
 .bp-chiedi:hover { background: color-mix(in srgb, var(--accento) 14%, transparent); }
 @media print { .braccio-segno, .braccia-polpo { display: none; } }
+/* Il logo di ogni strumento è il Polpo, con il braccio dello strumento in rosso (scripts/braccia-strumenti.py) */
+.logo-strumento.logo-polpo { width: 132px; height: 132px; margin: -12px 0 -12px -14px; filter: none; overflow: visible; }
+@media (max-width: 560px) { .logo-strumento.logo-polpo { width: 92px; height: 92px; margin: -6px 0 -6px -8px; } }
+.pm-arto { fill: none; stroke: var(--inchiostro-3); stroke-width: 34; stroke-linecap: round; opacity: .8; }
+.pm-st { fill: var(--carta); stroke: var(--inchiostro-3); stroke-width: 8; }
+.pm-ic { fill: none; stroke: var(--inchiostro); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.pm-arto.pm-attivo { stroke: var(--accento); opacity: 1; }
+.pm-st.pm-attivo { fill: var(--accento); stroke: var(--accento); }
+.pm-ic.pm-attivo { stroke: #0B0B0A; }
+.pm-corpo { fill: var(--carta); stroke: var(--inchiostro); stroke-width: 6; }
+.pm-lente { fill: none; stroke: var(--inchiostro); stroke-width: 6; }
+.pm-occhio { fill: var(--inchiostro); }

@@ -1,5 +1,5 @@
 """Cornice comune delle fotografie: rifà ogni blocco <!--foto-->…<!--/foto--> con lo stesso
-taglio, la stessa luce, l'angolo rosso del marchio e la firma «Lo Scrivano civico · <sezione>».
+taglio, la stessa luce, l'angolo rosso del marchio e la firma «Polpo civico · <sezione>».
 Le regole CSS sono in comune/stile.css (.foto-ac). Si può rilanciare: è idempotente.
 Uso: python3 -I scripts/cornice-foto.py
 """
@@ -30,7 +30,7 @@ def cornice(blocco, firma, classe_extra='', fuoco=None):
         img = img.replace('<img ', f'<img style="object-position:{fuoco}" ', 1)
     didascalia = re.search(r'<figcaption>.*?</figcaption>', blocco, re.S)
     didascalia = didascalia.group(0) if didascalia else '<figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption>'
-    marca = f'<span class="foto-ac-marca">{MARCHIO}Lo Scrivano civico{f" <span>· {firma}</span>" if firma else ""}</span>'
+    marca = f'<span class="foto-ac-marca">{MARCHIO}Polpo civico{f" <span>· {firma}</span>" if firma else ""}</span>'
     classi = ' '.join(c for c in ['foto-ac', classe_extra] if c)
     return f'<!--foto--><figure class="{classi}"><div class="foto-ac-quadro">{img}{marca}</div>{didascalia}</figure><!--/foto-->'
 

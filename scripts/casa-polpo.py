@@ -32,6 +32,27 @@ BRACCIA = [
 ]
 LATI = {'burocrazia': 'Davanti alla burocrazia', 'vita': 'Dentro la vita pubblica'}
 
+# «Chiedi al Polpo»: le parole che portano a uno strumento (minuscolo, senza accenti).
+# Funziona tutto nel browser: niente viene mandato da nessuna parte.
+PAROLE = [
+    ('faccio-ricorso/', ['multa', 'multe', 'verbale', 'autovelox', 'contravvenzion', 'ztl', 'semaforo', 'divieto di sosta', 'strisce blu', 'ricorso', 'tutor', 'eccesso di velocita']),
+    ('mi-spetta/', ['bonus', 'assegno', 'isee', 'aiuto', 'aiuti', 'sussidi', 'pensione', 'reddito', 'contribut', 'agevolazion', 'esenzion', 'ticket', 'figli', 'bambino', 'maternita', 'disoccupa', 'invalidita', 'mi spetta', 'diritto a']),
+    ('mi-rimborsano/', ['volo', 'aereo', 'ritardo', 'cancellat', 'bagaglio', 'valigia', 'treno', 'bolletta', 'conguaglio', 'telefon', 'internet', 'fibra', 'banca', 'addebito', 'rimborso', 'rimborsare', 'compensazione']),
+    ('chiedo-gli-atti/', ['documenti', 'documento', 'atti ', 'accesso agli atti', 'foia', 'quanto ha speso', 'delibera', 'determina', 'trasparenza', 'copia di', 'consulenze']),
+    ('reclami-pa/', ['non risponde', 'non mi rispond', 'reclamo', 'reclamare', 'sportello', 'difensore civico', 'silenzio', 'ufficio pubblico']),
+    ('navigatore/', ['residenza', "carta d'identita", 'carta di identita', 'passaporto', 'patente', 'spid', 'certificato', 'anagrafe', 'come si fa', 'pratica', 'permesso di soggiorno', 'cittadinanza', 'cambio di', 'iscriver', 'a quale ufficio']),
+    ('liste-attesa/', ['visita', 'esame', 'esami', 'prenotazion', 'prenotare', 'cup', 'specialist', "lista d'attesa", "liste d'attesa", 'impegnativa', 'ricetta', 'risonanza', 'ecografia', 'tac']),
+    ('garanzia/', ['garanzia', 'rotto', 'rotta', 'guasto', 'difettos', 'non funziona', 'reso', 'recesso', 'restituire', 'ripensato', 'comprato', 'acquisto']),
+    ('truffe/', ['truffa', 'truffe', 'sms', 'messaggio strano', 'link', 'phishing', 'mail sospetta', 'pacco', 'ciao mamma', 'falso', 'clonat', 'bonifico', 'investimento', 'crypto', 'sospett', 'strano', 'strana', 'whatsapp', 'codice otp', 'mi chiedono il codice', 'vinto']),
+    ('bilancio-comune/', ['bilancio', 'spende il comune', 'come spende', 'spesa del comune', 'conti del comune', 'debito del comune', 'tasse comunali']),
+    ('appalti/', ['appalto', 'appalti', 'gara', 'affidamento', 'lavori pubblici', 'ditta']),
+    ('raccolte-firme/', ['firma', 'firmare', 'referendum', 'legge popolare', 'legge di iniziativa', 'petizione', 'raccolta firme']),
+    ('segnalazioni/', ['buca', 'buche', 'strada', 'marciapiede', 'lampion', 'illuminazione', 'rifiuti', 'spazzatura', 'degrado', 'graffiti', 'segnalare', 'segnalazione', 'semaforo rotto']),
+    ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
+    ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
+]
+ESEMPI = ['Mi è arrivata una multa dopo quattro mesi', 'Il volo è arrivato con cinque ore di ritardo', 'Ho 70 anni e la pensione minima: che aiuti ci sono?', 'Davanti a casa c\'è una buca da mesi', 'Mi è arrivato un SMS strano dalla banca']
+
 
 def link(nome, href, classe=''):
     c = f' class="{classe}"' if classe else ''
@@ -58,6 +79,41 @@ TESTA = ('<g class="testa"><path class="t-corpo" d="M-82 34 C-104 -96 104 -96 82
          '<path class="t-bocca" d="M-12 30 Q0 38 12 30"/></g>')
 
 
+def polpo_mini(attivo=None, fisso=False, classe='logo-polpo', etichetta=''):
+    """Il Polpo in piccolo, lo stesso disegno della giostra: il braccio `attivo` è rosso e indica
+    a destra (verso il titolo). fisso=True: colori scritti nel disegno, per l'icona del browser."""
+    if fisso:
+        c = dict(arto='#8A93A3', st='#F5F1E8', st_bordo='#8A93A3', ic='#17202E', rosso='#F06A55', corpo='#F5F1E8', ink='#17202E')
+    pezzi = []
+    for j in range(8):
+        ang = ((j - attivo) if attivo is not None else j) * 45
+        on = j == attivo
+        if fisso:
+            ac = c['rosso'] if on else c['arto']
+            sf, sb = (c['rosso'], c['rosso']) if on else (c['st'], c['st_bordo'])
+            arto = f'<path d="M70 0 C112 -42 140 40 182 0" fill="none" stroke="{ac}" stroke-width="34" stroke-linecap="round"/>'
+            st = f'<circle r="58" fill="{sf}" stroke="{sb}" stroke-width="8"/>'
+            ic = f'<path transform="rotate({-ang}) scale(2.6) translate(-12 -12)" d="{BRACCIA[j][3]}" fill="none" stroke="{c["ic"]}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>'
+        else:
+            cl = ' pm-attivo' if on else ''
+            arto = '<path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/>'
+            st = '<circle class="pm-st" r="58"/>'
+            ic = f'<path class="pm-ic" transform="rotate({-ang}) scale(2.6) translate(-12 -12)" d="{BRACCIA[j][3]}"/>'
+            arto = arto.replace('class="pm-arto"', f'class="pm-arto{cl}"'); st = st.replace('class="pm-st"', f'class="pm-st{cl}"'); ic = ic.replace('class="pm-ic"', f'class="pm-ic{cl}"')
+        pezzi.append(f'<g transform="rotate({ang})">{arto}<g transform="translate(226 0)">{st}{ic}</g></g>')
+    if fisso:
+        testa = (f'<g transform="scale(1.25)"><path d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z" fill="{c["corpo"]}" stroke="{c["ink"]}" stroke-width="6"/>'
+                 f'<circle cx="-26" cy="-6" r="22" fill="none" stroke="{c["ink"]}" stroke-width="6"/><circle cx="26" cy="-6" r="22" fill="none" stroke="{c["ink"]}" stroke-width="6"/>'
+                 f'<path d="M-4 -6 H4" stroke="{c["ink"]}" stroke-width="6"/><circle cx="-26" cy="-4" r="8" fill="{c["ink"]}"/><circle cx="26" cy="-4" r="8" fill="{c["ink"]}"/></g>')
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" rx="130" fill="#17202E"/>'
+                f'<g transform="scale(0.9)">{"".join(pezzi)}{testa}</g></svg>\n')
+    testa = ('<g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/>'
+             '<circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/>'
+             '<circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g>')
+    aria = f'role="img" aria-label="{etichetta}"' if etichetta else 'aria-hidden="true"'
+    return f'<svg class="{classe}" viewBox="-300 -300 600 600" {aria}>{"".join(pezzi)}{testa}</svg>'
+
+
 def pannello(k):
     lato, mestiere, spiega, _, strumenti = BRACCIA[k]
     bottoni = ''.join(link(n, h, 'btn btn-primario' if i == 0 else 'btn') for i, (n, h) in enumerate(strumenti))
@@ -75,6 +131,61 @@ def griglia():
     return ''.join(out)
 
 
+def chiedi():
+    esempi = ''.join(f'<button type="button" class="chiedi-esempio">{e}</button>' for e in ESEMPI)
+    return f'''<section class="chiedi" aria-labelledby="t-chiedi">
+      <div class="chiedi-testa">{polpo_mini(None, classe='chiedi-polpo')}<div><h2 id="t-chiedi">Chiedi al Polpo</h2><p>Scrivi con parole tue cosa ti serve: il Polpo ti indica il braccio e lo strumento giusto. Quello che scrivi resta sul tuo dispositivo.</p></div></div>
+      <form class="chiedi-form" novalidate>
+        <label for="chiedi-testo" class="sr-only">Cosa ti serve?</label>
+        <textarea id="chiedi-testo" rows="2" placeholder="Per esempio: mi è arrivata una multa dopo quattro mesi"></textarea>
+        <button type="submit" class="btn btn-primario">Chiedi</button>
+      </form>
+      <div class="chiedi-esempi"><span>Prova con</span>{esempi}</div>
+      <div class="chiedi-risposta" aria-live="polite" hidden></div>
+    </section>
+    <script>
+    /* Chiedi al Polpo: sceglie lo strumento dalle parole, nel browser. Gira la giostra sul braccio giusto.
+       Il testo passa alla chat solo se lo chiedi, tramite la memoria della scheda (mai nell'indirizzo). */
+    (() => {{
+      const PAROLE = {json.dumps(PAROLE, ensure_ascii=False)};
+      const BRACCIA = {json.dumps([{'mestiere': b[1], 'strumenti': b[4]} for b in BRACCIA], ensure_ascii=False)};
+      const f = document.querySelector('.chiedi-form');
+      const t = document.getElementById('chiedi-testo');
+      const r = document.querySelector('.chiedi-risposta');
+      const pulisci = (x) => ' ' + x.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/[’`]/g, "'").replace(/\\s+/g, ' ') + ' ';
+      const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({{'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}}[c]));
+      const braccioDi = (h) => BRACCIA.findIndex((b) => b.strumenti.some(([, x]) => x === h));
+      const nomeDi = (h) => BRACCIA.flatMap((b) => b.strumenti).find(([, x]) => x === h)[0];
+      const a = (h, cl) => h.startsWith('http') ? `<a class="${{cl}}" href="${{h}}" target="_blank" rel="noopener">${{esc(nomeDi(h))}}</a>` : `<a class="${{cl}}" href="${{h}}" data-strumento="${{h.replace(/\\//g, '')}}">${{esc(nomeDi(h))}} →</a>`;
+      function rispondi(testo) {{
+        const x = pulisci(testo);
+        if (!x.trim()) {{ t.focus(); return; }}
+        const punti = PAROLE.map(([h, ps]) => [h, ps.reduce((n, p) => n + (x.includes(p) ? 1 : 0), 0)]).filter(([, n]) => n > 0).sort((p, q) => q[1] - p[1]);
+        r.hidden = false;
+        const chat = '<a class="chiedi-chat" href="assistente/" data-strumento="assistente">Raccontalo al Polpo in chat</a>';
+        if (!punti.length) {{
+          r.innerHTML = `<p class="chiedi-titolo">Con queste parole non trovo il braccio giusto.</p><p>Prova a dirlo in un altro modo, guarda le otto braccia qui sotto oppure cerca la pratica nel ${{a('navigatore/', 'chiedi-link')}}</p><p>${{chat}}</p>`;
+          return;
+        }}
+        const primo = punti[0][0], k = braccioDi(primo);
+        const altri = punti.slice(1, 3).map(([h]) => a(h, 'btn')).join('');
+        r.innerHTML = `<p class="chiedi-n">Braccio ${{String(k + 1).padStart(2, '0')}} · ${{esc(BRACCIA[k].mestiere)}}</p>`
+          + `<p class="chiedi-titolo">Ci metto il braccio giusto: ${{a(primo, 'btn btn-primario')}}</p>`
+          + (altri ? `<p class="chiedi-altri"><span>Potrebbe servirti anche</span>${{altri}}</p>` : '')
+          + `<p>${{chat}}</p>`;
+        if (window.polpoMostra) window.polpoMostra(k);
+      }}
+      f.addEventListener('submit', (e) => {{ e.preventDefault(); rispondi(t.value); }});
+      t.addEventListener('keydown', (e) => {{ if (e.key === 'Enter' && !e.shiftKey) {{ e.preventDefault(); rispondi(t.value); }} }});
+      document.querySelectorAll('.chiedi-esempio').forEach((b) => b.addEventListener('click', () => {{ t.value = b.textContent; rispondi(t.value); }}));
+      r.addEventListener('click', (e) => {{
+        if (!e.target.closest('.chiedi-chat')) return;
+        try {{ sessionStorage.setItem('polpo-domanda', t.value.slice(0, 2000)); }} catch {{ /* niente */ }}
+      }});
+    }})();
+    </script>'''
+
+
 def blocco():
     braccia = ''.join(braccio_svg(k) for k in range(8))
     dati = json.dumps([{'lato': LATI[b[0]], 'mestiere': b[1], 'spiega': b[2], 'strumenti': b[4]} for b in BRACCIA], ensure_ascii=False)
@@ -82,9 +193,10 @@ def blocco():
     return f'''<!--casa--><header class="casa">
     <div class="casa-testa">
       <div class="occhiello">Al servizio del cittadino</div>
-      <h1>Lo Scrivano civico</h1>
+      <h1>Polpo civico</h1>
       <p class="casa-motto">La burocrazia ha mille tentacoli. <span>Il Polpo ne ha otto, tutti dalla tua parte.</span></p>
     </div>
+    {chiedi()}
     <section class="giostra" aria-roledescription="carosello" aria-label="Le otto braccia del Polpo" style="--rot:0deg">
       <div class="giostra-scena">
         <svg class="polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo con gli occhialini e le sue otto braccia; il braccio in evidenza indica il mestiere descritto accanto">
@@ -101,7 +213,6 @@ def blocco():
         </div>
       </div>
     </section>
-    <p class="casa-azioni"><a class="btn btn-primario" href="assistente/" data-strumento="assistente">Chiedi al Polpo</a> <span>Racconta il problema con parole tue: sceglie lui il braccio giusto.</span></p>
   </header>
 
   <section class="tutte" id="cosa-puoi-fare" aria-labelledby="t-tutte">
@@ -161,6 +272,7 @@ def blocco():
     g.scrollIntoView({{ block: 'center' }});
     return true;
   }}
+  window.polpoMostra = (n) => {{ tocca(); mostra(n); }};
   addEventListener('hashchange', daIndirizzo);
   if (!daIndirizzo()) mostra(0, 0);
 }})();
@@ -175,6 +287,27 @@ CSS = '''/*casa*/
   .casa-testa h1 { font-size: clamp(46px, 8vw, 104px); line-height: .88; letter-spacing: -0.06em; margin: 4px 0 6px; }
   .casa-motto { font-family: var(--titoli); font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 30ch; }
   .casa-motto span { color: var(--accento); }
+  .chiedi { position: relative; margin-top: clamp(16px, 2.6vw, 26px); background: var(--carta); border: 1px solid color-mix(in srgb, var(--accento) 45%, var(--riga)); border-radius: 6px; padding: clamp(16px, 3vw, 26px); display: grid; gap: 12px; max-width: 980px; background-image: radial-gradient(110% 90% at 100% 0%, color-mix(in srgb, var(--accento) 12%, transparent), transparent 55%); }
+  .chiedi-testa { display: flex; gap: 14px; align-items: center; }
+  .chiedi-polpo { width: 86px; height: 86px; flex: none; overflow: visible; }
+  .chiedi h2 { font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.04em; margin: 0; }
+  .chiedi-testa p { margin: 4px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
+  .chiedi-form { display: flex; gap: 10px; align-items: stretch; }
+  .chiedi-form textarea { flex: 1; min-height: 58px; max-width: none; resize: vertical; background: var(--fondo); border: 1px solid var(--riga); border-radius: 6px; padding: 12px 14px; font: inherit; font-size: var(--s1); color: var(--inchiostro); }
+  .chiedi-form textarea:focus { border-color: var(--accento); outline: none; }
+  .chiedi-form .btn { padding: 0 26px; justify-content: center; }
+  .chiedi-esempi { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chiedi-esempi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); margin-right: 4px; }
+  .chiedi-esempio { font: inherit; font-size: 13.5px; color: var(--inchiostro-2); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .chiedi-esempio:hover, .chiedi-esempio:focus-visible { border-color: var(--accento); color: var(--inchiostro); outline: none; }
+  .chiedi-risposta { border-top: 1px solid var(--riga); padding-top: 12px; display: grid; gap: 10px; }
+  .chiedi-risposta p { margin: 0; color: var(--inchiostro-2); }
+  .chiedi-n { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accento) !important; }
+  .chiedi-titolo { font-family: var(--titoli); font-size: clamp(19px, 2vw, 24px); letter-spacing: -0.03em; color: var(--inchiostro) !important; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .chiedi-altri { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .chiedi-altri span { font-size: 14px; color: var(--inchiostro-3); }
+  .chiedi-chat { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  @media (max-width: 620px) { .chiedi-form { flex-direction: column; } .chiedi-form .btn { padding: 12px 22px; } .chiedi-polpo { width: 64px; height: 64px; } }
   .giostra { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(8px, 3vw, 40px); align-items: center; margin-top: clamp(8px, 2vw, 18px); }
   .giostra-scena { aspect-ratio: 1; max-height: 620px; justify-self: center; width: 100%; }
   .polpo { width: 100%; height: 100%; overflow: visible; }
@@ -250,7 +383,7 @@ def main():
     else:
         s = re.sub(r'/\*mappa\*/.*?/\*/mappa\*/', lambda m: CSS, s, count=1, flags=re.S)
     s = s.replace('<meta name="description" content="Strumenti aperti al servizio del cittadino, che funzionano senza chiedere niente a nessuno: bonus che ti spettano, ricorso alle multe, accesso agli atti della pubblica amministrazione.">',
-                  '<meta name="description" content="Lo Scrivano civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">')
+                  '<meta name="description" content="Polpo civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">')
     open(p, 'w', encoding='utf-8').write(s)
     print('pagina d\'ingresso scritta')
 

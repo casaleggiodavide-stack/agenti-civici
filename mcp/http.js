@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Server MCP dello Scrivano civico via internet (Streamable HTTP, senza stato),
+// Server MCP del Polpo civico via internet (Streamable HTTP, senza stato),
 // per i connettori remoti degli assistenti AI. Le regole sono in
 // nucleo.js. Nessun dato viene salvato o registrato: niente log delle domande,
 // niente cookie, niente sessioni. Uso: PORT=8080 node mcp/http.js
@@ -32,7 +32,7 @@ function invia(res, stato, corpo, tipo = 'application/json') {
   res.end(typeof corpo === 'string' ? corpo : JSON.stringify(corpo));
 }
 
-const PAGINA = `Lo Scrivano civico, server MCP (${INFO.version})
+const PAGINA = `Polpo civico, server MCP (${INFO.version})
 
 Strumenti: ${TOOLS.map((t) => t.name).join(', ')}.
 Indirizzo da aggiungere tra i connettori del tuo assistente AI: questo indirizzo seguito da /mcp
@@ -65,5 +65,5 @@ export const server = createServer((req, res) => {
 });
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  server.listen(PORTA, () => process.stderr.write(`Lo Scrivano civico MCP su http://localhost:${PORTA}/mcp\n`));
+  server.listen(PORTA, () => process.stderr.write(`Polpo civico MCP su http://localhost:${PORTA}/mcp\n`));
 }

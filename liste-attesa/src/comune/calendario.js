@@ -1,5 +1,5 @@
 // Copia di comune/calendario.js: non modificare qui, usa npm run sincronizza.
-// Promemoria delle scadenze: ogni termine calcolato dallo Scrivano civico
+// Promemoria delle scadenze: ogni termine calcolato dal Polpo civico
 // diventa un evento di calendario. Tre forme:
 //   - link a Google Calendar e a Outlook (funzionano ovunque, anche nelle
 //     pagine incorporate in un'altra applicazione, dove i file .ics non si possono salvare);
@@ -64,7 +64,7 @@ function piega(riga) {
 /** Un calendario .ics con uno o più eventi. `adesso` serve solo a DTSTAMP (test). */
 export function ics(eventi, adesso = new Date()) {
   const stamp = adesso.toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
-  const righe = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Lo Scrivano civico//Promemoria//IT', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+  const righe = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Polpo civico//Promemoria//IT', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
   (Array.isArray(eventi) ? eventi : [eventi]).forEach((p, i) => {
     const e = evento(p);
     righe.push(

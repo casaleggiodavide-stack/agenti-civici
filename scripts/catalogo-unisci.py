@@ -11,8 +11,8 @@ QUI = {
   'Consumatori e lavoratori': ('fatto', 'Mi rimborsano?', SITO + 'mi-rimborsano/', 'voli, treni, bagagli, bollette, telefono, banca: per ora la parte consumatori'),
   'Red flag sugli appalti': ('fatto', 'Red flag sugli appalti', SITO + 'appalti/', '1,45 milioni di procedure ANAC del 2025, 19.356 enti'),
   'Il bilancio del mio Comune spiegato': ('fatto', 'Il bilancio del mio Comune', SITO + 'bilancio-comune/', 'rendiconti di 7.808 Comuni, confronto con i Comuni simili'),
-  'Dati civici come tool per ogni assistente': ('fatto', 'Server MCP dello Scrivano civico', 'https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md', 'dieci strumenti dentro gli assistenti AI'),
-  'Assistente unico ai servizi con fonti': ('parziale', 'Lo Scrivano civico', SITO + 'assistente/', 'per ora bonus, multe, accesso agli atti e reclami'),
+  'Dati civici come tool per ogni assistente': ('fatto', 'Server MCP del Polpo civico', 'https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md', 'dieci strumenti dentro gli assistenti AI'),
+  'Assistente unico ai servizi con fonti': ('parziale', 'Polpo civico', SITO + 'assistente/', 'per ora bonus, multe, accesso agli atti e reclami'),
   'Sorveglianza dei siti pubblici': ('parziale', 'Sentinella delle regole', 'https://github.com/casaleggiodavide-stack/agenti-civici/tree/main/sentinella', 'sorveglia le 190 fonti usate dagli agenti'),
   'Reclami alla PA e difensore civico': ('fatto', 'Reclami alla PA', SITO + 'reclami-pa/', 'potere sostitutivo, difensori civici regionali, termini calcolati e lettere pronte'),
   'Segnalazioni urbane indipendenti': ('fatto', 'Segnalazioni urbane', SITO + 'segnalazioni/', 'chi deve intervenire, PEC dall\'Indice PA, segnalazione e sollecito pronti'),
@@ -48,7 +48,7 @@ def card(m):
         if q[2]:
             extra = f'<a class="nostro" href="{q[2]}" target="_top"><b>{H.escape(q[1])}</b><span>{H.escape(q[3])}</span></a>'
         else:
-            extra = f'<div class="nostro cantiere"><b>Lo Scrivano civico</b><span>{H.escape(q[3])}</span></div>'
+            extra = f'<div class="nostro cantiere"><b>Polpo civico</b><span>{H.escape(q[3])}</span></div>'
     if titolo in PRIORITA and stato not in ('fatto', 'parziale'):
         blocco = blocco.replace('<div class="tags">', f'<div class="tags"><span class="tag t-prio" title="Punteggio nella classifica del Cantiere">priorità {PRIORITA[titolo]}/100</span>', 1)
     # la scheda «fatta qui» porta il link subito sotto la descrizione
@@ -155,7 +155,7 @@ js = r'''
       return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * ordine.v || b.priorita - a.priorita || a.titolo.localeCompare(b.titolo);
     });
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-    document.querySelector('#tabella tbody').innerHTML = lista.map((r) => `<tr><td>${r.href ? `<a href="${esc(r.href)}" target="_top">${esc(r.titolo)}</a>` : esc(r.titolo)}${r.nostro && r.nostro !== 'Lo Scrivano civico' ? `<br><small>${esc(r.nostro)}</small>` : ''}</td><td>${esc(r.area)}</td><td>${esc(NOMI[r.stato])}</td><td>${esc(r.dove)}</td><td class="n">${r.priorita || '—'}</td></tr>`).join('');
+    document.querySelector('#tabella tbody').innerHTML = lista.map((r) => `<tr><td>${r.href ? `<a href="${esc(r.href)}" target="_top">${esc(r.titolo)}</a>` : esc(r.titolo)}${r.nostro && r.nostro !== 'Polpo civico' ? `<br><small>${esc(r.nostro)}</small>` : ''}</td><td>${esc(r.area)}</td><td>${esc(NOMI[r.stato])}</td><td>${esc(r.dove)}</td><td class="n">${r.priorita || '—'}</td></tr>`).join('');
     document.querySelectorAll('#tabella th').forEach((th) => th.toggleAttribute('aria-sort', th.dataset.k === ordine.k) || th.setAttribute('aria-sort', ordine.v < 0 ? 'descending' : 'ascending'));
     document.querySelectorAll('#tabella th').forEach((th) => { if (th.dataset.k === ordine.k) th.setAttribute('aria-sort', ordine.v < 0 ? 'descending' : 'ascending'); else th.removeAttribute('aria-sort'); });
   }
@@ -181,7 +181,7 @@ js = r'''
 '''
 s = s.replace('</footer>\n</div>', '</footer>\n</div>\n' + js, 1) if '</footer>\n</div>' in s else s + js
 # testi aggiornati
-s = s.replace("Gli strumenti già costruiti (Lo Scrivano civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
-s = s.replace('Lo Scrivano civico · catalogo aggiornato al 14 settembre 2026', 'Lo Scrivano civico · catalogo aggiornato al 25 ottobre 2026')
+s = s.replace("Gli strumenti già costruiti (Polpo civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
+s = s.replace('Polpo civico · catalogo aggiornato al 14 settembre 2026', 'Polpo civico · catalogo aggiornato al 25 ottobre 2026')
 s = re.sub(r'54 strumenti · 4 sezioni', f'{n} strumenti · fatti qui, in costruzione, esistenti altrove e da fare', s)
 open(out, 'w').write(s)

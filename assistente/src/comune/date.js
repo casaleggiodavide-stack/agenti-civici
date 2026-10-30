@@ -1,5 +1,5 @@
 // Copia di comune/date.js: non modificare qui, usa npm run sincronizza.
-// Calcolo delle scadenze per lo Scrivano civico.
+// Calcolo delle scadenze per il Polpo civico.
 // Le date sono «di calendario» (anno, mese, giorno) senza ore né fusi orari.
 // Festività nazionali: legge 260/1949 e successive, compreso il 4 ottobre
 // (San Francesco) dal 2026 per la legge 151/2025.

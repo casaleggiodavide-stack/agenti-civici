@@ -328,6 +328,8 @@ function aggiornaLinkFamiglia(el) {
   });
 }
 
+// La domanda scritta nella casella «Chiedi al Polpo» della pagina d'ingresso (memoria della scheda, mai nell'indirizzo)
+try { const d = sessionStorage.getItem('polpo-domanda'); if (d) { $('#domanda').value = d; sessionStorage.removeItem('polpo-domanda'); } } catch { /* niente */ }
 $('#scrivi').addEventListener('submit', (e) => { e.preventDefault(); invia($('#domanda').value); });
 $('#domanda').addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); invia($('#domanda').value); } });
 $('#ferma').addEventListener('click', () => ctl?.abort());

@@ -1,4 +1,4 @@
-// Prepara lo Scrivano civico per la pubblicazione come Artifact. A differenza
+// Prepara il Polpo civico per la pubblicazione come Artifact. A differenza
 // degli altri strumenti importa i motori di regole di tutti e tre, quindi la
 // pubblicazione conserva i percorsi del repository (assistente/, mi-spetta/src…).
 // Uso: node scripts/prepara-assistente.mjs <cartella-destinazione> '<json link>'

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lo Scrivano civico</title>
-<meta name="description" content="Lo Scrivano civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">
+<title>Polpo civico</title>
+<meta name="description" content="Polpo civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">
 <link rel="icon" href="comune/marchio.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@
   main .strumento:hover .scena .s-t { stroke-width: 3.6; }
   .pilastro { border-top: 1px solid var(--riga); }
   .pilastro h2 { font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.045em; line-height: .95; }
-  /* Il Polpo, lo scrivano civico: la scheda di presentazione */
+  /* Il Polpo civico: la scheda di presentazione */
   main .scheda-scrivano { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); padding: 0; gap: 0; align-items: stretch; }
   main .scheda-scrivano > .scrivano-foto { margin: 0; width: 100%; height: 100%; min-height: 260px; object-fit: cover; object-position: 30% 50%; display: block; border-right: 1px solid var(--riga); }
   main .scheda-scrivano > .scrivano-testo { margin: 0; padding: clamp(20px, 3vw, 36px); display: grid; gap: 12px; align-content: center; }
@@ -66,6 +66,27 @@
   .casa-testa h1 { font-size: clamp(46px, 8vw, 104px); line-height: .88; letter-spacing: -0.06em; margin: 4px 0 6px; }
   .casa-motto { font-family: var(--titoli); font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 30ch; }
   .casa-motto span { color: var(--accento); }
+  .chiedi { position: relative; margin-top: clamp(16px, 2.6vw, 26px); background: var(--carta); border: 1px solid color-mix(in srgb, var(--accento) 45%, var(--riga)); border-radius: 6px; padding: clamp(16px, 3vw, 26px); display: grid; gap: 12px; max-width: 980px; background-image: radial-gradient(110% 90% at 100% 0%, color-mix(in srgb, var(--accento) 12%, transparent), transparent 55%); }
+  .chiedi-testa { display: flex; gap: 14px; align-items: center; }
+  .chiedi-polpo { width: 86px; height: 86px; flex: none; overflow: visible; }
+  .chiedi h2 { font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.04em; margin: 0; }
+  .chiedi-testa p { margin: 4px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
+  .chiedi-form { display: flex; gap: 10px; align-items: stretch; }
+  .chiedi-form textarea { flex: 1; min-height: 58px; max-width: none; resize: vertical; background: var(--fondo); border: 1px solid var(--riga); border-radius: 6px; padding: 12px 14px; font: inherit; font-size: var(--s1); color: var(--inchiostro); }
+  .chiedi-form textarea:focus { border-color: var(--accento); outline: none; }
+  .chiedi-form .btn { padding: 0 26px; justify-content: center; }
+  .chiedi-esempi { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chiedi-esempi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); margin-right: 4px; }
+  .chiedi-esempio { font: inherit; font-size: 13.5px; color: var(--inchiostro-2); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .chiedi-esempio:hover, .chiedi-esempio:focus-visible { border-color: var(--accento); color: var(--inchiostro); outline: none; }
+  .chiedi-risposta { border-top: 1px solid var(--riga); padding-top: 12px; display: grid; gap: 10px; }
+  .chiedi-risposta p { margin: 0; color: var(--inchiostro-2); }
+  .chiedi-n { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accento) !important; }
+  .chiedi-titolo { font-family: var(--titoli); font-size: clamp(19px, 2vw, 24px); letter-spacing: -0.03em; color: var(--inchiostro) !important; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .chiedi-altri { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .chiedi-altri span { font-size: 14px; color: var(--inchiostro-3); }
+  .chiedi-chat { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  @media (max-width: 620px) { .chiedi-form { flex-direction: column; } .chiedi-form .btn { padding: 12px 22px; } .chiedi-polpo { width: 64px; height: 64px; } }
   .giostra { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(8px, 3vw, 40px); align-items: center; margin-top: clamp(8px, 2vw, 18px); }
   .giostra-scena { aspect-ratio: 1; max-height: 620px; justify-self: center; width: 100%; }
   .polpo { width: 100%; height: 100%; overflow: visible; }
@@ -133,9 +154,60 @@
   <!--casa--><header class="casa">
     <div class="casa-testa">
       <div class="occhiello">Al servizio del cittadino</div>
-      <h1>Lo Scrivano civico</h1>
+      <h1>Polpo civico</h1>
       <p class="casa-motto">La burocrazia ha mille tentacoli. <span>Il Polpo ne ha otto, tutti dalla tua parte.</span></p>
     </div>
+    <section class="chiedi" aria-labelledby="t-chiedi">
+      <div class="chiedi-testa"><svg class="chiedi-polpo" viewBox="-300 -300 600 600" aria-hidden="true"><g transform="rotate(0)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-135) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-180) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(225)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-225) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(270)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-270) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(315)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-315) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg><div><h2 id="t-chiedi">Chiedi al Polpo</h2><p>Scrivi con parole tue cosa ti serve: il Polpo ti indica il braccio e lo strumento giusto. Quello che scrivi resta sul tuo dispositivo.</p></div></div>
+      <form class="chiedi-form" novalidate>
+        <label for="chiedi-testo" class="sr-only">Cosa ti serve?</label>
+        <textarea id="chiedi-testo" rows="2" placeholder="Per esempio: mi è arrivata una multa dopo quattro mesi"></textarea>
+        <button type="submit" class="btn btn-primario">Chiedi</button>
+      </form>
+      <div class="chiedi-esempi"><span>Prova con</span><button type="button" class="chiedi-esempio">Mi è arrivata una multa dopo quattro mesi</button><button type="button" class="chiedi-esempio">Il volo è arrivato con cinque ore di ritardo</button><button type="button" class="chiedi-esempio">Ho 70 anni e la pensione minima: che aiuti ci sono?</button><button type="button" class="chiedi-esempio">Davanti a casa c'è una buca da mesi</button><button type="button" class="chiedi-esempio">Mi è arrivato un SMS strano dalla banca</button></div>
+      <div class="chiedi-risposta" aria-live="polite" hidden></div>
+    </section>
+    <script>
+    /* Chiedi al Polpo: sceglie lo strumento dalle parole, nel browser. Gira la giostra sul braccio giusto.
+       Il testo passa alla chat solo se lo chiedi, tramite la memoria della scheda (mai nell'indirizzo). */
+    (() => {
+      const PAROLE = [["faccio-ricorso/", ["multa", "multe", "verbale", "autovelox", "contravvenzion", "ztl", "semaforo", "divieto di sosta", "strisce blu", "ricorso", "tutor", "eccesso di velocita"]], ["mi-spetta/", ["bonus", "assegno", "isee", "aiuto", "aiuti", "sussidi", "pensione", "reddito", "contribut", "agevolazion", "esenzion", "ticket", "figli", "bambino", "maternita", "disoccupa", "invalidita", "mi spetta", "diritto a"]], ["mi-rimborsano/", ["volo", "aereo", "ritardo", "cancellat", "bagaglio", "valigia", "treno", "bolletta", "conguaglio", "telefon", "internet", "fibra", "banca", "addebito", "rimborso", "rimborsare", "compensazione"]], ["chiedo-gli-atti/", ["documenti", "documento", "atti ", "accesso agli atti", "foia", "quanto ha speso", "delibera", "determina", "trasparenza", "copia di", "consulenze"]], ["reclami-pa/", ["non risponde", "non mi rispond", "reclamo", "reclamare", "sportello", "difensore civico", "silenzio", "ufficio pubblico"]], ["navigatore/", ["residenza", "carta d'identita", "carta di identita", "passaporto", "patente", "spid", "certificato", "anagrafe", "come si fa", "pratica", "permesso di soggiorno", "cittadinanza", "cambio di", "iscriver", "a quale ufficio"]], ["liste-attesa/", ["visita", "esame", "esami", "prenotazion", "prenotare", "cup", "specialist", "lista d'attesa", "liste d'attesa", "impegnativa", "ricetta", "risonanza", "ecografia", "tac"]], ["garanzia/", ["garanzia", "rotto", "rotta", "guasto", "difettos", "non funziona", "reso", "recesso", "restituire", "ripensato", "comprato", "acquisto"]], ["truffe/", ["truffa", "truffe", "sms", "messaggio strano", "link", "phishing", "mail sospetta", "pacco", "ciao mamma", "falso", "clonat", "bonifico", "investimento", "crypto", "sospett", "strano", "strana", "whatsapp", "codice otp", "mi chiedono il codice", "vinto"]], ["bilancio-comune/", ["bilancio", "spende il comune", "come spende", "spesa del comune", "conti del comune", "debito del comune", "tasse comunali"]], ["appalti/", ["appalto", "appalti", "gara", "affidamento", "lavori pubblici", "ditta"]], ["raccolte-firme/", ["firma", "firmare", "referendum", "legge popolare", "legge di iniziativa", "petizione", "raccolta firme"]], ["segnalazioni/", ["buca", "buche", "strada", "marciapiede", "lampion", "illuminazione", "rifiuti", "spazzatura", "degrado", "graffiti", "segnalare", "segnalazione", "semaforo rotto"]], ["alberi/", ["albero", "alberi", "piantare", "bosco"]], ["https://www.fiumipuliti.it/", ["fiume", "fiumi", "torrente", "acqua inquinata"]]];
+      const BRACCIA = [{"mestiere": "Fa i conti dei tuoi diritti", "strumenti": [["Mi spetta", "mi-spetta/"], ["Mi rimborsano?", "mi-rimborsano/"]]}, {"mestiere": "Scrive le lettere", "strumenti": [["Faccio ricorso?", "faccio-ricorso/"], ["Chiedo gli atti", "chiedo-gli-atti/"], ["Reclami alla PA", "reclami-pa/"]]}, {"mestiere": "Trova la strada", "strumenti": [["Navigatore dei servizi", "navigatore/"], ["La visita nei tempi", "liste-attesa/"]]}, {"mestiere": "Ti difende", "strumenti": [["Si è rotto o ci ho ripensato", "garanzia/"], ["È una truffa?", "truffe/"]]}, {"mestiere": "Legge i conti del Comune", "strumenti": [["Il bilancio del mio Comune", "bilancio-comune/"]]}, {"mestiere": "Controlla gli appalti", "strumenti": [["Red flag sugli appalti", "appalti/"]]}, {"mestiere": "Ti porta a firmare", "strumenti": [["Raccolte firme in corso", "raccolte-firme/"]]}, {"mestiere": "Si prende cura dei luoghi", "strumenti": [["Segnalazioni urbane", "segnalazioni/"], ["Alberi per il futuro", "alberi/"], ["Fiumi Puliti", "https://www.fiumipuliti.it/"]]}];
+      const f = document.querySelector('.chiedi-form');
+      const t = document.getElementById('chiedi-testo');
+      const r = document.querySelector('.chiedi-risposta');
+      const pulisci = (x) => ' ' + x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’`]/g, "'").replace(/\s+/g, ' ') + ' ';
+      const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+      const braccioDi = (h) => BRACCIA.findIndex((b) => b.strumenti.some(([, x]) => x === h));
+      const nomeDi = (h) => BRACCIA.flatMap((b) => b.strumenti).find(([, x]) => x === h)[0];
+      const a = (h, cl) => h.startsWith('http') ? `<a class="${cl}" href="${h}" target="_blank" rel="noopener">${esc(nomeDi(h))}</a>` : `<a class="${cl}" href="${h}" data-strumento="${h.replace(/\//g, '')}">${esc(nomeDi(h))} →</a>`;
+      function rispondi(testo) {
+        const x = pulisci(testo);
+        if (!x.trim()) { t.focus(); return; }
+        const punti = PAROLE.map(([h, ps]) => [h, ps.reduce((n, p) => n + (x.includes(p) ? 1 : 0), 0)]).filter(([, n]) => n > 0).sort((p, q) => q[1] - p[1]);
+        r.hidden = false;
+        const chat = '<a class="chiedi-chat" href="assistente/" data-strumento="assistente">Raccontalo al Polpo in chat</a>';
+        if (!punti.length) {
+          r.innerHTML = `<p class="chiedi-titolo">Con queste parole non trovo il braccio giusto.</p><p>Prova a dirlo in un altro modo, guarda le otto braccia qui sotto oppure cerca la pratica nel ${a('navigatore/', 'chiedi-link')}</p><p>${chat}</p>`;
+          return;
+        }
+        const primo = punti[0][0], k = braccioDi(primo);
+        const altri = punti.slice(1, 3).map(([h]) => a(h, 'btn')).join('');
+        r.innerHTML = `<p class="chiedi-n">Braccio ${String(k + 1).padStart(2, '0')} · ${esc(BRACCIA[k].mestiere)}</p>`
+          + `<p class="chiedi-titolo">Ci metto il braccio giusto: ${a(primo, 'btn btn-primario')}</p>`
+          + (altri ? `<p class="chiedi-altri"><span>Potrebbe servirti anche</span>${altri}</p>` : '')
+          + `<p>${chat}</p>`;
+        if (window.polpoMostra) window.polpoMostra(k);
+      }
+      f.addEventListener('submit', (e) => { e.preventDefault(); rispondi(t.value); });
+      t.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); rispondi(t.value); } });
+      document.querySelectorAll('.chiedi-esempio').forEach((b) => b.addEventListener('click', () => { t.value = b.textContent; rispondi(t.value); }));
+      r.addEventListener('click', (e) => {
+        if (!e.target.closest('.chiedi-chat')) return;
+        try { sessionStorage.setItem('polpo-domanda', t.value.slice(0, 2000)); } catch { /* niente */ }
+      });
+    })();
+    </script>
     <section class="giostra" aria-roledescription="carosello" aria-label="Le otto braccia del Polpo" style="--rot:0deg">
       <div class="giostra-scena">
         <svg class="polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo con gli occhialini e le sue otto braccia; il braccio in evidenza indica il mestiere descritto accanto">
@@ -152,7 +224,6 @@
         </div>
       </div>
     </section>
-    <p class="casa-azioni"><a class="btn btn-primario" href="assistente/" data-strumento="assistente">Chiedi al Polpo</a> <span>Racconta il problema con parole tue: sceglie lui il braccio giusto.</span></p>
   </header>
 
   <section class="tutte" id="cosa-puoi-fare" aria-labelledby="t-tutte">
@@ -212,6 +283,7 @@
     g.scrollIntoView({ block: 'center' });
     return true;
   }
+  window.polpoMostra = (n) => { tocca(); mostra(n); };
   addEventListener('hashchange', daIndirizzo);
   if (!daIndirizzo()) mostra(0, 0);
 })();
@@ -228,13 +300,13 @@
     <div>
       <div class="occhiello">Chi c'è dietro</div>
       <h2 id="t-crediti">Promosso dall'Associazione Gianroberto Casaleggio</h2>
-      <p>Lo Scrivano civico è promosso dall'Associazione Gianroberto Casaleggio, che non ha fini di lucro. Gli strumenti sono gratuiti, aperti, senza pubblicità e senza tracciamento: chiunque può usarli e controllarne le regole. Vivono grazie a chi decide di sostenerli.</p>
+      <p>Il Polpo civico è promosso dall'Associazione Gianroberto Casaleggio, che non ha fini di lucro. Gli strumenti sono gratuiti, aperti, senza pubblicità e senza tracciamento: chiunque può usarli e controllarne le regole. Vivono grazie a chi decide di sostenerli.</p>
     </div>
     <p class="azioni"><a class="btn btn-primario" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a> <a class="btn" href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">L'Associazione</a></p>
   </section><!--/crediti-casa-->
 
   <footer class="piede">
-    <!--crediti--><p class="crediti">Lo Scrivano civico è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
+    <!--crediti--><p class="crediti">Il Polpo civico è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
     <p>Non è un sito della pubblica amministrazione e non dà pareri legali. Le regole sono verificate sulle fonti ufficiali alla data indicata in ogni strumento.</p>
   </footer>
 </div>

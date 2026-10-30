@@ -1,6 +1,6 @@
-<img src="comune/marchio.svg" width="72" alt="Il marchio dello Scrivano civico: il Polpo con gli occhialini e un braccio rosso che disegna un labirinto e finisce in un nodo">
+<img src="comune/marchio.svg" width="72" alt="Il marchio del Polpo civico: il Polpo con gli occhialini e un braccio rosso che disegna un labirinto e finisce in un nodo">
 
-# Lo Scrivano civico
+# Polpo civico
 
 **Il filo per uscire dal labirinto.** La burocrazia è un labirinto; questi strumenti sono il filo di Arianna: un capo resta legato all'ingresso, alla fonte ufficiale, e il filo accompagna una regola dopo l'altra fino a quello che ti spetta. I passi e la firma restano tuoi.
 
@@ -8,7 +8,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
-| [Lo Scrivano civico](assistente/) | In conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
+| [Chiedi al Polpo](assistente/) | In conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |
 | [Mi rimborsano?](mi-rimborsano/) | Reclami e rimborsi: volo in ritardo o cancellato (Reg. 261/2004, con la riforma 2026/2202 che si applica dal 23/10/2027), bagaglio (Montreal), treno (Reg. 2021/782), bollette e prescrizione di due anni (ARERA), telefono e internet (indennizzi AGCOM), addebiti bancari non autorizzati (d.lgs. 11/2010). Importo, termini, passi e lettera di messa in mora. |
@@ -29,7 +29,7 @@ Principi comuni: nessun dato inviato, nessuna AI che inventa (regole scritte com
 
 ## Chi lo fa
 
-Lo Scrivano civico è promosso dall'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
+Il Polpo civico è promosso dall'[Associazione Gianroberto Casaleggio](https://www.gianrobertocasaleggio.com/), senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento. Per sostenere l'iniziativa: [donazioni all'Associazione](https://www.gianrobertocasaleggio.com/donazioni/).
 
 ## Usarli
 
@@ -50,9 +50,9 @@ Quando la pagina è aperta dentro un assistente AI, ogni strumento mostra il riq
 
 Anche lo Scrivano accetta la foto di un documento insieme al messaggio.
 
-## Lo Scrivano civico
+## Il Polpo
 
-Il volto del sito è il Polpo, lo scrivano civico: un polpo che fa lo scrivano pubblico, con otto braccia per leggere le carte, fare i conti, scrivere la lettera giusta e ricordare le scadenze; la firma resta di chi la manda. È un assistente AI e lo dice alla prima risposta. Chi è, come appare, come parla e cosa non fa mai sono in [docs/polpo.md](docs/polpo.md).
+Il volto del sito è il Polpo civico: un polpo che fa lo scrivano pubblico, con otto braccia per leggere le carte, fare i conti, scrivere la lettera giusta e ricordare le scadenze; la firma resta di chi la manda. È un assistente AI e lo dice alla prima risposta. Chi è, come appare, come parla e cosa non fa mai sono in [docs/polpo.md](docs/polpo.md).
 
 `assistente/` non ha un server suo: usa la capacità `sample` della piattaforma che ospita la pagina, cioè un modello di intelligenza artificiale con l'account e i limiti di chi la apre. Il modello non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
 
@@ -99,7 +99,7 @@ Carta #F5F1E8, inchiostro #17202E, filo rosso #C2362B (su fondo scuro #F06A55); 
 
 - `comune/`: codice condiviso (logica a tre valori, scadenze con festività italiane e sospensione feriale, questionari, stile). Si copia dentro ogni strumento con `npm run sincronizza`, così ogni strumento resta pubblicabile da solo.
 - `mi-spetta/`, `faccio-ricorso/`, `chiedo-gli-atti/`: uno strumento per cartella, con `src/` (regole e dati), `web/` (interfaccia), `test/`.
-- `assistente/`: lo Scrivano civico (strumenti per il modello, istruzioni, interfaccia della chat).
+- `assistente/`: il Polpo civico (strumenti per il modello, istruzioni, interfaccia della chat).
 - `sentinella/`: controllo delle fonti; `scripts/sentinella.mjs` lo esegue.
 - `mcp/`: server per gli assistenti AI.
 

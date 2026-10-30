@@ -226,7 +226,7 @@ STILE_ESTERNO = '''<style>
 </style>'''
 ESTERNE = [  # (file, ancora, scena, variabili)
     ('mondo/atlante.html', '  <h1>Atlante degli strumenti civici</h1>', 'mondo', '--accento:var(--accent);--accento-tenue:var(--accent-soft);--carta:var(--paper);--riga-tenue:var(--panel);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
-    ('catalogo/sorgente.html', '  <h1>Lo Scrivano civico</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
+    ('catalogo/sorgente.html', '  <h1>Polpo civico</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
 ]
 
 
@@ -292,7 +292,7 @@ def _logo(corpo, filo, nodo):
             f'<path class="lg-t" d="{filo}"/><circle class="lg-n" cx="{x}" cy="{y}" r="3.4"/>')
 
 LOGHI = {
-    # il Polpo, lo scrivano civico: occhialini, quattro braccia e il braccio rosso che disegna il labirinto
+    # il Polpo civico: occhialini, quattro braccia e il braccio rosso che disegna il labirinto
     'assistente': ('Polpo', _logo('<g transform="translate(6.5 4) scale(0.8)"><path class="lg-i" d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" style="stroke-width:4.4"/><circle class="lg-i" cx="26" cy="28" r="4.2"/><circle class="lg-i" cx="38" cy="28" r="4.2"/><path class="lg-i" d="M30.2 28 H33.8"/></g>', 'M45.7 32 C50.5 35.2 52.9 38.4 52.9 43.2 V56.8 H39.3 V48 H48.1 V52.8', (43.3, 52.8))),
     'navigatore': ('Navigatore dei servizi', _logo('<path class="lg-i" d="M32 52 V12 M24 52 H40 M32 16 H45 L50 21 L45 26 H32 M32 31 H19 L14 36 L19 41 H32"/>', 'M14 52 C20 49 24 47 32 47', (11, 53))),
     'mi-spetta': ('Mi spetta', _logo('<ellipse class="lg-i" cx="28" cy="44" rx="13" ry="5"/><path class="lg-i" d="M15 44 V36 M41 44 V36"/><ellipse class="lg-i" cx="28" cy="36" rx="13" ry="5"/><path class="lg-i" d="M15 36 V28 M41 36 V28"/><ellipse class="lg-i" cx="28" cy="28" rx="13" ry="5"/>', 'M14 53 C30 54 40 44 42 34 M38 18 L43 23 L52 12', (11, 52))),
@@ -344,6 +344,9 @@ def applica_loghi():
             s = s.replace(f'<h1>{h1}</h1>', blocco, 1)
         s = re.sub(r'<link rel="icon" href="src/comune/marchio\.svg" type="image/svg\+xml">', '<link rel="icon" href="src/logo.svg" type="image/svg+xml">', s)
         open(p, 'w', encoding='utf-8').write(s)
+    # negli strumenti il logo è il Polpo con il braccio dello strumento (scripts/braccia-strumenti.py)
+    import runpy
+    runpy.run_path(os.path.join(REPO, 'scripts', 'braccia-strumenti.py'), run_name='__main__')
     # home: il logo dentro la scena di ogni scheda
     p = os.path.join(REPO, 'index.html')
     s = open(p, encoding='utf-8').read()

@@ -1,4 +1,5 @@
-"""Il Polpo negli strumenti: in testata il segno del braccio a cui appartiene lo strumento
+"""Il Polpo negli strumenti: il logo di ogni strumento è il Polpo con il suo braccio in rosso
+(anche l'icona del browser, src/logo.svg); in testata il segno del braccio a cui appartiene lo strumento
 («Braccio 02 di 8 del Polpo · Scrive le lettere»), in fondo la fila delle otto braccia con
 quello attuale in rosso. I collegamenti portano alla pagina d'ingresso con quel braccio in vista
 (../#braccio-N). Le braccia e le icone vengono da scripts/casa-polpo.py.
@@ -66,6 +67,14 @@ def main():
                 return s.replace('<!--/logo-->', '<!--/logo-->\n      ' + b, 1)
             return re.sub(r'(<img class="logo-alberi"[^>]*>)', lambda m: m.group(1) + '\n      ' + b, s, count=1)
         s = metti(s, 'braccio', segno(t, s), in_testata)
+        # il logo dello strumento: il Polpo, con il braccio dello strumento in rosso che indica il titolo
+        k = DI.get(t)
+        etichetta = 'Il Polpo civico' if k is None else f'Il Polpo civico, braccio {k + 1}: {BRACCIA[k][1]}'
+        logo = casa.polpo_mini(k, classe='logo-strumento logo-polpo', etichetta=etichetta)
+        s = re.sub(rf'(<!--logo:{re.escape(t)}--><div class="titolo-logo">)<svg class="logo-strumento[^"]*".*?</svg>', lambda m: m.group(1) + logo, s, count=1, flags=re.S)
+        if t != 'alberi':
+            with open(os.path.join(REPO, t, 'src', 'logo.svg'), 'w', encoding='utf-8') as f:
+                f.write(casa.polpo_mini(k, fisso=True))
         s = metti(s, 'braccia', fila(t, s), lambda s, b: s.replace('<footer class="piede">', b + '\n\n  <footer class="piede">', 1))
         assert '<!--braccio-->' in s and '<!--braccia-->' in s, t
         with open(p, 'w', encoding='utf-8') as f:
