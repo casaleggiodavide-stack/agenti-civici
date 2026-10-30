@@ -35,3 +35,15 @@ test('Napoli: in house separato dagli affidamenti diretti, nessun nome di person
 test('ogni indicatore ha fonti esistenti e https', () => {
   for (const i of INDICATORI) for (const f of i.fonti) assert.match(FONTI[f]?.url || '', /^https:\/\//, `${i.id}: ${f}`);
 });
+
+test('medie di riferimento degli affidamenti diretti: nazionale, regionale, ogni Provincia nella sua Regione', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const m = JSON.parse(await readFile(new URL('../dati/medie.json', import.meta.url), 'utf-8'));
+  assert.equal(m.indicatore, 'senza_gara');
+  assert.equal(Object.keys(m.regioni).length, 20);
+  const [q, qn, enti] = m.nazionale._tutti;
+  assert.ok(q > 0 && q <= 100 && qn > 0 && qn <= 100 && enti > 1000);
+  assert.equal(m.prov_regione.AG, 'Sicilia');
+  assert.equal(m.prov_regione.MB, 'Lombardia');
+  for (const d of Object.values(m.regioni)) for (const [, , n] of Object.values(d)) assert.ok(n >= m.minimo_enti);
+});

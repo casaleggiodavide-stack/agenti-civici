@@ -8,6 +8,8 @@ import { FONTI, INDICATORI, livello, PAROLE_LIVELLO, procedure, richiestaAtti, V
 const DATI = new URL('../dati/', import.meta.url);
 const indice = () => caricaJSON(new URL('indice.json', DATI));
 const confronto = () => caricaJSON(new URL('confronto.json', DATI));
+// le medie nazionali e regionali degli affidamenti diretti (scripts/appalti-medie.py); se mancano, la scheda si vede lo stesso
+const medie = () => caricaJSON(new URL('medie.json', DATI)).catch(() => null);
 const file = (nome) => caricaJSON(new URL(`p/${nome}.json`, DATI));
 
 const fonte = (f) => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo)}</a>`;
@@ -68,10 +70,10 @@ async function apri(cf, nomeFile) {
       nomeFile = enti.find((e) => e[1] === cf)?.[4];
       if (!nomeFile) { box.innerHTML = '<section class="pannello"><p>Questo ente non ha almeno 5 procedure pubblicate nel 2025, oppure non compare nei dati ANAC con questo codice fiscale.</p></section>'; return; }
     }
-    const [schede, conf] = await Promise.all([file(nomeFile), confronto()]);
+    const [schede, conf, med] = await Promise.all([file(nomeFile), confronto(), medie()]);
     const s = schede[cf];
     if (!s) throw new Error('ente non trovato nel file ' + nomeFile);
-    box.innerHTML = disegna(s, conf);
+    box.innerHTML = disegna(s, conf, med);
     scriviAncora({ cf });
     collega(box, s);
     box.querySelector('h2')?.focus({ preventScroll: true });
@@ -81,7 +83,7 @@ async function apri(cf, nomeFile) {
   }
 }
 
-function disegna(s, conf) {
+function disegna(s, conf, med) {
   const nome = s.istat ? (s.nome === 'Roma Capitale' ? s.nome : `Comune di ${s.nome}`) : s.nome;
   const proc = procedure(s);
   const accesi = INDICATORI.filter((i) => ['alto', 'medio', 'basso'].includes(livello(i.id, s.ind[i.id])));
@@ -101,7 +103,7 @@ function disegna(s, conf) {
 
   <section aria-labelledby="t-ind">
     <h2 id="t-ind" class="sr-only">Gli indicatori</h2>
-    <div class="indicatori">${INDICATORI.map((i) => schedaIndicatore(i, s)).join('')}</div>
+    <div class="indicatori">${INDICATORI.map((i) => schedaIndicatore(i, s, med)).join('')}</div>
   </section>
 
   <div class="due">
@@ -132,7 +134,7 @@ function disegna(s, conf) {
   <p><small>Dati: ${fonte(FONTI.anac)}, procedure con data di pubblicazione nel ${conf.anno}, aggiudicazioni comunicate entro gennaio 2026. Metodi: ${fonte(FONTI.ocp)}; ${fonte(FONTI.cardinal)}; ${fonte(FONTI.anac_indicatori)}. Verificato il ${new Date(VERIFICATO).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}.</small></p>`;
 }
 
-function schedaIndicatore(i, s) {
+function schedaIndicatore(i, s, med) {
   const v = s.ind[i.id];
   const liv = livello(i.id, v);
   const [parola, tono] = PAROLE_LIVELLO[liv];
@@ -148,9 +150,31 @@ function schedaIndicatore(i, s) {
     <span class="pill p-${tono === 'neutro' ? 'neutro' : tono}">${esc(parola)}</span>
     <p>${v ? esc(i.misura(v)).replace(/^./, (c) => c.toUpperCase()) + '.' : 'Non ci sono abbastanza procedure per calcolarlo.'}</p>
     ${barra}
+    ${i.id === 'senza_gara' ? riferimenti(v, s, med) : ''}
     <details><summary>Perché conta</summary><p>${esc(i.perche)}</p><ul class="fonti">${i.fonti.map((f) => `<li>${fonte(FONTI[f])}</li>`).join('')}</ul></details>
     ${esempi?.length ? `<details><summary>${i.id === 'cumulo' ? 'I fornitori' : 'Le procedure segnalate'} (${esempi.length})</summary>${i.id === 'cumulo' ? cumuli(esempi) : lotti(esempi, s)}</details>` : ''}
   </article>`;
+}
+
+/** Affidamenti diretti: l'ente accanto alla media della sua Regione e dell'Italia, per lo stesso tipo di ente e per tutti gli enti. */
+function riferimenti(v, s, med) {
+  if (!v || !med) return '';
+  const regione = med.prov_regione?.[s.prov];
+  const righe = [['Questo ente', [v.quota, v.quota_n ?? v.quota], true]];
+  const tipo = s.gruppo ? s.gruppo.charAt(0).toLowerCase() + s.gruppo.slice(1) : '';
+  if (regione && med.regioni?.[regione]?.[s.gruppo]) righe.push([`Media in ${regione}, ${tipo}`, med.regioni[regione][s.gruppo]]);
+  if (med.nazionale?.[s.gruppo]) righe.push([`Media in Italia, ${tipo}`, med.nazionale[s.gruppo]]);
+  if (regione && med.regioni?.[regione]?._tutti) righe.push([`Media di tutti gli enti in ${regione}`, med.regioni[regione]._tutti]);
+  if (med.nazionale?._tutti) righe.push(['Media di tutti gli enti in Italia', med.nazionale._tutti]);
+  if (righe.length < 2) return '';
+  return `<div class="riferimenti" role="group" aria-label="Medie di riferimento degli affidamenti diretti">
+    <p class="rif-titolo">Per confronto, nel ${esc(String(med.anno))}</p>
+    <ul>${righe.map(([nome, [q, qn, enti], questo]) => `<li class="${questo ? 'rif-questo' : ''}">
+      <span class="rif-nome">${esc(nome)}${enti ? ` <small>(${numeroIt(enti)} enti)</small>` : ''}</span>
+      <span class="rif-barra" aria-hidden="true"><i style="width:${Math.min(100, Math.max(0, q))}%"></i></span>
+      <span class="rif-valore"><b>${percento(q, 1)}</b> <small>del valore · ${percento(qn, 1)} delle procedure</small></span></li>`).join('')}</ul>
+    <small>Media semplice tra gli enti con almeno 5 procedure: ogni ente conta uno, grande o piccolo. Fonte: ANAC, elaborazione del Polpo civico.</small>
+  </div>`;
 }
 
 function lotti(lista, s) {

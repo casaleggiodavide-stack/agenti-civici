@@ -444,3 +444,6 @@ def scrivi(rel, dati):
 
 if __name__ == '__main__':
     main()
+    # le medie nazionali e regionali degli affidamenti diretti
+    import runpy
+    runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'appalti-medie.py'), run_name='__main__')
