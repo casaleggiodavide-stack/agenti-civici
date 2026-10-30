@@ -15,5 +15,7 @@ const stile = (html.match(/<style>[\s\S]*?<\/style>/) || [''])[0];
 const intest = html.match(/<head>([\s\S]*?)<\/head>/)[1].split('\n').filter((r) => /<title>|<link /.test(r)).join('\n');
 let body = html.match(/<body>([\s\S]*?)<\/body>/)[1].replaceAll(`href="../${strumento}/"`, 'href="#"');
 for (const [nome, url] of Object.entries(link)) body = body.replaceAll(`href="../${nome}/"`, `href="${url}" target="_top"`);
+// la pagina d'ingresso (e le braccia del Polpo) stanno sul sito pubblico
+body = body.replaceAll('href="../#', 'target="_top" href="https://casaleggiodavide-stack.github.io/agenti-civici/#').replaceAll('href="../"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/" target="_top"');
 writeFileSync(`${dest}/${strumento}.html`, `${intest}\n${stile}\n${body}`);
 console.log(`${dest}/${strumento}.html pronto`);

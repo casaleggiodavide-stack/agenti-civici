@@ -18,6 +18,8 @@ const intest = html.match(/<head>([\s\S]*?)<\/head>/)[1].split('\n').filter((r) 
 let body = html.match(/<body>([\s\S]*?)<\/body>/)[1].replaceAll('src="web/', `src="${strumento}/web/`);
 body = body.replaceAll(`href="../${strumento}/"`, 'href="#"');
 for (const [nome, url] of Object.entries(link)) body = body.replaceAll(`href="../${nome}/"`, `href="${url}" target="_top"`);
+// la pagina d'ingresso (e le braccia del Polpo) stanno sul sito pubblico
+body = body.replaceAll('href="../#', 'target="_top" href="https://casaleggiodavide-stack.github.io/agenti-civici/#').replaceAll('href="../"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/" target="_top"');
 writeFileSync(join(dest, `${strumento}.html`), `${intest}\n${stile}\n${body}`);
 const file = [];
 const giro = (d) => readdirSync(d).forEach((n) => { const p = join(d, n); statSync(p).isDirectory() ? giro(p) : file.push(relative(dest, p)); });

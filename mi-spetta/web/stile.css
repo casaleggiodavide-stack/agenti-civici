@@ -408,3 +408,27 @@ input[type="text"], input[type="number"], input[type="date"], input[type="email"
   .verdetto::after { animation: pulsa 2.6s ease-in-out infinite; }
   @keyframes pulsa { 50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--tono) 10%, transparent), 0 0 22px 4px color-mix(in srgb, var(--tono) 45%, transparent); } }
 }
+
+/* Il Polpo negli strumenti: il segno del braccio in testata e la fila delle otto braccia in fondo (scripts/braccia-strumenti.py) */
+.braccio-segno { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; padding: 5px 16px 5px 5px; border: 1px solid var(--riga); border-radius: 999px; text-decoration: none; color: var(--inchiostro); max-width: 100%; }
+.braccio-segno:hover, .braccio-segno:focus-visible { border-color: var(--accento); outline: none; }
+.bs-icona { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--accento); display: grid; place-items: center; }
+.bs-icona svg { width: 19px; height: 19px; fill: none; stroke: #0B0B0A; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.polpo-intero .bs-icona { background: var(--carta); border: 1px solid var(--riga); }
+.polpo-intero .bs-icona svg { width: 22px; height: 24px; stroke: none; color: var(--inchiostro); }
+.bs-testo { font-weight: 600; font-size: 14.5px; line-height: 1.2; }
+.bs-n { display: block; font-family: var(--cifre); font-weight: 400; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); margin-bottom: 2px; }
+.braccia-polpo { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin: clamp(36px, 5vw, 56px) 0 8px; padding-top: 18px; border-top: 1px solid var(--riga); }
+.bp-polpo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--inchiostro); font-family: var(--titoli); font-weight: 700; letter-spacing: -0.02em; }
+.bp-polpo svg { width: 28px; height: 30px; }
+.braccia-polpo ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 auto; }
+.bp-braccio { position: relative; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--inchiostro-3); background: var(--carta); }
+.bp-braccio svg { width: 20px; height: 20px; fill: none; stroke: var(--inchiostro); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.bp-braccio span { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); white-space: nowrap; font-family: var(--cifre); font-size: 11px; letter-spacing: .04em; background: var(--inchiostro); color: var(--fondo); padding: 5px 9px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity .15s; z-index: 2; }
+.bp-braccio:hover span, .bp-braccio:focus-visible span { opacity: 1; }
+.bp-braccio:hover, .bp-braccio:focus-visible { border-color: var(--accento); outline: none; }
+.bp-braccio[aria-current="true"] { background: var(--accento); border-color: var(--accento); }
+.bp-braccio[aria-current="true"] svg { stroke: #0B0B0A; stroke-width: 2.2; }
+.bp-chiedi { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--inchiostro); border: 1px solid var(--accento); border-radius: 999px; padding: 9px 14px; }
+.bp-chiedi:hover { background: color-mix(in srgb, var(--accento) 14%, transparent); }
+@media print { .braccio-segno, .braccia-polpo { display: none; } }

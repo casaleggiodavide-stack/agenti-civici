@@ -117,8 +117,9 @@ def blocco():
   </nav>
 <script>
 /* La giostra: un braccio alla volta. Il gruppo delle braccia gira perché il braccio scelto
-   indichi il testo; parte da sola, si ferma con il pulsante, al passaggio del mouse, al primo clic
-   e se il sistema chiede meno movimento. */
+   indichi il testo. Gira da sola; dopo un clic si riposa qualche secondo e riparte; si ferma
+   del tutto solo con «Ferma», e non cambia mentre la tastiera è al suo interno o la pagina non si vede.
+   Con #braccio-N nell'indirizzo parte da quel braccio (ci arrivano gli strumenti). */
 (() => {{
   const DATI = {dati};
   const g = document.querySelector('.giostra');
@@ -126,7 +127,7 @@ def blocco():
   const testo = g.querySelector('.g-testo');
   const pausa = g.querySelector('.g-pausa');
   const meno = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let k = 0, giri = 0, timer = null, fermo = meno, sopra = false;
+  let k = 0, giri = 0, fermo = false, tastiera = false, riposo = 0;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({{'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}}[c]));
   const a = (n, h, cl) => h.startsWith('http')
     ? `<a class="${{cl}}" href="${{h}}" target="_blank" rel="noopener">${{esc(n)}}</a>`
@@ -143,19 +144,25 @@ def blocco():
     testo.innerHTML = `<span class="g-n">${{String(k + 1).padStart(2, '0')}} / 08 · ${{x.lato}}</span><h2 class="g-titolo">${{esc(x.mestiere)}}</h2>`
       + `<p class="g-spiega">${{esc(x.spiega)}}</p><p class="g-strumenti">${{x.strumenti.map(([n, h], i) => a(n, h, i ? 'btn' : 'btn btn-primario')).join('')}}</p>`;
   }}
-  function avvia() {{ clearInterval(timer); if (!fermo) timer = setInterval(() => {{ if (!sopra && !document.hidden) mostra(k + 1, 1); }}, 4200); }}
-  function ferma(si) {{ fermo = si; pausa.setAttribute('aria-pressed', si ? 'true' : 'false'); pausa.textContent = si ? 'Riprendi' : 'Ferma'; avvia(); }}
-  g.querySelectorAll('[data-passo]').forEach((b) => b.addEventListener('click', () => {{ ferma(true); mostra(k + +b.dataset.passo, +b.dataset.passo); }}));
-  g.querySelectorAll('.g-punto').forEach((b) => b.addEventListener('click', () => {{ ferma(true); mostra(+b.dataset.vai); }}));
-  g.querySelectorAll('.b').forEach((b) => b.addEventListener('click', () => {{ ferma(true); mostra(+b.dataset.k); }}));
-  document.querySelectorAll('.tessera-icona').forEach((b) => b.addEventListener('click', () => {{ ferma(true); mostra(+b.dataset.vai); g.scrollIntoView({{ behavior: meno ? 'auto' : 'smooth', block: 'center' }}); }}));
+  setInterval(() => {{ if (!fermo && !tastiera && !document.hidden && Date.now() > riposo) mostra(k + 1, 1); }}, meno ? 6000 : 4200);
+  const tocca = () => {{ riposo = Date.now() + 12000; }};
+  function ferma(si) {{ fermo = si; pausa.setAttribute('aria-pressed', si ? 'true' : 'false'); pausa.textContent = si ? 'Riprendi' : 'Ferma'; if (!si) riposo = 0; }}
+  g.querySelectorAll('[data-passo]').forEach((b) => b.addEventListener('click', () => {{ tocca(); mostra(k + +b.dataset.passo, +b.dataset.passo); }}));
+  g.querySelectorAll('.g-punto').forEach((b) => b.addEventListener('click', () => {{ tocca(); mostra(+b.dataset.vai); }}));
+  g.querySelectorAll('.b').forEach((b) => b.addEventListener('click', () => {{ tocca(); mostra(+b.dataset.k); }}));
+  document.querySelectorAll('.tessera-icona').forEach((b) => b.addEventListener('click', () => {{ tocca(); mostra(+b.dataset.vai); g.scrollIntoView({{ behavior: meno ? 'auto' : 'smooth', block: 'center' }}); }}));
   pausa.addEventListener('click', () => ferma(!fermo));
-  g.addEventListener('mouseenter', () => {{ sopra = true; }});
-  g.addEventListener('mouseleave', () => {{ sopra = false; }});
-  g.addEventListener('focusin', () => {{ sopra = true; }});
-  g.addEventListener('focusout', () => {{ sopra = false; }});
-  ferma(meno);
-  mostra(0, 0);
+  g.addEventListener('focusin', (e) => {{ tastiera = e.target.matches(':focus-visible'); }});
+  g.addEventListener('focusout', () => {{ tastiera = false; }});
+  function daIndirizzo() {{
+    const m = location.hash.match(/^#braccio-([1-8])$/);
+    if (!m) return false;
+    tocca(); mostra(+m[1] - 1);
+    g.scrollIntoView({{ block: 'center' }});
+    return true;
+  }}
+  addEventListener('hashchange', daIndirizzo);
+  if (!daIndirizzo()) mostra(0, 0);
 }})();
 </script><!--/casa-->
 '''
