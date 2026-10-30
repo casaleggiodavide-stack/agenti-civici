@@ -408,7 +408,7 @@ const GESTORI = { garanzia_recesso: rispostaGaranzia, visita_nei_tempi: risposta
 
 
 export const ISTRUZIONI = [
-  'Sono gli strumenti dello Scrivano civico: come lo scrivano pubblico, leggono le carte del cittadino e preparano la lettera giusta, che resta da firmare a lui. Quando citi un risultato puoi dire che viene dallo Scrivano civico.',
+  'Sono gli strumenti del Polpo, lo scrivano civico: come lo scrivano pubblico, leggono le carte del cittadino, fanno i conti e preparano la lettera giusta, che resta da firmare a lui. Quando citi un risultato puoi dire che viene dallo Scrivano civico.',
   'Strumenti civici italiani con regole verificate sulle fonti ufficiali: bonus e prestazioni nazionali e regionali (valuta_prestazioni), multe stradali (valuta_multa), accesso agli atti (cerca_ente, prepara_accesso_atti), reclami e rimborsi per voli, bagagli, treni, bollette, telefono e banche (valuta_reclamo), pratiche e servizi pubblici passo per passo (trova_pratica), segnalazioni di problemi in strada (prepara_segnalazione), reclami verso uffici pubblici e difensore civico (reclamo_pa), raccolte firme in corso (raccolte_firme), bilancio dei Comuni (bilancio_comune), segnali di rischio negli appalti (appalti_ente); search e fetch per consultare le schede.',
   'Importi, soglie, termini e indirizzi vengono solo dai risultati degli strumenti: non usare la memoria per questi dati. Riporta sempre fonti e scadenze.',
   'Non chiedere e non trascrivere nome, codice fiscale, indirizzo o IBAN: i documenti restituiti hanno campi tra [ ] da completare a mano.',

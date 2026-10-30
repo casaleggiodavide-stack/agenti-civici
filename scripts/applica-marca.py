@@ -8,7 +8,7 @@ from pathlib import Path
 R = Path(__file__).resolve().parent.parent
 
 # ---------- I segni (SVG in linea, colori dai token CSS) ----------
-MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>')
+MARCHIO = ('<svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>')
 
 def icona(corpo, etichetta=None):
     a = f'role="img" aria-label="{etichetta}"' if etichetta else 'aria-hidden="true"'
@@ -24,7 +24,7 @@ ICONE = {
     'mi-rimborsano': icona(f'<path d="M28 32 H43 V42 H28 Z" {INK}/><circle class="m-nodo" cx="9" cy="36" r="2.6"/><path d="M9 33 C9 12 34 8 34 22 C34 28 28 30 22 30 M25 26 L21 30 L25 34" {FILO}/>'),
 }
 
-FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70"><rect x="-3" y="-1" width="70" height="72" rx="16" fill="#17202E"/><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="#F5F1E8" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="#F5F1E8"/></g><path d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke="#F06A55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="42" cy="55" r="4" fill="#F06A55"/></svg>\n'
+FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70"><rect x="-3" y="-1" width="70" height="72" rx="16" fill="#17202E"/><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="#F5F1E8" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="#F5F1E8" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="#F5F1E8" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="#F5F1E8" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="#F5F1E8"/><circle cx="38" cy="28.5" r="1.4" fill="#F5F1E8"/><path d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke="#F06A55" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="61" r="3.6" fill="#F06A55"/></svg>\n'
 
 # ---------- Token ----------
 CHIARO = {

@@ -52,9 +52,9 @@
   main .strumento:hover .scena .s-t { stroke-width: 3.6; }
   .pilastro { border-top: 1px solid var(--riga); }
   .pilastro h2 { font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.045em; line-height: .95; }
-  /* Lo Scrivano civico: la scheda di presentazione, con il pennino */
+  /* Il Polpo, lo scrivano civico: la scheda di presentazione */
   main .scheda-scrivano { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); padding: 0; gap: 0; align-items: stretch; }
-  main .scheda-scrivano > .scrivano-foto { margin: 0; width: 100%; height: 100%; min-height: 260px; object-fit: cover; display: block; border-right: 1px solid var(--riga); }
+  main .scheda-scrivano > .scrivano-foto { margin: 0; width: 100%; height: 100%; min-height: 260px; object-fit: cover; object-position: 30% 50%; display: block; border-right: 1px solid var(--riga); }
   main .scheda-scrivano > .scrivano-testo { margin: 0; padding: clamp(20px, 3vw, 36px); display: grid; gap: 12px; align-content: center; }
   main .scheda-scrivano h2 { font-size: clamp(30px, 3.6vw, 48px); }
   .scrivano-battuta { font-family: var(--cifre); font-size: 13px; line-height: 1.55; color: var(--inchiostro); background: var(--carta-2, rgba(255,255,255,.04)); border: 1px solid var(--riga); border-radius: 3px; padding: 12px 14px; margin: 0; max-width: 60ch; }
@@ -102,7 +102,7 @@
       <div class="occhiello">Al servizio del cittadino</div>
       <h1>Lo Scrivano civico</h1>
       <p class="eroe-filo">Il filo per uscire dal labirinto.</p>
-      <p class="eroe-testo">Come lo scrivano pubblico che un tempo sedeva vicino agli uffici, legge le tue carte e ti scrive la lettera giusta. Tecnologia che mette la persona al centro: per superare la burocrazia inutile e per partecipare davvero alle scelte della società. Strumenti aperti e gratuiti, che funzionano senza chiedere niente a nessuno e usano solo norme pubbliche e dati aperti.</p>
+      <p class="eroe-testo">La burocrazia ha mille tentacoli. Il Polpo, il nostro scrivano, ne ha otto, tutti dalla tua parte: legge le tue carte, fa i conti, ti scrive la lettera giusta e ti ricorda le scadenze. Tecnologia che mette la persona al centro: per superare la burocrazia inutile e per partecipare davvero alle scelte della società. Strumenti aperti e gratuiti, che funzionano senza chiedere niente a nessuno e usano solo norme pubbliche e dati aperti.</p>
       <p class="eroe-azioni"><a class="btn btn-primario" href="#cosa-puoi-fare">Cosa puoi fare</a> <a class="btn" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p>
     </div>
   </header>
@@ -110,7 +110,7 @@
     <div class="mappa-testa">
       <div class="occhiello">Tutto quello che puoi fare</div>
       <h2 id="t-mappa">Con la burocrazia e con la tua comunità</h2>
-      <a class="mappa-scrivano" href="assistente/" data-strumento="assistente"><span>Non sai da dove partire?</span> Racconta il problema allo Scrivano <span aria-hidden="true">→</span></a>
+      <a class="mappa-scrivano" href="assistente/" data-strumento="assistente"><span>Non sai da dove partire?</span> Racconta il problema al Polpo <span aria-hidden="true">→</span></a>
     </div>
     <div class="mappa-colonne">
       <div class="mappa-colonna">
@@ -127,17 +127,17 @@
       </div>
     </div>
   </section><!--/mappa-->
-  <!--foto--><figure class="foto-ac foto-banda"><div class="foto-ac-quadro"><img src="comune/foto/piazza.jpg" alt="Una donna seduta su una panchina di una piazza italiana sorride guardando il telefono, accanto una cartellina di documenti; intorno vicini che chiacchierano e un bambino in bicicletta. In bianco e nero, un filo rosso attraversa la scena" fetchpriority="high" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>Lo Scrivano civico</span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+  <!--foto--><figure class="foto-ac foto-banda"><div class="foto-ac-quadro"><img src="comune/foto/piazza.jpg" alt="Una donna seduta su una panchina di una piazza italiana sorride guardando il telefono, accanto una cartellina di documenti; intorno vicini che chiacchierano e un bambino in bicicletta. In bianco e nero, un filo rosso attraversa la scena" fetchpriority="high" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico</span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
   <main id="strumenti">
     <div class="strumenti">
     <a class="strumento scheda-scrivano" href="assistente/" data-strumento="assistente" style="grid-column:1/-1">
-      <img class="scrivano-foto" src="comune/foto/scrivano.jpg" alt="Il pennino di una stilografica ha appena disegnato in inchiostro rosso un labirinto quadrato; la linea esce dal labirinto e diventa un filo con un nodo. In bianco e nero, unico colore l'inchiostro rosso" width="900" height="900" loading="lazy" decoding="async">
+      <img class="scrivano-foto" src="comune/foto/polpo.jpg" alt="Sotto i portici di una piazza, un polpo con gli occhialini da lettura siede sul banco dello scrivano: con un braccio scrive in inchiostro rosso, con altri timbra, legge una bolletta con la lente, sfoglia il calendario e porge la lettera alla mano di un cittadino. In bianco e nero, unico colore l'inchiostro rosso che diventa un filo" width="1344" height="752" loading="lazy" decoding="async">
       <div class="scrivano-testo">
         <div class="occhiello">In conversazione, con l'intelligenza artificiale</div>
-        <h2>Chiedi allo Scrivano</h2>
-        <p>Come lo scrivano pubblico che un tempo sedeva vicino agli uffici: gli porti le tue carte e il tuo problema, lui legge, ti dice cosa prevedono le regole e ti scrive la lettera giusta. Usa le regole degli strumenti qui sotto e ti segna le scadenze in calendario. La firma resta tua.</p>
-        <p class="scrivano-battuta">«Ciao, sono lo Scrivano civico, un assistente AI. Non sono un ufficio pubblico: ti mostro le regole e le fonti, poi decidi tu.»</p>
+        <h2>Chiedi al Polpo</h2>
+        <p>Il Polpo fa lo scrivano pubblico, quello che un tempo sedeva vicino agli uffici. Gli porti le tue carte e il problema: con un braccio legge, con un altro fa i conti, con un altro ti scrive la lettera giusta e con un altro ti segna la scadenza in calendario. Usa le regole degli strumenti qui sotto. La firma resta tua.</p>
+        <p class="scrivano-battuta">«Ciao, sono il Polpo, lo scrivano civico: un assistente AI, non un ufficio pubblico. Ho otto braccia e regole scritte con le fonti. Dimmi cosa ti è arrivato.»</p>
         <ul><li>Cifre e scadenze solo dai motori di regole, con la fonte</li><li>Nome e codice fiscale restano sul tuo dispositivo, mai in chat</li><li>Funziona dentro un assistente AI, con il tuo account</li></ul>
         <span class="vai">Apri la conversazione</span>
       </div>
@@ -145,7 +145,7 @@
     </div>
 
     <section class="pilastro" aria-labelledby="t-burocrazia">
-      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/cucina.jpg" alt="Un anziano e sua figlia al tavolo di cucina guardano insieme il telefono, sollevati; le buste e i moduli sono messi da parte accanto alla moka. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>Lo Scrivano civico <span>· Meno burocrazia</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/cucina.jpg" alt="Un anziano e sua figlia al tavolo di cucina guardano insieme il telefono, sollevati; le buste e i moduli sono messi da parte accanto alla moka. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico <span>· Meno burocrazia</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
       <div class="pilastro-testo">
         <div class="occhiello">Primo obiettivo</div>
         <h2 id="t-burocrazia">Meno burocrazia inutile</h2>
@@ -219,7 +219,7 @@
     </div>
 
     <section class="pilastro" aria-labelledby="t-partecipazione">
-      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/assemblea.jpg" alt="Cittadini di ogni età seduti in cerchio nella sala affrescata di un municipio: una giovane parla, un signore alza la mano. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><g transform="translate(29 31) rotate(-45) scale(1.22)"><path d="M0 0 L-9.5 -17 L-6.5 -29 H6.5 L9.5 -17 Z M0 0 V-12" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-16" r="2.1" fill="currentColor"/></g><path class="m-filo" d="M29 31 H58 V64 H34 V43 H49 V55 H42" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="42" cy="55" r="4"/></svg>Lo Scrivano civico <span>· Più partecipazione</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
+      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/assemblea.jpg" alt="Cittadini di ogni età seduti in cerchio nella sala affrescata di un municipio: una giovane parla, un signore alza la mano. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico <span>· Più partecipazione</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
       <div class="pilastro-testo">
         <div class="occhiello">Secondo obiettivo</div>
         <h2 id="t-partecipazione">Più partecipazione alle scelte</h2>

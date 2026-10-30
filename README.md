@@ -1,4 +1,4 @@
-<img src="comune/marchio.svg" width="72" alt="Il marchio dello Scrivano civico: un pennino il cui inchiostro rosso disegna un labirinto e finisce in un nodo">
+<img src="comune/marchio.svg" width="72" alt="Il marchio dello Scrivano civico: il Polpo con gli occhialini e un braccio rosso che disegna un labirinto e finisce in un nodo">
 
 # Lo Scrivano civico
 
@@ -52,7 +52,7 @@ Anche lo Scrivano accetta la foto di un documento insieme al messaggio.
 
 ## Lo Scrivano civico
 
-Lo Scrivano civico è il personaggio che dà un volto agli strumenti: come lo scrivano pubblico che sedeva vicino agli uffici, legge le carte e scrive la lettera giusta, e la firma resta di chi la manda. È un assistente AI e lo dice alla prima risposta; non ha volto, età né genere. Chi è, come parla e cosa non dice mai sono in [docs/scrivano.md](docs/scrivano.md).
+Il volto del sito è il Polpo, lo scrivano civico: un polpo che fa lo scrivano pubblico, con otto braccia per leggere le carte, fare i conti, scrivere la lettera giusta e ricordare le scadenze; la firma resta di chi la manda. È un assistente AI e lo dice alla prima risposta. Chi è, come appare, come parla e cosa non fa mai sono in [docs/polpo.md](docs/polpo.md).
 
 `assistente/` non ha un server suo: usa la capacità `sample` della piattaforma che ospita la pagina, cioè un modello di intelligenza artificiale con l'account e i limiti di chi la apre. Il modello non calcola niente da solo: chiama nove strumenti della pagina (`assistente/src/strumenti.js`) che eseguono gli stessi motori di regole di Mi spetta, Faccio ricorso?, Chiedo gli atti e Mi rimborsano?. Le istruzioni permanenti sono in `assistente/src/istruzioni.js`.
 
