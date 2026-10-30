@@ -25,6 +25,13 @@ REGIONI = {
 PROV_REGIONE = {p: r for r, ps in REGIONI.items() for p in ps.split()}
 
 
+def valido(v):
+    """Scarta le quote fuori da 0-100: nei dati ANAC qualche importo negativo (rettifiche) dà quote senza senso."""
+    if not v or v.get('quota') is None:
+        return False
+    return 0 <= v['quota'] <= 100 and 0 <= v.get('quota_n', v['quota']) <= 100
+
+
 def media(lista):
     if len(lista) < MINIMO:
         return None
@@ -39,7 +46,7 @@ def main():
             schede = json.load(fh)
         for s in schede.values():
             v = (s.get('ind') or {}).get('senza_gara')
-            if not v or v.get('quota') is None:
+            if not valido(v):
                 continue
             x = (v['quota'], v.get('quota_n', v['quota']))
             g = s.get('gruppo') or 'Altri enti'
@@ -62,7 +69,7 @@ def main():
         with open(f, encoding='utf-8') as fh:
             for cf, c in json.load(fh).items():
                 v = (c.get('ind') or {}).get('senza_gara')
-                if c.get('istat') and c.get('pop') and v and v.get('quota') is not None:
+                if c.get('istat') and c.get('pop') and valido(v):
                     comuni.append([cf, c['nome'], c.get('prov') or '', c['pop'], v['quota'], v.get('quota_n', v['quota'])])
     comuni.sort(key=lambda c: (c[3], c[1]))
     with open(os.path.join(DATI, 'comuni-simili.json'), 'w', encoding='utf-8') as fh:
