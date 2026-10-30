@@ -39,8 +39,8 @@ Le carte del potere (le nomine pubbliche) restano fuori dalle braccia: vedi «La
 ![Il logo: il Polpo con gli occhialini e il braccio rosso che disegna il labirinto](../comune/marchio.svg)
 
 - **Il logo** è il Polpo con gli occhialini, quattro braccia in vista e un braccio rosso che disegna il labirinto quadrato e finisce nel nodo.
-- **Nelle foto** è un polpo vero, in bianco e nero, con gli occhialini da lettura e l'inchiostro rosso come unico colore. Sta in piena luce, all'altezza delle persone, e con le braccia porge sempre qualcosa: una penna, una lettera, il capo del filo.
-- **Si vede poco**: nella chat, nella scheda della pagina d'ingresso, nel logo. Le foto degli strumenti restano scene di persone.
+- **Nelle immagini degli strumenti** è un manifesto serigrafico a tre soli inchiostri: blu notte #17202E, rosso #FF4A36, carta crema #F2EFE8, con il retino e qualche fuori registro. Il Polpo è rosso, con gli occhialini tondi, sta in piena luce all'altezza delle persone e con le braccia porge sempre qualcosa: una penna, una lettera, una moneta, il capo del filo. Una scena per strumento, sempre lo stesso personaggio; si ottengono partendo dall'immagine di Faccio ricorso? come riferimento di stile.
+- **Ricorre ovunque**: nel logo, nella giostra della pagina d'ingresso, nelle immagini di ogni strumento. Le persone ci sono sempre: il Polpo lavora per loro.
 
 ![In cucina: sbroglia la matassa delle buste](polpo/cucina.jpg)
 ![Fuori dal labirinto degli schedari, tenendo il filo](polpo/labirinto.jpg)

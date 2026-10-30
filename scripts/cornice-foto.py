@@ -29,7 +29,7 @@ def cornice(blocco, firma, classe_extra='', fuoco=None):
     if fuoco:
         img = img.replace('<img ', f'<img style="object-position:{fuoco}" ', 1)
     didascalia = re.search(r'<figcaption>.*?</figcaption>', blocco, re.S)
-    didascalia = didascalia.group(0) if didascalia else '<figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption>'
+    didascalia = didascalia.group(0) if didascalia else '<figcaption>Illustrazione generata con intelligenza artificiale.</figcaption>'
     marca = f'<span class="foto-ac-marca">{MARCHIO}Il Polpo civico{f" <span>· {firma}</span>" if firma else ""}</span>'
     classi = ' '.join(c for c in ['foto-ac', classe_extra] if c)
     return f'<!--foto--><figure class="{classi}"><div class="foto-ac-quadro">{img}{marca}</div>{didascalia}</figure><!--/foto-->'
