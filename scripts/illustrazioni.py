@@ -199,25 +199,6 @@ SCENE = {
 
 # Dove vanno le scene: (file, ancora dopo cui inserire, nome della scena)
 POSTI = [
-    ('index.html', '<a class="strumento" href="assistente/" data-strumento="assistente" style="grid-column:1/-1">', 'assistente'),
-    ('index.html', '<a class="strumento" href="navigatore/" data-strumento="navigatore">', 'navigatore'),
-    ('index.html', '<a class="strumento" href="mi-spetta/" data-strumento="mi-spetta">', 'mi-spetta'),
-    ('index.html', '<a class="strumento" href="faccio-ricorso/" data-strumento="faccio-ricorso">', 'faccio-ricorso'),
-    ('index.html', '<a class="strumento" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti">', 'chiedo-gli-atti'),
-    ('index.html', '<a class="strumento" href="mi-rimborsano/" data-strumento="mi-rimborsano">', 'mi-rimborsano'),
-    ('index.html', '<a class="strumento" href="bilancio-comune/" data-strumento="bilancio-comune">', 'bilancio-comune'),
-    ('index.html', '<a class="strumento" href="appalti/" data-strumento="appalti">', 'appalti'),
-    ('index.html', '<a class="strumento" href="segnalazioni/" data-strumento="segnalazioni">', 'segnalazioni'),
-    ('index.html', '<a class="strumento" href="reclami-pa/" data-strumento="reclami-pa">', 'reclami-pa'),
-    ('index.html', '<a class="strumento" href="raccolte-firme/" data-strumento="raccolte-firme">', 'raccolte-firme'),
-    ('index.html', '<a class="strumento" href="garanzia/" data-strumento="garanzia">', 'garanzia'),
-    ('index.html', '<a class="strumento" href="liste-attesa/" data-strumento="liste-attesa">', 'liste-attesa'),
-    ('index.html', '<a class="strumento" href="truffe/" data-strumento="truffe">', 'truffe'),
-    ('index.html', '<a class="strumento" href="catalogo/#governo">', 'governa'),
-    ('index.html', '<a class="strumento" href="catalogo/#trasparenza">', 'controlla'),
-    ('index.html', '<a class="strumento" href="catalogo/#aggregazioni">', 'organizza'),
-    ('index.html', '<a class="strumento" href="catalogo/#servizi">', 'diritto'),
-    ('index.html', '<h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli strumenti civici nel mondo</h2>', 'mondo'),
 ]
 
 
@@ -283,7 +264,7 @@ def main():
         pagine[p] = inserisci(pagine[p], ancora, nome)
     # testata della home: il disegno del labirinto al posto del marchio grande
     p = os.path.join(REPO, 'index.html')
-    s = pagine[p]
+    s = pagine.setdefault(p, open(p, encoding='utf-8').read())
     eroe = f'<!--scena:eroe--><div class="scena-eroe">{SCENE["eroe"]}</div><!--/scena-->'
     if '<!--foto-->' in s:  # la testata ha una fotografia: niente disegno
         pass

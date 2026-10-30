@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lo Scrivano civico</title>
-<meta name="description" content="Strumenti aperti al servizio del cittadino, che funzionano senza chiedere niente a nessuno: bonus che ti spettano, ricorso alle multe, accesso agli atti della pubblica amministrazione.">
+<meta name="description" content="Lo Scrivano civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">
 <link rel="icon" href="comune/marchio.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,270 +59,156 @@
   main .scheda-scrivano h2 { font-size: clamp(30px, 3.6vw, 48px); }
   .scrivano-battuta { font-family: var(--cifre); font-size: 13px; line-height: 1.55; color: var(--inchiostro); background: var(--carta-2, rgba(255,255,255,.04)); border: 1px solid var(--riga); border-radius: 3px; padding: 12px 14px; margin: 0; max-width: 60ch; }
   @media (max-width: 760px) { main .scheda-scrivano { grid-template-columns: minmax(0, 1fr); } main .scheda-scrivano > .scrivano-foto { min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--riga); } }
-  /* La mappa in alto: tutto quello che si può fare, in due colonne */
-  /* in questa pagina l'apertura è più bassa, così la mappa si vede già nella prima schermata */
-  .eroe { min-height: clamp(380px, 58vh, 560px); }
-  .mappa { margin: clamp(28px, 4vw, 48px) 0 clamp(28px, 4vw, 44px); }
-  .mappa-testa { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
-  .mappa-testa .occhiello { width: 100%; }
-  .mappa-testa h2 { font-size: clamp(30px, 4.2vw, 56px); line-height: .95; letter-spacing: -0.045em; margin: 0; max-width: 18ch; }
-  .mappa-scrivano { display: inline-flex; gap: 8px; align-items: baseline; flex-wrap: wrap; border: 1px solid var(--accento); border-radius: 999px; padding: 10px 18px; text-decoration: none; color: var(--inchiostro); font-weight: 600; }
-  .mappa-scrivano span:first-child { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 400; color: var(--inchiostro-3); }
-  .mappa-scrivano:hover { background: color-mix(in srgb, var(--accento) 14%, transparent); }
-  .mappa-colonne { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--riga); }
-  .mappa-colonna { padding: 22px clamp(0px, 2vw, 28px) 8px 0; display: grid; align-content: start; gap: 8px; }
-  .mappa-colonna + .mappa-colonna { border-left: 1px solid var(--riga); padding-left: clamp(16px, 2.4vw, 32px); padding-right: 0; }
-  .mappa-colonna h3 { font-family: var(--titoli); font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -0.03em; margin: 0; display: flex; gap: 10px; align-items: baseline; }
-  .mappa-n { font-family: var(--cifre); font-size: 12px; font-weight: 400; color: var(--accento); letter-spacing: .08em; }
-  .mappa-colonna > p { margin: 0 0 6px; color: var(--inchiostro-2); max-width: 52ch; }
-  .mappa-colonna ol { list-style: none; margin: 0; padding: 0; counter-reset: voce; }
-  .mappa-voce { counter-increment: voce; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 2px 10px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--riga); text-decoration: none; color: var(--inchiostro); }
-  .mappa-voce::before { content: counter(voce, decimal-leading-zero); font-family: var(--cifre); font-size: 11px; color: var(--inchiostro-3); }
-  .mappa-azione { font-size: var(--s1); font-weight: 600; line-height: 1.25; }
-  .mappa-nome { grid-column: 2; font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
-  a.mappa-voce:hover .mappa-azione { color: var(--accento); }
-  a.mappa-voce:hover::before { color: var(--accento); }
-  a.mappa-voce:focus-visible { outline: 2px solid var(--accento); outline-offset: 2px; }
-  .mappa-voce.in-arrivo { color: var(--inchiostro-3); }
-  .mappa-voce.in-arrivo .mappa-azione { font-weight: 400; }
-  .mappa-tutti { font-family: var(--cifre); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-top: 10px; }
+  /*casa*/
+  /* La pagina d'ingresso semplice: il Polpo e le otto braccia (scripts/casa-polpo.py) */
+  .casa { padding: clamp(18px, 3vw, 32px) 0 8px; }
+  .casa-testa { display: grid; gap: 8px; max-width: 900px; }
+  .casa-testa h1 { font-size: clamp(46px, 8vw, 104px); line-height: .88; letter-spacing: -0.06em; margin: 4px 0 6px; }
+  .casa-motto { font-family: var(--titoli); font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 30ch; }
+  .casa-motto span { color: var(--accento); }
+  .giostra { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(8px, 3vw, 40px); align-items: center; margin-top: clamp(8px, 2vw, 18px); }
+  .giostra-scena { aspect-ratio: 1; max-height: 620px; justify-self: center; width: 100%; }
+  .polpo { width: 100%; height: 100%; overflow: visible; }
+  .polpo .braccia { transform-box: view-box; transform-origin: 0 0; transform: rotate(var(--rot)); transition: transform .9s cubic-bezier(.6, .05, .25, 1); }
+  .b { cursor: pointer; }
+  .b-arto { fill: none; stroke: var(--inchiostro-3); stroke-width: 18; stroke-linecap: round; transition: stroke .4s; }
+  .b-ventose { fill: none; stroke: var(--fondo, #0B0B0A); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 0 13; opacity: .55; }
+  .b-stazione circle { fill: var(--carta); stroke: var(--inchiostro-3); stroke-width: 3; transition: fill .4s, stroke .4s; }
+  .b-icona { transform-box: fill-box; transform-origin: center; transform: rotate(calc(-1 * (var(--a) + var(--rot)))); transition: transform .9s cubic-bezier(.6, .05, .25, 1); }
+  .b-icona path { fill: none; stroke: var(--inchiostro); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .b-stazione .b-icona { transform-origin: center; }
+  .b.attivo .b-arto { stroke: var(--accento); }
+  .b.attivo .b-stazione circle { fill: var(--accento); stroke: var(--accento); }
+  .b.attivo .b-icona path { stroke: #0B0B0A; stroke-width: 2.2; }
+  .b:hover .b-stazione circle { stroke: var(--accento); }
+  .b-stazione { transform-box: fill-box; }
+  .testa .t-corpo { fill: var(--carta); stroke: var(--inchiostro); stroke-width: 5; }
+  .testa .t-lente { fill: none; stroke: var(--inchiostro); stroke-width: 4.5; }
+  .testa .t-occhio { fill: var(--inchiostro); }
+  .testa .t-bocca { fill: none; stroke: var(--inchiostro); stroke-width: 4; stroke-linecap: round; }
+  .giostra-pannello { display: grid; gap: 18px; align-content: center; min-height: 300px; }
+  .g-testo { display: grid; gap: 10px; }
+  .g-n { font-family: var(--cifre); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--inchiostro-3); }
+  .g-titolo { font-size: clamp(30px, 3.6vw, 48px); line-height: 1; letter-spacing: -0.045em; margin: 0; }
+  .g-spiega { font-size: var(--s1); color: var(--inchiostro-2); margin: 0; max-width: 42ch; }
+  .g-strumenti { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; }
+  .g-comandi { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .g-freccia, .g-pausa { font: inherit; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 7px 12px; cursor: pointer; }
+  .g-freccia:hover, .g-pausa:hover, .g-freccia:focus-visible, .g-pausa:focus-visible { border-color: var(--accento); outline: none; }
+  .g-punti { display: inline-flex; gap: 6px; }
+  .g-punto { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--inchiostro-3); background: none; padding: 0; cursor: pointer; }
+  .g-punto[aria-current="true"] { background: var(--accento); border-color: var(--accento); }
+  .g-punto:focus-visible { outline: 2px solid var(--accento); outline-offset: 2px; }
+  .casa-azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: clamp(10px, 2vw, 20px) 0 0; color: var(--inchiostro-2); }
+  .tutte { margin-top: clamp(36px, 5vw, 64px); border-top: 1px solid var(--riga); padding-top: 22px; }
+  .tutte h2 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.04em; margin: 0 0 14px; }
+  .tessere { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--riga); }
+  .tessera { padding: 16px 16px 18px 0; border-bottom: 1px solid var(--riga); display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-content: start; }
+  .tessera-icona { grid-row: span 3; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--inchiostro-3); background: var(--carta); display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .tessera-icona svg { width: 20px; height: 20px; fill: none; stroke: var(--inchiostro); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .tessera-icona:hover, .tessera-icona:focus-visible { border-color: var(--accento); outline: none; }
+  .tessera-n { font-family: var(--cifre); font-size: 11px; color: var(--inchiostro-3); }
+  .tessera h3 { font-family: var(--titoli); font-size: 18px; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+  .tessera p { margin: 2px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .tessera p a { font-size: 14.5px; }
+  .arrivo { margin: 14px 0 0; color: var(--inchiostro-3); font-size: 14px; }
+  .arrivo span { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--riga); border-radius: 999px; padding: 3px 9px; margin-right: 8px; }
+  .altro { display: flex; flex-wrap: wrap; gap: 10px; margin: clamp(28px, 4vw, 44px) 0 0; }
+  .altro a { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--inchiostro); border: 1px solid var(--riga); border-radius: 999px; padding: 9px 14px; }
+  .altro a:hover { border-color: var(--accento); }
+  @media (max-width: 1000px) { .tessere { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 760px) {
-    .mappa-colonne { grid-template-columns: minmax(0, 1fr); }
-    .mappa-colonna, .mappa-colonna + .mappa-colonna { border-left: 0; padding: 20px 0 8px; }
-    .mappa-colonna + .mappa-colonna { border-top: 1px solid var(--riga); }
+    .giostra { grid-template-columns: minmax(0, 1fr); }
+    .giostra-scena { max-width: 420px; }
+    .giostra-pannello { min-height: 0; }
   }
+  @media (max-width: 520px) { .tessere { grid-template-columns: minmax(0, 1fr); } }
+  @media (prefers-reduced-motion: reduce) { .polpo .braccia, .b-icona { transition: none; } }
+/*/casa*/
 </style>
 </head>
 <body>
 <div class="max">
   <!--banda--><div class="banda-sostieni"><span>Promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a></span><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></div><!--/banda-->
-  <header class="eroe">
-    <!--labirinto--><svg class="labirinto-3d" viewBox="0 0 900 640" role="img" aria-label="Un labirinto in prospettiva, fatto di corridoi che girano verso il centro; un filo rosso parte dal centro, passa attraverso i varchi e porta fuori" preserveAspectRatio="xMidYMid slice"><g class="l-righe" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M887.7 616.8 L152.3 616.8 M152.3 616.8 L152.3 43.2 M152.3 43.2 L887.7 43.2 M887.7 43.2 L887.7 616.8" stroke-opacity="0.55"/><path d="M797.8 592.9 L183.0 546.7 M183.0 546.7 L242.2 67.1 M242.2 67.1 L857.0 113.3 M857.0 113.3 L797.8 592.9" stroke-opacity="0.52"/><path d="M725.2 567.3 L215.8 490.0 M215.8 490.0 L314.8 92.7 M314.8 92.7 L508.4 122.1 M630.6 140.6 L824.2 170.0 M824.2 170.0 L725.2 567.3" stroke-opacity="0.49"/><path d="M667.1 541.3 L249.1 444.7 M249.1 444.7 L372.9 118.7 M372.9 118.7 L790.9 215.3 M790.9 215.3 L743.8 339.2 M714.1 417.4 L667.1 541.3" stroke-opacity="0.46"/><path d="M621.2 515.9 L492.2 475.2 M410.7 449.6 L281.7 408.9 M281.7 408.9 L418.8 144.1 M418.8 144.1 L758.3 251.1 M758.3 251.1 L621.2 515.9" stroke-opacity="0.43"/><path d="M585.4 491.8 L312.6 381.0 M312.6 381.0 L366.6 300.1 M400.6 249.1 L454.6 168.2 M454.6 168.2 L727.4 279.0 M727.4 279.0 L585.4 491.8" stroke-opacity="0.40"/><path d="M558.0 469.4 L341.3 359.6 M341.3 359.6 L482.0 190.6 M482.0 190.6 L564.4 232.3 M616.4 258.7 L698.7 300.4 M698.7 300.4 L558.0 469.4" stroke-opacity="0.37"/><path d="M537.4 448.9 L367.5 343.5 M367.5 343.5 L502.6 211.1 M502.6 211.1 L672.5 316.5 M672.5 316.5 L621.1 366.8 M588.7 398.6 L537.4 448.9" stroke-opacity="0.34"/><path d="M522.2 430.5 L472.4 393.0 M441.0 369.3 L391.1 331.8 M391.1 331.8 L517.8 229.5 M517.8 229.5 L648.9 328.2 M648.9 328.2 L522.2 430.5" stroke-opacity="0.31"/><path d="M511.5 414.2 L412.1 323.4 M412.1 323.4 L456.3 293.9 M484.3 275.3 L528.5 245.8 M528.5 245.8 L627.9 336.6 M627.9 336.6 L511.5 414.2" stroke-opacity="0.28"/><path d="M504.2 399.9 L430.4 317.7 M430.4 317.7 L535.8 260.1 M535.8 260.1 L563.8 291.4 M581.5 311.1 L609.6 342.3 M609.6 342.3 L504.2 399.9" stroke-opacity="0.25"/><path d="M499.6 387.4 L446.4 314.1 M446.4 314.1 L540.4 272.6 M540.4 272.6 L593.6 345.9 M593.6 345.9 L557.9 361.7 M535.3 371.7 L499.6 387.4" stroke-opacity="0.22"/><path d="M497.0 376.7 L483.0 352.2 M474.1 336.6 L460.1 312.1 M460.1 312.1 L543.0 283.3 M543.0 283.3 L579.9 347.9 M579.9 347.9 L497.0 376.7" stroke-opacity="0.19"/><path d="M495.9 367.6 L471.8 311.2 M471.8 311.2 L499.2 304.1 M516.6 299.5 L544.1 292.4 M544.1 292.4 L568.2 348.8 M568.2 348.8 L495.9 367.6" stroke-opacity="0.16"/><path d="M496.0 360.0 L481.6 311.3 M481.6 311.3 L544.0 300.0 M544.0 300.0 L549.5 318.5 M552.9 330.2 L558.4 348.7 M558.4 348.7 L496.0 360.0" stroke-opacity="0.13"/><path d="M496.8 353.5 L489.8 311.9 M489.8 311.9 L543.2 306.5 M543.2 306.5 L550.2 348.1 M550.2 348.1 L529.9 350.1 M517.1 351.5 L496.8 353.5" stroke-opacity="0.10"/><path d="M887.7 616.8 L797.8 592.9 L725.2 567.3 L667.1 541.3 L621.2 515.9 L585.4 491.8 L558.0 469.4 L537.4 448.9 L522.2 430.5 L511.5 414.2 L504.2 399.9 L499.6 387.4 L497.0 376.7 L495.9 367.6 L496.0 360.0 L496.8 353.5" stroke-opacity=".28"/><path d="M152.3 616.8 L183.0 546.7 L215.8 490.0 L249.1 444.7 L281.7 408.9 L312.6 381.0 L341.3 359.6 L367.5 343.5 L391.1 331.8 L412.1 323.4 L430.4 317.7 L446.4 314.1 L460.1 312.1 L471.8 311.2 L481.6 311.3 L489.8 311.9" stroke-opacity=".28"/><path d="M152.3 43.2 L242.2 67.1 L314.8 92.7 L372.9 118.7 L418.8 144.1 L454.6 168.2 L482.0 190.6 L502.6 211.1 L517.8 229.5 L528.5 245.8 L535.8 260.1 L540.4 272.6 L543.0 283.3 L544.1 292.4 L544.0 300.0 L543.2 306.5" stroke-opacity=".28"/><path d="M887.7 43.2 L857.0 113.3 L824.2 170.0 L790.9 215.3 L758.3 251.1 L727.4 279.0 L698.7 300.4 L672.5 316.5 L648.9 328.2 L627.9 336.6 L609.6 342.3 L593.6 345.9 L579.9 347.9 L568.2 348.8 L558.4 348.7 L550.2 348.1" stroke-opacity=".28"/></g><path class="l-filo" d="M523.5 350.8 L551.2 324.4 L507.9 301.8 L478.5 344.4 L546.6 366.7 L572.7 301.2 L470.3 284.6 L456.7 381.1 L604.9 382.7 L590.4 245.5 L383.6 274.6 L451.4 462.4 L729.0 378.3 L569.5 131.4 L212.6 306.9 L520.0 616.8 L930.0 610.0" fill="none"/><g><circle cx="523.5" cy="350.8" r="3.0" class="l-nodo"/><circle cx="478.5" cy="344.4" r="4.0" class="l-nodo"/><circle cx="470.3" cy="284.6" r="5.1" class="l-nodo"/><circle cx="590.4" cy="245.5" r="6.2" class="l-nodo"/><circle cx="729.0" cy="378.3" r="7.2" class="l-nodo"/><circle cx="520.0" cy="616.8" r="8.2" class="l-nodo"/><circle cx="824.2" cy="170.0" r="6.3" class="l-punto"/><circle cx="281.7" cy="408.9" r="5.6" class="l-punto"/><circle cx="698.7" cy="300.4" r="4.9" class="l-punto"/><circle cx="391.1" cy="331.8" r="4.2" class="l-punto"/><circle cx="609.6" cy="342.3" r="3.5" class="l-punto"/><circle cx="460.1" cy="312.1" r="2.8" class="l-punto"/><circle cx="558.4" cy="348.7" r="2.1" class="l-punto"/></g></svg><!--/labirinto-->
-    <div class="eroe-pannello">
+  <!--casa--><header class="casa">
+    <div class="casa-testa">
       <div class="occhiello">Al servizio del cittadino</div>
       <h1>Lo Scrivano civico</h1>
-      <p class="eroe-filo">Il filo per uscire dal labirinto.</p>
-      <p class="eroe-testo">La burocrazia ha mille tentacoli. Il Polpo, il nostro scrivano, ne ha otto, tutti dalla tua parte: legge le tue carte, fa i conti, ti scrive la lettera giusta e ti ricorda le scadenze. Tecnologia che mette la persona al centro: per superare la burocrazia inutile e per partecipare davvero alle scelte della società. Strumenti aperti e gratuiti, che funzionano senza chiedere niente a nessuno e usano solo norme pubbliche e dati aperti.</p>
-      <p class="eroe-azioni"><a class="btn btn-primario" href="#cosa-puoi-fare">Cosa puoi fare</a> <a class="btn" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p>
+      <p class="casa-motto">La burocrazia ha mille tentacoli. <span>Il Polpo ne ha otto, tutti dalla tua parte.</span></p>
     </div>
+    <section class="giostra" aria-roledescription="carosello" aria-label="Le otto braccia del Polpo" style="--rot:0deg">
+      <div class="giostra-scena">
+        <svg class="polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo con gli occhialini e le sue otto braccia; il braccio in evidenza indica il mestiere descritto accanto">
+          <g class="braccia"><g class="b" data-k="0" style="--a:0deg" transform="rotate(0)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g></g><title>Fa i conti dei tuoi diritti</title></g><g class="b" data-k="1" style="--a:45deg" transform="rotate(45)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g></g><title>Scrive le lettere</title></g><g class="b" data-k="2" style="--a:90deg" transform="rotate(90)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g></g><title>Trova la strada</title></g><g class="b" data-k="3" style="--a:135deg" transform="rotate(135)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g></g><title>Ti difende</title></g><g class="b" data-k="4" style="--a:180deg" transform="rotate(180)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g></g><title>Legge i conti del Comune</title></g><g class="b" data-k="5" style="--a:225deg" transform="rotate(225)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g></g><title>Controlla gli appalti</title></g><g class="b" data-k="6" style="--a:270deg" transform="rotate(270)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g></g><title>Ti porta a firmare</title></g><g class="b" data-k="7" style="--a:315deg" transform="rotate(315)"><path class="b-arto" d="M58 0 C92 -34 118 30 150 2 S 196 -22 214 0"/><path class="b-ventose" d="M80 9 C104 -8 124 30 152 12 S 190 -6 206 8"/><g class="b-stazione" transform="translate(252 0)"><circle r="36"/><g class="b-icona"><g transform="scale(1.75)"><rect x="-12" y="-12" width="24" height="24" fill="none" stroke="none"/><path transform="translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g></g><title>Si prende cura dei luoghi</title></g></g><g class="testa"><path class="t-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="t-lente" cx="-26" cy="-6" r="22"/><circle class="t-lente" cx="26" cy="-6" r="22"/><path class="t-lente" d="M-4 -6 H4"/><circle class="t-occhio" cx="-26" cy="-4" r="7"/><circle class="t-occhio" cx="26" cy="-4" r="7"/><path class="t-bocca" d="M-12 30 Q0 38 12 30"/></g>
+        </svg>
+      </div>
+      <div class="giostra-pannello">
+        <div class="g-testo" aria-live="polite"><span class="g-n">01 / 08 · Davanti alla burocrazia</span><h2 class="g-titolo">Fa i conti dei tuoi diritti</h2><p class="g-spiega">Quali bonus e aiuti ti spettano, quanto ti devono per un volo, un treno o una bolletta.</p><p class="g-strumenti"><a class="btn btn-primario" href="mi-spetta/" data-strumento="mi-spetta">Mi spetta</a><a class="btn" href="mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a></p></div>
+        <div class="g-comandi">
+          <button type="button" class="g-freccia" data-passo="-1" aria-label="Braccio precedente">←</button>
+          <span class="g-punti"><button type="button" class="g-punto" data-vai="0" aria-label="1: Fa i conti dei tuoi diritti"></button><button type="button" class="g-punto" data-vai="1" aria-label="2: Scrive le lettere"></button><button type="button" class="g-punto" data-vai="2" aria-label="3: Trova la strada"></button><button type="button" class="g-punto" data-vai="3" aria-label="4: Ti difende"></button><button type="button" class="g-punto" data-vai="4" aria-label="5: Legge i conti del Comune"></button><button type="button" class="g-punto" data-vai="5" aria-label="6: Controlla gli appalti"></button><button type="button" class="g-punto" data-vai="6" aria-label="7: Ti porta a firmare"></button><button type="button" class="g-punto" data-vai="7" aria-label="8: Si prende cura dei luoghi"></button></span>
+          <button type="button" class="g-freccia" data-passo="1" aria-label="Braccio successivo">→</button>
+          <button type="button" class="g-pausa" aria-pressed="false">Ferma</button>
+        </div>
+      </div>
+    </section>
+    <p class="casa-azioni"><a class="btn btn-primario" href="assistente/" data-strumento="assistente">Chiedi al Polpo</a> <span>Racconta il problema con parole tue: sceglie lui il braccio giusto.</span></p>
   </header>
-  <!--mappa--><section class="mappa" id="cosa-puoi-fare" aria-labelledby="t-mappa">
-    <div class="mappa-testa">
-      <div class="occhiello">Tutto quello che puoi fare</div>
-      <h2 id="t-mappa">Con la burocrazia e con la tua comunità</h2>
-      <a class="mappa-scrivano" href="assistente/" data-strumento="assistente"><span>Non sai da dove partire?</span> Racconta il problema al Polpo <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="mappa-colonne">
-      <div class="mappa-colonna">
-        <h3><span class="mappa-n">I</span> Davanti alla burocrazia</h3>
-        <p>Diritti, rimborsi, ricorsi e pratiche: le regole scritte, la scadenza e la lettera pronta.</p>
-        <ol><li><a class="mappa-voce" href="mi-spetta/" data-strumento="mi-spetta"><span class="mappa-azione">Sapere a quali aiuti hai diritto</span><span class="mappa-nome">Mi spetta</span></a></li><li><a class="mappa-voce" href="navigatore/" data-strumento="navigatore"><span class="mappa-azione">Capire cosa fare per una pratica</span><span class="mappa-nome">Navigatore dei servizi</span></a></li><li><a class="mappa-voce" href="faccio-ricorso/" data-strumento="faccio-ricorso"><span class="mappa-azione">Contestare una multa</span><span class="mappa-nome">Faccio ricorso?</span></a></li><li><a class="mappa-voce" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti"><span class="mappa-azione">Chiedere documenti a un ente pubblico</span><span class="mappa-nome">Chiedo gli atti</span></a></li><li><a class="mappa-voce" href="mi-rimborsano/" data-strumento="mi-rimborsano"><span class="mappa-azione">Farti rimborsare volo, treno, bolletta</span><span class="mappa-nome">Mi rimborsano?</span></a></li><li><a class="mappa-voce" href="reclami-pa/" data-strumento="reclami-pa"><span class="mappa-azione">Reclamare contro un ufficio che non risponde</span><span class="mappa-nome">Reclami alla PA</span></a></li><li><a class="mappa-voce" href="garanzia/" data-strumento="garanzia"><span class="mappa-azione">Far valere garanzia e diritto di recesso</span><span class="mappa-nome">Si è rotto o ci ho ripensato</span></a></li><li><a class="mappa-voce" href="liste-attesa/" data-strumento="liste-attesa"><span class="mappa-azione">Ottenere la visita nei tempi previsti</span><span class="mappa-nome">La visita nei tempi</span></a></li><li><a class="mappa-voce" href="truffe/" data-strumento="truffe"><span class="mappa-azione">Capire se un messaggio è una truffa</span><span class="mappa-nome">È una truffa?</span></a></li></ol>
-        <a class="mappa-tutti" href="#t-burocrazia">Le schede degli strumenti ↓</a>
-      </div>
-      <div class="mappa-colonna">
-        <h3><span class="mappa-n">II</span> Dentro la vita pubblica</h3>
-        <p>Guardare i conti, controllare chi decide, partecipare e prendersi cura dei luoghi.</p>
-        <ol><li><a class="mappa-voce" href="bilancio-comune/" data-strumento="bilancio-comune"><span class="mappa-azione">Leggere come spende il tuo Comune</span><span class="mappa-nome">Il bilancio del mio Comune</span></a></li><li><a class="mappa-voce" href="appalti/" data-strumento="appalti"><span class="mappa-azione">Controllare gli appalti pubblici</span><span class="mappa-nome">Red flag sugli appalti</span></a></li><li><a class="mappa-voce" href="segnalazioni/" data-strumento="segnalazioni"><span class="mappa-azione">Segnalare un problema nella tua strada</span><span class="mappa-nome">Segnalazioni urbane</span></a></li><li><a class="mappa-voce" href="raccolte-firme/" data-strumento="raccolte-firme"><span class="mappa-azione">Firmare referendum e leggi popolari</span><span class="mappa-nome">Raccolte firme in corso</span></a></li><li><a class="mappa-voce" href="alberi/" data-strumento="alberi"><span class="mappa-azione">Piantare alberi con il tuo Comune</span><span class="mappa-nome">Alberi per il futuro</span></a></li><li><a class="mappa-voce" href="https://www.fiumipuliti.it/" target="_blank" rel="noopener"><span class="mappa-azione">Misurare la salute dei fiumi</span><span class="mappa-nome">Fiumi Puliti</span></a></li><li class="mappa-voce in-arrivo"><span class="mappa-azione">Sapere chi siede sulle poltrone pubbliche</span><span class="mappa-nome">Le carte del potere · in arrivo</span></li></ol>
-        <a class="mappa-tutti" href="#t-partecipazione">Le schede degli strumenti ↓</a>
-      </div>
-    </div>
-  </section><!--/mappa-->
-  <!--foto--><figure class="foto-ac foto-banda"><div class="foto-ac-quadro"><img src="comune/foto/piazza.jpg" alt="Una donna seduta su una panchina di una piazza italiana sorride guardando il telefono, accanto una cartellina di documenti; intorno vicini che chiacchierano e un bambino in bicicletta. In bianco e nero, un filo rosso attraversa la scena" fetchpriority="high" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico</span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
 
-  <main id="strumenti">
-    <div class="strumenti">
-    <a class="strumento scheda-scrivano" href="assistente/" data-strumento="assistente" style="grid-column:1/-1">
-      <img class="scrivano-foto" src="comune/foto/polpo.jpg" alt="Sotto i portici di una piazza, un polpo con gli occhialini da lettura siede sul banco dello scrivano: con un braccio scrive in inchiostro rosso, con altri timbra, legge una bolletta con la lente, sfoglia il calendario e porge la lettera alla mano di un cittadino. In bianco e nero, unico colore l'inchiostro rosso che diventa un filo" width="1344" height="752" loading="lazy" decoding="async">
-      <div class="scrivano-testo">
-        <div class="occhiello">In conversazione, con l'intelligenza artificiale</div>
-        <h2>Chiedi al Polpo</h2>
-        <p>Il Polpo fa lo scrivano pubblico, quello che un tempo sedeva vicino agli uffici. Gli porti le tue carte e il problema: con un braccio legge, con un altro fa i conti, con un altro ti scrive la lettera giusta e con un altro ti segna la scadenza in calendario. Usa le regole degli strumenti qui sotto. La firma resta tua.</p>
-        <p class="scrivano-battuta">«Ciao, sono il Polpo, lo scrivano civico: un assistente AI, non un ufficio pubblico. Ho otto braccia e regole scritte con le fonti. Dimmi cosa ti è arrivato.»</p>
-        <ul><li>Cifre e scadenze solo dai motori di regole, con la fonte</li><li>Nome e codice fiscale restano sul tuo dispositivo, mai in chat</li><li>Funziona dentro un assistente AI, con il tuo account</li></ul>
-        <span class="vai">Apri la conversazione</span>
-      </div>
-    </a>
-    </div>
-
-    <section class="pilastro" aria-labelledby="t-burocrazia">
-      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/cucina.jpg" alt="Un anziano e sua figlia al tavolo di cucina guardano insieme il telefono, sollevati; le buste e i moduli sono messi da parte accanto alla moka. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico <span>· Meno burocrazia</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
-      <div class="pilastro-testo">
-        <div class="occhiello">Primo obiettivo</div>
-        <h2 id="t-burocrazia">Meno burocrazia inutile</h2>
-        <p>Diritti che esistono sulla carta ma si perdono tra moduli, termini e uffici. Questi strumenti leggono le regole al posto tuo, ti dicono cosa ti spetta e preparano il documento giusto, con la fonte.</p>
-      </div>
-    </section>
-    <div class="strumenti">
-    <a class="strumento" href="navigatore/" data-strumento="navigatore"><!--scena:navigatore--><div class="scena scena-navigatore"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Navigatore dei servizi"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M32 52 V12 M24 52 H40 M32 16 H45 L50 21 L45 26 H32 M32 31 H19 L14 36 L19 41 H32"/><path class="lg-t" d="M14 52 C20 49 24 47 32 47"/><circle class="lg-n" cx="11" cy="53" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un cartello stradale con le frecce e il filo rosso che indica la strada" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M160 132 V16 M140 132 H180"/><path class="s-l" d="M160 26 H232 L246 38 L232 50 H160 Z" style="fill:var(--carta)"/><path class="s-p" d="M160 62 H88 L74 74 L88 86 H160 Z"/><path class="s-l" d="M160 62 H88 L74 74 L88 86 H160 Z"/><path class="s-l" d="M176 38 H222 M100 74 H146"/><circle class="s-r" cx="160" cy="16" r="5"/><circle class="s-r" cx="30" cy="124" r="5"/><path class="s-t" d="M36 122 C70 118 90 112 104 100 C112 94 120 92 140 100 C150 104 154 110 160 112 M160 112 C196 116 230 96 262 104 C280 108 290 120 300 122"/></svg></div><!--/scena-->
-      <div class="occhiello">Pratiche e uffici</div>
-      <h2>Navigatore dei servizi</h2>
-      <p>Cosa devo fare per…? Scrivilo con parole tue: i passi, i documenti, quanto costa, i termini e il link al servizio ufficiale.</p>
-      <ul><li>40 pratiche: residenza, documenti, famiglia, lavoro, fisco, auto, casa</li><li>Solo fonti ufficiali, con la data di verifica</li><li>Le novità 2026, come la fine della carta d'identità cartacea</li></ul>
-      <span class="vai">Trova la tua pratica</span>
-    </a>
-    <a class="strumento" href="mi-spetta/" data-strumento="mi-spetta"><!--scena:mi-spetta--><div class="scena scena-mi-spetta"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Mi spetta"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><ellipse class="lg-i" cx="28" cy="44" rx="13" ry="5"/><path class="lg-i" d="M15 44 V36 M41 44 V36"/><ellipse class="lg-i" cx="28" cy="36" rx="13" ry="5"/><path class="lg-i" d="M15 36 V28 M41 36 V28"/><ellipse class="lg-i" cx="28" cy="28" rx="13" ry="5"/><path class="lg-t" d="M14 53 C30 54 40 44 42 34 M38 18 L43 23 L52 12"/><circle class="lg-n" cx="11" cy="52" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Una pila di monete e una lista di requisiti spuntati, legate dal filo rosso" preserveAspectRatio="xMidYMid meet"><ellipse class="s-l" cx="110" cy="112" rx="40" ry="10" style="fill:var(--carta)"/><path class="s-l" d="M70 112 V100 M150 112 V100"/><ellipse class="s-l" cx="110" cy="100" rx="40" ry="10" style="fill:var(--carta)"/><path class="s-l" d="M70 100 V88 M150 100 V88"/><ellipse class="s-l" cx="110" cy="88" rx="40" ry="10" style="fill:var(--carta)"/><path class="s-l" d="M70 88 V76 M150 88 V76"/><ellipse class="s-p" cx="110" cy="76" rx="40" ry="10"/><ellipse class="s-l" cx="110" cy="76" rx="40" ry="10"/><text x="110" y="81" text-anchor="middle" class="s-testo">€</text><rect class="s-l" x="190" y="22" width="80" height="100" rx="4" style="fill:var(--carta)"/><path class="s-l" d="M204 44 L210 50 L222 38 M230 44 H258 M204 68 L210 74 L222 62 M230 68 H258 M230 92 H258"/><path class="s-t" d="M204 92 L210 98 L222 86"/><circle class="s-r" cx="30" cy="60" r="5"/><path class="s-t" d="M36 60 C70 50 90 40 110 58 C120 66 150 60 190 54"/></svg></div><!--/scena-->
-      <div class="occhiello">Bonus e prestazioni</div>
-      <h2>Mi spetta</h2>
-      <p>A quali bonus e prestazioni pubbliche hai diritto, quanto valgono e come chiederli.</p>
-      <ul><li>24 prestazioni nazionali e 67 regionali, regole 2026</li><li>Assegno unico con la tabella INPS ufficiale</li><li>Fonte citata per ogni esito</li></ul>
-      <span class="vai">Scopri cosa ti spetta</span>
-    </a>
-    <a class="strumento" href="faccio-ricorso/" data-strumento="faccio-ricorso"><!--scena:faccio-ricorso--><div class="scena scena-faccio-ricorso"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Faccio ricorso?"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M18 13 H38 L46 21 V51 H18 Z M38 13 V21 H46"/><path class="lg-i" d="M24 30 H40 M24 37 H36"/><path class="lg-t" d="M52 46 H31 C25 46 25 40 31 40 H35 M33 37 L36 40 L33 43"/><circle class="lg-n" cx="52" cy="52" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un semaforo rosso e un verbale con una spunta: il ricorso che torna indietro" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="60" y="18" width="40" height="96" rx="10" style="fill:var(--carta)"/><circle class="s-r" cx="80" cy="40" r="11"/><circle class="s-l" cx="80" cy="66" r="11"/><circle class="s-l" cx="80" cy="92" r="11"/><path class="s-l" d="M80 114 V132"/><path class="s-l" d="M150 28 H246 L258 40 V124 H150 Z" style="fill:var(--carta)"/><path class="s-l" d="M246 28 V40 H258 M166 52 H232 M166 66 H220 M166 80 H236"/><path class="s-t" d="M170 104 L180 114 L200 94"/><circle class="s-r" cx="112" cy="132" r="5"/><path class="s-t" d="M118 130 C132 124 136 110 150 104"/><path class="s-t" d="M272 70 C292 70 294 96 272 100 M278 92 L270 100 L278 108"/></svg></div><!--/scena-->
-      <div class="occhiello">Multe stradali</div>
-      <h2>Faccio ricorso?</h2>
-      <p>Controlla la multa: termini, motivi oggettivi, quanto rischi. Se conviene, il ricorso è pronto.</p>
-      <ul><li>Notifica, autovelox, taratura, strisce blu, ZTL</li><li>Prefetto o Giudice di Pace, con i costi</li><li>PEC di tutte le Prefetture</li></ul>
-      <span class="vai">Controlla la tua multa</span>
-    </a>
-    <a class="strumento" href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti"><!--scena:chiedo-gli-atti--><div class="scena scena-chiedo-gli-atti"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Chiedo gli atti"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M14 27 L32 15 L50 27 Z M18 31 V47 M26 31 V47 M38 31 V47 M46 31 V47 M14 51 H50"/><path class="lg-t" d="M12 41 C20 41 26 37 32 37 V47"/><circle class="lg-n" cx="9" cy="41" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un municipio con le colonne e un documento che ne esce, tenuto dal filo rosso" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M40 54 L110 22 L180 54 Z" style="fill:var(--carta)"/><path class="s-l" d="M48 58 H172 M56 62 V112 M80 62 V112 M104 62 V112 M128 62 V112 M152 62 V112 M40 116 H180 M34 124 H186"/><circle class="s-r" cx="110" cy="42" r="4"/><path class="s-l" d="M224 38 H274 L286 50 V118 H224 Z" style="fill:var(--carta)"/><path class="s-l" d="M274 38 V50 H286 M236 64 H274 M236 78 H274 M236 92 H262"/><circle class="s-r" cx="110" cy="96" r="5"/><path class="s-t" d="M116 94 C150 90 170 70 200 74 C212 76 216 82 224 84"/><path class="s-p" d="M236 104 H274 V110 H236 Z"/></svg></div><!--/scena-->
-      <div class="occhiello">Trasparenza</div>
-      <h2>Chiedo gli atti</h2>
-      <p>Chiedi documenti e dati a qualsiasi ente pubblico, e sai cosa fare se tace o rifiuta.</p>
-      <ul><li>FOIA, accesso semplice o documentale</li><li>23.705 enti con la loro PEC</li><li>Riesame e ricorsi già pronti</li></ul>
-      <span class="vai">Prepara la richiesta</span>
-    </a>
-    <a class="strumento" href="mi-rimborsano/" data-strumento="mi-rimborsano"><!--scena:mi-rimborsano--><div class="scena scena-mi-rimborsano"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Mi rimborsano?"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M30 36 H50 V50 H30 Z M30 41 H50"/><path class="lg-t" d="M14 44 C13 22 40 14 42 28 M38 24 L42 29 L46 24"/><circle class="lg-n" cx="13" cy="49" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un aereo, un treno e uno scontrino: il rimborso che torna verso chi ne ha diritto" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M30 66 L120 58 L140 40 L150 42 L140 60 L180 58 C188 58 188 70 180 70 L140 70 L150 88 L140 90 L120 72 L30 70 Z" style="fill:var(--carta)"/><rect class="s-l" x="200" y="60" width="64" height="60" rx="12" style="fill:var(--carta)"/><rect class="s-p" x="210" y="70" width="44" height="20" rx="4"/><circle class="s-l" cx="216" cy="104" r="4"/><circle class="s-l" cx="248" cy="104" r="4"/><path class="s-l" d="M206 128 L214 120 M258 128 L250 120"/><path class="s-l" d="M276 18 H306 V54 L300 50 L294 54 L288 50 L282 54 L276 50 Z" style="fill:var(--carta)"/><text x="291" y="40" text-anchor="middle" class="s-testo s-piccolo">€</text><circle class="s-r" cx="24" cy="110" r="5"/><path class="s-t" d="M30 110 C80 120 150 112 190 96 M292 60 C292 86 280 96 266 100"/><path class="s-t" d="M296 64 L292 56 L286 64"/></svg></div><!--/scena-->
-      <div class="occhiello">Reclami e rimborsi</div>
-      <h2>Mi rimborsano?</h2>
-      <p>Volo in ritardo, treno soppresso, bagaglio perso, maxi-bolletta, internet che non va, addebito truffa: quanto ti spetta e la lettera pronta.</p>
-      <ul><li>Compensazioni dei voli da 250 a 600 €</li><li>Bollette più vecchie di due anni da non pagare</li><li>Indennizzi AGCOM, ARERA e rimborsi bancari</li></ul>
-      <span class="vai">Controlla il tuo caso</span>
-    </a>
-    <a class="strumento" href="reclami-pa/" data-strumento="reclami-pa"><!--scena:reclami-pa--><div class="scena scena-reclami-pa"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Reclami alla PA"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M14 44 H50 M17 44 C17 30 47 30 47 44 M32 30 V25 M28 25 H36"/><path class="lg-i" d="M12 50 H52"/><path class="lg-t" d="M14 22 C22 14 34 14 42 20 M38 16 L42 20 L38 24"/><circle class="lg-n" cx="11" cy="26" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Lo sportello di un ufficio pubblico con il campanello, una pratica e una lettera che parte" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M40 120 H200 V70 H40 Z" style="fill:var(--carta)"/><path class="s-l" d="M30 70 H210 M56 96 H112 M56 108 H96"/><rect class="s-p" x="132" y="84" width="52" height="28" rx="3"/><path class="s-l" d="M132 84 H184 V112 H132 Z M140 94 H176 M140 102 H166"/><path class="s-l" d="M150 52 C150 40 166 40 166 52 Z" style="fill:var(--carta)"/><path class="s-l" d="M146 52 H170 M158 36 V32"/><path class="s-l" d="M236 34 H290 V96 H236 Z" style="fill:var(--carta)"/><path class="s-l" d="M236 34 L263 62 L290 34"/><circle class="s-r" cx="24" cy="112" r="5"/><path class="s-t" d="M30 110 C34 96 36 88 40 86 M210 96 C222 96 226 80 236 74"/><path class="s-t" d="M248 112 L258 122 L278 102"/></svg></div><!--/scena-->
-      <div class="occhiello">Uffici pubblici</div>
-      <h2>Reclami alla PA</h2>
-      <p>Pratica ferma, nessuna risposta, disservizio: il passo giusto, i termini calcolati e la lettera, fino al difensore civico.</p>
-      <ul><li>Titolare del potere sostitutivo e ricorso contro il silenzio</li><li>Difensori civici regionali con PEC verificata</li><li>Sanità, servizi digitali, privacy</li></ul>
-      <span class="vai">Prepara il reclamo</span>
-    </a>
-    <a class="strumento" href="garanzia/" data-strumento="garanzia"><!--scena:garanzia--><div class="scena scena-garanzia"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Si è rotto o ci ho ripensato"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M20 12 H44 V52 L40 48 L36 52 L32 48 L28 52 L24 48 L20 52 Z M26 22 H38 M26 30 H38"/><path class="lg-t" d="M10 40 C10 28 18 22 26 38 M22 36 L26 39 L29 34"/><circle class="lg-n" cx="9" cy="44" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Una lavatrice, un pacco da restituire con la freccia del reso e lo scontrino: garanzia e recesso" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="40" y="34" width="78" height="92" rx="6" style="fill:var(--carta)"/><circle class="s-l" cx="79" cy="86" r="24" style="fill:var(--carta)"/><circle class="s-p" cx="79" cy="86" r="15"/><path class="s-l" d="M48 50 H110 M54 42 H64"/><path class="s-l" d="M150 70 L200 52 L250 70 L200 88 Z" style="fill:var(--carta)"/><path class="s-l" d="M150 70 V112 L200 130 L250 112 V70 M200 88 V130"/><path class="s-l" d="M268 30 H300 V70 L295 66 L290 70 L285 66 L280 70 L275 66 L268 70 Z" style="fill:var(--carta)"/><path class="s-l" d="M274 40 H294 M274 48 H290"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C34 112 38 108 40 104 M118 70 C132 66 140 66 150 70 M250 70 C262 62 264 56 268 52"/><path class="s-t" d="M214 40 C228 28 248 30 258 40 M252 32 L258 40 L249 43"/></svg></div><!--/scena-->
-      <div class="occhiello">Acquisti</div>
-      <h2>Si è rotto o ci ho ripensato</h2>
-      <p>Un oggetto che si è rotto, un acquisto online su cui hai cambiato idea, un rimborso che non arriva: garanzia, riparazione, recesso, con la lettera al venditore.</p>
-      <ul><li>Due anni di garanzia, 12 mesi in più se lo riparano</li><li>14 giorni per recedere, 12 mesi in più se non ti hanno informato</li><li>Riparazione dal fabbricante anche dopo la garanzia</li></ul>
-      <span class="vai">Controlla i tuoi diritti</span>
-    </a>
-    <a class="strumento" href="liste-attesa/" data-strumento="liste-attesa"><!--scena:liste-attesa--><div class="scena scena-liste-attesa"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di La visita nei tempi"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M14 18 H50 V52 H14 Z M14 28 H50 M24 12 V22 M40 12 V22"/><path class="lg-t" d="M10 53 C20 53 24 46 28 40 L34 34"/><circle class="lg-n" cx="8" cy="53" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="40" y="30" width="110" height="96" rx="6" style="fill:var(--carta)"/><path class="s-l" d="M40 52 H150 M66 22 V38 M124 22 V38 M58 70 H70 M86 70 H98 M114 70 H126 M58 90 H70 M86 90 H98 M58 108 H70"/><circle class="s-p" cx="120" cy="92" r="10"/><circle class="s-l" cx="120" cy="92" r="10"/><circle class="s-l" cx="232" cy="74" r="40" style="fill:var(--carta)"/><path class="s-l" d="M232 46 V74 L252 86"/><path class="s-l" d="M281.6 132.0 C281.6 110.4 310.4 110.4 310.4 132.0 Z" style="fill:var(--accento-tenue)"/><circle class="s-l" cx="296" cy="105.0" r="8.1" style="fill:var(--carta)"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/></svg></div><!--/scena-->
-      <div class="occhiello">Salute</div>
-      <h2>La visita nei tempi</h2>
-      <p>Il CUP ti ha dato una data lontanissima? Con la classe della ricetta calcoliamo il tempo massimo e prepariamo la richiesta all'ASL: devono trovarti loro un posto, al costo del ticket.</p>
-      <ul><li>Tempi del Piano nazionale 2026-2028</li><li>Percorso di tutela: un diritto, non un favore</li><li>PEC della tua azienda sanitaria</li></ul>
-      <span class="vai">Calcola i tuoi tempi</span>
-    </a>
-    <a class="strumento" href="truffe/" data-strumento="truffe"><!--scena:truffe--><div class="scena scena-truffe"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di È una truffa?"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M16 10 H38 V54 H16 Z M23 48 H31"/><path class="lg-t" d="M48 8 V30 C48 40 36 40 36 31 V28"/><circle class="lg-n" cx="48" cy="8" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un telefono con un messaggio, un amo da pesca e una lente che esamina il link: riconoscere le truffe" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="56" y="16" width="70" height="116" rx="10" style="fill:var(--carta)"/><path class="s-l" d="M82 122 H100"/><path class="s-l" d="M66 36 H116 V70 H80 L72 78 V70 H66 Z" style="fill:var(--carta)"/><path class="s-p" d="M72 46 H110 V52 H72 Z"/><path class="s-l" d="M72 60 H100"/><path class="s-l" d="M170 10 V60 C170 78 196 78 196 60 V54"/><path class="s-l" d="M196 54 L190 62 M196 54 L202 62"/><circle class="s-l" cx="256" cy="80" r="26" style="fill:var(--carta);fill-opacity:.85"/><path class="s-l" d="M274 98 L298 122"/><path class="s-t" d="M244 80 H268"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C40 110 48 104 56 100 M126 54 C150 60 156 70 170 66 M206 80 C218 80 222 80 230 80"/></svg></div><!--/scena-->
-      <div class="occhiello">Sicurezza</div>
-      <h2>È una truffa?</h2>
-      <p>SMS del pacco, telefonata della «banca», «ciao mamma, nuovo numero», investimenti miracolosi: i segnali di truffa prima di cliccare, e cosa fare subito se è già successo.</p>
-      <ul><li>Siti che imitano banche, Poste ed enti pubblici</li><li>Siti oscurati dalla CONSOB</li><li>Scadenze per contestare alla banca e per la querela</li></ul>
-      <span class="vai">Controlla un messaggio</span>
-    </a>
-    </div>
-
-    <section class="pilastro" aria-labelledby="t-partecipazione">
-      <!--foto--><figure class="foto-ac foto-pilastro ac-lato"><div class="foto-ac-quadro"><img src="comune/foto/assemblea.jpg" alt="Cittadini di ogni età seduti in cerchio nella sala affrescata di un municipio: una giovane parla, un signore alza la mano. In bianco e nero, un filo rosso attraversa la scena" loading="lazy" decoding="async" width="1600" height="895"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Lo Scrivano civico <span>· Più partecipazione</span></span></div><figcaption>Fotografia illustrativa generata con intelligenza artificiale.</figcaption></figure><!--/foto-->
-      <div class="pilastro-testo">
-        <div class="occhiello">Secondo obiettivo</div>
-        <h2 id="t-partecipazione">Più partecipazione alle scelte</h2>
-        <p>Per decidere insieme bisogna sapere: come spende il Comune, come compra, chi occupa le cariche pubbliche, com'è l'acqua dei fiumi. E poi agire, segnalando o piantando un albero.</p>
-      </div>
-    </section>
-    <div class="strumenti">
-    <a class="strumento" href="bilancio-comune/" data-strumento="bilancio-comune"><!--scena:bilancio-comune--><div class="scena scena-bilancio-comune"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Il bilancio del mio Comune"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M13 50 H51 M19 50 V36 M28 50 V28 M37 50 V33 M46 50 V22"/><path class="lg-t" d="M14 30 C20 24 24 18 28 20 S36 28 40 22 L49 14"/><circle class="lg-n" cx="12" cy="33" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Le colonne di un grafico della spesa e il filo rosso che le confronta" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M24 124 H296"/><rect class="s-l" x="60" y="80" width="28" height="44" style="fill:var(--carta)"/><rect class="s-p" x="104" y="54" width="28" height="70"/><rect class="s-l" x="104" y="54" width="28" height="70"/><rect class="s-l" x="148" y="70" width="28" height="54" style="fill:var(--carta)"/><rect class="s-l" x="192" y="40" width="28" height="84" style="fill:var(--carta)"/><rect class="s-l" x="236" y="62" width="28" height="62" style="fill:var(--carta)"/><circle class="s-r" cx="36" cy="88" r="5"/><path class="s-t" d="M42 86 C60 70 70 72 74 70 S110 40 118 44 S150 62 162 58 S198 26 206 30 S240 56 250 50 L284 30"/><path class="s-t" d="M276 28 L286 29 L282 38"/></svg></div><!--/scena-->
-      <div class="occhiello">Conti pubblici</div>
-      <h2>Il bilancio del mio Comune</h2>
-      <p>Quanto spende il tuo Comune, per cosa, da dove arrivano i soldi e se i conti sono in ordine, rispetto ai Comuni della stessa grandezza.</p>
-      <ul><li>Rendiconti ufficiali di 7.808 Comuni</li><li>Rifiuti, asili, strade, sociale: per abitante</li><li>Disavanzo, debito, pagamenti ai fornitori</li></ul>
-      <span class="vai">Cerca il tuo Comune</span>
-    </a>
-    <a class="strumento" href="appalti/" data-strumento="appalti"><!--scena:appalti--><div class="scena scena-appalti"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Red flag sugli appalti"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M20 52 V12"/><path class="lg-t" d="M21 14 H47 L41 21 L47 28 H21 M14 52 H20"/><circle class="lg-n" cx="12" cy="52" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Una pila di fascicoli di gara, una bandiera rossa e una lente d'ingrandimento" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M40 124 H160 V96 H40 Z M48 96 V72 H152 V96 M56 72 V52 H144 V72" style="fill:var(--carta)"/><path class="s-l" d="M188 128 V18"/><path class="s-r" d="M190 22 H254 L240 40 L254 58 H190 Z"/><circle class="s-l" cx="262" cy="98" r="18" style="fill:var(--carta)"/><path class="s-l" d="M275 111 L294 130"/><circle class="s-r" cx="24" cy="110" r="5"/><path class="s-t" d="M30 110 C34 100 40 100 40 100 M160 108 C176 108 180 118 188 120"/></svg></div><!--/scena-->
-      <div class="occhiello">Anticorruzione</div>
-      <h2>Red flag sugli appalti</h2>
-      <p>Come compra il tuo Comune, la tua ASL o la tua Regione: affidamenti senza gara, gare con una sola offerta, fornitori che pesano troppo.</p>
-      <ul><li>1,45 milioni di procedure del 2025, dati ANAC</li><li>Segnali confrontati con gli enti simili</li><li>Richiesta degli atti pronta per ogni gara</li></ul>
-      <span class="vai">Cerca un ente</span>
-    </a>
-    <a class="strumento" href="segnalazioni/" data-strumento="segnalazioni"><!--scena:segnalazioni--><div class="scena scena-segnalazioni"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Segnalazioni urbane"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M32 50 C22 38 18 32 18 25 A14 14 0 0 1 46 25 C46 32 42 38 32 50 Z"/><path class="lg-i" d="M32 18 V27"/><circle class="lg-n" cx="32" cy="32" r="2.2"/><path class="lg-t" d="M12 52 C18 52 22 50 26 46"/><circle class="lg-n" cx="9" cy="53" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Una buca nella strada, un cono stradale e un telefono che fotografa: la segnalazione" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M20 118 H300"/><ellipse class="s-p" cx="120" cy="118" rx="44" ry="8"/><ellipse class="s-l" cx="120" cy="118" rx="44" ry="8"/><path class="s-l" d="M186 118 L200 62 H212 L226 118 Z" style="fill:var(--carta)"/><path class="s-r" d="M193 92 H219 L222 104 H190 Z"/><path class="s-l" d="M180 118 H232"/><rect class="s-l" x="244" y="30" width="44" height="76" rx="8" style="fill:var(--carta)"/><rect class="s-p" x="251" y="40" width="30" height="40" rx="3"/><circle class="s-l" cx="266" cy="94" r="4"/><circle class="s-r" cx="30" cy="96" r="5"/><path class="s-t" d="M36 94 C60 80 78 98 96 110 M150 110 C170 96 182 80 196 74 M222 70 C232 62 240 58 251 58"/></svg></div><!--/scena-->
-      <div class="occhiello">Strade e quartiere</div>
-      <h2>Segnalazioni urbane</h2>
-      <p>Buca, lampione spento, rifiuti, veicolo abbandonato, barriere: chi deve intervenire e la segnalazione formale da mandare dalla tua PEC.</p>
-      <ul><li>Comune, Provincia, ANAS, ARPA, ASL o gestore, con la PEC</li><li>112 e Pronto ANAS quando c'è pericolo</li><li>Promemoria e sollecito se nessuno interviene</li></ul>
-      <span class="vai">Fai una segnalazione</span>
-    </a>
-    <a class="strumento" href="raccolte-firme/" data-strumento="raccolte-firme"><!--scena:raccolte-firme--><div class="scena scena-raccolte-firme"><!--logo--><svg class="logo-scheda" viewBox="0 0 64 64" role="img" aria-label="Logo di Raccolte firme in corso"><rect class="lg-f" x="3" y="3" width="58" height="58" rx="16"/><path class="lg-i" d="M17 12 H41 L47 18 V52 H17 Z M41 12 V18 H47 M23 24 H39 M23 31 H35"/><path class="lg-t" d="M12 50 C18 50 20 42 25 42 S30 48 34 44 S40 38 44 42 L52 34"/><circle class="lg-n" cx="9" cy="50" r="3.4"/></svg><!--/logo--><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un banchetto con un modulo e due persone che firmano dal telefono: le raccolte firme" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="40" y="60" width="150" height="10" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M56 70 L48 130 M174 70 L182 130"/><rect class="s-l" x="70" y="30" width="44" height="30" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M78 40 H106 M78 48 H98"/><path class="s-l" d="M224.0 130.0 C224.0 106.0 256.0 106.0 256.0 130.0 Z" style="fill:var(--carta)"/><circle class="s-l" cx="240" cy="100.0" r="9.0" style="fill:var(--carta)"/><path class="s-l" d="M269.2 124.0 C269.2 98.8 302.8 98.8 302.8 124.0 Z" style="fill:var(--accento-tenue)"/><circle class="s-l" cx="286" cy="92.5" r="9.5" style="fill:var(--carta)"/><rect class="s-l" x="254" y="76" width="18" height="30" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M20 130 H300"/><circle class="s-r" cx="24" cy="100" r="5"/><path class="s-t" d="M30 100 C40 92 60 96 70 92 M114 46 C150 40 190 60 210 70 C224 78 240 84 254 88"/><path class="s-t" d="M150 52 C156 46 160 58 166 52"/></svg></div><!--/scena-->
-      <div class="occhiello">Partecipazione diretta</div>
-      <h2>Raccolte firme in corso</h2>
-      <p>Le proposte di legge e i referendum che puoi firmare online: quante firme hanno, quanto manca e quanto è probabile che ce la facciano.</p>
-      <ul><li>Dati della piattaforma pubblica del Ministero</li><li>Ritmo delle firme e stima con metodo dichiarato</li><li>Link diretto per firmare con SPID o CIE</li></ul>
-      <span class="vai">Guarda le raccolte</span>
-    </a>
-    <div class="strumento" aria-disabled="true" style="cursor:default">
-      <svg class="logo-partner" viewBox="0 0 34 22" role="img" aria-label="Logo di Le carte del potere"><rect x="1" y="4" width="12" height="17" rx="2" fill="#2f6b4f" transform="rotate(-13 7 12)"/><rect x="11" y="4" width="12" height="17" rx="2" fill="#f8f4ea" stroke="#b8955a" stroke-width="1"/><rect x="21" y="4" width="12" height="17" rx="2" fill="#8f2430" transform="rotate(13 27 12)"/></svg><div class="occhiello">Trasparenza · in arrivo</div>
-      <h2>Le carte del potere</h2>
-      <p>L'osservatorio delle nomine pubbliche: chi siede sulle poltrone nominate dalla politica, chi l'ha nominato, quanto vale quella poltrona e quando scade. Ogni dato con la sua fonte.</p>
-      <ul><li>Enti, società partecipate, sanità, ministeri</li><li>Lo scadenzario delle prossime nomine</li><li>Fatti affiancati, mai punteggi politici</li></ul>
-      <span class="vai" style="color:var(--inchiostro-3)">In arrivo, non ancora pubblicato</span>
-    </div>
-    <a class="strumento" href="https://www.fiumipuliti.it/" target="_blank" rel="noopener">
-      <div class="occhiello">Ambiente · Associazione Gianroberto Casaleggio</div>
-      <h2>Fiumi Puliti</h2>
-      <p>La qualità dei fiumi italiani misurata dai cittadini, su una mappa: pH, nitrati, fosfati, Escherichia coli, ossigeno disciolto, temperatura e indice LIMeco, con le soglie di riferimento.</p>
-      <ul><li>1.817 punti sulla mappa</li><li>Iscrizione per aggiungere rilevazioni</li><li>Documento del progetto scaricabile</li></ul>
-      <span class="vai">Apri Fiumi Puliti</span>
-    </a>
-    <a class="strumento" href="alberi/" data-strumento="alberi"><div class="scena scena-alberi foto-ac-mini"><img src="alberi/web/edizioni/2017-aiuola.jpg" alt="Bambini e genitori con le vanghe piantano alberi in un'aiuola lungo una strada" loading="lazy" decoding="async"><img class="logo-alberi-scheda" src="alberi/web/logo-alberi.png" alt="Logo di Alberi per il futuro" width="434" height="179"></div>
-      <div class="occhiello">Ambiente · dal 2015</div>
-      <h2>Alberi per il futuro</h2>
-      <p>Ogni anno, intorno al 21 novembre, cittadini e Comuni piantano alberi insieme. Un'idea di Gianroberto Casaleggio che dal 2024 portano avanti gruppi e associazioni diverse: qui il formato da seguire, il vivaio della tua Regione e le lettere pronte.</p>
-      <ul><li>Oltre 57.000 alberi in circa 250 città nelle prime edizioni</li><li>Il vivaio pubblico della tua Regione</li><li>Le lettere pronte per il Comune e per il vivaio</li></ul>
-      <span class="vai">Organizza una piantumazione</span>
-    </a>
-    </div>
-  </main>
-
-
-  <h2 style="font-size:var(--s2);margin:36px 0 6px">Dentro il tuo assistente AI</h2>
-  <p style="margin:0 0 14px;color:var(--inchiostro-2);max-width:66ch">Le stesse regole, usate dal tuo assistente AI: chiedi in chat e lui risponde con importi, termini e fonti verificati, invece che a memoria.</p>
-  <div class="strumenti">
-    <a class="strumento" href="https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb">
-      <div class="occhiello">App desktop con estensioni MCP</div>
-      <h2>Estensione da installare</h2>
-      <p>Scarica il file <b>agenti-civici.mcpb</b> e aprilo con un doppio clic: l'app dell'assistente la installa da sola.</p>
-      <span class="vai">Scarica l'estensione</span>
-    </a>
-    <a class="strumento" href="https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/mcp/LEGGIMI.md">
-      <div class="occhiello">Assistenti AI e editor compatibili con MCP</div>
-      <h2>Server MCP</h2>
-      <p>Sedici strumenti in sola lettura, nessun dato salvato. Le istruzioni per ogni app, passo per passo.</p>
-      <span class="vai">Come collegarlo</span>
-    </a>
-  </div>
-
-    <section class="mondo" aria-labelledby="t-mondo" style="margin-top:44px">
-    <h2 id="t-mondo" style="font-size:var(--s3);margin:0 0 6px">Gli strumenti civici nel mondo</h2><!--scena:mondo--><div class="scena scena-mondo"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un globo con quattro punti rossi legati da un filo: gli strumenti civici nel mondo" preserveAspectRatio="xMidYMid meet"><circle class="s-l" cx="160" cy="70" r="56" style="fill:var(--carta)"/><ellipse class="s-l" cx="160" cy="70" rx="24" ry="56"/><path class="s-l" d="M104 70 H216 M112 44 H208 M112 96 H208"/><circle class="s-r" cx="128" cy="48" r="4"/><circle class="s-r" cx="196" cy="56" r="4"/><circle class="s-r" cx="146" cy="100" r="4"/><circle class="s-r" cx="186" cy="92" r="4"/><path class="s-t" d="M128 48 C150 30 180 40 196 56 C206 70 200 84 186 92 C172 100 160 104 146 100"/><circle class="s-r" cx="40" cy="120" r="5"/><path class="s-t" d="M46 118 C80 110 100 110 128 48" style="opacity:.55"/></svg></div><!--/scena-->
-    <p style="margin:0 0 16px;color:var(--inchiostro-2);max-width:70ch">Questi strumenti non nascono dal nulla. Nel 2026 molti Paesi usano già l'intelligenza artificiale per servire, informare e far partecipare i cittadini: alcuni casi funzionano, altri sono stati chiusi. L'Atlante ne censisce circa 110, con le fonti.</p>
-    <div class="strumenti griglia-2">
-      <div class="strumento" style="cursor:default"><div class="occhiello">Dal chatbot all'agente</div><p>Corea del Sud, Emirati, Regno Unito ed Estonia passano dall'assistente che risponde a quello che <b>completa la pratica</b>: trova il beneficio, compila la domanda, la fa solo confermare.</p></div>
-      <div class="strumento" style="cursor:default"><div class="occhiello">I fallimenti insegnano</div><p>Il chatbot di New York consigliava di violare la legge ed è stato chiuso; DoNotPay è stato sanzionato. La lezione: <b>nessuna risposta senza fonte</b>, mai pareri legali.</p></div>
-      <div class="strumento" style="cursor:default"><div class="occhiello">I dati diventano strumenti</div><p>Stati Uniti e Regno Unito espongono norme, statistiche e atti come strumenti per gli assistenti AI. Chi rende i dati leggibili dagli agenti diventa <b>infrastruttura</b>.</p></div>
-      <div class="strumento" style="cursor:default"><div class="occhiello">L'Italia</div><p>Ha dati aperti (Camera, Senato, ANAC, Normattiva, bilanci) e chatbot comunali isolati, ma <b>nessuno strato che li colleghi</b> per il cittadino. È lo spazio di questo progetto.</p></div>
-    </div>
-    <h3 style="font-size:var(--s2);margin:28px 0 6px">Cosa si può fare, e per chi</h3>
-    <p style="margin:0 0 14px;color:var(--inchiostro-2);max-width:70ch">Il catalogo divide gli strumenti possibili in quattro gruppi. Per ognuno: cosa esiste già nel mondo, cosa manca in Italia, cosa è stato fatto qui.</p>
-    <div class="strumenti griglia-2 gruppi">
-      <a class="strumento" href="catalogo/#governo"><!--scena:governa--><div class="scena scena-governa"><svg class="scena-svg" viewBox="0 0 320 130" role="img" aria-label="Un palazzo pubblico con la bandiera" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M70 50 L160 18 L250 50 Z" style="fill:var(--carta)"/><path class="s-l" d="M80 54 H240 M92 58 V110 M124 58 V110 M156 58 V110 M188 58 V110 M220 58 V110 M70 114 H250 M62 122 H258"/><path class="s-l" d="M160 18 V4"/><path class="s-r" d="M161 4 H180 L174 9 L180 14 H161 Z"/></svg></div><!--/scena--><div class="occhiello">01 · Governo nazionale e locale</div><h3>Per chi governa</h3><p>Assistente unico ai servizi, rete di agenti tra enti, agente proattivo dei benefici, registro pubblico degli agenti AI, sedute del consiglio trascritte.</p><span class="vai">13 strumenti</span></a>
-      <a class="strumento" href="catalogo/#trasparenza"><!--scena:controlla--><div class="scena scena-controlla"><svg class="scena-svg" viewBox="0 0 320 130" role="img" aria-label="Una lente d'ingrandimento su un documento pubblico" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M80 18 H186 L200 32 V118 H80 Z" style="fill:var(--carta)"/><path class="s-l" d="M96 44 H184 M96 60 H184 M96 76 H160 M96 92 H176"/><circle class="s-l" cx="200" cy="84" r="30" style="fill:var(--carta);fill-opacity:.85"/><path class="s-t" d="M184 80 H216 M190 92 H208"/><path class="s-l" d="M222 106 L250 126"/></svg></div><!--/scena--><div class="occhiello">02 · Trasparenza</div><h3>Per chi controlla</h3><p>Il mio parlamentare, Gazzetta in chiaro, nomine pubbliche, appalti, bilanci, accesso agli atti, lobby e conflitti d'interesse.</p><span class="vai">15 strumenti</span></a>
-      <a class="strumento" href="catalogo/#aggregazioni"><!--scena:organizza--><div class="scena scena-organizza"><svg class="scena-svg" viewBox="0 0 320 130" role="img" aria-label="Tre persone legate dallo stesso filo" preserveAspectRatio="xMidYMid meet"><circle class="s-l" cx="100" cy="46" r="14" style="fill:var(--carta)"/><path class="s-l" d="M74 104 C74 78 126 78 126 104 Z" style="fill:var(--carta)"/><circle class="s-l" cx="160" cy="40" r="15" style="fill:var(--carta)"/><path class="s-p" d="M132 104 C132 74 188 74 188 104 Z"/><path class="s-l" d="M132 104 C132 74 188 74 188 104 Z"/><circle class="s-l" cx="220" cy="46" r="14" style="fill:var(--carta)"/><path class="s-l" d="M194 104 C194 78 246 78 246 104 Z" style="fill:var(--carta)"/><path class="s-t" d="M100 60 C120 116 200 116 220 60"/><path class="s-l" d="M60 116 H260"/></svg></div><!--/scena--><div class="occhiello">03 · Partiti e aggregazioni</div><h3>Per chi si organizza</h3><p>Intervistatore civico, mappa delle opinioni, programma versionato, assemblee sorteggiate, voto interno certificato, fondi in chiaro.</p><span class="vai">14 strumenti</span></a>
-      <a class="strumento" href="catalogo/#servizi"><!--scena:diritto--><div class="scena scena-diritto"><svg class="scena-svg" viewBox="0 0 320 130" role="img" aria-label="Una mano aperta che riceve un documento con la spunta" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M120 22 H200 V104 H120 Z" style="fill:var(--carta)"/><path class="s-l" d="M134 42 H186 M134 56 H186 M134 70 H170"/><path class="s-t" d="M136 86 L146 96 L166 76"/><path class="s-l" d="M70 112 C96 100 110 104 130 108 H190 C200 108 200 120 190 120 H150 M90 124 C120 132 200 132 250 112 C258 108 254 98 246 100 L206 110"/></svg></div><!--/scena--><div class="occhiello">04 · Accesso ai servizi</div><h3>Per chi ha diritto</h3><p>Bonus e sussidi, servizi con fonti, multe, reclami, diritti di inquilini e consumatori, lettere ai rappresentanti.</p><span class="vai">13 strumenti</span></a>
-    </div>
-    <p style="margin:16px 0 0"><a href="mondo/">Leggi l'Atlante degli strumenti civici nel mondo</a> · <a href="catalogo/">Apri il catalogo completo</a></p>
+  <section class="tutte" id="cosa-puoi-fare" aria-labelledby="t-tutte">
+    <h2 id="t-tutte">Tutte le otto braccia</h2>
+    <ol class="tessere"><li class="tessera" data-lato="burocrazia"><button type="button" class="tessera-icona" data-vai="0" aria-label="Mostra il braccio 1: Fa i conti dei tuoi diritti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></svg></button><span class="tessera-n">01</span><h3>Fa i conti dei tuoi diritti</h3><p><a href="mi-spetta/" data-strumento="mi-spetta">Mi spetta</a><a href="mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a></p></li><li class="tessera" data-lato="burocrazia"><button type="button" class="tessera-icona" data-vai="1" aria-label="Mostra il braccio 2: Scrive le lettere"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></svg></button><span class="tessera-n">02</span><h3>Scrive le lettere</h3><p><a href="faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a><a href="chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a><a href="reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a></p></li><li class="tessera" data-lato="burocrazia"><button type="button" class="tessera-icona" data-vai="2" aria-label="Mostra il braccio 3: Trova la strada"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></svg></button><span class="tessera-n">03</span><h3>Trova la strada</h3><p><a href="navigatore/" data-strumento="navigatore">Navigatore dei servizi</a><a href="liste-attesa/" data-strumento="liste-attesa">La visita nei tempi</a></p></li><li class="tessera" data-lato="burocrazia"><button type="button" class="tessera-icona" data-vai="3" aria-label="Mostra il braccio 4: Ti difende"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></svg></button><span class="tessera-n">04</span><h3>Ti difende</h3><p><a href="garanzia/" data-strumento="garanzia">Si è rotto o ci ho ripensato</a><a href="truffe/" data-strumento="truffe">È una truffa?</a></p></li><li class="tessera" data-lato="vita"><button type="button" class="tessera-icona" data-vai="4" aria-label="Mostra il braccio 5: Legge i conti del Comune"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></svg></button><span class="tessera-n">05</span><h3>Legge i conti del Comune</h3><p><a href="bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del mio Comune</a></p></li><li class="tessera" data-lato="vita"><button type="button" class="tessera-icona" data-vai="5" aria-label="Mostra il braccio 6: Controlla gli appalti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></svg></button><span class="tessera-n">06</span><h3>Controlla gli appalti</h3><p><a href="appalti/" data-strumento="appalti">Red flag sugli appalti</a></p></li><li class="tessera" data-lato="vita"><button type="button" class="tessera-icona" data-vai="6" aria-label="Mostra il braccio 7: Ti porta a firmare"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></svg></button><span class="tessera-n">07</span><h3>Ti porta a firmare</h3><p><a href="raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme in corso</a></p></li><li class="tessera" data-lato="vita"><button type="button" class="tessera-icona" data-vai="7" aria-label="Mostra il braccio 8: Si prende cura dei luoghi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></svg></button><span class="tessera-n">08</span><h3>Si prende cura dei luoghi</h3><p><a href="segnalazioni/" data-strumento="segnalazioni">Segnalazioni urbane</a><a href="alberi/" data-strumento="alberi">Alberi per il futuro</a><a href="https://www.fiumipuliti.it/" target="_blank" rel="noopener">Fiumi Puliti</a></p></li></ol>
+    <p class="arrivo"><span>In arrivo</span> Le carte del potere: chi siede sulle poltrone nominate dalla politica, chi l'ha nominato, quando scade.</p>
   </section>
 
-  <a class="catalogo-link" href="catalogo/" style="display:grid;gap:4px;margin:36px 0 0;padding:16px 20px;border:1px solid var(--riga);border-radius:8px;background:var(--carta);color:var(--inchiostro);text-decoration:none">
-    <span class="occhiello">Catalogo completo · 55 strumenti</span>
-    <b style="font-family:var(--titoli);font-size:var(--s2)">Fatti qui, in costruzione, esistenti altrove e da fare</b>
-    <span style="color:var(--inchiostro-2);font-size:var(--s0)">Tutti gli strumenti civici in un'unica vista: quelli di questo sito, quelli che esistono già in Italia e nel mondo, e quelli che mancano, con la priorità. Si filtra per stato e si ordina in tabella.</span>
-  </a>
-
+  <nav class="altro" aria-label="Altro">
+    <a href="https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb">Il Polpo dentro il tuo assistente AI</a>
+    <a href="mondo/">L'Atlante degli strumenti civici nel mondo</a>
+    <a href="catalogo/">Il catalogo completo</a>
+  </nav>
+<script>
+/* La giostra: un braccio alla volta. Il gruppo delle braccia gira perché il braccio scelto
+   indichi il testo; parte da sola, si ferma con il pulsante, al passaggio del mouse, al primo clic
+   e se il sistema chiede meno movimento. */
+(() => {
+  const DATI = [{"lato": "Davanti alla burocrazia", "mestiere": "Fa i conti dei tuoi diritti", "spiega": "Quali bonus e aiuti ti spettano, quanto ti devono per un volo, un treno o una bolletta.", "strumenti": [["Mi spetta", "mi-spetta/"], ["Mi rimborsano?", "mi-rimborsano/"]]}, {"lato": "Davanti alla burocrazia", "mestiere": "Scrive le lettere", "spiega": "Il ricorso contro la multa, la richiesta di documenti, il reclamo all'ufficio che non risponde.", "strumenti": [["Faccio ricorso?", "faccio-ricorso/"], ["Chiedo gli atti", "chiedo-gli-atti/"], ["Reclami alla PA", "reclami-pa/"]]}, {"lato": "Davanti alla burocrazia", "mestiere": "Trova la strada", "spiega": "Cosa fare per una pratica, a quale ufficio andare, come avere la visita nei tempi.", "strumenti": [["Navigatore dei servizi", "navigatore/"], ["La visita nei tempi", "liste-attesa/"]]}, {"lato": "Davanti alla burocrazia", "mestiere": "Ti difende", "spiega": "Garanzia e diritto di recesso; il messaggio sospetto prima di cliccare.", "strumenti": [["Si è rotto o ci ho ripensato", "garanzia/"], ["È una truffa?", "truffe/"]]}, {"lato": "Dentro la vita pubblica", "mestiere": "Legge i conti del Comune", "spiega": "Come spende il tuo Comune, voce per voce, confrontato con gli altri.", "strumenti": [["Il bilancio del mio Comune", "bilancio-comune/"]]}, {"lato": "Dentro la vita pubblica", "mestiere": "Controlla gli appalti", "spiega": "I segnali d'allarme negli appalti pubblici, con i dati ufficiali.", "strumenti": [["Red flag sugli appalti", "appalti/"]]}, {"lato": "Dentro la vita pubblica", "mestiere": "Ti porta a firmare", "spiega": "Referendum e leggi di iniziativa popolare aperti, con il link per firmare.", "strumenti": [["Raccolte firme in corso", "raccolte-firme/"]]}, {"lato": "Dentro la vita pubblica", "mestiere": "Si prende cura dei luoghi", "spiega": "La buca in strada, gli alberi da piantare, la salute dei fiumi.", "strumenti": [["Segnalazioni urbane", "segnalazioni/"], ["Alberi per il futuro", "alberi/"], ["Fiumi Puliti", "https://www.fiumipuliti.it/"]]}];
+  const g = document.querySelector('.giostra');
+  if (!g) return;
+  const testo = g.querySelector('.g-testo');
+  const pausa = g.querySelector('.g-pausa');
+  const meno = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let k = 0, giri = 0, timer = null, fermo = meno, sopra = false;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const a = (n, h, cl) => h.startsWith('http')
+    ? `<a class="${cl}" href="${h}" target="_blank" rel="noopener">${esc(n)}</a>`
+    : `<a class="${cl}" href="${h}" data-strumento="${h.replace(/\//g, '')}">${esc(n)}</a>`;
+  function mostra(nuovo, passo) {
+    const d = ((nuovo % 8) + 8) % 8;
+    let delta = passo ?? (((d - k) % 8) + 8) % 8;
+    if (passo === undefined && delta > 4) delta -= 8;
+    giri += delta; k = d;
+    g.style.setProperty('--rot', (-giri * 45) + 'deg');
+    g.querySelectorAll('.b').forEach((b) => b.classList.toggle('attivo', +b.dataset.k === k));
+    g.querySelectorAll('.g-punto').forEach((p, i) => p.setAttribute('aria-current', i === k ? 'true' : 'false'));
+    const x = DATI[k];
+    testo.innerHTML = `<span class="g-n">${String(k + 1).padStart(2, '0')} / 08 · ${x.lato}</span><h2 class="g-titolo">${esc(x.mestiere)}</h2>`
+      + `<p class="g-spiega">${esc(x.spiega)}</p><p class="g-strumenti">${x.strumenti.map(([n, h], i) => a(n, h, i ? 'btn' : 'btn btn-primario')).join('')}</p>`;
+  }
+  function avvia() { clearInterval(timer); if (!fermo) timer = setInterval(() => { if (!sopra && !document.hidden) mostra(k + 1, 1); }, 4200); }
+  function ferma(si) { fermo = si; pausa.setAttribute('aria-pressed', si ? 'true' : 'false'); pausa.textContent = si ? 'Riprendi' : 'Ferma'; avvia(); }
+  g.querySelectorAll('[data-passo]').forEach((b) => b.addEventListener('click', () => { ferma(true); mostra(k + +b.dataset.passo, +b.dataset.passo); }));
+  g.querySelectorAll('.g-punto').forEach((b) => b.addEventListener('click', () => { ferma(true); mostra(+b.dataset.vai); }));
+  g.querySelectorAll('.b').forEach((b) => b.addEventListener('click', () => { ferma(true); mostra(+b.dataset.k); }));
+  document.querySelectorAll('.tessera-icona').forEach((b) => b.addEventListener('click', () => { ferma(true); mostra(+b.dataset.vai); g.scrollIntoView({ behavior: meno ? 'auto' : 'smooth', block: 'center' }); }));
+  pausa.addEventListener('click', () => ferma(!fermo));
+  g.addEventListener('mouseenter', () => { sopra = true; });
+  g.addEventListener('mouseleave', () => { sopra = false; });
+  g.addEventListener('focusin', () => { sopra = true; });
+  g.addEventListener('focusout', () => { sopra = false; });
+  ferma(meno);
+  mostra(0, 0);
+})();
+</script><!--/casa-->
 
   <section class="principi" aria-label="Come funzionano">
     <div><b>Nessun dato inviato</b>Tutto il calcolo avviene sul tuo dispositivo.</div>

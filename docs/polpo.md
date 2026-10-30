@@ -19,16 +19,20 @@ Perché un polpo: il suo corpo è già il mestiere.
 
 ## Le otto braccia
 
-| Braccio | Strumenti |
-|---|---|
-| Scrive le lettere | Faccio ricorso? · Chiedo gli atti · Reclami alla PA |
-| Fa i conti | Mi spetta · Mi rimborsano? |
-| Trova l'ufficio giusto | Navigatore dei servizi |
-| Ricorda le scadenze | i promemoria in calendario di ogni strumento |
-| Fa valere i diritti | Si è rotto o ci ho ripensato · La visita nei tempi |
-| Fiuta le truffe | È una truffa? |
-| Legge le carte del potere | Il bilancio del mio Comune · Red flag sugli appalti |
-| Ti porta a partecipare | Raccolte firme · Segnalazioni urbane · Alberi per il futuro · Fiumi Puliti |
+Sono la pagina d'ingresso: il Polpo gira e mostra un braccio alla volta, con il suo mestiere e gli strumenti (`scripts/casa-polpo.py`). Quattro braccia per la burocrazia, quattro per la vita pubblica.
+
+| | Braccio | Strumenti |
+|---|---|---|
+| Davanti alla burocrazia | Fa i conti dei tuoi diritti | Mi spetta · Mi rimborsano? |
+| | Scrive le lettere | Faccio ricorso? · Chiedo gli atti · Reclami alla PA |
+| | Trova la strada | Navigatore dei servizi · La visita nei tempi |
+| | Ti difende | Si è rotto o ci ho ripensato · È una truffa? |
+| Dentro la vita pubblica | Legge i conti del Comune | Il bilancio del mio Comune |
+| | Controlla gli appalti | Red flag sugli appalti |
+| | Ti porta a firmare | Raccolte firme in corso |
+| | Si prende cura dei luoghi | Segnalazioni urbane · Alberi per il futuro · Fiumi Puliti |
+
+Le carte del potere (le nomine pubbliche) restano fuori dalle braccia: vedi «La piovra» qui sotto. In ogni strumento il Polpo segna anche le scadenze in calendario.
 
 ## Come appare
 
