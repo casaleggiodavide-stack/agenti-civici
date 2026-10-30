@@ -193,7 +193,7 @@ def blocco():
     return f'''<!--casa--><header class="casa">
     <div class="casa-testa">
       <div class="occhiello">Al servizio del cittadino</div>
-      <h1>Polpo civico</h1>
+      <h1>Il Polpo civico</h1>
       <p class="casa-motto">La burocrazia ha mille tentacoli. <span>Il Polpo ne ha otto, tutti dalla tua parte.</span></p>
     </div>
     <section class="giostra" aria-roledescription="carosello" aria-label="Le otto braccia del Polpo" style="--rot:0deg">
@@ -382,7 +382,7 @@ def main():
     else:
         s = re.sub(r'/\*mappa\*/.*?/\*/mappa\*/', lambda m: CSS, s, count=1, flags=re.S)
     s = s.replace('<meta name="description" content="Strumenti aperti al servizio del cittadino, che funzionano senza chiedere niente a nessuno: bonus che ti spettano, ricorso alle multe, accesso agli atti della pubblica amministrazione.">',
-                  '<meta name="description" content="Polpo civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">')
+                  '<meta name="description" content="Il Polpo civico: il Polpo e le sue otto braccia ti aiutano con la burocrazia e con la vita pubblica. Bonus, multe, rimborsi, documenti, bilanci del Comune, raccolte firme. Gratis, con le fonti.">')
     open(p, 'w', encoding='utf-8').write(s)
     print('pagina d\'ingresso scritta')
 

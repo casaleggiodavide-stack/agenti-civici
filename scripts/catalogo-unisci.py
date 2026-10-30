@@ -48,7 +48,7 @@ def card(m):
         if q[2]:
             extra = f'<a class="nostro" href="{q[2]}" target="_top"><b>{H.escape(q[1])}</b><span>{H.escape(q[3])}</span></a>'
         else:
-            extra = f'<div class="nostro cantiere"><b>Polpo civico</b><span>{H.escape(q[3])}</span></div>'
+            extra = f'<div class="nostro cantiere"><b>Il Polpo civico</b><span>{H.escape(q[3])}</span></div>'
     if titolo in PRIORITA and stato not in ('fatto', 'parziale'):
         blocco = blocco.replace('<div class="tags">', f'<div class="tags"><span class="tag t-prio" title="Punteggio nella classifica del Cantiere">priorità {PRIORITA[titolo]}/100</span>', 1)
     # la scheda «fatta qui» porta il link subito sotto la descrizione
@@ -181,7 +181,7 @@ js = r'''
 '''
 s = s.replace('</footer>\n</div>', '</footer>\n</div>\n' + js, 1) if '</footer>\n</div>' in s else s + js
 # testi aggiornati
-s = s.replace("Gli strumenti già costruiti (Polpo civico, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
+s = s.replace("Gli strumenti già costruiti (Chiedi al Polpo, Mi spetta, Faccio ricorso?, Chiedo gli atti, Mi rimborsano?) sono sul", "Gli strumenti già costruiti, segnati in rosso e con il link, sono anche sul")
 s = s.replace('Polpo civico · catalogo aggiornato al 14 settembre 2026', 'Polpo civico · catalogo aggiornato al 25 ottobre 2026')
 s = re.sub(r'54 strumenti · 4 sezioni', f'{n} strumenti · fatti qui, in costruzione, esistenti altrove e da fare', s)
 open(out, 'w').write(s)

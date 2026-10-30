@@ -64,7 +64,7 @@ function piega(riga) {
 /** Un calendario .ics con uno o più eventi. `adesso` serve solo a DTSTAMP (test). */
 export function ics(eventi, adesso = new Date()) {
   const stamp = adesso.toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
-  const righe = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Polpo civico//Promemoria//IT', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+  const righe = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Il Polpo civico//Promemoria//IT', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
   (Array.isArray(eventi) ? eventi : [eventi]).forEach((p, i) => {
     const e = evento(p);
     righe.push(

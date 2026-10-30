@@ -1,6 +1,6 @@
 <img src="comune/marchio.svg" width="72" alt="Il marchio del Polpo civico: il Polpo con gli occhialini e un braccio rosso che disegna un labirinto e finisce in un nodo">
 
-# Polpo civico
+# Il Polpo civico
 
 **Il filo per uscire dal labirinto.** La burocrazia è un labirinto; questi strumenti sono il filo di Arianna: un capo resta legato all'ingresso, alla fonte ufficiale, e il filo accompagna una regola dopo l'altra fino a quello che ti spetta. I passi e la firma restano tuoi.
 

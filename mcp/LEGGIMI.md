@@ -1,4 +1,4 @@
-# Polpo civico dentro il tuo assistente AI
+# Il Polpo civico dentro il tuo assistente AI
 
 Il server MCP mette le regole del Polpo civico a disposizione di un assistente AI. Così l'assistente risponde con importi, termini e PEC verificati sulle fonti ufficiali, invece che a memoria.
 

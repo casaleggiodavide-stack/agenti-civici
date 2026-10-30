@@ -226,7 +226,7 @@ STILE_ESTERNO = '''<style>
 </style>'''
 ESTERNE = [  # (file, ancora, scena, variabili)
     ('mondo/atlante.html', '  <h1>Atlante degli strumenti civici</h1>', 'mondo', '--accento:var(--accent);--accento-tenue:var(--accent-soft);--carta:var(--paper);--riga-tenue:var(--panel);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
-    ('catalogo/sorgente.html', '  <h1>Polpo civico</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
+    ('catalogo/sorgente.html', '  <h1>Il Polpo civico</h1>', 'eroe', '--accento:var(--filo);--accento-tenue:color-mix(in srgb,var(--filo) 16%,transparent);--carta:var(--paper);--riga-tenue:var(--paper-2);--inchiostro-2:var(--ink-2);--inchiostro:var(--ink)'),
 ]
 
 

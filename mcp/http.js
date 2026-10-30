@@ -32,7 +32,7 @@ function invia(res, stato, corpo, tipo = 'application/json') {
   res.end(typeof corpo === 'string' ? corpo : JSON.stringify(corpo));
 }
 
-const PAGINA = `Polpo civico, server MCP (${INFO.version})
+const PAGINA = `Il Polpo civico, server MCP (${INFO.version})
 
 Strumenti: ${TOOLS.map((t) => t.name).join(', ')}.
 Indirizzo da aggiungere tra i connettori del tuo assistente AI: questo indirizzo seguito da /mcp
@@ -65,5 +65,5 @@ export const server = createServer((req, res) => {
 });
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  server.listen(PORTA, () => process.stderr.write(`Polpo civico MCP su http://localhost:${PORTA}/mcp\n`));
+  server.listen(PORTA, () => process.stderr.write(`Il Polpo civico MCP su http://localhost:${PORTA}/mcp\n`));
 }

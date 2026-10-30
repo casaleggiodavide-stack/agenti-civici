@@ -38,7 +38,7 @@ function mostraRisultati(q) {
   box.hidden = false;
   box.innerHTML = r.length
     ? `<p class="occhiello">Forse cerchi</p><ul>${r.map(({ pratica: p }) => `<li><button type="button" data-pratica="${esc(p.id)}"><b>${esc(p.titolo)}</b><small>${esc(p.dove || '')}</small></button></li>`).join('')}</ul>`
-    : `<p>Non ho una scheda verificata per questa domanda. Prova con altre parole, guarda l'elenco per argomento qui sotto, oppure chiedi allo <a href="${esc(altroStrumento('assistente'))}">Polpo civico</a>, che ti dice almeno a quale ufficio rivolgerti.</p>`;
+    : `<p>Non ho una scheda verificata per questa domanda. Prova con altre parole, guarda l'elenco per argomento qui sotto, oppure chiedi al <a href="${esc(altroStrumento('assistente'))}">Polpo</a>, che ti dice almeno a quale ufficio rivolgerti.</p>`;
 }
 
 document.addEventListener('click', (e) => {

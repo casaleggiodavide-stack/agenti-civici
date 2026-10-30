@@ -84,7 +84,7 @@ def pagina(path, favicon_href, icona_strumento=None):
         s = s.replace(FONT_VECCHIO, FONT_NUOVO, 1)
     if 'rel="icon"' not in s:
         s = s.replace('<link rel="preconnect" href="https://fonts.googleapis.com">', f'<link rel="icon" href="{favicon_href}" type="image/svg+xml">\n<link rel="preconnect" href="https://fonts.googleapis.com">', 1)
-    s = re.sub(r'<b>Polpo civico</b>', f'<b class="marchio">{MARCHIO}Polpo civico</b>', s)
+    s = re.sub(r'<b>Il Polpo civico</b>', f'<b class="marchio">{MARCHIO}Il Polpo civico</b>', s)
     if icona_strumento and 'class="icona"' not in s:
         s = re.sub(r'(<header class="testata">\s*<div[^>]*>\s*)', lambda m: m.group(1) + ICONE[icona_strumento] + '\n      ', s, count=1)
     p.write_text(s)
