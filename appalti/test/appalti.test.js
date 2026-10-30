@@ -47,3 +47,11 @@ test('medie di riferimento degli affidamenti diretti: nazionale, regionale, ogni
   assert.equal(m.prov_regione.MB, 'Lombardia');
   for (const d of Object.values(m.regioni)) for (const [, , n] of Object.values(d)) assert.ok(n >= m.minimo_enti);
 });
+
+test('Comuni di dimensione simile: in ordine di abitanti, con la quota degli affidamenti diretti', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { comuni } = JSON.parse(await readFile(new URL('../dati/comuni-simili.json', import.meta.url), 'utf-8'));
+  assert.ok(comuni.length > 7000);
+  for (let i = 1; i < comuni.length; i++) assert.ok(comuni[i][3] >= comuni[i - 1][3]);
+  for (const [, , , pop, q, qn] of comuni) assert.ok(pop > 0 && q >= 0 && q <= 100 && qn >= 0 && qn <= 100);
+});

@@ -10,6 +10,8 @@ const indice = () => caricaJSON(new URL('indice.json', DATI));
 const confronto = () => caricaJSON(new URL('confronto.json', DATI));
 // le medie nazionali e regionali degli affidamenti diretti (scripts/appalti-medie.py); se mancano, la scheda si vede lo stesso
 const medie = () => caricaJSON(new URL('medie.json', DATI)).catch(() => null);
+// i Comuni in ordine di abitanti, per il confronto con quelli di dimensione simile
+const simili = () => caricaJSON(new URL('comuni-simili.json', DATI)).catch(() => null);
 const file = (nome) => caricaJSON(new URL(`p/${nome}.json`, DATI));
 
 const fonte = (f) => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titolo)}</a>`;
@@ -73,6 +75,7 @@ async function apri(cf, nomeFile) {
     const [schede, conf, med] = await Promise.all([file(nomeFile), confronto(), medie()]);
     const s = schede[cf];
     if (!s) throw new Error('ente non trovato nel file ' + nomeFile);
+    if (med && s.istat && s.pop) med.simili = await simili();
     box.innerHTML = disegna(s, conf, med);
     scriviAncora({ cf });
     collega(box, s);
@@ -167,14 +170,47 @@ function riferimenti(v, s, med) {
   if (regione && med.regioni?.[regione]?._tutti) righe.push([`Media di tutti gli enti in ${regione}`, med.regioni[regione]._tutti]);
   if (med.nazionale?._tutti) righe.push(['Media di tutti gli enti in Italia', med.nazionale._tutti]);
   if (righe.length < 2) return '';
+  const vicini = comuniSimili(s, med.simili);
   return `<div class="riferimenti" role="group" aria-label="Medie di riferimento degli affidamenti diretti">
     <p class="rif-titolo">Per confronto, nel ${esc(String(med.anno))}</p>
     <ul>${righe.map(([nome, [q, qn, enti], questo]) => `<li class="${questo ? 'rif-questo' : ''}">
       <span class="rif-nome">${esc(nome)}${enti ? ` <small>(${numeroIt(enti)} enti)</small>` : ''}</span>
       <span class="rif-barra" aria-hidden="true"><i style="width:${Math.min(100, Math.max(0, q))}%"></i></span>
       <span class="rif-valore"><b>${percento(q, 1)}</b> <small>del valore · ${percento(qn, 1)} delle procedure</small></span></li>`).join('')}</ul>
-    <small>Media semplice tra gli enti con almeno 5 procedure: ogni ente conta uno, grande o piccolo. Fonte: ANAC, elaborazione del Polpo civico.</small>
+    ${vicini.length ? `<p class="rif-titolo">Comuni di dimensione simile</p>
+    <ul>${vicini.map(([cf, nome, prov, pop, q, qn]) => `<li>
+      <span class="rif-nome"><button type="button" class="link" data-apri="${esc(cf)}">${esc(nome)}</button> <small>(${esc(prov)}, ${numeroIt(pop)} abitanti)</small></span>
+      <span class="rif-barra" aria-hidden="true"><i style="width:${Math.min(100, Math.max(0, q))}%"></i></span>
+      <span class="rif-valore"><b>${percento(q, 1)}</b> <small>del valore · ${percento(qn, 1)} delle procedure</small></span></li>`).join('')}
+      <li class="rif-media"><span class="rif-nome">Media di questi ${vicini.length} Comuni</span>
+      <span class="rif-barra" aria-hidden="true"><i style="width:${Math.min(100, media(vicini, 4))}%"></i></span>
+      <span class="rif-valore"><b>${percento(media(vicini, 4), 1)}</b> <small>del valore · ${percento(media(vicini, 5), 1)} delle procedure</small></span></li></ul>` : ''}
+    <small>Media semplice tra gli enti con almeno 5 procedure: ogni ente conta uno, grande o piccolo. I Comuni di dimensione simile sono quelli d'Italia con il numero di abitanti più vicino. Fonte: ANAC, elaborazione del Polpo civico.</small>
   </div>`;
+}
+
+const media = (lista, i) => lista.reduce((t, x) => t + x[i], 0) / lista.length;
+
+/** I 6 Comuni con il numero di abitanti più vicino (in proporzione: per Roma contano le grandi città). */
+function comuniSimili(s, dati) {
+  const lista = dati?.comuni;
+  if (!lista || !s.pop) return [];
+  const qui = lista.findIndex((c) => c[0] === s.cf);
+  let a, b;
+  if (qui >= 0) { a = qui - 1; b = qui + 1; } else {
+    b = lista.findIndex((c) => c[3] >= s.pop);
+    if (b < 0) b = lista.length;
+    a = b - 1;
+  }
+  const vicini = [];
+  const dist = (c) => Math.abs(Math.log(c[3] / s.pop));
+  while (vicini.length < 6 && (a >= 0 || b < lista.length)) {
+    if (b < lista.length && lista[b][0] === s.cf) { b++; continue; }
+    if (a >= 0 && lista[a][0] === s.cf) { a--; continue; }
+    if (a < 0 || (b < lista.length && dist(lista[b]) < dist(lista[a]))) vicini.push(lista[b++]);
+    else vicini.push(lista[a--]);
+  }
+  return vicini.sort((x, y) => x[3] - y[3]);
 }
 
 function lotti(lista, s) {
@@ -194,6 +230,7 @@ const capitalizza = (t) => (t && t === t.toUpperCase() ? t.charAt(0) + t.slice(1
 
 function collega(box) {
   $$('[data-copia]', box).forEach((b) => b.addEventListener('click', () => copia(b.dataset.copia, b.nextElementSibling)));
+  $$('[data-apri]', box).forEach((b) => b.addEventListener('click', () => apri(b.dataset.apri)));
 }
 
 // Apertura diretta: #cf=80014890638

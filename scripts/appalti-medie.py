@@ -1,7 +1,9 @@
 """Red flag sugli appalti: le medie di riferimento per gli affidamenti diretti.
 Per ogni tipo di ente (lo stesso «gruppo» degli enti simili) calcola la media nazionale e quella
 di ogni Regione della quota di valore (e di procedure) andata in affidamenti diretti, più la media
-di tutti gli enti. Legge le schede già pronte in appalti/dati/p/ e scrive appalti/dati/medie.json.
+di tutti gli enti. Legge le schede già pronte in appalti/dati/p/ e scrive appalti/dati/medie.json;
+scrive anche appalti/dati/comuni-simili.json, i Comuni in ordine di popolazione con la loro quota,
+per confrontare ogni Comune con quelli di dimensione simile.
 Uso: python3 -I scripts/appalti-medie.py   (lo lancia anche scripts/appalti-anac.py alla fine)
 """
 import glob
@@ -54,6 +56,17 @@ def main():
         'regioni': {r: {k: m for k, l in sorted(d.items()) if (m := media(l))} for r, d in sorted(reg.items())},
         'prov_regione': PROV_REGIONE,
     }
+    # i Comuni in ordine di abitanti: [codice fiscale, nome, provincia, abitanti, quota del valore, quota delle procedure]
+    comuni = []
+    for f in sorted(glob.glob(os.path.join(DATI, 'p', '*.json'))):
+        with open(f, encoding='utf-8') as fh:
+            for cf, c in json.load(fh).items():
+                v = (c.get('ind') or {}).get('senza_gara')
+                if c.get('istat') and c.get('pop') and v and v.get('quota') is not None:
+                    comuni.append([cf, c['nome'], c.get('prov') or '', c['pop'], v['quota'], v.get('quota_n', v['quota'])])
+    comuni.sort(key=lambda c: (c[3], c[1]))
+    with open(os.path.join(DATI, 'comuni-simili.json'), 'w', encoding='utf-8') as fh:
+        json.dump({'anno': conf['anno'], 'aggiornato': conf['aggiornato'], 'fonte': conf['fonte'], 'licenza': conf['licenza'], 'comuni': comuni}, fh, ensure_ascii=False, separators=(',', ':'))
     with open(os.path.join(DATI, 'medie.json'), 'w', encoding='utf-8') as fh:
         json.dump(uscita, fh, ensure_ascii=False, separators=(',', ':'))
     print('medie scritte:', len(uscita['nazionale']), 'tipi di ente,', len(uscita['regioni']), 'Regioni;',
