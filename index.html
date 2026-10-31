@@ -145,11 +145,41 @@
   @media (max-width: 520px) { .tessere { grid-template-columns: minmax(0, 1fr); } }
   @media (prefers-reduced-motion: reduce) { .polpo .braccia, .b-icona { transition: none; } }
 /*/casa*/
+/*notizie*/
+  .notizie { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; border-bottom: 1px solid var(--riga); padding-block: 7px; font-size: var(--s0); }
+  .notizie-et { font-family: var(--cifre); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accento); text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+  .notizie-et::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accento); }
+  .notizie-vetro { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+  .notizie-nastro { display: flex; width: max-content; animation: nastro var(--durata, 90s) linear infinite; }
+  .notizie-nastro ul { display: flex; margin: 0; padding: 0; list-style: none; }
+  .notizie-nastro li { white-space: nowrap; padding-right: 34px; position: relative; }
+  .notizie-nastro li::after { content: "●"; position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 6px; color: var(--inchiostro-3); }
+  .notizie-nastro a { color: var(--inchiostro-2); text-decoration: none; }
+  .notizie-nastro a:hover, .notizie-nastro a:focus-visible { color: var(--inchiostro); text-decoration: underline; text-decoration-color: var(--accento); }
+  .notizie:hover .notizie-nastro, .notizie:focus-within .notizie-nastro, .notizie.ferma .notizie-nastro { animation-play-state: paused; }
+  .notizie-ferma { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); padding: 2px 4px; }
+  .notizie-ferma:focus-visible { outline: 2px solid var(--accento); }
+  @keyframes nastro { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .notizie-nastro { animation: none; }
+    .notizie-vetro { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+    .notizie-nastro ul[aria-hidden] { display: none; }
+    .notizie-ferma { display: none; }
+  }
+  @media (max-width: 560px) { .notizie { grid-template-columns: minmax(0, 1fr) auto; } .notizie-et { grid-column: 1 / -1; } }
+/*/notizie*/
 </style>
 </head>
 <body>
 <div class="max">
   <!--banda--><div class="banda-sostieni"><span>Promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a></span><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></div><!--/banda-->
+  <!--notizie--><section class="notizie" aria-label="Le storie del Polpo">
+    <a class="notizie-et" href="storie/">Le storie del Polpo</a>
+    <div class="notizie-vetro"><div class="notizie-nastro" style="--durata:99s"><ul><li><a href="storie/#cinque-miliardi">Il Comune che affida 5 miliardi senza gara (e perché non è vero)</a></li><li><a href="storie/#appena-sotto-la-soglia">21.330 affidamenti appena sotto la soglia della gara</a></li><li><a href="storie/#volo-in-ritardo">Volo in ritardo: fino a 600 euro, senza regalarne un terzo</a></li><li><a href="storie/#su-cento-euro">Su 100 euro di tasse e multe, Reggio Calabria ne incassa 58. Bologna 86</a></li><li><a href="storie/#black-friday">Black Friday: 14 giorni per ripensarci online, 2 anni di garanzia ovunque</a></li><li><a href="storie/#un-comune-su-quattro">In un Comune su quattro quasi tutto si compra senza gara</a></li><li><a href="storie/#visita-tra-un-anno">Visita fra un anno? Ci sono tempi massimi, e un modo per farli rispettare</a></li><li><a href="storie/#comuni-in-deficit">97 Comuni in deficit strutturale: 88 in Campania, Calabria e Sicilia</a></li><li><a href="storie/#pacco-in-giacenza">Il pacco in giacenza non esiste</a></li><li><a href="storie/#un-affidamento-alla-volta">Un affidamento alla volta: 26.978 somme oltre la soglia</a></li><li><a href="storie/#grandi-citta">Grandi città: otto atti su dieci senza gara, ma i soldi passano dalle gare</a></li></ul><ul aria-hidden="true"><li><a tabindex="-1" href="storie/#cinque-miliardi">Il Comune che affida 5 miliardi senza gara (e perché non è vero)</a></li><li><a tabindex="-1" href="storie/#appena-sotto-la-soglia">21.330 affidamenti appena sotto la soglia della gara</a></li><li><a tabindex="-1" href="storie/#volo-in-ritardo">Volo in ritardo: fino a 600 euro, senza regalarne un terzo</a></li><li><a tabindex="-1" href="storie/#su-cento-euro">Su 100 euro di tasse e multe, Reggio Calabria ne incassa 58. Bologna 86</a></li><li><a tabindex="-1" href="storie/#black-friday">Black Friday: 14 giorni per ripensarci online, 2 anni di garanzia ovunque</a></li><li><a tabindex="-1" href="storie/#un-comune-su-quattro">In un Comune su quattro quasi tutto si compra senza gara</a></li><li><a tabindex="-1" href="storie/#visita-tra-un-anno">Visita fra un anno? Ci sono tempi massimi, e un modo per farli rispettare</a></li><li><a tabindex="-1" href="storie/#comuni-in-deficit">97 Comuni in deficit strutturale: 88 in Campania, Calabria e Sicilia</a></li><li><a tabindex="-1" href="storie/#pacco-in-giacenza">Il pacco in giacenza non esiste</a></li><li><a tabindex="-1" href="storie/#un-affidamento-alla-volta">Un affidamento alla volta: 26.978 somme oltre la soglia</a></li><li><a tabindex="-1" href="storie/#grandi-citta">Grandi città: otto atti su dieci senza gara, ma i soldi passano dalle gare</a></li></ul></div></div>
+    <button type="button" class="notizie-ferma" aria-pressed="false">Ferma</button>
+    <script>(() => { const n = document.currentScript.parentElement, b = n.querySelector('.notizie-ferma');
+      b.addEventListener('click', () => { const f = n.classList.toggle('ferma'); b.setAttribute('aria-pressed', f); b.textContent = f ? 'Scorri' : 'Ferma'; }); })();</script>
+  </section><!--/notizie-->
   <!--casa--><header class="casa">
     <div class="casa-testa">
       <div class="occhiello">Al servizio del cittadino</div>
