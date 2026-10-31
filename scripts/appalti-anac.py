@@ -44,6 +44,10 @@ CON_BANDO = {'1', '2', '3', '5', '9', '22', '23', '30', '36', '38', '114', '7', 
 SU_INVITO = {'4', '6', '15', '34'}
 SENZA_GARA = {'24', '27', '18', '12', '37', '40', '32', '8', '13'}
 IN_HOUSE = {'25', '26'}  # a società controllate dall'ente: lecito, ma va mostrato a parte
+# Un affidamento senza gara oltre i 5 milioni non è plausibile (la legge consente l'affidamento diretto fino a
+# 140-150 mila euro): nei dati è quasi sempre il valore dell'intera convenzione nazionale a cui l'ente ha aderito
+# (Palermo, 2,7 miliardi per la videosorveglianza). Il lotto resta nel conteggio ma non nei calcoli in euro.
+NON_PLAUSIBILE = 5_000_000
 APERTA = {'1', '9'}
 
 # Soglie europee dal 1° gennaio 2026 (Reg. delegato UE 2025/2152): sopra queste il termine minimo
@@ -238,6 +242,12 @@ def main():
         if L is not None:
             L[18] = True
 
+    # 5b. Importi non plausibili: fuori dai calcoli in euro, segnati con un 21° campo
+    for L in lotti.values():
+        if L[4] in SENZA_GARA and L[2] >= NON_PLAUSIBILE:
+            L[2], L[11] = 0.0, None
+            L.append(True)
+
     # 6. Anagrafe delle stazioni appaltanti
     anagrafe = {}
     for r in leggi('stazioni.zip'):
@@ -273,6 +283,9 @@ def main():
             'n': len(righe),
             'v': round(sum(L[2] for _, L in righe)),
         }
+        dubbi = sum(1 for _, L in righe if len(L) > 20)
+        if dubbi:
+            s['non_plausibili'] = dubbi
         proc = {'con_bando': [0, 0.0], 'su_invito': [0, 0.0], 'senza_gara': [0, 0.0], 'in_house': [0, 0.0], 'altro': [0, 0.0]}
         for _, L in righe:
             k = 'con_bando' if L[4] in CON_BANDO else 'su_invito' if L[4] in SU_INVITO else 'senza_gara' if L[4] in SENZA_GARA else 'in_house' if L[4] in IN_HOUSE else 'altro'

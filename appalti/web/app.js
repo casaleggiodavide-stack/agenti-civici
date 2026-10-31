@@ -100,6 +100,7 @@ function disegna(s, conf, med) {
     <div class="scorri"><table class="procedure"><thead><tr><th scope="col">Come ha comprato</th><th scope="col" class="n">Procedure</th><th scope="col" class="n">Valore</th><th scope="col" class="n">Quota del valore</th></tr></thead>
       <tbody>${proc.map((p) => `<tr><td>${esc(p.nome)}</td><td class="n">${numeroIt(p.n)}</td><td class="n">${euroParole(p.v)}</td><td class="n">${percento(p.quota, 1)}</td></tr>`).join('')}</tbody></table></div>
     ${s.per_conto ? `<p><small>In più, altre stazioni appaltanti (centrali uniche di committenza, Unioni di Comuni) hanno svolto per questo ente ${pc[0] === 1 ? 'una procedura' : `${numeroIt(pc[0])} procedure`}, per ${euroParole(pc[1])}.</small></p>` : ''}
+    ${s.non_plausibili ? `<p><small>${s.non_plausibili === 1 ? 'Un affidamento senza gara ha' : `${numeroIt(s.non_plausibili)} affidamenti senza gara hanno`} un importo oltre i 5 milioni, non plausibile per un affidamento diretto: di solito è il valore dell'intera convenzione nazionale a cui l'ente ha aderito. ${s.non_plausibili === 1 ? 'È contato' : 'Sono contati'} fra le procedure ma non nei valori in euro.</small></p>` : ''}
   </section>
 
   <div class="avviso-segnale"><b>Un segnale non è un illecito.</b> Indica una procedura che merita di essere guardata meglio. Spesso la ragione è buona e si legge negli atti: per questo accanto alle gare segnalate trovi la richiesta già pronta.</div>
