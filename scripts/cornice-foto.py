@@ -23,11 +23,31 @@ HOME = {'piazza.jpg': None, 'cucina.jpg': 'Meno burocrazia', 'assemblea.jpg': 'P
 FUOCO = {'alberi': 'center 58%'}
 
 
-def cornice(blocco, firma, classe_extra='', fuoco=None):
+# Versioni WebP fatte da scripts/immagini-leggere.py: il browser sceglie la più piccola che basta.
+LARGHEZZE = (480, 800, 1024, 1344)
+MISURE = '(max-width: 1300px) calc(100vw - 48px), 1240px'
+
+
+def leggera(img, cartella):
+    """<img src="web/foto.jpg"> → <picture> con le versioni WebP, se ci sono. In cima alla pagina:
+    si carica subito e con priorità (è l'immagine più grande della prima schermata)."""
+    src = re.search(r'src="([^"]+)"', img).group(1)
+    base = src[:-len('foto.jpg')] if src.endswith('foto.jpg') else None
+    if not base or not os.path.exists(os.path.join(REPO, cartella, base + 'foto-480.webp')):
+        return img
+    img = re.sub(r'\s(loading|fetchpriority|decoding)="[^"]*"', '', img)
+    img = img.replace('<img ', '<img loading="eager" fetchpriority="high" decoding="async" ', 1)
+    srcset = ', '.join(f'{base}foto-{w}.webp {w}w' for w in LARGHEZZE)
+    return f'<picture><source type="image/webp" srcset="{srcset}" sizes="{MISURE}">{img}</picture>'
+
+
+def cornice(blocco, firma, classe_extra='', fuoco=None, cartella=None):
     img = re.search(r'<img [^>]*>', blocco).group(0)
     img = re.sub(r'\sstyle="[^"]*"', '', img)
     if fuoco:
         img = img.replace('<img ', f'<img style="object-position:{fuoco}" ', 1)
+    if cartella:
+        img = leggera(img, cartella)
     didascalia = re.search(r'<figcaption>.*?</figcaption>', blocco, re.S)
     didascalia = didascalia.group(0) if didascalia else '<figcaption>Illustrazione generata con intelligenza artificiale.</figcaption>'
     marca = f'<span class="foto-ac-marca">{MARCHIO}Il Polpo civico{f" <span>· {firma}</span>" if firma else ""}</span>'
@@ -50,7 +70,7 @@ def main():
         def rifai(m):
             nonlocal n
             n += 1
-            return cornice(m.group(0), nome, 'foto-testata', FUOCO.get(t))
+            return cornice(m.group(0), nome, 'foto-testata', FUOCO.get(t), t)
         s = re.sub(r'<!--foto-->.*?<!--/foto-->', rifai, s, flags=re.S)
         # le vecchie regole locali della foto: ora vale la cornice comune
         s = re.sub(r'\n  \.foto-testata \{[^\n]*\n', '\n', s)

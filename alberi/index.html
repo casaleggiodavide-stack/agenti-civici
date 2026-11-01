@@ -42,6 +42,7 @@
   .tabella-edizioni .fonti-riga a { font-size: var(--s-1); margin-right: 8px; }
   .galleria { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
   .galleria figure { margin: 0; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; overflow: hidden; }
+  .galleria picture, .foto-ac-mini picture { display: contents; }
   .galleria img { display: block; width: 100%; height: 170px; object-fit: cover; }
   .galleria .foto-ac-mini::after { height: 60%; }
   .galleria figcaption { padding: 8px 10px 10px; margin: 0; font-family: inherit; font-size: var(--s-1); color: var(--inchiostro-2); }
@@ -116,7 +117,7 @@
       <li><b>Il formato e le indicazioni</b> per chiunque voglia organizzarla, con le lettere pronte per il Comune e per il vivaio.</li>
     </ul>
   </header>
-  <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><img src="web/foto.jpg" alt="Manifesto illustrato a tre colori: ai margini di una cittadina, in una mattina di novembre, cittadini di ogni età piantano giovani alberi; il Polpo rosso con gli occhialini tiene un alberello, scava, annaffia e ne porge uno a una bambina" loading="eager" decoding="async" width="1344" height="752"><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico <span>· Alberi per il futuro</span></span></div><figcaption>Illustrazione generata con intelligenza artificiale. Le foto vere delle edizioni sono più in basso.</figcaption></figure><!--/foto-->
+  <!--foto--><figure class="foto-ac foto-testata"><div class="foto-ac-quadro"><picture><source type="image/webp" srcset="web/foto-480.webp 480w, web/foto-800.webp 800w, web/foto-1024.webp 1024w, web/foto-1344.webp 1344w" sizes="(max-width: 1300px) calc(100vw - 48px), 1240px"><img loading="eager" fetchpriority="high" decoding="async" style="object-position:center 58%" src="web/foto.jpg" alt="Manifesto illustrato a tre colori: ai margini di una cittadina, in una mattina di novembre, cittadini di ogni età piantano giovani alberi; il Polpo rosso con gli occhialini tiene un alberello, scava, annaffia e ne porge uno a una bambina" width="1344" height="752"></picture><span class="foto-ac-marca"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico <span>· Alberi per il futuro</span></span></div><figcaption>Illustrazione generata con intelligenza artificiale. Le foto vere delle edizioni sono più in basso.</figcaption></figure><!--/foto-->
 
   <div class="conto" id="conto" aria-live="polite"></div>
 
@@ -126,7 +127,7 @@
       <h2 id="t-cose">Che cos'è</h2>
       <div class="storia">
         <div id="storia"></div>
-        <figure class="foto-ac"><div class="foto-ac-mini" style="border-radius:8px"><img src="web/edizioni/2016-milano.jpg" alt="Otto foto di alberelli con il tubo di protezione cresciuti in un grande prato di Milano" loading="lazy" width="1022" height="421"></div><figcaption>Gli alberi piantati a Milano nel 2015, sette mesi dopo. Foto: Blog delle Stelle.</figcaption></figure>
+        <figure class="foto-ac"><div class="foto-ac-mini" style="border-radius:8px"><picture><source type="image/webp" srcset="web/edizioni/2016-milano.webp"><img src="web/edizioni/2016-milano.jpg" alt="Otto foto di alberelli con il tubo di protezione cresciuti in un grande prato di Milano" loading="lazy" decoding="async" width="1022" height="421"></picture></div><figcaption>Gli alberi piantati a Milano nel 2015, sette mesi dopo. Foto: Blog delle Stelle.</figcaption></figure>
       </div>
     </section>
 

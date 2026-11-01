@@ -254,7 +254,9 @@ DATA = '31 ottobre 2026'
 def storia(x, apertura=False):
     b = casa.BRACCIA[x['braccio']]
     dir_, cta = x['strumento']
-    figura = f'<img class="apertura-foto" src="../{dir_}/web/foto.jpg" alt="" width="1344" height="752" loading="lazy">' if apertura else ''
+    srcset = ', '.join(f'../{dir_}/web/foto-{w}.webp {w}w' for w in (480, 800, 1024, 1344))
+    figura = (f'<picture><source type="image/webp" srcset="{srcset}" sizes="(max-width: 1300px) calc(100vw - 48px), 1240px">'
+              f'<img class="apertura-foto" src="../{dir_}/web/foto.jpg" alt="" width="1344" height="752" loading="lazy" decoding="async"></picture>') if apertura else ''
     return f'''<article class="storia{' apertura' if apertura else ''}" id="{x['slug']}" aria-labelledby="h-{x['slug']}">
   {figura}<div class="st-testa">{casa.polpo_mini(x['braccio'], classe='st-polpo')}<div><div class="occhiello">Braccio {x['braccio'] + 1} · {b[1]}</div><div class="st-data">{DATA}</div></div></div>
   <h2 id="h-{x['slug']}">{x['titolo']}</h2>
