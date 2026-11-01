@@ -337,7 +337,8 @@ CSS = '''/*casa*/
   .g-freccia, .g-pausa { font: inherit; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro); background: none; border: 1px solid var(--riga); border-radius: 999px; padding: 7px 12px; cursor: pointer; }
   .g-freccia:hover, .g-pausa:hover, .g-freccia:focus-visible, .g-pausa:focus-visible { border-color: var(--accento); outline: none; }
   .g-punti { display: inline-flex; gap: 6px; }
-  .g-punto { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--inchiostro-3); background: none; padding: 0; cursor: pointer; }
+  .g-punto { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--inchiostro-3); background: none; padding: 0; cursor: pointer; position: relative; }
+  .g-punto::after { content: ""; position: absolute; inset: -8px; }
   .g-punto[aria-current="true"] { background: var(--accento); border-color: var(--accento); }
   .g-punto:focus-visible { outline: 2px solid var(--accento); outline-offset: 2px; }
   .casa-azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: clamp(10px, 2vw, 20px) 0 0; color: var(--inchiostro-2); }

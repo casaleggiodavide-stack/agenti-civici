@@ -19,7 +19,7 @@
   .risultati-enti button { all: unset; box-sizing: border-box; display: block; width: 100%; padding: 10px 12px; cursor: pointer; font-size: var(--s0); }
   .risultati-enti button:hover, .risultati-enti button:focus-visible { background: var(--accento-tenue); outline: none; }
   .risultati-enti small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
-  .scheda { display: grid; gap: 18px; margin-top: 22px; }
+  .scheda { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 22px; }
   .due { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; }
   @media (max-width: 960px) { .due { grid-template-columns: minmax(0, 1fr); } }
   .cifre { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 12px; }
@@ -49,7 +49,7 @@
   .glossario { display: grid; gap: 10px; font-size: var(--s0); margin: 10px 0 0; }
   .glossario dt { font-weight: 600; } .glossario dd { margin: 0; color: var(--inchiostro-2); }
   .azioni-scheda { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .indicatori { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .indicatori { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 14px; }
   .ind { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
   .ind[data-tono="no"] { } .ind[data-tono="forse"] { } .ind[data-tono="si"] { }
   .ind h3 { font-size: var(--s1); margin: 0; }
@@ -94,6 +94,7 @@
 <div class="max">
   <nav class="famiglia" aria-label="Il Polpo civico">
     <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico</b>
+  <div class="famiglia-voci">
     <a href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a>
     <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
     <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
@@ -109,7 +110,9 @@
     <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
     <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
     <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+  </div>
     <!--sostieni--><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a><!--/sostieni-->
+    <script>(() => { const v = document.currentScript.parentElement.querySelector('.famiglia-voci'), a = v && v.querySelector('[aria-current="page"]'); if (a && v.scrollWidth > v.clientWidth) v.scrollLeft = a.offsetLeft - 16; })();</script>
   </nav>
 
   <header class="testata">

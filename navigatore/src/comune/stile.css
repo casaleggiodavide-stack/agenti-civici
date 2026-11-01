@@ -431,3 +431,31 @@ input[type="text"], input[type="number"], input[type="date"], input[type="email"
 .pm-corpo { fill: var(--carta); stroke: var(--inchiostro); stroke-width: 6; }
 .pm-lente { fill: none; stroke: var(--inchiostro); stroke-width: 6; }
 .pm-occhio { fill: var(--inchiostro); }
+
+/* Sul telefono: il menu degli strumenti diventa una riga che scorre sotto il marchio,
+   i campi di testo stanno a 16px (sotto, iPhone ingrandisce la pagina al tocco),
+   le etichette delle braccia restano solo per i lettori di schermo. */
+.famiglia-voci { display: contents; }
+.braccia-polpo { overflow-x: clip; }
+.bs-n { font-size: 11px; }
+.braccia-polpo li:nth-child(-n+2) .bp-braccio span { left: 0; transform: none; }
+.braccia-polpo li:nth-last-child(-n+2) .bp-braccio span { left: auto; right: 0; transform: none; }
+@media (max-width: 720px) {
+  .famiglia { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 12px; padding-block: 12px 0; }
+  .famiglia .marchio { margin-right: 0; }
+  .famiglia a.sostieni { grid-row: 1; grid-column: 2; justify-self: end; margin-left: 0; padding: 9px 12px; white-space: nowrap; }
+  .famiglia-voci { display: flex; gap: 0 20px; grid-column: 1 / -1; grid-row: 2; position: relative; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent); mask-image: linear-gradient(90deg, #000 82%, transparent); }
+  .famiglia-voci::-webkit-scrollbar { display: none; }
+  .famiglia-voci a { flex: none; white-space: nowrap; padding: 13px 0 11px; }
+  .famiglia-voci a:last-child { margin-right: 40px; }
+  :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea) { font-size: 16px; }
+}
+@media (max-width: 400px) {
+  .famiglia a.sostieni { letter-spacing: .02em; padding: 8px 10px; }
+  .titolo-logo { gap: 10px; min-width: 0; }
+  .logo-strumento.logo-polpo { width: 72px; height: 72px; margin: -4px 0 -4px -6px; }
+  .titolo-logo h1 { min-width: 0; font-size: clamp(30px, 10.5vw, 40px); overflow-wrap: break-word; hyphens: auto; }
+}
+@media (max-width: 720px), (hover: none) {
+  .bp-braccio span { width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+}

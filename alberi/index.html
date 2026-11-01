@@ -46,7 +46,9 @@
   .galleria .foto-ac-mini::after { height: 60%; }
   .galleria figcaption { padding: 8px 10px 10px; margin: 0; font-family: inherit; font-size: var(--s-1); color: var(--inchiostro-2); }
   .galleria figcaption b { font-family: var(--cifre); color: var(--verde); margin-right: 4px; }
-  .passi-alberi { list-style: none; counter-reset: p; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .passi-alberi { list-style: none; counter-reset: p; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+  .passi-alberi > li { min-width: 0; overflow-wrap: anywhere; }
+  @media (max-width: 520px) { .passi-alberi > li { padding: 14px 14px 14px 54px; } .passi-alberi > li::before { left: 12px; } }
   .passi-alberi > li { counter-increment: p; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 18px 14px 62px; position: relative; }
   .passi-alberi > li::before { content: counter(p); position: absolute; left: 16px; top: 14px; width: 32px; height: 32px; border-radius: 50%; background: var(--verde); color: #fff; font-family: var(--cifre); font-weight: 600; display: grid; place-items: center; }
   .passi-alberi h3 { margin: 2px 0 6px; font-size: var(--s1); }
@@ -80,6 +82,7 @@
 <div class="max">
   <nav class="famiglia" aria-label="Il Polpo civico">
     <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico</b>
+  <div class="famiglia-voci">
     <a href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a>
     <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
     <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
@@ -95,7 +98,9 @@
     <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
     <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
     <a href="../alberi/" data-strumento="alberi" aria-current="page">Alberi per il futuro</a>
+  </div>
     <!--sostieni--><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a><!--/sostieni-->
+    <script>(() => { const v = document.currentScript.parentElement.querySelector('.famiglia-voci'), a = v && v.querySelector('[aria-current="page"]'); if (a && v.scrollWidth > v.clientWidth) v.scrollLeft = a.offsetLeft - 16; })();</script>
   </nav>
 
   <header class="testata">

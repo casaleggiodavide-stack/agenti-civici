@@ -270,7 +270,7 @@ CSS_PAGINA = '''
   .storie-testa .logo-polpo { width: 110px; height: 110px; }
   .storie-testa h1 { margin: 0; font-size: var(--s4); line-height: 1; }
   .storie-testa p { margin: 8px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
-  .indice { list-style: none; padding: 0; margin: 26px 0 8px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0 28px; border-top: 1px solid var(--riga); }
+  .indice { list-style: none; padding: 0; margin: 26px 0 8px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 0 28px; border-top: 1px solid var(--riga); }
   .indice li { border-bottom: 1px solid var(--riga); }
   .indice a { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; padding: 12px 0; color: var(--inchiostro); text-decoration: none; font-weight: 600; line-height: 1.3; }
   .indice a:hover { color: var(--accento); }
@@ -315,7 +315,7 @@ CSS_PAGINA = '''
   .st-cta { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 22px 0 0; }
   .st-link { font-family: var(--cifre); font-size: 12px; color: var(--inchiostro-3); }
   .st-metodo { margin-top: 16px; font-size: var(--s0); color: var(--inchiostro-3); border-top: 1px solid var(--riga); padding-top: 10px; }
-  .st-metodo summary { cursor: pointer; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .st-metodo summary { cursor: pointer; padding: 8px 0; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
   .st-metodo p { margin: 8px 0 0; }
   .replica { max-width: 760px; margin: 64px auto 0; padding: 20px; background: var(--carta); border: 1px solid var(--riga); border-radius: 4px; font-size: var(--s0); color: var(--inchiostro-2); }
   .replica h2 { font-size: var(--s2); margin: 0 0 6px; color: var(--inchiostro); }
@@ -405,7 +405,7 @@ CSS_STRISCIA = '''/*notizie*/
   .notizie-nastro a { color: var(--inchiostro-2); text-decoration: none; }
   .notizie-nastro a:hover, .notizie-nastro a:focus-visible { color: var(--inchiostro); text-decoration: underline; text-decoration-color: var(--accento); }
   .notizie:hover .notizie-nastro, .notizie:focus-within .notizie-nastro, .notizie.ferma .notizie-nastro { animation-play-state: paused; }
-  .notizie-ferma { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); padding: 2px 4px; }
+  .notizie-ferma { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); padding: 10px 6px; margin-block: -6px; }
   .notizie-ferma:focus-visible { outline: 2px solid var(--accento); }
   @keyframes nastro { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) {
