@@ -135,9 +135,10 @@ def griglia():
 def chiedi():
     esempi = ''.join(f'<button type="button" class="chiedi-esempio" data-testo="{e}">{breve}</button>' for e, breve in ESEMPI_BREVI)
     return f'''<section class="chiedi" aria-labelledby="t-chiedi">
+      <p class="chiedi-spiega" id="chiedi-spiega"><b>Hai un problema con la burocrazia o vuoi capire qualcosa del tuo Comune?</b> Scrivilo con parole tue, come lo diresti a un amico: «mi è arrivata una multa», «il volo era in ritardo», «che bonus mi spettano». Il Polpo ti porta allo strumento giusto.</p>
       <form class="chiedi-form" novalidate>
         <label id="t-chiedi" for="chiedi-testo">Chiedi al Polpo</label>
-        <input id="chiedi-testo" type="text" autocomplete="off" placeholder="Scrivi cosa ti serve…">
+        <input id="chiedi-testo" type="text" autocomplete="off" placeholder="Scrivi cosa ti serve…" aria-describedby="chiedi-spiega">
         <button type="submit" class="btn btn-primario">Chiedi</button>
       </form>
       <p class="chiedi-esempi"><span>Prova:</span>{esempi}<span class="chiedi-nota">Resta sul tuo dispositivo.</span></p>
@@ -288,6 +289,8 @@ CSS = '''/*casa*/
   .casa-motto { font-family: var(--titoli); font-weight: 600; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 30ch; }
   .casa-motto span { color: var(--accento); }
   .chiedi { display: grid; gap: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--riga); }
+  .chiedi-spiega { margin: 0 0 2px; font-size: 15px; line-height: 1.45; color: var(--inchiostro-2); max-width: 60ch; }
+  .chiedi-spiega b { color: var(--inchiostro); font-weight: 600; }
   .chiedi-form { display: flex; align-items: center; gap: 0; border: 1px solid color-mix(in srgb, var(--accento) 55%, var(--riga)); border-radius: 999px; background: var(--carta); padding: 4px 4px 4px 16px; }
   .chiedi-form:focus-within { border-color: var(--accento); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accento) 22%, transparent); }
   .chiedi-form label { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); white-space: nowrap; margin-right: 10px; }
