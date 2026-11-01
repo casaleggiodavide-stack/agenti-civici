@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir _sito
           cp index.html LICENSE _sito/
-          mkdir -p _sito/comune && cp comune/stile.css comune/marchio.svg _sito/comune/ && cp -r comune/foto _sito/comune/
+          mkdir -p _sito/comune && cp comune/stile.css comune/marchio.svg comune/icona-32.png comune/icona-180.png _sito/comune/ && cp -r comune/foto _sito/comune/
           mkdir -p _sito/catalogo && cp catalogo/index.html _sito/catalogo/
           mkdir -p _sito/mondo && cp mondo/index.html _sito/mondo/
           mkdir -p _sito/storie && cp storie/index.html _sito/storie/
