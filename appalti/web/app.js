@@ -153,11 +153,20 @@ function schedaIndicatore(i, s, med) {
     <div class="valore">${valore}</div>
     <span class="pill p-${tono === 'neutro' ? 'neutro' : tono}">${esc(parola)}</span>
     <p>${v ? esc(i.misura(v)).replace(/^./, (c) => c.toUpperCase()) + '.' : 'Non ci sono abbastanza procedure per calcolarlo.'}</p>
+    ${i.id === 'primo_fornitore' && v && s.fornitori?.length ? primoFornitore(s.fornitori[0]) : ''}
     ${barra}
     ${i.id === 'senza_gara' ? riferimenti(v, s, med) : ''}
     <details><summary>Perché conta</summary><p>${esc(i.perche)}</p><ul class="fonti">${i.fonti.map((f) => `<li>${fonte(FONTI[f])}</li>`).join('')}</ul></details>
     ${esempi?.length ? `<details><summary>${i.id === 'cumulo' ? 'I fornitori' : 'Le procedure segnalate'} (${esempi.length})</summary>${i.id === 'cumulo' ? cumuli(esempi) : lotti(esempi, s)}</details>` : ''}
   </article>`;
+}
+
+/** Il nome del primo fornitore per valore aggiudicato (le persone fisiche restano senza nome). */
+function primoFornitore(f) {
+  const chi = /^Persona fisica/.test(f.nome)
+    ? 'una <b>persona fisica</b> (professionista o ditta individuale): il nome non si pubblica'
+    : `<b>${esc(f.nome)}</b>`;
+  return `<p class="primo-fornitore">Il primo fornitore è ${chi}, con ${f.n === 1 ? 'un contratto' : `${numeroIt(f.n)} contratti`} per ${euroParole(f.v)}. <a href="#t-forn" data-scorri>Gli altri fornitori principali</a></p>`;
 }
 
 /** Affidamenti diretti: l'ente accanto alla media della sua Regione e dell'Italia, per lo stesso tipo di ente e per tutti gli enti. */
@@ -235,5 +244,13 @@ function collega(box) {
 }
 
 // Apertura diretta: #cf=80014890638
+// I link interni alla scheda scorrono senza toccare l'indirizzo, che tiene l'ente aperto (#cf=…)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[data-scorri]');
+  if (!a) return;
+  e.preventDefault();
+  document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 const ancora = leggiAncora();
 if (ancora.cf) apri(ancora.cf);
