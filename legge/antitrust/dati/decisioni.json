@@ -1,0 +1,4390 @@
+[
+ {
+  "codice": "PS12496",
+  "provvedimento": "31025",
+  "data": "2024-01-16",
+  "anno": 2024,
+  "bollettino": "4-24",
+  "pagina": 33,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/4-24.pdf#page=33",
+  "imprese": [
+   "Fileni Alimentare S.p.A."
+  ],
+  "settore": "Alimentari, bevande e tabacco",
+  "trappole": [
+   "promesse",
+   "green-etica"
+  ],
+  "pratica": "Prodotti presentati come frutto di una filiera agricola tutta propria: vanto non dimostrato",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 100000,
+  "euro_deliberati": 100000,
+  "annullata": false,
+  "per_impresa": {
+   "Fileni Alimentare S.p.A.": 100000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12524",
+  "provvedimento": "31053",
+  "data": "2024-01-30",
+  "anno": 2024,
+  "bollettino": "7-24",
+  "pagina": 16,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=16",
+  "imprese": [
+   "British American Tobacco Italia S.p.A.",
+   "Amazon EU S.àr.l."
+  ],
+  "settore": "Alimentari, bevande e tabacco",
+  "trappole": [
+   "promesse",
+   "minori"
+  ],
+  "pratica": "Dispositivi a tabacco riscaldato pubblicizzati come oggetti di design, senza dire che contengono nicotina e sono vietati ai minori",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 7000000,
+  "euro_deliberati": 7000000,
+  "annullata": false,
+  "per_impresa": {
+   "British American Tobacco Italia S.p.A.": 6000000,
+   "Amazon EU S.àr.l.": 1000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12524-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12557",
+  "provvedimento": "31054",
+  "data": "2024-01-30",
+  "anno": 2024,
+  "bollettino": "7-24",
+  "pagina": 58,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=58",
+  "imprese": [
+   "Servizio Energetico Italiano S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "non-richiesti",
+   "rinnovi-recesso"
+  ],
+  "pratica": "Contratti luce e gas attivati senza firma né consenso, con richiesta di pagamenti non dovuti; ripensamento ostacolato",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 900000,
+  "euro_deliberati": 900000,
+  "annullata": false,
+  "per_impresa": {
+   "Servizio Energetico Italiano S.r.l.": 900000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12557",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12619",
+  "provvedimento": "31055",
+  "data": "2024-01-30",
+  "anno": 2024,
+  "bollettino": "7-24",
+  "pagina": 79,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=79",
+  "imprese": [
+   "La Casa della Divisa (impresa individuale)"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Sovrapprezzo del 3,4% sulle divise scolastiche pagate con PayPal; rimborso integrale ai clienti",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12573",
+  "provvedimento": "31087",
+  "data": "2024-02-20",
+  "anno": 2024,
+  "bollettino": "10-24",
+  "pagina": 236,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/10-24.pdf#page=236",
+  "imprese": [
+   "Centro di Medicina S.p.A."
+  ],
+  "settore": "Salute e servizi alla persona",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Commissione sui pagamenti con carta per le visite mediche: violazione non accertata",
+  "norma": "PS",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12578",
+  "provvedimento": "31065",
+  "data": "2024-02-20",
+  "anno": 2024,
+  "bollettino": "9-24",
+  "pagina": 60,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/9-24.pdf#page=60",
+  "imprese": [
+   "Supermoney S.p.A."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Comparatore di offerte luce e gas che non diceva di essere pagato dai fornitori né come ordinava le offerte",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 1480000,
+  "euro_deliberati": 1480000,
+  "annullata": false,
+  "per_impresa": {
+   "Supermoney S.p.A.": 1480000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12578",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV235",
+  "provvedimento": "31100",
+  "data": "2024-02-27",
+  "anno": 2024,
+  "bollettino": "11-24",
+  "pagina": 100,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=100",
+  "imprese": [
+   "Toscano Mutui S.r.l."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausola di esclusiva nel contratto di mediazione per ottenere un mutuo",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 23859,
+  "euro_deliberati": 23859,
+  "annullata": false,
+  "per_impresa": {
+   "Toscano Mutui S.r.l.": 23859
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV236",
+  "provvedimento": "31101",
+  "data": "2024-02-27",
+  "anno": 2024,
+  "bollettino": "11-24",
+  "pagina": 124,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=124",
+  "imprese": [
+   "24MAX S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausola di durata ed esclusiva nel contratto di mediazione per ottenere un mutuo",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 76494,
+  "euro_deliberati": 76494,
+  "annullata": false,
+  "per_impresa": {
+   "24MAX S.p.A.": 76494
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV237",
+  "provvedimento": "31102",
+  "data": "2024-02-27",
+  "anno": 2024,
+  "bollettino": "11-24",
+  "pagina": 140,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=140",
+  "imprese": [
+   "Link Soluzioni S.r.l."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausola di esclusiva nel mandato di mediazione per ottenere un mutuo",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 14784,
+  "euro_deliberati": 14784,
+  "annullata": false,
+  "per_impresa": {
+   "Link Soluzioni S.r.l.": 14784
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV238",
+  "provvedimento": "31103",
+  "data": "2024-02-27",
+  "anno": 2024,
+  "bollettino": "11-24",
+  "pagina": 158,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=158",
+  "imprese": [
+   "Monety S.r.l."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausole di esclusiva e penali nel contratto di mediazione per ottenere un mutuo",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 234000,
+  "euro_deliberati": 234000,
+  "annullata": false,
+  "per_impresa": {
+   "Monety S.r.l.": 234000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12661",
+  "provvedimento": "31067",
+  "data": "2024-02-27",
+  "anno": 2024,
+  "bollettino": "9-24",
+  "pagina": 79,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/9-24.pdf#page=79",
+  "imprese": [
+   "DAVE's s.r.l."
+  ],
+  "settore": "Alimentari, bevande e tabacco",
+  "trappole": [
+   "minori"
+  ],
+  "pratica": "Snack piccantissimo venduto come «sfida» social ai ragazzi, senza avvertenze adeguate sui rischi",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12661",
+  "tar": null,
+  "ristori": "ritiro del prodotto dalla vendita"
+ },
+ {
+  "codice": "PS12543",
+  "provvedimento": "31124",
+  "data": "2024-03-05",
+  "anno": 2024,
+  "bollettino": "11-24",
+  "pagina": 67,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=67",
+  "imprese": [
+   "TikTok Technology Limited",
+   "TikTok Information Technologies UK Limited",
+   "TikTok Italy Srl"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "minori",
+   "dati-account"
+  ],
+  "pratica": "Controlli inadeguati su contenuti pericolosi per i minori (la sfida «cicatrice francese»), rilanciati dall'algoritmo",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 10000000,
+  "euro_deliberati": 10000000,
+  "annullata": false,
+  "per_impresa": {
+   "TikTok Technology Limited e TikTok Information Technologies UK Limited e TikTok Italy Srl": 10000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12543-",
+  "tar": {
+   "testo": "Il TAR del Lazio ha respinto la richiesta di sospensione (ottobre 2024); non abbiamo trovato la sentenza di merito.",
+   "url": "https://www.milanofinanza.it/news/tar-lazio-no-a-sospensione-maxi-multa-da-10-milioni-di-euro-dell-antitrust-a-tiktok-202410101344347194"
+  },
+  "ristori": null
+ },
+ {
+  "codice": "PS12515",
+  "provvedimento": "31135",
+  "data": "2024-03-12",
+  "anno": 2024,
+  "bollettino": "13-24",
+  "pagina": 51,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/13-24.pdf#page=51",
+  "imprese": [
+   "Iris Mobili S.r.l."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Mobili consegnati incompleti o diversi dall'ordine (marchio Mondo Convenienza), reclami ostacolati, tempi stretti per contestare",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3200000,
+  "euro_deliberati": 3200000,
+  "annullata": false,
+  "per_impresa": {
+   "Iris Mobili S.r.l.": 3200000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12515-",
+  "tar": {
+   "testo": "Il TAR del Lazio ha confermato la sanzione (aprile 2025).",
+   "url": "https://www.money.it/multa-da-eur32-milioni-per-mondo-convenienza-ecco-tutti-gli-illeciti-a-danno-dei-clienti"
+  },
+  "ristori": null
+ },
+ {
+  "codice": "PS12558",
+  "provvedimento": "31136",
+  "data": "2024-03-12",
+  "anno": 2024,
+  "bollettino": "13-24",
+  "pagina": 76,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/13-24.pdf#page=76",
+  "imprese": [
+   "Verisure Italy S.r.l."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "rinnovi-recesso",
+   "non-richiesti",
+   "clausole"
+  ],
+  "pratica": "Allarme dato in comodato e non venduto, senza dirlo; disdette ostacolate e fatture dopo la cessazione; servizio avviato durante i 14 giorni di ripensamento",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 4250000,
+  "euro_deliberati": 4250000,
+  "annullata": false,
+  "per_impresa": {
+   "Verisure Italy S.r.l.": 4250000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12558-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12582",
+  "provvedimento": "31141",
+  "data": "2024-03-26",
+  "anno": 2024,
+  "bollettino": "14-24",
+  "pagina": 30,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/14-24.pdf#page=30",
+  "imprese": [
+   "Red Fish S.r.l.s.",
+   "Pharmaland S.r.l.",
+   "Una persona fisica (nome omesso)"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Prodotti per animali venduti online a prezzi bassi, mai consegnati e non rimborsati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 300000,
+  "euro_deliberati": 300000,
+  "annullata": false,
+  "per_impresa": {
+   "Red Fish S.r.l.s. e Una persona fisica (nome omesso)": 200000,
+   "Pharmaland S.r.l. e Una persona fisica (nome omesso)": 100000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12659",
+  "provvedimento": "31164",
+  "data": "2024-04-03",
+  "anno": 2024,
+  "bollettino": "16-24",
+  "pagina": 17,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/16-24.pdf#page=17",
+  "imprese": [
+   "Wind Tre S.p.A."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Offerta «MIA Unlimited» con limiti al traffico voce non detti chiaramente",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12585",
+  "provvedimento": "31172",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "17-24",
+  "pagina": 18,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/17-24.pdf#page=18",
+  "imprese": [
+   "Amazon Services Europe S.à r.l.",
+   "Amazon EU S.à r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "preselezioni"
+  ],
+  "pratica": "«Acquisto periodico» preselezionato al posto dell'acquisto singolo; consegna veloce a pagamento preselezionata (chiusa con impegni)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 10000000,
+  "euro_deliberati": 10000000,
+  "annullata": false,
+  "per_impresa": {
+   "Amazon Services Europe S.à r.l. e Amazon EU S.à r.l.": 10000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/4/PS12585",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV242",
+  "provvedimento": "31176",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 5,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=5",
+  "imprese": [
+   "Avis Budget Italia S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 9000000,
+  "euro_deliberati": 9000000,
+  "annullata": false,
+  "per_impresa": {
+   "Avis Budget Italia S.p.A.": 9000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV243",
+  "provvedimento": "31177",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 27,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=27",
+  "imprese": [
+   "Hertz Italiana S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 1650000,
+  "euro_deliberati": 1650000,
+  "annullata": false,
+  "per_impresa": {
+   "Hertz Italiana S.r.l.": 1650000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV244",
+  "provvedimento": "31178",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 46,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=46",
+  "imprese": [
+   "Centauro Rent a Car Italy S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 1160000,
+  "euro_deliberati": 1160000,
+  "annullata": false,
+  "per_impresa": {
+   "Centauro Rent a Car Italy S.r.l.": 1160000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV245",
+  "provvedimento": "31179",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 63,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=63",
+  "imprese": [
+   "Green Motion Italia S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 50000,
+  "euro_deliberati": 50000,
+  "annullata": false,
+  "per_impresa": {
+   "Green Motion Italia S.r.l.": 50000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV247",
+  "provvedimento": "31180",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 78,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=78",
+  "imprese": [
+   "Noleggiare S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 2200000,
+  "euro_deliberati": 2200000,
+  "annullata": false,
+  "per_impresa": {
+   "Noleggiare S.r.l.": 2200000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV248",
+  "provvedimento": "31181",
+  "data": "2024-04-18",
+  "anno": 2024,
+  "bollettino": "19-24",
+  "pagina": 92,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=92",
+  "imprese": [
+   "Drivalia Leasys Rent S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 4300000,
+  "euro_deliberati": 4300000,
+  "annullata": false,
+  "per_impresa": {
+   "Drivalia Leasys Rent S.p.A.": 4300000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12685",
+  "provvedimento": "31190",
+  "data": "2024-05-07",
+  "anno": 2024,
+  "bollettino": "20-24",
+  "pagina": 30,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/20-24.pdf#page=30",
+  "imprese": [
+   "Subito.it S.r.l."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Cinque stelle assegnate in automatico a chi non riceveva una recensione dopo una compravendita",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 170000,
+  "euro_deliberati": 170000,
+  "annullata": false,
+  "per_impresa": {
+   "Subito.it S.r.l.": 170000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12580",
+  "provvedimento": "31196",
+  "data": "2024-05-07",
+  "anno": 2024,
+  "bollettino": "21-24",
+  "pagina": 111,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/21-24.pdf#page=111",
+  "imprese": [
+   "Intesa Sanpaolo RBM Salute S.p.A.",
+   "Previmedical Servizi per Sanità Integrativa S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Rimborsi delle polizze sanitarie in grave ritardo, assistenza irraggiungibile, rifiuti non giustificati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3500000,
+  "euro_deliberati": 3500000,
+  "annullata": false,
+  "per_impresa": {
+   "Intesa Sanpaolo RBM Salute S.p.A.": 2500000,
+   "Previmedical Servizi per Sanità Integrativa S.p.A.": 1000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/PS12580",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12650",
+  "provvedimento": "31197",
+  "data": "2024-05-07",
+  "anno": 2024,
+  "bollettino": "21-24",
+  "pagina": 146,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/21-24.pdf#page=146",
+  "imprese": [
+   "Vueling SA"
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "Prezzo del bagaglio a mano diverso tra sito e app, senza spiegarlo",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12604",
+  "provvedimento": "31215",
+  "data": "2024-05-21",
+  "anno": 2024,
+  "bollettino": "22-24",
+  "pagina": 40,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/22-24.pdf#page=40",
+  "imprese": [
+   "Mooney Group S.p.A.",
+   "Mooney S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "travestimenti",
+   "dati-account"
+  ],
+  "pratica": "Nessun controllo sulle carte usate per finte richieste di pagamento «delle Camere di Commercio» alle microimprese; blocchi delle carte senza spiegazioni",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 2520000,
+  "euro_deliberati": 2520000,
+  "annullata": false,
+  "per_impresa": {
+   "Mooney Group S.p.A. e Mooney S.p.A.": 2520000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/PS12604",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12566",
+  "provvedimento": "31214",
+  "data": "2024-05-21",
+  "anno": 2024,
+  "bollettino": "23-24",
+  "pagina": 94,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/23-24.pdf#page=94",
+  "imprese": [
+   "Meta Platforms Ireland Ltd.",
+   "Meta Platforms Inc."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "dati-account"
+  ],
+  "pratica": "Uso commerciale dei dati non spiegato all'iscrizione a Instagram; account sospesi senza dire come contestare",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3500000,
+  "euro_deliberati": 3500000,
+  "annullata": false,
+  "per_impresa": {
+   "Meta Platforms Ireland Ltd. e Meta Platforms Inc.": 3500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12566",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12667",
+  "provvedimento": "31235",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 106,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=106",
+  "imprese": [
+   "Desa Radiotaxi S.r.l.s."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12668",
+  "provvedimento": "31236",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 111,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=111",
+  "imprese": [
+   "Consortaxi (consorzio)"
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12669",
+  "provvedimento": "31237",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 117,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=117",
+  "imprese": [
+   "Taxi Napoli S.r.l."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12670",
+  "provvedimento": "31238",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 122,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=122",
+  "imprese": [
+   "Radiotaxi 3570 Soc. Coop."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12671",
+  "provvedimento": "31239",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 128,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=128",
+  "imprese": [
+   "Cooperativa Pronto Taxi 6645 Soc. Coop."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12672",
+  "provvedimento": "31240",
+  "data": "2024-05-28",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 134,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=134",
+  "imprese": [
+   "Autoradiotassi Società Cooperativa"
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12660",
+  "provvedimento": "31241",
+  "data": "2024-06-04",
+  "anno": 2024,
+  "bollettino": "24-24",
+  "pagina": 140,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/24-24.pdf#page=140",
+  "imprese": [
+   "Intesa Sanpaolo S.p.A.",
+   "Isybank S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "non-richiesti"
+  ],
+  "pratica": "Clienti trasferiti a una banca digitale con un conto diverso, senza informativa completa e senza consenso espresso",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12660_",
+  "tar": null,
+  "ristori": "rientro a condizioni migliori e conto gratuito fino a giugno 2024 per i clienti già trasferiti"
+ },
+ {
+  "codice": "PS12638",
+  "provvedimento": "31255",
+  "data": "2024-06-11",
+  "anno": 2024,
+  "bollettino": "25-24",
+  "pagina": 85,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/25-24.pdf#page=85",
+  "imprese": [
+   "DR Automobiles S.r.l.",
+   "DR Service & Parts S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "promesse",
+   "dopo-vendita"
+  ],
+  "pratica": "Auto prodotte in Cina presentate come italiane; ricambi e assistenza post-vendita insufficienti, anche in garanzia",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 6000000,
+  "euro_deliberati": 6000000,
+  "annullata": false,
+  "per_impresa": {
+   "DR Automobiles S.r.l.": 3000000,
+   "DR Automobiles S.r.l. e DR Service & Parts S.r.l.": 3000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12638-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12626",
+  "provvedimento": "31260",
+  "data": "2024-06-11",
+  "anno": 2024,
+  "bollettino": "26-24",
+  "pagina": 96,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/26-24.pdf#page=96",
+  "imprese": [
+   "República Gráfica SL"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Commissione a carico di chi pagava con PayPal sul negozio online pampling.com",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 40000,
+  "euro_deliberati": 40000,
+  "annullata": false,
+  "per_impresa": {
+   "República Gráfica SL": 40000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12665",
+  "provvedimento": "31261",
+  "data": "2024-06-11",
+  "anno": 2024,
+  "bollettino": "26-24",
+  "pagina": 103,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/26-24.pdf#page=103",
+  "imprese": [
+   "Teahupoo S.r.l."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di follower, like e visualizzazioni per i social",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 16000,
+  "euro_deliberati": 16000,
+  "annullata": false,
+  "per_impresa": {
+   "Teahupoo S.r.l.": 16000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12679",
+  "provvedimento": "31270",
+  "data": "2024-06-18",
+  "anno": 2024,
+  "bollettino": "27-24",
+  "pagina": 34,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/27-24.pdf#page=34",
+  "imprese": [
+   "IOSONOVISIBILE (impresa individuale)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di recensioni e like: elementi non sufficienti per una violazione",
+  "norma": "PS",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12680",
+  "provvedimento": "31271",
+  "data": "2024-06-18",
+  "anno": 2024,
+  "bollettino": "27-24",
+  "pagina": 37,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/27-24.pdf#page=37",
+  "imprese": [
+   "Elegant Billionaire (impresa individuale)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di like e follower: elementi non sufficienti per una violazione",
+  "norma": "PS",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12699",
+  "provvedimento": "31272",
+  "data": "2024-07-04",
+  "anno": 2024,
+  "bollettino": "27-24",
+  "pagina": 40,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/27-24.pdf#page=40",
+  "imprese": [
+   "Fenice S.r.l.",
+   "TBS Crew s.r.l.",
+   "Sisterhood S.r.l.",
+   "Cerealitalia Industrie Dolciarie s.p.a."
+  ],
+  "settore": "Alimentari, bevande e tabacco",
+  "trappole": [
+   "green-etica"
+  ],
+  "pratica": "Uova di Pasqua presentate come legate a una raccolta benefica che l'acquisto non finanziava",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/7/PS12699",
+  "tar": null,
+  "ristori": "almeno 1,3 milioni di euro all'impresa sociale beneficiaria"
+ },
+ {
+  "codice": "PS12571",
+  "provvedimento": "31300",
+  "data": "2024-07-23",
+  "anno": 2024,
+  "bollettino": "32-24",
+  "pagina": 119,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/32-24.pdf#page=119",
+  "imprese": [
+   "Funeraria Roma Capitale S.r.l."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Agenzia funebre privata presentata come «agenzia ufficiale del Comune di Roma»",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 30000,
+  "euro_deliberati": 30000,
+  "annullata": false,
+  "per_impresa": {
+   "Funeraria Roma Capitale S.r.l.": 30000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12674",
+  "provvedimento": "31311",
+  "data": "2024-07-30",
+  "anno": 2024,
+  "bollettino": "33-24",
+  "pagina": 65,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/33-24.pdf#page=65",
+  "imprese": [
+   "Wizz Air Hungary Ltd."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "Finestra per il check-in online gratuito e costi in aeroporto non spiegati",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12733",
+  "provvedimento": "31316",
+  "data": "2024-08-06",
+  "anno": 2024,
+  "bollettino": "34-24",
+  "pagina": 31,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/34-24.pdf#page=31",
+  "imprese": [
+   "Altraepoca S.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Commissione a carico di chi pagava con PayPal",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 5000,
+  "euro_deliberati": 5000,
+  "annullata": false,
+  "per_impresa": {
+   "Altraepoca S.r.l.": 5000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP369",
+  "provvedimento": "31336",
+  "data": "2024-10-02",
+  "anno": 2024,
+  "bollettino": "40-24",
+  "pagina": 19,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/40-24.pdf#page=19",
+  "imprese": [
+   "Blupark S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Ha continuato a chiedere 2 centesimi al litro in più a chi paga il carburante con la carta, nonostante il divieto del 2023",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 20000,
+  "euro_deliberati": 20000,
+  "annullata": false,
+  "per_impresa": {
+   "Blupark S.r.l.": 20000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/10/IP369",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12503",
+  "provvedimento": "31345",
+  "data": "2024-10-08",
+  "anno": 2024,
+  "bollettino": "42-24",
+  "pagina": 33,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/42-24.pdf#page=33",
+  "imprese": [
+   "Star Italia S.p.A."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "dopo-vendita",
+   "rinnovi-recesso",
+   "clausole"
+  ],
+  "pratica": "Lavori di rifacimento del bagno ritardati dopo l'acconto, recesso non riconosciuto e clausole vessatorie nel contratto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 2000000,
+  "euro_deliberati": 2000000,
+  "annullata": false,
+  "per_impresa": {
+   "Star Italia S.p.A.": 2000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/10/PS12503",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12700",
+  "provvedimento": "31346",
+  "data": "2024-10-08",
+  "anno": 2024,
+  "bollettino": "42-24",
+  "pagina": 58,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/42-24.pdf#page=58",
+  "imprese": [
+   "ByMètis Cancellations B.V."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "non-richiesti",
+   "travestimenti"
+  ],
+  "pratica": "Servizio a pagamento per scrivere lettere di disdetta, sottoscritto senza saperlo e seguito da solleciti di pagamento",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 20000,
+  "euro_deliberati": 20000,
+  "annullata": false,
+  "per_impresa": {
+   "ByMètis Cancellations B.V.": 20000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12727",
+  "provvedimento": "31355",
+  "data": "2024-10-29",
+  "anno": 2024,
+  "bollettino": "43-24",
+  "pagina": 25,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/43-24.pdf#page=25",
+  "imprese": [
+   "Saglietti S.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Supplemento di 3 euro per il pagamento con carta e di 8 euro con PayPal (surcharge)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 40000,
+  "euro_deliberati": 40000,
+  "annullata": false,
+  "per_impresa": {
+   "Saglietti S.r.l.": 40000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12727",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12666",
+  "provvedimento": "31357",
+  "data": "2024-10-29",
+  "anno": 2024,
+  "bollettino": "44-24",
+  "pagina": 47,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/44-24.pdf#page=47",
+  "imprese": [
+   "BCube Agency S.A.R.L."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di follower, like e visualizzazioni per i social",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 30000,
+  "euro_deliberati": 30000,
+  "annullata": false,
+  "per_impresa": {
+   "BCube Agency S.A.R.L.": 30000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12689",
+  "provvedimento": "31360",
+  "data": "2024-11-05",
+  "anno": 2024,
+  "bollettino": "44-24",
+  "pagina": 40,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/44-24.pdf#page=40",
+  "imprese": [
+   "Ryanair DAC"
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "costi-nascosti",
+   "preselezioni"
+  ],
+  "pratica": "Informazioni ingannevoli sul check-in online gratuito e sul supplemento in aeroporto; priorità e bagaglio estesi d'ufficio a entrambe le tratte",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12689",
+  "tar": null,
+  "ristori": "rimborsi e ristori per circa 1,5 milioni di euro"
+ },
+ {
+  "codice": "PS12745",
+  "provvedimento": "31373",
+  "data": "2024-11-12",
+  "anno": 2024,
+  "bollettino": "46-24",
+  "pagina": 21,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/46-24.pdf#page=21",
+  "imprese": [
+   "GDL S.p.A."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Bagni rifatti «in 5-7 giorni» con ritardi, assistenza assente e rimborsi negati",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12529",
+  "provvedimento": "31381",
+  "data": "2024-11-19",
+  "anno": 2024,
+  "bollettino": "47-24",
+  "pagina": 24,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/47-24.pdf#page=24",
+  "imprese": [
+   "Albatros S.r.l.",
+   "Una persona fisica (nome omesso)"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Prodotti venduti online con consegne in ritardo o mancate e rimborsi negati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 170000,
+  "euro_deliberati": 170000,
+  "annullata": false,
+  "per_impresa": {
+   "Albatros S.r.l. e Una persona fisica (nome omesso)": 170000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12629",
+  "provvedimento": "31390",
+  "data": "2024-11-26",
+  "anno": 2024,
+  "bollettino": "48-24",
+  "pagina": 258,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/48-24.pdf#page=258",
+  "imprese": [
+   "Copytrack GmbH"
+  ],
+  "settore": "Servizi alle imprese e spedizioni",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Email a raffica a blogger e piccoli siti per far pagare licenze di immagini",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS10009C",
+  "provvedimento": "31409",
+  "data": "2024-12-03",
+  "anno": 2024,
+  "bollettino": "49-24",
+  "pagina": 200,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/49-24.pdf#page=200",
+  "imprese": [
+   "Poste Italiane S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Pubblicità del «Libretto Smart» (2015) che non spiegava le vere condizioni dell'offerta",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 540000,
+  "euro_deliberati": 540000,
+  "annullata": false,
+  "per_impresa": {
+   "Poste Italiane S.p.A.": 540000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP367",
+  "provvedimento": "31435",
+  "data": "2025-01-14",
+  "anno": 2025,
+  "bollettino": "3-25",
+  "pagina": 20,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/3-25.pdf#page=20",
+  "imprese": [
+   "Mulpor Company S.r.l.",
+   "IBCM - International Business Convention Management Ltd"
+  ],
+  "settore": "Servizi alle imprese e spedizioni",
+  "trappole": [
+   "travestimenti",
+   "non-richiesti"
+  ],
+  "pratica": "Moduli che sembrano una verifica gratuita dei dati aziendali e invece fanno firmare un contratto pubblicitario triennale da oltre 1.200 euro l'anno",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 3500000,
+  "euro_deliberati": 3500000,
+  "annullata": false,
+  "per_impresa": {
+   "Mulpor Company S.r.l. e IBCM - International Business Convention Management Ltd": 3500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/1/IP367",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12658",
+  "provvedimento": "31438",
+  "data": "2025-01-14",
+  "anno": 2025,
+  "bollettino": "4-25",
+  "pagina": 36,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/4-25.pdf#page=36",
+  "imprese": [
+   "Meta Platforms Inc.",
+   "Meta Platforms Ireland Limited"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Pubblicità con volti noti falsificati (deep fake): non luogo a provvedere",
+  "norma": "PS",
+  "esito": "non luogo a provvedere",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12717",
+  "provvedimento": "31439",
+  "data": "2025-01-21",
+  "anno": 2025,
+  "bollettino": "4-25",
+  "pagina": 38,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/4-25.pdf#page=38",
+  "imprese": [
+   "Interflora Italia S.p.A."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "costi-nascosti",
+   "dopo-vendita"
+  ],
+  "pratica": "Fiori consegnati in ritardo o diversi da quelli pagati; costi di consegna non chiari durante l'acquisto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 400000,
+  "euro_deliberati": 400000,
+  "annullata": false,
+  "per_impresa": {
+   "Interflora Italia S.p.A.": 400000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/1/PS12717-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12525",
+  "provvedimento": "31445",
+  "data": "2025-01-21",
+  "anno": 2025,
+  "bollettino": "5-25",
+  "pagina": 28,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/5-25.pdf#page=28",
+  "imprese": [
+   "General Logistics Systems B.V.",
+   "General Logistics Systems Italy S.p.A.",
+   "General Logistics Systems Enterprise S.r.l."
+  ],
+  "settore": "Servizi alle imprese e spedizioni",
+  "trappole": [
+   "green-etica",
+   "non-richiesti"
+  ],
+  "pratica": "Programma «Climate Protect» con vanti ambientali ambigui e un contributo imposto ai clienti abbonati, più alto dei costi sostenuti",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 8000000,
+  "euro_deliberati": 8000000,
+  "annullata": false,
+  "per_impresa": {
+   "General Logistics Systems B.V. e General Logistics Systems Italy S.p.A. e General Logistics Systems Enterprise S.r.l.": 8000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/2/PS12525",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP371",
+  "provvedimento": "31447",
+  "data": "2025-01-28",
+  "anno": 2025,
+  "bollettino": "6-25",
+  "pagina": 18,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/6-25.pdf#page=18",
+  "imprese": [
+   "Comune di Letino"
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Bollette dell'acqua più vecchie di due anni chieste ancora, nonostante il divieto del 2023",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 10000,
+  "euro_deliberati": 10000,
+  "annullata": false,
+  "per_impresa": {
+   "Comune di Letino": 10000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP372",
+  "provvedimento": "31448",
+  "data": "2025-01-28",
+  "anno": 2025,
+  "bollettino": "6-25",
+  "pagina": 23,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/6-25.pdf#page=23",
+  "imprese": [
+   "Comune di Venafro"
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Bollette dell'acqua prescritte: inottemperanza non accertata",
+  "norma": "IP",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP373",
+  "provvedimento": "31449",
+  "data": "2025-01-28",
+  "anno": 2025,
+  "bollettino": "6-25",
+  "pagina": 28,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/6-25.pdf#page=28",
+  "imprese": [
+   "Ente Acquedotti Siciliani in l.c.a."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Bollette dell'acqua prescritte: sanzione poi annullata dall'Autorità dopo una sentenza del Consiglio di Stato",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 0,
+  "euro_deliberati": 100000,
+  "annullata": true,
+  "per_impresa": {
+   "Ente Acquedotti Siciliani in l.c.a.": 100000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP362",
+  "provvedimento": "31481",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 55,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=55",
+  "imprese": [
+   "GPS ITALIA S.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Non ha rispettato il divieto del 2022 su consegne, assistenza e rimborsi delle vendite online",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 10000,
+  "euro_deliberati": 10000,
+  "annullata": false,
+  "per_impresa": {
+   "GPS ITALIA S.r.l.": 10000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP374",
+  "provvedimento": "31482",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 64,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=64",
+  "imprese": [
+   "Servizio Energetico Italiano S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "non-richiesti"
+  ],
+  "pratica": "Attivazioni non richieste: inottemperanza non accertata",
+  "norma": "IP",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12788",
+  "provvedimento": "31483",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 73,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=73",
+  "imprese": [
+   "Shiseido Italy S.p.A."
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Solari presentati come protezione che «si rinforza» con acqua e sudore, in contrasto con il foglietto che chiede di riapplicarli spesso",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 400000,
+  "euro_deliberati": 400000,
+  "annullata": false,
+  "per_impresa": {
+   "Shiseido Italy S.p.A.": 400000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/3/PS12788",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12797",
+  "provvedimento": "31484",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 91,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=91",
+  "imprese": [
+   "Filarco Group S.r.l."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di follower per Instagram",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 16000,
+  "euro_deliberati": 16000,
+  "annullata": false,
+  "per_impresa": {
+   "Filarco Group S.r.l.": 16000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12798",
+  "provvedimento": "31485",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 99,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=99",
+  "imprese": [
+   "DLM Global Independent Business"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di follower e di recensioni per Google, TripAdvisor, Trustpilot e app store",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 10000,
+  "euro_deliberati": 10000,
+  "annullata": false,
+  "per_impresa": {
+   "DLM Global Independent Business": 10000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12799",
+  "provvedimento": "31486",
+  "data": "2025-03-04",
+  "anno": 2025,
+  "bollettino": "11-25",
+  "pagina": 107,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=107",
+  "imprese": [
+   "Socialwebsite S.L."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di follower, like, commenti e visualizzazioni",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 10000,
+  "euro_deliberati": 10000,
+  "annullata": false,
+  "per_impresa": {
+   "Socialwebsite S.L.": 10000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12789",
+  "provvedimento": "31513",
+  "data": "2025-03-25",
+  "anno": 2025,
+  "bollettino": "13-25",
+  "pagina": 26,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/13-25.pdf#page=26",
+  "imprese": [
+   "Otis Servizi S.r.l."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "non-richiesti",
+   "dopo-vendita"
+  ],
+  "pratica": "Dispositivo a pagamento installato sugli ascensori senza consenso espresso; ritardi nelle installazioni e nelle riparazioni",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12789-",
+  "tar": null,
+  "ristori": "circa 1,45 milioni di euro a oltre 7.700 condomini e microimprese"
+ },
+ {
+  "codice": "IP365B",
+  "provvedimento": "31516",
+  "data": "2025-03-25",
+  "anno": 2025,
+  "bollettino": "14-25",
+  "pagina": 46,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/14-25.pdf#page=46",
+  "imprese": [
+   "Facile Energy S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "non-richiesti"
+  ],
+  "pratica": "Attivazioni non richieste: inottemperanza non accertata",
+  "norma": "IP",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12603",
+  "provvedimento": "31517",
+  "data": "2025-03-25",
+  "anno": 2025,
+  "bollettino": "14-25",
+  "pagina": 55,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/14-25.pdf#page=55",
+  "imprese": [
+   "Società Cooperativa Culture",
+   "Tiqets International BV",
+   "GetYourGuide Deutschland GmbH",
+   "Walks LLC",
+   "Italy With Family S.r.l.",
+   "City Wonders LLC",
+   "Musement S.p.A."
+  ],
+  "settore": "Cultura, sport e tempo libero",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "Biglietti del Colosseo a prezzo base introvabili: accaparrati con bot e rivenduti abbinati a visite guidate a prezzi molto più alti",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 19878000,
+  "euro_deliberati": 19878000,
+  "annullata": false,
+  "per_impresa": {
+   "Società Cooperativa Culture": 7000000,
+   "Tiqets International BV": 4300000,
+   "GetYourGuide Deutschland GmbH": 5600000,
+   "Walks LLC": 30000,
+   "Italy With Family S.r.l.": 48000,
+   "City Wonders LLC": 1400000,
+   "Musement S.p.A.": 1500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12603-",
+  "tar": {
+   "testo": "Il TAR del Lazio ha respinto i ricorsi di Tiqets (4,3 mln) e Musement (1,5 mln) (gennaio 2026); per CoopCulture (7 mln) non abbiamo trovato l'esito.",
+   "url": "https://en.ilsole24ore.com/art/colosseum-maxi-fines-confirmed-companies-hoarding-tickets-AI6ePIt"
+  },
+  "ristori": null
+ },
+ {
+  "codice": "PS12802",
+  "provvedimento": "31530",
+  "data": "2025-04-15",
+  "anno": 2025,
+  "bollettino": "17-25",
+  "pagina": 38,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/17-25.pdf#page=38",
+  "imprese": [
+   "Sky Italia S.r.l."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "rinnovi-recesso"
+  ],
+  "pratica": "Come disdire l'abbonamento Sky o NOW: informazioni difficili da trovare su siti e app",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12743",
+  "provvedimento": "31536",
+  "data": "2025-04-24",
+  "anno": 2025,
+  "bollettino": "18-25",
+  "pagina": 48,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/18-25.pdf#page=48",
+  "imprese": [
+   "Enel Energia S.p.A."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "rinnovi-recesso"
+  ],
+  "pratica": "Rinnovo delle condizioni economiche (con aumenti) comunicato in modo poco chiaro, con mail simili a messaggi promozionali",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/5/PS12743",
+  "tar": null,
+  "ristori": "oltre 5 milioni di euro a più di 40.000 clienti"
+ },
+ {
+  "codice": "PS12805",
+  "provvedimento": "31548",
+  "data": "2025-05-13",
+  "anno": 2025,
+  "bollettino": "20-25",
+  "pagina": 18,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/20-25.pdf#page=18",
+  "imprese": [
+   "Christian Dior Couture S.A.",
+   "Christian Dior Italia S.r.l.",
+   "Manufactures Dior S.r.l."
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "green-etica"
+  ],
+  "pratica": "Dichiarazioni etiche potenzialmente non veritiere sulle condizioni di lavoro presso i fornitori di pelletteria",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/5/PS12805",
+  "tar": null,
+  "ristori": "2 milioni di euro in 5 anni per le vittime di sfruttamento lavorativo"
+ },
+ {
+  "codice": "PS12768",
+  "provvedimento": "31566",
+  "data": "2025-05-20",
+  "anno": 2025,
+  "bollettino": "22-25",
+  "pagina": 17,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/22-25.pdf#page=17",
+  "imprese": [
+   "Poste Italiane S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "dati-account"
+  ],
+  "pratica": "App BancoPosta e PostePay bloccate se non si autorizzava l'accesso ai dati del telefono",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 4000000,
+  "euro_deliberati": 4000000,
+  "annullata": false,
+  "per_impresa": {
+   "Poste Italiane S.p.A.": 4000000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12814",
+  "provvedimento": "31572",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 13,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=13",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12815",
+  "provvedimento": "31573",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 19,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=19",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità, con follower non autentici e recensioni non verificabili",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 60000,
+  "euro_deliberati": 60000,
+  "annullata": false,
+  "per_impresa": {
+   "Influencer (persona fisica, nome omesso)": 60000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12816",
+  "provvedimento": "31574",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 38,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=38",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12817",
+  "provvedimento": "31575",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 47,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=47",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12818",
+  "provvedimento": "31576",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 53,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=53",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 5000,
+  "euro_deliberati": 5000,
+  "annullata": false,
+  "per_impresa": {
+   "Influencer (persona fisica, nome omesso)": 5000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12826",
+  "provvedimento": "31577",
+  "data": "2025-05-28",
+  "anno": 2025,
+  "bollettino": "23-25",
+  "pagina": 61,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/23-25.pdf#page=61",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni",
+   "promesse"
+  ],
+  "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12828",
+  "provvedimento": "31580",
+  "data": "2025-06-04",
+  "anno": 2025,
+  "bollettino": "24-25",
+  "pagina": 16,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/24-25.pdf#page=16",
+  "imprese": [
+   "Elite Media Applications S.L."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "travestimenti",
+   "costi-nascosti"
+  ],
+  "pratica": "Sito volturacontratto.com che sembrava un servizio dei fornitori di luce e gas",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12879",
+  "provvedimento": "31581",
+  "data": "2025-06-10",
+  "anno": 2025,
+  "bollettino": "24-25",
+  "pagina": 23,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/24-25.pdf#page=23",
+  "imprese": [
+   "Virgin Active Italia S.p.A."
+  ],
+  "settore": "Cultura, sport e tempo libero",
+  "trappole": [
+   "rinnovi-recesso"
+  ],
+  "pratica": "Palestre: rinnovo automatico non preannunciato, scadenza per la disdetta taciuta, aumenti non spiegati, recesso ostacolato",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3000000,
+  "euro_deliberati": 3000000,
+  "annullata": false,
+  "per_impresa": {
+   "Virgin Active Italia S.p.A.": 3000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12879",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP376",
+  "provvedimento": "31583",
+  "data": "2025-06-10",
+  "anno": 2025,
+  "bollettino": "25-25",
+  "pagina": 161,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/25-25.pdf#page=161",
+  "imprese": [
+   "Iris Mobili S.r.l."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Consegne e assistenza dei mobili: inottemperanza non accertata",
+  "norma": "IP",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS10987B",
+  "provvedimento": "31594",
+  "data": "2025-06-24",
+  "anno": 2025,
+  "bollettino": "27-25",
+  "pagina": 61,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/27-25.pdf#page=61",
+  "imprese": [
+   "Publiacqua S.p.A."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Minaccia di staccare l'acqua a tutto il condominio per la morosità di uno solo",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12847",
+  "provvedimento": "31615",
+  "data": "2025-07-01",
+  "anno": 2025,
+  "bollettino": "27-25",
+  "pagina": 70,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/27-25.pdf#page=70",
+  "imprese": [
+   "Crédit Agricole Italia S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "TAEG dei mutui senza l'intero costo della polizza necessaria per lo sconto",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12706",
+  "provvedimento": "31625",
+  "data": "2025-07-15",
+  "anno": 2025,
+  "bollettino": "29-25",
+  "pagina": 5,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/29-25.pdf#page=5",
+  "imprese": [
+   "Emme Group S.p.A."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "falsi-sconti",
+   "fretta",
+   "minori"
+  ],
+  "pratica": "Materassi Marion in televendita con sconti su un prezzo mai praticato; a casa, venditori che spingono, anche con anziani, modelli molto più cari",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3000000,
+  "euro_deliberati": 3000000,
+  "annullata": false,
+  "per_impresa": {
+   "Emme Group S.p.A.": 3000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/7/PS12706-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12782",
+  "provvedimento": "31630",
+  "data": "2025-07-15",
+  "anno": 2025,
+  "bollettino": "30-25",
+  "pagina": 85,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=85",
+  "imprese": [
+   "Società che gestisce Farmasave.it (S.n.c.)"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita",
+   "promesse"
+  ],
+  "pratica": "Farmacia online: disponibilità e tempi di consegna non veri, consegne mancate, recesso e rimborsi ostacolati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 1100000,
+  "euro_deliberati": 1100000,
+  "annullata": false,
+  "per_impresa": {
+   "Società che gestisce Farmasave.it (S.n.c.)": 1100000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12800",
+  "provvedimento": "31631",
+  "data": "2025-07-15",
+  "anno": 2025,
+  "bollettino": "30-25",
+  "pagina": 120,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=120",
+  "imprese": [
+   "SWJ WEB MARKETING SL"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Vendita di like e follower: elementi non sufficienti per una violazione",
+  "norma": "PS",
+  "esito": "non violazione",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12809",
+  "provvedimento": "31633",
+  "data": "2025-07-15",
+  "anno": 2025,
+  "bollettino": "30-25",
+  "pagina": 125,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=125",
+  "imprese": [
+   "Enel Energia S.p.A."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Offerta Enel Fibra con caratteristiche e limiti del servizio non chiari",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12977",
+  "provvedimento": "31644",
+  "data": "2025-07-22",
+  "anno": 2025,
+  "bollettino": "31-25",
+  "pagina": 14,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/31-25.pdf#page=14",
+  "imprese": [
+   "Action S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Telemarketing ingannevole: non luogo a provvedere",
+  "norma": "PS",
+  "esito": "non luogo a provvedere",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12793",
+  "provvedimento": "31638",
+  "data": "2025-07-29",
+  "anno": 2025,
+  "bollettino": "30-25",
+  "pagina": 134,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=134",
+  "imprese": [
+   "Giorgio Armani S.p.A.",
+   "G.A. Operations S.p.A."
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "green-etica"
+  ],
+  "pratica": "Dichiarazioni etiche e di responsabilità sociale smentite dalle condizioni di lavoro presso i subfornitori di borse e accessori",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 3500000,
+  "euro_deliberati": 3500000,
+  "annullata": false,
+  "per_impresa": {
+   "Giorgio Armani S.p.A. e G.A. Operations S.p.A.": 3500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12793",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12709",
+  "provvedimento": "31639",
+  "data": "2025-07-29",
+  "anno": 2025,
+  "bollettino": "30-25",
+  "pagina": 196,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=196",
+  "imprese": [
+   "Infinite Styles Services Co. Ltd"
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "green-etica"
+  ],
+  "pratica": "Vanti ambientali vaghi o falsi sul sito Shein: «circolarità», fibre «green», obiettivi sul clima smentiti dalle emissioni in aumento",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 1000000,
+  "euro_deliberati": 1000000,
+  "annullata": false,
+  "per_impresa": {
+   "Infinite Styles Services Co. Ltd": 1000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12709-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12792",
+  "provvedimento": "31645",
+  "data": "2025-08-05",
+  "anno": 2025,
+  "bollettino": "31-25",
+  "pagina": 16,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/31-25.pdf#page=16",
+  "imprese": [
+   "VET Distribuzione S.r.l.s.",
+   "El Perro Gordo S.r.l.s.",
+   "Una persona fisica (nome omesso)"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Prodotti per animali e per l'agricoltura venduti online, mai consegnati e non rimborsati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 300000,
+  "euro_deliberati": 300000,
+  "annullata": false,
+  "per_impresa": {
+   "VET Distribuzione S.r.l.s. e Una persona fisica (nome omesso)": 150000,
+   "El Perro Gordo S.r.l.s. e Una persona fisica (nome omesso)": 150000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12920",
+  "provvedimento": "31663",
+  "data": "2025-08-05",
+  "anno": 2025,
+  "bollettino": "33-25",
+  "pagina": 45,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/33-25.pdf#page=45",
+  "imprese": [
+   "BFC Media S.p.A."
+  ],
+  "settore": "Editoria e informazione",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Supplemento di Forbes Italia sui ristoranti con pubblicità non dichiarata come tale",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 150000,
+  "euro_deliberati": 150000,
+  "annullata": false,
+  "per_impresa": {
+   "BFC Media S.p.A.": 150000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV262",
+  "provvedimento": "31661",
+  "data": "2025-08-05",
+  "anno": 2025,
+  "bollettino": "34-25",
+  "pagina": 10,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/34-25.pdf#page=10",
+  "imprese": [
+   "Locauto Rent S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Tariffa fissa per «gestire» ogni multa presa con l'auto a noleggio",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 400000,
+  "euro_deliberati": 400000,
+  "annullata": false,
+  "per_impresa": {
+   "Locauto Rent S.p.A.": 400000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV263",
+  "provvedimento": "31662",
+  "data": "2025-08-05",
+  "anno": 2025,
+  "bollettino": "34-25",
+  "pagina": 29,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/34-25.pdf#page=29",
+  "imprese": [
+   "Sicily by Car S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Tariffa fissa per «gestire» ogni multa presa con l'auto a noleggio",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 8000000,
+  "euro_deliberati": 8000000,
+  "annullata": false,
+  "per_impresa": {
+   "Sicily by Car S.p.A.": 8000000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12653",
+  "provvedimento": "31684",
+  "data": "2025-09-23",
+  "anno": 2025,
+  "bollettino": "40-25",
+  "pagina": 35,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/40-25.pdf#page=35",
+  "imprese": [
+   "Influencer (persona fisica, nome omesso)",
+   "Meta Platforms Inc.",
+   "Meta Platforms Ireland Limited"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Post promozionali senza la scritta «pubblicità» e follower falsi; impegni anche di Meta",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12954",
+  "provvedimento": "31685",
+  "data": "2025-09-23",
+  "anno": 2025,
+  "bollettino": "40-25",
+  "pagina": 48,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/40-25.pdf#page=48",
+  "imprese": [
+   "ALD Automotive Italia S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "costi-nascosti",
+   "clausole"
+  ],
+  "pratica": "Noleggio a lungo termine: copertura danni a pagamento resa inutilizzabile da condizioni non spiegate; addebito di danni scoperti solo alla riconsegna",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 5000000,
+  "euro_deliberati": 5000000,
+  "annullata": false,
+  "per_impresa": {
+   "ALD Automotive Italia S.r.l.": 5000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/10/PS12954",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12934",
+  "provvedimento": "31708",
+  "data": "2025-10-14",
+  "anno": 2025,
+  "bollettino": "42-25",
+  "pagina": 31,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/42-25.pdf#page=31",
+  "imprese": [
+   "Verona Est Motoricambi S.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Costo aggiuntivo per chi pagava con PayPal",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 15000,
+  "euro_deliberati": 15000,
+  "annullata": false,
+  "per_impresa": {
+   "Verona Est Motoricambi S.r.l.": 15000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12856",
+  "provvedimento": "31710",
+  "data": "2025-10-28",
+  "anno": 2025,
+  "bollettino": "43-25",
+  "pagina": 12,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/43-25.pdf#page=12",
+  "imprese": [
+   "Man Project S.r.l."
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "falsi-sconti"
+  ],
+  "pratica": "Capi prodotti apposta per l'outlet venduti con un prezzo «barrato» mai praticato",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 300000,
+  "euro_deliberati": 300000,
+  "annullata": false,
+  "per_impresa": {
+   "Man Project S.r.l.": 300000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12856-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12831",
+  "provvedimento": "31713",
+  "data": "2025-10-28",
+  "anno": 2025,
+  "bollettino": "44-25",
+  "pagina": 12,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/44-25.pdf#page=12",
+  "imprese": [
+   "Pinterest Europe Limited"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "dati-account"
+  ],
+  "pratica": "All'iscrizione non diceva che i dati degli utenti sono usati per guadagnare",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12820",
+  "provvedimento": "31716",
+  "data": "2025-11-04",
+  "anno": 2025,
+  "bollettino": "44-25",
+  "pagina": 18,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/44-25.pdf#page=18",
+  "imprese": [
+   "Tannico s.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "falsi-sconti"
+  ],
+  "pratica": "Vini «in offerta» a prezzi uguali o più alti del prezzo più basso dei 30 giorni precedenti",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 150000,
+  "euro_deliberati": 150000,
+  "annullata": false,
+  "per_impresa": {
+   "Tannico s.r.l.": 150000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12820",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12714",
+  "provvedimento": "31720",
+  "data": "2025-11-04",
+  "anno": 2025,
+  "bollettino": "45-25",
+  "pagina": 27,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/45-25.pdf#page=27",
+  "imprese": [
+   "Alphabet Inc.",
+   "Google Ireland Limited"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "dati-account"
+  ],
+  "pratica": "Richiesta di consenso a «collegare» i servizi che non spiegava l'uso incrociato dei dati personali né la possibilità di limitarlo",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12714-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12922",
+  "provvedimento": "31717",
+  "data": "2025-11-11",
+  "anno": 2025,
+  "bollettino": "44-25",
+  "pagina": 32,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/44-25.pdf#page=32",
+  "imprese": [
+   "Wizz Air Hungary Ltd"
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "promesse",
+   "clausole"
+  ],
+  "pratica": "Abbonamento «All You Can Fly» venduto come senza limiti, tacendo finestre di prenotazione e posti disponibili; clausole che permettevano di cambiarlo o chiuderlo a piacere",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 500000,
+  "euro_deliberati": 500000,
+  "annullata": false,
+  "per_impresa": {
+   "Wizz Air Hungary Ltd": 500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12922",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12851",
+  "provvedimento": "31726",
+  "data": "2025-11-18",
+  "anno": 2025,
+  "bollettino": "46-25",
+  "pagina": 43,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/46-25.pdf#page=43",
+  "imprese": [
+   "Talea Group S.p.A."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Farmacia online: disponibilità e tempi di consegna non veri, consegne parziali o in ritardo, rimborsi lenti dopo il recesso",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 2000000,
+  "euro_deliberati": 2000000,
+  "annullata": false,
+  "per_impresa": {
+   "Talea Group S.p.A.": 2000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12851",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12898",
+  "provvedimento": "31727",
+  "data": "2025-11-18",
+  "anno": 2025,
+  "bollettino": "46-25",
+  "pagina": 74,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/46-25.pdf#page=74",
+  "imprese": [
+   "Prenotazioni24 s.r.l."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "travestimenti",
+   "costi-nascosti"
+  ],
+  "pratica": "Siti di biglietti per traghetti con nomi e grafica simili a quelli delle compagnie, presentati come comparatori, con commissioni non chiare",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 500000,
+  "euro_deliberati": 500000,
+  "annullata": false,
+  "per_impresa": {
+   "Prenotazioni24 s.r.l.": 500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12898",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12917",
+  "provvedimento": "31735",
+  "data": "2025-11-18",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 66,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=66",
+  "imprese": [
+   "Sky Italia S.r.l."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "rinnovi-recesso",
+   "promesse"
+  ],
+  "pratica": "Aumenti degli abbonamenti comunicati in modo ingannevole, applicati anche a offerte NOW «finché non disdici», sconti per restare non rispettati in fattura",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 4200000,
+  "euro_deliberati": 4200000,
+  "annullata": false,
+  "per_impresa": {
+   "Sky Italia S.r.l.": 4200000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12925",
+  "provvedimento": "31739",
+  "data": "2025-11-25",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 90,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=90",
+  "imprese": [
+   "ATAC S.p.A."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Obiettivi di qualità del trasporto pubblico di Roma disattesi dal 2021 al 2023, senza rimborsi né riduzioni per gli abbonati",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12925-",
+  "tar": null,
+  "ristori": "oltre 3 milioni di euro agli abbonati annuali e 0,50 euro per ogni ritardo oltre 15 minuti"
+ },
+ {
+  "codice": "PS12930",
+  "provvedimento": "31757",
+  "data": "2025-11-25",
+  "anno": 2025,
+  "bollettino": "48-25",
+  "pagina": 42,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/48-25.pdf#page=42",
+  "imprese": [
+   "Eni Plenitude S.p.A. Società Benefit"
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "rinnovi-recesso"
+  ],
+  "pratica": "Rinnovo delle condizioni economiche applicato anche quando la comunicazione non era arrivata",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12978",
+  "provvedimento": "31741",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 100,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=100",
+  "imprese": [
+   "Titanium S.r.l.",
+   "Fire S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Call center che si presentavano come «Autorità» o come l'ufficio tecnico del tuo fornitore, annunciando rincari o guasti falsi per farti cambiare contratto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 160000,
+  "euro_deliberati": 160000,
+  "annullata": false,
+  "per_impresa": {
+   "Titanium S.r.l. e Fire S.r.l.": 160000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12979",
+  "provvedimento": "31742",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 112,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=112",
+  "imprese": [
+   "Noma Trade S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Telemarketing ingannevole: non luogo a provvedere",
+  "norma": "PS",
+  "esito": "non luogo a provvedere",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12980",
+  "provvedimento": "31743",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 116,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=116",
+  "imprese": [
+   "J.Wolf Consulting S.r.l."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Call center che si presentavano come «Autorità» o come l'ufficio tecnico del tuo fornitore, annunciando rincari o guasti falsi per farti cambiare contratto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 120000,
+  "euro_deliberati": 120000,
+  "annullata": false,
+  "per_impresa": {
+   "J.Wolf Consulting S.r.l.": 120000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12981",
+  "provvedimento": "31744",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 127,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=127",
+  "imprese": [
+   "Nova Group S.r.l.",
+   "Communicate S.r.l."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Call center che si presentavano come «Autorità» o come l'ufficio tecnico del tuo fornitore, annunciando rincari o guasti falsi per farti cambiare contratto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 120000,
+  "euro_deliberati": 120000,
+  "annullata": false,
+  "per_impresa": {
+   "Nova Group S.r.l.": 80000,
+   "Communicate S.r.l.": 40000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12982",
+  "provvedimento": "31745",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 138,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=138",
+  "imprese": [
+   "My Phone S.r.l."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Telemarketing ingannevole: non luogo a provvedere",
+  "norma": "PS",
+  "esito": "non luogo a provvedere",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12983",
+  "provvedimento": "31746",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "47-25",
+  "pagina": 142,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=142",
+  "imprese": [
+   "Entiende S.r.l."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Call center che si presentavano come «Autorità» o come l'ufficio tecnico del tuo fornitore, annunciando rincari o guasti falsi per farti cambiare contratto",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 120000,
+  "euro_deliberati": 120000,
+  "annullata": false,
+  "per_impresa": {
+   "Entiende S.r.l.": 120000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12829",
+  "provvedimento": "31767",
+  "data": "2025-12-02",
+  "anno": 2025,
+  "bollettino": "49-25",
+  "pagina": 256,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/49-25.pdf#page=256",
+  "imprese": [
+   "LinkedIn Ireland Unlimited Company"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "dati-account"
+  ],
+  "pratica": "All'iscrizione non diceva che i dati degli utenti sono usati per guadagnare",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12942",
+  "provvedimento": "31784",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "1-26",
+  "pagina": 255,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/1-26.pdf#page=255",
+  "imprese": [
+   "Hangzhou DeepSeek Artificial Intelligence Co. Ltd",
+   "Beijing DeepSeek Artificial Intelligence Co. Ltd"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Assistenti di intelligenza artificiale che non avvertivano del rischio di «allucinazioni», cioè risposte inventate",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12942-PS12968-PS12973",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12704",
+  "provvedimento": "31788",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "1-26",
+  "pagina": 264,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/1-26.pdf#page=264",
+  "imprese": [
+   "Poltronesofà S.p.A."
+  ],
+  "settore": "Casa e servizi per la casa",
+  "trappole": [
+   "falsi-sconti",
+   "fretta"
+  ],
+  "pratica": "Divani della «Collezione Promo» con sconti «a termine» calcolati su prezzi pieni quasi mai applicati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 1000000,
+  "euro_deliberati": 1000000,
+  "annullata": false,
+  "per_impresa": {
+   "Poltronesofà S.p.A.": 1000000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12926",
+  "provvedimento": "31768",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "49-25",
+  "pagina": 265,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/49-25.pdf#page=265",
+  "imprese": [
+   "Stellantis Europe S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Autonomia delle auto elettriche indicata solo come valore teorico; perdita di capacità delle batterie e limiti della garanzia poco chiari",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12926-PS12927-PS12928-PS12929-",
+  "tar": null,
+  "ristori": "simulatore di autonomia e soglia di garanzia della batteria più alta (Stellantis, BYD, Volkswagen)"
+ },
+ {
+  "codice": "PS12927",
+  "provvedimento": "31769",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "49-25",
+  "pagina": 273,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/49-25.pdf#page=273",
+  "imprese": [
+   "Tesla Italy S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Autonomia delle auto elettriche indicata solo come valore teorico; perdita di capacità delle batterie e limiti della garanzia poco chiari",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12926-PS12927-PS12928-PS12929-",
+  "tar": null,
+  "ristori": "simulatore di autonomia e soglia di garanzia della batteria più alta (Stellantis, BYD, Volkswagen)"
+ },
+ {
+  "codice": "PS12928",
+  "provvedimento": "31770",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "49-25",
+  "pagina": 280,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/49-25.pdf#page=280",
+  "imprese": [
+   "BYD Industria Italia S.r.l."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Autonomia delle auto elettriche indicata solo come valore teorico; perdita di capacità delle batterie e limiti della garanzia poco chiari",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12926-PS12927-PS12928-PS12929-",
+  "tar": null,
+  "ristori": "simulatore di autonomia e soglia di garanzia della batteria più alta (Stellantis, BYD, Volkswagen)"
+ },
+ {
+  "codice": "PS12929",
+  "provvedimento": "31771",
+  "data": "2025-12-16",
+  "anno": 2025,
+  "bollettino": "49-25",
+  "pagina": 287,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/49-25.pdf#page=287",
+  "imprese": [
+   "Volkswagen Group Italia S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Autonomia delle auto elettriche indicata solo come valore teorico; perdita di capacità delle batterie e limiti della garanzia poco chiari",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12926-PS12927-PS12928-PS12929-",
+  "tar": null,
+  "ristori": "simulatore di autonomia e soglia di garanzia della batteria più alta (Stellantis, BYD, Volkswagen)"
+ },
+ {
+  "codice": "PS12841",
+  "provvedimento": "31822",
+  "data": "2026-01-20",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 56,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=56",
+  "imprese": [
+   "Miriade S.p.A."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "falsi-sconti"
+  ],
+  "pratica": "Sconti senza il prezzo più basso dei 30 giorni precedenti",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12967",
+  "provvedimento": "31823",
+  "data": "2026-01-20",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 61,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=61",
+  "imprese": [
+   "Surestream Digital Limited"
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "costi-nascosti",
+   "non-richiesti"
+  ],
+  "pratica": "Ricariche telefoniche online con commissioni poco chiare e ricarica «periodica» attivata senza richiesta",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV273",
+  "provvedimento": "31820",
+  "data": "2026-01-20",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 141,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=141",
+  "imprese": [
+   "Allianz S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausole che permettevano di aggiornare le garanzie delle polizze «Allianz ULTRA»",
+  "norma": "CV",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV274",
+  "provvedimento": "31821",
+  "data": "2026-01-20",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 166,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=166",
+  "imprese": [
+   "Gruppo Italia Vendita Auto S.p.a."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausole squilibrate nelle condizioni di vendita delle auto (marchi Romana Auto e Jazzoni)",
+  "norma": "CV",
+  "esito": "sanzione",
+  "euro": 800000,
+  "euro_deliberati": 800000,
+  "annullata": false,
+  "per_impresa": {
+   "Gruppo Italia Vendita Auto S.p.a.": 800000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12853",
+  "provvedimento": "31824",
+  "data": "2026-01-27",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 68,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=68",
+  "imprese": [
+   "Vacaciones eDreams S.L.",
+   "eDreams International Network S.L.",
+   "eDreams S.r.l."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "fretta",
+   "preselezioni",
+   "rinnovi-recesso"
+  ],
+  "pratica": "Abbonamento Prime spinto con fretta e scarsità artificiali, versione più cara preselezionata, prova gratuita addebitata subito; disdetta ostacolata dal servizio clienti",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 9000000,
+  "euro_deliberati": 9000000,
+  "annullata": false,
+  "per_impresa": {
+   "Vacaciones eDreams S.L. e eDreams International Network S.L. e eDreams S.r.l.": 9000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV12B",
+  "provvedimento": "31825",
+  "data": "2026-01-27",
+  "anno": 2026,
+  "bollettino": "6-26",
+  "pagina": 190,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=190",
+  "imprese": [
+   "Agos Ducato S.p.A."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "Addebito delle rate rifiutato, o reso più costoso, sui conti con IBAN di altri Paesi europei",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 800000,
+  "euro_deliberati": 800000,
+  "annullata": false,
+  "per_impresa": {
+   "Agos Ducato S.p.A.": 800000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PV12B",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS11569B",
+  "provvedimento": "31833",
+  "data": "2026-02-03",
+  "anno": 2026,
+  "bollettino": "8-26",
+  "pagina": 38,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/8-26.pdf#page=38",
+  "imprese": [
+   "Eni Plenitude S.p.A."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Prescrizione biennale delle bollette vecchie gestita male o negata",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12959",
+  "provvedimento": "31836",
+  "data": "2026-02-03",
+  "anno": 2026,
+  "bollettino": "8-26",
+  "pagina": 56,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/8-26.pdf#page=56",
+  "imprese": [
+   "Vodafone Italia S.p.A."
+  ],
+  "settore": "Telefonia e TV",
+  "trappole": [
+   "costi-nascosti"
+  ],
+  "pratica": "Costi del servizio cloud «YourDrive» in caso di disdetta anticipata non detti (clienti con partita IVA)",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12804",
+  "provvedimento": "31837",
+  "data": "2026-02-10",
+  "anno": 2026,
+  "bollettino": "8-26",
+  "pagina": 66,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/8-26.pdf#page=66",
+  "imprese": [
+   "Bernabei s.r.l.",
+   "Bernabei Liquori s.r.l."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "falsi-sconti"
+  ],
+  "pratica": "Bevande «in offerta» a prezzi non inferiori al minimo dei 30 giorni precedenti e prezzi «pieni» barrati quasi mai applicati",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 400000,
+  "euro_deliberati": 400000,
+  "annullata": false,
+  "per_impresa": {
+   "Bernabei s.r.l. e Bernabei Liquori s.r.l.": 400000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12804",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12968",
+  "provvedimento": "31864",
+  "data": "2026-02-17",
+  "anno": 2026,
+  "bollettino": "10-26",
+  "pagina": 49,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/10-26.pdf#page=49",
+  "imprese": [
+   "Mistral AI SAS"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Assistenti di intelligenza artificiale che non avvertivano del rischio di «allucinazioni», cioè risposte inventate",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12942-PS12968-PS12973",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13003",
+  "provvedimento": "31865",
+  "data": "2026-02-17",
+  "anno": 2026,
+  "bollettino": "10-26",
+  "pagina": 57,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/10-26.pdf#page=57",
+  "imprese": [
+   "Funeraria Roma Capitale S.r.l."
+  ],
+  "settore": "Servizi locali: acqua, taxi, funerali",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Di nuovo «agenzia ufficiale del Comune di Roma» sui siti di un'agenzia funebre privata",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 50000,
+  "euro_deliberati": 50000,
+  "annullata": false,
+  "per_impresa": {
+   "Funeraria Roma Capitale S.r.l.": 50000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS11564B",
+  "provvedimento": "31868",
+  "data": "2026-02-19",
+  "anno": 2026,
+  "bollettino": "10-26",
+  "pagina": 67,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/10-26.pdf#page=67",
+  "imprese": [
+   "Enel Energia S.p.A.",
+   "Servizio Elettrico Nazionale S.p.A."
+  ],
+  "settore": "Energia e telemarketing",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Bollette di consumi vecchi più di due anni: richieste di prescrizione e reclami respinti senza motivo",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 7500000,
+  "euro_deliberati": 7500000,
+  "annullata": false,
+  "per_impresa": {
+   "Enel Energia S.p.A.": 4000000,
+   "Servizio Elettrico Nazionale S.p.A.": 3500000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12962",
+  "provvedimento": "31878",
+  "data": "2026-03-17",
+  "anno": 2026,
+  "bollettino": "12-26",
+  "pagina": 29,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/12-26.pdf#page=29",
+  "imprese": [
+   "Trustpilot Group Plc",
+   "Trustpilot A/S",
+   "Trustpilot S.r.l."
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "recensioni"
+  ],
+  "pratica": "Recensioni non controllate anche quando segnate come «verificate»; imprese libere di scegliere chi invitare a recensire",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 4000000,
+  "euro_deliberati": 4000000,
+  "annullata": false,
+  "per_impresa": {
+   "Trustpilot Group Plc e Trustpilot A/S e Trustpilot S.r.l.": 4000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/3/PS12962",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12974",
+  "provvedimento": "31910",
+  "data": "2026-03-23",
+  "anno": 2026,
+  "bollettino": "14-26",
+  "pagina": 116,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/14-26.pdf#page=116",
+  "imprese": [
+   "Revolut Securities Europe UAB",
+   "Revolut Group Holdings Ltd",
+   "Revolut Bank UAB"
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "costi-nascosti",
+   "dati-account"
+  ],
+  "pratica": "Investimenti «a zero commissioni» con costi e limiti taciuti; conti bloccati senza preavviso né assistenza; requisiti per l'IBAN italiano non chiari",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 11500000,
+  "euro_deliberati": 11500000,
+  "annullata": false,
+  "per_impresa": {
+   "Revolut Securities Europe UAB e Revolut Group Holdings Ltd e Revolut Bank UAB": 11500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12973",
+  "provvedimento": "31935",
+  "data": "2026-04-21",
+  "anno": 2026,
+  "bollettino": "18-26",
+  "pagina": 46,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/18-26.pdf#page=46",
+  "imprese": [
+   "Scaleup Yazilim Hizmetleri Anonim Şirketi"
+  ],
+  "settore": "Piattaforme digitali e IA",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Assistenti di intelligenza artificiale che non avvertivano del rischio di «allucinazioni», cioè risposte inventate",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12942-PS12968-PS12973",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP378",
+  "provvedimento": "31954",
+  "data": "2026-04-28",
+  "anno": 2026,
+  "bollettino": "20-26",
+  "pagina": 25,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/20-26.pdf#page=25",
+  "imprese": [
+   "Società Autostrada Ligure Toscana p.a."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "altro"
+  ],
+  "pratica": "Non ha rispettato la decisione del 2023 sui disagi lungo la rete autostradale",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 400000,
+  "euro_deliberati": 400000,
+  "annullata": false,
+  "per_impresa": {
+   "Società Autostrada Ligure Toscana p.a.": 400000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "IP379",
+  "provvedimento": "31983",
+  "data": "2026-05-26",
+  "anno": 2026,
+  "bollettino": "24-26",
+  "pagina": 13,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=13",
+  "imprese": [
+   "Locauto Rent S.p.A."
+  ],
+  "settore": "Auto e noleggio",
+  "trappole": [
+   "clausole",
+   "costi-nascosti"
+  ],
+  "pratica": "Ha continuato a usare la clausola sulla tariffa per le multe vietata nel 2025",
+  "norma": "IP",
+  "esito": "inottemperanza",
+  "euro": 1000000,
+  "euro_deliberati": 1000000,
+  "annullata": false,
+  "per_impresa": {
+   "Locauto Rent S.p.A.": 1000000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS12985",
+  "provvedimento": "31984",
+  "data": "2026-05-26",
+  "anno": 2026,
+  "bollettino": "24-26",
+  "pagina": 20,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=20",
+  "imprese": [
+   "Trade Republic Bank GmbH"
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "«Saveback» presentato come un cashback: in realtà l'1% va solo in un piano di investimento da sottoscrivere",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 2500000,
+  "euro_deliberati": 2500000,
+  "annullata": false,
+  "per_impresa": {
+   "Trade Republic Bank GmbH": 2500000
+  },
+  "comunicato": "https://www.agcm.it/media-e-comunicazione/dettaglio-notizia?id=39ca9d2b-c46c-4862-9871-ed14c1aa1ffb&parent=News&parentUrl=/Media-e-Comunicazione/news",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "CV272",
+  "provvedimento": "31979",
+  "data": "2026-05-26",
+  "anno": 2026,
+  "bollettino": "24-26",
+  "pagina": 102,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=102",
+  "imprese": [
+   "La Fourchette S.A.S."
+  ],
+  "settore": "Cultura, sport e tempo libero",
+  "trappole": [
+   "clausole"
+  ],
+  "pratica": "Clausole di TheFork che permettevano di cambiare programma fedeltà e gift card e di limitare le responsabilità senza motivi precisi",
+  "norma": "CV",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media-e-comunicazione/dettaglio-notizia?id=336cbe5b-ae3c-4e9a-9603-ede3b546928a&parent=News&parentUrl=/Media-e-Comunicazione/news",
+  "tar": null,
+  "ristori": "rimborso integrale per il guasto delle gift card di fine giugno 2025"
+ },
+ {
+  "codice": "PS12940",
+  "provvedimento": "31985",
+  "data": "2026-06-09",
+  "anno": 2026,
+  "bollettino": "24-26",
+  "pagina": 46,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=46",
+  "imprese": [
+   "Philip Morris Italia S.r.l."
+  ],
+  "settore": "Alimentari, bevande e tabacco",
+  "trappole": [
+   "promesse",
+   "minori"
+  ],
+  "pratica": "Prodotti del tabacco presentati come «senza fumo», facendo credere, anche ai minori, che siano innocui o meno nocivi",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 7000000,
+  "euro_deliberati": 7000000,
+  "annullata": false,
+  "per_impresa": {
+   "Philip Morris Italia S.r.l.": 7000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS12940-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13016",
+  "provvedimento": "31995",
+  "data": "2026-06-09",
+  "anno": 2026,
+  "bollettino": "26-26",
+  "pagina": 33,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/26-26.pdf#page=33",
+  "imprese": [
+   "Italia Sport Communication S.r.l."
+  ],
+  "settore": "Editoria e informazione",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Titoli «acchiappa-clic» che non corrispondono agli articoli (clickbaiting)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 50000,
+  "euro_deliberati": 50000,
+  "annullata": false,
+  "per_impresa": {
+   "Italia Sport Communication S.r.l.": 50000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13027",
+  "provvedimento": "31999",
+  "data": "2026-06-23",
+  "anno": 2026,
+  "bollettino": "26-26",
+  "pagina": 46,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/26-26.pdf#page=46",
+  "imprese": [
+   "Deghi S.p.A."
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "fretta",
+   "falsi-sconti"
+  ],
+  "pratica": "Sconti «a tempo» con un conto alla rovescia che, alla scadenza, ripartiva alle stesse condizioni",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 2000000,
+  "euro_deliberati": 2000000,
+  "annullata": false,
+  "per_impresa": {
+   "Deghi S.p.A.": 2000000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS13027",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV23",
+  "provvedimento": "32007",
+  "data": "2026-07-07",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 27,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=27",
+  "imprese": [
+   "Harmont & Blaine S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 500000,
+  "euro_deliberati": 500000,
+  "annullata": false,
+  "per_impresa": {
+   "Harmont & Blaine S.p.A.": 500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV26",
+  "provvedimento": "32008",
+  "data": "2026-07-07",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 49,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=49",
+  "imprese": [
+   "Rialto S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 310000,
+  "euro_deliberati": 310000,
+  "annullata": false,
+  "per_impresa": {
+   "Rialto S.p.A.": 310000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV28",
+  "provvedimento": "32009",
+  "data": "2026-07-07",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 63,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=63",
+  "imprese": [
+   "MD S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 300000,
+  "euro_deliberati": 300000,
+  "annullata": false,
+  "per_impresa": {
+   "MD S.p.A.": 300000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV33",
+  "provvedimento": "32010",
+  "data": "2026-07-07",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 76,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=76",
+  "imprese": [
+   "Magazzini Gabrielli S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 500000,
+  "euro_deliberati": 500000,
+  "annullata": false,
+  "per_impresa": {
+   "Magazzini Gabrielli S.p.A.": 500000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV34",
+  "provvedimento": "32011",
+  "data": "2026-07-07",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 90,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=90",
+  "imprese": [
+   "RetailPro S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 550000,
+  "euro_deliberati": 550000,
+  "annullata": false,
+  "per_impresa": {
+   "RetailPro S.p.A.": 550000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PV32",
+  "provvedimento": "32012",
+  "data": "2026-07-14",
+  "anno": 2026,
+  "bollettino": "29-26",
+  "pagina": 100,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/29-26.pdf#page=100",
+  "imprese": [
+   "Butan Gas S.p.A."
+  ],
+  "settore": "Pubblicità parassitaria",
+  "trappole": [
+   "travestimenti"
+  ],
+  "pratica": "Campagne con i cerchi olimpici e il nome «Milano-Cortina 2026» da parte di chi non era sponsor ufficiale",
+  "norma": "PV",
+  "esito": "sanzione",
+  "euro": 350000,
+  "euro_deliberati": 350000,
+  "annullata": false,
+  "per_impresa": {
+   "Butan Gas S.p.A.": 350000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PV23-PV26-PV28-PV32-PV33-PV34-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13019",
+  "provvedimento": "32025",
+  "data": "2026-07-28",
+  "anno": 2026,
+  "bollettino": "31-26",
+  "pagina": 122,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/31-26.pdf#page=122",
+  "imprese": [
+   "Trenitalia S.p.A."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "dopo-vendita"
+  ],
+  "pratica": "Rimborso per ritardi oltre 60 minuti o cancellazioni subordinato a un'attestazione da chiedere in stazione o al call center",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PS13019",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13028",
+  "provvedimento": "32027",
+  "data": "2026-07-28",
+  "anno": 2026,
+  "bollettino": "32-26",
+  "pagina": 36,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/32-26.pdf#page=36",
+  "imprese": [
+   "Lime Technology S.r.l."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "dopo-vendita",
+   "dati-account"
+  ],
+  "pratica": "Corse gratuite per gli abbonati del trasporto pubblico di Roma rese lente e faticose da ottenere; account disattivati senza spiegazioni (Bird)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 1400000,
+  "euro_deliberati": 1400000,
+  "annullata": false,
+  "per_impresa": {
+   "Lime Technology S.r.l.": 1400000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/8/PS13028-PS13029-PS13030-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13030",
+  "provvedimento": "32028",
+  "data": "2026-07-28",
+  "anno": 2026,
+  "bollettino": "32-26",
+  "pagina": 53,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/32-26.pdf#page=53",
+  "imprese": [
+   "Bird Rides Italy S.r.l."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "dopo-vendita",
+   "dati-account"
+  ],
+  "pratica": "Corse gratuite per gli abbonati del trasporto pubblico di Roma rese lente e faticose da ottenere; account disattivati senza spiegazioni (Bird)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 750000,
+  "euro_deliberati": 750000,
+  "annullata": false,
+  "per_impresa": {
+   "Bird Rides Italy S.r.l.": 750000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/8/PS13028-PS13029-PS13030-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13042",
+  "provvedimento": "32040",
+  "data": "2026-07-28",
+  "anno": 2026,
+  "bollettino": "33-26",
+  "pagina": 54,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/33-26.pdf#page=54",
+  "imprese": [
+   "NOOTICA - Nautic 24 - Outdoor 24 Sarl"
+  ],
+  "settore": "Commercio online",
+  "trappole": [
+   "sovrapprezzo-carta"
+  ],
+  "pratica": "Costo aggiuntivo per chi pagava con carta American Express",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 15000,
+  "euro_deliberati": 15000,
+  "annullata": false,
+  "per_impresa": {
+   "NOOTICA - Nautic 24 - Outdoor 24 Sarl": 15000
+  },
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13029",
+  "provvedimento": "32030",
+  "data": "2026-08-04",
+  "anno": 2026,
+  "bollettino": "32-26",
+  "pagina": 71,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/32-26.pdf#page=71",
+  "imprese": [
+   "EmTransit S.r.l."
+  ],
+  "settore": "Viaggi e trasporti",
+  "trappole": [
+   "dopo-vendita",
+   "dati-account"
+  ],
+  "pratica": "Corse gratuite per gli abbonati del trasporto pubblico di Roma rese lente e faticose da ottenere; account disattivati senza spiegazioni (Bird)",
+  "norma": "PS",
+  "esito": "sanzione",
+  "euro": 525000,
+  "euro_deliberati": 525000,
+  "annullata": false,
+  "per_impresa": {
+   "EmTransit S.r.l.": 525000
+  },
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/8/PS13028-PS13029-PS13030-",
+  "tar": null,
+  "ristori": null
+ },
+ {
+  "codice": "PS13022",
+  "provvedimento": "32056",
+  "data": "2026-09-14",
+  "anno": 2026,
+  "bollettino": "37-26",
+  "pagina": 15,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/37-26.pdf#page=15",
+  "imprese": [
+   "Procter & Gamble S.r.l."
+  ],
+  "settore": "Moda e cosmetici",
+  "trappole": [
+   "promesse"
+  ],
+  "pratica": "Epilatore a luce pulsata promosso con «libera da peli per due anni», promessa non dimostrata",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/9/PS13022-",
+  "tar": null,
+  "ristori": "«100 giorni soddisfatti o rimborsati» prorogato al 31 dicembre 2026"
+ },
+ {
+  "codice": "PS13018",
+  "provvedimento": "32066",
+  "data": "2026-09-22",
+  "anno": 2026,
+  "bollettino": "39-26",
+  "pagina": 19,
+  "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/39-26.pdf#page=19",
+  "imprese": [
+   "Reparadora RTD Italia S.r.l."
+  ],
+  "settore": "Banche, pagamenti e assicurazioni",
+  "trappole": [
+   "promesse",
+   "travestimenti"
+  ],
+  "pratica": "Consulenza per ridurre i debiti con informazioni non vere sulla propria qualifica e sul servizio",
+  "norma": "PS",
+  "esito": "impegni",
+  "euro": 0,
+  "euro_deliberati": 0,
+  "annullata": false,
+  "per_impresa": {},
+  "comunicato": null,
+  "tar": null,
+  "ristori": null
+ }
+]

@@ -1,146 +1,200 @@
 {
  "periodo": [
-  "2024-02-14",
-  "2026-09-25"
+  "2024-01-16",
+  "2026-09-22"
  ],
+ "bollettini_letti": 96,
+ "bollettini_file": 141,
+ "provvedimenti_consumatore": 234,
  "comunicati_letti": 95,
- "decisioni": 59,
- "procedimenti": 84,
- "imprese": 113,
- "con_sanzione": 44,
- "impegni": 15,
- "inottemperanze": 2,
- "euro_totale": 166645000,
+ "decisioni": 157,
+ "imprese": 180,
+ "con_sanzione": 94,
+ "impegni": 50,
+ "senza_violazione": 12,
+ "inottemperanze": 7,
+ "euro_totale": 197674137,
+ "avvii": 48,
+ "cautelari": 5,
+ "modifiche_impegni": [
+  "PS12255",
+  "PS12441",
+  "PS11930",
+  "PS12254",
+  "PS12009",
+  "PS12252"
+ ],
  "moral_suasion": 5,
- "in_corso": 13,
  "per_anno": {
   "2024": {
-   "decisioni": 22,
-   "sanzioni": 17,
-   "impegni": 5,
-   "euro": 72435000
+   "decisioni": 54,
+   "sanzioni": 35,
+   "impegni": 16,
+   "senza_violazione": 3,
+   "euro": 74540137,
+   "euro_deliberati": 74540137,
+   "avvii": 28,
+   "cautelari": 4,
+   "open_data": {
+    "decisioni": 57,
+    "con_sanzione": 36,
+    "euro": 74540137.0,
+    "impegni": 17
+   }
   },
   "2025": {
-   "decisioni": 23,
-   "sanzioni": 17,
-   "impegni": 6,
-   "euro": 51835000
+   "decisioni": 68,
+   "sanzioni": 36,
+   "impegni": 23,
+   "senza_violazione": 9,
+   "euro": 70934000,
+   "euro_deliberati": 71034000,
+   "avvii": 10,
+   "cautelari": 0,
+   "open_data": {
+    "decisioni": 72,
+    "con_sanzione": 37,
+    "euro": 70934000.0,
+    "impegni": 24
+   }
   },
   "2026": {
-   "decisioni": 14,
-   "sanzioni": 10,
-   "impegni": 4,
-   "euro": 42375000
+   "decisioni": 35,
+   "sanzioni": 24,
+   "impegni": 11,
+   "senza_violazione": 0,
+   "euro": 52200000,
+   "euro_deliberati": 52200000,
+   "avvii": 10,
+   "cautelari": 1
   }
  },
  "per_settore": {
   "Auto e noleggio": {
-   "decisioni": 5,
-   "sanzioni": 4,
-   "euro": 29020000,
+   "decisioni": 17,
+   "sanzioni": 13,
+   "euro": 39580000,
    "trappole": {
-    "promesse": 2,
-    "clausole": 2,
-    "costi-nascosti": 2,
-    "sovrapprezzo-carta": 1,
-    "dopo-vendita": 1
+    "clausole": 11,
+    "costi-nascosti": 10,
+    "promesse": 5,
+    "dopo-vendita": 1,
+    "sovrapprezzo-carta": 1
+   }
+  },
+  "Banche, pagamenti e assicurazioni": {
+   "decisioni": 15,
+   "sanzioni": 11,
+   "euro": 25709137,
+   "trappole": {
+    "clausole": 5,
+    "dati-account": 3,
+    "promesse": 3,
+    "costi-nascosti": 3,
+    "travestimenti": 2,
+    "dopo-vendita": 1,
+    "non-richiesti": 1
    }
   },
   "Cultura, sport e tempo libero": {
    "decisioni": 3,
    "sanzioni": 2,
-   "euro": 23000000,
+   "euro": 22878000,
    "trappole": {
-    "rinnovi-recesso": 1,
     "costi-nascosti": 1,
+    "rinnovi-recesso": 1,
     "clausole": 1
    }
   },
-  "Banche, pagamenti e assicurazioni": {
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 20800000,
-   "trappole": {
-    "dati-account": 2,
-    "costi-nascosti": 2,
-    "non-richiesti": 1,
-    "travestimenti": 1,
-    "dopo-vendita": 1,
-    "promesse": 1
-   }
-  },
   "Piattaforme digitali e IA": {
-   "decisioni": 6,
-   "sanzioni": 4,
-   "euro": 17565000,
+   "decisioni": 26,
+   "sanzioni": 11,
+   "euro": 17817000,
    "trappole": {
-    "dati-account": 3,
-    "recensioni": 2,
-    "promesse": 2,
-    "minori": 1
+    "recensioni": 17,
+    "promesse": 9,
+    "dati-account": 5,
+    "minori": 1,
+    "travestimenti": 1
    }
   },
   "Commercio online": {
-   "decisioni": 10,
-   "sanzioni": 9,
-   "euro": 15035000,
+   "decisioni": 19,
+   "sanzioni": 17,
+   "euro": 16965000,
    "trappole": {
-    "sovrapprezzo-carta": 4,
-    "falsi-sconti": 3,
-    "dopo-vendita": 2,
+    "dopo-vendita": 7,
+    "sovrapprezzo-carta": 6,
+    "falsi-sconti": 4,
     "preselezioni": 1,
+    "non-richiesti": 1,
+    "travestimenti": 1,
     "costi-nascosti": 1,
+    "promesse": 1,
     "fretta": 1
    }
   },
   "Alimentari, bevande e tabacco": {
-   "decisioni": 4,
-   "sanzioni": 2,
-   "euro": 14000000,
+   "decisioni": 5,
+   "sanzioni": 3,
+   "euro": 14100000,
    "trappole": {
+    "promesse": 3,
     "minori": 3,
-    "promesse": 2,
-    "green-etica": 1
+    "green-etica": 2
+   }
+  },
+  "Casa e servizi per la casa": {
+   "decisioni": 8,
+   "sanzioni": 5,
+   "euro": 13450000,
+   "trappole": {
+    "dopo-vendita": 5,
+    "rinnovi-recesso": 2,
+    "non-richiesti": 2,
+    "clausole": 2,
+    "falsi-sconti": 2,
+    "fretta": 2,
+    "minori": 1
    }
   },
   "Viaggi e trasporti": {
-   "decisioni": 7,
-   "sanzioni": 4,
-   "euro": 12675000,
+   "decisioni": 12,
+   "sanzioni": 7,
+   "euro": 13075000,
    "trappole": {
-    "dopo-vendita": 3,
-    "costi-nascosti": 2,
+    "dopo-vendita": 5,
+    "costi-nascosti": 4,
+    "dati-account": 3,
     "preselezioni": 2,
-    "travestimenti": 1,
     "promesse": 1,
     "clausole": 1,
-    "dati-account": 1,
+    "travestimenti": 1,
     "fretta": 1,
     "rinnovi-recesso": 1
    }
   },
-  "Casa e servizi per la casa": {
-   "decisioni": 5,
-   "sanzioni": 4,
-   "euro": 12450000,
-   "trappole": {
-    "dopo-vendita": 3,
-    "rinnovi-recesso": 2,
-    "clausole": 2,
-    "non-richiesti": 2,
-    "falsi-sconti": 1,
-    "fretta": 1,
-    "minori": 1
-   }
-  },
   "Servizi alle imprese e spedizioni": {
-   "decisioni": 2,
+   "decisioni": 3,
    "sanzioni": 2,
    "euro": 11500000,
    "trappole": {
     "non-richiesti": 2,
-    "green-etica": 1,
-    "travestimenti": 1
+    "travestimenti": 1,
+    "green-etica": 1
+   }
+  },
+  "Energia e telemarketing": {
+   "decisioni": 13,
+   "sanzioni": 5,
+   "euro": 10160000,
+   "trappole": {
+    "travestimenti": 5,
+    "non-richiesti": 3,
+    "rinnovi-recesso": 3,
+    "dopo-vendita": 2,
+    "recensioni": 1,
+    "costi-nascosti": 1
    }
   },
   "Moda e cosmetici": {
@@ -153,70 +207,100 @@
     "falsi-sconti": 1
    }
   },
-  "Energia e telemarketing": {
-   "decisioni": 4,
+  "Telefonia e TV": {
+   "decisioni": 9,
    "sanzioni": 3,
-   "euro": 2900000,
+   "euro": 4440000,
    "trappole": {
+    "promesse": 3,
+    "travestimenti": 3,
     "rinnovi-recesso": 2,
-    "recensioni": 1,
-    "non-richiesti": 1,
-    "travestimenti": 1
+    "costi-nascosti": 2,
+    "non-richiesti": 1
    }
   },
   "Pubblicità parassitaria": {
-   "decisioni": 1,
-   "sanzioni": 1,
-   "euro": 2500000,
+   "decisioni": 6,
+   "sanzioni": 6,
+   "euro": 2510000,
    "trappole": {
-    "travestimenti": 1
+    "travestimenti": 6
+   }
+  },
+  "Editoria e informazione": {
+   "decisioni": 2,
+   "sanzioni": 2,
+   "euro": 200000,
+   "trappole": {
+    "recensioni": 1,
+    "promesse": 1
+   }
+  },
+  "Servizi locali: acqua, taxi, funerali": {
+   "decisioni": 12,
+   "sanzioni": 3,
+   "euro": 90000,
+   "trappole": {
+    "dopo-vendita": 3,
+    "travestimenti": 2
+   }
+  },
+  "Salute e servizi alla persona": {
+   "decisioni": 1,
+   "sanzioni": 0,
+   "euro": 0,
+   "trappole": {
+    "sovrapprezzo-carta": 1
    }
   }
  },
  "per_trappola": {
   "costi-nascosti": {
-   "decisioni": 8,
-   "sanzioni": 7,
-   "euro": 56200000,
+   "decisioni": 22,
+   "sanzioni": 15,
+   "euro": 65838000,
    "moral_suasion": 2,
    "settori": [
-    "Viaggi e trasporti",
     "Auto e noleggio",
+    "Viaggi e trasporti",
     "Banche, pagamenti e assicurazioni",
+    "Telefonia e TV",
+    "Commercio online",
     "Cultura, sport e tempo libero",
-    "Commercio online"
+    "Energia e telemarketing"
    ]
   },
   "sovrapprezzo-carta": {
-   "decisioni": 5,
-   "sanzioni": 4,
-   "euro": 105000,
+   "decisioni": 8,
+   "sanzioni": 6,
+   "euro": 135000,
    "moral_suasion": 0,
    "settori": [
     "Commercio online",
+    "Salute e servizi alla persona",
     "Auto e noleggio"
    ]
   },
   "falsi-sconti": {
-   "decisioni": 5,
-   "sanzioni": 5,
-   "euro": 5850000,
+   "decisioni": 7,
+   "sanzioni": 6,
+   "euro": 6850000,
    "moral_suasion": 0,
    "settori": [
     "Commercio online",
-    "Moda e cosmetici",
-    "Casa e servizi per la casa"
+    "Casa e servizi per la casa",
+    "Moda e cosmetici"
    ]
   },
   "fretta": {
-   "decisioni": 3,
-   "sanzioni": 3,
-   "euro": 14000000,
+   "decisioni": 4,
+   "sanzioni": 4,
+   "euro": 15000000,
    "moral_suasion": 0,
    "settori": [
     "Casa e servizi per la casa",
-    "Commercio online",
-    "Viaggi e trasporti"
+    "Viaggi e trasporti",
+    "Commercio online"
    ]
   },
   "preselezioni": {
@@ -230,59 +314,68 @@
    ]
   },
   "rinnovi-recesso": {
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 19150000,
+   "decisioni": 9,
+   "sanzioni": 6,
+   "euro": 23350000,
    "moral_suasion": 0,
    "settori": [
-    "Casa e servizi per la casa",
     "Energia e telemarketing",
+    "Casa e servizi per la casa",
+    "Telefonia e TV",
     "Cultura, sport e tempo libero",
     "Viaggi e trasporti"
    ]
   },
   "non-richiesti": {
-   "decisioni": 6,
-   "sanzioni": 4,
-   "euro": 16650000,
+   "decisioni": 10,
+   "sanzioni": 5,
+   "euro": 16670000,
    "moral_suasion": 0,
    "settori": [
+    "Energia e telemarketing",
     "Casa e servizi per la casa",
     "Servizi alle imprese e spedizioni",
     "Banche, pagamenti e assicurazioni",
-    "Energia e telemarketing"
+    "Commercio online",
+    "Telefonia e TV"
    ]
   },
   "travestimenti": {
-   "decisioni": 5,
-   "sanzioni": 5,
-   "euro": 9520000,
+   "decisioni": 22,
+   "sanzioni": 16,
+   "euro": 9650000,
    "moral_suasion": 0,
    "settori": [
-    "Banche, pagamenti e assicurazioni",
+    "Pubblicità parassitaria",
     "Energia e telemarketing",
-    "Viaggi e trasporti",
+    "Telefonia e TV",
+    "Banche, pagamenti e assicurazioni",
+    "Servizi locali: acqua, taxi, funerali",
+    "Commercio online",
     "Servizi alle imprese e spedizioni",
-    "Pubblicità parassitaria"
+    "Piattaforme digitali e IA",
+    "Viaggi e trasporti"
    ]
   },
   "dopo-vendita": {
-   "decisioni": 10,
-   "sanzioni": 7,
-   "euro": 19775000,
+   "decisioni": 24,
+   "sanzioni": 16,
+   "euro": 29165000,
    "moral_suasion": 0,
    "settori": [
+    "Commercio online",
     "Casa e servizi per la casa",
     "Viaggi e trasporti",
-    "Commercio online",
-    "Auto e noleggio",
-    "Banche, pagamenti e assicurazioni"
+    "Servizi locali: acqua, taxi, funerali",
+    "Energia e telemarketing",
+    "Banche, pagamenti e assicurazioni",
+    "Auto e noleggio"
    ]
   },
   "green-etica": {
-   "decisioni": 5,
-   "sanzioni": 3,
-   "euro": 12500000,
+   "decisioni": 6,
+   "sanzioni": 4,
+   "euro": 12600000,
    "moral_suasion": 4,
    "settori": [
     "Moda e cosmetici",
@@ -291,45 +384,50 @@
    ]
   },
   "promesse": {
-   "decisioni": 10,
-   "sanzioni": 7,
-   "euro": 23465000,
+   "decisioni": 28,
+   "sanzioni": 13,
+   "euro": 29455000,
    "moral_suasion": 0,
    "settori": [
+    "Piattaforme digitali e IA",
     "Auto e noleggio",
     "Alimentari, bevande e tabacco",
-    "Piattaforme digitali e IA",
+    "Telefonia e TV",
+    "Banche, pagamenti e assicurazioni",
     "Moda e cosmetici",
+    "Commercio online",
     "Viaggi e trasporti",
-    "Banche, pagamenti e assicurazioni"
+    "Editoria e informazione"
    ]
   },
   "recensioni": {
-   "decisioni": 3,
-   "sanzioni": 3,
-   "euro": 5545000,
+   "decisioni": 19,
+   "sanzioni": 11,
+   "euro": 5947000,
    "moral_suasion": 0,
    "settori": [
     "Piattaforme digitali e IA",
-    "Energia e telemarketing"
+    "Energia e telemarketing",
+    "Editoria e informazione"
    ]
   },
   "clausole": {
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 29750000,
+   "decisioni": 20,
+   "sanzioni": 18,
+   "euro": 40659137,
    "moral_suasion": 0,
    "settori": [
-    "Casa e servizi per la casa",
     "Auto e noleggio",
+    "Banche, pagamenti e assicurazioni",
+    "Casa e servizi per la casa",
     "Viaggi e trasporti",
     "Cultura, sport e tempo libero"
    ]
   },
   "dati-account": {
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 30175000,
+   "decisioni": 11,
+   "sanzioni": 8,
+   "euro": 34195000,
    "moral_suasion": 0,
    "settori": [
     "Piattaforme digitali e IA",
@@ -347,63 +445,54 @@
     "Piattaforme digitali e IA",
     "Casa e servizi per la casa"
    ]
+  },
+  "altro": {
+   "decisioni": 9,
+   "sanzioni": 1,
+   "euro": 400000,
+   "moral_suasion": 0,
+   "settori": [
+    "Servizi locali: acqua, taxi, funerali",
+    "Servizi alle imprese e spedizioni",
+    "Viaggi e trasporti"
+   ]
   }
  },
  "sanzioni_piu_alte": [
   {
-   "data": "2025-04-08",
-   "numeri": [
-    "PS12603"
-   ],
+   "data": "2025-03-25",
+   "codice": "PS12603",
    "imprese": [
-    "Società Cooperativa Culture (CoopCulture)",
+    "Società Cooperativa Culture",
     "Tiqets International BV",
     "GetYourGuide Deutschland GmbH",
     "Walks LLC",
     "Italy With Family S.r.l.",
-    "City Wonders Limited",
+    "City Wonders LLC",
     "Musement S.p.A."
    ],
    "settore": "Cultura, sport e tempo libero",
    "pratica": "Biglietti del Colosseo a prezzo base introvabili: accaparrati con bot e rivenduti abbinati a visite guidate a prezzi molto più alti",
-   "euro": 20000000,
-   "euro_nota": "quasi",
-   "url": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12603-",
+   "euro": 19878000,
+   "per_impresa": {
+    "Società Cooperativa Culture": 7000000,
+    "Tiqets International BV": 4300000,
+    "GetYourGuide Deutschland GmbH": 5600000,
+    "Walks LLC": 30000,
+    "Italy With Family S.r.l.": 48000,
+    "City Wonders LLC": 1400000,
+    "Musement S.p.A.": 1500000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/14-25.pdf#page=55",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12603-",
    "tar": {
     "testo": "Il TAR del Lazio ha respinto i ricorsi di Tiqets (4,3 mln) e Musement (1,5 mln) (gennaio 2026); per CoopCulture (7 mln) non abbiamo trovato l'esito.",
     "url": "https://en.ilsole24ore.com/art/colosseum-maxi-fines-confirmed-companies-hoarding-tickets-AI6ePIt"
    }
   },
   {
-   "data": "2024-05-09",
-   "numeri": [
-    "CV242",
-    "CV243",
-    "CV244",
-    "CV245",
-    "CV247",
-    "CV248"
-   ],
-   "imprese": [
-    "Avis Budget Italia S.p.A.",
-    "Hertz Italiana S.r.l.",
-    "Centauro Rent a Car Italy S.r.l.",
-    "Green Motion Italia S.r.l.",
-    "Noleggiare S.r.l.",
-    "Drivalia Leasys Rent S.p.A."
-   ],
-   "settore": "Auto e noleggio",
-   "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
-   "euro": 18000000,
-   "euro_nota": "oltre",
-   "url": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
-   "tar": null
-  },
-  {
-   "data": "2026-04-02",
-   "numeri": [
-    "PS12974"
-   ],
+   "data": "2026-03-23",
+   "codice": "PS12974",
    "imprese": [
     "Revolut Securities Europe UAB",
     "Revolut Group Holdings Ltd",
@@ -412,31 +501,16 @@
    "settore": "Banche, pagamenti e assicurazioni",
    "pratica": "Investimenti «a zero commissioni» con costi e limiti taciuti; conti bloccati senza preavviso né assistenza; requisiti per l'IBAN italiano non chiari",
    "euro": 11500000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-",
+   "per_impresa": {
+    "Revolut Securities Europe UAB e Revolut Group Holdings Ltd e Revolut Bank UAB": 11500000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/14-26.pdf#page=116",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-",
    "tar": null
   },
   {
-   "data": "2024-04-24",
-   "numeri": [
-    "PS12585"
-   ],
-   "imprese": [
-    "Amazon Services Europe S.à r.l.",
-    "Amazon EU S.à r.l."
-   ],
-   "settore": "Commercio online",
-   "pratica": "«Acquisto periodico» preselezionato al posto dell'acquisto singolo; consegna veloce a pagamento preselezionata (chiusa con impegni)",
-   "euro": 10000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2024/4/PS12585",
-   "tar": null
-  },
-  {
-   "data": "2024-03-14",
-   "numeri": [
-    "PS12543"
-   ],
+   "data": "2024-03-05",
+   "codice": "PS12543",
    "imprese": [
     "TikTok Technology Limited",
     "TikTok Information Technologies UK Limited",
@@ -445,18 +519,52 @@
    "settore": "Piattaforme digitali e IA",
    "pratica": "Controlli inadeguati su contenuti pericolosi per i minori (la sfida «cicatrice francese»), rilanciati dall'algoritmo",
    "euro": 10000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12543-",
+   "per_impresa": {
+    "TikTok Technology Limited e TikTok Information Technologies UK Limited e TikTok Italy Srl": 10000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=67",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12543-",
    "tar": {
     "testo": "Il TAR del Lazio ha respinto la richiesta di sospensione (ottobre 2024); non abbiamo trovato la sentenza di merito.",
     "url": "https://www.milanofinanza.it/news/tar-lazio-no-a-sospensione-maxi-multa-da-10-milioni-di-euro-dell-antitrust-a-tiktok-202410101344347194"
    }
   },
   {
-   "data": "2026-02-04",
-   "numeri": [
-    "PS12853"
+   "data": "2024-04-18",
+   "codice": "PS12585",
+   "imprese": [
+    "Amazon Services Europe S.à r.l.",
+    "Amazon EU S.à r.l."
    ],
+   "settore": "Commercio online",
+   "pratica": "«Acquisto periodico» preselezionato al posto dell'acquisto singolo; consegna veloce a pagamento preselezionata (chiusa con impegni)",
+   "euro": 10000000,
+   "per_impresa": {
+    "Amazon Services Europe S.à r.l. e Amazon EU S.à r.l.": 10000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/17-24.pdf#page=18",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/4/PS12585",
+   "tar": null
+  },
+  {
+   "data": "2024-04-18",
+   "codice": "CV242",
+   "imprese": [
+    "Avis Budget Italia S.p.A."
+   ],
+   "settore": "Auto e noleggio",
+   "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+   "euro": 9000000,
+   "per_impresa": {
+    "Avis Budget Italia S.p.A.": 9000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=5",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+   "tar": null
+  },
+  {
+   "data": "2026-01-27",
+   "codice": "PS12853",
    "imprese": [
     "Vacaciones eDreams S.L.",
     "eDreams International Network S.L.",
@@ -465,15 +573,16 @@
    "settore": "Viaggi e trasporti",
    "pratica": "Abbonamento Prime spinto con fretta e scarsità artificiali, versione più cara preselezionata, prova gratuita addebitata subito; disdetta ostacolata dal servizio clienti",
    "euro": 9000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853",
+   "per_impresa": {
+    "Vacaciones eDreams S.L. e eDreams International Network S.L. e eDreams S.r.l.": 9000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=68",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853",
    "tar": null
   },
   {
-   "data": "2025-02-04",
-   "numeri": [
-    "PS12525"
-   ],
+   "data": "2025-01-21",
+   "codice": "PS12525",
    "imprese": [
     "General Logistics Systems B.V.",
     "General Logistics Systems Italy S.p.A.",
@@ -482,15 +591,50 @@
    "settore": "Servizi alle imprese e spedizioni",
    "pratica": "Programma «Climate Protect» con vanti ambientali ambigui e un contributo imposto ai clienti abbonati, più alto dei costi sostenuti",
    "euro": 8000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2025/2/PS12525",
+   "per_impresa": {
+    "General Logistics Systems B.V. e General Logistics Systems Italy S.p.A. e General Logistics Systems Enterprise S.r.l.": 8000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/5-25.pdf#page=28",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/2/PS12525",
    "tar": null
   },
   {
-   "data": "2024-02-14",
-   "numeri": [
-    "PS12524"
+   "data": "2025-08-05",
+   "codice": "CV263",
+   "imprese": [
+    "Sicily by Car S.p.A."
    ],
+   "settore": "Auto e noleggio",
+   "pratica": "Tariffa fissa per «gestire» ogni multa presa con l'auto a noleggio",
+   "euro": 8000000,
+   "per_impresa": {
+    "Sicily by Car S.p.A.": 8000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/34-25.pdf#page=29",
+   "comunicato": null,
+   "tar": null
+  },
+  {
+   "data": "2026-02-19",
+   "codice": "PS11564B",
+   "imprese": [
+    "Enel Energia S.p.A.",
+    "Servizio Elettrico Nazionale S.p.A."
+   ],
+   "settore": "Energia e telemarketing",
+   "pratica": "Bollette di consumi vecchi più di due anni: richieste di prescrizione e reclami respinti senza motivo",
+   "euro": 7500000,
+   "per_impresa": {
+    "Enel Energia S.p.A.": 4000000,
+    "Servizio Elettrico Nazionale S.p.A.": 3500000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/10-26.pdf#page=67",
+   "comunicato": null,
+   "tar": null
+  },
+  {
+   "data": "2024-01-30",
+   "codice": "PS12524",
    "imprese": [
     "British American Tobacco Italia S.p.A.",
     "Amazon EU S.àr.l."
@@ -498,30 +642,33 @@
    "settore": "Alimentari, bevande e tabacco",
    "pratica": "Dispositivi a tabacco riscaldato pubblicizzati come oggetti di design, senza dire che contengono nicotina e sono vietati ai minori",
    "euro": 7000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12524-",
+   "per_impresa": {
+    "British American Tobacco Italia S.p.A.": 6000000,
+    "Amazon EU S.àr.l.": 1000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=16",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12524-",
    "tar": null
   },
   {
-   "data": "2026-06-10",
-   "numeri": [
-    "PS12940"
-   ],
+   "data": "2026-06-09",
+   "codice": "PS12940",
    "imprese": [
     "Philip Morris Italia S.r.l."
    ],
    "settore": "Alimentari, bevande e tabacco",
    "pratica": "Prodotti del tabacco presentati come «senza fumo», facendo credere, anche ai minori, che siano innocui o meno nocivi",
    "euro": 7000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS12940-",
+   "per_impresa": {
+    "Philip Morris Italia S.r.l.": 7000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=46",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS12940-",
    "tar": null
   },
   {
-   "data": "2024-06-20",
-   "numeri": [
-    "PS12638"
-   ],
+   "data": "2024-06-11",
+   "codice": "PS12638",
    "imprese": [
     "DR Automobiles S.r.l.",
     "DR Service & Parts S.r.l."
@@ -529,11 +676,202 @@
    "settore": "Auto e noleggio",
    "pratica": "Auto prodotte in Cina presentate come italiane; ricambi e assistenza post-vendita insufficienti, anche in garanzia",
    "euro": 6000000,
-   "euro_nota": null,
-   "url": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12638-",
+   "per_impresa": {
+    "DR Automobiles S.r.l.": 3000000,
+    "DR Automobiles S.r.l. e DR Service & Parts S.r.l.": 3000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/25-24.pdf#page=85",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12638-",
+   "tar": null
+  },
+  {
+   "data": "2025-09-23",
+   "codice": "PS12954",
+   "imprese": [
+    "ALD Automotive Italia S.r.l."
+   ],
+   "settore": "Auto e noleggio",
+   "pratica": "Noleggio a lungo termine: copertura danni a pagamento resa inutilizzabile da condizioni non spiegate; addebito di danni scoperti solo alla riconsegna",
+   "euro": 5000000,
+   "per_impresa": {
+    "ALD Automotive Italia S.r.l.": 5000000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/40-25.pdf#page=48",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/10/PS12954",
+   "tar": null
+  },
+  {
+   "data": "2024-04-18",
+   "codice": "CV248",
+   "imprese": [
+    "Drivalia Leasys Rent S.p.A."
+   ],
+   "settore": "Auto e noleggio",
+   "pratica": "Clausola che fa pagare al cliente una tariffa fissa per «gestire» ogni multa, addebitata in automatico sulla carta",
+   "euro": 4300000,
+   "per_impresa": {
+    "Drivalia Leasys Rent S.p.A.": 4300000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=92",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248",
+   "tar": null
+  },
+  {
+   "data": "2024-03-12",
+   "codice": "PS12558",
+   "imprese": [
+    "Verisure Italy S.r.l."
+   ],
+   "settore": "Casa e servizi per la casa",
+   "pratica": "Allarme dato in comodato e non venduto, senza dirlo; disdette ostacolate e fatture dopo la cessazione; servizio avviato durante i 14 giorni di ripensamento",
+   "euro": 4250000,
+   "per_impresa": {
+    "Verisure Italy S.r.l.": 4250000
+   },
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/13-24.pdf#page=76",
+   "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12558-",
    "tar": null
   }
  ],
+ "giudici": [
+  {
+   "codice": "IP373",
+   "data": "2025-02-25",
+   "esito": "annullamento",
+   "imprese": "Ente Acquedotti Siciliani in l.c.a.",
+   "pratica": "Prescrizione biennale delle bollette dell'acqua",
+   "anno_originale": 2025,
+   "nuova_sanzione": 0,
+   "sentenze": [
+    "sentenza del Consiglio di Stato del 4 febbraio 2025, n. 862"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/10-25.pdf#page=109"
+  },
+  {
+   "codice": "PS9699",
+   "data": "2024-04-10",
+   "esito": "rideterminazione",
+   "imprese": "Alperia Green Future S.r.l. (già Gruppo Green Power)",
+   "pratica": "Impianti fotovoltaici «a costo zero»",
+   "anno_originale": 2016,
+   "nuova_sanzione": 320000,
+   "sentenze": [
+    "sentenza del Consiglio di Stato, Sezione VI, n. 2666/2024"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/18-24.pdf#page=29"
+  },
+  {
+   "codice": "PS11563",
+   "data": "2024-05-07",
+   "esito": "rideterminazione",
+   "imprese": "Poste Italiane S.p.A.",
+   "pratica": "Raccomandate non consegnate",
+   "anno_originale": 2020,
+   "nuova_sanzione": 2500000,
+   "sentenze": [
+    "sentenza del Consiglio di Stato, sez. VI, n. 3175/2024"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/21-24.pdf#page=109"
+  },
+  {
+   "codice": "IP360",
+   "data": "2026-05-26",
+   "esito": "annullamento",
+   "imprese": "Sicily by Car S.p.A.",
+   "pratica": "Tariffa per la gestione delle multe",
+   "anno_originale": 2022,
+   "nuova_sanzione": 0,
+   "sentenze": [
+    "sentenza del Consiglio di Stato dell’11 dicembre 2024 n. 10001"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=11"
+  },
+  {
+   "codice": "PS10684B",
+   "data": "2025-07-29",
+   "esito": "rideterminazione",
+   "imprese": "Vodafone Italia S.p.A.",
+   "pratica": "Contratti a distanza eseguiti durante il periodo di ripensamento",
+   "anno_originale": 2017,
+   "nuova_sanzione": 248250,
+   "sentenze": [
+    "sentenza del Consiglio di Stato dell’11 marzo 2025, n. 1989",
+    "sentenza del Consiglio di Stato n. 1989"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/32-25.pdf#page=230"
+  },
+  {
+   "codice": "PS11785",
+   "data": "2024-08-06",
+   "esito": "rideterminazione",
+   "imprese": "Poltronesofà S.p.A.",
+   "pratica": "Offerte sui divani",
+   "anno_originale": 2021,
+   "nuova_sanzione": 500000,
+   "sentenze": [
+    "sentenza del Consiglio di Stato, sez. VI, n. 6156/2024"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/34-24.pdf#page=29"
+  },
+  {
+   "codice": "PS10686B",
+   "data": "2025-10-07",
+   "esito": "rideterminazione",
+   "imprese": "Fastweb S.p.A.",
+   "pratica": "Contratti a distanza eseguiti durante il periodo di ripensamento",
+   "anno_originale": 2017,
+   "nuova_sanzione": 396157,
+   "sentenze": [
+    "sentenza del Consiglio di Stato del 19 marzo 2025, n. 2255",
+    "sentenza del Consiglio di Stato n. 2255"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/41-25.pdf#page=53"
+  },
+  {
+   "codice": "PS12373",
+   "data": "2026-10-06",
+   "esito": "rideterminazione",
+   "imprese": "Samsung Electronics Italia S.p.A. e Opia Ltd.",
+   "pratica": "Promozione «Cambia con Galaxy»",
+   "anno_originale": 2023,
+   "nuova_sanzione": 2400000,
+   "sentenze": [
+    "sentenza del Consiglio di Stato, Sezione VI, n. 3298/2026"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/41-26.pdf#page=10"
+  },
+  {
+   "codice": "IP333",
+   "data": "2025-10-14",
+   "esito": "annullamento",
+   "imprese": "Compass Banca S.p.A.",
+   "pratica": "Polizze abbinate ai prestiti",
+   "anno_originale": 2020,
+   "nuova_sanzione": 0,
+   "sentenze": [
+    "sentenza del Consiglio di Stato dell’8 luglio 2025 n. 5901"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/42-25.pdf#page=29"
+  },
+  {
+   "codice": "PS12096B",
+   "data": "2026-02-03",
+   "esito": "rideterminazione",
+   "imprese": "Seed S.r.l. e Conseed S.r.l.",
+   "pratica": "Fine del mercato tutelato, attivazione di nuovi contratti",
+   "anno_originale": 2022,
+   "nuova_sanzione": 500000,
+   "sentenze": [
+    "sentenza del Consiglio di Stato n. 4541"
+   ],
+   "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/8-26.pdf#page=48"
+  }
+ ],
+ "riconciliazione": {
+  "uguale": 52,
+  "senza codice nel comunicato": 3,
+  "importo diverso": 4
+ },
  "open_data": {
   "fonte": {
    "dataset": "https://dati.agcm.it/dataset/istruttorie-tutela-del-consumatore-2021-2025",

@@ -1,0 +1,1114 @@
+{
+ "nota": "Lettura a mano dei provvedimenti nei bollettini settimanali: per ogni procedimento le imprese destinatarie come le nomina il dispositivo (le persone fisiche, anche titolari di imprese individuali, restano anonime), il settore, le trappole e una descrizione in parole semplici. Per i procedimenti già presenti in provvedimenti.json (letti dai comunicati) qui si correggono solo le imprese quando il comunicato le raggruppava.",
+ "procedimenti": {
+  "CV242": {
+   "imprese": [
+    "Avis Budget Italia S.p.A."
+   ]
+  },
+  "CV243": {
+   "imprese": [
+    "Hertz Italiana S.r.l."
+   ]
+  },
+  "CV244": {
+   "imprese": [
+    "Centauro Rent a Car Italy S.r.l."
+   ]
+  },
+  "CV245": {
+   "imprese": [
+    "Green Motion Italia S.r.l."
+   ]
+  },
+  "CV247": {
+   "imprese": [
+    "Noleggiare S.r.l."
+   ]
+  },
+  "CV248": {
+   "imprese": [
+    "Drivalia Leasys Rent S.p.A."
+   ]
+  },
+  "PS12978": {
+   "imprese": [
+    "Titanium S.r.l.",
+    "Fire S.r.l."
+   ]
+  },
+  "PS12980": {
+   "imprese": [
+    "J.Wolf Consulting S.r.l."
+   ]
+  },
+  "PS12981": {
+   "imprese": [
+    "Nova Group S.r.l.",
+    "Communicate S.r.l."
+   ],
+   "settore": "Telefonia e TV"
+  },
+  "PS12983": {
+   "imprese": [
+    "Entiende S.r.l."
+   ],
+   "settore": "Telefonia e TV"
+  },
+  "PS12926": {
+   "imprese": [
+    "Stellantis Europe S.p.A."
+   ]
+  },
+  "PS12927": {
+   "imprese": [
+    "Tesla Italy S.r.l."
+   ]
+  },
+  "PS12928": {
+   "imprese": [
+    "BYD Industria Italia S.r.l."
+   ]
+  },
+  "PS12929": {
+   "imprese": [
+    "Volkswagen Group Italia S.p.A."
+   ]
+  },
+  "PS12942": {
+   "imprese": [
+    "Hangzhou DeepSeek Artificial Intelligence Co. Ltd",
+    "Beijing DeepSeek Artificial Intelligence Co. Ltd"
+   ]
+  },
+  "PS12968": {
+   "imprese": [
+    "Mistral AI SAS"
+   ]
+  },
+  "PS12973": {
+   "imprese": [
+    "Scaleup Yazilim Hizmetleri Anonim Şirketi"
+   ]
+  },
+  "PS13028": {
+   "imprese": [
+    "Lime Technology S.r.l."
+   ]
+  },
+  "PS13029": {
+   "imprese": [
+    "EmTransit S.r.l."
+   ]
+  },
+  "PS13030": {
+   "imprese": [
+    "Bird Rides Italy S.r.l."
+   ]
+  },
+  "PV23": {
+   "imprese": [
+    "Harmont & Blaine S.p.A."
+   ]
+  },
+  "PV26": {
+   "imprese": [
+    "Rialto S.p.A."
+   ]
+  },
+  "PV28": {
+   "imprese": [
+    "MD S.p.A."
+   ]
+  },
+  "PV32": {
+   "imprese": [
+    "Butan Gas S.p.A."
+   ]
+  },
+  "PV33": {
+   "imprese": [
+    "Magazzini Gabrielli S.p.A."
+   ]
+  },
+  "PV34": {
+   "imprese": [
+    "RetailPro S.p.A."
+   ]
+  },
+  "PS12814": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità"
+  },
+  "PS12815": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità, con follower non autentici e recensioni non verificabili"
+  },
+  "PS12816": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità"
+  },
+  "PS12817": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità"
+  },
+  "PS12818": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità"
+  },
+  "PS12826": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)"
+   ],
+   "pratica": "Metodi per «guadagni facili e sicuri» promossi sui social senza dire che era pubblicità"
+  },
+  "PS12603": {
+   "imprese": [
+    "Società Cooperativa Culture",
+    "Tiqets International BV",
+    "GetYourGuide Deutschland GmbH",
+    "Walks LLC",
+    "Italy With Family S.r.l.",
+    "City Wonders LLC",
+    "Musement S.p.A."
+   ]
+  },
+  "PS12585": {
+   "imprese": [
+    "Amazon Services Europe S.à r.l.",
+    "Amazon EU S.à r.l."
+   ]
+  },
+  "PS12604": {
+   "imprese": [
+    "Mooney Group S.p.A.",
+    "Mooney S.p.A."
+   ]
+  },
+  "PS12580": {
+   "imprese": [
+    "Intesa Sanpaolo RBM Salute S.p.A.",
+    "Previmedical Servizi per Sanità Integrativa S.p.A."
+   ]
+  },
+  "PS12954": {
+   "imprese": [
+    "ALD Automotive Italia S.r.l."
+   ]
+  },
+  "PS12714": {
+   "imprese": [
+    "Alphabet Inc.",
+    "Google Ireland Limited"
+   ]
+  },
+  "PS12689": {
+   "imprese": [
+    "Ryanair DAC"
+   ]
+  },
+  "PS12879": {
+   "imprese": [
+    "Virgin Active Italia S.p.A."
+   ]
+  },
+  "PS12743": {
+   "imprese": [
+    "Enel Energia S.p.A."
+   ]
+  },
+  "PS12925": {
+   "imprese": [
+    "ATAC S.p.A."
+   ]
+  },
+  "PS13019": {
+   "imprese": [
+    "Trenitalia S.p.A."
+   ]
+  },
+  "PS12557": {
+   "imprese": [
+    "Servizio Energetico Italiano S.r.l."
+   ]
+  },
+  "PS12709": {
+   "imprese": [
+    "Infinite Styles Services Co. Ltd"
+   ]
+  },
+  "CV272": {
+   "imprese": [
+    "La Fourchette S.A.S."
+   ]
+  },
+  "PS12804": {
+   "imprese": [
+    "Bernabei s.r.l.",
+    "Bernabei Liquori s.r.l."
+   ]
+  },
+  "PS12856": {
+   "imprese": [
+    "Man Project S.r.l."
+   ]
+  },
+  "PS12898": {
+   "imprese": [
+    "Prenotazioni24 s.r.l."
+   ]
+  },
+  "PS12985": {
+   "imprese": [
+    "Trade Republic Bank GmbH"
+   ]
+  },
+  "PV12B": {
+   "imprese": [
+    "Agos Ducato S.p.A."
+   ]
+  },
+  "PS12626": {
+   "imprese": [
+    "República Gráfica SL"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Commissione a carico di chi pagava con PayPal sul negozio online pampling.com"
+  },
+  "PS12733": {
+   "imprese": [
+    "Altraepoca S.r.l."
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Commissione a carico di chi pagava con PayPal"
+  },
+  "PS12619": {
+   "imprese": [
+    "La Casa della Divisa (impresa individuale)"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Sovrapprezzo del 3,4% sulle divise scolastiche pagate con PayPal; rimborso integrale ai clienti"
+  },
+  "PS12496": {
+   "imprese": [
+    "Fileni Alimentare S.p.A."
+   ],
+   "settore": "Alimentari, bevande e tabacco",
+   "trappole": [
+    "promesse",
+    "green-etica"
+   ],
+   "pratica": "Prodotti presentati come frutto di una filiera agricola tutta propria: vanto non dimostrato"
+  },
+  "PS12573": {
+   "imprese": [
+    "Centro di Medicina S.p.A."
+   ],
+   "settore": "Salute e servizi alla persona",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Commissione sui pagamenti con carta per le visite mediche: violazione non accertata"
+  },
+  "CV235": {
+   "imprese": [
+    "Toscano Mutui S.r.l."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausola di esclusiva nel contratto di mediazione per ottenere un mutuo"
+  },
+  "CV236": {
+   "imprese": [
+    "24MAX S.p.A."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausola di durata ed esclusiva nel contratto di mediazione per ottenere un mutuo"
+  },
+  "CV237": {
+   "imprese": [
+    "Link Soluzioni S.r.l."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausola di esclusiva nel mandato di mediazione per ottenere un mutuo"
+  },
+  "CV238": {
+   "imprese": [
+    "Monety S.r.l."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausole di esclusiva e penali nel contratto di mediazione per ottenere un mutuo"
+  },
+  "PS12582": {
+   "imprese": [
+    "Red Fish S.r.l.s.",
+    "Pharmaland S.r.l.",
+    "Una persona fisica (nome omesso)"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Prodotti per animali venduti online a prezzi bassi, mai consegnati e non rimborsati"
+  },
+  "PS12659": {
+   "imprese": [
+    "Wind Tre S.p.A."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "promesse"
+   ],
+   "pratica": "Offerta «MIA Unlimited» con limiti al traffico voce non detti chiaramente"
+  },
+  "PS12685": {
+   "imprese": [
+    "Subito.it S.r.l."
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Cinque stelle assegnate in automatico a chi non riceveva una recensione dopo una compravendita"
+  },
+  "PS12650": {
+   "imprese": [
+    "Vueling SA"
+   ],
+   "settore": "Viaggi e trasporti",
+   "trappole": [
+    "costi-nascosti"
+   ],
+   "pratica": "Prezzo del bagaglio a mano diverso tra sito e app, senza spiegarlo"
+  },
+  "PS12667": {
+   "imprese": [
+    "Desa Radiotaxi S.r.l.s."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12668": {
+   "imprese": [
+    "Consortaxi (consorzio)"
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12669": {
+   "imprese": [
+    "Taxi Napoli S.r.l."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12670": {
+   "imprese": [
+    "Radiotaxi 3570 Soc. Coop."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12671": {
+   "imprese": [
+    "Cooperativa Pronto Taxi 6645 Soc. Coop."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12672": {
+   "imprese": [
+    "Autoradiotassi Società Cooperativa"
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Radiotaxi senza regole per far rispettare ai tassisti POS, tassametro e turni"
+  },
+  "PS12665": {
+   "imprese": [
+    "Teahupoo S.r.l."
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di follower, like e visualizzazioni per i social"
+  },
+  "PS12679": {
+   "imprese": [
+    "IOSONOVISIBILE (impresa individuale)"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di recensioni e like: elementi non sufficienti per una violazione"
+  },
+  "PS12680": {
+   "imprese": [
+    "Elegant Billionaire (impresa individuale)"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di like e follower: elementi non sufficienti per una violazione"
+  },
+  "PS12571": {
+   "imprese": [
+    "Funeraria Roma Capitale S.r.l."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Agenzia funebre privata presentata come «agenzia ufficiale del Comune di Roma»"
+  },
+  "PS13003": {
+   "imprese": [
+    "Funeraria Roma Capitale S.r.l."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Di nuovo «agenzia ufficiale del Comune di Roma» sui siti di un'agenzia funebre privata"
+  },
+  "PS12674": {
+   "imprese": [
+    "Wizz Air Hungary Ltd."
+   ],
+   "settore": "Viaggi e trasporti",
+   "trappole": [
+    "costi-nascosti"
+   ],
+   "pratica": "Finestra per il check-in online gratuito e costi in aeroporto non spiegati"
+  },
+  "PS12700": {
+   "imprese": [
+    "ByMètis Cancellations B.V."
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "non-richiesti",
+    "travestimenti"
+   ],
+   "pratica": "Servizio a pagamento per scrivere lettere di disdetta, sottoscritto senza saperlo e seguito da solleciti di pagamento"
+  },
+  "PS12666": {
+   "imprese": [
+    "BCube Agency S.A.R.L."
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di follower, like e visualizzazioni per i social"
+  },
+  "PS12745": {
+   "imprese": [
+    "GDL S.p.A."
+   ],
+   "settore": "Casa e servizi per la casa",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Bagni rifatti «in 5-7 giorni» con ritardi, assistenza assente e rimborsi negati"
+  },
+  "PS12529": {
+   "imprese": [
+    "Albatros S.r.l.",
+    "Una persona fisica (nome omesso)"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Prodotti venduti online con consegne in ritardo o mancate e rimborsi negati"
+  },
+  "PS12629": {
+   "imprese": [
+    "Copytrack GmbH"
+   ],
+   "settore": "Servizi alle imprese e spedizioni",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Email a raffica a blogger e piccoli siti per far pagare licenze di immagini"
+  },
+  "PS10009C": {
+   "imprese": [
+    "Poste Italiane S.p.A."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "promesse"
+   ],
+   "pratica": "Pubblicità del «Libretto Smart» (2015) che non spiegava le vere condizioni dell'offerta"
+  },
+  "PS12792": {
+   "imprese": [
+    "VET Distribuzione S.r.l.s.",
+    "El Perro Gordo S.r.l.s.",
+    "Una persona fisica (nome omesso)"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Prodotti per animali e per l'agricoltura venduti online, mai consegnati e non rimborsati"
+  },
+  "PS12658": {
+   "imprese": [
+    "Meta Platforms Inc.",
+    "Meta Platforms Ireland Limited"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Pubblicità con volti noti falsificati (deep fake): non luogo a provvedere"
+  },
+  "IP371": {
+   "imprese": [
+    "Comune di Letino"
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Bollette dell'acqua più vecchie di due anni chieste ancora, nonostante il divieto del 2023"
+  },
+  "IP372": {
+   "imprese": [
+    "Comune di Venafro"
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Bollette dell'acqua prescritte: inottemperanza non accertata"
+  },
+  "IP373": {
+   "imprese": [
+    "Ente Acquedotti Siciliani in l.c.a."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Bollette dell'acqua prescritte: sanzione poi annullata dall'Autorità dopo una sentenza del Consiglio di Stato"
+  },
+  "IP362": {
+   "imprese": [
+    "GPS ITALIA S.r.l."
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Non ha rispettato il divieto del 2022 su consegne, assistenza e rimborsi delle vendite online"
+  },
+  "IP374": {
+   "imprese": [
+    "Servizio Energetico Italiano S.r.l."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "non-richiesti"
+   ],
+   "pratica": "Attivazioni non richieste: inottemperanza non accertata"
+  },
+  "IP365B": {
+   "imprese": [
+    "Facile Energy S.r.l."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "non-richiesti"
+   ],
+   "pratica": "Attivazioni non richieste: inottemperanza non accertata"
+  },
+  "PS12797": {
+   "imprese": [
+    "Filarco Group S.r.l."
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di follower per Instagram"
+  },
+  "PS12798": {
+   "imprese": [
+    "DLM Global Independent Business"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di follower e di recensioni per Google, TripAdvisor, Trustpilot e app store"
+  },
+  "PS12799": {
+   "imprese": [
+    "Socialwebsite S.L."
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di follower, like, commenti e visualizzazioni"
+  },
+  "PS12802": {
+   "imprese": [
+    "Sky Italia S.r.l."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "rinnovi-recesso"
+   ],
+   "pratica": "Come disdire l'abbonamento Sky o NOW: informazioni difficili da trovare su siti e app"
+  },
+  "PS12768": {
+   "imprese": [
+    "Poste Italiane S.p.A."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "dati-account"
+   ],
+   "pratica": "App BancoPosta e PostePay bloccate se non si autorizzava l'accesso ai dati del telefono"
+  },
+  "PS12828": {
+   "imprese": [
+    "Elite Media Applications S.L."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "travestimenti",
+    "costi-nascosti"
+   ],
+   "pratica": "Sito volturacontratto.com che sembrava un servizio dei fornitori di luce e gas"
+  },
+  "IP376": {
+   "imprese": [
+    "Iris Mobili S.r.l."
+   ],
+   "settore": "Casa e servizi per la casa",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Consegne e assistenza dei mobili: inottemperanza non accertata"
+  },
+  "PS10987B": {
+   "imprese": [
+    "Publiacqua S.p.A."
+   ],
+   "settore": "Servizi locali: acqua, taxi, funerali",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Minaccia di staccare l'acqua a tutto il condominio per la morosità di uno solo"
+  },
+  "PS12847": {
+   "imprese": [
+    "Crédit Agricole Italia S.p.A."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "costi-nascosti"
+   ],
+   "pratica": "TAEG dei mutui senza l'intero costo della polizza necessaria per lo sconto"
+  },
+  "PS12782": {
+   "imprese": [
+    "Società che gestisce Farmasave.it (S.n.c.)"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "dopo-vendita",
+    "promesse"
+   ],
+   "pratica": "Farmacia online: disponibilità e tempi di consegna non veri, consegne mancate, recesso e rimborsi ostacolati"
+  },
+  "PS12800": {
+   "imprese": [
+    "SWJ WEB MARKETING SL"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Vendita di like e follower: elementi non sufficienti per una violazione"
+  },
+  "PS12809": {
+   "imprese": [
+    "Enel Energia S.p.A."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "promesse"
+   ],
+   "pratica": "Offerta Enel Fibra con caratteristiche e limiti del servizio non chiari"
+  },
+  "PS12977": {
+   "imprese": [
+    "Action S.r.l."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Telemarketing ingannevole: non luogo a provvedere"
+  },
+  "PS12979": {
+   "imprese": [
+    "Noma Trade S.r.l."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Telemarketing ingannevole: non luogo a provvedere"
+  },
+  "PS12982": {
+   "imprese": [
+    "My Phone S.r.l."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "travestimenti"
+   ],
+   "pratica": "Telemarketing ingannevole: non luogo a provvedere"
+  },
+  "PS12920": {
+   "imprese": [
+    "BFC Media S.p.A."
+   ],
+   "settore": "Editoria e informazione",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Supplemento di Forbes Italia sui ristoranti con pubblicità non dichiarata come tale"
+  },
+  "CV262": {
+   "imprese": [
+    "Locauto Rent S.p.A."
+   ],
+   "settore": "Auto e noleggio",
+   "trappole": [
+    "clausole",
+    "costi-nascosti"
+   ],
+   "pratica": "Tariffa fissa per «gestire» ogni multa presa con l'auto a noleggio"
+  },
+  "CV263": {
+   "imprese": [
+    "Sicily by Car S.p.A."
+   ],
+   "settore": "Auto e noleggio",
+   "trappole": [
+    "clausole",
+    "costi-nascosti"
+   ],
+   "pratica": "Tariffa fissa per «gestire» ogni multa presa con l'auto a noleggio"
+  },
+  "PS12653": {
+   "imprese": [
+    "Influencer (persona fisica, nome omesso)",
+    "Meta Platforms Inc.",
+    "Meta Platforms Ireland Limited"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "recensioni"
+   ],
+   "pratica": "Post promozionali senza la scritta «pubblicità» e follower falsi; impegni anche di Meta"
+  },
+  "PS12934": {
+   "imprese": [
+    "Verona Est Motoricambi S.r.l."
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Costo aggiuntivo per chi pagava con PayPal"
+  },
+  "PS12831": {
+   "imprese": [
+    "Pinterest Europe Limited"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "dati-account"
+   ],
+   "pratica": "All'iscrizione non diceva che i dati degli utenti sono usati per guadagnare"
+  },
+  "PS12829": {
+   "imprese": [
+    "LinkedIn Ireland Unlimited Company"
+   ],
+   "settore": "Piattaforme digitali e IA",
+   "trappole": [
+    "dati-account"
+   ],
+   "pratica": "All'iscrizione non diceva che i dati degli utenti sono usati per guadagnare"
+  },
+  "PS12917": {
+   "imprese": [
+    "Sky Italia S.r.l."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "rinnovi-recesso",
+    "promesse"
+   ],
+   "pratica": "Aumenti degli abbonamenti comunicati in modo ingannevole, applicati anche a offerte NOW «finché non disdici», sconti per restare non rispettati in fattura"
+  },
+  "PS12930": {
+   "imprese": [
+    "Eni Plenitude S.p.A. Società Benefit"
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "rinnovi-recesso"
+   ],
+   "pratica": "Rinnovo delle condizioni economiche applicato anche quando la comunicazione non era arrivata"
+  },
+  "PS12704": {
+   "imprese": [
+    "Poltronesofà S.p.A."
+   ],
+   "settore": "Casa e servizi per la casa",
+   "trappole": [
+    "falsi-sconti",
+    "fretta"
+   ],
+   "pratica": "Divani della «Collezione Promo» con sconti «a termine» calcolati su prezzi pieni quasi mai applicati"
+  },
+  "PS12841": {
+   "imprese": [
+    "Miriade S.p.A."
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "falsi-sconti"
+   ],
+   "pratica": "Sconti senza il prezzo più basso dei 30 giorni precedenti"
+  },
+  "PS12967": {
+   "imprese": [
+    "Surestream Digital Limited"
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "costi-nascosti",
+    "non-richiesti"
+   ],
+   "pratica": "Ricariche telefoniche online con commissioni poco chiare e ricarica «periodica» attivata senza richiesta"
+  },
+  "CV273": {
+   "imprese": [
+    "Allianz S.p.A."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausole che permettevano di aggiornare le garanzie delle polizze «Allianz ULTRA»"
+  },
+  "CV274": {
+   "imprese": [
+    "Gruppo Italia Vendita Auto S.p.a."
+   ],
+   "settore": "Auto e noleggio",
+   "trappole": [
+    "clausole"
+   ],
+   "pratica": "Clausole squilibrate nelle condizioni di vendita delle auto (marchi Romana Auto e Jazzoni)"
+  },
+  "PS11569B": {
+   "imprese": [
+    "Eni Plenitude S.p.A."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Prescrizione biennale delle bollette vecchie gestita male o negata"
+  },
+  "PS12959": {
+   "imprese": [
+    "Vodafone Italia S.p.A."
+   ],
+   "settore": "Telefonia e TV",
+   "trappole": [
+    "costi-nascosti"
+   ],
+   "pratica": "Costi del servizio cloud «YourDrive» in caso di disdetta anticipata non detti (clienti con partita IVA)"
+  },
+  "PS11564B": {
+   "imprese": [
+    "Enel Energia S.p.A.",
+    "Servizio Elettrico Nazionale S.p.A."
+   ],
+   "settore": "Energia e telemarketing",
+   "trappole": [
+    "dopo-vendita"
+   ],
+   "pratica": "Bollette di consumi vecchi più di due anni: richieste di prescrizione e reclami respinti senza motivo"
+  },
+  "PS13016": {
+   "imprese": [
+    "Italia Sport Communication S.r.l."
+   ],
+   "settore": "Editoria e informazione",
+   "trappole": [
+    "promesse"
+   ],
+   "pratica": "Titoli «acchiappa-clic» che non corrispondono agli articoli (clickbaiting)"
+  },
+  "IP378": {
+   "imprese": [
+    "Società Autostrada Ligure Toscana p.a."
+   ],
+   "settore": "Viaggi e trasporti",
+   "trappole": [
+    "altro"
+   ],
+   "pratica": "Non ha rispettato la decisione del 2023 sui disagi lungo la rete autostradale"
+  },
+  "IP379": {
+   "imprese": [
+    "Locauto Rent S.p.A."
+   ],
+   "settore": "Auto e noleggio",
+   "trappole": [
+    "clausole",
+    "costi-nascosti"
+   ],
+   "pratica": "Ha continuato a usare la clausola sulla tariffa per le multe vietata nel 2025"
+  },
+  "PS13042": {
+   "imprese": [
+    "NOOTICA - Nautic 24 - Outdoor 24 Sarl"
+   ],
+   "settore": "Commercio online",
+   "trappole": [
+    "sovrapprezzo-carta"
+   ],
+   "pratica": "Costo aggiuntivo per chi pagava con carta American Express"
+  },
+  "PS13018": {
+   "imprese": [
+    "Reparadora RTD Italia S.r.l."
+   ],
+   "settore": "Banche, pagamenti e assicurazioni",
+   "trappole": [
+    "promesse",
+    "travestimenti"
+   ],
+   "pratica": "Consulenza per ridurre i debiti con informazioni non vere sulla propria qualifica e sul servizio"
+  }
+ },
+ "giudici": {
+  "PS9699": {
+   "imprese": "Alperia Green Future S.r.l. (già Gruppo Green Power)",
+   "pratica": "Impianti fotovoltaici «a costo zero»",
+   "anno_originale": 2016
+  },
+  "PS11563": {
+   "imprese": "Poste Italiane S.p.A.",
+   "pratica": "Raccomandate non consegnate",
+   "anno_originale": 2020
+  },
+  "PS11785": {
+   "imprese": "Poltronesofà S.p.A.",
+   "pratica": "Offerte sui divani",
+   "anno_originale": 2021
+  },
+  "PS10684B": {
+   "imprese": "Vodafone Italia S.p.A.",
+   "pratica": "Contratti a distanza eseguiti durante il periodo di ripensamento",
+   "anno_originale": 2017
+  },
+  "PS10686B": {
+   "imprese": "Fastweb S.p.A.",
+   "pratica": "Contratti a distanza eseguiti durante il periodo di ripensamento",
+   "anno_originale": 2017
+  },
+  "PS12096B": {
+   "imprese": "Seed S.r.l. e Conseed S.r.l.",
+   "pratica": "Fine del mercato tutelato, attivazione di nuovi contratti",
+   "anno_originale": 2022
+  },
+  "PS12373": {
+   "imprese": "Samsung Electronics Italia S.p.A. e Opia Ltd.",
+   "pratica": "Promozione «Cambia con Galaxy»",
+   "anno_originale": 2023
+  },
+  "IP373": {
+   "imprese": "Ente Acquedotti Siciliani in l.c.a.",
+   "pratica": "Prescrizione biennale delle bollette dell'acqua",
+   "anno_originale": 2025
+  },
+  "IP333": {
+   "imprese": "Compass Banca S.p.A.",
+   "pratica": "Polizze abbinate ai prestiti",
+   "anno_originale": 2020
+  },
+  "IP360": {
+   "imprese": "Sicily by Car S.p.A.",
+   "pratica": "Tariffa per la gestione delle multe",
+   "anno_originale": 2022
+  }
+ }
+}

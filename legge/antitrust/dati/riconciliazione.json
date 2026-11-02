@@ -1,0 +1,1220 @@
+[
+ {
+  "numeri": [
+   "PS12689"
+  ],
+  "imprese": [
+   "Ryanair D.A.C."
+  ],
+  "comunicato_data": "2024-11-14",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12689"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-11-05"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12727"
+  ],
+  "imprese": [
+   "Saglietti S.r.l."
+  ],
+  "comunicato_data": "2024-11-07",
+  "euro_comunicato": 40000,
+  "nota_comunicato": null,
+  "euro_bollettini": 40000,
+  "trovati": [
+   "PS12727"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-10-29"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12503"
+  ],
+  "imprese": [
+   "Star Italia S.p.A."
+  ],
+  "comunicato_data": "2024-10-24",
+  "euro_comunicato": 2000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 2000000,
+  "trovati": [
+   "PS12503"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-10-08"
+  ]
+ },
+ {
+  "numeri": [
+   "IP369"
+  ],
+  "imprese": [
+   "Blupark S.r.l."
+  ],
+  "comunicato_data": "2024-10-11",
+  "euro_comunicato": 20000,
+  "nota_comunicato": null,
+  "euro_bollettini": 20000,
+  "trovati": [
+   "IP369"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-10-02"
+  ]
+ },
+ {
+  "numeri": [
+   "(surcharge)"
+  ],
+  "imprese": [
+   "Altraepoca S.r.l."
+  ],
+  "comunicato_data": "2024-08-30",
+  "euro_comunicato": 5000,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [],
+  "stato": "senza codice nel comunicato",
+  "date_delibera": []
+ },
+ {
+  "numeri": [
+   "(surcharge)"
+  ],
+  "imprese": [
+   "República Gráfica SL"
+  ],
+  "comunicato_data": "2024-08-30",
+  "euro_comunicato": 40000,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [],
+  "stato": "senza codice nel comunicato",
+  "date_delibera": []
+ },
+ {
+  "numeri": [
+   "(surcharge)"
+  ],
+  "imprese": [
+   "La casa della Divisa"
+  ],
+  "comunicato_data": "2024-08-30",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [],
+  "stato": "senza codice nel comunicato",
+  "date_delibera": []
+ },
+ {
+  "numeri": [
+   "PS12699"
+  ],
+  "imprese": [
+   "Fenice S.r.l.",
+   "TBS Crew s.r.l.",
+   "Sisterhood S.r.l.",
+   "Cerealitalia Industrie Dolciarie s.p.a."
+  ],
+  "comunicato_data": "2024-07-05",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12699"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-07-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12638"
+  ],
+  "imprese": [
+   "DR Automobiles S.r.l.",
+   "DR Service & Parts S.r.l."
+  ],
+  "comunicato_data": "2024-06-20",
+  "euro_comunicato": 6000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 6000000,
+  "trovati": [
+   "PS12638"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-06-11"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12660"
+  ],
+  "imprese": [
+   "Intesa Sanpaolo S.p.A.",
+   "Isybank S.p.A."
+  ],
+  "comunicato_data": "2024-06-12",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12660"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-06-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12566"
+  ],
+  "imprese": [
+   "Meta Platforms Ireland Ltd.",
+   "Meta Platforms Inc."
+  ],
+  "comunicato_data": "2024-06-05",
+  "euro_comunicato": 3500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3500000,
+  "trovati": [
+   "PS12566"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-05-21"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12604"
+  ],
+  "imprese": [
+   "Mooney S.p.A.",
+   "Mooney Group S.p.A."
+  ],
+  "comunicato_data": "2024-05-29",
+  "euro_comunicato": 2500000,
+  "nota_comunicato": "oltre",
+  "euro_bollettini": 2520000,
+  "trovati": [
+   "PS12604"
+  ],
+  "stato": "importo diverso",
+  "date_delibera": [
+   "2024-05-21"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12580"
+  ],
+  "imprese": [
+   "Intesa Sanpaolo RBM Salute S.p.A.",
+   "Previmedical Servizi per la Sanità Integrativa S.p.A."
+  ],
+  "comunicato_data": "2024-05-21",
+  "euro_comunicato": 3500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3500000,
+  "trovati": [
+   "PS12580"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-05-07"
+  ]
+ },
+ {
+  "numeri": [
+   "CV242",
+   "CV243",
+   "CV244",
+   "CV245",
+   "CV247",
+   "CV248"
+  ],
+  "imprese": [
+   "Avis Budget Italia S.p.A.",
+   "Hertz Italiana S.r.l.",
+   "Centauro Rent a Car Italy S.r.l.",
+   "Green Motion Italia S.r.l.",
+   "Noleggiare S.r.l.",
+   "Drivalia Leasys Rent S.p.A."
+  ],
+  "comunicato_data": "2024-05-09",
+  "euro_comunicato": 18000000,
+  "nota_comunicato": "oltre",
+  "euro_bollettini": 18360000,
+  "trovati": [
+   "CV242",
+   "CV243",
+   "CV244",
+   "CV245",
+   "CV247",
+   "CV248"
+  ],
+  "stato": "importo diverso",
+  "date_delibera": [
+   "2024-04-18"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12585"
+  ],
+  "imprese": [
+   "Amazon Services Europe S.à r.l.",
+   "Amazon EU S.à r.l."
+  ],
+  "comunicato_data": "2024-04-24",
+  "euro_comunicato": 10000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 10000000,
+  "trovati": [
+   "PS12585"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-04-18"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12515"
+  ],
+  "imprese": [
+   "Iris Mobili S.r.l."
+  ],
+  "comunicato_data": "2024-03-28",
+  "euro_comunicato": 3200000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3200000,
+  "trovati": [
+   "PS12515"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-03-12"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12558"
+  ],
+  "imprese": [
+   "Verisure Italy S.r.l."
+  ],
+  "comunicato_data": "2024-03-26",
+  "euro_comunicato": 4250000,
+  "nota_comunicato": null,
+  "euro_bollettini": 4250000,
+  "trovati": [
+   "PS12558"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-03-12"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12543"
+  ],
+  "imprese": [
+   "TikTok Technology Limited",
+   "TikTok Information Technologies UK Limited",
+   "TikTok Italy Srl"
+  ],
+  "comunicato_data": "2024-03-14",
+  "euro_comunicato": 10000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 10000000,
+  "trovati": [
+   "PS12543"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-03-05"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12661"
+  ],
+  "imprese": [
+   "DAVE's s.r.l."
+  ],
+  "comunicato_data": "2024-03-04",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12661"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-02-27"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12578"
+  ],
+  "imprese": [
+   "Supermoney S.p.A."
+  ],
+  "comunicato_data": "2024-02-28",
+  "euro_comunicato": 1480000,
+  "nota_comunicato": null,
+  "euro_bollettini": 1480000,
+  "trovati": [
+   "PS12578"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-02-20"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12557"
+  ],
+  "imprese": [
+   "Servizio Energetico Italiano"
+  ],
+  "comunicato_data": "2024-02-16",
+  "euro_comunicato": 900000,
+  "nota_comunicato": null,
+  "euro_bollettini": 900000,
+  "trovati": [
+   "PS12557"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-01-30"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12524"
+  ],
+  "imprese": [
+   "British American Tobacco Italia S.p.A.",
+   "Amazon EU S.àr.l."
+  ],
+  "comunicato_data": "2024-02-14",
+  "euro_comunicato": 7000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 7000000,
+  "trovati": [
+   "PS12524"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2024-01-30"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12926",
+   "PS12927",
+   "PS12928",
+   "PS12929"
+  ],
+  "imprese": [
+   "Stellantis Europe S.p.A.",
+   "Tesla Italy s.r.l.",
+   "BYD Industria Italia s.r.l.",
+   "Volkswagen Group Italia S.p.A."
+  ],
+  "comunicato_data": "2025-12-19",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12926",
+   "PS12927",
+   "PS12928",
+   "PS12929"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-12-16"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12978",
+   "PS12980",
+   "PS12981",
+   "PS12983"
+  ],
+  "imprese": [
+   "Titanium S.r.l.",
+   "Fire S.r.l.",
+   "J.Wolf Consulting S.r.l.",
+   "Nova Group S.r.l.",
+   "Communicate S.r.l.",
+   "Entiende S.r.l."
+  ],
+  "comunicato_data": "2025-12-09",
+  "euro_comunicato": 520000,
+  "nota_comunicato": null,
+  "euro_bollettini": 520000,
+  "trovati": [
+   "PS12978",
+   "PS12980",
+   "PS12981",
+   "PS12983"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-12-02"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12925"
+  ],
+  "imprese": [
+   "ATAC S.p.A."
+  ],
+  "comunicato_data": "2025-12-03",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12925"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-25"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12898"
+  ],
+  "imprese": [
+   "Prenotazioni24 s.r.l."
+  ],
+  "comunicato_data": "2025-12-01",
+  "euro_comunicato": 500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 500000,
+  "trovati": [
+   "PS12898"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-18"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12851"
+  ],
+  "imprese": [
+   "Talea Group S.p.A."
+  ],
+  "comunicato_data": "2025-12-01",
+  "euro_comunicato": 2000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 2000000,
+  "trovati": [
+   "PS12851"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-18"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12714"
+  ],
+  "imprese": [
+   "Google",
+   "Alphabet"
+  ],
+  "comunicato_data": "2025-11-21",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12714"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12820"
+  ],
+  "imprese": [
+   "Tannico s.r.l."
+  ],
+  "comunicato_data": "2025-11-17",
+  "euro_comunicato": 150000,
+  "nota_comunicato": null,
+  "euro_bollettini": 150000,
+  "trovati": [
+   "PS12820"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12922"
+  ],
+  "imprese": [
+   "Wizz Air Hungary Ltd"
+  ],
+  "comunicato_data": "2025-11-14",
+  "euro_comunicato": 500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 500000,
+  "trovati": [
+   "PS12922"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-11-11"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12856"
+  ],
+  "imprese": [
+   "Man Project S.r.l."
+  ],
+  "comunicato_data": "2025-11-05",
+  "euro_comunicato": 300000,
+  "nota_comunicato": null,
+  "euro_bollettini": 300000,
+  "trovati": [
+   "PS12856"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-10-28"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12954"
+  ],
+  "imprese": [
+   "ALD Automotive"
+  ],
+  "comunicato_data": "2025-10-09",
+  "euro_comunicato": 5000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 5000000,
+  "trovati": [
+   "PS12954"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-09-23"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12709"
+  ],
+  "imprese": [
+   "Infinite Styles Services Co. Ltd"
+  ],
+  "comunicato_data": "2025-08-04",
+  "euro_comunicato": 1000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 1000000,
+  "trovati": [
+   "PS12709"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-07-29"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12793"
+  ],
+  "imprese": [
+   "Giorgio Armani S.p.A.",
+   "G.A. Operations S.p.A."
+  ],
+  "comunicato_data": "2025-08-01",
+  "euro_comunicato": 3500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3500000,
+  "trovati": [
+   "PS12793"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-07-29"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12706"
+  ],
+  "imprese": [
+   "Emme Group S.p.A."
+  ],
+  "comunicato_data": "2025-07-23",
+  "euro_comunicato": 3000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3000000,
+  "trovati": [
+   "PS12706"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-07-15"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12879"
+  ],
+  "imprese": [
+   "Virgin Active Italia"
+  ],
+  "comunicato_data": "2025-06-18",
+  "euro_comunicato": 3000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3000000,
+  "trovati": [
+   "PS12879"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-06-10"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12814",
+   "PS12815",
+   "PS12816",
+   "PS12817",
+   "PS12818",
+   "PS12826"
+  ],
+  "imprese": [
+   "Sei influencer (persone fisiche, nomi omessi)"
+  ],
+  "comunicato_data": "2025-06-11",
+  "euro_comunicato": 65000,
+  "nota_comunicato": null,
+  "euro_bollettini": 65000,
+  "trovati": [
+   "PS12814",
+   "PS12815",
+   "PS12816",
+   "PS12817",
+   "PS12818",
+   "PS12826"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-05-28"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12805"
+  ],
+  "imprese": [
+   "Christian Dior Couture S.A.",
+   "Christian Dior Italia S.r.l.",
+   "Manufactures Dior S.r.l."
+  ],
+  "comunicato_data": "2025-05-20",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12805"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-05-13"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12743"
+  ],
+  "imprese": [
+   "Enel Energia"
+  ],
+  "comunicato_data": "2025-05-06",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12743"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-04-24"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12603"
+  ],
+  "imprese": [
+   "Società Cooperativa Culture (CoopCulture)",
+   "Tiqets International BV",
+   "GetYourGuide Deutschland GmbH",
+   "Walks LLC",
+   "Italy With Family S.r.l.",
+   "City Wonders Limited",
+   "Musement S.p.A."
+  ],
+  "comunicato_data": "2025-04-08",
+  "euro_comunicato": 20000000,
+  "nota_comunicato": "quasi",
+  "euro_bollettini": 19878000,
+  "trovati": [
+   "PS12603"
+  ],
+  "stato": "importo diverso",
+  "date_delibera": [
+   "2025-03-25"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12789"
+  ],
+  "imprese": [
+   "Otis Servizi S.r.l."
+  ],
+  "comunicato_data": "2025-04-03",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12789"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-03-25"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12788"
+  ],
+  "imprese": [
+   "Shiseido Italy S.p.A."
+  ],
+  "comunicato_data": "2025-03-20",
+  "euro_comunicato": 400000,
+  "nota_comunicato": null,
+  "euro_bollettini": 400000,
+  "trovati": [
+   "PS12788"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-03-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12525"
+  ],
+  "imprese": [
+   "General Logistics Systems B.V.",
+   "General Logistics Systems Italy S.p.A.",
+   "General Logistics Systems Enterprise S.r.l."
+  ],
+  "comunicato_data": "2025-02-04",
+  "euro_comunicato": 8000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 8000000,
+  "trovati": [
+   "PS12525"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-01-21"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12717"
+  ],
+  "imprese": [
+   "Interflora Italia S.p.A."
+  ],
+  "comunicato_data": "2025-01-29",
+  "euro_comunicato": 400000,
+  "nota_comunicato": null,
+  "euro_bollettini": 400000,
+  "trovati": [
+   "PS12717"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-01-21"
+  ]
+ },
+ {
+  "numeri": [
+   "IP367"
+  ],
+  "imprese": [
+   "Mulpor Company S.r.l.",
+   "IBCM - International Business Convention Management Ltd"
+  ],
+  "comunicato_data": "2025-01-28",
+  "euro_comunicato": 3500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 3500000,
+  "trovati": [
+   "IP367"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-01-14"
+  ]
+ },
+ {
+  "numeri": [
+   "PS13022"
+  ],
+  "imprese": [
+   "Procter & Gamble S.r.l."
+  ],
+  "comunicato_data": "2026-09-25",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS13022"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-09-14"
+  ]
+ },
+ {
+  "numeri": [
+   "PS13028",
+   "PS13029",
+   "PS13030"
+  ],
+  "imprese": [
+   "Bird Rides Italy S.r.l.",
+   "EmTransit S.r.l.",
+   "Lime Technology S.r.l."
+  ],
+  "comunicato_data": "2026-08-06",
+  "euro_comunicato": 2675000,
+  "nota_comunicato": null,
+  "euro_bollettini": 2675000,
+  "trovati": [
+   "PS13028",
+   "PS13029",
+   "PS13030"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-07-28",
+   "2026-08-04"
+  ]
+ },
+ {
+  "numeri": [
+   "PS13019"
+  ],
+  "imprese": [
+   "Trenitalia"
+  ],
+  "comunicato_data": "2026-07-30",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS13019"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-07-28"
+  ]
+ },
+ {
+  "numeri": [
+   "PV23",
+   "PV26",
+   "PV28",
+   "PV32",
+   "PV33",
+   "PV34"
+  ],
+  "imprese": [
+   "Harmont&Blaine S.p.A.",
+   "Rialto S.p.A.",
+   "MD S.p.A.",
+   "Magazzini Gabrielli S.p.A.",
+   "RetailPro S.p.A.",
+   "Butan Gas S.p.A."
+  ],
+  "comunicato_data": "2026-07-17",
+  "euro_comunicato": 2500000,
+  "nota_comunicato": "oltre",
+  "euro_bollettini": 2510000,
+  "trovati": [
+   "PV23",
+   "PV26",
+   "PV28",
+   "PV32",
+   "PV33",
+   "PV34"
+  ],
+  "stato": "importo diverso",
+  "date_delibera": [
+   "2026-07-07",
+   "2026-07-14"
+  ]
+ },
+ {
+  "numeri": [
+   "PS13027"
+  ],
+  "imprese": [
+   "Deghi S.p.A."
+  ],
+  "comunicato_data": "2026-06-25",
+  "euro_comunicato": 2000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 2000000,
+  "trovati": [
+   "PS13027"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-06-23"
+  ]
+ },
+ {
+  "numeri": [
+   "CV272"
+  ],
+  "imprese": [
+   "La Fourchette S.A.S."
+  ],
+  "comunicato_data": "2026-06-12",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "CV272"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-05-26"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12940"
+  ],
+  "imprese": [
+   "Philip Morris Italia S.r.l."
+  ],
+  "comunicato_data": "2026-06-10",
+  "euro_comunicato": 7000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 7000000,
+  "trovati": [
+   "PS12940"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-06-09"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12985"
+  ],
+  "imprese": [
+   "Trade Republic Bank GmbH"
+  ],
+  "comunicato_data": "2026-06-09",
+  "euro_comunicato": 2500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 2500000,
+  "trovati": [
+   "PS12985"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-05-26"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12942",
+   "PS12968",
+   "PS12973"
+  ],
+  "imprese": [
+   "Hangzhou DeepSeek Artificial Intelligence Co. Ltd",
+   "Beijing DeepSeek Artificial Intelligence Co. Ltd",
+   "Mistral AI SAS",
+   "Scaleup Yazilim Hizmetleri Anonim Şirketi"
+  ],
+  "comunicato_data": "2026-04-30",
+  "euro_comunicato": 0,
+  "nota_comunicato": null,
+  "euro_bollettini": 0,
+  "trovati": [
+   "PS12942",
+   "PS12968",
+   "PS12973"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2025-12-16",
+   "2026-02-17",
+   "2026-04-21"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12974"
+  ],
+  "imprese": [
+   "Revolut Securities Europe UAB",
+   "Revolut Group Holdings Ltd",
+   "Revolut Bank UAB"
+  ],
+  "comunicato_data": "2026-04-02",
+  "euro_comunicato": 11500000,
+  "nota_comunicato": null,
+  "euro_bollettini": 11500000,
+  "trovati": [
+   "PS12974"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-03-23"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12962"
+  ],
+  "imprese": [
+   "Trustpilot Group Plc",
+   "Trustpilot A/S",
+   "Trustpilot S.r.l."
+  ],
+  "comunicato_data": "2026-03-23",
+  "euro_comunicato": 4000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 4000000,
+  "trovati": [
+   "PS12962"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-03-17"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12804"
+  ],
+  "imprese": [
+   "Bernabei s.r.l.",
+   "Bernabei Liquori s.r.l."
+  ],
+  "comunicato_data": "2026-02-20",
+  "euro_comunicato": 400000,
+  "nota_comunicato": null,
+  "euro_bollettini": 400000,
+  "trovati": [
+   "PS12804"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-02-10"
+  ]
+ },
+ {
+  "numeri": [
+   "PV12B"
+  ],
+  "imprese": [
+   "Agos Ducato S.p.A."
+  ],
+  "comunicato_data": "2026-02-09",
+  "euro_comunicato": 800000,
+  "nota_comunicato": null,
+  "euro_bollettini": 800000,
+  "trovati": [
+   "PV12B"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-01-27"
+  ]
+ },
+ {
+  "numeri": [
+   "PS12853"
+  ],
+  "imprese": [
+   "Vacaciones eDreams S.L.",
+   "eDreams International Network S.L.",
+   "eDreams S.r.l."
+  ],
+  "comunicato_data": "2026-02-04",
+  "euro_comunicato": 9000000,
+  "nota_comunicato": null,
+  "euro_bollettini": 9000000,
+  "trovati": [
+   "PS12853"
+  ],
+  "stato": "uguale",
+  "date_delibera": [
+   "2026-01-27"
+  ]
+ }
+]

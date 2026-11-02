@@ -1,5 +1,5 @@
 {
- "nota": "Le trappole sono una lettura dei comunicati dell'AGCM fatta con un assistente AI e controllata a mano. Una decisione può ricadere in più trappole: gli euro di una decisione contano per ogni trappola che contiene.",
+ "nota": "Le trappole sono una lettura dei provvedimenti dell'AGCM (bollettini settimanali e comunicati) fatta con un assistente AI e controllata a mano. Una decisione può ricadere in più trappole: gli euro di una decisione contano per ogni trappola che contiene.",
  "trappole": [
   {
    "id": "costi-nascosti",
@@ -7,136 +7,129 @@
    "come_funziona": "Il prezzo esposto è basso; poi, passo dopo passo, si aggiungono commissioni di servizio, costi di consegna, supplementi o tariffe fisse che all'inizio non erano chiari. A volte il prezzo base semplicemente non si trova, e resta solo il pacchetto più caro (il biglietto con la visita guidata).",
    "come_riconoscerla": "Il totale compare solo all'ultima schermata; spuntano voci come «commissione di servizio», «gestione pratica», «fee»; il prezzo pubblicizzato vale solo a condizioni scritte in piccolo.",
    "cosa_fare": "Confronta il totale finale, non il prezzo di partenza. Se la commissione non era indicata fin dall'inizio puoi segnalarlo all'Autorità.",
-   "decisioni": 8,
-   "sanzioni": 7,
-   "euro": 56200000,
+   "decisioni": 22,
+   "sanzioni": 15,
+   "euro": 65838000,
    "moral_suasion": 2,
    "settori": [
-    "Viaggi e trasporti",
     "Auto e noleggio",
+    "Viaggi e trasporti",
     "Banche, pagamenti e assicurazioni",
+    "Telefonia e TV",
+    "Commercio online",
     "Cultura, sport e tempo libero",
-    "Commercio online"
+    "Energia e telemarketing"
    ],
    "casi": [
     {
+     "codice": "PS12603",
+     "provvedimento": "31517",
+     "data": "2025-03-25",
      "imprese": [
-      "Società Cooperativa Culture (CoopCulture)",
+      "Società Cooperativa Culture",
       "Tiqets International BV",
       "GetYourGuide Deutschland GmbH",
       "Walks LLC",
       "Italy With Family S.r.l.",
-      "City Wonders Limited",
+      "City Wonders LLC",
       "Musement S.p.A."
      ],
-     "numeri": [
-      "PS12603"
-     ],
-     "data": "2025-04-08",
      "esito": "sanzione",
-     "euro": 20000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12603-"
+     "euro": 19878000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/14-25.pdf#page=55",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12603-"
     },
     {
+     "codice": "CV263",
+     "provvedimento": "31662",
+     "data": "2025-08-05",
      "imprese": [
-      "Avis Budget Italia S.p.A.",
-      "Hertz Italiana S.r.l.",
-      "Centauro Rent a Car Italy S.r.l.",
-      "Green Motion Italia S.r.l.",
-      "Noleggiare S.r.l.",
-      "Drivalia Leasys Rent S.p.A."
+      "Sicily by Car S.p.A."
      ],
-     "numeri": [
-      "CV242",
-      "CV243",
-      "CV244",
-      "CV245",
-      "CV247",
-      "CV248"
-     ],
-     "data": "2024-05-09",
      "esito": "sanzione",
-     "euro": 18000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248"
+     "euro": 8000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/34-25.pdf#page=29",
+     "comunicato": null
     },
     {
+     "codice": "PS12974",
+     "provvedimento": "31910",
+     "data": "2026-03-23",
      "imprese": [
       "Revolut Securities Europe UAB",
       "Revolut Group Holdings Ltd",
       "Revolut Bank UAB"
      ],
-     "numeri": [
-      "PS12974"
-     ],
-     "data": "2026-04-02",
      "esito": "sanzione",
      "euro": 11500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/14-26.pdf#page=116",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-"
     },
     {
+     "codice": "PS12717",
+     "provvedimento": "31439",
+     "data": "2025-01-21",
      "imprese": [
       "Interflora Italia S.p.A."
      ],
-     "numeri": [
-      "PS12717"
-     ],
-     "data": "2025-01-29",
      "esito": "sanzione",
      "euro": 400000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/1/PS12717-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/4-25.pdf#page=38",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/1/PS12717-"
     }
    ]
   },
   {
    "id": "sovrapprezzo-carta",
    "titolo": "Il sovrapprezzo se paghi con la carta",
-   "come_funziona": "Il venditore aggiunge qualche euro, o qualche centesimo al litro, se paghi con carta o PayPal. In Italia è vietato: il Codice del consumo (art. 62) non permette di far pagare al cliente lo strumento di pagamento che sceglie.",
+   "come_funziona": "Il venditore aggiunge qualche euro, o qualche centesimo al litro, se paghi con carta, American Express o PayPal. In Italia è vietato: il Codice del consumo (art. 62) non permette di far pagare al cliente lo strumento di pagamento che sceglie.",
    "come_riconoscerla": "«+3% con PayPal», «commissione carta», un prezzo alla pompa diverso tra contanti e carta.",
    "cosa_fare": "Chiedi lo stesso prezzo; fotografa il cartello o lo schermo e segnala.",
-   "decisioni": 5,
-   "sanzioni": 4,
-   "euro": 105000,
+   "decisioni": 8,
+   "sanzioni": 6,
+   "euro": 135000,
    "moral_suasion": 0,
    "settori": [
     "Commercio online",
+    "Salute e servizi alla persona",
     "Auto e noleggio"
    ],
    "casi": [
     {
+     "codice": "PS12727",
+     "provvedimento": "31355",
+     "data": "2024-10-29",
      "imprese": [
       "Saglietti S.r.l."
      ],
-     "numeri": [
-      "PS12727"
-     ],
-     "data": "2024-11-07",
      "esito": "sanzione",
      "euro": 40000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12727"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/43-24.pdf#page=25",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12727"
     },
     {
+     "codice": "IP369",
+     "provvedimento": "31336",
+     "data": "2024-10-02",
      "imprese": [
       "Blupark S.r.l."
      ],
-     "numeri": [
-      "IP369"
-     ],
-     "data": "2024-10-11",
      "esito": "inottemperanza",
      "euro": 20000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/10/IP369"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/40-24.pdf#page=19",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/10/IP369"
     },
     {
+     "codice": "PS12619",
+     "provvedimento": "31055",
+     "data": "2024-01-30",
      "imprese": [
-      "La casa della Divisa"
+      "La Casa della Divisa (impresa individuale)"
      ],
-     "numeri": [
-      "(surcharge)"
-     ],
-     "data": "2024-08-30",
      "esito": "impegni",
      "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/8/Antitrust-tra-fine-2023-e-2024-chiusi-11-procedimenti-per-credit-card-surcharge-Multate-sei-società-per-un-totale-di-112500-euro"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=79",
+     "comunicato": null
     }
    ]
   },
@@ -146,52 +139,52 @@
    "come_funziona": "Il prezzo «barrato» non è mai stato davvero praticato, oppure il prezzo «in offerta» non è più basso di quello delle settimane prima. Chi annuncia uno sconto deve indicare il prezzo più basso degli ultimi 30 giorni (Codice del consumo, art. 17-bis).",
    "come_riconoscerla": "Manca il prezzo più basso dei 30 giorni; lo «sconto» è sempre lì, settimana dopo settimana; il cartellino arriva dalla fabbrica già con due prezzi.",
    "cosa_fare": "Cerca la riga «prezzo più basso degli ultimi 30 giorni» e confrontala con il prezzo scontato; se manca, segnala.",
-   "decisioni": 5,
-   "sanzioni": 5,
-   "euro": 5850000,
+   "decisioni": 7,
+   "sanzioni": 6,
+   "euro": 6850000,
    "moral_suasion": 0,
    "settori": [
     "Commercio online",
-    "Moda e cosmetici",
-    "Casa e servizi per la casa"
+    "Casa e servizi per la casa",
+    "Moda e cosmetici"
    ],
    "casi": [
     {
+     "codice": "PS12706",
+     "provvedimento": "31625",
+     "data": "2025-07-15",
      "imprese": [
       "Emme Group S.p.A."
      ],
-     "numeri": [
-      "PS12706"
-     ],
-     "data": "2025-07-23",
      "esito": "sanzione",
      "euro": 3000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/7/PS12706-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/29-25.pdf#page=5",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/7/PS12706-"
     },
     {
+     "codice": "PS12704",
+     "provvedimento": "31788",
+     "data": "2025-12-16",
+     "imprese": [
+      "Poltronesofà S.p.A."
+     ],
+     "esito": "sanzione",
+     "euro": 1000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/1-26.pdf#page=264",
+     "comunicato": null
+    },
+    {
+     "codice": "PS12804",
+     "provvedimento": "31837",
+     "data": "2026-02-10",
      "imprese": [
       "Bernabei s.r.l.",
       "Bernabei Liquori s.r.l."
      ],
-     "numeri": [
-      "PS12804"
-     ],
-     "data": "2026-02-20",
      "esito": "sanzione",
      "euro": 400000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12804"
-    },
-    {
-     "imprese": [
-      "Man Project S.r.l."
-     ],
-     "numeri": [
-      "PS12856"
-     ],
-     "data": "2025-11-05",
-     "esito": "sanzione",
-     "euro": 300000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12856-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/8-26.pdf#page=66",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12804"
     }
    ]
   },
@@ -201,53 +194,53 @@
    "come_funziona": "Timer, «ultimi pezzi», «termina domenica», il venditore a domicilio che insiste: servono a non farti pensare. Nei casi sanzionati il timer ripartiva da capo alla scadenza e la scarsità era costruita.",
    "come_riconoscerla": "La scadenza si rinnova; messaggi come «12 persone stanno guardando»; pressione a firmare subito, magari a casa tua.",
    "cosa_fare": "Riapri la pagina il giorno dopo: se l'offerta c'è ancora, non era a tempo. Se hai firmato a casa o online hai 14 giorni per ripensarci: il Polpo ti aiuta a scrivere il recesso.",
-   "decisioni": 3,
-   "sanzioni": 3,
-   "euro": 14000000,
+   "decisioni": 4,
+   "sanzioni": 4,
+   "euro": 15000000,
    "moral_suasion": 0,
    "settori": [
     "Casa e servizi per la casa",
-    "Commercio online",
-    "Viaggi e trasporti"
+    "Viaggi e trasporti",
+    "Commercio online"
    ],
    "casi": [
     {
+     "codice": "PS13027",
+     "provvedimento": "31999",
+     "data": "2026-06-23",
      "imprese": [
       "Deghi S.p.A."
      ],
-     "numeri": [
-      "PS13027"
-     ],
-     "data": "2026-06-25",
      "esito": "sanzione",
      "euro": 2000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS13027"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/26-26.pdf#page=46",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS13027"
     },
     {
+     "codice": "PS12853",
+     "provvedimento": "31824",
+     "data": "2026-01-27",
      "imprese": [
       "Vacaciones eDreams S.L.",
       "eDreams International Network S.L.",
       "eDreams S.r.l."
      ],
-     "numeri": [
-      "PS12853"
-     ],
-     "data": "2026-02-04",
      "esito": "sanzione",
      "euro": 9000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=68",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853"
     },
     {
+     "codice": "PS12706",
+     "provvedimento": "31625",
+     "data": "2025-07-15",
      "imprese": [
       "Emme Group S.p.A."
      ],
-     "numeri": [
-      "PS12706"
-     ],
-     "data": "2025-07-23",
      "esito": "sanzione",
      "euro": 3000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/7/PS12706-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/29-25.pdf#page=5",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/7/PS12706-"
     }
    ]
   },
@@ -267,278 +260,302 @@
    ],
    "casi": [
     {
+     "codice": "PS12585",
+     "provvedimento": "31172",
+     "data": "2024-04-18",
      "imprese": [
       "Amazon Services Europe S.à r.l.",
       "Amazon EU S.à r.l."
      ],
-     "numeri": [
-      "PS12585"
-     ],
-     "data": "2024-04-24",
      "esito": "sanzione",
      "euro": 10000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/4/PS12585"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/17-24.pdf#page=18",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/4/PS12585"
     },
     {
+     "codice": "PS12853",
+     "provvedimento": "31824",
+     "data": "2026-01-27",
      "imprese": [
       "Vacaciones eDreams S.L.",
       "eDreams International Network S.L.",
       "eDreams S.r.l."
      ],
-     "numeri": [
-      "PS12853"
-     ],
-     "data": "2026-02-04",
      "esito": "sanzione",
      "euro": 9000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/6-26.pdf#page=68",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853"
     },
     {
+     "codice": "PS12689",
+     "provvedimento": "31360",
+     "data": "2024-11-05",
      "imprese": [
-      "Ryanair D.A.C."
+      "Ryanair DAC"
      ],
-     "numeri": [
-      "PS12689"
-     ],
-     "data": "2024-11-14",
      "esito": "impegni",
      "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12689"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/44-24.pdf#page=40",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/11/PS12689"
     }
    ]
   },
   {
    "id": "rinnovi-recesso",
    "titolo": "L'abbonamento da cui non si esce",
-   "come_funziona": "Entrare è un clic, uscire un percorso a ostacoli: rinnovo automatico senza preavviso, scadenza per la disdetta taciuta, aumenti annunciati in mail che sembrano pubblicità, disdette ignorate e fatture che continuano.",
+   "come_funziona": "Entrare è un clic, uscire un percorso a ostacoli: rinnovo automatico senza preavviso, aumenti annunciati in mail che sembrano pubblicità o applicati anche a chi aveva un prezzo «finché non disdici», istruzioni per disdire introvabili, disdette ignorate e fatture che continuano.",
    "come_riconoscerla": "Il contratto non dice chiaramente come e quando disdire; la disdetta si fa solo al telefono; il servizio clienti prova a «trattenerti».",
    "cosa_fare": "Segna la data di rinnovo e disdici per iscritto (PEC o raccomandata), conservando la ricevuta. Per i contratti online o fuori dai negozi hai 14 giorni di ripensamento: prepara la lettera.",
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 19150000,
+   "decisioni": 9,
+   "sanzioni": 6,
+   "euro": 23350000,
    "moral_suasion": 0,
    "settori": [
-    "Casa e servizi per la casa",
     "Energia e telemarketing",
+    "Casa e servizi per la casa",
+    "Telefonia e TV",
     "Cultura, sport e tempo libero",
     "Viaggi e trasporti"
    ],
    "casi": [
     {
+     "codice": "PS12917",
+     "provvedimento": "31735",
+     "data": "2025-11-18",
      "imprese": [
-      "Virgin Active Italia"
+      "Sky Italia S.r.l."
      ],
-     "numeri": [
-      "PS12879"
-     ],
-     "data": "2025-06-18",
      "esito": "sanzione",
-     "euro": 3000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12879"
+     "euro": 4200000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=66",
+     "comunicato": null
     },
     {
+     "codice": "PS12879",
+     "provvedimento": "31581",
+     "data": "2025-06-10",
+     "imprese": [
+      "Virgin Active Italia S.p.A."
+     ],
+     "esito": "sanzione",
+     "euro": 3000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/24-25.pdf#page=23",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12879"
+    },
+    {
+     "codice": "PS12558",
+     "provvedimento": "31136",
+     "data": "2024-03-12",
      "imprese": [
       "Verisure Italy S.r.l."
      ],
-     "numeri": [
-      "PS12558"
-     ],
-     "data": "2024-03-26",
      "esito": "sanzione",
      "euro": 4250000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12558-"
-    },
-    {
-     "imprese": [
-      "Vacaciones eDreams S.L.",
-      "eDreams International Network S.L.",
-      "eDreams S.r.l."
-     ],
-     "numeri": [
-      "PS12853"
-     ],
-     "data": "2026-02-04",
-     "esito": "sanzione",
-     "euro": 9000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/2/PS12853"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/13-24.pdf#page=76",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12558-"
     }
    ]
   },
   {
    "id": "non-richiesti",
    "titolo": "Il servizio che non hai chiesto",
-   "come_funziona": "Ti ritrovi un contratto, un dispositivo o un contributo mai chiesto: forniture di luce e gas attivate senza firma, accessori a pagamento installati sull'ascensore, il conto spostato in un'altra banca, un «contributo verde» imposto.",
-   "come_riconoscerla": "In bolletta o in fattura compare una voce nuova; ti dà il benvenuto un fornitore che non hai scelto.",
+   "come_funziona": "Ti ritrovi un contratto, un dispositivo o un contributo mai chiesto: forniture di luce e gas attivate senza firma, accessori a pagamento installati sull'ascensore, un servizio online «per scrivere la disdetta» che diventa un abbonamento, un «contributo verde» imposto.",
+   "come_riconoscerla": "In bolletta o in fattura compare una voce nuova; ti dà il benvenuto un fornitore che non hai scelto; arrivano solleciti per un servizio che non ricordi di aver comprato.",
    "cosa_fare": "Non pagare ciò che non hai chiesto: per le forniture non richieste non è dovuto nulla (Codice del consumo, art. 66-quinquies). Contesta per iscritto e segnala.",
-   "decisioni": 6,
-   "sanzioni": 4,
-   "euro": 16650000,
+   "decisioni": 10,
+   "sanzioni": 5,
+   "euro": 16670000,
    "moral_suasion": 0,
    "settori": [
+    "Energia e telemarketing",
     "Casa e servizi per la casa",
     "Servizi alle imprese e spedizioni",
     "Banche, pagamenti e assicurazioni",
-    "Energia e telemarketing"
+    "Commercio online",
+    "Telefonia e TV"
    ],
    "casi": [
     {
+     "codice": "PS12557",
+     "provvedimento": "31054",
+     "data": "2024-01-30",
      "imprese": [
-      "Servizio Energetico Italiano"
+      "Servizio Energetico Italiano S.r.l."
      ],
-     "numeri": [
-      "PS12557"
-     ],
-     "data": "2024-02-16",
      "esito": "sanzione",
      "euro": 900000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12557"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=58",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12557"
     },
     {
+     "codice": "PS12789",
+     "provvedimento": "31513",
+     "data": "2025-03-25",
      "imprese": [
       "Otis Servizi S.r.l."
      ],
-     "numeri": [
-      "PS12789"
-     ],
-     "data": "2025-04-03",
      "esito": "impegni",
      "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12789-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/13-25.pdf#page=26",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/4/PS12789-"
     },
     {
+     "codice": "PS12700",
+     "provvedimento": "31346",
+     "data": "2024-10-08",
      "imprese": [
-      "Intesa Sanpaolo S.p.A.",
-      "Isybank S.p.A."
+      "ByMètis Cancellations B.V."
      ],
-     "numeri": [
-      "PS12660"
-     ],
-     "data": "2024-06-12",
-     "esito": "impegni",
-     "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12660_"
+     "esito": "sanzione",
+     "euro": 20000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/42-24.pdf#page=58",
+     "comunicato": null
     }
    ]
   },
   {
    "id": "travestimenti",
    "titolo": "Chi si spaccia per un altro",
-   "come_funziona": "Il call center dice di chiamare «dall'Autorità» o dall'ufficio tecnico del tuo fornitore; il sito ha il nome e la grafica della compagnia di traghetti ma è un rivenditore con le sue commissioni; il modulo sembra un aggiornamento gratuito dei dati dell'impresa e invece è un contratto.",
+   "come_funziona": "Il call center dice di chiamare «dall'Autorità» o dall'ufficio tecnico del tuo fornitore; il sito ha il nome e la grafica della compagnia di traghetti ma è un rivenditore con le sue commissioni; l'agenzia funebre privata si presenta come «ufficiale del Comune»; il modulo sembra un aggiornamento gratuito dei dati dell'impresa e invece è un contratto.",
    "come_riconoscerla": "Chi chiama annuncia rincari o guasti imminenti e ti offre la soluzione; l'indirizzo del sito non è quello ufficiale; nel modulo c'è una firma e una cifra in piccolo.",
    "cosa_fare": "Riaggancia e richiama tu il numero che trovi in bolletta. Per un messaggio o un sito sospetto chiedi al Polpo se è una truffa.",
-   "decisioni": 5,
-   "sanzioni": 5,
-   "euro": 9520000,
+   "decisioni": 22,
+   "sanzioni": 16,
+   "euro": 9650000,
    "moral_suasion": 0,
    "settori": [
-    "Banche, pagamenti e assicurazioni",
+    "Pubblicità parassitaria",
     "Energia e telemarketing",
-    "Viaggi e trasporti",
+    "Telefonia e TV",
+    "Banche, pagamenti e assicurazioni",
+    "Servizi locali: acqua, taxi, funerali",
+    "Commercio online",
     "Servizi alle imprese e spedizioni",
-    "Pubblicità parassitaria"
+    "Piattaforme digitali e IA",
+    "Viaggi e trasporti"
    ],
    "casi": [
     {
+     "codice": "PS12978",
+     "provvedimento": "31741",
+     "data": "2025-12-02",
      "imprese": [
       "Titanium S.r.l.",
-      "Fire S.r.l.",
-      "J.Wolf Consulting S.r.l.",
-      "Nova Group S.r.l.",
-      "Communicate S.r.l.",
-      "Entiende S.r.l."
+      "Fire S.r.l."
      ],
-     "numeri": [
-      "PS12978",
-      "PS12980",
-      "PS12981",
-      "PS12983"
-     ],
-     "data": "2025-12-09",
      "esito": "sanzione",
-     "euro": 520000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-"
+     "euro": 160000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/47-25.pdf#page=100",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12978-PS12980-PS12981-PS12983-"
     },
     {
+     "codice": "PS12898",
+     "provvedimento": "31727",
+     "data": "2025-11-18",
      "imprese": [
       "Prenotazioni24 s.r.l."
      ],
-     "numeri": [
-      "PS12898"
-     ],
-     "data": "2025-12-01",
      "esito": "sanzione",
      "euro": 500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12898"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/46-25.pdf#page=74",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/12/PS12898"
     },
     {
+     "codice": "PS12571",
+     "provvedimento": "31300",
+     "data": "2024-07-23",
+     "imprese": [
+      "Funeraria Roma Capitale S.r.l."
+     ],
+     "esito": "sanzione",
+     "euro": 30000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/32-24.pdf#page=119",
+     "comunicato": null
+    },
+    {
+     "codice": "IP367",
+     "provvedimento": "31435",
+     "data": "2025-01-14",
      "imprese": [
       "Mulpor Company S.r.l.",
       "IBCM - International Business Convention Management Ltd"
      ],
-     "numeri": [
-      "IP367"
-     ],
-     "data": "2025-01-28",
      "esito": "inottemperanza",
      "euro": 3500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/1/IP367"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/3-25.pdf#page=20",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/1/IP367"
     }
    ]
   },
   {
    "id": "dopo-vendita",
-   "titolo": "Dopo il pagamento, il silenzio",
-   "come_funziona": "Il prodotto arriva in ritardo, incompleto o diverso; l'assistenza non risponde; il rimborso non arriva; per avere quello che ti spetta servono passaggi inutili, come un'attestazione da chiedere in stazione o un reclamo entro pochi giorni.",
-   "come_riconoscerla": "Disponibilità «immediata» su prodotti che non ci sono; tempi strettissimi per i reclami; nessun contatto, solo un modulo.",
-   "cosa_fare": "La garanzia legale dura due anni e il venditore deve riparare, sostituire o rimborsare: il Polpo scrive la richiesta. Per i servizi pubblici, come bus e metro, si comincia dal reclamo all'ente.",
-   "decisioni": 10,
-   "sanzioni": 7,
-   "euro": 19775000,
+   "titolo": "Dopo il pagamento, i diritti negati",
+   "come_funziona": "Il prodotto arriva in ritardo, incompleto o non arriva; l'assistenza non risponde; il rimborso non arriva; per avere quello che ti spetta servono passaggi inutili. Rientrano qui anche le bollette di luce, gas e acqua per consumi di oltre due anni prima, che per legge non si devono più pagare e che sono state chieste lo stesso.",
+   "come_riconoscerla": "Disponibilità «immediata» su prodotti che non ci sono; tempi strettissimi per i reclami; nessun contatto, solo un modulo; una bolletta con consumi vecchi di anni.",
+   "cosa_fare": "La garanzia legale dura due anni e il venditore deve riparare, sostituire o rimborsare: il Polpo scrive la richiesta. Per bollette con consumi di oltre due anni puoi chiedere la prescrizione; per i servizi pubblici, come acqua, bus e metro, si comincia dal reclamo all'ente.",
+   "decisioni": 24,
+   "sanzioni": 16,
+   "euro": 29165000,
    "moral_suasion": 0,
    "settori": [
+    "Commercio online",
     "Casa e servizi per la casa",
     "Viaggi e trasporti",
-    "Commercio online",
-    "Auto e noleggio",
-    "Banche, pagamenti e assicurazioni"
+    "Servizi locali: acqua, taxi, funerali",
+    "Energia e telemarketing",
+    "Banche, pagamenti e assicurazioni",
+    "Auto e noleggio"
    ],
    "casi": [
     {
+     "codice": "PS11564B",
+     "provvedimento": "31868",
+     "data": "2026-02-19",
+     "imprese": [
+      "Enel Energia S.p.A.",
+      "Servizio Elettrico Nazionale S.p.A."
+     ],
+     "esito": "sanzione",
+     "euro": 7500000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/10-26.pdf#page=67",
+     "comunicato": null
+    },
+    {
+     "codice": "PS12515",
+     "provvedimento": "31135",
+     "data": "2024-03-12",
      "imprese": [
       "Iris Mobili S.r.l."
      ],
-     "numeri": [
-      "PS12515"
-     ],
-     "data": "2024-03-28",
      "esito": "sanzione",
      "euro": 3200000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12515-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/13-24.pdf#page=51",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12515-"
     },
     {
+     "codice": "PS12580",
+     "provvedimento": "31196",
+     "data": "2024-05-07",
      "imprese": [
       "Intesa Sanpaolo RBM Salute S.p.A.",
-      "Previmedical Servizi per la Sanità Integrativa S.p.A."
+      "Previmedical Servizi per Sanità Integrativa S.p.A."
      ],
-     "numeri": [
-      "PS12580"
-     ],
-     "data": "2024-05-21",
      "esito": "sanzione",
      "euro": 3500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/5/PS12580"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/21-24.pdf#page=111",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/PS12580"
     },
     {
+     "codice": "PS13019",
+     "provvedimento": "32025",
+     "data": "2026-07-28",
      "imprese": [
-      "Trenitalia"
+      "Trenitalia S.p.A."
      ],
-     "numeri": [
-      "PS13019"
-     ],
-     "data": "2026-07-30",
      "esito": "impegni",
      "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/7/PS13019"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/31-26.pdf#page=122",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/7/PS13019"
     }
    ]
   },
@@ -548,9 +565,9 @@
    "come_funziona": "«Impatto zero», «100% green», «circolare», «rispettiamo i lavoratori»: affermazioni generiche o smentite dai fatti, usate per vendere. Qui rientra anche la beneficenza annunciata ma non davvero legata all'acquisto.",
    "come_riconoscerla": "Parole assolute senza numeri né certificazioni; compensazioni presentate come assenza di emissioni; la linea «sostenibile» è una piccola parte del catalogo.",
    "cosa_fare": "Cerca dati verificabili: quale fase del ciclo di vita, quale certificazione. La direttiva europea 2024/825 vieta i vanti ambientali generici e chiede di applicare le nuove regole dal 27 settembre 2026.",
-   "decisioni": 5,
-   "sanzioni": 3,
-   "euro": 12500000,
+   "decisioni": 6,
+   "sanzioni": 4,
+   "euro": 12600000,
    "moral_suasion": 4,
    "settori": [
     "Moda e cosmetici",
@@ -559,238 +576,228 @@
    ],
    "casi": [
     {
+     "codice": "PS12525",
+     "provvedimento": "31445",
+     "data": "2025-01-21",
      "imprese": [
       "General Logistics Systems B.V.",
       "General Logistics Systems Italy S.p.A.",
       "General Logistics Systems Enterprise S.r.l."
      ],
-     "numeri": [
-      "PS12525"
-     ],
-     "data": "2025-02-04",
      "esito": "sanzione",
      "euro": 8000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/2/PS12525"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/5-25.pdf#page=28",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/2/PS12525"
     },
     {
+     "codice": "PS12793",
+     "provvedimento": "31638",
+     "data": "2025-07-29",
      "imprese": [
       "Giorgio Armani S.p.A.",
       "G.A. Operations S.p.A."
      ],
-     "numeri": [
-      "PS12793"
-     ],
-     "data": "2025-08-01",
      "esito": "sanzione",
      "euro": 3500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12793"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=134",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12793"
     },
     {
+     "codice": "PS12709",
+     "provvedimento": "31639",
+     "data": "2025-07-29",
      "imprese": [
       "Infinite Styles Services Co. Ltd"
      ],
-     "numeri": [
-      "PS12709"
-     ],
-     "data": "2025-08-04",
      "esito": "sanzione",
      "euro": 1000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12709-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/30-25.pdf#page=196",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/8/PS12709-"
     }
    ]
   },
   {
    "id": "promesse",
    "titolo": "La promessa che il prodotto non mantiene",
-   "come_funziona": "Auto «italiane» fatte in Cina, autonomia delle auto elettriche indicata solo in teoria, solari che «si rinforzano» con l'acqua, tabacco «senza fumo» presentato come innocuo, un «cashback» che in realtà è un investimento, un abbonamento «senza limiti» pieno di limiti.",
+   "come_funziona": "Auto «italiane» fatte in Cina, autonomia delle auto elettriche indicata solo in teoria, solari che «si rinforzano» con l'acqua, tabacco «senza fumo» presentato come innocuo, un «cashback» che in realtà è un investimento, offerte «unlimited» con limiti, titoli di giornale che l'articolo non mantiene.",
    "come_riconoscerla": "Superlativi senza prove; la frase forte nello spot e la smentita nel foglietto o nelle condizioni.",
    "cosa_fare": "Leggi condizioni e foglietto prima di comprare. Se il prodotto non è come promesso è un difetto di conformità: fai valere la garanzia.",
-   "decisioni": 10,
-   "sanzioni": 7,
-   "euro": 23465000,
+   "decisioni": 28,
+   "sanzioni": 13,
+   "euro": 29455000,
    "moral_suasion": 0,
    "settori": [
+    "Piattaforme digitali e IA",
     "Auto e noleggio",
     "Alimentari, bevande e tabacco",
-    "Piattaforme digitali e IA",
+    "Telefonia e TV",
+    "Banche, pagamenti e assicurazioni",
     "Moda e cosmetici",
+    "Commercio online",
     "Viaggi e trasporti",
-    "Banche, pagamenti e assicurazioni"
+    "Editoria e informazione"
    ],
    "casi": [
     {
+     "codice": "PS12638",
+     "provvedimento": "31255",
+     "data": "2024-06-11",
      "imprese": [
       "DR Automobiles S.r.l.",
       "DR Service & Parts S.r.l."
      ],
-     "numeri": [
-      "PS12638"
-     ],
-     "data": "2024-06-20",
      "esito": "sanzione",
      "euro": 6000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12638-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/25-24.pdf#page=85",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12638-"
     },
     {
+     "codice": "PS12940",
+     "provvedimento": "31985",
+     "data": "2026-06-09",
      "imprese": [
       "Philip Morris Italia S.r.l."
      ],
-     "numeri": [
-      "PS12940"
-     ],
-     "data": "2026-06-10",
      "esito": "sanzione",
      "euro": 7000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS12940-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=46",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/6/PS12940-"
     },
     {
+     "codice": "PS12985",
+     "provvedimento": "31984",
+     "data": "2026-05-26",
      "imprese": [
       "Trade Republic Bank GmbH"
      ],
-     "numeri": [
-      "PS12985"
-     ],
-     "data": "2026-06-09",
      "esito": "sanzione",
      "euro": 2500000,
-     "url": "https://www.agcm.it/media-e-comunicazione/dettaglio-notizia?id=39ca9d2b-c46c-4862-9871-ed14c1aa1ffb&parent=News&parentUrl=/Media-e-Comunicazione/news"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/24-26.pdf#page=20",
+     "comunicato": "https://www.agcm.it/media-e-comunicazione/dettaglio-notizia?id=39ca9d2b-c46c-4862-9871-ed14c1aa1ffb&parent=News&parentUrl=/Media-e-Comunicazione/news"
     }
    ]
   },
   {
    "id": "recensioni",
-   "titolo": "Recensioni, classifiche e consigli comprati",
-   "come_funziona": "Recensioni non controllate anche quando sono segnate come «verificate», comparatori pagati dai fornitori che non spiegano come ordinano le offerte, influencer che non dicono di fare pubblicità e gonfiano i follower.",
-   "come_riconoscerla": "Solo recensioni entusiaste; manca la scritta «pubblicità» o #adv; il comparatore non dice chi lo paga.",
-   "cosa_fare": "Leggi le recensioni negative e le più recenti; chiediti chi paga il comparatore. Ad ottobre 2026 l'Autorità ha pubblicato le Linee guida sulle recensioni online.",
-   "decisioni": 3,
-   "sanzioni": 3,
-   "euro": 5545000,
+   "titolo": "Recensioni, follower e pubblicità nascosta",
+   "come_funziona": "Recensioni non controllate anche quando sono segnate come «verificate», siti che vendono follower, like e recensioni a pacchetti, comparatori pagati dai fornitori, influencer e giornali che non dicono di fare pubblicità.",
+   "come_riconoscerla": "Solo recensioni entusiaste e tutte simili; manca la scritta «pubblicità» o #adv; il comparatore non dice chi lo paga; la classifica non spiega come è fatta.",
+   "cosa_fare": "Leggi le recensioni negative e le più recenti; chiediti chi paga il comparatore o la classifica. Ad ottobre 2026 l'Autorità ha pubblicato le Linee guida sulle recensioni online.",
+   "decisioni": 19,
+   "sanzioni": 11,
+   "euro": 5947000,
    "moral_suasion": 0,
    "settori": [
     "Piattaforme digitali e IA",
-    "Energia e telemarketing"
+    "Energia e telemarketing",
+    "Editoria e informazione"
    ],
    "casi": [
     {
+     "codice": "PS12962",
+     "provvedimento": "31878",
+     "data": "2026-03-17",
      "imprese": [
       "Trustpilot Group Plc",
       "Trustpilot A/S",
       "Trustpilot S.r.l."
      ],
-     "numeri": [
-      "PS12962"
-     ],
-     "data": "2026-03-23",
      "esito": "sanzione",
      "euro": 4000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/3/PS12962"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/12-26.pdf#page=29",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/3/PS12962"
     },
     {
+     "codice": "PS12798",
+     "provvedimento": "31485",
+     "data": "2025-03-04",
      "imprese": [
-      "Supermoney S.p.A."
+      "DLM Global Independent Business"
      ],
-     "numeri": [
-      "PS12578"
-     ],
-     "data": "2024-02-28",
      "esito": "sanzione",
-     "euro": 1480000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12578"
+     "euro": 10000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/11-25.pdf#page=99",
+     "comunicato": null
     },
     {
+     "codice": "PS12920",
+     "provvedimento": "31663",
+     "data": "2025-08-05",
      "imprese": [
-      "Sei influencer (persone fisiche, nomi omessi)"
+      "BFC Media S.p.A."
      ],
-     "numeri": [
-      "PS12814",
-      "PS12815",
-      "PS12816",
-      "PS12817",
-      "PS12818",
-      "PS12826"
-     ],
-     "data": "2025-06-11",
      "esito": "sanzione",
-     "euro": 65000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/6/PS12814-PS12815-PS12816-PS12817-PS12818-PS12826"
+     "euro": 150000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/33-25.pdf#page=45",
+     "comunicato": null
     }
    ]
   },
   {
    "id": "clausole",
    "titolo": "Le clausole scritte a senso unico",
-   "come_funziona": "Nel contratto ci sono regole che pesano solo su di te: una tariffa fissa per ogni multa presa con l'auto a noleggio, il diritto dell'azienda di cambiare servizio e prezzi quando vuole, limiti al recesso, il tribunale lontano da casa. Dal 2022 l'Autorità può multare anche le clausole vessatorie.",
-   "come_riconoscerla": "«La società può modificare in qualsiasi momento…», «penale», «fee amministrativa», un foro competente diverso dalla tua residenza.",
+   "come_funziona": "Nel contratto ci sono regole che pesano solo su di te: una tariffa fissa per ogni multa presa con l'auto a noleggio, l'esclusiva con il mediatore del mutuo, il diritto dell'azienda di cambiare servizio e prezzi quando vuole, limiti al recesso, il tribunale lontano da casa. Dal 2022 l'Autorità può multare anche le clausole vessatorie.",
+   "come_riconoscerla": "«La società può modificare in qualsiasi momento…», «penale», «fee amministrativa», «esclusiva», un foro competente diverso dalla tua residenza.",
    "cosa_fare": "Una clausola vessatoria non vale anche se l'hai firmata: contestala per iscritto. Il giudice competente è quello del luogo in cui vive il consumatore.",
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 29750000,
+   "decisioni": 20,
+   "sanzioni": 18,
+   "euro": 40659137,
    "moral_suasion": 0,
    "settori": [
-    "Casa e servizi per la casa",
     "Auto e noleggio",
+    "Banche, pagamenti e assicurazioni",
+    "Casa e servizi per la casa",
     "Viaggi e trasporti",
     "Cultura, sport e tempo libero"
    ],
    "casi": [
     {
+     "codice": "CV263",
+     "provvedimento": "31662",
+     "data": "2025-08-05",
      "imprese": [
-      "Avis Budget Italia S.p.A.",
-      "Hertz Italiana S.r.l.",
-      "Centauro Rent a Car Italy S.r.l.",
-      "Green Motion Italia S.r.l.",
-      "Noleggiare S.r.l.",
-      "Drivalia Leasys Rent S.p.A."
+      "Sicily by Car S.p.A."
      ],
-     "numeri": [
-      "CV242",
-      "CV243",
-      "CV244",
-      "CV245",
-      "CV247",
-      "CV248"
-     ],
-     "data": "2024-05-09",
      "esito": "sanzione",
-     "euro": 18000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248"
+     "euro": 8000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/34-25.pdf#page=29",
+     "comunicato": null
     },
     {
+     "codice": "CV242",
+     "provvedimento": "31176",
+     "data": "2024-04-18",
+     "imprese": [
+      "Avis Budget Italia S.p.A."
+     ],
+     "esito": "sanzione",
+     "euro": 9000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/19-24.pdf#page=5",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/5/CV242-CV243-CV244-CV245-CV247-CV248"
+    },
+    {
+     "codice": "PS12922",
+     "provvedimento": "31717",
+     "data": "2025-11-11",
      "imprese": [
       "Wizz Air Hungary Ltd"
      ],
-     "numeri": [
-      "PS12922"
-     ],
-     "data": "2025-11-14",
      "esito": "sanzione",
      "euro": 500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12922"
-    },
-    {
-     "imprese": [
-      "ALD Automotive"
-     ],
-     "numeri": [
-      "PS12954"
-     ],
-     "data": "2025-10-09",
-     "esito": "sanzione",
-     "euro": 5000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/10/PS12954"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/44-25.pdf#page=32",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12922"
     }
    ]
   },
   {
    "id": "dati-account",
    "titolo": "I tuoi dati e il tuo account come merce",
-   "come_funziona": "Consensi all'uso dei dati chiesti con spiegazioni incomplete; account o conti bloccati senza preavviso, senza spiegazioni e senza possibilità di replica, a volte con i tuoi soldi dentro.",
+   "come_funziona": "Consensi all'uso dei dati chiesti con spiegazioni incomplete o con un ricatto (l'app della banca che si blocca se non le dai accesso al telefono); account o conti bloccati senza preavviso, senza spiegazioni e senza possibilità di replica, a volte con i tuoi soldi dentro.",
    "come_riconoscerla": "Il pulsante «accetta tutto» in evidenza e il rifiuto nascosto; nessuna indicazione su come contestare un blocco.",
    "cosa_fare": "Scegli «personalizza» e limita i consensi. Se il conto è bloccato chiedi per iscritto il motivo e i tempi, poi segnala.",
-   "decisioni": 6,
-   "sanzioni": 5,
-   "euro": 30175000,
+   "decisioni": 11,
+   "sanzioni": 8,
+   "euro": 34195000,
    "moral_suasion": 0,
    "settori": [
     "Piattaforme digitali e IA",
@@ -799,44 +806,43 @@
    ],
    "casi": [
     {
+     "codice": "PS12974",
+     "provvedimento": "31910",
+     "data": "2026-03-23",
      "imprese": [
       "Revolut Securities Europe UAB",
       "Revolut Group Holdings Ltd",
       "Revolut Bank UAB"
      ],
-     "numeri": [
-      "PS12974"
-     ],
-     "data": "2026-04-02",
      "esito": "sanzione",
      "euro": 11500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2026/14-26.pdf#page=116",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2026/4/PS12974-"
     },
     {
+     "codice": "PS12768",
+     "provvedimento": "31566",
+     "data": "2025-05-20",
+     "imprese": [
+      "Poste Italiane S.p.A."
+     ],
+     "esito": "sanzione",
+     "euro": 4000000,
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2025/22-25.pdf#page=17",
+     "comunicato": null
+    },
+    {
+     "codice": "PS12566",
+     "provvedimento": "31214",
+     "data": "2024-05-21",
      "imprese": [
       "Meta Platforms Ireland Ltd.",
       "Meta Platforms Inc."
      ],
-     "numeri": [
-      "PS12566"
-     ],
-     "data": "2024-06-05",
      "esito": "sanzione",
      "euro": 3500000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12566"
-    },
-    {
-     "imprese": [
-      "Google",
-      "Alphabet"
-     ],
-     "numeri": [
-      "PS12714"
-     ],
-     "data": "2025-11-21",
-     "esito": "impegni",
-     "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2025/11/PS12714-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/23-24.pdf#page=94",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/6/PS12566"
     }
    ]
   },
@@ -857,43 +863,43 @@
    ],
    "casi": [
     {
+     "codice": "PS12543",
+     "provvedimento": "31124",
+     "data": "2024-03-05",
      "imprese": [
       "TikTok Technology Limited",
       "TikTok Information Technologies UK Limited",
       "TikTok Italy Srl"
      ],
-     "numeri": [
-      "PS12543"
-     ],
-     "data": "2024-03-14",
      "esito": "sanzione",
      "euro": 10000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12543-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/11-24.pdf#page=67",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12543-"
     },
     {
+     "codice": "PS12661",
+     "provvedimento": "31067",
+     "data": "2024-02-27",
      "imprese": [
       "DAVE's s.r.l."
      ],
-     "numeri": [
-      "PS12661"
-     ],
-     "data": "2024-03-04",
      "esito": "impegni",
      "euro": 0,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12661"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/9-24.pdf#page=79",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/3/PS12661"
     },
     {
+     "codice": "PS12524",
+     "provvedimento": "31053",
+     "data": "2024-01-30",
      "imprese": [
       "British American Tobacco Italia S.p.A.",
       "Amazon EU S.àr.l."
      ],
-     "numeri": [
-      "PS12524"
-     ],
-     "data": "2024-02-14",
      "esito": "sanzione",
      "euro": 7000000,
-     "url": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12524-"
+     "url": "https://www.agcm.it/dotcmsdoc/bollettini/2024/7-24.pdf#page=16",
+     "comunicato": "https://www.agcm.it/media/comunicati-stampa/2024/2/PS12524-"
     }
    ]
   }
