@@ -1,0 +1,109 @@
+{
+  "aggiornato": "2026-11-02",
+  "nota": "Sintesi scritta con un assistente AI leggendo gli oggetti e le motivazioni dei registri; ogni esempio rimanda al registro da cui viene. I conteggi per tema e per motivo li fa lo script (scripts/legge-accessi.py) con regole scritte dopo la lettura.",
+  "lettura": {
+    "oggetti_letti": 733,
+    "come": "Campione casuale stratificato per ente e tipo di accesso (8% di ogni gruppo, almeno 8 righe), letto per intero per scegliere i temi e scrivere le regole; poi 220 motivazioni di diniego lette per intero per i motivi.",
+    "controllo": "Su 120 richieste estratte a caso e controllate a mano, il tema assegnato dalle regole era giusto in 100 casi (83%); gli errori più frequenti (revisione della patente finita tra i concorsi, «riabilitazione» letta come abilitazione) sono stati corretti dopo il controllo."
+  },
+  "temi": [
+    {"id": "concorsi", "testo": "È il tema più frequente, soprattutto nell'accesso documentale: chi ha partecipato a un concorso chiede i propri elaborati, i voti, i verbali della commissione e spesso anche gli elaborati dei vincitori. Nel FOIA si chiedono tracce delle prove, numero di candidati e scorrimenti delle graduatorie.",
+     "esempi": [
+       {"ente": "pcm", "anno": 2024, "testo": "Copia dei propri elaborati e voti in un concorso per la magistratura amministrativa", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi documentali 2024 I semestre.pdf"},
+       {"ente": "giustizia", "anno": 2025, "testo": "Tracce estratte e non estratte ed elaborati dei vincitori del concorso per 1.660 funzionari", "url": "https://www.giustizia.it/cmsresources/cms/documents/registro_accessi_31dic2025.xlsx"},
+       {"ente": "istat", "anno": 2024, "testo": "Atti della selezione interna per 131 posti di primo ricercatore", "url": "https://www.istat.it/wp-content/uploads/2025/04/Registro-2024_IV-trimestre_documentale.pdf"}
+     ]},
+    {"id": "edilizia", "testo": "Quasi otto richieste su dieci arrivano all'Emilia-Romagna: centinaia sono domande di copia delle denunce delle opere in cemento armato (legge 1086/1971), che servono per compravendite e ristrutturazioni. Poi terreni, concessioni demaniali e cantieri.",
+     "esempi": [
+       {"ente": "er", "anno": 2024, "testo": "Copia o visura delle denunce di opere in cemento armato", "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_documentale_dati_personali_1_semestre_2024.csv/@@download/file"},
+       {"ente": "mit", "anno": 2025, "testo": "Copia di concessioni demaniali marittime", "url": "https://www.mit.gov.it/nfsmitgov/files/media/basic/2026-01/Registro%20Accessi%20FOIA%20%20Globale%202025%20EntiCAPITANERIE_12012026_173716_rpd.pdf"}
+     ]},
+    {"id": "trasporti", "testo": "Il registro del Ministero delle Infrastrutture, con le Capitanerie di porto, è pieno di richieste legate a fatti concreti: incidenti in mare, inchieste sui sinistri, imbarchi dei marittimi, revisioni della patente. Nei Comuni si chiedono i dati degli incidenti stradali e i documenti degli autovelox.",
+     "esempi": [
+       {"ente": "mit", "anno": 2024, "testo": "Verbale d'inchiesta formale su un sinistro marittimo", "url": "https://www.mit.gov.it:443/nfsmitgov/files/media/basic/2025-01/Reg%2C%20Accessi%20Capitanerie%20anno%202024.pdf"},
+       {"ente": "firenze", "anno": 2024, "testo": "Dati degli incidenti stradali del 2023 in formato dataset, con luogo e coordinate", "url": "https://amministrazionetrasparente.comune.fi.it/system/files/2025-01/REGISTRO-ACCESSI-30.01.2025_0.pdf"},
+       {"ente": "firenze", "anno": 2026, "testo": "Documentazione completa di un rilevatore della velocità", "url": "https://amministrazionetrasparente.comune.fi.it/system/files/2026-10/REGISTRO-ACCESSI-30.10.2026.pdf"}
+     ]},
+    {"id": "giustizia", "testo": "Giornalisti, ricercatori e associazioni chiedono numeri sul funzionamento della giustizia e della sicurezza: sentenze per corruzione, detenuti anziani, braccialetti elettronici, spese per le intercettazioni. Alla Difesa si chiedono costi di armamenti e documenti storici.",
+     "esempi": [
+       {"ente": "giustizia", "anno": 2024, "testo": "Numero di sentenze di assoluzione e condanna per corruzione e turbativa d'asta", "url": "https://www.giustizia.it/cmsresources/cms/documents/registroaccessi_FOIA_31dic2024.xlsx"},
+       {"ente": "giustizia", "anno": 2025, "testo": "Detenuti con più di 70 e 80 anni negli istituti della Lombardia", "url": "https://www.giustizia.it/cmsresources/cms/documents/registro_accessi_31dic2025.xlsx"},
+       {"ente": "difesa", "anno": 2026, "testo": "Documentazione sulla strage di Brescia del 28 maggio 1974 (non accolta)", "url": "https://www.difesa.it/assets/allegati/3007/registro_acg_2__trim_2026.pdf"}
+     ]},
+    {"id": "sanita", "testo": "Il Covid è ancora un tema: verbali del Comitato tecnico scientifico, dati sulle vaccinazioni e sui contagi. Alle Regioni si chiedono dati sulle prenotazioni, sulla mobilità sanitaria tra regioni e sui farmaci.",
+     "esempi": [
+       {"ente": "pcm", "anno": 2024, "testo": "Verbali del Comitato tecnico scientifico sull'emergenza Covid-19 (diniego: documenti non in possesso)", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi FOIA 2024 I semestre.pdf"},
+       {"ente": "er", "anno": 2024, "testo": "Status vaccinale Covid-19 dei residenti per mese, dal 2018 al 2023", "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_civico_generalizzato_foia_1_semestre_2024-1.csv/@@download/file"},
+       {"ente": "er", "anno": 2025, "testo": "Numero di prenotazioni sanitarie nei giorni festivi e prefestivi", "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2025/registro_richieste_accesso_civico_semplice_e_generalizzato_foia_2_semestre_2025.csv/@@download/file"}
+     ]},
+    {"id": "ambiente", "testo": "Caccia e pesca, inquinamento, impianti energetici e rifiuti. Molte richieste vengono da associazioni ambientaliste e animaliste, altre da agricoltori che chiedono le carte della propria azienda.",
+     "esempi": [
+       {"ente": "er", "anno": 2024, "testo": "Parere dell'ISPRA e del comitato faunistico sul calendario venatorio 2024/2025", "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_documentale_dati_personali_1_semestre_2024.csv/@@download/file"},
+       {"ente": "masaf", "anno": 2025, "testo": "Pesca accidentale (negata per tutela delle relazioni internazionali)", "url": "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11121"}
+     ]},
+    {"id": "contributi", "testo": "Chi ha partecipato a un bando chiede come è stata valutata la propria domanda o quella degli altri; altri chiedono come sono stati spesi i fondi (otto per mille, PNRR, fondi europei per la pesca).",
+     "esempi": [
+       {"ente": "pcm", "anno": 2024, "testo": "Contributo otto per mille ricevuto da un Comune", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi FOIA 2024 I semestre.pdf"},
+       {"ente": "er", "anno": 2024, "testo": "Domanda di contributo FEAMP 2014-2020", "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_documentale_dati_personali_1_semestre_2024.csv/@@download/file"}
+     ]},
+    {"id": "appalti", "testo": "Imprese escluse e concorrenti chiedono gli atti delle gare; cittadini e giornalisti chiedono contratti e fornitori.",
+     "esempi": [
+       {"ente": "mef", "anno": 2025, "testo": "Contratti di sponsorizzazione del Festival di Sanremo 2024-2025 (dati non posseduti)", "url": "https://www.mef.gov.it/operazione-trasparenza/altri_contenuti/foia/index.html"},
+       {"ente": "difesa", "anno": 2026, "testo": "Documentazione di una gara per baschi e berretti", "url": "https://www.difesa.it/assets/allegati/3007/registro_acg_2__trim_2026.pdf"}
+     ]},
+    {"id": "vigilanza", "testo": "Chi ha fatto un esposto vuole sapere che fine ha fatto; soci di cooperative chiedono i verbali delle ispezioni ministeriali; si chiedono i fascicoli di vigilanza dell'ANAC.",
+     "esempi": [
+       {"ente": "mimit", "anno": 2024, "testo": "Verbale di un'ispezione su una società cooperativa", "url": "https://www.mimit.gov.it/images/stories/trasparenza/2025/R.A.-_Anno_2024.xlsx"},
+       {"ente": "anac", "anno": 2025, "testo": "Memorie di un procedimento di vigilanza (diniego)", "url": "https://www.anticorruzione.it/documents/91439/0/accesso+civico+generalizzato+I+sem.+2025.pdf/13f04278-6725-4064-fe4f-dc2a9c697a9f?t=1754915156443"}
+     ]},
+    {"id": "dati", "testo": "Richieste di numeri: prezzi dei carburanti, andamento di programmi pubblici, serie storiche. Quando i dati non esistono già in forma pronta, l'ufficio spesso risponde che non è tenuto a elaborarli.",
+     "esempi": [
+       {"ente": "mimit", "anno": 2025, "testo": "Dati di monitoraggio del programma «Investor visa»", "url": "https://www.mimit.gov.it/images/stories/trasparenza/2025/FOIA-2025.xlsx"},
+       {"ente": "istat", "anno": 2024, "testo": "Numero di cacciatori in Italia dal 2014 al 2023 (l'Istat non produce il dato)", "url": "https://www.istat.it/wp-content/uploads/2025/10/Registro-2024_civico-e-generalizzato.pdf"}
+     ]},
+    {"id": "pratiche", "testo": "Molti usano il FOIA per una questione personale (pensione, invalidità di un familiare, propria posizione): l'INPS risponde che per questo il FOIA non serve, perché è pensato per il controllo diffuso sull'amministrazione e non per un interesse privato.",
+     "esempi": [
+       {"ente": "inps", "anno": 2024, "testo": "Documenti, come erede, di una domanda di pensione di invalidità civile", "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Registro_Accesso_civico_generalizzato_anno_2024.pdf"}
+     ]},
+    {"id": "personale", "testo": "Organizzazione degli uffici, dirigenti, sindacati e numeri sul personale, comprese le Forze armate.",
+     "esempi": [
+       {"ente": "difesa", "anno": 2025, "testo": "Rappresentatività delle associazioni sindacali tra militari", "url": "https://www.difesa.it/assets/allegati/3007/registro_acg__4_2025.pdf"},
+       {"ente": "difesa", "anno": 2024, "testo": "Dati sulla presenza delle donne nell'Arma dei Carabinieri", "url": "https://www.difesa.it/assets/allegati/3007/registro_acg_iv_trim_anonimizzato.pdf"}
+     ]},
+    {"id": "istituzioni", "testo": "Agende e incontri degli uffici politici, testi preliminari dei disegni di legge, delibere: le richieste più vicine al controllo dell'attività di governo.",
+     "esempi": [
+       {"ente": "pcm", "anno": 2025, "testo": "Incontri tenuti dagli uffici con soggetti terzi", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiFOIA_2025_IIsem.pdf"},
+       {"ente": "pcm", "anno": 2025, "testo": "Testo preliminare del disegno di legge che modifica la legge n. 55 del 2024", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiFOIA_2025_IIsem.pdf"}
+     ]}
+  ],
+  "motivi": [
+    {"id": "non_posseduto", "testo": "È la risposta più comune: l'ufficio dice di non avere il documento o di non averlo nella forma chiesta. Non è un rifiuto di merito: a volte il documento è altrove, a volte non esiste.",
+     "esempi": [
+       {"ente": "pcm", "anno": 2024, "testo": "Verbali del Comitato tecnico scientifico: «non in possesso della documentazione»", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi FOIA 2024 I semestre.pdf"}
+     ]},
+    {"id": "strumento", "testo": "La domanda non rientra nel tipo di accesso usato. Il caso tipico è il FOIA usato per una pratica personale: l'INPS risponde quasi sempre che il FOIA serve a «favorire forme diffuse di controllo» e non a tutelare un interesse privato. Altri casi: atti dei giudici, informazioni che non sono documenti, richieste di pubblicare ciò che la legge non obbliga a pubblicare.",
+     "esempi": [
+       {"ente": "inps", "anno": 2024, "testo": "Richiesta legata a una pensione di privilegio: «esula dalla finalità» del FOIA", "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Registro_Accesso_civico_generalizzato_anno_2024.pdf"}
+     ]},
+    {"id": "generica", "testo": "Richieste troppo ampie («tutti i documenti su…») o che obbligherebbero a creare un dato nuovo: la legge non chiede agli uffici di fare elaborazioni, ma di dare ciò che hanno.",
+     "esempi": [
+       {"ente": "pcm", "anno": 2025, "testo": "Realizzazione del termovalorizzatore di Acerra: «richiesta estremamente generica»", "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiDocum_2025_IIsem.pdf"}
+     ]},
+    {"id": "privacy", "testo": "I documenti contengono dati di altre persone che non si possono oscurare, o si chiedono dati su gruppi così piccoli da rendere riconoscibili le persone.",
+     "esempi": [
+       {"ente": "inps", "anno": 2025, "testo": "Dati comunali sul reddito di libertà: negati per la riservatezza dei beneficiari", "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/ACCESSO_Accesso_Generalizzato_intero_anno_2025.pdf"}
+     ]},
+    {"id": "segreto", "testo": "Casi in cui una legge esclude l'accesso: segreto d'ufficio delle autorità di vigilanza, segreto statistico, atti riservati del Consiglio dei ministri.",
+     "esempi": [
+       {"ente": "consob", "anno": 2025, "testo": "Esposti su truffe finanziarie nel trading: negati per il segreto d'ufficio", "url": "https://www.consob.it/documents/d/asset-library-1912910/accessi33_20251231"}
+     ]},
+    {"id": "sicurezza", "testo": "Al Ministero dell'Agricoltura alcune richieste su pesca e deforestazione sono state negate citando le relazioni internazionali; alla Giustizia, la sicurezza delle strutture.",
+     "esempi": [
+       {"ente": "masaf", "anno": 2025, "testo": "Pesca accidentale: negata per «relazioni internazionali»", "url": "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11121"}
+     ]},
+    {"id": "interesse", "testo": "Nell'accesso documentale chi chiede deve avere un interesse «diretto, concreto e attuale». Molti dinieghi della Presidenza del Consiglio sono scritti solo così: «carenza di interesse».",
+     "esempi": []},
+    {"id": "indagini", "testo": "Atti già trasmessi alla Procura, inchieste sui sinistri ancora aperte, ispezioni in corso: si nega o si rinvia per non danneggiare l'indagine.",
+     "esempi": []}
+  ]
+}

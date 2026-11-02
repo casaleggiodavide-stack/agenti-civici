@@ -1,0 +1,502 @@
+{
+ "aggiornato": "2026-11-02",
+ "file": [
+  {
+   "file": "agcm/Registro_degli_accessi_II_Semestre_2025_def_pubblicazione.pdf",
+   "ente": "agcm",
+   "url": "https://www.agcm.it/dotcmsdoc/trasparenza/accesso-civico/Registro_degli_accessi_II_Semestre_2025_def_pubblicazione.pdf",
+   "righe": 8
+  },
+  {
+   "file": "agcm/Registro_degli_accessi_I_semestre_2025.pdf",
+   "ente": "agcm",
+   "url": "https://www.agcm.it/dotcmsdoc/trasparenza/accesso-civico/Registro_degli_accessi_I_semestre_2025.pdf",
+   "righe": 4
+  },
+  {
+   "file": "anac/Registro.accessi.civici-I.sem.2026.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/2365873/Registro.accessi.civici-I.sem.2026.pdf/c1e5431a-c6bd-5c69-1ce7-3eee412c77f5?t=1783510928413",
+   "righe": 4
+  },
+  {
+   "file": "anac/accesso+civico+generalizzato+-+II+sem.+2025.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/129009/accesso+civico+generalizzato+-+II+sem.+2025.pdf/e26fd7dd-ccfa-7582-0676-58e7186941c9?t=1767973348247",
+   "righe": 9
+  },
+  {
+   "file": "anac/accesso+civico+generalizzato+I+sem.+2024.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/0/accesso+civico+generalizzato+I+sem.+2024.pdf/2e1a1635-834a-b3c5-aaf7-f1fcea1ec460?t=1754915156187",
+   "righe": 5
+  },
+  {
+   "file": "anac/accesso+civico+generalizzato+I+sem.+2025.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/0/accesso+civico+generalizzato+I+sem.+2025.pdf/13f04278-6725-4064-fe4f-dc2a9c697a9f?t=1754915156443",
+   "righe": 4
+  },
+  {
+   "file": "anac/accesso+civico+generalizzato+II+sem.+2024.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/0/accesso+civico+generalizzato+II+sem.+2024.pdf/28810922-eea1-b3d5-1565-9d1204176a2e?t=1754915032967",
+   "righe": 8
+  },
+  {
+   "file": "anac/accesso+civico+generalizzato+e+accesso+civico+semplice+II+sem.+2024.pdf",
+   "ente": "anac",
+   "url": "https://www.anticorruzione.it/documents/91439/129009/accesso+civico+generalizzato+e+accesso+civico+semplice+II+sem.+2024.pdf/bbbb2539-733f-75b1-9f2c-b7c296a7d8eb?t=1768571250932",
+   "righe": 0
+  },
+  {
+   "file": "consob/Registro_accesso_civico_al_30_giugno_2026.pdf",
+   "ente": "consob",
+   "url": "https://www.consob.it/documents/d/asset-library-1912910/accessi_33_2013_2026_1_gennaio_30_giugno",
+   "righe": 9
+  },
+  {
+   "file": "consob/Registro_accesso_civico_al_31_dicembre_2024.pdf",
+   "ente": "consob",
+   "url": "https://www.consob.it/documents/d/asset-library-1912910/accessi33_2013_civici2024sito-2",
+   "righe": 5
+  },
+  {
+   "file": "consob/Registro_accesso_civico_al_31_dicembre_2025.pdf",
+   "ente": "consob",
+   "url": "https://www.consob.it/documents/d/asset-library-1912910/accessi33_20251231",
+   "righe": 7
+  },
+  {
+   "file": "cultura/Registro degli accessi MIC_ al 17 luglio 2024 1.xls",
+   "ente": "cultura",
+   "url": "https://trasparenza.cultura.gov.it//../archiviofile/mic/Registro%20accesso%20civico/Registro%20degli%20accessi%20MIC_%20al%2017%20luglio%202024%201.xls",
+   "righe": 72
+  },
+  {
+   "file": "difesa/registro_acg_2__trim_2026.pdf",
+   "ente": "difesa",
+   "url": "https://www.difesa.it/assets/allegati/3007/registro_acg_2__trim_2026.pdf",
+   "righe": 98
+  },
+  {
+   "file": "difesa/registro_acg__4_2025.pdf",
+   "ente": "difesa",
+   "url": "https://www.difesa.it/assets/allegati/3007/registro_acg__4_2025.pdf",
+   "righe": 148
+  },
+  {
+   "file": "difesa/registro_acg_iv_trim_anonimizzato.pdf",
+   "ente": "difesa",
+   "url": "https://www.difesa.it/assets/allegati/3007/registro_acg_iv_trim_anonimizzato.pdf",
+   "righe": 120
+  },
+  {
+   "file": "er/registro_richieste_accesso_civico_generalizzato_foia_1_semestre_2024-1.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_civico_generalizzato_foia_1_semestre_2024-1.csv/@@download/file",
+   "righe": 31
+  },
+  {
+   "file": "er/registro_richieste_accesso_civico_generalizzato_foia_2_semestre_2024.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_civico_generalizzato_foia_2_semestre_2024.csv/@@download/file",
+   "righe": 27
+  },
+  {
+   "file": "er/registro_richieste_accesso_civico_semplice_e_generalizzato_foia_1_semestre_2025.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2025/registro_richieste_accesso_civico_semplice_e_generalizzato_foia_1_semestre_2025.csv/@@download/file",
+   "righe": 35
+  },
+  {
+   "file": "er/registro_richieste_accesso_civico_semplice_e_generalizzato_foia_2_semestre_2025.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2025/registro_richieste_accesso_civico_semplice_e_generalizzato_foia_2_semestre_2025.csv/@@download/file",
+   "righe": 38
+  },
+  {
+   "file": "er/registro_richieste_accesso_documentale_dati_personali_1_semestre_2024.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_documentale_dati_personali_1_semestre_2024.csv/@@download/file",
+   "righe": 388
+  },
+  {
+   "file": "er/registro_richieste_accesso_documentale_dati_personali_1_semestre_2025.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2025/registro_richieste_accesso_documentale_dati_personali_1_semestre_2025.csv/@@download/file",
+   "righe": 429
+  },
+  {
+   "file": "er/registro_richieste_accesso_documentale_dati_personali_2_semestre_2024.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2024/registro_richieste_accesso_documentale_dati_personali_2_semestre_2024.csv/@@download/file",
+   "righe": 369
+  },
+  {
+   "file": "er/registro_richieste_accesso_documentale_dati_personali_2_semestre_2025.csv",
+   "ente": "er",
+   "url": "https://trasparenza.regione.emilia-romagna.it/altri-contenuti/accesso-civico/registro-degli-accessi-2025/registro_richieste_accesso_documentale_dati_personali_2_semestre_2025.csv/@@download/file",
+   "righe": 392
+  },
+  {
+   "file": "firenze/2026.01.28-REGISTRO-ACCESSI.pdf",
+   "ente": "firenze",
+   "url": "https://amministrazionetrasparente.comune.fi.it/system/files/2026-01/2026.01.28-REGISTRO-ACCESSI.pdf",
+   "righe": 52
+  },
+  {
+   "file": "firenze/REGISTRO-ACCESSI-30.01.2025_0.pdf",
+   "ente": "firenze",
+   "url": "https://amministrazionetrasparente.comune.fi.it/system/files/2025-01/REGISTRO-ACCESSI-30.01.2025_0.pdf",
+   "righe": 32
+  },
+  {
+   "file": "firenze/REGISTRO-ACCESSI-30.10.2026.pdf",
+   "ente": "firenze",
+   "url": "https://amministrazionetrasparente.comune.fi.it/system/files/2026-10/REGISTRO-ACCESSI-30.10.2026.pdf",
+   "righe": 59
+  },
+  {
+   "file": "giustizia/registro_accessi_22mag2026.xls",
+   "ente": "giustizia",
+   "url": "https://www.giustizia.it/cmsresources/cms/documents/registro_accessi_22mag2026.xls",
+   "righe": 224
+  },
+  {
+   "file": "giustizia/registro_accessi_31dic2025.xlsx",
+   "ente": "giustizia",
+   "url": "https://www.giustizia.it/cmsresources/cms/documents/registro_accessi_31dic2025.xlsx",
+   "righe": 206
+  },
+  {
+   "file": "giustizia/registroaccessi_FOIA_31dic2024.xlsx",
+   "ente": "giustizia",
+   "url": "https://www.giustizia.it/cmsresources/cms/documents/registroaccessi_FOIA_31dic2024.xlsx",
+   "righe": 137
+  },
+  {
+   "file": "inps/ACCESSO_Accesso_Generalizzato_intero_anno_2025.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/ACCESSO_Accesso_Generalizzato_intero_anno_2025.pdf",
+   "righe": 96
+  },
+  {
+   "file": "inps/ACCESSO_Accesso_civico_semplice_2025.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/ACCESSO_Accesso_civico_semplice_2025.pdf",
+   "righe": 1
+  },
+  {
+   "file": "inps/Accesso_civico_generalizzato_I_semestre2026.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Accesso_civico_generalizzato_I_semestre2026.pdf",
+   "righe": 47
+  },
+  {
+   "file": "inps/Accesso_civico_semplice_2026.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Accesso_civico_semplice_2026.pdf",
+   "righe": 5
+  },
+  {
+   "file": "inps/Registro_Accesso_civico_generalizzato_anno_2024.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Registro_Accesso_civico_generalizzato_anno_2024.pdf",
+   "righe": 62
+  },
+  {
+   "file": "inps/Registro_Accesso_civico_semplice_2024.pdf",
+   "ente": "inps",
+   "url": "https://www.inps.it/content/dam/inps-site/pdf/file-at/amministrazione-trasparente/documenti/altri-contenuti/Registro_Accesso_civico_semplice_2024.pdf",
+   "righe": 3
+  },
+  {
+   "file": "istat/Registro-2024_I-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2024/09/Registro-2024_I-trimestre_documentale.pdf",
+   "righe": 44
+  },
+  {
+   "file": "istat/Registro-2024_II-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2024/10/Registro-2024_II-trimestre_documentale.pdf",
+   "righe": 14
+  },
+  {
+   "file": "istat/Registro-2024_III-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/01/Registro-2024_III-trimestre_documentale.pdf",
+   "righe": 16
+  },
+  {
+   "file": "istat/Registro-2024_IV-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/04/Registro-2024_IV-trimestre_documentale.pdf",
+   "righe": 32
+  },
+  {
+   "file": "istat/Registro-2024_civico-e-generalizzato.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/10/Registro-2024_civico-e-generalizzato.pdf",
+   "righe": 4
+  },
+  {
+   "file": "istat/Registro-2025_I-semestre_civico-generalizzato.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/10/Registro-2025_I-semestre_civico-generalizzato.pdf",
+   "righe": 8
+  },
+  {
+   "file": "istat/Registro-2025_I-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/05/Registro-2025_I-trimestre_documentale.pdf",
+   "righe": 303
+  },
+  {
+   "file": "istat/Registro-2025_II-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/08/Registro-2025_II-trimestre_documentale.pdf",
+   "righe": 26
+  },
+  {
+   "file": "istat/Registro-2025_III-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2025/11/Registro-2025_III-trimestre_documentale.pdf",
+   "righe": 13
+  },
+  {
+   "file": "istat/Registro-2025_IV-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2026/03/Registro-2025_IV-trimestre_documentale.pdf",
+   "righe": 20
+  },
+  {
+   "file": "istat/Registro-2025_civico-e-general_II-semestre.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2026/01/Registro-2025_civico-e-general_II-semestre.pdf",
+   "righe": 9
+  },
+  {
+   "file": "istat/Registro-2026_I-trimestre_documentale.pdf",
+   "ente": "istat",
+   "url": "https://www.istat.it/wp-content/uploads/2026/05/Registro-2026_I-trimestre_documentale.pdf",
+   "righe": 43
+  },
+  {
+   "file": "lazio/Report-accessi-civici-2024_0.ods",
+   "ente": "lazio",
+   "url": "https://www.regione.lazio.it/sites/default/files/2025-05/Report-accessi-civici-2024_0.ods",
+   "righe": 144
+  },
+  {
+   "file": "lazio/Report-accessi-civici-2025.pdf",
+   "ente": "lazio",
+   "url": "https://www.regione.lazio.it/sites/default/files/2026-04/Report-accessi-civici-2025.pdf",
+   "righe": 134
+  },
+  {
+   "file": "masaf/Registro_degli_accessi_1_e_2_trimestre_2024_versione_ODS_10_12_KB.ods",
+   "ente": "masaf",
+   "url": "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F6%252Fb%252FD.5221038244a2c07099ae/P/BLOB%3AID%3D11121/E/ods?mode=download",
+   "righe": 11
+  },
+  {
+   "file": "masaf/Registro_degli_accessi_2025_6_97_KB.ods",
+   "ente": "masaf",
+   "url": "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fc%252F2%252FD.84ac50b468401d24ca01/P/BLOB%3AID%3D11121/E/ods?mode=download",
+   "righe": 19
+  },
+  {
+   "file": "masaf/Registro_degli_accessi_2026_aggiornato_a_settembre_2026_7_82_KB.ods",
+   "ente": "masaf",
+   "url": "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F5%252Fe%252FD.25507c74c3ba4660e755/P/BLOB%3AID%3D11121/E/ods?mode=download",
+   "righe": 31
+  },
+  {
+   "file": "masaf/Registro_degli_accessi_3_e_4_trimestre_2024_nuova_versione_5_68_KB.ods",
+   "ente": "masaf",
+   "url": "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F7%252Fa%252FD.900e07a6c6cc774cbe65/P/BLOB%3AID%3D11121/E/ods?mode=download",
+   "righe": 6
+  },
+  {
+   "file": "mef/20261014_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_PrimoSemestre2026.pdf",
+   "ente": "mef",
+   "url": "https://www.mef.gov.it/export/sites/MEF/documenti-allegati/2026/operazione-trasparenza/20261014_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_PrimoSemestre2026.pdf",
+   "righe": 29
+  },
+  {
+   "file": "mef/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2024/20240808_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_PrimoSemestre2024.pdf",
+   "ente": "mef",
+   "url": "https://www.mef.gov.it/documenti-allegati/2024/operazione-trasparenza/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2024.7z",
+   "righe": 23
+  },
+  {
+   "file": "mef/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2024/20250305_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_SecondoSemestre2024.pdf",
+   "ente": "mef",
+   "url": "https://www.mef.gov.it/documenti-allegati/2024/operazione-trasparenza/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2024.7z",
+   "righe": 29
+  },
+  {
+   "file": "mef/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2025/20250909_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_PrimoSemestre2025.pdf",
+   "ente": "mef",
+   "url": "https://www.mef.gov.it/documenti-allegati/2025/operazione-trasparenza/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2025.7z",
+   "righe": 20
+  },
+  {
+   "file": "mef/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2025/20260225_DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_SecondoSemestre2025.pdf",
+   "ente": "mef",
+   "url": "https://www.mef.gov.it/documenti-allegati/2025/operazione-trasparenza/DAG_DCI_UfficioII_RegistroAccessoCivicoGeneralizzato_Anno2025.7z",
+   "righe": 29
+  },
+  {
+   "file": "mimit/FOIA-2025.xlsx",
+   "ente": "mimit",
+   "url": "https://www.mimit.gov.it/images/stories/trasparenza/2025/FOIA-2025.xlsx",
+   "righe": 61
+  },
+  {
+   "file": "mimit/FOIA-2026-1semestre_2.xlsx",
+   "ente": "mimit",
+   "url": "https://www.mimit.gov.it/images/stories/trasparenza/2026/FOIA-2026-1semestre_2.xlsx",
+   "righe": 40
+  },
+  {
+   "file": "mimit/R.A.-_Anno_2024.xlsx",
+   "ente": "mimit",
+   "url": "https://www.mimit.gov.it/images/stories/trasparenza/2025/R.A.-_Anno_2024.xlsx",
+   "righe": 86
+  },
+  {
+   "file": "mit/REGISTRO FOIA ENTI CIVILI 2024- anno 2024.pdf",
+   "ente": "mit",
+   "url": "https://www.mit.gov.it:443/nfsmitgov/files/media/basic/2025-01/REGISTRO%20FOIA%20ENTI%20CIVILI%202024-%20anno%202024.pdf",
+   "righe": 453
+  },
+  {
+   "file": "mit/Reg, Accessi Capitanerie anno 2024.pdf",
+   "ente": "mit",
+   "url": "https://www.mit.gov.it:443/nfsmitgov/files/media/basic/2025-01/Reg%2C%20Accessi%20Capitanerie%20anno%202024.pdf",
+   "righe": 1103
+  },
+  {
+   "file": "mit/Registro Accessi FOIA  Globale 2025 EntiCAPITANERIE_12012026_173716_rpd.pdf",
+   "ente": "mit",
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/basic/2026-01/Registro%20Accessi%20FOIA%20%20Globale%202025%20EntiCAPITANERIE_12012026_173716_rpd.pdf",
+   "righe": 1072
+  },
+  {
+   "file": "mit/Registro Accessi FOIA Globale 2025 Enti CIVILI_12012026_173948_rpd.pdf",
+   "ente": "mit",
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/basic/2026-01/Registro%20Accessi%20FOIA%20Globale%202025%20Enti%20CIVILI_12012026_173948_rpd.pdf",
+   "righe": 516
+  },
+  {
+   "file": "mur/REGISTRO ACCESSI - I SEMESTRE 2025.xlsx",
+   "ente": "mur",
+   "url": "https://trasparenza.mur.gov.it//../../archiviofile/mur/Altri%20contenuti/Accesso%20civico/REGISTRO%20ACCESSI%20-%20I%20SEMESTRE%202025.xlsx",
+   "righe": 18
+  },
+  {
+   "file": "mur/REGISTRO_ACCESSI_1_sem_2024.xlsx",
+   "ente": "mur",
+   "url": "https://trasparenza.mur.gov.it//../../archiviofile/mur/Altri%20contenuti/Accesso%20civico/REGISTRO_ACCESSI_1_sem_2024.xlsx",
+   "righe": 25
+  },
+  {
+   "file": "mur/Registro Accessi 2° semestre 2024 senza dati personali.xlsx",
+   "ente": "mur",
+   "url": "https://trasparenza.mur.gov.it//../../archiviofile/mur/Altri%20contenuti/Accesso%20civico/Registro%20Accessi%202%C2%B0%20semestre%202024%20senza%20dati%20personali.xlsx",
+   "righe": 18
+  },
+  {
+   "file": "mur/Registro accessi I semestre 2026 anonimizzato.xlsx",
+   "ente": "mur",
+   "url": "https://trasparenza.mur.gov.it//../../archiviofile/mur/Altri%20contenuti/Accesso%20civico/Registro%20accessi%20I%20semestre%202026%20anonimizzato.xlsx",
+   "righe": 19
+  },
+  {
+   "file": "mur/Registro accessi II semestre 2025 - anonimo.xlsx",
+   "ente": "mur",
+   "url": "https://trasparenza.mur.gov.it//../../archiviofile/mur/Altri%20contenuti/Accesso%20civico/Registro%20accessi%20II%20semestre%202025%20-%20anonimo.xlsx",
+   "righe": 23
+  },
+  {
+   "file": "pcm/RegAccessiCiviciSemplici_2025_IIsem.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiCiviciSemplici_2025_IIsem.pdf",
+   "righe": 4
+  },
+  {
+   "file": "pcm/RegAccessiDocum_2025_IIsem.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiDocum_2025_IIsem.pdf",
+   "righe": 332
+  },
+  {
+   "file": "pcm/RegAccessiFOIA_2025_IIsem.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/RegAccessiFOIA_2025_IIsem.pdf",
+   "righe": 109
+  },
+  {
+   "file": "pcm/Registro accessi FOIA 2024 I semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi FOIA 2024 I semestre.pdf",
+   "righe": 114
+  },
+  {
+   "file": "pcm/Registro accessi FOIA 2024 II semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi FOIA 2024 II semestre.pdf",
+   "righe": 89
+  },
+  {
+   "file": "pcm/Registro accessi FOIA 2025 I semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/Registro accessi FOIA 2025 I semestre.pdf",
+   "righe": 104
+  },
+  {
+   "file": "pcm/Registro accessi civici semplici 2024 I semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi civici semplici 2024 I semestre.pdf",
+   "righe": 3
+  },
+  {
+   "file": "pcm/Registro accessi civici semplici 2024 II semestre PCM.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi civici semplici 2024 II semestre PCM.pdf",
+   "righe": 0
+  },
+  {
+   "file": "pcm/Registro accessi civici semplici 2025 I semestre PCM.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/Registro accessi civici semplici 2025 I semestre PCM.pdf",
+   "righe": 1
+  },
+  {
+   "file": "pcm/Registro accessi documentali 2024 I semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi documentali 2024 I semestre.pdf",
+   "righe": 913
+  },
+  {
+   "file": "pcm/Registro accessi documentali 2024 II semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2024/Registro accessi documentali 2024 II semestre.pdf",
+   "righe": 359
+  },
+  {
+   "file": "pcm/Registro accessi documentali 2025 I semestre.pdf",
+   "ente": "pcm",
+   "url": "https://presidenza.governo.it/AmministrazioneTrasparente/AltriContenuti/AccessoCivico/registro_accessi/2025/Registro accessi documentali 2025 I semestre.pdf",
+   "righe": 346
+  }
+ ],
+ "errori": [
+  "intestazione non trovata in accesso+civico+generalizzato+e+accesso+civico+semplice+II+sem.+2024.pdf",
+  "29 richieste arrivate prima del 2024 (code dei registri 2024) non contate"
+ ],
+ "blocchi": {}
+}

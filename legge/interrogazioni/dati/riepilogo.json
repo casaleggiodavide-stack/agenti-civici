@@ -1,0 +1,1014 @@
+{
+ "aggiornato": "2026-11-02",
+ "legislatura": "XIX (dal 13 ottobre 2022)",
+ "totale": 25821,
+ "per_ramo": {
+  "C": 19405,
+  "S": 6416
+ },
+ "senza_question_time": {
+  "atti": 22128,
+  "con_risposta": 5074,
+  "quota": 22.9,
+  "giorni_mediani": 62,
+  "chiusi_senza_risposta": 1594,
+  "in_attesa": 15460,
+  "in_attesa_oltre_un_anno": 10453
+ },
+ "per_tipo": [
+  {
+   "ramo": "C",
+   "tipo": "scritta",
+   "nome": "Interrogazioni a risposta scritta",
+   "atti": 9503,
+   "con_risposta": 1863,
+   "quota": 19.6,
+   "giorni_mediani": 95,
+   "chiusi_senza_risposta": 525,
+   "in_attesa": 7115,
+   "in_attesa_oltre_un_anno": 4381
+  },
+  {
+   "ramo": "C",
+   "tipo": "commissione",
+   "nome": "Interrogazioni in commissione",
+   "atti": 3853,
+   "con_risposta": 618,
+   "quota": 16.0,
+   "giorni_mediani": 49,
+   "chiusi_senza_risposta": 600,
+   "in_attesa": 2635,
+   "in_attesa_oltre_un_anno": 1957
+  },
+  {
+   "ramo": "C",
+   "tipo": "orale",
+   "nome": "Interrogazioni a risposta orale",
+   "atti": 1386,
+   "con_risposta": 314,
+   "quota": 22.7,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 163,
+   "in_attesa": 909,
+   "in_attesa_oltre_un_anno": 707
+  },
+  {
+   "ramo": "C",
+   "tipo": "interpellanza",
+   "nome": "Interpellanze",
+   "atti": 584,
+   "con_risposta": 30,
+   "quota": 5.1,
+   "giorni_mediani": 109,
+   "chiusi_senza_risposta": 57,
+   "in_attesa": 497,
+   "in_attesa_oltre_un_anno": 354
+  },
+  {
+   "ramo": "C",
+   "tipo": "urgente",
+   "nome": "Interpellanze urgenti",
+   "atti": 386,
+   "con_risposta": 346,
+   "quota": 89.6,
+   "giorni_mediani": 3,
+   "chiusi_senza_risposta": 37,
+   "in_attesa": 3,
+   "in_attesa_oltre_un_anno": 0
+  },
+  {
+   "ramo": "C",
+   "tipo": "qt_aula",
+   "nome": "Question time in Aula",
+   "atti": 1607,
+   "con_risposta": 1602,
+   "quota": 99.7,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 3,
+   "in_attesa": 2,
+   "in_attesa_oltre_un_anno": 2
+  },
+  {
+   "ramo": "C",
+   "tipo": "qt_comm",
+   "nome": "Question time in commissione",
+   "atti": 2086,
+   "con_risposta": 1992,
+   "quota": 95.5,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 45,
+   "in_attesa": 49,
+   "in_attesa_oltre_un_anno": 40
+  },
+  {
+   "ramo": "S",
+   "tipo": "scritta",
+   "nome": "Interrogazioni a risposta scritta",
+   "atti": 3504,
+   "con_risposta": 773,
+   "quota": 22.1,
+   "giorni_mediani": 72,
+   "chiusi_senza_risposta": 100,
+   "in_attesa": 2631,
+   "in_attesa_oltre_un_anno": 1805
+  },
+  {
+   "ramo": "S",
+   "tipo": "orale",
+   "nome": "Interrogazioni a risposta orale",
+   "atti": 2877,
+   "con_risposta": 1126,
+   "quota": 39.1,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 110,
+   "in_attesa": 1641,
+   "in_attesa_oltre_un_anno": 1229
+  },
+  {
+   "ramo": "S",
+   "tipo": "interpellanza",
+   "nome": "Interpellanze",
+   "atti": 35,
+   "con_risposta": 4,
+   "quota": 11.4,
+   "giorni_mediani": 46,
+   "chiusi_senza_risposta": 2,
+   "in_attesa": 29,
+   "in_attesa_oltre_un_anno": 20
+  }
+ ],
+ "scritte": {
+  "atti": 13007,
+  "con_risposta": 2636,
+  "quota": 20.3,
+  "giorni_mediani": 90,
+  "chiusi_senza_risposta": 625,
+  "in_attesa": 9746,
+  "in_attesa_oltre_un_anno": 6186
+ },
+ "scritte_entro_20_giorni": {
+  "atti": 12744,
+  "entro_20": 83,
+  "quota": 0.7
+ },
+ "per_ministero": [
+  {
+   "ministero": "Affari europei, PNRR e coesione",
+   "senza_portafoglio": true,
+   "atti": 282,
+   "con_risposta": 45,
+   "quota": 16.0,
+   "giorni_mediani": 31,
+   "chiusi_senza_risposta": 8,
+   "in_attesa": 229,
+   "in_attesa_oltre_un_anno": 194,
+   "scritte": 149,
+   "quota_scritte": 13.4
+  },
+  {
+   "ministero": "Affari regionali e autonomie",
+   "senza_portafoglio": true,
+   "atti": 106,
+   "con_risposta": 10,
+   "quota": 9.4,
+   "giorni_mediani": 12,
+   "chiusi_senza_risposta": 2,
+   "in_attesa": 94,
+   "in_attesa_oltre_un_anno": 57,
+   "scritte": 60,
+   "quota_scritte": 1.7
+  },
+  {
+   "ministero": "Agricoltura e sovranità alimentare",
+   "senza_portafoglio": false,
+   "atti": 730,
+   "con_risposta": 165,
+   "quota": 22.6,
+   "giorni_mediani": 11,
+   "chiusi_senza_risposta": 94,
+   "in_attesa": 471,
+   "in_attesa_oltre_un_anno": 332,
+   "scritte": 310,
+   "quota_scritte": 2.3
+  },
+  {
+   "ministero": "Altro",
+   "senza_portafoglio": false,
+   "atti": 2,
+   "con_risposta": 1,
+   "quota": 50.0,
+   "giorni_mediani": 183,
+   "chiusi_senza_risposta": 0,
+   "in_attesa": 1,
+   "in_attesa_oltre_un_anno": 1,
+   "scritte": 2,
+   "quota_scritte": 50.0
+  },
+  {
+   "ministero": "Ambiente e sicurezza energetica",
+   "senza_portafoglio": false,
+   "atti": 1916,
+   "con_risposta": 249,
+   "quota": 13.0,
+   "giorni_mediani": 42,
+   "chiusi_senza_risposta": 153,
+   "in_attesa": 1514,
+   "in_attesa_oltre_un_anno": 1034,
+   "scritte": 1120,
+   "quota_scritte": 5.7
+  },
+  {
+   "ministero": "Cultura",
+   "senza_portafoglio": false,
+   "atti": 813,
+   "con_risposta": 86,
+   "quota": 10.6,
+   "giorni_mediani": 50,
+   "chiusi_senza_risposta": 44,
+   "in_attesa": 683,
+   "in_attesa_oltre_un_anno": 516,
+   "scritte": 486,
+   "quota_scritte": 4.5
+  },
+  {
+   "ministero": "Difesa",
+   "senza_portafoglio": false,
+   "atti": 436,
+   "con_risposta": 117,
+   "quota": 26.8,
+   "giorni_mediani": 95,
+   "chiusi_senza_risposta": 15,
+   "in_attesa": 304,
+   "in_attesa_oltre_un_anno": 195,
+   "scritte": 294,
+   "quota_scritte": 26.2
+  },
+  {
+   "ministero": "Disabilità",
+   "senza_portafoglio": true,
+   "atti": 100,
+   "con_risposta": 21,
+   "quota": 21.0,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 9,
+   "in_attesa": 70,
+   "in_attesa_oltre_un_anno": 40,
+   "scritte": 56,
+   "quota_scritte": 0.0
+  },
+  {
+   "ministero": "Economia e finanze",
+   "senza_portafoglio": false,
+   "atti": 1376,
+   "con_risposta": 123,
+   "quota": 8.9,
+   "giorni_mediani": 6,
+   "chiusi_senza_risposta": 138,
+   "in_attesa": 1115,
+   "in_attesa_oltre_un_anno": 826,
+   "scritte": 623,
+   "quota_scritte": 1.4
+  },
+  {
+   "ministero": "Esteri e cooperazione internazionale",
+   "senza_portafoglio": false,
+   "atti": 1007,
+   "con_risposta": 585,
+   "quota": 58.1,
+   "giorni_mediani": 63,
+   "chiusi_senza_risposta": 41,
+   "in_attesa": 381,
+   "in_attesa_oltre_un_anno": 253,
+   "scritte": 545,
+   "quota_scritte": 80.4
+  },
+  {
+   "ministero": "Famiglia, natalità e pari opportunità",
+   "senza_portafoglio": true,
+   "atti": 98,
+   "con_risposta": 25,
+   "quota": 25.5,
+   "giorni_mediani": 35,
+   "chiusi_senza_risposta": 14,
+   "in_attesa": 59,
+   "in_attesa_oltre_un_anno": 49,
+   "scritte": 60,
+   "quota_scritte": 23.3
+  },
+  {
+   "ministero": "Giustizia",
+   "senza_portafoglio": false,
+   "atti": 2037,
+   "con_risposta": 1347,
+   "quota": 66.1,
+   "giorni_mediani": 71,
+   "chiusi_senza_risposta": 120,
+   "in_attesa": 570,
+   "in_attesa_oltre_un_anno": 222,
+   "scritte": 1429,
+   "quota_scritte": 77.0
+  },
+  {
+   "ministero": "Imprese e made in Italy",
+   "senza_portafoglio": false,
+   "atti": 1370,
+   "con_risposta": 341,
+   "quota": 24.9,
+   "giorni_mediani": 36,
+   "chiusi_senza_risposta": 141,
+   "in_attesa": 888,
+   "in_attesa_oltre_un_anno": 606,
+   "scritte": 759,
+   "quota_scritte": 19.4
+  },
+  {
+   "ministero": "Infrastrutture e trasporti",
+   "senza_portafoglio": false,
+   "atti": 2501,
+   "con_risposta": 592,
+   "quota": 23.7,
+   "giorni_mediani": 71,
+   "chiusi_senza_risposta": 261,
+   "in_attesa": 1648,
+   "in_attesa_oltre_un_anno": 1109,
+   "scritte": 1311,
+   "quota_scritte": 16.5
+  },
+  {
+   "ministero": "Interno",
+   "senza_portafoglio": false,
+   "atti": 3091,
+   "con_risposta": 327,
+   "quota": 10.6,
+   "giorni_mediani": 94,
+   "chiusi_senza_risposta": 103,
+   "in_attesa": 2661,
+   "in_attesa_oltre_un_anno": 1755,
+   "scritte": 2197,
+   "quota_scritte": 7.2
+  },
+  {
+   "ministero": "Istruzione e merito",
+   "senza_portafoglio": false,
+   "atti": 1139,
+   "con_risposta": 185,
+   "quota": 16.2,
+   "giorni_mediani": 58,
+   "chiusi_senza_risposta": 91,
+   "in_attesa": 863,
+   "in_attesa_oltre_un_anno": 571,
+   "scritte": 705,
+   "quota_scritte": 13.5
+  },
+  {
+   "ministero": "Lavoro e politiche sociali",
+   "senza_portafoglio": false,
+   "atti": 1431,
+   "con_risposta": 203,
+   "quota": 14.2,
+   "giorni_mediani": 19,
+   "chiusi_senza_risposta": 134,
+   "in_attesa": 1094,
+   "in_attesa_oltre_un_anno": 781,
+   "scritte": 781,
+   "quota_scritte": 3.3
+  },
+  {
+   "ministero": "Presidenza del Consiglio",
+   "senza_portafoglio": false,
+   "atti": 361,
+   "con_risposta": 87,
+   "quota": 24.1,
+   "giorni_mediani": 10,
+   "chiusi_senza_risposta": 28,
+   "in_attesa": 246,
+   "in_attesa_oltre_un_anno": 157,
+   "scritte": 196,
+   "quota_scritte": 16.8
+  },
+  {
+   "ministero": "Protezione civile e politiche del mare",
+   "senza_portafoglio": true,
+   "atti": 277,
+   "con_risposta": 175,
+   "quota": 63.2,
+   "giorni_mediani": 199,
+   "chiusi_senza_risposta": 26,
+   "in_attesa": 76,
+   "in_attesa_oltre_un_anno": 25,
+   "scritte": 157,
+   "quota_scritte": 80.3
+  },
+  {
+   "ministero": "Pubblica amministrazione",
+   "senza_portafoglio": true,
+   "atti": 278,
+   "con_risposta": 46,
+   "quota": 16.5,
+   "giorni_mediani": 3,
+   "chiusi_senza_risposta": 22,
+   "in_attesa": 210,
+   "in_attesa_oltre_un_anno": 147,
+   "scritte": 175,
+   "quota_scritte": 9.1
+  },
+  {
+   "ministero": "Rapporti con il Parlamento",
+   "senza_portafoglio": true,
+   "atti": 2,
+   "con_risposta": 2,
+   "quota": 100.0,
+   "giorni_mediani": 72,
+   "chiusi_senza_risposta": 0,
+   "in_attesa": 0,
+   "in_attesa_oltre_un_anno": 0,
+   "scritte": 0,
+   "quota_scritte": null
+  },
+  {
+   "ministero": "Riforme istituzionali",
+   "senza_portafoglio": true,
+   "atti": 10,
+   "con_risposta": 5,
+   "quota": 50.0,
+   "giorni_mediani": 1,
+   "chiusi_senza_risposta": 0,
+   "in_attesa": 5,
+   "in_attesa_oltre_un_anno": 3,
+   "scritte": 5,
+   "quota_scritte": 0.0
+  },
+  {
+   "ministero": "Salute",
+   "senza_portafoglio": false,
+   "atti": 2007,
+   "con_risposta": 197,
+   "quota": 9.8,
+   "giorni_mediani": 8,
+   "chiusi_senza_risposta": 100,
+   "in_attesa": 1710,
+   "in_attesa_oltre_un_anno": 1204,
+   "scritte": 1143,
+   "quota_scritte": 1.5
+  },
+  {
+   "ministero": "Sport e giovani",
+   "senza_portafoglio": true,
+   "atti": 253,
+   "con_risposta": 69,
+   "quota": 27.3,
+   "giorni_mediani": 56,
+   "chiusi_senza_risposta": 26,
+   "in_attesa": 158,
+   "in_attesa_oltre_un_anno": 104,
+   "scritte": 145,
+   "quota_scritte": 14.5
+  },
+  {
+   "ministero": "Turismo",
+   "senza_portafoglio": false,
+   "atti": 77,
+   "con_risposta": 9,
+   "quota": 11.7,
+   "giorni_mediani": 2,
+   "chiusi_senza_risposta": 2,
+   "in_attesa": 66,
+   "in_attesa_oltre_un_anno": 50,
+   "scritte": 44,
+   "quota_scritte": 0.0
+  },
+  {
+   "ministero": "Università e ricerca",
+   "senza_portafoglio": false,
+   "atti": 428,
+   "con_risposta": 62,
+   "quota": 14.5,
+   "giorni_mediani": 39,
+   "chiusi_senza_risposta": 22,
+   "in_attesa": 344,
+   "in_attesa_oltre_un_anno": 222,
+   "scritte": 255,
+   "quota_scritte": 11.0
+  }
+ ],
+ "per_anno": [
+  {
+   "anno": 2022,
+   "atti": 685,
+   "con_risposta": 238,
+   "quota": 34.7,
+   "giorni_mediani": 58,
+   "chiusi_senza_risposta": 53,
+   "in_attesa": 394,
+   "in_attesa_oltre_un_anno": 394
+  },
+  {
+   "anno": 2023,
+   "atti": 5096,
+   "con_risposta": 1370,
+   "quota": 26.9,
+   "giorni_mediani": 65,
+   "chiusi_senza_risposta": 417,
+   "in_attesa": 3309,
+   "in_attesa_oltre_un_anno": 3309
+  },
+  {
+   "anno": 2024,
+   "atti": 4972,
+   "con_risposta": 1237,
+   "quota": 24.9,
+   "giorni_mediani": 63,
+   "chiusi_senza_risposta": 417,
+   "in_attesa": 3318,
+   "in_attesa_oltre_un_anno": 3318
+  },
+  {
+   "anno": 2025,
+   "atti": 5945,
+   "con_risposta": 1395,
+   "quota": 23.5,
+   "giorni_mediani": 63,
+   "chiusi_senza_risposta": 456,
+   "in_attesa": 4094,
+   "in_attesa_oltre_un_anno": 3432
+  },
+  {
+   "anno": 2026,
+   "atti": 5430,
+   "con_risposta": 834,
+   "quota": 15.4,
+   "giorni_mediani": 45,
+   "chiusi_senza_risposta": 251,
+   "in_attesa": 4345,
+   "in_attesa_oltre_un_anno": 0
+  }
+ ],
+ "per_tema": [
+  {
+   "tema": "trasporti",
+   "nome": "Trasporti, strade e grandi opere",
+   "atti": 2857,
+   "quota_risposta": 24.1,
+   "ministeri_principali": [
+    "Infrastrutture e trasporti",
+    "Interno"
+   ]
+  },
+  {
+   "tema": "sicurezza",
+   "nome": "Sicurezza, criminalità e forze dell'ordine",
+   "atti": 2631,
+   "quota_risposta": 12.5,
+   "ministeri_principali": [
+    "Interno",
+    "Giustizia"
+   ]
+  },
+  {
+   "tema": "ambiente",
+   "nome": "Ambiente, energia e acqua",
+   "atti": 2466,
+   "quota_risposta": 13.7,
+   "ministeri_principali": [
+    "Ambiente e sicurezza energetica",
+    "Infrastrutture e trasporti"
+   ]
+  },
+  {
+   "tema": "giustizia",
+   "nome": "Giustizia e carceri",
+   "atti": 2223,
+   "quota_risposta": 62.3,
+   "ministeri_principali": [
+    "Giustizia",
+    "Interno"
+   ]
+  },
+  {
+   "tema": "sanita",
+   "nome": "Sanità e salute",
+   "atti": 2178,
+   "quota_risposta": 10.8,
+   "ministeri_principali": [
+    "Salute",
+    "Lavoro e politiche sociali"
+   ]
+  },
+  {
+   "tema": "lavoro",
+   "nome": "Lavoro e crisi aziendali",
+   "atti": 1863,
+   "quota_risposta": 15.4,
+   "ministeri_principali": [
+    "Lavoro e politiche sociali",
+    "Imprese e made in Italy"
+   ]
+  },
+  {
+   "tema": "cultura",
+   "nome": "Cultura, informazione, sport e turismo",
+   "atti": 1566,
+   "quota_risposta": 16.0,
+   "ministeri_principali": [
+    "Cultura",
+    "Sport e giovani"
+   ]
+  },
+  {
+   "tema": "imprese",
+   "nome": "Imprese, prezzi e consumatori",
+   "atti": 1528,
+   "quota_risposta": 28.2,
+   "ministeri_principali": [
+    "Imprese e made in Italy",
+    "Economia e finanze"
+   ]
+  },
+  {
+   "tema": "scuola",
+   "nome": "Scuola",
+   "atti": 1372,
+   "quota_risposta": 16.5,
+   "ministeri_principali": [
+    "Istruzione e merito",
+    "Interno"
+   ]
+  },
+  {
+   "tema": "fisco",
+   "nome": "Fisco, conti pubblici e banche",
+   "atti": 1361,
+   "quota_risposta": 9.9,
+   "ministeri_principali": [
+    "Economia e finanze",
+    "Imprese e made in Italy"
+   ]
+  },
+  {
+   "tema": "esteri",
+   "nome": "Esteri, guerre e italiani nel mondo",
+   "atti": 1166,
+   "quota_risposta": 49.3,
+   "ministeri_principali": [
+    "Esteri e cooperazione internazionale",
+    "Interno"
+   ]
+  },
+  {
+   "tema": "agricoltura",
+   "nome": "Agricoltura, pesca e animali",
+   "atti": 1025,
+   "quota_risposta": 20.8,
+   "ministeri_principali": [
+    "Agricoltura e sovranità alimentare",
+    "Salute"
+   ]
+  },
+  {
+   "tema": "territorio",
+   "nome": "Calamità, ricostruzione ed enti locali",
+   "atti": 1008,
+   "quota_risposta": 30.8,
+   "ministeri_principali": [
+    "Protezione civile e politiche del mare",
+    "Affari europei, PNRR e coesione"
+   ]
+  },
+  {
+   "tema": "pa",
+   "nome": "Pubblica amministrazione e istituzioni",
+   "atti": 687,
+   "quota_risposta": 20.1,
+   "ministeri_principali": [
+    "Pubblica amministrazione",
+    "Presidenza del Consiglio"
+   ]
+  },
+  {
+   "tema": "welfare",
+   "nome": "Pensioni, assistenza e disabilità",
+   "atti": 592,
+   "quota_risposta": 18.1,
+   "ministeri_principali": [
+    "Lavoro e politiche sociali",
+    "Disabilità"
+   ]
+  },
+  {
+   "tema": "difesa",
+   "nome": "Difesa e forze armate",
+   "atti": 503,
+   "quota_risposta": 26.0,
+   "ministeri_principali": [
+    "Difesa",
+    "Economia e finanze"
+   ]
+  },
+  {
+   "tema": "universita",
+   "nome": "Università e ricerca",
+   "atti": 470,
+   "quota_risposta": 14.7,
+   "ministeri_principali": [
+    "Università e ricerca",
+    "Giustizia"
+   ]
+  },
+  {
+   "tema": "immigrazione",
+   "nome": "Immigrazione e accoglienza",
+   "atti": 325,
+   "quota_risposta": 8.7,
+   "ministeri_principali": [
+    "Interno",
+    "Esteri e cooperazione internazionale"
+   ]
+  }
+ ],
+ "per_regione": [
+  {
+   "regione": "Lombardia",
+   "atti": 3139,
+   "quota_risposta": 23.2
+  },
+  {
+   "regione": "Lazio",
+   "atti": 2948,
+   "quota_risposta": 20.6
+  },
+  {
+   "regione": "Campania",
+   "atti": 2391,
+   "quota_risposta": 21.4
+  },
+  {
+   "regione": "Sicilia",
+   "atti": 2139,
+   "quota_risposta": 21.8
+  },
+  {
+   "regione": "Emilia-Romagna",
+   "atti": 2125,
+   "quota_risposta": 22.7
+  },
+  {
+   "regione": "Toscana",
+   "atti": 1840,
+   "quota_risposta": 22.6
+  },
+  {
+   "regione": "Veneto",
+   "atti": 1738,
+   "quota_risposta": 22.9
+  },
+  {
+   "regione": "Puglia",
+   "atti": 1672,
+   "quota_risposta": 20.5
+  },
+  {
+   "regione": "Piemonte",
+   "atti": 1501,
+   "quota_risposta": 26.7
+  },
+  {
+   "regione": "Liguria",
+   "atti": 1045,
+   "quota_risposta": 22.4
+  },
+  {
+   "regione": "Sardegna",
+   "atti": 1045,
+   "quota_risposta": 23.5
+  },
+  {
+   "regione": "Calabria",
+   "atti": 1025,
+   "quota_risposta": 20.8
+  },
+  {
+   "regione": "Marche",
+   "atti": 646,
+   "quota_risposta": 23.1
+  },
+  {
+   "regione": "Abruzzo",
+   "atti": 608,
+   "quota_risposta": 19.7
+  },
+  {
+   "regione": "Trentino-Alto Adige",
+   "atti": 598,
+   "quota_risposta": 21.3
+  },
+  {
+   "regione": "Basilicata",
+   "atti": 545,
+   "quota_risposta": 21.5
+  },
+  {
+   "regione": "Friuli Venezia Giulia",
+   "atti": 493,
+   "quota_risposta": 21.7
+  },
+  {
+   "regione": "Umbria",
+   "atti": 479,
+   "quota_risposta": 22.9
+  },
+  {
+   "regione": "Molise",
+   "atti": 280,
+   "quota_risposta": 22.5
+  },
+  {
+   "regione": "Valle d'Aosta",
+   "atti": 126,
+   "quota_risposta": 22.4
+  }
+ ],
+ "atti_con_territorio": 16233,
+ "controllo_senato": {
+  "atti": 6976,
+  "per_tipo_esito": [
+   {
+    "tipo": "Interpellanza",
+    "esito": "(nessuno)",
+    "n": 29
+   },
+   {
+    "tipo": "Interpellanza",
+    "esito": "Riformulata",
+    "n": 1
+   },
+   {
+    "tipo": "Interpellanza",
+    "esito": "Ritirata",
+    "n": 1
+   },
+   {
+    "tipo": "Interpellanza",
+    "esito": "Svolto",
+    "n": 4
+   },
+   {
+    "tipo": "Interpellanza",
+    "esito": "Trasformata",
+    "n": 1
+   },
+   {
+    "tipo": "Interrogazione",
+    "esito": "(nessuno)",
+    "n": 1647
+   },
+   {
+    "tipo": "Interrogazione",
+    "esito": "Ritirata",
+    "n": 34
+   },
+   {
+    "tipo": "Interrogazione",
+    "esito": "Svolto",
+    "n": 1134
+   },
+   {
+    "tipo": "Interrogazione",
+    "esito": "Trasformata",
+    "n": 92
+   },
+   {
+    "tipo": "Interrogazione con richiesta di risposta scritta",
+    "esito": "(nessuno)",
+    "n": 2638
+   },
+   {
+    "tipo": "Interrogazione con richiesta di risposta scritta",
+    "esito": "Risposta pubblicata",
+    "n": 783
+   },
+   {
+    "tipo": "Interrogazione con richiesta di risposta scritta",
+    "esito": "Ritirata",
+    "n": 40
+   },
+   {
+    "tipo": "Interrogazione con richiesta di risposta scritta",
+    "esito": "Trasformata",
+    "n": 90
+   },
+   {
+    "tipo": "Mozione",
+    "esito": "(nessuno)",
+    "n": 161
+   },
+   {
+    "tipo": "Mozione",
+    "esito": "Riformulata",
+    "n": 12
+   },
+   {
+    "tipo": "Mozione",
+    "esito": "Ritirata",
+    "n": 1
+   },
+   {
+    "tipo": "Mozione",
+    "esito": "Svolto",
+    "n": 39
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "(nessuno)",
+    "n": 31
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV n. 11",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV n. 16",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV n. 25",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV n. 28",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV n. 54",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV, n. 1",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione Doc. XXIV, n. 5",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione: Doc. XXIV n. 30",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione: Doc. XXIV, n. 37",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Approvazione della risoluzione: Doc. XXIV, n. 42",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "Ritirata",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "approvazione della risoluzione Doc XXIV n. 18",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "approvazione della risoluzione Doc XXIV n. 31",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "approvazione della risoluzione Doc XXIV n. 35",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione autonoma in commissione",
+    "esito": "approvazione della risoluzione Doc. XXIV n.36",
+    "n": 1
+   },
+   {
+    "tipo": "Risoluzione in Assemblea",
+    "esito": "(nessuno)",
+    "n": 223
+   }
+  ]
+ },
+ "scarico": {
+  "camera_atti": 25821,
+  "camera_destinatari": 36604,
+  "camera_delegati": 27323,
+  "camera_testi": 25821,
+  "camera_organi": 62,
+  "senato_controllo": 6976
+ }
+}

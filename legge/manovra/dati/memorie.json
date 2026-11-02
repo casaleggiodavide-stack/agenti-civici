@@ -1,0 +1,84 @@
+{
+ "aggiornato": "2026-11-02",
+ "atto_camera": null,
+ "pagine_lette": [
+  "https://www.camera.it/leg19/1347?shadow_organo_parlamentare=3505&id_tipografico=05",
+  "https://www.camera.it/leg19/1425?shadow_organo_parlamentare=3505&id_tipografico=05"
+ ],
+ "categorie": {
+  "ddl": "audizioni sul disegno di legge di bilancio 2027",
+  "quadro": "audizioni sul Documento programmatico di finanza pubblica 2026 (la cornice della manovra)"
+ },
+ "conteggi": {
+  "ddl": 0,
+  "quadro": 5
+ },
+ "documenti": [
+  {
+   "categoria": "quadro",
+   "seduta": "2026-10-12",
+   "attivita": "Attività conoscitiva preliminare all'esame del Documento programmatico di finanza pubblica 2026, ai sensi dell'articolo 118-bis, comma 3, del Regolamento della Camera e dell'articolo 125-bis, comma 3, del Regolamento del Senato",
+   "soggetto": "Banca d'Italia",
+   "tipo": "Memoria",
+   "url": "https://documenti.camera.it/leg19/documentiAcquisiti/COM05/Audizioni/leg19.com05.Audizioni.Memoria.PUBBLICO.ideGes.102561.12-10-2026-16-39-20.506.pdf",
+   "formato": "pdf",
+   "file": "memorie/2026-10-12_memoria-banca-d-italia_102561.pdf",
+   "pagine": 24,
+   "caratteri": 62479,
+   "sha256": "83ef9a66633a7adb5e6818bd261b3bd19293315a73611ca9d447b2b49d93d6d2"
+  },
+  {
+   "categoria": "quadro",
+   "seduta": "2026-10-12",
+   "attivita": "Attività conoscitiva preliminare all'esame del Documento programmatico di finanza pubblica 2026, ai sensi dell'articolo 118-bis, comma 3, del Regolamento della Camera e dell'articolo 125-bis, comma 3, del Regolamento del Senato",
+   "soggetto": "CNEL",
+   "tipo": "Memoria",
+   "url": "https://documenti.camera.it/leg19/documentiAcquisiti/COM05/Audizioni/leg19.com05.Audizioni.Memoria.PUBBLICO.ideGes.102545.12-10-2026-15-52-38.343.pdf",
+   "formato": "pdf",
+   "file": "memorie/2026-10-12_memoria-cnel_102545.pdf",
+   "pagine": 73,
+   "caratteri": 177931,
+   "sha256": "2cb97646577fa51dc525b4597cbaca8c001172920066ef7ee7131a45ec5cd144"
+  },
+  {
+   "categoria": "quadro",
+   "seduta": "2026-10-12",
+   "attivita": "Attività conoscitiva preliminare all'esame del Documento programmatico di finanza pubblica 2026, ai sensi dell'articolo 118-bis, comma 3, del Regolamento della Camera e dell'articolo 125-bis, comma 3, del Regolamento del Senato",
+   "soggetto": "Corte dei conti",
+   "tipo": "Memoria",
+   "url": "https://documenti.camera.it/leg19/documentiAcquisiti/COM05/Audizioni/leg19.com05.Audizioni.Memoria.PUBBLICO.ideGes.102541.14-10-2026-10-37-55.681.pdf",
+   "formato": "pdf",
+   "file": "memorie/2026-10-12_memoria-corte-dei-conti_102541.pdf",
+   "pagine": 141,
+   "caratteri": 495452,
+   "sha256": "e167d6d5b748602300d72a9ccefe6cf7a48f3fcc3208c9d639f807baefb506b5"
+  },
+  {
+   "categoria": "quadro",
+   "seduta": "2026-10-12",
+   "attivita": "Attività conoscitiva preliminare all'esame del Documento programmatico di finanza pubblica 2026, ai sensi dell'articolo 118-bis, comma 3, del Regolamento della Camera e dell'articolo 125-bis, comma 3, del Regolamento del Senato",
+   "soggetto": "ISTAT",
+   "tipo": "Memoria",
+   "url": "https://documenti.camera.it/leg19/documentiAcquisiti/COM05/Audizioni/leg19.com05.Audizioni.Memoria.PUBBLICO.ideGes.102557.12-10-2026-18-46-36.440.pdf",
+   "formato": "pdf",
+   "file": "memorie/2026-10-12_memoria-istat_102557.pdf",
+   "pagine": 38,
+   "caratteri": 76435,
+   "sha256": "a4644cb902e438dcdb4797f820d8e39791364aaa25f88bb6f4703f35d3051fd0"
+  },
+  {
+   "categoria": "quadro",
+   "seduta": "2026-10-12",
+   "attivita": "Attività conoscitiva preliminare all'esame del Documento programmatico di finanza pubblica 2026, ai sensi dell'articolo 118-bis, comma 3, del Regolamento della Camera e dell'articolo 125-bis, comma 3, del Regolamento del Senato",
+   "soggetto": "Ufficio parlamentare di bilancio",
+   "tipo": "Memoria",
+   "url": "https://documenti.camera.it/leg19/documentiAcquisiti/COM05/Audizioni/leg19.com05.Audizioni.Memoria.PUBBLICO.ideGes.102565.12-10-2026-17-17-14.319.pdf",
+   "formato": "pdf",
+   "file": "memorie/2026-10-12_memoria-ufficio-parlamentare-di-bilancio_102565.pdf",
+   "pagine": 106,
+   "caratteri": 317285,
+   "sha256": "8e44aec3e8ee348c80fb9300c4ad825912c841a4ea07c6c6c217e66e269a43c1"
+  }
+ ],
+ "problemi": []
+}

@@ -445,8 +445,6 @@ def casa_con_striscia():
         s = re.sub(r'/\*notizie\*/.*?/\*/notizie\*/', lambda m: CSS_STRISCIA, s, count=1, flags=re.S)
     else:
         s = s.replace('/*/casa*/\n', '/*/casa*/\n' + CSS_STRISCIA + '\n', 1)
-    if 'href="storie/">Le storie del Polpo</a>\n' not in s:
-        s = s.replace('  <nav class="altro" aria-label="Altro">\n', '  <nav class="altro" aria-label="Altro">\n    <a href="storie/">Le storie del Polpo</a>\n', 1)
     open(p, 'w', encoding='utf-8').write(s)
 
 

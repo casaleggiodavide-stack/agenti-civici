@@ -1,0 +1,1029 @@
+{
+ "nota": "Temi scritti a mano dopo aver letto un campione di atti. 'parole' sono espressioni regolari (minuscole, inizio di parola) cercate nei primi 2.000 caratteri del testo di ogni atto, dopo «premesso che»: ogni espressione vale quante volte compare (al massimo 3) più 1,5 se compare nelle prime righe; il tema del Ministero competente ('ministeri') prende 3,5 punti in più. Controllo a mano: su 120 atti estratti a caso e letti prima di vedere il risultato, il tema assegnato coincideva con quello del lettore in 95 casi (79%); dopo le correzioni alle parole chiave, in 98. Le sintesi sono scritte leggendo circa 330 atti estratti a caso dai temi (da 14 a 28 per tema); gli esempi rimandano alla scheda dell'atto.",
+ "temi": [
+  {
+   "id": "sanita",
+   "nome": "Sanità e salute",
+   "ministeri": [
+    "Salute"
+   ],
+   "parole": [
+    "ospedal",
+    "sanitari[oa]",
+    "servizio sanitario",
+    "ssn\\b",
+    "ssr\\b",
+    "aziend[ae] sanitari",
+    "asl\\b",
+    "asp\\b",
+    "pronto soccorso",
+    "liste d.attesa",
+    "medic[io]\\b",
+    "medici di (famiglia|base)",
+    "infermier",
+    "farmac",
+    "vaccin",
+    "malati",
+    "malattie?\\b",
+    "pazient",
+    "cure\\b",
+    "terapi",
+    "tumor",
+    "oncolog",
+    "psichiatr",
+    "salute mentale",
+    "prestazioni sanitarie",
+    "posti letto",
+    "screening",
+    "guardia medica"
+   ]
+  },
+  {
+   "id": "scuola",
+   "nome": "Scuola",
+   "ministeri": [
+    "Istruzione e merito"
+   ],
+   "parole": [
+    "scuol",
+    "scolastic",
+    "docent",
+    "insegnant",
+    "alunn",
+    "dirigent[ei] scolastic",
+    "istituto comprensivo",
+    "liceo",
+    "licei",
+    "classi\\b",
+    "studenti",
+    "personale ata",
+    "maturità",
+    "esami di stato",
+    "precari della scuola",
+    "graduatori[ae]",
+    "dimensionamento",
+    "mense scolastiche",
+    "edilizia scolastica",
+    "sostegno didattic",
+    "docenti di sostegno"
+   ]
+  },
+  {
+   "id": "universita",
+   "nome": "Università e ricerca",
+   "ministeri": [
+    "Università e ricerca"
+   ],
+   "parole": [
+    "universit",
+    "atene[oi]",
+    "ricerca scientifica",
+    "ricercator",
+    "enti di ricerca",
+    "\\bcnr\\b",
+    "afam\\b",
+    "conservator",
+    "accademi[ae] di belle arti",
+    "borse? di studio",
+    "dottorat",
+    "test di (ingresso|medicina)",
+    "numero chiuso",
+    "studenti fuori sede",
+    "residenze universitarie"
+   ]
+  },
+  {
+   "id": "trasporti",
+   "nome": "Trasporti, strade e grandi opere",
+   "ministeri": [
+    "Infrastrutture e trasporti"
+   ],
+   "parole": [
+    "ferrovi",
+    "treni\\b",
+    "treno\\b",
+    "trenitalia",
+    "\\brfi\\b",
+    "stazion[ei] ferroviari",
+    "linea ferroviaria",
+    "autostrad",
+    "strada statale",
+    "strade statali",
+    "\\bss ?\\d",
+    "strada provinciale",
+    "\\bsp ?\\d",
+    "\\banas\\b",
+    "aeroport",
+    "voli\\b",
+    "compagni[ae] aere",
+    "trasporto aereo",
+    "porto di",
+    "porti\\b",
+    "traghett",
+    "continuità territoriale",
+    "metropolitan",
+    "trasporto pubblico",
+    "pendolari",
+    "ponte sullo stretto",
+    "collegamento stabile",
+    "viabilità",
+    "viadott",
+    "galleri[ae]",
+    "autotrasport",
+    "\\btaxi",
+    "codice della strada",
+    "motorizzazione",
+    "patenti?\\b",
+    "cantier",
+    "opere pubbliche",
+    "infrastruttur"
+   ]
+  },
+  {
+   "id": "lavoro",
+   "nome": "Lavoro e crisi aziendali",
+   "ministeri": [
+    "Lavoro e politiche sociali"
+   ],
+   "parole": [
+    "lavorator",
+    "licenziament",
+    "cassa integrazione",
+    "ammortizzatori",
+    "sindacat",
+    "organizzazioni sindacali",
+    "vertenz",
+    "esuber",
+    "occupazion",
+    "dipendenti\\b",
+    "contratto collettivo",
+    "ccnl",
+    "salari",
+    "retribuzion",
+    "sicurezza sul lavoro",
+    "infortun",
+    "morti sul lavoro",
+    "precari",
+    "tavolo di crisi",
+    "crisi aziendal",
+    "stabiliment",
+    "centri per l.impiego",
+    "caporalat",
+    "delocalizz",
+    "chiusura dello stabilimento"
+   ]
+  },
+  {
+   "id": "welfare",
+   "nome": "Pensioni, assistenza e disabilità",
+   "ministeri": [
+    "Disabilità",
+    "Famiglia, natalità e pari opportunità"
+   ],
+   "parole": [
+    "pension",
+    "\\binps\\b",
+    "previdenz",
+    "assegno (di inclusione|unico)",
+    "reddito di cittadinanza",
+    "supporto per la formazione",
+    "povertà",
+    "disabilit",
+    "caregiver",
+    "invalid",
+    "non autosufficien",
+    "dopo di noi",
+    "natalità",
+    "bonus nido",
+    "asili? nido",
+    "congedi?\\b",
+    "terzo settore",
+    "politiche sociali",
+    "anzian",
+    "rsa\\b",
+    "isee",
+    "senza dimora",
+    "emarginazion",
+    "persone fragili",
+    "servizi sociali"
+   ]
+  },
+  {
+   "id": "ambiente",
+   "nome": "Ambiente, energia e acqua",
+   "ministeri": [
+    "Ambiente e sicurezza energetica"
+   ],
+   "parole": [
+    "ambient",
+    "inquinament",
+    "rifiut",
+    "discaric",
+    "bonific(he|are)\\b|bonifica (ambientale|dei siti|del sito|delle aree)|siti? di interesse nazionale",
+    "\\bsin\\b",
+    "emission",
+    "clima",
+    "energi",
+    "energetic",
+    "rinnovabil",
+    "fotovoltaic",
+    "agrivoltaic",
+    "eolic",
+    "\\bgas\\b",
+    "bollett",
+    "idroelettric",
+    "nuclear",
+    "idric",
+    "acquedott",
+    "depurat",
+    "acque\\b",
+    "parco nazionale",
+    "aree protette",
+    "natura 2000",
+    "fauna",
+    "bracconag",
+    "alber",
+    "biodiversità",
+    "amianto",
+    "pfas",
+    "termovalorizzat",
+    "inceneritor",
+    "erosione costiera"
+   ]
+  },
+  {
+   "id": "sicurezza",
+   "nome": "Sicurezza, criminalità e forze dell'ordine",
+   "ministeri": [
+    "Interno"
+   ],
+   "parole": [
+    "criminalità",
+    "criminal",
+    "mafi",
+    "camorr",
+    "ndrangheta",
+    "clan\\b",
+    "polizia di stato",
+    "agenti di polizia",
+    "forze dell.ordine",
+    "forze di polizia",
+    "carabinier",
+    "questur",
+    "prefett",
+    "vigili del fuoco",
+    "aggression",
+    "aggredit",
+    "rapin",
+    "furt[io]",
+    "violenz",
+    "omicid",
+    "femminicid",
+    "uccis",
+    "spaccio",
+    "stupefacent",
+    "\\bdroga",
+    "scorta\\b",
+    "sicurezza urbana",
+    "ordine pubblico",
+    "manifestazion",
+    "intimidat",
+    "racket",
+    "usura",
+    "scioglimento del consiglio",
+    "commissione d.accesso",
+    "incendi dolosi",
+    "baby gang"
+   ]
+  },
+  {
+   "id": "giustizia",
+   "nome": "Giustizia e carceri",
+   "ministeri": [
+    "Giustizia"
+   ],
+   "parole": [
+    "tribunal",
+    "magistrat",
+    "giudic",
+    "procura",
+    "procure\\b",
+    "carcer",
+    "detenut",
+    "penitenziari",
+    "istituti? di pena",
+    "casa circondariale",
+    "processo",
+    "processi\\b",
+    "avvocat",
+    "notai",
+    "codice penale",
+    "codice di procedura",
+    "intercettazion",
+    "sentenz",
+    "uffici giudiziari",
+    "dap\\b",
+    "corte d.appello",
+    "suicidi in carcere",
+    "sovraffollamento"
+   ]
+  },
+  {
+   "id": "immigrazione",
+   "nome": "Immigrazione e accoglienza",
+   "ministeri": [],
+   "parole": [
+    "migrant",
+    "sbarc",
+    "\\bcpr\\b",
+    "centri? di permanenza",
+    "accoglienz",
+    "richiedenti asilo",
+    "protezione internazionale",
+    "permess[oi] di soggiorno",
+    "decreto flussi",
+    "stranier",
+    "\\bong\\b",
+    "rimpatri",
+    "albania",
+    "hotspot",
+    "naufrag",
+    "soccorso in mare",
+    "cittadinanza italiana",
+    "ius ",
+    "extracomunitar",
+    "lavoratori stranieri"
+   ]
+  },
+  {
+   "id": "esteri",
+   "nome": "Esteri, guerre e italiani nel mondo",
+   "ministeri": [
+    "Esteri e cooperazione internazionale"
+   ],
+   "parole": [
+    "gaza",
+    "israel",
+    "palestin",
+    "cisgiordania",
+    "ucrain",
+    "russia",
+    "russo",
+    "iran",
+    "libia",
+    "libic",
+    "siria",
+    "ambasciat",
+    "consolat",
+    "connazional",
+    "italiani all.estero",
+    "\\baire\\b",
+    "cooperazione internazionale",
+    "diritti umani",
+    "\\bonu\\b",
+    "nazioni unite",
+    "flotilla",
+    "corte penale internazionale",
+    "governo (israeliano|russo|iraniano|turco|egiziano|cinese|venezuelano)",
+    "venezuela",
+    "egitto",
+    "turchia",
+    "cina\\b",
+    "stati uniti",
+    "afghanistan",
+    "sanzioni"
+   ]
+  },
+  {
+   "id": "difesa",
+   "nome": "Difesa e forze armate",
+   "ministeri": [
+    "Difesa"
+   ],
+   "parole": [
+    "forze armate",
+    "militar",
+    "esercito",
+    "marina militare",
+    "aeronautica",
+    "difesa\\b",
+    "armament",
+    "\\barmi\\b",
+    "spese militari",
+    "caserm",
+    "basi? (militar|nato|usa)",
+    "\\bnato\\b",
+    "missioni? internazional",
+    "f-35",
+    "industria della difesa",
+    "leva\\b",
+    "guardia di finanza",
+    "capitanerie"
+   ]
+  },
+  {
+   "id": "fisco",
+   "nome": "Fisco, conti pubblici e banche",
+   "ministeri": [
+    "Economia e finanze"
+   ],
+   "parole": [
+    "fiscal",
+    "fisco",
+    "tass[ae]",
+    "impost",
+    "irpef",
+    "\\biva\\b",
+    "agenzia delle entrate",
+    "riscossione",
+    "tribut",
+    "cartelle",
+    "superbonus",
+    "bonus edilizi",
+    "crediti d.imposta",
+    "detrazion",
+    "banc[ah]",
+    "risparmiator",
+    "assicura",
+    "legge di bilancio",
+    "manovra",
+    "debito pubblico",
+    "finanza pubblica",
+    "golden power",
+    "partecipat[ae] pubblic",
+    "società partecipat",
+    "accise",
+    "monopoli",
+    "giochi",
+    "scommesse",
+    "lotterie",
+    "dogan",
+    "evasione",
+    "flat tax",
+    "rottamazione",
+    "concordato preventivo"
+   ]
+  },
+  {
+   "id": "imprese",
+   "nome": "Imprese, prezzi e consumatori",
+   "ministeri": [
+    "Imprese e made in Italy"
+   ],
+   "parole": [
+    "impres[ae]",
+    "industri",
+    "siderurg",
+    "ex ilva",
+    "acciaierie",
+    "automotive",
+    "stellantis",
+    "made in italy",
+    "commerci",
+    "consumator",
+    "prezz",
+    "caro\\b",
+    "carburant",
+    "telecomunicazion",
+    "\\btim\\b",
+    "rete (fissa|unica)",
+    "banda (larga|ultralarga)",
+    "\\b5g\\b",
+    "poste italiane",
+    "uffici postali",
+    "francobolli",
+    "piccole e medie",
+    "\\bpmi\\b",
+    "artigian",
+    "transizione (4|5)\\.0",
+    "incentiv",
+    "dazi",
+    "export",
+    "amministrazione straordinaria",
+    "brevett",
+    "concession[ei] balneari",
+    "balneari",
+    "distribuzione",
+    "farmacie"
+   ]
+  },
+  {
+   "id": "agricoltura",
+   "nome": "Agricoltura, pesca e animali",
+   "ministeri": [
+    "Agricoltura e sovranità alimentare"
+   ],
+   "parole": [
+    "agricol",
+    "agricoltor",
+    "coltiv",
+    "allevament",
+    "allevator",
+    "zootecn",
+    "pesca\\b",
+    "pescator",
+    "peste suina",
+    "cinghial",
+    "fauna selvatica",
+    "lupi?\\b",
+    "vitivinicol",
+    "\\bvin[oi]\\b",
+    "olio\\b",
+    "oliv",
+    "\\bdop\\b",
+    "\\bigp\\b",
+    "\\bpac\\b",
+    "latte\\b",
+    "grano",
+    "cereal",
+    "agroaliment",
+    "filiera",
+    "animali",
+    "randagi",
+    "benessere animale",
+    "canapa",
+    "forest",
+    "xylella",
+    "siccità",
+    "grandine",
+    "consorz[io] di bonifica"
+   ]
+  },
+  {
+   "id": "cultura",
+   "nome": "Cultura, informazione, sport e turismo",
+   "ministeri": [
+    "Cultura",
+    "Turismo",
+    "Sport e giovani"
+   ],
+   "parole": [
+    "cultur",
+    "muse[oi]",
+    "beni culturali",
+    "archeolog",
+    "patrimonio (storico|artistico|culturale)",
+    "soprintendenz",
+    "monument",
+    "chies[ae]\\b",
+    "cinema",
+    "spettacol",
+    "teatr",
+    "bibliotec",
+    "editori",
+    "\\brai\\b",
+    "servizio pubblico radiotelevisivo",
+    "giornalist",
+    "informazione",
+    "emittent",
+    "sport(?!ell)",
+    "calcio",
+    "stadi",
+    "atlet",
+    "olimpiad",
+    "turism",
+    "turistic",
+    "giubileo",
+    "festival",
+    "musica"
+   ]
+  },
+  {
+   "id": "territorio",
+   "nome": "Calamità, ricostruzione ed enti locali",
+   "ministeri": [
+    "Protezione civile e politiche del mare",
+    "Affari regionali e autonomie",
+    "Affari europei, PNRR e coesione"
+   ],
+   "parole": [
+    "alluvion",
+    "terremot",
+    "sism",
+    "fran[ae]\\b",
+    "smottament",
+    "dissesto idrogeologico",
+    "ricostruzion",
+    "protezione civile",
+    "stato di emergenza",
+    "eventi (meteorologici|atmosferici)",
+    "maltempo",
+    "incendi boschivi",
+    "esondazion",
+    "bradisism",
+    "campi flegrei",
+    "autonomia differenziata",
+    "enti locali",
+    "comuni\\b",
+    "regioni\\b",
+    "province\\b",
+    "\\bpnrr\\b",
+    "fondi di coesione",
+    "politiche di coesione",
+    "\\bzes\\b",
+    "mezzogiorno",
+    "aree interne",
+    "demanio",
+    "commissario straordinario"
+   ]
+  },
+  {
+   "id": "pa",
+   "nome": "Pubblica amministrazione e istituzioni",
+   "ministeri": [
+    "Pubblica amministrazione",
+    "Presidenza del Consiglio",
+    "Riforme istituzionali",
+    "Rapporti con il Parlamento"
+   ],
+   "parole": [
+    "pubblica amministrazione",
+    "pubbliche amministrazioni",
+    "dipendenti pubblici",
+    "pubblico impiego",
+    "concors[oi] pubblic",
+    "digitalizzazion",
+    "spid\\b",
+    "\\bpec\\b",
+    "nomin[ae]",
+    "conflitto di interessi",
+    "spyware",
+    "privacy",
+    "dati personali",
+    "par condicio",
+    "elezion",
+    "elettoral",
+    "referendum",
+    "riforma costituzional",
+    "premierato",
+    "trasparenza",
+    "corte dei conti",
+    "anac\\b",
+    "palazzo chigi",
+    "presidenza del consiglio"
+   ]
+  }
+ ],
+ "sintesi": {
+  "trasporti": {
+   "testo": "Si chiede soprattutto quando partiranno o finiranno lavori fermi o in ritardo: strade statali, linee ferroviarie, porti e aeroporti, spesso con fondi del PNRR. Molte domande raccolgono i disagi di pendolari e viaggiatori: treni regionali soppressi, stazioni chiuse, collegamenti con le isole.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "5-04081",
+     "oggetto": "La strada statale 7 Ferrandina-Matera e i suoi lavori"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-02160",
+     "oggetto": "La rete ferroviaria dell'Umbria e i treni regionali"
+    },
+    {
+     "ramo": "C",
+     "numero": "5-04305",
+     "oggetto": "La nuova diga foranea del porto di Genova"
+    }
+   ]
+  },
+  "sicurezza": {
+   "testo": "Le domande più frequenti partono da un fatto di cronaca in un territorio preciso (furti, rapine, intimidazioni, violenza armata) e chiedono più agenti, mezzi e presidi. Un gruppo numeroso riguarda la gestione dell'ordine pubblico durante manifestazioni e cortei; un altro le aggressioni al personale di ospedali e treni.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "2-00848",
+     "oggetto": "Episodi di violenza armata e intimidazioni a Palermo"
+    },
+    {
+     "ramo": "C",
+     "numero": "5-02752",
+     "oggetto": "Le aggressioni al personale sanitario"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-09459",
+     "oggetto": "Tensioni tra manifestanti e forze dell'ordine durante un corteo a Bologna"
+    }
+   ]
+  },
+  "ambiente": {
+   "testo": "Rifiuti, discariche, impianti di trattamento e bonifiche dei siti inquinati; impianti energetici (rinnovabili, gas, idroelettrico) e il loro impatto sul territorio; costo delle bollette; tutela di parchi, laghi, specie protette e acqua potabile.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "2-00796",
+     "oggetto": "I «siti orfani» ancora da bonificare"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-01317",
+     "oggetto": "Il termovalorizzatore di Santa Palomba a Roma"
+    },
+    {
+     "ramo": "C",
+     "numero": "5-02550",
+     "oggetto": "Le comunità energetiche rinnovabili"
+    }
+   ]
+  },
+  "giustizia": {
+   "testo": "Al centro ci sono le carceri: sovraffollamento, suicidi, violenze, condizioni di lavoro della polizia penitenziaria, istituti per minorenni. Poi gli uffici giudiziari senza personale e singoli casi giudiziari seguiti dalla stampa.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "3-01246",
+     "oggetto": "Il sovraffollamento delle carceri"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-00899",
+     "oggetto": "Il tribunale di Gorizia con metà del personale previsto"
+    },
+    {
+     "ramo": "S",
+     "numero": "3-02637",
+     "oggetto": "Violenze tra ragazzi in un istituto penale per minorenni"
+    }
+   ]
+  },
+  "sanita": {
+   "testo": "Ospedali e pronto soccorso in difficoltà, carenza di medici e infermieri, liste d'attesa, accesso a farmaci e terapie per malattie specifiche; tariffe e regole del Servizio sanitario nazionale e differenze tra Regioni.",
+   "esempi": [
+    {
+     "ramo": "S",
+     "numero": "4-00954",
+     "oggetto": "L'ospedale di Tivoli dopo l'incendio del dicembre 2023"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-05639",
+     "oggetto": "Le difficoltà dei pazienti con talassemia"
+    },
+    {
+     "ramo": "C",
+     "numero": "3-00326",
+     "oggetto": "L'accesso alle cure palliative e alla terapia del dolore"
+    }
+   ]
+  },
+  "lavoro": {
+   "testo": "Per lo più vertenze di singoli stabilimenti: chiusure, licenziamenti collettivi, cassa integrazione, con la richiesta di convocare un tavolo al Ministero. Seguono la sicurezza sul lavoro, i salari e il rinnovo dei contratti.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "5-04698",
+     "oggetto": "Lo stabilimento Bekaert di Assemini (Cagliari)"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-03704",
+     "oggetto": "L'ex stabilimento Unilever di Pozzilli (Isernia)"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-01226",
+     "oggetto": "La prevenzione degli infortuni sul lavoro"
+    }
+   ]
+  },
+  "cultura": {
+   "testo": "Beni culturali da restaurare o a rischio crollo, fondi a cinema e spettacolo, informazione e servizio pubblico radiotelevisivo, sport (dalle federazioni al calcio) e turismo.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "4-02771",
+     "oggetto": "Il crollo di un tratto delle mura medievali di Volterra"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-02632",
+     "oggetto": "La cessione di un'agenzia di stampa nazionale"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-09442",
+     "oggetto": "La relazione sull'attuazione della legge sul cinema"
+    }
+   ]
+  },
+  "imprese": {
+   "testo": "Crisi di grandi gruppi industriali e ruolo dello Stato (amministrazione straordinaria, acquirenti, golden power), prezzi e carburanti, servizi postali e telecomunicazioni nei piccoli centri, export e dazi.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "2-00475",
+     "oggetto": "Lo stabilimento Beko di Cassinetta di Biandronno (Varese)"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-00629",
+     "oggetto": "Il registro delle opposizioni contro il telemarketing"
+    },
+    {
+     "ramo": "C",
+     "numero": "3-02442",
+     "oggetto": "Lo sportello Postamat sospeso di notte nel Golfo di Policastro"
+    }
+   ]
+  },
+  "scuola": {
+   "testo": "Chiusura e accorpamento di scuole (dimensionamento), concorsi, graduatorie e supplenze dei docenti, sostegno agli alunni con disabilità, edifici scolastici e mense.",
+   "esempi": [
+    {
+     "ramo": "S",
+     "numero": "4-01967",
+     "oggetto": "Il dimensionamento della rete scolastica nelle Marche"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-03860",
+     "oggetto": "I fondi per l'assistenza agli alunni con disabilità"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-01267",
+     "oggetto": "Le graduatorie provinciali per le supplenze"
+    }
+   ]
+  },
+  "fisco": {
+   "testo": "Come si applicano bonus e crediti d'imposta (superbonus, crediti per le imprese, cedolare secca), il funzionamento dell'Agenzia delle entrate e delle dogane, banche, fondazioni bancarie e risparmiatori.",
+   "esempi": [
+    {
+     "ramo": "S",
+     "numero": "4-01756",
+     "oggetto": "La cedolare secca sugli affitti"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-03118",
+     "oggetto": "Il credito d'imposta per i beni strumentali"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-04184",
+     "oggetto": "Il declassamento dell'ufficio delle dogane di Ravenna"
+    }
+   ]
+  },
+  "esteri": {
+   "testo": "Italiani detenuti o in difficoltà all'estero, guerre in Medio Oriente e in Ucraina e posizione dell'Italia, diritti umani in altri Paesi, servizi consolari e voto degli italiani all'estero.",
+   "esempi": [
+    {
+     "ramo": "S",
+     "numero": "4-02318",
+     "oggetto": "Un cooperante italiano detenuto in Venezuela"
+    },
+    {
+     "ramo": "C",
+     "numero": "2-00625",
+     "oggetto": "Il voto dei cittadini italiani residenti all'estero"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-07926",
+     "oggetto": "L'intercettazione in mare della seconda missione della Global Sumud Flotilla"
+    }
+   ]
+  },
+  "agricoltura": {
+   "testo": "Crisi di prezzo in singole filiere (olio, grano, pomodoro, vino), danni della fauna selvatica e malattie degli animali, siccità, bandi e fondi per gli agricoltori.",
+   "esempi": [
+    {
+     "ramo": "S",
+     "numero": "4-03457",
+     "oggetto": "La crisi del comparto olivicolo-oleario"
+    },
+    {
+     "ramo": "C",
+     "numero": "3-02000",
+     "oggetto": "I danni della fauna selvatica"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-08554",
+     "oggetto": "Il pomodoro da industria e la siccità del Po"
+    }
+   ]
+  },
+  "territorio": {
+   "testo": "Ristori e ricostruzione dopo alluvioni e terremoti, stati di emergenza, piccoli comuni e aree interne, uso dei fondi PNRR e di coesione, autonomia differenziata.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "4-04190",
+     "oggetto": "I danni dell'alluvione del 2015 nel Beneventano"
+    },
+    {
+     "ramo": "C",
+     "numero": "3-00586",
+     "oggetto": "I danni del maltempo segnalati alla Protezione civile in Lombardia"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-02665",
+     "oggetto": "I piccoli comuni sotto i 5.000 abitanti"
+    }
+   ]
+  },
+  "pa": {
+   "testo": "Concorsi e assunzioni pubbliche, servizi digitali per i cittadini, nomine, trasparenza ed etica pubblica.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "4-02521",
+     "oggetto": "Una quota di riserva nei concorsi pubblici"
+    },
+    {
+     "ramo": "C",
+     "numero": "5-00083",
+     "oggetto": "L'elenco dei domicili digitali dei cittadini"
+    },
+    {
+     "ramo": "S",
+     "numero": "3-01818",
+     "oggetto": "I premi di risultato nelle amministrazioni dopo una delibera della Corte dei conti"
+    }
+   ]
+  },
+  "welfare": {
+   "testo": "Inps (personale, ritardi, prestazioni), assegno di inclusione e misure contro la povertà, pensioni, disabilità e non autosufficienza.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "3-00992",
+     "oggetto": "L'assegno di inclusione"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-01128",
+     "oggetto": "La carenza di personale nelle sedi Inps"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-02827",
+     "oggetto": "Il progetto Inps «Home care premium» per l'assistenza a domicilio"
+    }
+   ]
+  },
+  "difesa": {
+   "testo": "Spese militari e impegni presi nella NATO, basi e servitù militari sul territorio, caserme e personale delle Forze armate e dei Carabinieri.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "3-02198",
+     "oggetto": "L'obiettivo NATO del 5 per cento del PIL per la difesa"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-07228",
+     "oggetto": "La base di Sigonella"
+    },
+    {
+     "ramo": "C",
+     "numero": "5-02133",
+     "oggetto": "La caserma dei Carabinieri di Passopisciaro"
+    }
+   ]
+  },
+  "universita": {
+   "testo": "Accesso a Medicina, enti di ricerca come il CNR, conservatori e accademie, corsi a distanza e regole di reclutamento.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "5-03525",
+     "oggetto": "L'accesso ai corsi di laurea in Medicina"
+    },
+    {
+     "ramo": "S",
+     "numero": "4-02727",
+     "oggetto": "Il Consiglio nazionale delle ricerche"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-06641",
+     "oggetto": "I bandi universitari che chiedono l'idoneità fisica"
+    }
+   ]
+  },
+  "immigrazione": {
+   "testo": "Condizioni nei centri di permanenza per il rimpatrio e nei centri di accoglienza, protocollo con l'Albania, decreto flussi per i lavoratori stranieri, naufragi nel Mediterraneo.",
+   "esempi": [
+    {
+     "ramo": "C",
+     "numero": "3-01489",
+     "oggetto": "I centri previsti dal Protocollo Italia-Albania"
+    },
+    {
+     "ramo": "C",
+     "numero": "4-07738",
+     "oggetto": "Il Centro di permanenza per il rimpatrio di Macomer"
+    },
+    {
+     "ramo": "C",
+     "numero": "2-00391",
+     "oggetto": "Il decreto flussi per i lavoratori stranieri"
+    }
+   ]
+  }
+ }
+}

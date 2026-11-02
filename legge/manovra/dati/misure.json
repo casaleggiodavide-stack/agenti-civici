@@ -1,0 +1,529 @@
+{
+ "_nota": "Ricavato da sintesi.json: una riga per misura.",
+ "misure": [
+  {
+   "tema": "I conti pubblici",
+   "misura": "Dimensione della manovra",
+   "per_chi": "Tutti",
+   "euro_2027": 26000000000,
+   "euro_2028": 27000000000,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «DDL Bilancio 2027», terzo paragrafo"
+    ]
+   ]
+  },
+  {
+   "tema": "I conti pubblici",
+   "misura": "Deficit programmato",
+   "per_chi": "Conti dello Stato",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "+0,5 punti di PIL nel 2027",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "p. 9"
+    ],
+    [
+     "dpfp",
+     "Tavola di sintesi, p. X"
+    ]
+   ]
+  },
+  {
+   "tema": "I conti pubblici",
+   "misura": "Clausola di salvaguardia nazionale",
+   "per_chi": "Difesa ed energia",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "fino a 0,6 punti di PIL l'anno",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "p. 8"
+    ],
+    [
+     "dpfp",
+     "p. 59"
+    ]
+   ]
+  },
+  {
+   "tema": "Fisco e redditi",
+   "misura": "IRPEF al 33% fino a 55.000 euro",
+   "per_chi": "Contribuenti IRPEF (la soglia di partenza sarà nel testo)",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Fisco e redditi",
+   "misura": "Imposta del 5% sugli aumenti da rinnovo dei contratti",
+   "per_chi": "Dipendenti del settore privato",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Fisco e redditi",
+   "misura": "Regime forfettario fino a 100.000 euro",
+   "per_chi": "Lavoratori autonomi e piccole imprese individuali",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Fisco e redditi",
+   "misura": "Detrazioni per le ristrutturazioni",
+   "per_chi": "Proprietari che ristrutturano casa",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Fisco e redditi",
+   "misura": "Bollo auto",
+   "per_chi": "Proprietari di veicoli fino a 80 kW e moto",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Lavoro e giovani",
+   "misura": "Imposta dell'1% sugli aumenti di reddito dei giovani",
+   "per_chi": "Giovani lavoratori dipendenti",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Lavoro e giovani",
+   "misura": "Sconti contributivi per chi assume",
+   "per_chi": "Imprese che assumono donne, giovani, lavoratori nelle ZES",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Lavoro e giovani",
+   "misura": "Deduzione maggiorata per nuove assunzioni",
+   "per_chi": "Imprese che assumono",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Lavoro e giovani",
+   "misura": "Fringe benefit fino a 2.000 euro per gli under 30",
+   "per_chi": "Lavoratori fino a 30 anni",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Fisco e lavoro»"
+    ]
+   ]
+  },
+  {
+   "tema": "Casa e affitti",
+   "misura": "Cedolare secca sul canone concordato al 5%",
+   "per_chi": "Proprietari che affittano a canone concordato",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Casa»"
+    ]
+   ]
+  },
+  {
+   "tema": "Casa e affitti",
+   "misura": "Cedolare secca sui negozi",
+   "per_chi": "Proprietari di immobili commerciali",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Casa»"
+    ]
+   ]
+  },
+  {
+   "tema": "Famiglie e figli",
+   "misura": "Bonus mamme stabile",
+   "per_chi": "Madri lavoratrici con almeno due figli",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Famiglia e natalità»"
+    ]
+   ]
+  },
+  {
+   "tema": "Famiglie e figli",
+   "misura": "Fondo per la natalità",
+   "per_chi": "Nati dal 2027",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "100 euro l'anno per bambino",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Famiglia e natalità»"
+    ]
+   ]
+  },
+  {
+   "tema": "Famiglie e figli",
+   "misura": "Congedo parentale più lungo",
+   "per_chi": "Genitori lavoratori dipendenti",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Famiglia e natalità»"
+    ]
+   ]
+  },
+  {
+   "tema": "Famiglie e figli",
+   "misura": "Voucher baby-sitting per gli autonomi",
+   "per_chi": "Genitori lavoratori autonomi",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "fino a 500 euro al mese per 3 mesi",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Famiglia e natalità»"
+    ]
+   ]
+  },
+  {
+   "tema": "Sanità",
+   "misura": "Fondo sanitario nazionale +3,4 miliardi",
+   "per_chi": "Servizio sanitario, Regioni, personale di pronto soccorso",
+   "euro_2027": 3400000000,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Sanità e previdenza»"
+    ]
+   ]
+  },
+  {
+   "tema": "Sanità",
+   "misura": "Buono salute per gli over 75",
+   "per_chi": "Persone sopra i 75 anni con pensione fino a 28.000 euro l'anno",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "300 euro a persona",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Sanità e previdenza»"
+    ]
+   ]
+  },
+  {
+   "tema": "Pensioni",
+   "misura": "Fondo per l'uscita flessibile",
+   "per_chi": "Lavoratori nel sistema contributivo",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "850 milioni (anni non indicati)",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Sanità e previdenza»"
+    ]
+   ]
+  },
+  {
+   "tema": "Imprese, energia e Mezzogiorno",
+   "misura": "Credito d'imposta ZES unica",
+   "per_chi": "Imprese che investono nel Sud",
+   "euro_2027": 2400000000,
+   "euro_2028": 1250000000,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Imprese, energia e Mezzogiorno»"
+    ]
+   ]
+  },
+  {
+   "tema": "Imprese, energia e Mezzogiorno",
+   "misura": "Energia per le imprese",
+   "per_chi": "Imprese",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "p. 11"
+    ]
+   ]
+  },
+  {
+   "tema": "Imprese, energia e Mezzogiorno",
+   "misura": "Plastic tax e sugar tax rinviate",
+   "per_chi": "Produttori di imballaggi e bevande",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Imprese, energia e Mezzogiorno»"
+    ]
+   ]
+  },
+  {
+   "tema": "Imprese, energia e Mezzogiorno",
+   "misura": "Cloud, agricoltura, pesca, turismo",
+   "per_chi": "Imprese dei settori indicati",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Imprese, energia e Mezzogiorno»"
+    ]
+   ]
+  },
+  {
+   "tema": "Investimenti, scuole e ospedali",
+   "misura": "Ferrovie e strade",
+   "per_chi": "Chi viaggia, gestori delle reti",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Investimenti pubblici»"
+    ],
+    [
+     "dpb",
+     "p. 10"
+    ]
+   ]
+  },
+  {
+   "tema": "Investimenti, scuole e ospedali",
+   "misura": "Efficienza energetica degli edifici pubblici",
+   "per_chi": "Enti pubblici, scuole, ospedali",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "",
+   "articolo": null,
+   "rimandi": [
+    [
+     "cdm",
+     "sezione «Investimenti pubblici»"
+    ],
+    [
+     "dpb",
+     "p. 11"
+    ]
+   ]
+  },
+  {
+   "tema": "Difesa",
+   "misura": "Più spesa per la difesa",
+   "per_chi": "Forze armate",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "0,19% del PIL nel 2027",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "Tabella I.6-1, p. 11; p. 8"
+    ]
+   ]
+  },
+  {
+   "tema": "Chi paga: le coperture",
+   "misura": "Settore finanziario",
+   "per_chi": "Banche e altri operatori finanziari",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "0,21% del PIL nel 2027",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "Tabella I.6-1, p. 11"
+    ],
+    [
+     "cdm",
+     "quarto paragrafo"
+    ]
+   ]
+  },
+  {
+   "tema": "Chi paga: le coperture",
+   "misura": "Revisione della spesa dei Ministeri",
+   "per_chi": "Ministeri",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "0,05% del PIL nel 2027",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "Tabella I.6-1, p. 11"
+    ],
+    [
+     "cdm",
+     "quarto paragrafo"
+    ]
+   ]
+  },
+  {
+   "tema": "Chi paga: le coperture",
+   "misura": "Giochi",
+   "per_chi": "Operatori del gioco",
+   "euro_2027": null,
+   "euro_2028": null,
+   "euro_2029": null,
+   "valore_testo": "0,03% del PIL nel 2027",
+   "articolo": null,
+   "rimandi": [
+    [
+     "dpb",
+     "Tabella I.6-1, p. 11"
+    ],
+    [
+     "cdm",
+     "quarto paragrafo"
+    ]
+   ]
+  }
+ ]
+}

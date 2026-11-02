@@ -1,0 +1,405 @@
+{
+ "_nota": "Ricavato in automatico da scripts/legge-manovra.py dai testi di DPB 2027 e DPFP 2026: non modificare a mano.",
+ "manovra_dpb": {
+  "impieghi": [
+   {
+    "voce": "Misure fiscali",
+    "una_tantum": false,
+    "entrate_spese": "e",
+    "valori": [
+     -0.09,
+     -0.21,
+     -0.16
+    ]
+   },
+   {
+    "voce": "Politiche per la famiglia e spesa sociale",
+    "una_tantum": false,
+    "entrate_spese": "e/s",
+    "valori": [
+     -0.21,
+     -0.12,
+     -0.11
+    ]
+   },
+   {
+    "voce": "Sanità",
+    "una_tantum": false,
+    "entrate_spese": "e/s",
+    "valori": [
+     -0.1,
+     -0.08,
+     -0.07
+    ]
+   },
+   {
+    "voce": "Sostegno alle imprese",
+    "una_tantum": false,
+    "entrate_spese": "e/s",
+    "valori": [
+     -0.14,
+     -0.18,
+     -0.13
+    ]
+   },
+   {
+    "voce": "Infrastrutture",
+    "una_tantum": false,
+    "entrate_spese": "s",
+    "valori": [
+     -0.13,
+     -0.15,
+     -0.04
+    ]
+   },
+   {
+    "voce": "Enti territoriali",
+    "una_tantum": false,
+    "entrate_spese": "s",
+    "valori": [
+     -0.01,
+     -0.01,
+     -0.02
+    ]
+   },
+   {
+    "voce": "Difesa",
+    "una_tantum": false,
+    "entrate_spese": "s",
+    "valori": [
+     -0.19,
+     -0.2,
+     -0.03
+    ]
+   },
+   {
+    "voce": "Fondo sentenze",
+    "una_tantum": true,
+    "entrate_spese": "s",
+    "valori": [
+     -0.08,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "voce": "Altre spese/interventi",
+    "una_tantum": false,
+    "entrate_spese": "e/s",
+    "valori": [
+     -0.03,
+     -0.04,
+     -0.08
+    ]
+   },
+   {
+    "voce": "Altre spese/interventi",
+    "una_tantum": true,
+    "entrate_spese": "s",
+    "valori": [
+     0.0,
+     0.0,
+     -0.01
+    ]
+   }
+  ],
+  "risorse": [
+   {
+    "voce": "Misure a carico del settore finanziario",
+    "una_tantum": false,
+    "entrate_spese": "e",
+    "valori": [
+     0.21,
+     0.13,
+     0.1
+    ]
+   },
+   {
+    "voce": "Revisione spesa ministeri",
+    "una_tantum": false,
+    "entrate_spese": "s",
+    "valori": [
+     0.05,
+     0.08,
+     0.08
+    ]
+   },
+   {
+    "voce": "Misure in materia di giochi",
+    "una_tantum": false,
+    "entrate_spese": "e",
+    "valori": [
+     0.03,
+     0.03,
+     0.02
+    ]
+   },
+   {
+    "voce": "Altre entrate/coperture",
+    "una_tantum": false,
+    "entrate_spese": "e",
+    "valori": [
+     0.05,
+     0.14,
+     0.23
+    ]
+   },
+   {
+    "voce": "Altre entrate/coperture",
+    "una_tantum": true,
+    "entrate_spese": "e",
+    "valori": [
+     0.02,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "voce": "Altre spese/coperture",
+    "una_tantum": false,
+    "entrate_spese": "e/s",
+    "valori": [
+     0.07,
+     0.07,
+     0.07
+    ]
+   }
+  ],
+  "impatto_complessivo": [
+   -0.54,
+   -0.56,
+   -0.15
+  ],
+  "somma_impieghi": [
+   -0.98,
+   -0.99,
+   -0.65
+  ],
+  "somma_risorse": [
+   0.43,
+   0.45,
+   0.5
+  ],
+  "anni": [
+   2027,
+   2028,
+   2029
+  ],
+  "unita": "% del PIL; negativo = peggiora il saldo (interventi), positivo = lo migliora (coperture)",
+  "pagina_pdf": 19
+ },
+ "manovra_dpb_fonte": [
+  "dpb",
+  "Tabella I.6-1, p. 11"
+ ],
+ "quadro_dpfp": {
+  "anni": [
+   2025,
+   2026,
+   2027,
+   2028,
+   2029
+  ],
+  "programmatico": {
+   "PIL reale (Var %)": [
+    0.6,
+    1.0,
+    0.8,
+    0.9,
+    0.8
+   ],
+   "PIL nominale (Var %)": [
+    2.5,
+    2.7,
+    3.2,
+    3.0,
+    2.6
+   ],
+   "Tasso di disoccupazione (%)": [
+    6.1,
+    5.7,
+    5.6,
+    5.6,
+    5.5
+   ],
+   "Saldo bilancia dei pagamenti (% Pil)": [
+    1.1,
+    1.0,
+    1.0,
+    1.1,
+    1.2
+   ],
+   "Indebitamento netto (% Pil)": [
+    -3.1,
+    -2.9,
+    -3.4,
+    -3.2,
+    -2.3
+   ],
+   "Saldo primario (% Pil)": [
+    0.8,
+    1.2,
+    0.9,
+    1.4,
+    2.4
+   ],
+   "Debito lordo (% Pil)": [
+    136.7,
+    138.1,
+    138.5,
+    137.9,
+    136.6
+   ],
+   "Tasso di crescita annuo Spesa Netta (Var %)": [
+    1.5,
+    1.6,
+    3.3,
+    1.7,
+    0.2
+   ],
+   "Tasso di crescita annuo Spesa Netta (Var %) al netto NEC": [
+    1.5,
+    1.6,
+    1.9,
+    1.7,
+    1.5
+   ]
+  },
+  "tendenziale": {
+   "PIL reale (Var %)": [
+    0.6,
+    1.0,
+    0.6,
+    0.8,
+    0.8
+   ],
+   "PIL nominale (Var %)": [
+    2.5,
+    2.7,
+    2.9,
+    2.7,
+    2.6
+   ],
+   "Tasso di disoccupazione (%)": [
+    6.1,
+    5.7,
+    5.6,
+    5.6,
+    5.5
+   ],
+   "Saldo bilancia dei pagamenti (% Pil)": [
+    1.1,
+    1.0,
+    1.1,
+    1.3,
+    1.4
+   ],
+   "Indebitamento netto (% Pil)": [
+    -3.1,
+    -2.9,
+    -2.9,
+    -2.7,
+    -2.2
+   ],
+   "Saldo primario (% Pil)": [
+    0.8,
+    1.2,
+    1.4,
+    1.9,
+    2.5
+   ],
+   "Debito lordo (% Pil)": [
+    136.7,
+    138.1,
+    138.4,
+    137.7,
+    136.3
+   ],
+   "Tasso di crescita annuo Spesa Netta (Var %)": [
+    1.5,
+    1.6,
+    2.1,
+    1.3,
+    1.1
+   ],
+   "Tasso di crescita annuo Spesa Netta (Var %) al netto NEC": [
+    1.5,
+    1.6,
+    1.9,
+    1.4,
+    1.3
+   ]
+  },
+  "tendenziale_aprile": {
+   "PIL reale (Var %)": [
+    0.5,
+    0.6,
+    0.6,
+    0.8,
+    0.8
+   ],
+   "PIL nominale (Var %)": [
+    2.5,
+    2.4,
+    2.6,
+    2.5,
+    2.7
+   ],
+   "Tasso di disoccupazione (%)": [
+    6.1,
+    5.5,
+    5.4,
+    5.2,
+    5.1
+   ],
+   "Saldo bilancia dei pagamenti (% Pil)": [
+    1.1,
+    0.5,
+    0.8,
+    0.9,
+    1.0
+   ],
+   "Indebitamento netto (% Pil)": [
+    -3.1,
+    -2.9,
+    -2.8,
+    -2.5,
+    -2.1
+   ],
+   "Saldo primario (% Pil)": [
+    0.8,
+    1.2,
+    1.5,
+    1.8,
+    2.4
+   ],
+   "Debito lordo (% Pil)": [
+    137.1,
+    138.6,
+    138.5,
+    137.9,
+    136.3
+   ],
+   "Tasso di crescita annuo Spesa Netta (Var %)": [
+    1.9,
+    1.6,
+    2.2,
+    1.7,
+    1.5
+   ]
+  },
+  "raccomandazione": {
+   "Tasso di crescita annuo Spesa Netta (Var %)": [
+    1.3,
+    1.6,
+    1.9,
+    1.7,
+    1.5
+   ]
+  }
+ },
+ "quadro_dpfp_fonte": [
+  "dpfp",
+  "Tavola di sintesi, p. X"
+ ]
+}

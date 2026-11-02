@@ -1,0 +1,838 @@
+{
+  "_nota": "Sintesi letta a mano dai documenti in ~/dati-civici/manovra/documenti. Struttura documentata in testa a scripts/legge-manovra.py. Ogni rimando è [id della fonte, punto del documento]. Anche ogni tema ha i suoi rimandi (per i numeri dell'introduzione).",
+  "aggiornato": "2 novembre 2026",
+  "atto": {
+    "titolo": "Bilancio di previsione dello Stato per l'anno finanziario 2027 e bilancio pluriennale per il triennio 2027-2029",
+    "approvato_cdm": "28 ottobre 2026",
+    "camera": null,
+    "senato": null,
+    "stato": "Il Consiglio dei ministri ha approvato il disegno di legge il 28 ottobre 2026. Al 2 novembre il testo non risulta ancora presentato alle Camere: nei dati aperti di Camera e Senato (aggiornati al 29 ottobre) non c'è, e l'ordine del giorno della Commissione Bilancio della Camera per il 3 e il 4 novembre non lo prevede. Per questo, oggi, articoli e relazione tecnica non sono ancora leggibili.",
+    "rimandi": [
+      [
+        "cdm",
+        "apertura del comunicato"
+      ],
+      [
+        "conv3",
+        "convocazione del 3 novembre"
+      ],
+      [
+        "conv4",
+        "convocazione del 4 novembre"
+      ]
+    ],
+    "verifiche": [
+      {
+        "cosa": "Ultimo atto Camera nei dati aperti",
+        "esito": "C. 3172, presentato il 29 ottobre 2026 (non riguarda il bilancio); la scheda C. 3173 risulta «documento non disponibile» il 2 novembre",
+        "dove": "dati.camera.it (SPARQL) e camera.it/leg19/126"
+      },
+      {
+        "cosa": "Ultimi disegni di legge nei dati aperti del Senato",
+        "esito": "S. 2080-2082, presentati il 29 ottobre 2026 (non riguardano il bilancio)",
+        "dove": "dati.senato.it (SPARQL)"
+      },
+      {
+        "cosa": "Ordine del giorno della Commissione Bilancio della Camera, 3 e 4 novembre",
+        "esito": "nessun punto sul disegno di legge di bilancio 2027",
+        "dove": "camera.it/leg19/1099"
+      },
+      {
+        "cosa": "Sito del Senato (senato.it)",
+        "esito": "bloccato da un controllo anti-robot (AWS WAF): non consultato",
+        "dove": "senato.it/robots.txt"
+      }
+    ]
+  },
+  "fonti": [
+    {
+      "id": "cdm",
+      "titolo": "Presidenza del Consiglio dei ministri, Comunicato stampa del Consiglio dei ministri n. 195, 28 ottobre 2026 (sezione «DDL Bilancio 2027»)",
+      "url": "https://www.governo.it/it/articolo/comunicato-stampa-del-consiglio-dei-ministri-n-195/32973",
+      "file": "documenti/CdM-195_comunicato.html"
+    },
+    {
+      "id": "dpb",
+      "titolo": "Ministero dell'economia e delle finanze, Documento programmatico di bilancio 2027, deliberato dal Consiglio dei ministri il 13 ottobre 2026 e pubblicato dalla Commissione europea (44 pagine)",
+      "url": "https://economy-finance.ec.europa.eu/document/download/6c907ef0-f7b2-47d3-97ca-ea92be524b5a_it?filename=2027_dbp_it_it.pdf&prefLang=en",
+      "file": "documenti/DPB-2027_Italia.pdf"
+    },
+    {
+      "id": "dpfp",
+      "titolo": "Camera dei deputati, Doc. CCXLIV n. 2: Documento programmatico di finanza pubblica 2026, trasmesso il 2 ottobre 2026 (156 pagine)",
+      "url": "https://documenti.camera.it/_dati/leg19/lavori/documentiparlamentari/IndiceETesti/244/002/INTERO.pdf",
+      "file": "documenti/DPFP-2026_Doc-CCXLIV-2.pdf"
+    },
+    {
+      "id": "conv3",
+      "titolo": "Camera dei deputati, convocazione della V Commissione Bilancio, martedì 3 novembre 2026",
+      "url": "https://www.camera.it/leg19/1099?submit1=invia&slAnnoMese=202611&slGiorno=3&shadow_organo_parlamentare=3505",
+      "file": "pagine/conv_V_3.html"
+    },
+    {
+      "id": "conv4",
+      "titolo": "Camera dei deputati, convocazione della V Commissione Bilancio, mercoledì 4 novembre 2026",
+      "url": "https://www.camera.it/leg19/1099?submit1=invia&slAnnoMese=202611&slGiorno=4&shadow_organo_parlamentare=3505",
+      "file": "pagine/conv_V_4.html"
+    },
+    {
+      "id": "docacq",
+      "titolo": "Camera dei deputati, V Commissione Bilancio: documenti acquisiti nelle audizioni",
+      "url": "https://www.camera.it/leg19/1347?shadow_organo_parlamentare=3505&id_tipografico=05",
+      "file": "pagine/comm_V_1347.html"
+    }
+  ],
+  "in_breve": [
+    {
+      "testo": "La manovra vale <b>circa 26 miliardi di euro nel 2027</b> e 27 miliardi nel 2028, secondo il Governo. Per pagarla il Governo indica in prevalenza «l'attivazione delle clausole» (gli spazi di flessibilità delle regole europee), più entrate da settore finanziario, giochi ed energia e un contributo dei Ministeri.",
+      "rimandi": [
+        [
+          "cdm",
+          "sezione «DDL Bilancio 2027», terzo e quarto paragrafo"
+        ]
+      ]
+    },
+    {
+      "testo": "Il deficit (quanto le spese pubbliche superano le entrate) è programmato al <b>3,4% del PIL nel 2027</b>: senza la manovra sarebbe al 2,9%. Il debito pubblico arriva al 138,5% del PIL nel 2027 e poi scende.",
+      "rimandi": [
+        [
+          "dpfp",
+          "Tavola di sintesi, p. X"
+        ],
+        [
+          "dpb",
+          "p. 9 e p. 12"
+        ]
+      ]
+    },
+    {
+      "testo": "Per <b>difesa ed energia</b> il Governo usa la «clausola di salvaguardia nazionale», una regola europea che permette di spendere di più senza violare i limiti concordati: fino a 0,3 punti di PIL per la difesa e 0,3 per l'energia, nel 2027 e nel 2028.",
+      "rimandi": [
+        [
+          "dpb",
+          "p. 8"
+        ],
+        [
+          "dpfp",
+          "p. 59"
+        ]
+      ]
+    },
+    {
+      "testo": "Il <b>Fondo sanitario nazionale</b> cresce di 3,4 miliardi e arriva a 146,3 miliardi nel 2027. Per chi ha più di 75 anni e una pensione fino a 28.000 euro è previsto un buono da 300 euro per spese sanitarie.",
+      "rimandi": [
+        [
+          "cdm",
+          "sezione «Sanità e previdenza»"
+        ]
+      ]
+    },
+    {
+      "testo": "Tra gli interventi del 2027, le più grandi sono <b>famiglia e spesa sociale</b> (0,21% del PIL) e <b>difesa</b> (0,19%). Tra le coperture, la più grande è a carico del <b>settore finanziario</b> (0,21% del PIL).",
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "testo": "Al 2 novembre il testo <b>non risulta ancora presentato alle Camere</b>: articoli, relazione tecnica e cifre misura per misura arriveranno con il disegno di legge. Audizioni ed emendamenti seguiranno.",
+      "rimandi": [
+        [
+          "conv3",
+          "ordine del giorno"
+        ],
+        [
+          "conv4",
+          "ordine del giorno"
+        ]
+      ]
+    }
+  ],
+  "temi": [
+    {
+      "id": "conti",
+      "titolo": "I conti pubblici",
+      "intro": "La manovra cambia i conti rispetto a come andrebbero «a legislazione vigente», cioè senza nuove leggi. Il Governo usa più spazio per difesa ed energia; il deficit sale nel 2027 e nel 2028 e poi torna a scendere.",
+      "misure": [
+        {
+          "misura": "Dimensione della manovra",
+          "cosa_cambia": "Interventi per circa 26 miliardi nel 2027 e 27 miliardi nel 2028.",
+          "per_chi": "Tutti",
+          "euro": {
+            "2027": 26000000000,
+            "2028": 27000000000
+          },
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «DDL Bilancio 2027», terzo paragrafo"
+            ]
+          ]
+        },
+        {
+          "misura": "Deficit programmato",
+          "cosa_cambia": "Il deficit sale al 3,4% del PIL nel 2027 e al 3,2% nel 2028 (senza manovra: 2,9% e 2,7%), poi scende al 2,3% nel 2029.",
+          "per_chi": "Conti dello Stato",
+          "euro": {},
+          "valore_testo": "+0,5 punti di PIL nel 2027",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "p. 9"
+            ],
+            [
+              "dpfp",
+              "Tavola di sintesi, p. X"
+            ]
+          ]
+        },
+        {
+          "misura": "Clausola di salvaguardia nazionale",
+          "cosa_cambia": "Fino a 0,3 punti di PIL l'anno per la difesa e 0,3 per l'energia nel 2027 e 2028 non contano nel limite di crescita della spesa concordato con l'Unione europea.",
+          "per_chi": "Difesa ed energia",
+          "euro": {},
+          "valore_testo": "fino a 0,6 punti di PIL l'anno",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "p. 8"
+            ],
+            [
+              "dpfp",
+              "p. 59"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpfp",
+          "Tavola di sintesi, p. X"
+        ],
+        [
+          "dpb",
+          "p. 8-9"
+        ]
+      ]
+    },
+    {
+      "id": "fisco",
+      "titolo": "Fisco e redditi",
+      "intro": "Le misure fiscali pesano lo 0,09% del PIL nel 2027 e lo 0,21% nel 2028. La principale riguarda l'IRPEF, l'imposta sul reddito delle persone.",
+      "misure": [
+        {
+          "misura": "IRPEF al 33% fino a 55.000 euro",
+          "cosa_cambia": "L'aliquota IRPEF del 33% si estende ai redditi fino a 55.000 euro: una fascia più ampia di reddito paga il 33% invece dell'aliquota più alta.",
+          "per_chi": "Contribuenti IRPEF (la soglia di partenza sarà nel testo)",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Imposta del 5% sugli aumenti da rinnovo dei contratti",
+          "cosa_cambia": "Confermata: gli aumenti di stipendio che arrivano dai rinnovi dei contratti nel settore privato pagano un'imposta fissa del 5% al posto dell'IRPEF.",
+          "per_chi": "Dipendenti del settore privato",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Regime forfettario fino a 100.000 euro",
+          "cosa_cambia": "Il regime forfettario (un'imposta semplificata per le piccole partite IVA) si potrà usare fino a 100.000 euro di ricavi invece di 85.000, per le imposte sui redditi. Per l'IVA la soglia resta a 85.000 euro in attesa dell'autorizzazione europea.",
+          "per_chi": "Lavoratori autonomi e piccole imprese individuali",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Detrazioni per le ristrutturazioni",
+          "cosa_cambia": "Confermate per il 2027 le detrazioni per i lavori di ristrutturazione edilizia.",
+          "per_chi": "Proprietari che ristrutturano casa",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Bollo auto",
+          "cosa_cambia": "Diventa stabile l'esenzione dalla tassa automobilistica per i veicoli fino a 80 kW e per i motocicli.",
+          "per_chi": "Proprietari di veicoli fino a 80 kW e moto",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "id": "lavoro",
+      "titolo": "Lavoro e giovani",
+      "intro": "Diverse misure riguardano i lavoratori giovani e le lavoratrici madri, e le imprese che assumono.",
+      "misure": [
+        {
+          "misura": "Imposta dell'1% sugli aumenti di reddito dei giovani",
+          "cosa_cambia": "Per il 2027, gli aumenti del reddito da lavoro dipendente dei giovani pagano un'imposta dell'1%, entro limiti di reddito e di importo.",
+          "per_chi": "Giovani lavoratori dipendenti",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Sconti contributivi per chi assume",
+          "cosa_cambia": "Prorogati al 31 dicembre 2027 gli esoneri dai contributi per le assunzioni a tempo indeterminato di donne, giovani e lavoratori nelle Zone economiche speciali (ZES).",
+          "per_chi": "Imprese che assumono donne, giovani, lavoratori nelle ZES",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Deduzione maggiorata per nuove assunzioni",
+          "cosa_cambia": "Nel 2027 l'impresa che assume può dedurre dalle tasse più del costo del nuovo dipendente: +80% per le lavoratrici madri, +40% per i giovani sotto i 36 anni.",
+          "per_chi": "Imprese che assumono",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        },
+        {
+          "misura": "Fringe benefit fino a 2.000 euro per gli under 30",
+          "cosa_cambia": "I beni e servizi dati dal datore di lavoro oltre allo stipendio (fringe benefit) sono esenti fino a 2.000 euro per chi ha fino a 30 anni.",
+          "per_chi": "Lavoratori fino a 30 anni",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Fisco e lavoro»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "cdm",
+          "sezione «Fisco e lavoro»"
+        ]
+      ]
+    },
+    {
+      "id": "casa",
+      "titolo": "Casa e affitti",
+      "intro": "Le novità sulla casa riguardano la cedolare secca, l'imposta fissa sugli affitti che sostituisce l'IRPEF.",
+      "misure": [
+        {
+          "misura": "Cedolare secca sul canone concordato al 5%",
+          "cosa_cambia": "Per gli affitti a canone concordato (con prezzo fissato da accordi locali tra proprietari e inquilini) l'aliquota scende dal 10% al 5%, e all'1% se l'inquilino ha fino a 35 anni.",
+          "per_chi": "Proprietari che affittano a canone concordato",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Casa»"
+            ]
+          ]
+        },
+        {
+          "misura": "Cedolare secca sui negozi",
+          "cosa_cambia": "La cedolare secca si estende agli immobili commerciali.",
+          "per_chi": "Proprietari di immobili commerciali",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Casa»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "cdm",
+          "sezione «Casa»"
+        ]
+      ]
+    },
+    {
+      "id": "famiglie",
+      "titolo": "Famiglie e figli",
+      "intro": "La voce «politiche per la famiglia e spesa sociale» è la più grande tra gli interventi del 2027: 0,21% del PIL.",
+      "misure": [
+        {
+          "misura": "Bonus mamme stabile",
+          "cosa_cambia": "Il bonus per le madri lavoratrici con almeno due figli e reddito da lavoro fino a 40.000 euro diventa stabile e più alto; vale anche per autonome e lavoratrici a tempo determinato.",
+          "per_chi": "Madri lavoratrici con almeno due figli",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Famiglia e natalità»"
+            ]
+          ]
+        },
+        {
+          "misura": "Fondo per la natalità",
+          "cosa_cambia": "Per ogni nato dal 2027 lo Stato apre un conto di risparmio e versa 100 euro l'anno fino alla maggiore età. Le famiglie possono aggiungere soldi, con una detrazione fiscale.",
+          "per_chi": "Nati dal 2027",
+          "euro": {},
+          "valore_testo": "100 euro l'anno per bambino",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Famiglia e natalità»"
+            ]
+          ]
+        },
+        {
+          "misura": "Congedo parentale più lungo",
+          "cosa_cambia": "Il congedo pagato all'80%, da usare entro i 6 anni del bambino, passa da 3 a 4 mesi; 5 mesi per il secondo figlio e 6 dal terzo.",
+          "per_chi": "Genitori lavoratori dipendenti",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Famiglia e natalità»"
+            ]
+          ]
+        },
+        {
+          "misura": "Voucher baby-sitting per gli autonomi",
+          "cosa_cambia": "Un buono fino a 500 euro al mese, per al massimo 3 mesi, per baby-sitter e servizi per l'infanzia.",
+          "per_chi": "Genitori lavoratori autonomi",
+          "euro": {},
+          "valore_testo": "fino a 500 euro al mese per 3 mesi",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Famiglia e natalità»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "id": "sanita",
+      "titolo": "Sanità",
+      "intro": "Il Fondo sanitario nazionale è la somma che lo Stato dà alle Regioni per il Servizio sanitario. Nella tabella del Governo la sanità pesa lo 0,10% del PIL nel 2027.",
+      "misure": [
+        {
+          "misura": "Fondo sanitario nazionale +3,4 miliardi",
+          "cosa_cambia": "Il Fondo sale a 146,3 miliardi nel 2027. Le risorse vanno ad alzare i tetti del payback (il meccanismo per cui le aziende di farmaci e dispositivi restituiscono parte della spesa oltre i tetti), ad aggiornare le tariffe degli ospedali, a interventi per Alzheimer e demenze e all'indennità di pronto soccorso.",
+          "per_chi": "Servizio sanitario, Regioni, personale di pronto soccorso",
+          "euro": {
+            "2027": 3400000000
+          },
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Sanità e previdenza»"
+            ]
+          ]
+        },
+        {
+          "misura": "Buono salute per gli over 75",
+          "cosa_cambia": "Un buono di 300 euro per le spese sanitarie non coperte dal Servizio sanitario.",
+          "per_chi": "Persone sopra i 75 anni con pensione fino a 28.000 euro l'anno",
+          "euro": {},
+          "valore_testo": "300 euro a persona",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Sanità e previdenza»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "id": "pensioni",
+      "titolo": "Pensioni",
+      "intro": "Una sola misura annunciata sulle pensioni.",
+      "misure": [
+        {
+          "misura": "Fondo per l'uscita flessibile",
+          "cosa_cambia": "Nasce un fondo di 850 milioni per rendere più flessibile l'uscita dal lavoro di chi va in pensione con il sistema contributivo (quello calcolato sui contributi versati). Il comunicato non dice in quanti anni.",
+          "per_chi": "Lavoratori nel sistema contributivo",
+          "euro": {},
+          "valore_testo": "850 milioni (anni non indicati)",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Sanità e previdenza»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "cdm",
+          "sezione «Sanità e previdenza»"
+        ]
+      ]
+    },
+    {
+      "id": "imprese",
+      "titolo": "Imprese, energia e Mezzogiorno",
+      "intro": "Il sostegno alle imprese pesa lo 0,14% del PIL nel 2027 e lo 0,18% nel 2028.",
+      "misure": [
+        {
+          "misura": "Credito d'imposta ZES unica",
+          "cosa_cambia": "Più risorse per lo sconto fiscale a chi investe nella Zona economica speciale unica del Mezzogiorno.",
+          "per_chi": "Imprese che investono nel Sud",
+          "euro": {
+            "2027": 2400000000,
+            "2028": 1250000000
+          },
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Imprese, energia e Mezzogiorno»"
+            ]
+          ]
+        },
+        {
+          "misura": "Energia per le imprese",
+          "cosa_cambia": "Sostegno al prezzo dell'elettricità per una parte dei consumi e più contributi per fotovoltaico, biometano e riconversione degli impianti a biogas.",
+          "per_chi": "Imprese",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "p. 11"
+            ]
+          ]
+        },
+        {
+          "misura": "Plastic tax e sugar tax rinviate",
+          "cosa_cambia": "La sospensione delle imposte sulla plastica monouso e sulle bevande zuccherate è prorogata al 1° luglio 2027.",
+          "per_chi": "Produttori di imballaggi e bevande",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Imprese, energia e Mezzogiorno»"
+            ]
+          ]
+        },
+        {
+          "misura": "Cloud, agricoltura, pesca, turismo",
+          "cosa_cambia": "Finanziamenti per il cloud computing e misure per agricoltura, pesca e turismo. Il comunicato non indica le cifre.",
+          "per_chi": "Imprese dei settori indicati",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Imprese, energia e Mezzogiorno»"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "id": "investimenti",
+      "titolo": "Investimenti, scuole e ospedali",
+      "intro": "Le infrastrutture pesano lo 0,13% del PIL nel 2027 e lo 0,15% nel 2028. Una parte passa dalla clausola per l'energia.",
+      "misure": [
+        {
+          "misura": "Ferrovie e strade",
+          "cosa_cambia": "Risorse per la rete ferroviaria e la rete stradale nazionale: potenziamento, manutenzione, sicurezza.",
+          "per_chi": "Chi viaggia, gestori delle reti",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Investimenti pubblici»"
+            ],
+            [
+              "dpb",
+              "p. 10"
+            ]
+          ]
+        },
+        {
+          "misura": "Efficienza energetica degli edifici pubblici",
+          "cosa_cambia": "Lavori per consumare meno energia in ospedali, scuole, università, enti di ricerca e impianti sportivi; il documento europeo cita anche i bacini idroelettrici.",
+          "per_chi": "Enti pubblici, scuole, ospedali",
+          "euro": {},
+          "valore_testo": "",
+          "articolo": null,
+          "rimandi": [
+            [
+              "cdm",
+              "sezione «Investimenti pubblici»"
+            ],
+            [
+              "dpb",
+              "p. 11"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ],
+        [
+          "cdm",
+          "sezione «Investimenti pubblici»"
+        ]
+      ]
+    },
+    {
+      "id": "difesa",
+      "titolo": "Difesa",
+      "intro": "Il comunicato del Governo non descrive le misure per la difesa; il documento inviato a Bruxelles le quantifica.",
+      "misure": [
+        {
+          "misura": "Più spesa per la difesa",
+          "cosa_cambia": "La voce «difesa» vale lo 0,19% del PIL nel 2027 e lo 0,20% nel 2028, finanziata con la clausola di salvaguardia nazionale.",
+          "per_chi": "Forze armate",
+          "euro": {},
+          "valore_testo": "0,19% del PIL nel 2027",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "Tabella I.6-1, p. 11; p. 8"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    },
+    {
+      "id": "coperture",
+      "titolo": "Chi paga: le coperture",
+      "intro": "Le coperture sono le entrate in più e le spese in meno che finanziano la manovra. Sommando le voci della tabella del Governo valgono lo 0,43% del PIL nel 2027, contro 0,98% di interventi: la differenza, circa mezzo punto, è deficit in più.",
+      "misure": [
+        {
+          "misura": "Settore finanziario",
+          "cosa_cambia": "Misure a carico del settore finanziario (banche e altri operatori finanziari): la copertura più grande del 2027.",
+          "per_chi": "Banche e altri operatori finanziari",
+          "euro": {},
+          "valore_testo": "0,21% del PIL nel 2027",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "Tabella I.6-1, p. 11"
+            ],
+            [
+              "cdm",
+              "quarto paragrafo"
+            ]
+          ]
+        },
+        {
+          "misura": "Revisione della spesa dei Ministeri",
+          "cosa_cambia": "I Ministeri spendono meno; il comunicato cita anche un contributo della Presidenza del Consiglio.",
+          "per_chi": "Ministeri",
+          "euro": {},
+          "valore_testo": "0,05% del PIL nel 2027",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "Tabella I.6-1, p. 11"
+            ],
+            [
+              "cdm",
+              "quarto paragrafo"
+            ]
+          ]
+        },
+        {
+          "misura": "Giochi",
+          "cosa_cambia": "Maggiori entrate dal settore dei giochi.",
+          "per_chi": "Operatori del gioco",
+          "euro": {},
+          "valore_testo": "0,03% del PIL nel 2027",
+          "articolo": null,
+          "rimandi": [
+            [
+              "dpb",
+              "Tabella I.6-1, p. 11"
+            ],
+            [
+              "cdm",
+              "quarto paragrafo"
+            ]
+          ]
+        }
+      ],
+      "rimandi": [
+        [
+          "dpb",
+          "Tabella I.6-1, p. 11"
+        ]
+      ]
+    }
+  ],
+  "audizioni": {
+    "stato": "in arrivo",
+    "quando": "Previste tra il 5 e il 12 novembre 2026, dopo la presentazione del testo (date da confermare con il calendario della Commissione).",
+    "chi": "Di solito, nell'«attività conoscitiva preliminare» sul disegno di legge di bilancio, le Commissioni Bilancio di Camera e Senato ascoltano insieme Istat, Banca d'Italia, Corte dei conti, Ufficio parlamentare di bilancio, CNEL, sindacati, associazioni d'impresa, enti locali e altre associazioni. Ognuno lascia una memoria scritta.",
+    "come": "Quando saranno pubblicate, il Polpo le scarica tutte dalla pagina dei documenti acquisiti della Commissione Bilancio della Camera, ne estrae il testo e mette in fila, tema per tema, cosa chiede ciascuno.",
+    "pagine": [
+      [
+        "Documenti acquisiti (memorie) della Commissione Bilancio",
+        "https://www.camera.it/leg19/1347?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Altra documentazione (contributi scritti)",
+        "https://www.camera.it/leg19/1425?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Audizioni formali",
+        "https://www.camera.it/leg19/1103?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Audizioni e incontri informali",
+        "https://www.camera.it/leg19/1104?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Convocazioni della Commissione (ordine del giorno)",
+        "https://www.camera.it/leg19/1099?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Calendario settimanale delle Commissioni",
+        "https://www.camera.it/leg19/76?active_tab_3806=3811"
+      ]
+    ],
+    "gia_online": "Sono già online le memorie lasciate il 12 ottobre 2026 alle Commissioni Bilancio riunite sul Documento programmatico di finanza pubblica 2026, il documento che fissa la cornice dei conti in cui si muove la manovra.",
+    "rimandi": [
+      [
+        "docacq",
+        "elenco delle audizioni sui disegni di legge di bilancio dal 2022 al 2025"
+      ]
+    ]
+  },
+  "emendamenti": {
+    "stato": "in arrivo",
+    "quando": "Termine per gli emendamenti in Commissione previsto il 17-18 novembre 2026 (da confermare). La legge di bilancio va approvata da entrambe le Camere entro il 31 dicembre.",
+    "come": "Gli emendamenti (le proposte di modifica al testo) presentati in Commissione Bilancio sono pubblicati negli allegati al Bollettino delle Giunte e delle Commissioni. Il Polpo li scaricherà, li conterà per articolo e per tipo di presentatore, e seguirà quali entrano nel testo approvato.",
+    "pagine": [
+      [
+        "Resoconti e bollettini della Commissione Bilancio",
+        "https://www.camera.it/leg19/1105?shadow_organo_parlamentare=3505&id_tipografico=05"
+      ],
+      [
+        "Bollettino del giorno (esempio di indirizzo)",
+        "https://documenti.camera.it/apps/commonServices/getDocumento.ashx?idLegislatura=19&sezione=bollettini&tipoDoc=comunicato&anno=2026&mese=11&giorno=17&idCommissione=05"
+      ],
+      [
+        "Motore di ricerca delle proposte emendative",
+        "https://www.camera.it/ricerca-emendamenti/"
+      ],
+      [
+        "Scheda del disegno di legge (quando avrà un numero)",
+        "https://www.camera.it/leg19/126?tab=&leg=19&idDocumento=NUMERO"
+      ]
+    ]
+  }
+}
