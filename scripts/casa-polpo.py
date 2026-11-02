@@ -32,6 +32,20 @@ BRACCIA = [
 ]
 LATI = {'burocrazia': 'Davanti alla burocrazia', 'vita': 'Dentro la vita pubblica'}
 
+# Le letture del Polpo: i dossier di «Il Polpo legge per te» (cartella, titolo, sommario, braccio accanto a cui stanno).
+# È la fonte unica: scripts/dossier.py la usa per la sua pagina d'ingresso.
+LETTURE = [
+    ('legge/manovra/', 'La manovra letta dal Polpo', 'Circa 26 miliardi nel 2027: 31 misure lette una per una, con quanto valgono e la fonte. Poi le audizioni e gli emendamenti, appena escono.', 4),
+    ('legge/interrogazioni/', 'Le domande senza risposta', '25.821 interrogazioni di questa legislatura: tolto il question time, il Governo ha risposto a meno di una su quattro. Ministero per Ministero, tema per tema.', 5),
+    ('legge/antitrust/', 'Le trappole sanzionate', '157 decisioni e 198 milioni di multe dal 2024, lette nei testi integrali: quindici trucchi che tornano sempre e come riconoscerli, prima del Black Friday.', 3),
+    ('legge/accessi/', 'Cosa chiedono gli italiani alla PA', '9.821 richieste a 17 enti: il 39% delle richieste FOIA è respinto o accolto solo in parte. Cosa si chiede e perché si dice no.', 1),
+]
+STORIE = ('storie/', 'Le storie del Polpo', 'Quello che il Polpo trova nei dati pubblici: appalti senza gara, bilanci dei Comuni, diritti di chi compra e viaggia.')
+
+
+def letture_di(k):
+    return [(t, h) for h, t, _, b in LETTURE if b == k]
+
 # «Chiedi al Polpo»: le parole che portano a uno strumento (minuscolo, senza accenti).
 # Funziona tutto nel browser: niente viene mandato da nessuna parte.
 PAROLE = [
@@ -50,6 +64,10 @@ PAROLE = [
     ('segnalazioni/', ['buca', 'buche', 'strada', 'marciapiede', 'lampion', 'illuminazione', 'rifiuti', 'spazzatura', 'degrado', 'graffiti', 'segnalare', 'segnalazione', 'semaforo rotto']),
     ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
+    ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),
+    ('legge/interrogazioni/', ['interrogazion', 'interpellanz', 'parlamentar', 'il governo non risponde', 'il ministero non risponde']),
+    ('legge/antitrust/', ['black friday', 'antitrust', 'pratica scorretta', 'pratiche scorrette', 'finto sconto', 'sconto falso', 'abbonamento', 'disdetta', 'disdire', 'costi nascosti', 'recensioni false', 'greenwashing']),
+    ('legge/accessi/', ['registro degli accessi', 'foia negato', 'accesso negato', 'mi hanno negato', 'hanno rifiutato']),
 ]
 ESEMPI_BREVI = [('Mi è arrivata una multa dopo quattro mesi', 'multa'), ('Il volo è arrivato con cinque ore di ritardo', 'volo in ritardo'), ('Ho 70 anni e la pensione minima: che aiuti ci sono?', 'aiuti per la pensione'), ('Davanti a casa c\'è una buca da mesi', 'buca in strada'), ('Mi è arrivato un SMS strano dalla banca', 'SMS strano')]
 ESEMPI = ['Mi è arrivata una multa dopo quattro mesi', 'Il volo è arrivato con cinque ore di ritardo', 'Ho 70 anni e la pensione minima: che aiuti ci sono?', 'Davanti a casa c\'è una buca da mesi', 'Mi è arrivato un SMS strano dalla banca']
@@ -119,7 +137,12 @@ def pannello(k):
     lato, mestiere, spiega, _, strumenti = BRACCIA[k]
     bottoni = ''.join(link(n, h, 'btn btn-primario' if i == 0 else 'btn') for i, (n, h) in enumerate(strumenti))
     return (f'<span class="g-n">{k + 1:02d} / 08 · {LATI[lato]}</span><h2 class="g-titolo">{mestiere}</h2>'
-            f'<p class="g-spiega">{spiega}</p><p class="g-strumenti">{bottoni}</p>')
+            f'<p class="g-spiega">{spiega}</p><p class="g-strumenti">{bottoni}</p>' + leggi_riga(k))
+
+
+def leggi_riga(k):
+    l = letture_di(k)
+    return f'<p class="g-leggi"><span>Da leggere</span>{"".join(link(t, h) for t, h in l)}</p>' if l else ''
 
 
 def griglia():
@@ -128,8 +151,19 @@ def griglia():
         out.append(f'<li class="tessera" data-lato="{lato}"><button type="button" class="tessera-icona" data-vai="{k}" aria-label="Mostra il braccio {k + 1}: {mestiere}">'
                    f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="{icona}"/></svg></button>'
                    f'<span class="tessera-n">{k + 1:02d}</span><h3>{mestiere}</h3>'
-                   f'<p>{"".join(link(n, h) for n, h in strumenti)}</p></li>')
+                   f'<p>{"".join(link(n, h) for n, h in strumenti)}</p>'
+                   + ''.join(f'<p class="tessera-leggi"><span>Da leggere</span>{link(t, h)}</p>' for t, h in letture_di(k)) + '</li>')
     return ''.join(out)
+
+
+def letture():
+    schede = ''.join(f'<li><a href="{h}">{polpo_mini(b, classe="lt-polpo")}<span><b>{t}</b>{d}</span></a></li>' for h, t, d, b in LETTURE)
+    h, t, d = STORIE
+    schede += f'<li class="lt-storie"><a href="{h}">{polpo_mini(None, classe="lt-polpo")}<span><b>{t}</b>{d}</span></a></li>'
+    return f'''<section class="letture" aria-labelledby="t-letture">
+    <div class="letture-testa"><h2 id="t-letture">Il Polpo legge per te</h2><p>Migliaia di documenti pubblici che nessuno legge per intero, riassunti con le fonti: ogni frase rimanda al documento da cui viene.</p><a class="letture-tutti" href="legge/">Tutti i dossier</a></div>
+    <ul class="letture-schede">{schede}</ul>
+  </section>'''
 
 
 def chiedi():
@@ -150,13 +184,14 @@ def chiedi():
     (() => {{
       const PAROLE = {json.dumps(PAROLE, ensure_ascii=False)};
       const BRACCIA = {json.dumps([{'mestiere': b[1], 'strumenti': b[4]} for b in BRACCIA], ensure_ascii=False)};
+      const LETTURE = {json.dumps([[t, h, b] for h, t, _, b in LETTURE], ensure_ascii=False)};
       const f = document.querySelector('.chiedi-form');
       const t = document.getElementById('chiedi-testo');
       const r = document.querySelector('.chiedi-risposta');
       const pulisci = (x) => ' ' + x.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/[’`]/g, "'").replace(/\\s+/g, ' ') + ' ';
       const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({{'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}}[c]));
-      const braccioDi = (h) => BRACCIA.findIndex((b) => b.strumenti.some(([, x]) => x === h));
-      const nomeDi = (h) => BRACCIA.flatMap((b) => b.strumenti).find(([, x]) => x === h)[0];
+      const braccioDi = (h) => {{ const i = BRACCIA.findIndex((b) => b.strumenti.some(([, x]) => x === h)); if (i >= 0) return i; const l = LETTURE.find(([, x]) => x === h); return l ? l[2] : 0; }};
+      const nomeDi = (h) => (BRACCIA.flatMap((b) => b.strumenti).find(([, x]) => x === h) || LETTURE.find(([, x]) => x === h))[0];
       const a = (h, cl) => h.startsWith('http') ? `<a class="${{cl}}" href="${{h}}" target="_blank" rel="noopener">${{esc(nomeDi(h))}}</a>` : `<a class="${{cl}}" href="${{h}}" data-strumento="${{h.replace(/\\//g, '')}}">${{esc(nomeDi(h))}} →</a>`;
       function rispondi(testo) {{
         const x = pulisci(testo);
@@ -189,7 +224,7 @@ def chiedi():
 
 def blocco():
     braccia = ''.join(braccio_svg(k) for k in range(8))
-    dati = json.dumps([{'lato': LATI[b[0]], 'mestiere': b[1], 'spiega': b[2], 'strumenti': b[4]} for b in BRACCIA], ensure_ascii=False)
+    dati = json.dumps([{'lato': LATI[b[0]], 'mestiere': b[1], 'spiega': b[2], 'strumenti': b[4], 'leggi': letture_di(k)} for k, b in enumerate(BRACCIA)], ensure_ascii=False)
     punti = ''.join(f'<button type="button" class="g-punto" data-vai="{k}" aria-label="{k + 1}: {b[1]}"></button>' for k, b in enumerate(BRACCIA))
     return f'''<!--casa--><header class="casa">
     <div class="casa-testa">
@@ -216,6 +251,8 @@ def blocco():
     </section>
   </header>
 
+  {letture()}
+
   <section class="tutte" id="cosa-puoi-fare" aria-labelledby="t-tutte">
     <h2 id="t-tutte">Tutte le otto braccia</h2>
     <ol class="tessere">{griglia()}</ol>
@@ -223,6 +260,8 @@ def blocco():
   </section>
 
   <nav class="altro" aria-label="Altro">
+    <a href="storie/">Le storie del Polpo</a>
+    <a href="legge/">Il Polpo legge per te</a>
     <a href="https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb">Il Polpo dentro il tuo assistente AI</a>
     <a href="mondo/">L'Atlante degli strumenti civici nel mondo</a>
     <a href="catalogo/">Il catalogo completo</a>
@@ -254,7 +293,8 @@ def blocco():
     g.querySelectorAll('.g-punto').forEach((p, i) => p.setAttribute('aria-current', i === k ? 'true' : 'false'));
     const x = DATI[k];
     testo.innerHTML = `<span class="g-n">${{String(k + 1).padStart(2, '0')}} / 08 · ${{x.lato}}</span><h2 class="g-titolo">${{esc(x.mestiere)}}</h2>`
-      + `<p class="g-spiega">${{esc(x.spiega)}}</p><p class="g-strumenti">${{x.strumenti.map(([n, h], i) => a(n, h, i ? 'btn' : 'btn btn-primario')).join('')}}</p>`;
+      + `<p class="g-spiega">${{esc(x.spiega)}}</p><p class="g-strumenti">${{x.strumenti.map(([n, h], i) => a(n, h, i ? 'btn' : 'btn btn-primario')).join('')}}</p>`
+      + (x.leggi.length ? `<p class="g-leggi"><span>Da leggere</span>${{x.leggi.map(([n, h]) => a(n, h, '')).join('')}}</p>` : '');
   }}
   setInterval(() => {{ if (!fermo && !tastiera && !document.hidden && Date.now() > riposo) mostra(k + 1, 1); }}, meno ? 6000 : 4200);
   const tocca = () => {{ riposo = Date.now() + 12000; }};
@@ -369,6 +409,20 @@ CSS = '''/*casa*/
   }
   @media (max-width: 520px) { .tessere { grid-template-columns: minmax(0, 1fr); } }
   @media (prefers-reduced-motion: reduce) { .polpo .braccia, .b-icona { transition: none; } }
+  .letture { margin-top: clamp(36px, 5vw, 64px); border-top: 1px solid var(--riga); padding-top: 22px; }
+  .letture-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 14px; }
+  .letture-testa h2 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.04em; margin: 0; }
+  .letture-testa p { margin: 0; flex: 1 1 320px; color: var(--inchiostro-2); font-size: var(--s0); }
+  .letture-tutti { font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accento); }
+  .letture-tutti::after { content: " →"; }
+  .letture-schede { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 12px; }
+  .letture-schede a { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; height: 100%; padding: 16px; background: var(--carta); border: 1px solid var(--riga); border-radius: 4px; color: inherit; text-decoration: none; font-size: 14.5px; color: var(--inchiostro-2); line-height: 1.4; }
+  .letture-schede a:hover, .letture-schede a:focus-visible { border-color: var(--accento); }
+  .letture-schede b { display: block; font-family: var(--titoli); font-size: 19px; letter-spacing: -0.02em; line-height: 1.15; color: var(--inchiostro); margin-bottom: 6px; }
+  .lt-polpo { width: 44px; height: 44px; overflow: visible; }
+  .g-leggi, .tessera-leggi { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin: 10px 0 0; font-size: 14.5px; }
+  .g-leggi span, .tessera-leggi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
+  .tessera-leggi { margin-top: 4px; grid-column: 2; }
 /*/casa*/'''
 
 

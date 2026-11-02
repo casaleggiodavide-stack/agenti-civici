@@ -33,12 +33,7 @@ it, euro, barre, tabella, JS_ORDINA = _storie.it, _storie.euro, _storie.barre, _
 esc = lambda t: html.escape(str(t), quote=True)
 
 # I quattro dossier, nell'ordine della pagina d'ingresso: cartella, titolo, sommario, braccio del Polpo (0-7)
-DOSSIER = [
-    ('manovra', 'La manovra letta dal Polpo', 'Circa 26 miliardi nel 2027: 31 misure lette una per una, con quanto valgono e la fonte. Poi le audizioni e gli emendamenti, appena escono.', 4),
-    ('interrogazioni', 'Le domande senza risposta', '25.821 interrogazioni di questa legislatura: tolto il question time, il Governo ha risposto a meno di una su quattro. Ministero per Ministero, tema per tema.', 4),
-    ('antitrust', 'Le trappole sanzionate', '157 decisioni e 198 milioni di multe dal 2024, lette nei testi integrali: quindici trucchi che tornano sempre e come riconoscerli, prima del Black Friday.', 3),
-    ('accessi', 'Cosa chiedono gli italiani alla PA', '9.821 richieste a 17 enti: il 39% delle richieste FOIA è respinto o accolto solo in parte. Cosa si chiede e perché si dice no.', 1),
-]
+DOSSIER = [(h.split('/')[1], t, s, b) for h, t, s, b in casa.LETTURE]
 
 CSS = _storie.CSS_PAGINA + '''
   .dossier { max-width: 820px; margin: 0 auto; }

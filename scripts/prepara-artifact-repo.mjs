@@ -19,7 +19,7 @@ let body = html.match(/<body>([\s\S]*?)<\/body>/)[1].replaceAll('src="web/', `sr
 body = body.replaceAll(`href="../${strumento}/"`, 'href="#"');
 for (const [nome, url] of Object.entries(link)) body = body.replaceAll(`href="../${nome}/"`, `href="${url}" target="_top"`);
 // la pagina d'ingresso (e le braccia del Polpo) stanno sul sito pubblico
-body = body.replaceAll('href="../#', 'target="_top" href="https://casaleggiodavide-stack.github.io/agenti-civici/#').replaceAll('href="../"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/" target="_top"');
+body = body.replaceAll('href="../#', 'target="_top" href="https://casaleggiodavide-stack.github.io/agenti-civici/#').replaceAll('href="../"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/" target="_top"').replaceAll('href="../storie/"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/storie/" target="_top"').replaceAll('href="../legge/"', 'href="https://casaleggiodavide-stack.github.io/agenti-civici/legge/" target="_top"');
 writeFileSync(join(dest, `${strumento}.html`), `${intest}\n${stile}\n${body}`);
 const file = [];
 const giro = (d) => readdirSync(d).forEach((n) => { const p = join(d, n); statSync(p).isDirectory() ? giro(p) : file.push(relative(dest, p)); });

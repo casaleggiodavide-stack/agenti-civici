@@ -722,7 +722,7 @@ def scrivi_pagina(R, sintesi, atti):
              'quante ricevono risposta, Ministero per Ministero, in quanto tempo, e di cosa parlano.')
     pagina_html = d.pagina('../../', 'Le domande senza risposta',
                            'Le interrogazioni dei parlamentari al Governo nella XIX legislatura: quante ricevono risposta, Ministero per Ministero, in quanto tempo e di cosa parlano.',
-                           'Il Polpo legge per te · interrogazioni e interpellanze', 'Le domande senza risposta', intro, corpo, braccio=4, css_extra=CSS_EXTRA)
+                           'Il Polpo legge per te · interrogazioni e interpellanze', 'Le domande senza risposta', intro, corpo, braccio=5, css_extra=CSS_EXTRA)
     os.makedirs(CARTELLA, exist_ok=True)
     open(os.path.join(CARTELLA, 'index.html'), 'w', encoding='utf-8').write(pagina_html)
     print('legge/interrogazioni/index.html scritta', file=sys.stderr)
