@@ -245,8 +245,130 @@ STORIE = [
     ),
 ]
 
+
+# ---------------------------------------------------------------- dai dossier di «Il Polpo legge per te» (2 novembre 2026)
+
+MINISTERI = [  # ministero, interrogazioni scritte, % con risposta, tutti gli atti, % con risposta (dati aperti Camera, XIX legislatura)
+    ('Interno', 2197, 7.2, 3091, 10.6), ('Infrastrutture e trasporti', 1311, 16.5, 2501, 23.7), ('Giustizia', 1429, 77.0, 2037, 66.1),
+    ('Salute', 1143, 1.5, 2007, 9.8), ('Ambiente e sicurezza energetica', 1120, 5.7, 1916, 13.0), ('Lavoro e politiche sociali', 781, 3.3, 1431, 14.2),
+    ('Economia e finanze', 623, 1.4, 1376, 8.9), ('Imprese e made in Italy', 759, 19.4, 1370, 24.9), ('Istruzione e merito', 705, 13.5, 1139, 16.2),
+    ('Esteri e cooperazione internazionale', 545, 80.4, 1007, 58.1), ('Cultura', 486, 4.5, 813, 10.6), ('Agricoltura e sovranità alimentare', 310, 2.3, 730, 22.6),
+    ('Difesa', 294, 26.2, 436, 26.8), ('Università e ricerca', 255, 11.0, 428, 14.5), ('Presidenza del Consiglio', 196, 16.8, 361, 24.1),
+]
+FOIA_ENTI = [  # ente, richieste FOIA con esito 2024-2025, respinte o accolte in parte, %, % risposte oltre 30 giorni (registri degli accessi)
+    ('INPS', 161, 137, 85.1, 28.3), ('Ministero della Difesa', 219, 135, 61.6, 29.2), ('Antitrust', 11, 6, 54.5, 36.4), ('Consob', 12, 6, 50.0, 0.0),
+    ("Ministero dell'Università", 66, 31, 47.0, 44.8), ("Ministero dell'Agricoltura", 36, 16, 44.4, 37.5), ('Ministero della Giustizia', 313, 135, 43.1, 17.9),
+    ('Presidenza del Consiglio', 405, 149, 36.8, 12.4), ("Ministero dell'Economia", 99, 34, 34.3, 22.5), ('Ministero delle Infrastrutture', 252, 84, 33.3, 15.3),
+    ('Ministero delle Imprese', 147, 46, 31.3, 16.8), ('Regione Emilia-Romagna', 130, 37, 28.5, 8.5), ('ANAC', 26, 7, 26.9, 37.5),
+    ('Ministero della Cultura', 70, 13, 18.6, 23.0), ('Regione Lazio', 254, 46, 18.1, 24.9), ('Istat', 21, 3, 14.3, 5.0), ('Comune di Firenze', 82, 8, 9.8, 16.5),
+]
+TRAPPOLE_EURO = [  # trappola, milioni di euro di multe, decisioni (una decisione può contenere più trappole)
+    ('Il prezzo che cresce alla cassa', 65.8, 22), ('Le clausole scritte a senso unico', 40.7, 20), ('I tuoi dati e il tuo account come merce', 34.2, 11),
+    ('La promessa che il prodotto non mantiene', 29.5, 28), ('Dopo il pagamento, i diritti negati', 29.2, 24), ('Ragazzi e persone fragili nel mirino', 27.0, 5),
+    ("L'abbonamento da cui non si esce", 23.4, 9), ('La casella già spuntata', 19.0, 3), ('Il servizio che non hai chiesto', 16.7, 10), ('Il conto alla rovescia che riparte', 15.0, 4),
+]
+MANOVRA_IMPIEGHI = [  # interventi 2027 in % del PIL (DPB 2027, tabella I.6-1)
+    ('Famiglia e spesa sociale', 0.21), ('Difesa', 0.19), ('Sostegno alle imprese', 0.14), ('Infrastrutture', 0.13), ('Sanità', 0.10),
+    ('Misure fiscali', 0.09), ('Fondo sentenze', 0.08), ('Altri interventi', 0.03), ('Enti territoriali', 0.01),
+]
+
+
+def tab_ministeri():
+    righe = [[(m, m), (it(s), s), (it(q, 1) + '%', q), (it(a), a), (it(qa, 1) + '%', qa)] for m, s, q, a, qa in MINISTERI]
+    return tabella('t-ministeri', [('Ministero', 't'), ('Interrogazioni scritte', 'n'), ('Con risposta', 'n'), ('Tutti gli atti', 'n'), ('Con risposta, tutti', 'n')], righe, 2)
+
+
+def tab_foia():
+    righe = [[(e, e), (it(n), n), (it(k), k), (it(q, 1) + '%', q), (it(o, 1) + '%', o)] for e, n, k, q, o in FOIA_ENTI]
+    return tabella('t-foia', [('Ente', 't'), ('FOIA con esito', 'n'), ('Respinte o in parte', 'n'), ('Quota', 'n'), ('Risposta oltre 30 giorni', 'n')], righe, 3)
+
+
+STORIE += [
+    dict(
+        slug='una-domanda-su-quattro', braccio=5, data='2 novembre 2026', foto='reclami-pa', strumento=('legge/interrogazioni', 'Leggi il dossier'),
+        titolo='Il Parlamento chiede, il Governo risponde una volta su quattro',
+        breve='Il Governo risponde a una domanda del Parlamento su quattro',
+        sommario='In questa legislatura deputati e senatori hanno presentato 25.821 interrogazioni e interpellanze. Tolto il question time, ha avuto risposta il 22,9%. Più di 10.000 aspettano da oltre un anno.',
+        corpo=lambda: f"""
+<p>L'interrogazione è lo strumento con cui un parlamentare chiede al Governo conto di un fatto: una fabbrica che chiude, un ospedale senza medici, una strada ferma da anni. Il Ministero competente dovrebbe rispondere. I dati aperti della Camera, che registrano anche gli atti del Senato, dicono quante volte succede.</p>
+<figure class="dato numeri"><div><b>22.128</b><span>interrogazioni e interpellanze dal 13 ottobre 2022, senza il question time</span></div><div><b>22,9%</b><span>con una risposta del Governo (5.074)</span></div><div><b>15.460</b><span>ancora in attesa, 10.453 da più di un anno</span></div></figure>
+<p>Per le interrogazioni a risposta scritta il regolamento della Camera (art. 134) dà al Governo 20 giorni. Succede nello 0,7% dei casi: 83 su 12.744. Quando la risposta arriva, la metà arriva dopo 90 giorni o più.</p>
+<p>Dove c'è un appuntamento fisso, le risposte arrivano: il question time in Aula ha risposta quasi sempre, le interpellanze urgenti nel 90% dei casi. È la domanda scritta, quella senza data, che resta senza risposta.</p>
+<p>Il confronto è tra Ministeri e temi, non tra partiti o parlamentari. I dati aperti dicono se e quando è arrivata una risposta, non che cosa dice.</p>""",
+        metodo='Atti di sindacato ispettivo della XIX legislatura (Camera e Senato) dall\'endpoint dei dati aperti della Camera; risposta = data di risposta registrata, verificata a campione sulle schede ufficiali. Esclusi dal calcolo principale il question time in Aula e in commissione.',
+        fonte='Camera dei deputati, dati aperti (dati.camera.it), letti il 2 novembre 2026',
+    ),
+    dict(
+        slug='ministero-per-ministero', braccio=5, data='2 novembre 2026', strumento=('legge/interrogazioni', 'Tutti i Ministeri'),
+        titolo='Esteri risponde all\'80%, Salute all\'1,5%: le domande del Parlamento Ministero per Ministero',
+        breve='Esteri 80%, Salute 1,5%: le risposte Ministero per Ministero',
+        sommario='Sulle interrogazioni a risposta scritta le differenze tra Ministeri sono enormi: Esteri risponde all\'80,4%, Giustizia al 77%. Salute all\'1,5% (17 su 1.143), Economia all\'1,4% (9 su 623). L\'Interno, il più interrogato, al 7,2%.',
+        corpo=lambda: f"""
+<p>Ogni interrogazione è indirizzata al Ministero che deve rispondere. Messi uno accanto all'altro, i Ministeri si comportano in modi molto diversi, anche a parità di domande ricevute.</p>
+{tab_ministeri()}
+<p class="nota">Tocca i titoli delle colonne per ordinare. Interrogazioni scritte: quelle che chiedono una risposta per iscritto. Tutti gli atti: anche orali, in commissione, interpellanze e question time.</p>
+<p>Salute ed Economia rispondono di più quando c'è un appuntamento in Aula o in commissione: contando tutti gli atti salgono al 9,8% e all'8,9%. Sulle domande scritte, invece, quasi mai. I temi su cui si interroga di più sono trasporti e grandi opere (2.857 atti), sicurezza (2.631) e ambiente ed energia (2.466).</p>""",
+        metodo='Ogni atto è attribuito al Ministero delegato a rispondere più di recente; i Ministeri rinominati sono uniti sotto il nome di oggi. Temi assegnati con parole chiave controllate a mano su un campione.',
+        fonte='Camera dei deputati, dati aperti (dati.camera.it), letti il 2 novembre 2026',
+    ),
+    dict(
+        slug='198-milioni-di-multe', braccio=3, data='2 novembre 2026', foto='garanzia', strumento=('legge/antitrust', 'Le quindici trappole'),
+        titolo='198 milioni di multe in tre anni: i trucchi che l\'Antitrust punisce di più',
+        breve='198 milioni di multe: i trucchi che l\'Antitrust punisce di più',
+        sommario='Dal 2024 l\'Antitrust ha chiuso 157 procedimenti sui consumatori, 94 con una multa. Il trucco costato di più alle imprese è il prezzo che cresce alla cassa: 65,8 milioni in 22 decisioni.',
+        corpo=lambda: f"""
+<p>Abbiamo letto tutti i bollettini settimanali dell'Autorità garante della concorrenza e del mercato dal 2024 a oggi: 157 decisioni finali a tutela dei consumatori, per 198 milioni di euro. Le multe del 2024 e del 2025 coincidono al centesimo con i conti ufficiali dell'Autorità.</p>
+<figure class="dato"><figcaption>Milioni di euro di multe per tipo di trappola, 2024-2026 (una decisione può riguardarne più d'una)</figcaption>{barre([(t, m, it(m, 1) + ' mln') for t, m, _ in TRAPPOLE_EURO])}</figure>
+<p>La multa più alta riguarda i biglietti del Colosseo: 19,9 milioni a CoopCulture e a sei operatori turistici, perché i biglietti a prezzo base sparivano e ricomparivano abbinati a visite guidate. Seguono gli autonoleggi che addebitavano una tariffa fissa su ogni multa (18,4 milioni a sei società e altri 8 a Sicily by Car), eDreams per l'abbonamento Prime, Amazon per l'acquisto periodico già selezionato.</p>
+<p>Le decisioni si possono impugnare: dal 2024 l'Autorità ha dovuto ricalcolare 7 multe e ritirarne 3 dopo sentenze del Consiglio di Stato. Nel dossier ci sono tutte le multe, con il link al bollettino.</p>""",
+        metodo='Provvedimenti finali PS, CV, IP e PV letti nei bollettini settimanali AGCM 2024-2026 (fino al n. 41/2026); sanzione dal dispositivo; trappole assegnate da noi leggendo ogni decisione.',
+        fonte='Autorità garante della concorrenza e del mercato, bollettini settimanali e dati aperti',
+    ),
+    dict(
+        slug='bollette-di-due-anni-fa', braccio=0, data='2 novembre 2026', strumento=('mi-rimborsano', 'Controlla la tua bolletta'),
+        titolo='Bolletta con consumi di più di due anni fa? Non si paga',
+        breve='Consumi di più di due anni fa in bolletta? Non si pagano',
+        sommario='Per luce, gas e acqua i consumi più vecchi di due anni vanno in prescrizione. Enel Energia e Servizio Elettrico Nazionale sono stati multati per 7,5 milioni per averli chiesti lo stesso e respinto i reclami.',
+        corpo=lambda: """
+<p>Dal 2018 per l'elettricità, dal 2019 per il gas e dal 2020 per l'acqua, la legge (n. 205 del 2017) stabilisce che i consumi fatturati con più di due anni di ritardo non si pagano, se il ritardo non dipende da te. Basta chiedere la prescrizione al fornitore, per iscritto.</p>
+<figure class="dato numeri"><div><b>2 anni</b><span>oltre i quali i consumi di luce, gas e acqua fatturati in ritardo vanno in prescrizione</span></div><div><b>7,5 milioni</b><span>di multa a Enel Energia (4) e Servizio Elettrico Nazionale (3,5), febbraio 2026</span></div></figure>
+<p>Secondo l'Antitrust, le due società chiedevano il pagamento di consumi vecchi e respingevano senza motivo le richieste di prescrizione dei clienti. Non è l'unico caso: il «dopo vendita» negato, cioè diritti che esistono ma vengono rifiutati, compare in 24 decisioni dal 2024.</p>
+<p>Il Polpo ti aiuta a capire se una bolletta di conguaglio è prescritta e prepara la lettera al fornitore.</p>""",
+        metodo='Prescrizione biennale: legge 205/2017, art. 1, commi 4-10. Caso: provvedimento AGCM PS11564B del 19 febbraio 2026, bollettino 10/2026.',
+        fonte='Legge 205/2017; Autorità garante della concorrenza e del mercato, bollettino 10/2026',
+    ),
+    dict(
+        slug='foia-quattro-su-dieci', braccio=1, data='2 novembre 2026', foto='chiedo-gli-atti', strumento=('legge/accessi', 'Leggi il dossier'),
+        titolo='Chiedi un documento allo Stato: quattro volte su dieci ti dicono no',
+        breve='FOIA: quattro richieste su dieci respinte o accolte a metà',
+        sommario='Nei registri di 17 enti pubblici, il 38,8% delle richieste di accesso civico generalizzato (il FOIA italiano) del 2024-2025 è stato respinto o accolto solo in parte. All\'INPS l\'85%, al Comune di Firenze il 10%.',
+        corpo=lambda: f"""
+<p>Dal 2016 chiunque può chiedere a un ente pubblico documenti e dati, senza spiegare perché: è l'accesso civico generalizzato. Gli enti dovrebbero tenere un registro delle richieste e del loro esito. Abbiamo letto quelli di 17 enti: 9.821 richieste in tutto.</p>
+<figure class="dato numeri"><div><b>38,8%</b><span>delle richieste FOIA 2024-2025 respinte o accolte in parte (893 su 2.304)</span></div><div><b>19,7%</b><span>con risposta dopo i 30 giorni previsti dalla legge</span></div><div><b>291</b><span>dinieghi su 1.115 senza motivo scritto nel registro</span></div></figure>
+{tab_foia()}
+<p class="nota">Tocca i titoli delle colonne per ordinare.</p>
+<p>Le differenze dipendono anche da cosa si chiede: all'INPS molte richieste riguardano pratiche personali, che il FOIA non copre. Un diniego può essere legittimo. Ma il Ministero dell'Interno non pubblica proprio il registro, e altri enti non si lasciano leggere: per loro abbiamo preparato una richiesta del registro stesso.</p>""",
+        metodo='Registri degli accessi 2024-2026 pubblicati in Amministrazione trasparente da 17 enti; esiti normalizzati; quote sulle sole richieste con esito scritto. I dati personali eventualmente presenti negli oggetti sono stati scartati.',
+        fonte='Registri degli accessi di 17 amministrazioni, letti il 2 novembre 2026',
+    ),
+    dict(
+        slug='manovra-in-31-misure', braccio=4, data='2 novembre 2026', foto='bilancio-comune', strumento=('legge/manovra', 'Le 31 misure'),
+        titolo='La manovra in 31 misure: dove vanno i 26 miliardi del 2027',
+        breve='La manovra in 31 misure: dove vanno i 26 miliardi',
+        sommario='La legge di bilancio 2027 vale circa 26 miliardi. Le voci più grandi sono famiglia e spesa sociale e difesa; la copertura più grande è a carico del settore finanziario. Il deficit programmato è al 3,4% del PIL.',
+        corpo=lambda: f"""
+<p>Il Consiglio dei ministri ha approvato la manovra il 28 ottobre; il testo non è ancora arrivato in Parlamento. Nel frattempo il Governo ha mandato a Bruxelles il documento programmatico di bilancio, con la tabella di dove vanno i soldi.</p>
+<figure class="dato"><figcaption>Interventi della manovra nel 2027, in percentuale del PIL</figcaption>{barre([(v, x, it(x, 2) + '%') for v, x in MANOVRA_IMPIEGHI])}<p class="nota">Gli interventi valgono lo 0,98% del PIL, le coperture lo 0,43%: la manovra peggiora il deficit dello 0,54%, che sale al 3,4% contro il 2,9% senza manovra.</p></figure>
+<p>Tra le misure: l'aliquota IRPEF del 33% si estende fino a 55.000 euro di reddito; il regime forfettario sale da 85.000 a 100.000 euro; la cedolare secca sugli affitti a canone concordato scende al 5% (1% per gli inquilini fino a 35 anni); il Fondo sanitario cresce di 3,4 miliardi; un buono di 300 euro per chi ha più di 75 anni e una pensione fino a 28.000 euro.</p>
+<p>Il dossier del Polpo segue la manovra fino al voto: il testo, le audizioni dal 5 novembre, gli emendamenti, cosa entra davvero.</p>""",
+        metodo='Misure dal comunicato del Consiglio dei ministri n. 195; tabella degli interventi e delle coperture dal Documento programmatico di bilancio 2027 (tabella I.6-1); saldi dal DPFP 2026.',
+        fonte='Governo, comunicato n. 195 del 28 ottobre 2026; Documento programmatico di bilancio 2027; DPFP 2026',
+    ),
+]
+
 # l'ordine della pagina: prima la storia d'apertura, poi alternando conti pubblici e servizio
-ORDINE = ['cinque-miliardi', 'appena-sotto-la-soglia', 'volo-in-ritardo', 'su-cento-euro', 'black-friday', 'un-comune-su-quattro',
+ORDINE = ['una-domanda-su-quattro', '198-milioni-di-multe', 'foia-quattro-su-dieci', 'manovra-in-31-misure', 'ministero-per-ministero', 'bollette-di-due-anni-fa',
+          'cinque-miliardi', 'appena-sotto-la-soglia', 'volo-in-ritardo', 'su-cento-euro', 'black-friday', 'un-comune-su-quattro',
           'visita-tra-un-anno', 'comuni-in-deficit', 'pacco-in-giacenza', 'un-affidamento-alla-volta', 'grandi-citta']
 DATA = '31 ottobre 2026'
 
@@ -254,11 +376,12 @@ DATA = '31 ottobre 2026'
 def storia(x, apertura=False):
     b = casa.BRACCIA[x['braccio']]
     dir_, cta = x['strumento']
-    srcset = ', '.join(f'../{dir_}/web/foto-{w}.webp {w}w' for w in (480, 800, 1024, 1344))
+    foto = x.get('foto', dir_)
+    srcset = ', '.join(f'../{foto}/web/foto-{w}.webp {w}w' for w in (480, 800, 1024, 1344))
     figura = (f'<picture><source type="image/webp" srcset="{srcset}" sizes="(max-width: 1300px) calc(100vw - 48px), 1240px">'
-              f'<img class="apertura-foto" src="../{dir_}/web/foto.jpg" alt="" width="1344" height="752" loading="lazy" decoding="async"></picture>') if apertura else ''
+              f'<img class="apertura-foto" src="../{foto}/web/foto.jpg" alt="" width="1344" height="752" loading="lazy" decoding="async"></picture>') if apertura else ''
     return f'''<article class="storia{' apertura' if apertura else ''}" id="{x['slug']}" aria-labelledby="h-{x['slug']}">
-  {figura}<div class="st-testa">{casa.polpo_mini(x['braccio'], classe='st-polpo')}<div><div class="occhiello">Braccio {x['braccio'] + 1} · {b[1]}</div><div class="st-data">{DATA}</div></div></div>
+  {figura}<div class="st-testa">{casa.polpo_mini(x['braccio'], classe='st-polpo')}<div><div class="occhiello">Braccio {x['braccio'] + 1} · {b[1]}</div><div class="st-data">{x.get('data', DATA)}</div></div></div>
   <h2 id="h-{x['slug']}">{x['titolo']}</h2>
   <p class="sommario">{x['sommario']}</p>
   <div class="st-corpo">{x['corpo']().strip()}</div>
@@ -289,6 +412,7 @@ CSS_PAGINA = '''
   .sommario { font-size: var(--s2); line-height: 1.45; color: var(--inchiostro); margin: 0 0 18px; }
   .st-corpo p { margin: 0 0 14px; color: var(--inchiostro-2); }
   .st-corpo .nota, .dato .nota { font-size: var(--s-1); color: var(--inchiostro-3); margin: 8px 0 0; }
+  .st-corpo > .nota { margin-bottom: 14px; }
   .dato { margin: 22px 0; padding: 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 4px; }
   .dato figcaption { font-family: var(--cifre); font-size: 12px; letter-spacing: .04em; color: var(--inchiostro-3); margin-bottom: 12px; }
   .dato.numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
@@ -382,7 +506,7 @@ def pagina():
     </div>
   </header>
   <ol class="indice">{indice}</ol>
-  <p class="regole"><b>Come scriviamo.</b> Un indicatore non è un illecito: diciamo «senza gara», mai «irregolare». Non facciamo nomi di persone. I numeri sono quelli letti il {DATA}; i dati degli strumenti si aggiornano, le storie no.</p>
+  <p class="regole"><b>Come scriviamo.</b> Un indicatore non è un illecito: diciamo «senza gara», mai «irregolare». Non facciamo nomi di persone. I numeri sono quelli letti alla data di ogni storia; i dati degli strumenti si aggiornano, le storie no.</p>
 {storie}
   <aside class="replica" aria-labelledby="t-replica">
     <h2 id="t-replica">Sei un ente citato in queste storie?</h2>
