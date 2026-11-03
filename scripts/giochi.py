@@ -22,6 +22,7 @@ CONTENITORI = {'carta': 'Carta', 'plastica': 'Plastica', 'vetro': 'Vetro', 'orga
 
 GIOCHI = [  # cartella, titolo, sommario, braccio
     ('differenzia', 'Il Polpo differenzia', 'I rifiuti cadono: afferrali con un tentacolo e lanciali nel bidone giusto. Sai dove va il cartone della pizza?', 7),
+    ('truffa', 'Truffa o no?', 'Arrivano SMS, WhatsApp, email e telefonate: scorri a sinistra se è una truffa, a destra se è affidabile. Poi il perché.', 3),
 ]
 
 CSS = '''
@@ -69,6 +70,50 @@ CSS = '''
   .schede-giochi a:hover { border-color: var(--accento); }
   .schede-giochi b { display: block; font-family: var(--titoli); font-size: 21px; color: var(--inchiostro); margin-bottom: 6px; }
   .st-polpo { width: 46px; height: 46px; overflow: visible; }
+  .regole-gioco ol.lista { padding-left: 20px; display: grid; gap: 8px; color: var(--inchiostro-2); }
+  .palco-truffa { padding: 16px; touch-action: auto; }
+  .palco-truffa .velo { position: relative; inset: auto; background: none; padding: 6px 0; display: block; }
+  .palco-truffa .velo[hidden], .tavolo[hidden] { display: none; }
+  .tavolo { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 6px; }
+  .tavolo .logo-polpo { width: 76px; height: 76px; overflow: visible; transition: transform .2s; }
+  .tavolo .logo-polpo.contento { animation: salta .5s ease; }
+  .tavolo .logo-polpo.triste { animation: scuoti .5s ease; }
+  @keyframes salta { 40% { transform: translateY(-14px) scale(1.05); } }
+  @keyframes scuoti { 20%, 60% { transform: rotate(-9deg); } 40%, 80% { transform: rotate(9deg); } }
+  .mazzo { position: relative; }
+  .carta { position: relative; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 18px; padding: 16px 18px 22px; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; outline: none; overflow: hidden; }
+  .carta:focus-visible { box-shadow: 0 0 0 3px var(--accento); }
+  .carta.entra { animation: entra .28s ease; }
+  .carta.esce { transition: transform .35s ease, opacity .35s; }
+  .carta.esce.a-sinistra { transform: translateX(-30px) rotate(-3deg); }
+  .carta.esce.a-destra { transform: translateX(30px) rotate(3deg); }
+  @keyframes entra { from { transform: translateY(18px) scale(.97); opacity: 0; } }
+  .carta[data-verso="truffa"] { box-shadow: 0 0 0 3px var(--accento); }
+  .carta[data-verso="affidabile"] { box-shadow: 0 0 0 3px var(--si); }
+  .carta-testa { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 13px; color: #5d6270; margin-bottom: 8px; }
+  .carta-icona { font-size: 18px; }
+  .carta-canale { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .carta-mittente { font-weight: 700; color: #1d1f24; overflow-wrap: anywhere; }
+  .carta-testo { margin: 0; font-size: 17px; line-height: 1.45; overflow-wrap: anywhere; }
+  .carta-tempo { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: #e3e1da; }
+  .carta-tempo i { display: block; height: 100%; width: 100%; background: var(--accento); }
+  .carta-timbro { position: absolute; top: 14px; right: 14px; font-family: var(--cifre); font-weight: 700; font-size: 14px; letter-spacing: .12em; padding: 4px 10px; border: 3px solid currentColor; border-radius: 6px; transform: rotate(8deg); opacity: 0; }
+  .carta.esce .carta-timbro { opacity: 1; color: var(--accento); }
+  .scelte { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .scelte[hidden] { display: none; }
+  .scelte .btn { justify-content: center; padding: 14px 10px; font-size: 13px; }
+  #no { border-color: var(--accento); color: var(--accento); }
+  #si { border-color: var(--si); color: var(--si); }
+  .spiega { margin-top: 14px; padding: 16px 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .spiega[hidden] { display: none; }
+  #spiega-titolo { margin: 0 0 6px; font-family: var(--titoli); font-size: 22px; }
+  #spiega-titolo[data-tono="si"] { color: var(--si); }
+  #spiega-titolo[data-tono="no"] { color: var(--accento); }
+  .spiega p, .spiega li { color: var(--inchiostro-2); font-size: var(--s0); }
+  .spiega ul { padding-left: 18px; margin: 4px 0 0; display: grid; gap: 4px; }
+  .spiega-et { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3) !important; margin: 10px 0 0; }
+  #spiega-fonte { font-size: 13px; margin: 10px 0 0; }
+  @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } }
 '''
 
 
@@ -166,6 +211,71 @@ def differenzia():
     return n
 
 
+
+def truffa():
+    cartella = os.path.join(REPO, 'giochi', 'truffa')
+    corpo = f'''  <section class="gioco" aria-labelledby="t-gioco">
+    <h2 id="t-gioco" class="sr-only">Il gioco</h2>
+    <div class="barra-gioco"><span>Punti <b id="punti">0</b></span><span>Messaggio <b id="numero">1 / 15</b></span><span id="vite" aria-label="3 vite su 3">♥♥♥</span></div>
+    <p class="esito" id="esito" aria-live="polite"></p>
+    <div class="palco palco-truffa">
+      <div class="tavolo" hidden>
+        {casa.polpo_mini(3, classe='logo-polpo')}
+        <div>
+          <div class="mazzo"><div class="carta" id="carta" tabindex="0" role="group" aria-roledescription="messaggio"></div></div>
+          <div class="scelte" id="scelte" hidden>
+            <button type="button" class="btn" id="no">← Truffa</button>
+            <button type="button" class="btn" id="si">Affidabile →</button>
+          </div>
+          <div class="spiega" id="spiega" hidden>
+            <p id="spiega-titolo"></p>
+            <p id="spiega-perche"></p>
+            <div id="spiega-segnali"></div>
+            <p id="spiega-fonte"></p>
+            <button type="button" class="btn btn-primario" id="avanti">Avanti</button>
+          </div>
+        </div>
+      </div>
+      <div class="velo" id="apertura"><div class="velo-box">
+        <h2>Truffa o no?</h2>
+        <p>Arrivano quindici messaggi: SMS, WhatsApp, email, telefonate, siti. Alcuni sono veri, altri sono truffe copiate da quelle che girano davvero.</p>
+        <ol>
+          <li><b>Scorri a sinistra</b> se è una truffa, <b>a destra</b> se è affidabile. Oppure usa i pulsanti, o le frecce della tastiera.</li>
+          <li>Hai pochi secondi per decidere, come nella vita: i messaggi più difficili arrivano alla fine.</li>
+          <li>Dopo ogni risposta il Polpo ti spiega il perché e i segnali da guardare. Tre errori e la partita finisce.</li>
+        </ol>
+        <button type="button" class="btn btn-primario" id="gioca">Gioca</button>
+      </div></div>
+      <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
+        <h2 id="t-fine">Fine della partita</h2>
+        <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <p><b>Dove hai sbagliato</b></p>
+        <ul id="fine-errori"></ul>
+        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida qualcuno</button>
+        <p><small>Hai ricevuto un messaggio sospetto davvero? <a href="../../truffe/">Controllalo con «È una truffa?»</a>.</small></p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="regole-gioco" aria-labelledby="t-regole">
+    <div class="occhiello">Le cinque regole del Polpo</div>
+    <h2 id="t-regole">Come si riconosce una truffa</h2>
+    <ol class="lista">
+      <li><b>Nessuno ti chiede codici.</b> Banche, Poste, enti pubblici e forze dell'ordine non chiedono mai codici, PIN o password, nemmeno quello arrivato per SMS.</li>
+      <li><b>La fretta è un segnale.</b> «Entro 24 ore», «conto bloccato», «ultimo avviso»: servono a non farti pensare.</li>
+      <li><b>Il link si legge, non si apre.</b> Se il sito non è quello ufficiale (poste.it, inps.it, brt.it…), è falso. Apri tu il sito o l'app.</li>
+      <li><b>Pochi euro, grandi danni.</b> 1,99 € per un pacco servono a prendere i dati della carta.</li>
+      <li><b>Nel dubbio, richiama.</b> Al numero che conosci, non a quello del messaggio. E se è già successo: blocca la carta e chiama la banca subito.</li>
+    </ol>
+    <p class="nota">I messaggi del gioco sono inventati ma costruiti sui casi descritti da Polizia Postale, CONSOB e Banca d'Italia; i siti delle truffe non esistono. I segnali vengono dallo strumento <a href="../../truffe/">«È una truffa?»</a>.</p>
+  </section>'''
+    pagina = cornice('../../', 'Truffa o no?', 'Gioco per riconoscere le truffe: SMS, WhatsApp, email e telefonate da smistare in pochi secondi, con la spiegazione di ogni segnale.',
+                     'Gioca con il Polpo · braccio 4, Ti difende', 'Truffa o no?',
+                     'Quindici messaggi, pochi secondi per ognuno: truffa o affidabile? Poi il Polpo ti spiega i segnali.',
+                     corpo, braccio=3, script='<script type="module" src="web/gioco.js"></script>')
+    open(os.path.join(cartella, 'index.html'), 'w', encoding='utf-8').write(pagina)
+
+
 def ingresso():
     schede = ''.join(f'<li><a href="{d}/">{casa.polpo_mini(b, classe="st-polpo")}<div><b>{esc(t)}</b><span>{esc(s)}</span></div></a></li>' for d, t, s, b in GIOCHI)
     corpo = f'''  <main class="gioco"><ul class="schede-giochi">{schede}</ul>
@@ -176,5 +286,6 @@ def ingresso():
 
 if __name__ == '__main__':
     n = differenzia()
+    truffa()
     open(os.path.join(REPO, 'giochi', 'index.html'), 'w', encoding='utf-8').write(ingresso())
-    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti)')
+    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti), Truffa o no?')

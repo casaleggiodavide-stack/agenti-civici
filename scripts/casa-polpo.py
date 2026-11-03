@@ -45,6 +45,7 @@ STORIE = ('storie/', 'Le storie del Polpo', 'Quello che il Polpo trova nei dati 
 # I giochi: cartella, titolo, sommario, braccio. Le pagine le scrive scripts/giochi.py.
 GIOCHI_CASA = [
     ('giochi/differenzia/', 'Il Polpo differenzia', 'Il gioco della raccolta differenziata: lancia ogni rifiuto nel bidone giusto. Sai dove va il cartone della pizza?', 7),
+    ('giochi/truffa/', 'Truffa o no?', 'SMS, WhatsApp, email e telefonate da smistare in pochi secondi: truffa o affidabile? Poi il perché.', 3),
 ]
 
 
@@ -73,6 +74,7 @@ PAROLE = [
     ('segnalazioni/', ['buca', 'buche', 'strada', 'marciapiede', 'lampion', 'illuminazione', 'rifiuti', 'spazzatura', 'degrado', 'graffiti', 'segnalare', 'segnalazione', 'semaforo rotto']),
     ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
+    ('giochi/truffa/', ['gioco delle truffe', 'allenarmi', 'sfida', 'riconoscere le truffe', 'imparare a riconoscere']),
     ('giochi/differenzia/', ['differenziata', 'dove si butta', 'dove butto', 'dove va buttat', 'in quale bidone', 'quale bidone', 'riciclo', 'riciclare', 'cartone della pizza', 'secco', 'umido']),
     ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),
     ('legge/interrogazioni/', ['interrogazion', 'interpellanz', 'parlamentar', 'il governo non risponde', 'il ministero non risponde']),
