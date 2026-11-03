@@ -75,16 +75,16 @@
     <div class="barra-gioco" aria-live="off"><span>Punti <b id="punti">0</b></span><span>Tempo <b id="tempo">90</b></span><span id="vite" aria-label="3 vite su 3">♥♥♥</span><span id="serie"></span></div>
     <p class="esito" id="esito" aria-live="polite"></p>
     <div class="palco">
-      <canvas id="tela" tabindex="0" aria-label="Campo di gioco: i rifiuti cadono verso sei contenitori. Con la tastiera, freccia giù per scegliere un rifiuto e un numero da 1 a 6 per il contenitore." role="application"></canvas>
+      <canvas id="tela" tabindex="0" aria-label="Campo di gioco: i rifiuti cadono verso sei contenitori. Con la tastiera, le frecce destra e sinistra spostano il Polpo sotto un contenitore, lo spazio lancia lì il rifiuto più in basso; i tasti da 1 a 6 scelgono direttamente il contenitore." role="application"></canvas>
       <div class="velo" id="apertura"><div class="velo-box">
         <h2>Il Polpo differenzia</h2>
-        <p>I rifiuti cadono. Il Polpo li afferra con un tentacolo e li lancia nel bidone giusto: tu indichi dove.</p>
+        <p>I rifiuti cadono e il Polpo corre sotto di loro. Afferrali: il Polpo li tiene con un tentacolo e li porta nel bidone giusto.</p>
         <ol>
-          <li><b>Scorri il dito</b> (o il mouse) da un rifiuto verso il suo bidone. Oppure tocca il rifiuto e poi il bidone.</li>
+          <li><b>Trascina</b> il rifiuto nel suo bidone, con il mouse o con il dito. Oppure <b>lancialo</b> con uno swipe veloce verso il bidone.</li>
           <li>Hai <b>90 secondi e tre vite</b>: ogni errore ne toglie una. Cinque giusti di fila raddoppiano i punti.</li>
           <li>Alcune regole <b>cambiano da Comune a Comune</b>: il gioco te lo dice.</li>
         </ol>
-        <p><small>Con la tastiera: freccia giù sceglie un rifiuto, i tasti da 1 a 6 lo lanciano, P mette in pausa.</small></p>
+        <p><small>Con la tastiera: le frecce spostano il Polpo sotto un bidone, lo spazio gli fa lanciare lì il rifiuto più in basso; i tasti da 1 a 6 scelgono il bidone; P mette in pausa.</small></p>
         <button type="button" class="btn btn-primario" id="gioca">Gioca</button>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">

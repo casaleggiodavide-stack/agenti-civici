@@ -1,6 +1,9 @@
-// Il Polpo differenzia: i rifiuti cadono, il Polpo li afferra con un tentacolo e li lancia
-// nel contenitore verso cui fai scorrere il dito (o il mouse). Con la tastiera: freccia giù
-// sceglie il rifiuto più in basso, i tasti da 1 a 6 lo mandano nel contenitore.
+// Il Polpo differenzia: i rifiuti cadono, il Polpo corre sotto di loro, li afferra con un
+// tentacolo e li porta nel contenitore. Si gioca così:
+//   - trascina il rifiuto nel bidone (mouse o dito): il Polpo lo tiene con il tentacolo;
+//   - oppure lancialo con uno swipe veloce verso il bidone;
+//   - con la tastiera, le frecce spostano il Polpo sotto un bidone e lo spazio gli fa
+//     afferrare il rifiuto più in basso e lanciarlo lì (i tasti da 1 a 6 scelgono il bidone).
 // Tutto avviene nel browser: nessun dato esce da qui. Il record resta sul tuo dispositivo.
 import { CONTENITORI, DURATA, VITE, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione } from '../src/regole.js';
 import DATI from '../src/rifiuti.js';
@@ -12,16 +15,21 @@ const meno = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const FONTI = DATI.fonti;
 const NOMI = Object.fromEntries(CONTENITORI.map((c) => [c.id, c.nome]));
+const N = CONTENITORI.length;
 
 let L = 0, H = 0, dpr = 1, colori = {};
 let stato = nuovoStato(), attivi = [], volo = [], scritte = [], coda = [], sbagli = [];
-let inizio = 0, ultimo = 0, prossimo = 0, inCorso = false, pausa = false, scelto = null, tentacolo = null, scossa = 0;
+let inizio = 0, ultimo = 0, prossimo = 0, inCorso = false, pausa = false, scossa = 0;
+// il Polpo: dove sta, dove vuole andare, che faccia fa
+let px = 0, colonna = Math.floor(N / 2), conTastiera = false, umore = null;
+// il rifiuto tenuto dal tentacolo mentre lo trascini
+let presa = null;
 
 function leggiColori() {
   const cs = getComputedStyle(document.documentElement);
   const v = (n, d) => (cs.getPropertyValue(n).trim() || d);
   colori = { fondo: v('--fondo', '#0B0B0A'), carta: v('--carta', '#141413'), ink: v('--inchiostro', '#F2EFE8'), ink2: v('--inchiostro-2', '#C9C5BC'),
-    ink3: v('--inchiostro-3', '#8F8B83'), riga: v('--riga', '#2B2A28'), rosso: v('--accento', '#FF4A36'), si: v('--si', '#62D29C') };
+    ink3: v('--inchiostro-3', '#8F8B83'), riga: v('--riga', '#2B2A28'), rosso: v('--accento', '#FF4A36'), si: v('--si', '#62D29C'), forse: v('--forse', '#F0C252') };
 }
 
 function misura() {
@@ -32,25 +40,33 @@ function misura() {
   tela.width = L * dpr; tela.height = H * dpr;
   tela.style.height = H + 'px';
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  if (!px) px = L / 2;
 }
 
+const larg = () => L / N;
+const centro = (i) => larg() * i + larg() / 2;
 const quotaBidoni = () => H - Math.max(78, H * 0.17);
-const polpo = () => ({ x: L / 2, y: quotaBidoni() - Math.max(46, H * 0.09) });
+const quotaPolpo = () => quotaBidoni() - Math.max(46, H * 0.09);
+const polpo = () => {
+  const salto = umore && umore.tipo === 'giusto' ? -Math.sin(Math.min(1, (performance.now() - umore.t0) / 380) * Math.PI) * 14 : 0;
+  return { x: px, y: quotaPolpo() + salto };
+};
 const raggio = () => Math.max(26, Math.min(36, L / 13));
+const colonnaDi = (x) => Math.max(0, Math.min(N - 1, Math.floor(x / larg())));
 
 // ---------------------------------------------------------------- partita
 
 function nuovaPartita() {
-  stato = nuovoStato(); attivi = []; volo = []; scritte = []; sbagli = []; scelto = null; tentacolo = null;
+  stato = nuovoStato(); attivi = []; volo = []; scritte = []; sbagli = []; presa = null; umore = null;
   coda = mescola(DATI.rifiuti);
-  inizio = ultimo = performance.now(); prossimo = inizio + 600;
-  inCorso = true; pausa = false;
-  $('#apertura').hidden = true; $('#fine').hidden = true;
-  $('#esito').textContent = '';
-  aggiornaBarra();
   misura();
   const barra = document.querySelector('.barra-gioco');
   window.scrollTo({ top: barra.getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
+  inizio = ultimo = performance.now(); prossimo = inizio + 600;
+  inCorso = true; pausa = false;
+  $('#apertura').hidden = true; $('#fine').hidden = true;
+  annuncia('', 'info');
+  aggiornaBarra();
   tela.focus({ preventScroll: true });
   requestAnimationFrame(passo);
 }
@@ -61,11 +77,10 @@ function prendiRifiuto() {
 }
 
 function genera(ora) {
-  const t = (ora - inizio) / 1000 / DURATA;
-  const { intervallo } = ritmo(t);
+  const { intervallo } = ritmo((ora - inizio) / 1000 / DURATA);
   if (ora < prossimo || attivi.length >= 5) return;
   const r = raggio();
-  attivi.push({ r: prendiRifiuto(), x: r + Math.random() * (L - 2 * r), y: -r, vy: 0, giro: (Math.random() - 0.5) * 0.4, ang: 0, nato: ora });
+  attivi.push({ r: prendiRifiuto(), x: r + Math.random() * (L - 2 * r), y: -r, giro: (Math.random() - 0.5) * 0.4, ang: 0 });
   prossimo = ora + intervallo * 1000 * (meno ? 1.25 : 1);
 }
 
@@ -74,11 +89,10 @@ function lancia(o, indice) {
   const esito = valuta(o.r, c.id);
   stato = segna(stato, esito);
   attivi = attivi.filter((x) => x !== o);
-  if (scelto === o) scelto = null;
-  const larg = L / CONTENITORI.length;
-  const arrivo = { x: larg * indice + larg / 2, y: quotaBidoni() + 14 };
-  volo.push({ o, da: { x: o.x, y: o.y }, a: arrivo, t0: performance.now(), dur: meno ? 260 : 420, esito, indice });
-  tentacolo = { a: { x: o.x, y: o.y }, t0: performance.now() };
+  if (presa && presa.o === o) presa = null;
+  const arrivo = { x: centro(indice), y: quotaBidoni() + 14 };
+  volo.push({ o, da: { x: o.x, y: o.y }, a: arrivo, t0: performance.now(), dur: meno ? 240 : 380, esito, indice });
+  umore = { tipo: esito, t0: performance.now() };
   if (esito === 'sbagliato') {
     scossa = meno ? 0 : 10;
     sbagli.push({ r: o.r, messo: c.id });
@@ -112,6 +126,7 @@ function aggiornaBarra() {
 function fine() {
   if (!inCorso) return;
   inCorso = false;
+  presa = null;
   let record = 0;
   try { record = Math.max(+localStorage.getItem('polpo-differenzia-record') || 0, stato.punti); localStorage.setItem('polpo-differenzia-record', String(record)); } catch { record = stato.punti; }
   const totale = stato.giusti + stato.errori;
@@ -128,29 +143,34 @@ function fine() {
 // ---------------------------------------------------------------- animazione
 
 function passo(ora) {
-  if (!inCorso && !volo.length) { disegna(ora); return; }
   const dt = Math.min(0.05, (ora - ultimo) / 1000);
   ultimo = ora;
   if (pausa && inCorso) { inizio += dt * 1000; prossimo += dt * 1000; }
   if (!pausa && inCorso) {
-    if ((ora - inizio) / 1000 >= DURATA) { fine(); }
+    if ((ora - inizio) / 1000 >= DURATA) fine();
     genera(ora);
     const { velocita } = ritmo((ora - inizio) / 1000 / DURATA);
     const quota = quotaBidoni() - raggio();
     for (const o of attivi) {
+      if (presa && presa.o === o) continue; // tenuto dal tentacolo: non cade
       o.y += velocita * H * dt * (meno ? 0.8 : 1);
       o.ang += o.giro * dt;
     }
-    for (const o of attivi.filter((x) => x.y > quota)) {
+    for (const o of attivi.filter((x) => x.y > quota && !(presa && presa.o === x))) {
       attivi = attivi.filter((x) => x !== o);
-      if (scelto === o) scelto = null;
       stato = perso(stato);
       scritte.push({ x: o.x, y: quota, testo: 'a terra', t0: ora, colore: colori.ink3 });
     }
     aggiornaBarra();
   }
+  // il Polpo corre verso il rifiuto che tieni, verso il bidone scelto con la tastiera
+  // o sotto il rifiuto più vicino a terra
+  const basso = [...attivi].sort((a, b) => b.y - a.y)[0];
+  const meta = presa ? presa.o.x : conTastiera ? centro(colonna) : basso ? basso.x : L / 2;
+  const limite = Math.max(40, Math.min(L - 40, meta));
+  px += (limite - px) * Math.min(1, dt * (presa ? 14 : 5));
   disegna(ora);
-  requestAnimationFrame(passo);
+  if (inCorso || volo.length || scritte.length) requestAnimationFrame(passo);
 }
 
 function disegna(ora) {
@@ -158,21 +178,19 @@ function disegna(ora) {
   ctx.clearRect(0, 0, L, H);
   if (scossa > 0.2) { ctx.translate((Math.random() - 0.5) * scossa, 0); scossa *= 0.86; }
   disegnaBidoni(ora);
+  if (presa) disegnaTentacolo({ x: presa.o.x, y: presa.o.y }, 1);
   disegnaPolpo(ora);
-  for (const o of attivi) disegnaRifiuto(o, o.x, o.y, o === scelto);
+  for (const o of attivi) disegnaRifiuto(o, o.x, o.y, presa && presa.o === o);
   volo = volo.filter((v) => {
     const p = Math.min(1, (ora - v.t0) / v.dur);
     const e = 1 - (1 - p) * (1 - p);
     const x = v.da.x + (v.a.x - v.da.x) * e;
-    const y = v.da.y + (v.a.y - v.da.y) * e - Math.sin(Math.PI * p) * 60;
+    const y = v.da.y + (v.a.y - v.da.y) * e - Math.sin(Math.PI * p) * 50;
+    if (p < 0.45) disegnaTentacolo({ x, y }, 1 - p / 0.45); // il tentacolo accompagna il lancio e poi si ritira
     disegnaRifiuto(v.o, x, y, false, 1 - p * 0.6);
-    if (p >= 1) v.fatto = true;
+    v.p = p;
     return p < 1;
   });
-  if (tentacolo) {
-    const p = (ora - tentacolo.t0) / 220;
-    if (p >= 1) tentacolo = null; else disegnaTentacolo(tentacolo.a, Math.sin(Math.PI * p));
-  }
   scritte = scritte.filter((s) => {
     const p = (ora - s.t0) / 900;
     if (p >= 1) return false;
@@ -183,20 +201,26 @@ function disegna(ora) {
   ctx.restore();
 }
 
-function disegnaBidoni(ora) {
-  const n = CONTENITORI.length, larg = L / n, y = quotaBidoni(), h = H - y - 8;
-  const ultimoVolo = volo.find((v) => v.fatto === undefined && (ora - v.t0) / v.dur > 0.7);
+/** Il bidone che si accende: quello sotto il rifiuto trascinato, o quello scelto con la tastiera. */
+function bidoneAcceso() {
+  if (presa) return presa.o.y > quotaBidoni() - raggio() * 1.5 ? colonnaDi(presa.o.x) : -1;
+  return conTastiera && inCorso ? colonna : -1;
+}
+
+function disegnaBidoni() {
+  const y = quotaBidoni(), h = H - y - 8, acceso = bidoneAcceso();
+  const colpito = volo.find((v) => v.p > 0.7);
   CONTENITORI.forEach((c, i) => {
-    const x = i * larg + 4, w = larg - 8;
-    const colpo = ultimoVolo && ultimoVolo.indice === i ? ultimoVolo.esito : null;
-    ctx.fillStyle = colori.carta;
-    ctx.strokeStyle = colpo === 'sbagliato' ? colori.rosso : colpo ? colori.si : colori.riga;
-    ctx.lineWidth = colpo ? 3 : 1.5;
+    const x = i * larg() + 4, w = larg() - 8;
+    const colpo = colpito && colpito.indice === i ? colpito.esito : null;
+    ctx.fillStyle = i === acceso ? colori.riga : colori.carta;
+    ctx.strokeStyle = colpo === 'sbagliato' ? colori.rosso : colpo === 'dipende' ? colori.forse : colpo ? colori.si : i === acceso ? colori.ink : colori.riga;
+    ctx.lineWidth = colpo || i === acceso ? 3 : 1.5;
     rett(x, y, w, h, 10); ctx.fill(); ctx.stroke();
     ctx.textAlign = 'center';
     ctx.font = `${Math.min(30, w * 0.38)}px system-ui, "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
     ctx.fillText(c.icona, x + w / 2, y + h * 0.48);
-    ctx.fillStyle = colori.ink2;
+    ctx.fillStyle = i === acceso ? colori.ink : colori.ink2;
     ctx.font = `600 ${Math.max(10, Math.min(13, w / 7))}px "Atkinson Hyperlegible Next", system-ui, sans-serif`;
     riga(w < 84 && c.corto ? c.corto : c.nome, x + w / 2, y + h * 0.78, w - 6);
     ctx.fillStyle = colori.ink3;
@@ -208,17 +232,20 @@ function disegnaBidoni(ora) {
 function disegnaPolpo(ora) {
   const { x, y } = polpo();
   const s = Math.max(0.42, Math.min(0.62, L / 900));
+  const no = umore && umore.tipo === 'sbagliato' && ora - umore.t0 < 600;
   ctx.save();
   ctx.translate(x, y); ctx.scale(s, s);
-  // le otto braccia, che ondeggiano piano
+  if (no && !meno) ctx.rotate(Math.sin((ora - umore.t0) / 45) * 0.12); // scuote la testa
+  // le otto braccia, che ondeggiano e si piegano nel verso in cui corre
+  const corsa = Math.max(-1, Math.min(1, ((presa ? presa.o.x : px) - px) / 60));
   ctx.lineCap = 'round';
   for (let k = 0; k < 8; k++) {
     const a = Math.PI * (0.05 + (k / 7) * 0.9);
-    const onda = meno ? 0 : Math.sin(ora / 600 + k) * 10;
+    const onda = meno ? 0 : Math.sin(ora / 300 + k) * 10;
     ctx.strokeStyle = colori.ink3; ctx.lineWidth = 16;
     ctx.beginPath();
     ctx.moveTo(Math.cos(a) * 60, 20);
-    ctx.bezierCurveTo(Math.cos(a) * 110 + onda, 40, Math.cos(a) * 150 - onda, 70, Math.cos(a) * 190, 60 + Math.sin(a) * 20);
+    ctx.bezierCurveTo(Math.cos(a) * 110 + onda - corsa * 30, 40, Math.cos(a) * 150 - onda - corsa * 50, 70, Math.cos(a) * 190 - corsa * 40, 60 + Math.sin(a) * 20);
     ctx.stroke();
   }
   // la testa con gli occhialini
@@ -229,20 +256,33 @@ function disegnaPolpo(ora) {
   ctx.beginPath(); ctx.arc(-26, -6, 22, 0, Math.PI * 2); ctx.stroke();
   ctx.beginPath(); ctx.arc(26, -6, 22, 0, Math.PI * 2); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(-4, -6); ctx.lineTo(4, -6); ctx.stroke();
-  const guarda = attivi.length ? Math.max(-1, Math.min(1, (attivi[0].x - x) / (L / 2))) * 7 : 0;
+  // gli occhi guardano il rifiuto più vicino (o quello che tiene)
+  const guardato = presa ? presa.o : [...attivi].sort((a, b) => b.y - a.y)[0];
+  const gx = guardato ? Math.max(-1, Math.min(1, (guardato.x - x) / 120)) * 7 : 0;
+  const gy = guardato ? Math.max(-1, Math.min(1, (guardato.y - y) / 160)) * 6 : 0;
   ctx.fillStyle = colori.fondo;
-  ctx.beginPath(); ctx.arc(-26 + guarda, -4, 8, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.arc(26 + guarda, -4, 8, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(-26 + gx, -6 + gy, 8, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(26 + gx, -6 + gy, 8, 0, Math.PI * 2); ctx.fill();
+  // la bocca: sorride quando indovini, si storce quando sbagli
+  ctx.strokeStyle = colori.fondo; ctx.lineWidth = 6;
+  ctx.beginPath();
+  if (no) { ctx.moveTo(-14, 30); ctx.quadraticCurveTo(0, 20, 14, 30); } else { ctx.moveTo(-14, 24); ctx.quadraticCurveTo(0, 34, 14, 24); }
+  ctx.stroke();
   ctx.restore();
 }
 
 function disegnaTentacolo(a, forza) {
   const p = polpo();
-  ctx.strokeStyle = colori.rosso; ctx.lineCap = 'round'; ctx.lineWidth = 9 * forza + 2;
+  const fx = p.x + (a.x - p.x) * forza, fy = p.y + (a.y - p.y) * forza;
+  ctx.strokeStyle = colori.rosso; ctx.lineCap = 'round'; ctx.lineWidth = 10;
   ctx.beginPath();
-  ctx.moveTo(p.x, p.y - 6);
-  ctx.quadraticCurveTo((p.x + a.x) / 2 + 40, (p.y + a.y) / 2 - 30, p.x + (a.x - p.x) * forza, p.y + (a.y - p.y) * forza);
+  ctx.moveTo(p.x, p.y - 4);
+  const onda = meno ? 0 : Math.sin(performance.now() / 120) * 12;
+  ctx.bezierCurveTo(p.x + (fx - p.x) * 0.3 + 30 + onda, p.y + (fy - p.y) * 0.3, p.x + (fx - p.x) * 0.7 - 20 - onda, p.y + (fy - p.y) * 0.7, fx, fy);
   ctx.stroke();
+  // le ventose sulla punta
+  ctx.fillStyle = colori.fondo;
+  ctx.beginPath(); ctx.arc(fx, fy, 4, 0, Math.PI * 2); ctx.fill();
 }
 
 function disegnaRifiuto(o, x, y, acceso, alfa = 1) {
@@ -283,46 +323,63 @@ function riga(t, x, y, max) {
 
 // ---------------------------------------------------------------- comandi
 
-let presa = null;
 const punto = (e) => { const b = tela.getBoundingClientRect(); return { x: e.clientX - b.left, y: e.clientY - b.top }; };
-const colpito = (p) => [...attivi].reverse().find((o) => Math.hypot(o.x - p.x, o.y - p.y) < raggio() + 14);
+const colpito = (p) => [...attivi].reverse().find((o) => Math.hypot(o.x - p.x, o.y - p.y) < raggio() + 16);
 
 tela.addEventListener('pointerdown', (e) => {
   if (!inCorso) return;
+  if (pausa) { pausa = false; annuncia('', 'info'); }
+  conTastiera = false;
   const p = punto(e);
-  // tocco su un contenitore con un rifiuto scelto: lo manda lì
-  if (p.y > quotaBidoni() && scelto) { lancia(scelto, Math.min(CONTENITORI.length - 1, Math.floor(p.x / (L / CONTENITORI.length)))); return; }
   const o = colpito(p);
   if (!o) return;
-  presa = { o, da: p, t: performance.now() };
+  // il tentacolo afferra il rifiuto: da qui lo trascini dove vuoi
+  presa = { o, dx: o.x - p.x, dy: o.y - p.y, scia: [{ x: p.x, y: p.y, t: performance.now() }], da: p };
   tela.setPointerCapture(e.pointerId);
+  tela.style.cursor = 'grabbing';
   e.preventDefault();
 });
 tela.addEventListener('pointermove', (e) => {
-  if (!presa) return;
-  const p = punto(e), dx = p.x - presa.da.x, dy = p.y - presa.da.y;
-  if (Math.hypot(dx, dy) > 28) {
-    const i = bersaglio({ x: presa.o.x, y: presa.o.y }, { dx, dy }, quotaBidoni() + 20, L);
-    if (i >= 0 && attivi.includes(presa.o)) lancia(presa.o, i);
-    presa = null;
+  const p = punto(e);
+  if (!presa) {
+    tela.style.cursor = inCorso && colpito(p) ? 'grab' : 'default';
+    return;
   }
+  presa.o.x = Math.max(0, Math.min(L, p.x + presa.dx));
+  presa.o.y = Math.max(0, Math.min(H, p.y + presa.dy));
+  presa.scia.push({ x: p.x, y: p.y, t: performance.now() });
+  if (presa.scia.length > 8) presa.scia.shift();
 });
-tela.addEventListener('pointerup', () => {
-  if (presa && attivi.includes(presa.o)) scelto = scelto === presa.o ? null : presa.o; // tocco senza swipe: lo sceglie
+function lascia(e) {
+  if (!presa) return;
+  const o = presa.o, p = punto(e);
+  tela.style.cursor = 'default';
+  // portato sopra un bidone: va lì
+  if (o.y > quotaBidoni() - raggio() * 1.5) { lancia(o, colonnaDi(o.x)); return; }
+  // lanciato con uno swipe veloce: va dove punta la scia
+  const s = presa.scia, a = s[0], b = s[s.length - 1], tempo = (b.t - a.t) / 1000;
+  const vel = tempo > 0 ? Math.hypot(b.x - a.x, b.y - a.y) / tempo : 0;
+  if (vel > 500) {
+    const i = bersaglio({ x: o.x, y: o.y }, { dx: b.x - a.x, dy: b.y - a.y }, quotaBidoni() + 20, L);
+    if (i >= 0) { lancia(o, i); return; }
+  }
+  // lasciato a mezz'aria: riprende a cadere da lì
+  const fermo = Math.hypot(p.x - presa.da.x, p.y - presa.da.y) < 8;
   presa = null;
-});
+  if (fermo) annuncia('Trascinalo fino al bidone, o lancialo con uno swipe.', 'info');
+}
+tela.addEventListener('pointerup', lascia);
+tela.addEventListener('pointercancel', () => { presa = null; tela.style.cursor = 'default'; });
+
 tela.addEventListener('keydown', (e) => {
   if (!inCorso) return;
-  if (e.key === 'ArrowDown' || e.key === ' ') {
-    const ordinati = [...attivi].sort((a, b) => b.y - a.y);
-    const i = ordinati.indexOf(scelto);
-    scelto = ordinati[(i + 1) % ordinati.length] || null;
-    if (scelto) annuncia(`Scelto: ${scelto.r.nome}. Premi da 1 a 6 per il contenitore.`, 'info');
-    e.preventDefault();
-  } else if (/^[1-6]$/.test(e.key) && scelto) {
-    lancia(scelto, +e.key - 1);
-    e.preventDefault();
-  } else if (e.key === 'p' || e.key === 'Escape') {
+  const passa = (d) => { conTastiera = true; colonna = Math.max(0, Math.min(N - 1, colonna + d)); annuncia(`Il Polpo è sotto: ${CONTENITORI[colonna].nome}. Spazio per lanciare il rifiuto più in basso.`, 'info'); };
+  const basso = () => [...attivi].sort((a, b) => b.y - a.y)[0];
+  if (e.key === 'ArrowLeft') { passa(-1); e.preventDefault(); }
+  else if (e.key === 'ArrowRight') { passa(1); e.preventDefault(); }
+  else if ((e.key === ' ' || e.key === 'ArrowDown' || e.key === 'Enter') && basso()) { conTastiera = true; lancia(basso(), colonna); e.preventDefault(); }
+  else if (/^[1-6]$/.test(e.key) && basso()) { conTastiera = true; colonna = +e.key - 1; lancia(basso(), colonna); e.preventDefault(); }
+  else if (e.key === 'p' || e.key === 'Escape') {
     pausa = !pausa;
     annuncia(pausa ? 'In pausa. Premi P per riprendere.' : '', 'info');
   }
@@ -330,7 +387,6 @@ tela.addEventListener('keydown', (e) => {
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && inCorso) { pausa = true; annuncia('In pausa. Tocca il gioco o premi P per riprendere.', 'info'); }
 });
-tela.addEventListener('pointerdown', () => { if (pausa && inCorso) { pausa = false; annuncia('', 'info'); } }, true);
 $('#gioca').addEventListener('click', nuovaPartita);
 $('#rigioca').addEventListener('click', nuovaPartita);
 $('#condividi').addEventListener('click', async () => {
@@ -343,9 +399,10 @@ $('#condividi').addEventListener('click', async () => {
 let attesa;
 addEventListener('resize', () => { clearTimeout(attesa); attesa = setTimeout(() => { misura(); if (!inCorso) disegna(performance.now()); }, 120); });
 
-// Solo per le prove automatiche (#prova nell'indirizzo): posizione dei rifiuti sullo schermo
+// Solo per le prove automatiche (#prova nell'indirizzo): posizione dei rifiuti e del Polpo
 if (location.hash === '#prova') {
-  window.polpoProva = { rifiuti: () => attivi.map((o) => ({ id: o.r.id, contenitore: o.r.contenitore, alternative: o.r.alternative || [], x: o.x, y: o.y })), stato: () => ({ ...stato }), quota: () => quotaBidoni(), L: () => L };
+  window.polpoProva = { rifiuti: () => attivi.map((o) => ({ id: o.r.id, contenitore: o.r.contenitore, alternative: o.r.alternative || [], x: o.x, y: o.y })),
+    stato: () => ({ ...stato }), quota: () => quotaBidoni(), L: () => L, polpo: () => px, tenuto: () => presa && presa.o.r.id };
 }
 
 leggiColori();
