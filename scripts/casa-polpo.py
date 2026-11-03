@@ -46,6 +46,7 @@ STORIE = ('storie/', 'Le storie del Polpo', 'Quello che il Polpo trova nei dati 
 GIOCHI_CASA = [
     ('giochi/differenzia/', 'Il Polpo differenzia', 'Il gioco della raccolta differenziata: lancia ogni rifiuto nel bidone giusto. Sai dove va il cartone della pizza?', 7),
     ('giochi/truffa/', 'Truffa o no?', 'SMS, WhatsApp, email e telefonate da smistare in pochi secondi: truffa o affidabile? Poi il perché.', 3),
+    ('giochi/carrello/', 'Il carrello del Black Friday', 'Tre negozi online con le trappole che l\'Antitrust ha multato: compra il regalo senza pagare un euro in più.', 3),
 ]
 
 
@@ -74,6 +75,7 @@ PAROLE = [
     ('segnalazioni/', ['buca', 'buche', 'strada', 'marciapiede', 'lampion', 'illuminazione', 'rifiuti', 'spazzatura', 'degrado', 'graffiti', 'segnalare', 'segnalazione', 'semaforo rotto']),
     ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
+    ('giochi/carrello/', ['carrello', 'negozio online', 'sconto vero', 'sconti veri', 'shopping', 'casella spuntata', 'caselle spuntate']),
     ('giochi/truffa/', ['gioco delle truffe', 'allenarmi', 'sfida', 'riconoscere le truffe', 'imparare a riconoscere']),
     ('giochi/differenzia/', ['differenziata', 'dove si butta', 'dove butto', 'dove va buttat', 'in quale bidone', 'quale bidone', 'riciclo', 'riciclare', 'cartone della pizza', 'secco', 'umido']),
     ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),

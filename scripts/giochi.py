@@ -23,6 +23,7 @@ CONTENITORI = {'carta': 'Carta', 'plastica': 'Plastica', 'vetro': 'Vetro', 'orga
 GIOCHI = [  # cartella, titolo, sommario, braccio
     ('differenzia', 'Il Polpo differenzia', 'I rifiuti cadono: afferrali con un tentacolo e lanciali nel bidone giusto. Sai dove va il cartone della pizza?', 7),
     ('truffa', 'Truffa o no?', 'Arrivano SMS, WhatsApp, email e telefonate: scorri a sinistra se è una truffa, a destra se è affidabile. Poi il perché.', 3),
+    ('carrello', 'Il carrello del Black Friday', 'Tre negozi online pieni delle trappole che l\'Antitrust ha multato: compra il regalo senza pagare un euro in più.', 3),
 ]
 
 CSS = '''
@@ -113,7 +114,52 @@ CSS = '''
   .spiega ul { padding-left: 18px; margin: 4px 0 0; display: grid; gap: 4px; }
   .spiega-et { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3) !important; margin: 10px 0 0; }
   #spiega-fonte { font-size: 13px; margin: 10px 0 0; }
-  @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } }
+  .finestra { color-scheme: light; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); }
+  .finestra-barra { display: flex; gap: 10px; align-items: center; padding: 8px 12px; background: #e3e1da; font-size: 12.5px; color: #5d6270; }
+  .pallini i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #c9c5bc; margin-right: 4px; }
+  .indirizzo { flex: 1; background: #fff; border-radius: 999px; padding: 3px 12px; font-family: var(--cifre); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .negozio-testa { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #1d1f24; color: #fff; }
+  .negozio-testa span { font-family: var(--cifre); font-size: 11px; letter-spacing: .14em; background: #ff4a36; color: #0b0b0a; padding: 3px 8px; border-radius: 4px; }
+  .negozio-corpo { padding: 16px; display: grid; gap: 14px; }
+  .negozio-corpo h3 { margin: 0; font-size: 20px; color: #1d1f24; }
+  .prodotto { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .foto-prodotto { aspect-ratio: 1; display: grid; place-items: center; font-size: 56px; background: #f4f2ec; border-radius: 10px; }
+  .prezzo { font-family: var(--titoli); font-size: 30px; margin: 4px 0 8px; color: #1d1f24; }
+  .etichette { display: flex; flex-wrap: wrap; gap: 6px; }
+  .etichetta, .voce { all: unset; cursor: pointer; position: relative; font-size: 13.5px; padding: 6px 10px; border: 1.5px dashed #c9c5bc; border-radius: 8px; color: #1d1f24; background: #fff; }
+  .etichetta:focus-visible, .voce:focus-visible { outline: 3px solid var(--accento); }
+  .etichetta.conto { color: #c2362b; font-weight: 700; }
+  .etichetta.vista, .voce.vista { border: 2px solid #ff4a36; background: #fdecea; }
+  .etichetta.falso { border-style: solid; border-color: #9aa1ae; opacity: .7; }
+  .bollino { position: absolute; top: -9px; right: -6px; font-family: var(--cifre); font-size: 10px; letter-spacing: .06em; background: #ff4a36; color: #0b0b0a; padding: 1px 6px; border-radius: 999px; }
+  .opzioni { display: grid; gap: 6px; }
+  .opzione { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid #e3e1da; border-radius: 8px; font-size: 14.5px; color: #1d1f24; cursor: pointer; }
+  .opzione b { margin-left: auto; font-family: var(--cifre); font-size: 13px; }
+  .opzione input { width: 20px; height: 20px; accent-color: #1d1f24; }
+  .scelta { padding: 12px; border-radius: 10px; background: #fff4d6; color: #1d1f24; display: grid; gap: 8px; justify-items: start; }
+  .scelta p { margin: 0; font-weight: 700; }
+  .scelta .grande { all: unset; cursor: pointer; background: #16734a; color: #fff; font-weight: 700; padding: 12px 18px; border-radius: 10px; font-size: 16px; }
+  .scelta .piccolo { all: unset; cursor: pointer; color: #5d6270; font-size: 12px; text-decoration: underline; }
+  .scelta .grande:focus-visible, .scelta .piccolo:focus-visible { outline: 3px solid var(--accento); }
+  .scelta-fatta { margin: 0; font-size: 14px; color: #5d6270; }
+  .cassa { justify-self: start; }
+  .riepilogo { width: 100%; border-collapse: collapse; font-size: 15px; color: #1d1f24; }
+  .riepilogo td { padding: 6px 0; border-bottom: 1px solid #e3e1da; }
+  .riepilogo td.n { text-align: right; font-family: var(--cifre); white-space: nowrap; padding-left: 10px; }
+  .riepilogo .tot td { font-weight: 800; font-size: 17px; border-bottom: 0; }
+  .nota-abb { margin: 0; color: #c2362b; font-size: 13.5px; }
+  .azioni-cassa { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+  .esito-negozio { margin-top: 6px; }
+  .esito-negozio[hidden] { display: none; }
+  .esito-negozio h2 { font-size: clamp(24px, 3.6vw, 34px); margin: 0 0 8px; }
+  #esito-lista { list-style: none; padding: 0; display: grid; gap: 10px; margin: 14px 0; }
+  #esito-lista li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 12px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; color: var(--inchiostro-2); font-size: var(--s0); }
+  #esito-lista li b { color: var(--inchiostro); }
+  .segno { font-family: var(--cifre); font-size: 20px; font-weight: 700; text-align: center; }
+  #esito-lista li[data-esito="evitata"] .segno, #esito-lista li[data-esito="scoperta"] .segno { color: var(--si); }
+  #esito-lista li[data-esito="caduto"] .segno { color: var(--accento); }
+  #esito-lista small { color: var(--inchiostro-3); }
+  @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
 '''
 
 
@@ -276,6 +322,63 @@ def truffa():
     open(os.path.join(cartella, 'index.html'), 'w', encoding='utf-8').write(pagina)
 
 
+
+def carrello():
+    cartella = os.path.join(REPO, 'giochi', 'carrello')
+    corpo = f'''  <section class="gioco" aria-labelledby="t-gioco">
+    <h2 id="t-gioco" class="sr-only">Il gioco</h2>
+    <div class="barra-gioco"><span>Punti <b id="punti">0</b></span><span>Negozio <b id="negozio-n">1 / 3</b></span><span>Tempo <b id="tempo">40</b></span></div>
+    <p class="esito" id="esito" aria-live="polite"></p>
+    <div class="palco palco-truffa">
+      <div class="tavolo" hidden>
+        {casa.polpo_mini(3, classe='logo-polpo')}
+        <div class="finestra" id="pagina"></div>
+      </div>
+      <div class="esito-negozio" id="esito-negozio" hidden>
+        <h2 id="esito-titolo"></h2>
+        <p id="esito-conto"></p>
+        <ul id="esito-lista"></ul>
+        <button type="button" class="btn btn-primario" id="prossimo">Prossimo negozio</button>
+      </div>
+      <div class="velo" id="apertura"><div class="velo-box">
+        <h2>Il carrello del Black Friday</h2>
+        <p>Devi comprare tre regali in tre negozi online. Ogni negozio nasconde le trappole che l'Antitrust ha davvero sanzionato negli ultimi anni.</p>
+        <ol>
+          <li><b>Tocca le trappole</b> che vedi: sconti finti, conti alla rovescia, recensioni gonfiate. Attento: toccare un'informazione corretta costa punti.</li>
+          <li><b>Togli le caselle già spuntate</b> e <b>rifiuta</b> l'abbonamento che ti offrono a tutti i costi.</li>
+          <li><b>Alla cassa</b> controlla il riepilogo: alcuni costi compaiono solo lì. Hai 40 secondi per negozio.</li>
+        </ol>
+        <button type="button" class="btn btn-primario" id="gioca">Gioca</button>
+      </div></div>
+      <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
+        <h2 id="t-fine">Fine dello shopping</h2>
+        <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <p id="fine-conto"></p>
+        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida qualcuno</button>
+        <p><small>Tutte le trappole, con i casi e le multe: <a href="../../legge/antitrust/">Le trappole sanzionate</a>. Hai comprato e vuoi ripensarci? <a href="../../garanzia/">Recesso e garanzia</a>.</small></p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="regole-gioco" aria-labelledby="t-regole">
+    <div class="occhiello">Prima di comprare</div>
+    <h2 id="t-regole">Le regole che ti proteggono</h2>
+    <ol class="lista">
+      <li><b>Lo sconto vero</b> si calcola sul prezzo più basso degli ultimi 30 giorni (Codice del consumo, art. 17-bis).</li>
+      <li><b>Niente caselle già spuntate</b> per pagare qualcosa in più: un'aggiunta la scegli tu (art. 65).</li>
+      <li><b>Nessun sovrapprezzo</b> per pagare con carta, PayPal o bonifico (art. 62).</li>
+      <li><b>Il prezzo è quello totale</b>, detto fin dall'inizio: niente costi che spuntano alla cassa (artt. 21-22).</li>
+      <li><b>Online hai 14 giorni per ripensarci</b>, senza dire perché (art. 52), e 2 anni di garanzia legale.</li>
+    </ol>
+    <p class="nota">I negozi del gioco sono inventati; le trappole e i casi sono veri, dai bollettini dell'Antitrust 2024-2026 letti nel dossier <a href="../../legge/antitrust/">Le trappole sanzionate</a>.</p>
+  </section>'''
+    pagina = cornice('../../', 'Il carrello del Black Friday', 'Gioco per riconoscere le trappole dei negozi online: sconti finti, caselle già spuntate, costi alla cassa, abbonamenti. Con i casi veri sanzionati dall\'Antitrust.',
+                     'Gioca con il Polpo · braccio 4, Ti difende', 'Il carrello del Black Friday',
+                     'Tre negozi, tre regali, quaranta secondi ciascuno. Le trappole sono quelle che l\'Antitrust ha davvero multato.',
+                     corpo, braccio=3, script='<script type="module" src="web/gioco.js"></script>')
+    open(os.path.join(cartella, 'index.html'), 'w', encoding='utf-8').write(pagina)
+
+
 def ingresso():
     schede = ''.join(f'<li><a href="{d}/">{casa.polpo_mini(b, classe="st-polpo")}<div><b>{esc(t)}</b><span>{esc(s)}</span></div></a></li>' for d, t, s, b in GIOCHI)
     corpo = f'''  <main class="gioco"><ul class="schede-giochi">{schede}</ul>
@@ -287,5 +390,6 @@ def ingresso():
 if __name__ == '__main__':
     n = differenzia()
     truffa()
+    carrello()
     open(os.path.join(REPO, 'giochi', 'index.html'), 'w', encoding='utf-8').write(ingresso())
-    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti), Truffa o no?')
+    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti), Truffa o no?, Il carrello del Black Friday')
