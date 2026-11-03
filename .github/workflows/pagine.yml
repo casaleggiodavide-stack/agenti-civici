@@ -33,6 +33,7 @@ jobs:
           mkdir -p _sito/mondo && cp mondo/index.html _sito/mondo/
           mkdir -p _sito/storie && cp storie/index.html _sito/storie/
           mkdir -p _sito/legge && cp -r legge/. _sito/legge/
+          mkdir -p _sito/giochi && cp -r giochi/. _sito/giochi/
           for d in assistente mi-spetta faccio-ricorso chiedo-gli-atti mi-rimborsano bilancio-comune appalti navigatore segnalazioni reclami-pa raccolte-firme alberi garanzia liste-attesa truffe; do
             mkdir -p _sito/$d
             cp $d/index.html _sito/$d/

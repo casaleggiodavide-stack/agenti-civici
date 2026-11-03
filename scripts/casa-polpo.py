@@ -42,9 +42,18 @@ LETTURE = [
 ]
 STORIE = ('storie/', 'Le storie del Polpo', 'Quello che il Polpo trova nei dati pubblici: appalti senza gara, bilanci dei Comuni, diritti di chi compra e viaggia.')
 
+# I giochi: cartella, titolo, sommario, braccio. Le pagine le scrive scripts/giochi.py.
+GIOCHI_CASA = [
+    ('giochi/differenzia/', 'Il Polpo differenzia', 'Il gioco della raccolta differenziata: lancia ogni rifiuto nel bidone giusto. Sai dove va il cartone della pizza?', 7),
+]
+
 
 def letture_di(k):
     return [(t, h) for h, t, _, b in LETTURE if b == k]
+
+
+def giochi_di(k):
+    return [(t, h) for h, t, _, b in GIOCHI_CASA if b == k]
 
 # «Chiedi al Polpo»: le parole che portano a uno strumento (minuscolo, senza accenti).
 # Funziona tutto nel browser: niente viene mandato da nessuna parte.
@@ -64,6 +73,7 @@ PAROLE = [
     ('segnalazioni/', ['buca', 'buche', 'strada', 'marciapiede', 'lampion', 'illuminazione', 'rifiuti', 'spazzatura', 'degrado', 'graffiti', 'segnalare', 'segnalazione', 'semaforo rotto']),
     ('alberi/', ['albero', 'alberi', 'piantare', 'bosco']),
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
+    ('giochi/differenzia/', ['differenziata', 'dove si butta', 'dove butto', 'dove va buttat', 'in quale bidone', 'quale bidone', 'riciclo', 'riciclare', 'cartone della pizza', 'secco', 'umido']),
     ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),
     ('legge/interrogazioni/', ['interrogazion', 'interpellanz', 'parlamentar', 'il governo non risponde', 'il ministero non risponde']),
     ('legge/antitrust/', ['black friday', 'antitrust', 'pratica scorretta', 'pratiche scorrette', 'finto sconto', 'sconto falso', 'abbonamento', 'disdetta', 'disdire', 'costi nascosti', 'recensioni false', 'greenwashing']),
@@ -142,7 +152,9 @@ def pannello(k):
 
 def leggi_riga(k):
     l = letture_di(k)
-    return f'<p class="g-leggi"><span>Da leggere</span>{"".join(link(t, h) for t, h in l)}</p>' if l else ''
+    g = giochi_di(k)
+    return ((f'<p class="g-leggi"><span>Da leggere</span>{"".join(link(t, h) for t, h in l)}</p>' if l else '')
+            + (f'<p class="g-leggi"><span>Da giocare</span>{"".join(link(t, h) for t, h in g)}</p>' if g else ''))
 
 
 def griglia():
@@ -152,7 +164,8 @@ def griglia():
                    f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="{icona}"/></svg></button>'
                    f'<span class="tessera-n">{k + 1:02d}</span><h3>{mestiere}</h3>'
                    f'<p>{"".join(link(n, h) for n, h in strumenti)}</p>'
-                   + ''.join(f'<p class="tessera-leggi"><span>Da leggere</span>{link(t, h)}</p>' for t, h in letture_di(k)) + '</li>')
+                   + ''.join(f'<p class="tessera-leggi"><span>Da leggere</span>{link(t, h)}</p>' for t, h in letture_di(k))
+                   + ''.join(f'<p class="tessera-leggi"><span>Da giocare</span>{link(t, h)}</p>' for t, h in giochi_di(k)) + '</li>')
     return ''.join(out)
 
 
@@ -160,8 +173,9 @@ def letture():
     schede = ''.join(f'<li><a href="{h}">{polpo_mini(b, classe="lt-polpo")}<span><b>{t}</b>{d}</span></a></li>' for h, t, d, b in LETTURE)
     h, t, d = STORIE
     schede += f'<li class="lt-storie"><a href="{h}">{polpo_mini(None, classe="lt-polpo")}<span><b>{t}</b>{d}</span></a></li>'
+    schede += ''.join(f'<li class="lt-gioco"><a href="{h}">{polpo_mini(b, classe="lt-polpo")}<span><b>Gioca: {t}</b>{d}</span></a></li>' for h, t, d, b in GIOCHI_CASA)
     return f'''<section class="letture" aria-labelledby="t-letture">
-    <div class="letture-testa"><h2 id="t-letture">Il Polpo legge per te</h2><p>Migliaia di documenti pubblici che nessuno legge per intero, riassunti con le fonti: ogni frase rimanda al documento da cui viene.</p><a class="letture-tutti" href="legge/">Tutti i dossier</a></div>
+    <div class="letture-testa"><h2 id="t-letture">Il Polpo legge per te</h2><p>Migliaia di documenti pubblici che nessuno legge per intero, riassunti con le fonti: ogni frase rimanda al documento da cui viene. E un gioco per imparare.</p><a class="letture-tutti" href="legge/">Tutti i dossier</a></div>
     <ul class="letture-schede">{schede}</ul>
   </section>'''
 
@@ -184,7 +198,7 @@ def chiedi():
     (() => {{
       const PAROLE = {json.dumps(PAROLE, ensure_ascii=False)};
       const BRACCIA = {json.dumps([{'mestiere': b[1], 'strumenti': b[4]} for b in BRACCIA], ensure_ascii=False)};
-      const LETTURE = {json.dumps([[t, h, b] for h, t, _, b in LETTURE], ensure_ascii=False)};
+      const LETTURE = {json.dumps([[t, h, b] for h, t, _, b in LETTURE + GIOCHI_CASA], ensure_ascii=False)};
       const f = document.querySelector('.chiedi-form');
       const t = document.getElementById('chiedi-testo');
       const r = document.querySelector('.chiedi-risposta');
@@ -224,7 +238,7 @@ def chiedi():
 
 def blocco():
     braccia = ''.join(braccio_svg(k) for k in range(8))
-    dati = json.dumps([{'lato': LATI[b[0]], 'mestiere': b[1], 'spiega': b[2], 'strumenti': b[4], 'leggi': letture_di(k)} for k, b in enumerate(BRACCIA)], ensure_ascii=False)
+    dati = json.dumps([{'lato': LATI[b[0]], 'mestiere': b[1], 'spiega': b[2], 'strumenti': b[4], 'leggi': letture_di(k), 'gioca': giochi_di(k)} for k, b in enumerate(BRACCIA)], ensure_ascii=False)
     punti = ''.join(f'<button type="button" class="g-punto" data-vai="{k}" aria-label="{k + 1}: {b[1]}"></button>' for k, b in enumerate(BRACCIA))
     return f'''<!--casa--><header class="casa">
     <div class="casa-testa">
@@ -262,6 +276,7 @@ def blocco():
   <nav class="altro" aria-label="Altro">
     <a href="storie/">Le storie del Polpo</a>
     <a href="legge/">Il Polpo legge per te</a>
+    <a href="giochi/">Gioca con il Polpo</a>
     <a href="https://github.com/casaleggiodavide-stack/agenti-civici/releases/latest/download/agenti-civici.mcpb">Il Polpo dentro il tuo assistente AI</a>
     <a href="mondo/">L'Atlante degli strumenti civici nel mondo</a>
     <a href="catalogo/">Il catalogo completo</a>
@@ -294,7 +309,8 @@ def blocco():
     const x = DATI[k];
     testo.innerHTML = `<span class="g-n">${{String(k + 1).padStart(2, '0')}} / 08 · ${{x.lato}}</span><h2 class="g-titolo">${{esc(x.mestiere)}}</h2>`
       + `<p class="g-spiega">${{esc(x.spiega)}}</p><p class="g-strumenti">${{x.strumenti.map(([n, h], i) => a(n, h, i ? 'btn' : 'btn btn-primario')).join('')}}</p>`
-      + (x.leggi.length ? `<p class="g-leggi"><span>Da leggere</span>${{x.leggi.map(([n, h]) => a(n, h, '')).join('')}}</p>` : '');
+      + (x.leggi.length ? `<p class="g-leggi"><span>Da leggere</span>${{x.leggi.map(([n, h]) => a(n, h, '')).join('')}}</p>` : '')
+      + (x.gioca.length ? `<p class="g-leggi"><span>Da giocare</span>${{x.gioca.map(([n, h]) => a(n, h, '')).join('')}}</p>` : '');
   }}
   setInterval(() => {{ if (!fermo && !tastiera && !document.hidden && Date.now() > riposo) mostra(k + 1, 1); }}, meno ? 6000 : 4200);
   const tocca = () => {{ riposo = Date.now() + 12000; }};

@@ -1,0 +1,861 @@
+{
+  "aggiornato": "2026-11-03",
+  "contenitori": {
+    "carta": "Carta e cartone: giornali, scatole, sacchetti di carta. Senza residui di cibo e senza plastica.",
+    "plastica": "Imballaggi in plastica: bottiglie, flaconi, vaschette, sacchetti. In molti Comuni anche lattine e altri metalli.",
+    "vetro": "Solo imballaggi in vetro: bottiglie, vasetti e barattoli, senza tappi. In alcuni Comuni anche i metalli.",
+    "organico": "Umido: avanzi e scarti di cucina, carta sporca di cibo, oggetti certificati compostabili.",
+    "indifferenziato": "Secco residuo: quello che non si può riciclare in nessuna delle altre raccolte.",
+    "isola": "Raccolte dedicate e centro di raccolta: pile, farmaci, RAEE, olio da cucina, vernici, ingombranti."
+  },
+  "fonti": {
+    "comieco_dovelobutto": {
+      "titolo": "Comieco – Come fare la raccolta differenziata di carta e cartone",
+      "url": "https://www.comieco.org/carta-e-cartone/la-raccolta-differenziata/dove-lo-butto/"
+    },
+    "comieco_non_riciclabile": {
+      "titolo": "Comieco – Quando il cartone non si può riciclare",
+      "url": "https://www.comieco.org/carta-e-cartone/la-raccolta-differenziata/dove-lo-butto/quando-cartone-non-si-puo-riciclare/"
+    },
+    "comieco_pizza": {
+      "titolo": "Comieco – Dove buttare il cartone della pizza",
+      "url": "https://www.comieco.org/dove-buttare-il-cartone-della-pizza/"
+    },
+    "comieco_scontrini": {
+      "titolo": "Comieco – Dove buttare gli scontrini",
+      "url": "https://www.comieco.org/dove-buttare-gli-scontrini/"
+    },
+    "comieco_forno": {
+      "titolo": "Comieco – Dove buttare la carta da forno",
+      "url": "https://www.comieco.org/dove-buttare-la-carta-da-forno/"
+    },
+    "comieco_oleata": {
+      "titolo": "Comieco – Dove buttare la carta oleata",
+      "url": "https://www.comieco.org/dove-buttare-la-carta-oleata/"
+    },
+    "comieco_fazzoletti": {
+      "titolo": "Comieco – Dove buttare i fazzoletti",
+      "url": "https://www.comieco.org/dove-buttare-i-fazzoletti/"
+    },
+    "comieco_busta": {
+      "titolo": "Comieco – Dove buttare la busta di carta",
+      "url": "https://www.comieco.org/dove-buttare-la-busta-di-carta/"
+    },
+    "comieco_bevande": {
+      "titolo": "Comieco – Dove buttare i cartoni per bevande",
+      "url": "https://www.comieco.org/dove-buttare-i-cartoni-per-bevande/"
+    },
+    "comieco_stagnola": {
+      "titolo": "Comieco – Dove buttare la carta stagnola",
+      "url": "https://www.comieco.org/dove-buttare-la-carta-stagnola/"
+    },
+    "comieco_gelato": {
+      "titolo": "Comieco – Dove buttare la coppetta del gelato",
+      "url": "https://www.comieco.org/dove-buttare-la-coppetta-del-gelato/"
+    },
+    "comieco_vassoio": {
+      "titolo": "Comieco – Dove buttare il vassoio della pasticceria",
+      "url": "https://www.comieco.org/dove-buttare-il-vassoio-pasticceria/"
+    },
+    "comieco_uova": {
+      "titolo": "Comieco – Dove buttare la confezione delle uova",
+      "url": "https://www.comieco.org/dove-buttare-la-confezione-delle-uova/"
+    },
+    "comieco_postit": {
+      "titolo": "Comieco – Dove buttare i post-it",
+      "url": "https://www.comieco.org/dove-buttare-i-post-it/"
+    },
+    "corepla_cosa": {
+      "titolo": "Corepla – Cosa va nella raccolta differenziata",
+      "url": "https://www.corepla.it/cosa-si-mette-nella-raccolta-differenziata/"
+    },
+    "corepla_buone": {
+      "titolo": "Corepla – Buone pratiche",
+      "url": "https://www.corepla.it/cittadini/buone-pratiche/"
+    },
+    "corepla_fakenews": {
+      "titolo": "Corepla – Fake news sulla plastica",
+      "url": "https://www.corepla.it/fake-news/"
+    },
+    "corepla_allegato": {
+      "titolo": "Allegato tecnico ANCI-COREPLA imballaggi in plastica (PDF)",
+      "url": "https://www.corepla.it/wp-content/uploads/2024/06/allegato_tecnico_plastica_2020_2024-4.pdf"
+    },
+    "coreve_regole": {
+      "titolo": "CoReVe – Regole del riciclo del vetro",
+      "url": "https://coreve.it/regole-del-riciclo/"
+    },
+    "coreve_guida": {
+      "titolo": "CoReVe – Vetro da riciclare: guida pratica in 5 mosse",
+      "url": "https://coreve.it/guida-pratica-al-vetro-da-riciclare-come-fare-e-perche-farlo/"
+    },
+    "coreve_falsi": {
+      "titolo": "CoReVe – I falsi amici del vetro (PDF)",
+      "url": "https://coreve.it/wp-content/uploads/2024/11/Coreve_Dispensa_I-falsi-amici-del-vetro.pdf"
+    },
+    "cial_5regole": {
+      "titolo": "CIAL – Le 5 regole per la raccolta dell'alluminio",
+      "url": "https://www.cial.it/5regole/"
+    },
+    "cial_capsule": {
+      "titolo": "CIAL – Capsule del caffè in alluminio nella raccolta differenziata",
+      "url": "https://www.cial.it/capsule-caffe-alluminio-raccolta-differenziata/"
+    },
+    "ricrea_imballaggi": {
+      "titolo": "RICREA – Gli imballaggi in acciaio",
+      "url": "https://www.consorzioricrea.org/acciaio/gli-imballaggi-in-acciaio/"
+    },
+    "ricrea_modalita": {
+      "titolo": "RICREA – Modalità di raccolta degli imballaggi in metallo",
+      "url": "https://www.consorzioricrea.org/convenzioni-anci-ricrea/modalita-di-raccolta/"
+    },
+    "cic_umido": {
+      "titolo": "CIC – Come raccogliere lo scarto umido di qualità",
+      "url": "https://www.compost.it/cittadini-e-comuni/come-raccogliere-lo-scarto-umido-di-qualita/"
+    },
+    "cdcraee_gruppi": {
+      "titolo": "Centro di Coordinamento RAEE – Raccogli i RAEE nel gruppo corretto",
+      "url": "https://www.cdcraee.it/aee-e-raee/rifiuti-da-apparecchiature-elettriche-ed-elettroniche/raccogli-i-raee-nel-gruppo-corretto/"
+    },
+    "cdcraee_cittadini": {
+      "titolo": "Centro di Coordinamento RAEE – Cittadini",
+      "url": "https://www.cdcraee.it/sistema-raee/attori-del-sistema-raee/cittadini/"
+    },
+    "ispra_rifiuti": {
+      "titolo": "APAT-ISPRA – Quaderni della formazione ambientale: Rifiuti (PDF)",
+      "url": "https://www.isprambiente.gov.it/contentfiles/00001100/1116-rifiuti.pdf"
+    },
+    "conoe_oli": {
+      "titolo": "CONOE – Oli esausti: accordo con Città di Torino e Amiat",
+      "url": "https://www.conoe.it/notizie/smaltimento-oli-raggiunto-laccordo-tra-il-conoe-la-citta-di-torino-e-amiat-gruppo-iren/"
+    }
+  },
+  "rifiuti": [
+    {
+      "id": "cartone-pizza-pulito",
+      "nome": "Cartone della pizza pulito",
+      "emoji": "🍕",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Senza avanzi di cibo è un normale imballaggio di cartone: va nella carta.",
+      "fonte": "comieco_pizza"
+    },
+    {
+      "id": "cartone-pizza-unto",
+      "nome": "Cartone della pizza unto",
+      "emoji": "🍕",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Per Comieco va nella carta anche se unto. Togli gli avanzi (umido); la parte intrisa di sugo va nel secco.",
+      "fonte": "comieco_pizza"
+    },
+    {
+      "id": "giornale",
+      "nome": "Giornale",
+      "emoji": "📰",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Giornali, riviste e fumetti si riciclano: togli il cellophane che li avvolge.",
+      "fonte": "comieco_dovelobutto"
+    },
+    {
+      "id": "quaderno-spirale",
+      "nome": "Quaderno con la spirale",
+      "emoji": "📓",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Il quaderno va nella carta, ma prima togli la spirale: i materiali non di carta vanno separati.",
+      "fonte": "comieco_non_riciclabile"
+    },
+    {
+      "id": "busta-finestrella",
+      "nome": "Busta con la finestrella",
+      "emoji": "✉️",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La finestrella non disturba il riciclo in cartiera: la busta intera va nella carta.",
+      "fonte": "comieco_busta"
+    },
+    {
+      "id": "post-it",
+      "nome": "Post-it",
+      "emoji": "🗒️",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La colla dei foglietti adesivi si scioglie in acqua: vanno nella carta.",
+      "fonte": "comieco_postit"
+    },
+    {
+      "id": "vassoio-pasticceria",
+      "nome": "Vassoio dei pasticcini",
+      "emoji": "🧁",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Anche il vassoio dorato della pasticceria va con carta e cartone.",
+      "fonte": "comieco_vassoio"
+    },
+    {
+      "id": "confezione-uova-cartone",
+      "nome": "Confezione uova di cartone",
+      "emoji": "🥚",
+      "contenitore": "carta",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Se è di cartone va nella carta; se è di plastica, va nella plastica.",
+      "fonte": "comieco_uova"
+    },
+    {
+      "id": "cartone-latte",
+      "nome": "Cartone del latte",
+      "emoji": "🥛",
+      "contenitore": "carta",
+      "alternative": [
+        "plastica"
+      ],
+      "dipende": true,
+      "spiegazione": "È cartone con plastica e alluminio: secondo il Comune va nella carta o con plastica e metalli. Svuotalo e schiaccialo.",
+      "fonte": "comieco_bevande"
+    },
+    {
+      "id": "scontrino",
+      "nome": "Scontrino",
+      "emoji": "🧾",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Quasi sempre è carta termica, che dà problemi al riciclo. Va nella carta solo se sul retro c'è scritto.",
+      "fonte": "comieco_scontrini"
+    },
+    {
+      "id": "carta-forno",
+      "nome": "Carta da forno",
+      "emoji": "🧻",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È trattata per non attaccare: va nel secco, salvo diversa indicazione sulla confezione.",
+      "fonte": "comieco_forno"
+    },
+    {
+      "id": "carta-oleata",
+      "nome": "Carta oleata",
+      "emoji": "🥪",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La cera la rende impermeabile e non riciclabile: va nel secco, salvo se indicata come riciclabile.",
+      "fonte": "comieco_oleata"
+    },
+    {
+      "id": "fazzoletti-usati",
+      "nome": "Fazzoletti di carta usati",
+      "emoji": "🤧",
+      "contenitore": "indifferenziato",
+      "alternative": [
+        "organico"
+      ],
+      "dipende": true,
+      "spiegazione": "Per igiene vanno nel secco. Nell'umido solo se certificati compostabili o se il tuo Comune lo prevede.",
+      "fonte": "comieco_fazzoletti"
+    },
+    {
+      "id": "coppetta-gelato-sporca",
+      "nome": "Coppetta gelato sporca",
+      "emoji": "🍨",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Con avanzi di gelato va nel secco, o nell'umido se è compostabile. Pulita va nella carta.",
+      "fonte": "comieco_gelato"
+    },
+    {
+      "id": "tazzina-ceramica",
+      "nome": "Tazzina di ceramica rotta",
+      "emoji": "☕",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La ceramica non fonde come il vetro e rovina il vetro riciclato: va nel secco.",
+      "fonte": "coreve_guida"
+    },
+    {
+      "id": "piatto-porcellana",
+      "nome": "Piatto di porcellana",
+      "emoji": "🍽️",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La porcellana è ceramica: nel vetro non fonde e rovina il vetro nuovo. Va nel secco.",
+      "fonte": "coreve_falsi"
+    },
+    {
+      "id": "bicchiere-cristallo",
+      "nome": "Bicchiere di cristallo",
+      "emoji": "🥂",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Il cristallo contiene piombo e non va nel vetro: nel secco, o all'isola ecologica se sono tanti.",
+      "fonte": "coreve_regole"
+    },
+    {
+      "id": "bicchiere-vetro",
+      "nome": "Bicchiere di vetro rotto",
+      "emoji": "🥃",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Nella campana vanno solo bottiglie, vasetti e barattoli: i bicchieri vanno nel secco o all'ecocentro.",
+      "fonte": "coreve_guida"
+    },
+    {
+      "id": "pirofila-pyrex",
+      "nome": "Pirofila da forno",
+      "emoji": "🥘",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Le pirofile non vanno nel vetro: fondono a temperature più alte delle bottiglie. Vanno nel secco.",
+      "fonte": "coreve_guida"
+    },
+    {
+      "id": "specchio",
+      "nome": "Specchio",
+      "emoji": "🪞",
+      "contenitore": "indifferenziato",
+      "alternative": [
+        "isola"
+      ],
+      "dipende": true,
+      "spiegazione": "Non va mai nel vetro. Secondo tipo e misura va nel secco o all'isola ecologica: chiedi al Comune.",
+      "fonte": "coreve_regole"
+    },
+    {
+      "id": "lampadina-incandescenza",
+      "nome": "Lampadina a incandescenza",
+      "emoji": "💡",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Non è un RAEE e non è vetro da imballaggio: la vecchia lampadina a filamento va nel secco.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "posate-plastica",
+      "nome": "Posate di plastica",
+      "emoji": "🍴",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Le posate non sono imballaggi: la raccolta della plastica accetta solo imballaggi.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "giocattolo-plastica",
+      "nome": "Giocattolo di plastica",
+      "emoji": "🧸",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Un giocattolo non è un imballaggio: non va nella plastica. Se è grande, chiedi al Comune.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "spazzolino",
+      "nome": "Spazzolino da denti",
+      "emoji": "🪥",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Non è un imballaggio: nella plastica vanno solo gli imballaggi. Va nel secco.",
+      "fonte": "corepla_buone"
+    },
+    {
+      "id": "rasoio-usa-e-getta",
+      "nome": "Rasoio usa e getta",
+      "emoji": "🪒",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È un oggetto, non un imballaggio, e ha lame di metallo: va nel secco.",
+      "fonte": "corepla_buone"
+    },
+    {
+      "id": "cd",
+      "nome": "CD o DVD",
+      "emoji": "💿",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Un CD non è un imballaggio e non è un RAEE: va nel secco.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "pannolino",
+      "nome": "Pannolino",
+      "emoji": "🧷",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "I pannolini non si riciclano con la plastica: vanno nel secco, salvo raccolte dedicate.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "lettiera-minerale",
+      "nome": "Lettiera minerale (gatto)",
+      "emoji": "🐈",
+      "contenitore": "indifferenziato",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La lettiera minerale o sintetica non si composta: va nel secco.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "bottiglia-plastica",
+      "nome": "Bottiglia di plastica",
+      "emoji": "🧴",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Svuotala, schiacciala per il lungo e richiudila col tappo: non serve lavarla.",
+      "fonte": "corepla_buone"
+    },
+    {
+      "id": "flacone-detersivo",
+      "nome": "Flacone del detersivo",
+      "emoji": "🧴",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Flaconi di detersivi e saponi sono imballaggi: basta svuotarli, senza sciacquarli.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "flacone-shampoo",
+      "nome": "Flacone dello shampoo",
+      "emoji": "🧴",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Flaconi e dispenser di cosmetici sono imballaggi in plastica: svuotati, vanno nella plastica.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "vasetto-yogurt",
+      "nome": "Vasetto dello yogurt",
+      "emoji": "🥣",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Il vasetto va nella plastica. Stacca prima il coperchio: se è di alluminio va con i metalli.",
+      "fonte": "corepla_buone"
+    },
+    {
+      "id": "piatto-plastica",
+      "nome": "Piatto di plastica",
+      "emoji": "🍽️",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Piatti monouso in plastica sono imballaggi per la raccolta: svuotati dal cibo, vanno nella plastica.",
+      "fonte": "corepla_allegato"
+    },
+    {
+      "id": "bicchiere-plastica",
+      "nome": "Bicchiere di plastica",
+      "emoji": "🥤",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "I bicchieri monouso di plastica sono imballaggi: vanno nella plastica.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "polistirolo",
+      "nome": "Polistirolo da imballaggio",
+      "emoji": "📦",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Il polistirolo degli imballaggi è plastica: va nella raccolta della plastica, non nel secco.",
+      "fonte": "corepla_fakenews"
+    },
+    {
+      "id": "tappo-plastica",
+      "nome": "Tappo di plastica",
+      "emoji": "🔵",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Lascialo avvitato alla bottiglia: gli impianti separano da soli le plastiche.",
+      "fonte": "corepla_fakenews"
+    },
+    {
+      "id": "sacchetto-plastica",
+      "nome": "Sacchetto di plastica",
+      "emoji": "🛍️",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È un imballaggio. Se lo usi per portare carta o vetro, svuotalo: il sacchetto va nella plastica.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "cassetta-plastica",
+      "nome": "Cassetta di plastica",
+      "emoji": "🍎",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Le cassette per frutta e verdura sono imballaggi in plastica: vanno nella plastica.",
+      "fonte": "corepla_allegato"
+    },
+    {
+      "id": "tubetto-dentifricio",
+      "nome": "Tubetto del dentifricio",
+      "emoji": "🪥",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Il tubetto è un imballaggio: spremilo bene, non serve togliere ogni residuo.",
+      "fonte": "corepla_buone"
+    },
+    {
+      "id": "blister",
+      "nome": "Blister delle pastiglie",
+      "emoji": "💊",
+      "contenitore": "plastica",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Blister e involucri sagomati vuoti sono imballaggi: vanno nella plastica.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "capsula-plastica",
+      "nome": "Capsula caffè di plastica",
+      "emoji": "☕",
+      "contenitore": "plastica",
+      "alternative": [
+        "indifferenziato"
+      ],
+      "dipende": true,
+      "spiegazione": "Dal 12 agosto 2026 le capsule sono imballaggi: va nella plastica. Segui il gestore su svuotamento e regole.",
+      "fonte": "corepla_cosa"
+    },
+    {
+      "id": "lattina",
+      "nome": "Lattina",
+      "emoji": "🥫",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "Si ricicla all'infinito. L'alluminio va con la plastica o con il vetro, secondo il tuo Comune.",
+      "fonte": "cial_5regole"
+    },
+    {
+      "id": "vaschetta-alluminio",
+      "nome": "Vaschetta di alluminio",
+      "emoji": "🍱",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "Togli i residui di cibo, non serve lavarla. Va con i metalli: con plastica o vetro, secondo il Comune.",
+      "fonte": "cial_5regole"
+    },
+    {
+      "id": "carta-stagnola",
+      "nome": "Carta stagnola",
+      "emoji": "🌯",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "Non è carta: è alluminio. Appallottolala e mettila con i metalli (plastica o vetro, secondo il Comune).",
+      "fonte": "comieco_stagnola"
+    },
+    {
+      "id": "scatoletta-tonno",
+      "nome": "Scatoletta del tonno",
+      "emoji": "🐟",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "È acciaio, riciclabile all'infinito. I metalli vanno con plastica o vetro, secondo il Comune.",
+      "fonte": "ricrea_modalita"
+    },
+    {
+      "id": "tappo-corona",
+      "nome": "Tappo a corona",
+      "emoji": "🍺",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "È acciaio: toglilo dalla bottiglia di vetro e mettilo con i metalli, dove il Comune li raccoglie.",
+      "fonte": "ricrea_imballaggi"
+    },
+    {
+      "id": "bomboletta-spray",
+      "nome": "Bomboletta spray vuota",
+      "emoji": "🧯",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "Vuota, va con i metalli (plastica o vetro, secondo il Comune). Togli il cappuccio di plastica, non l'erogatore.",
+      "fonte": "cial_5regole"
+    },
+    {
+      "id": "capsula-alluminio",
+      "nome": "Capsula caffè di alluminio",
+      "emoji": "☕",
+      "contenitore": "plastica",
+      "alternative": [
+        "vetro"
+      ],
+      "dipende": true,
+      "spiegazione": "Dal 12 agosto 2026 è un imballaggio: va con i metalli (plastica o vetro) secondo il tuo Comune.",
+      "fonte": "cial_capsule"
+    },
+    {
+      "id": "bottiglia-vetro",
+      "nome": "Bottiglia di vetro",
+      "emoji": "🍾",
+      "contenitore": "vetro",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Svuotala e togli il tappo; l'etichetta può restare. Niente sacchetti nella campana.",
+      "fonte": "coreve_guida"
+    },
+    {
+      "id": "vasetto-vetro",
+      "nome": "Barattolo di vetro",
+      "emoji": "🫙",
+      "contenitore": "vetro",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Barattoli e vasetti vuoti vanno nel vetro, anche rotti. Il coperchio di metallo va tolto.",
+      "fonte": "coreve_guida"
+    },
+    {
+      "id": "bucce-frutta",
+      "nome": "Bucce di frutta",
+      "emoji": "🍌",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Gli scarti di cucina diventano compost e biogas: vanno nell'umido.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "gusci-uovo",
+      "nome": "Gusci d'uovo",
+      "emoji": "🥚",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "I gusci d'uovo sono scarti di cucina: vanno nell'umido.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "ossa",
+      "nome": "Ossa della carne",
+      "emoji": "🍖",
+      "contenitore": "organico",
+      "alternative": [
+        "indifferenziato"
+      ],
+      "dipende": true,
+      "spiegazione": "Gli impianti di compostaggio le accettano, molti digestori no: dove il Comune non le vuole, vanno nel secco.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "gusci-cozze",
+      "nome": "Gusci di cozze",
+      "emoji": "🦪",
+      "contenitore": "organico",
+      "alternative": [
+        "indifferenziato"
+      ],
+      "dipende": true,
+      "spiegazione": "Come le ossa, dipende dall'impianto del tuo Comune: nell'umido o, se non accettati, nel secco.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "tovagliolo-sporco",
+      "nome": "Tovagliolo sporco di cibo",
+      "emoji": "🧻",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Tovaglioli e tovaglie di carta sporchi di cibo vanno nell'umido; puliti, nella carta.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "sacchetto-compostabile",
+      "nome": "Sacchetto compostabile",
+      "emoji": "♻️",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Se certificato compostabile (UNI EN 13432) è perfetto per raccogliere l'umido.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "lettiera-vegetale",
+      "nome": "Lettiera vegetale (gatto)",
+      "emoji": "🐱",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "La lettiera di materiale compostabile va nell'umido; quella minerale no.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "capsula-compostabile",
+      "nome": "Capsula caffè compostabile",
+      "emoji": "☕",
+      "contenitore": "organico",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Se è certificata compostabile e lo dice la confezione, va nell'umido insieme al caffè.",
+      "fonte": "cic_umido"
+    },
+    {
+      "id": "pile",
+      "nome": "Pile scariche",
+      "emoji": "🔋",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Contengono metalli pesanti: vanno negli appositi contenitori per le pile o all'ecocentro, mai nel secco.",
+      "fonte": "ispra_rifiuti"
+    },
+    {
+      "id": "farmaci-scaduti",
+      "nome": "Farmaci scaduti",
+      "emoji": "💊",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Vanno negli appositi contenitori delle farmacie, da cui sono avviati all'incenerimento controllato.",
+      "fonte": "ispra_rifiuti"
+    },
+    {
+      "id": "olio-frittura",
+      "nome": "Olio di frittura",
+      "emoji": "🍳",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Mai nel lavandino: inquina e rovina le tubature. Raccoglilo in un contenitore e portalo ai punti di raccolta.",
+      "fonte": "conoe_oli"
+    },
+    {
+      "id": "lampadina-led",
+      "nome": "Lampadina LED",
+      "emoji": "💡",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È un rifiuto elettronico (RAEE, gruppo R5 sorgenti luminose): va al centro di raccolta, non nel vetro.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "lampadina-risparmio",
+      "nome": "Lampadina a risparmio",
+      "emoji": "💡",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Le lampadine a basso consumo sono RAEE (R5) e contengono sostanze da trattare: al centro di raccolta.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "caricabatterie",
+      "nome": "Cavi e caricabatterie",
+      "emoji": "🔌",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Cavi elettrici e caricabatterie sono rifiuti elettronici (RAEE, gruppo R4): vanno al centro di raccolta.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "tostapane",
+      "nome": "Tostapane",
+      "emoji": "🍞",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È un RAEE: gratis al centro di raccolta o nei grandi negozi di elettronica, anche senza acquisto se sotto i 25 cm.",
+      "fonte": "cdcraee_cittadini"
+    },
+    {
+      "id": "sigaretta-elettronica",
+      "nome": "Sigaretta elettronica",
+      "emoji": "💨",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Ha una batteria e componenti elettronici: è un RAEE (R4), va al centro di raccolta.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "toner",
+      "nome": "Toner della stampante",
+      "emoji": "🖨️",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Toner e cartucce con chip sono RAEE (R4): vanno al centro di raccolta, non nel secco.",
+      "fonte": "cdcraee_gruppi"
+    },
+    {
+      "id": "vernice",
+      "nome": "Avanzi di vernice",
+      "emoji": "🎨",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Prodotti tossici o infiammabili (simboli T o F) vanno nei contenitori dell'ecocentro.",
+      "fonte": "ispra_rifiuti"
+    },
+    {
+      "id": "materasso",
+      "nome": "Vecchio materasso",
+      "emoji": "🛏️",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "È un ingombrante: non entra nei contenitori e va al centro di raccolta, secondo le regole del Comune.",
+      "fonte": "ispra_rifiuti"
+    },
+    {
+      "id": "cassetta-legno",
+      "nome": "Cassetta di legno",
+      "emoji": "🪵",
+      "contenitore": "isola",
+      "alternative": [],
+      "dipende": false,
+      "spiegazione": "Non va nell'umido: segue la raccolta degli imballaggi in legno, al centro di raccolta.",
+      "fonte": "cic_umido"
+    }
+  ]
+}
