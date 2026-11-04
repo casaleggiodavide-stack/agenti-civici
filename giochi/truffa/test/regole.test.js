@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { MESSAGGI, FONTI } from '../src/messaggi.js';
-import { scegliPartita, giusto, punti, nuovoStato, segna, finita, PER_PARTITA, VITE } from '../src/regole.js';
+import { scegliPartita, giusto, punti, nuovoStato, segna, finita, PER_PARTITA, VITE, medaglieGuadagnate, MEDAGLIE, TITOLI } from '../src/regole.js';
+import { caso } from '../../comune/premi.js';
 import { analizza } from '../../../truffe/src/segnali.js';
 
 test('i messaggi sono completi, con fonte e spiegazione breve', () => {
@@ -55,4 +56,29 @@ test('punti, vite e fine', () => {
   assert.equal(finita({ ...s, vite: 0 }, 15), true);
   assert.equal(finita(s, 2), true);
   assert.equal(finita(s, 15), false);
+});
+
+test('serie, scudo del Polpo e medaglie', () => {
+  let s = nuovoStato();
+  for (let i = 0; i < 5; i++) s = segna(s, true, 0, { livello: 1 });
+  assert.equal(s.punti, 5 * 10 + 3 * 5); // dalla terza giusta di fila, +5
+  assert.equal(s.scudo, true);
+  s = segna(s, false, 0, { livello: 2, cascato: true });
+  assert.equal(s.vite, VITE); // lo scudo para l'errore
+  assert.equal(s.scudo, false);
+  assert.equal(s.parati, 1);
+  s = segna(s, false, 0, { livello: 2 });
+  assert.equal(s.vite, VITE - 1);
+  const m = medaglieGuadagnate({ ...s, indice: PER_PARTITA }, PER_PARTITA);
+  assert.ok(m.includes('scudo') && !m.includes('mai-cascato') && !m.includes('perfetto'));
+  for (const id of m) assert.ok(MEDAGLIE[id]);
+});
+
+test('la partita della sfida è la stessa per chi ha lo stesso seme, e il punteggio massimo arriva all\'ultimo titolo', () => {
+  const a = scegliPartita(MESSAGGI, caso('2026-11-04-truffa')).map((m) => m.id);
+  const b = scegliPartita(MESSAGGI, caso('2026-11-04-truffa')).map((m) => m.id);
+  assert.deepEqual(a, b);
+  let s = nuovoStato();
+  for (let i = 0; i < PER_PARTITA; i++) s = segna(s, true, 1, { livello: 3 });
+  assert.ok(s.punti >= TITOLI[TITOLI.length - 1][0], `massimo ${s.punti}`);
 });

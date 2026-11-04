@@ -5,7 +5,9 @@
 //   - con la tastiera, le frecce spostano il Polpo sotto un bidone e lo spazio gli fa
 //     afferrare il rifiuto più in basso e lanciarlo lì (i tasti da 1 a 6 scelgono il bidone).
 // Tutto avviene nel browser: nessun dato esce da qui. Il record resta sul tuo dispositivo.
-import { CONTENITORI, DURATA, VITE, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione } from '../src/regole.js';
+import { CONTENITORI, DURATA, VITE, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione,
+  FASI, fase, ammessi, difficolta, ogniOro, traguardo, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 import DATI from '../src/rifiuti.js';
 
 const tela = document.getElementById('tela');
@@ -24,6 +26,10 @@ let inizio = 0, ultimo = 0, prossimo = 0, inCorso = false, pausa = false, scossa
 let px = 0, colonna = Math.floor(N / 2), conTastiera = false, umore = null;
 // il rifiuto tenuto dal tentacolo mentre lo trascini
 let presa = null;
+// la partita ripetibile: stesso seme, stessi rifiuti nello stesso ordine (sfida del giorno, sfida a un amico)
+let modo = 'libera', seme = '', rng = Math.random, faseOra = 0, codaFase = -1, generati = 0, finitoIlTempo = false;
+const palco = tela.parentElement;
+const sfida = preparaApertura({ gioco: 'differenzia', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
 
 function leggiColori() {
   const cs = getComputedStyle(document.documentElement);
@@ -56,38 +62,54 @@ const colonnaDi = (x) => Math.max(0, Math.min(N - 1, Math.floor(x / larg())));
 
 // ---------------------------------------------------------------- partita
 
-function nuovaPartita() {
+function nuovaPartita(m = modo) {
+  modo = m;
+  seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
+  rng = caso(`${seme}-differenzia`);
   stato = nuovoStato(); attivi = []; volo = []; scritte = []; sbagli = []; presa = null; umore = null;
-  coda = mescola(DATI.rifiuti);
+  coda = []; codaFase = -1; faseOra = 0; generati = 0; finitoIlTempo = false;
   misura();
   const barra = document.querySelector('.barra-gioco');
   window.scrollTo({ top: barra.getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
   inizio = ultimo = performance.now(); prossimo = inizio + 600;
   inCorso = true; pausa = false;
   $('#apertura').hidden = true; $('#fine').hidden = true;
-  annuncia('', 'info');
+  annuncia(`${FASI[0].nome}: ${FASI[0].testo}.`, 'info');
+  $('#fase').textContent = `fase 1 di ${FASI.length}`;
   aggiornaBarra();
   tela.focus({ preventScroll: true });
   requestAnimationFrame(passo);
 }
 
 function prendiRifiuto() {
-  if (!coda.length) coda = mescola(DATI.rifiuti);
+  if (!coda.length || codaFase !== faseOra) { coda = mescola(ammessi(DATI.rifiuti, faseOra), rng); codaFase = faseOra; }
   return coda.pop();
+}
+
+/** Il passaggio di fase: un annuncio grande, come un livello nuovo. */
+function cambiaFase(f) {
+  faseOra = f;
+  $('#fase').textContent = `fase ${f + 1} di ${FASI.length}`;
+  annuncioGrande(palco, FASI[f].nome);
+  annuncia(`${FASI[f].nome}: ${FASI[f].testo}${/[.?!]$/.test(FASI[f].testo) ? '' : '.'}`, 'info');
+  suona('serie');
 }
 
 function genera(ora) {
   const { intervallo } = ritmo((ora - inizio) / 1000 / DURATA);
   if (ora < prossimo || attivi.length >= 5) return;
   const r = raggio();
-  attivi.push({ r: prendiRifiuto(), x: r + Math.random() * (L - 2 * r), y: -r, giro: (Math.random() - 0.5) * 0.4, ang: 0 });
+  generati += 1;
+  const oro = generati % ogniOro(faseOra) === 0;
+  attivi.push({ r: prendiRifiuto(), x: r + rng() * (L - 2 * r), y: -r, giro: (rng() - 0.5) * 0.4, ang: 0, oro });
   prossimo = ora + intervallo * 1000 * (meno ? 1.25 : 1);
 }
 
 function lancia(o, indice) {
   const c = CONTENITORI[indice];
   const esito = valuta(o.r, c.id);
-  stato = segna(stato, esito);
+  const vitePrima = stato.vite;
+  stato = segna(stato, esito, { oro: o.oro, difficile: difficolta(o.r) === 3 });
   attivi = attivi.filter((x) => x !== o);
   if (presa && presa.o === o) presa = null;
   const arrivo = { x: centro(indice), y: quotaBidoni() + 14 };
@@ -103,7 +125,18 @@ function lancia(o, indice) {
     annuncia(`${o.r.nome}: ${NOMI[c.id]}. Giusto!`, 'si');
   }
   const m = moltiplicatore(stato.serie);
-  if (esito !== 'sbagliato') scritte.push({ x: arrivo.x, y: arrivo.y - 40, testo: `+${10 * m}${m > 1 ? ` ×${m}` : ''}`, t0: performance.now(), colore: colori.si });
+  const b = tela.getBoundingClientRect();
+  if (esito !== 'sbagliato') {
+    scritte.push({ x: arrivo.x, y: arrivo.y - 40, testo: `+${10 * m * (o.oro ? 3 : 1)}${m > 1 ? ` ×${m}` : ''}`, t0: performance.now(), colore: o.oro ? colori.forse : colori.si });
+    const festa = traguardo(stato.serie);
+    if (o.oro) {
+      annuncioGrande(palco, stato.vite > vitePrima ? 'Rifiuto d\'oro: una vita in più!' : 'Rifiuto d\'oro: punti ×3!');
+      coriandoli(b.left + arrivo.x, b.top + arrivo.y - 20, 30); suona('premio');
+    } else if (festa) {
+      annuncioGrande(palco, festa);
+      coriandoli(b.left + arrivo.x, b.top + arrivo.y - 20, 22); suona('serie');
+    } else suona('si');
+  } else suona('no');
   aggiornaBarra();
   if (stato.vite <= 0) setTimeout(fine, 500);
 }
@@ -120,18 +153,19 @@ function aggiornaBarra() {
   $('#tempo').textContent = resta;
   $('#vite').textContent = '♥'.repeat(Math.max(0, stato.vite)) + '♡'.repeat(Math.max(0, VITE - stato.vite));
   $('#vite').setAttribute('aria-label', `${stato.vite} vite su ${VITE}`);
-  $('#serie').textContent = stato.serie >= 5 ? `serie ${stato.serie} · ×${moltiplicatore(stato.serie)}` : '';
+  $('#serie').textContent = stato.serie >= 5 ? `serie ${stato.serie} · ×${moltiplicatore(stato.serie)}` : stato.serie >= 2 ? `serie ${stato.serie}` : '';
 }
 
 function fine() {
   if (!inCorso) return;
   inCorso = false;
   presa = null;
-  let record = 0;
-  try { record = Math.max(+localStorage.getItem('polpo-differenzia-record') || 0, stato.punti); localStorage.setItem('polpo-differenzia-record', String(record)); } catch { record = stato.punti; }
   const totale = stato.giusti + stato.errori;
   $('#fine-punti').textContent = stato.punti;
-  $('#fine-dettaglio').textContent = `${stato.giusti} giusti su ${totale} lanci · serie migliore ${stato.migliore} · record ${record}`;
+  $('#fine-dettaglio').textContent = `${stato.giusti} giusti su ${totale} lanci · serie migliore ${stato.migliore}${stato.ori ? ` · ${stato.ori} d'oro` : ''}`;
+  chiudiPartita({ gioco: 'differenzia', punti: stato.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
+    guadagnate: medaglieGuadagnate(stato, finitoIlTempo), soglie: TITOLI, el: $('#fine-premi'), palco });
+  $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   const unici = [...new Map(sbagli.map((s) => [s.r.id, s])).values()];
   $('#fine-errori').innerHTML = unici.length
     ? unici.map((s) => `<li><b>${esc(s.r.emoji || '')} ${esc(s.r.nome)}</b> → ${esc(NOMI[s.r.contenitore])}${s.r.alternative?.length ? ` (o ${s.r.alternative.map((a) => esc(NOMI[a])).join(', ')}, secondo il Comune)` : ''}. ${esc(s.r.spiegazione)} ${FONTI[s.r.fonte] ? `<a href="${esc(FONTI[s.r.fonte].url)}" target="_blank" rel="noopener">Fonte</a>` : ''}</li>`).join('')
@@ -147,7 +181,9 @@ function passo(ora) {
   ultimo = ora;
   if (pausa && inCorso) { inizio += dt * 1000; prossimo += dt * 1000; }
   if (!pausa && inCorso) {
-    if ((ora - inizio) / 1000 >= DURATA) fine();
+    const secondi = (ora - inizio) / 1000;
+    if (secondi >= DURATA) { finitoIlTempo = true; fine(); }
+    if (fase(secondi) !== faseOra) cambiaFase(fase(secondi));
     genera(ora);
     const { velocita } = ritmo((ora - inizio) / 1000 / DURATA);
     const quota = quotaBidoni() - raggio();
@@ -210,8 +246,10 @@ function bidoneAcceso() {
 function disegnaBidoni() {
   const y = quotaBidoni(), h = H - y - 8, acceso = bidoneAcceso();
   const colpito = volo.find((v) => v.p > 0.7);
+  const aperti = inCorso ? FASI[faseOra].bidoni : null;
   CONTENITORI.forEach((c, i) => {
     const x = i * larg() + 4, w = larg() - 8;
+    ctx.globalAlpha = aperti && !aperti.includes(c.id) ? 0.35 : 1; // ancora chiuso: si apre nella fase dopo
     const colpo = colpito && colpito.indice === i ? colpito.esito : null;
     ctx.fillStyle = i === acceso ? colori.riga : colori.carta;
     ctx.strokeStyle = colpo === 'sbagliato' ? colori.rosso : colpo === 'dipende' ? colori.forse : colpo ? colori.si : i === acceso ? colori.ink : colori.riga;
@@ -226,6 +264,7 @@ function disegnaBidoni() {
     ctx.fillStyle = colori.ink3;
     ctx.font = '11px "Atkinson Hyperlegible Mono", monospace';
     ctx.fillText(String(i + 1), x + 12, y + 16);
+    ctx.globalAlpha = 1;
   });
 }
 
@@ -290,9 +329,15 @@ function disegnaRifiuto(o, x, y, acceso, alfa = 1) {
   ctx.save();
   ctx.globalAlpha = alfa;
   ctx.translate(x, y);
+  if (o.oro) { // il rifiuto d'oro brilla
+    const pulsa = meno ? 0.5 : 0.5 + 0.5 * Math.sin(performance.now() / 160);
+    ctx.fillStyle = colori.forse; ctx.globalAlpha = alfa * (0.18 + 0.22 * pulsa);
+    ctx.beginPath(); ctx.arc(0, 0, r + 9 + pulsa * 4, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = alfa;
+  }
   ctx.fillStyle = colori.carta;
-  ctx.strokeStyle = acceso ? colori.rosso : colori.riga;
-  ctx.lineWidth = acceso ? 3 : 1.5;
+  ctx.strokeStyle = acceso ? colori.rosso : o.oro ? colori.forse : colori.riga;
+  ctx.lineWidth = acceso || o.oro ? 3.5 : 1.5;
   ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
   ctx.rotate(o.ang);
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -302,10 +347,11 @@ function disegnaRifiuto(o, x, y, acceso, alfa = 1) {
   ctx.textBaseline = 'alphabetic';
   ctx.font = `600 ${Math.max(11, Math.min(13, L / 40))}px "Atkinson Hyperlegible Next", system-ui, sans-serif`;
   const w = Math.min(ctx.measureText(o.r.nome).width + 14, L * 0.5);
+  const sposta = Math.max(2 - (x - w / 2), Math.min(0, L - 2 - (x + w / 2))); // l'etichetta resta dentro il campo
   ctx.fillStyle = colori.ink;
-  rett(-w / 2, r + 4, w, 20, 10); ctx.fill();
+  rett(-w / 2 + sposta, r + 4, w, 20, 10); ctx.fill();
   ctx.fillStyle = colori.fondo;
-  riga(o.r.nome, 0, r + 18, w - 10);
+  riga(o.r.nome, sposta, r + 18, w - 10);
   ctx.restore();
 }
 
@@ -387,22 +433,19 @@ tela.addEventListener('keydown', (e) => {
 document.addEventListener('visibilitychange', () => {
   if (document.hidden && inCorso) { pausa = true; annuncia('In pausa. Tocca il gioco o premi P per riprendere.', 'info'); }
 });
-$('#gioca').addEventListener('click', nuovaPartita);
-$('#rigioca').addEventListener('click', nuovaPartita);
-$('#condividi').addEventListener('click', async () => {
-  const testo = testoCondivisione(stato), url = location.href.split('#')[0];
-  try {
-    if (navigator.share) await navigator.share({ title: 'Il Polpo differenzia', text: testo, url });
-    else { await navigator.clipboard.writeText(`${testo} ${url}`); $('#condividi').textContent = 'Copiato'; }
-  } catch { /* condivisione annullata */ }
-});
+$('#gioca').addEventListener('click', () => nuovaPartita(sfida ? 'sfida' : 'libera'));
+$('#gioca-giorno').addEventListener('click', () => nuovaPartita('giorno'));
+$('#rigioca').addEventListener('click', () => nuovaPartita());
+$('#condividi').addEventListener('click', () => condividi({ titolo: 'Il Polpo differenzia', testo: testoCondivisione(stato), punti: stato.punti, seme, bottone: $('#condividi') }));
+pulsanteSuono($('#suono'));
 let attesa;
 addEventListener('resize', () => { clearTimeout(attesa); attesa = setTimeout(() => { misura(); if (!inCorso) disegna(performance.now()); }, 120); });
 
 // Solo per le prove automatiche (#prova nell'indirizzo): posizione dei rifiuti e del Polpo
 if (location.hash === '#prova') {
   window.polpoProva = { rifiuti: () => attivi.map((o) => ({ id: o.r.id, contenitore: o.r.contenitore, alternative: o.r.alternative || [], x: o.x, y: o.y })),
-    stato: () => ({ ...stato }), quota: () => quotaBidoni(), L: () => L, polpo: () => px, tenuto: () => presa && presa.o.r.id };
+    stato: () => ({ ...stato }), quota: () => quotaBidoni(), L: () => L, polpo: () => px, tenuto: () => presa && presa.o.r.id,
+    fase: () => faseOra, seme: () => seme, oro: () => attivi.filter((o) => o.oro).map((o) => o.r.id), avanti: (sec) => { inizio -= sec * 1000; prossimo = 0; } };
 }
 
 leggiColori();

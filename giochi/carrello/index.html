@@ -145,6 +145,41 @@
   #esito-lista li[data-esito="evitata"] .segno, #esito-lista li[data-esito="scoperta"] .segno { color: var(--si); }
   #esito-lista li[data-esito="caduto"] .segno { color: var(--accento); }
   #esito-lista small { color: var(--inchiostro-3); }
+  /* premi, sfide e sorprese (giochi/comune/premi.js) */
+  .barra-gioco .suono { all: unset; cursor: pointer; font-size: 12px; color: var(--inchiostro-3); padding: 2px 6px; border: 1px solid var(--riga); border-radius: 999px; }
+  .barra-gioco .suono:focus-visible { outline: 2px solid var(--accento); }
+  #fase { color: var(--forse); }
+  #scudo { color: var(--forse); font-size: 16px; }
+  #scudo[hidden] { display: none; }
+  .scelta-partita { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .scelta-partita .btn { margin: 0; }
+  .scelta-partita small { color: var(--inchiostro-3); flex-basis: 100%; }
+  .banner-sfida { padding: 10px 14px; border: 2px solid var(--forse); border-radius: 8px; color: var(--inchiostro) !important; }
+  .banner-sfida b { color: var(--forse); font-size: 1.15em; }
+  .vicino { font-size: 14px !important; margin: 6px 0; }
+  .vicino b { color: var(--inchiostro); }
+  .titolo-polpo { font-family: var(--titoli); font-size: clamp(22px, 3.4vw, 30px); color: var(--inchiostro) !important; margin: 6px 0 4px; line-height: 1.1; }
+  .sfida-esito { font-weight: 700; margin: 4px 0; }
+  .sfida-esito.si { color: var(--si) !important; }
+  .sfida-esito.no { color: var(--accento) !important; }
+  .medaglie-nuove .medaglia { display: inline-block; margin: 4px 6px 0 0; padding: 4px 10px; border: 1px solid var(--forse); border-radius: 999px; color: var(--inchiostro); font-size: 14px; animation: medaglia .6s ease both; }
+  @keyframes medaglia { from { transform: scale(.4) rotate(-12deg); opacity: 0; } 70% { transform: scale(1.12); } }
+  details.medaglie { margin: 10px 0 0; font-size: 14px; }
+  details.medaglie summary { cursor: pointer; color: var(--inchiostro-2); font-family: var(--cifre); font-size: 12.5px; letter-spacing: .04em; }
+  details.medaglie ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 6px; }
+  details.medaglie li { padding: 6px 10px; border: 1px dashed var(--riga); border-radius: 8px; color: var(--inchiostro-3); filter: grayscale(1); opacity: .7; }
+  details.medaglie li.presa { border: 1px solid var(--forse); color: var(--inchiostro); filter: none; opacity: 1; }
+  details.medaglie small { display: block; font-size: 12px; color: var(--inchiostro-3); }
+  .annuncio-grande { position: absolute; left: 50%; top: 34%; z-index: 5; transform: translate(-50%, -50%); width: max-content; max-width: 92%; text-align: center; pointer-events: none;
+    font-family: var(--titoli); font-weight: 800; font-size: clamp(22px, 4.4vw, 40px); line-height: 1.05; color: var(--forse); text-shadow: 0 3px 0 var(--fondo), 0 0 24px var(--fondo);
+    animation: annuncio 1.4s ease both; }
+  @keyframes annuncio { 0% { transform: translate(-50%, -50%) scale(.6); opacity: 0; } 15% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { transform: translate(-50%, -64%); opacity: 0; } }
+  .coriandoli { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .coriandoli i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: coriandolo 1.2s cubic-bezier(.2,.7,.4,1) forwards; }
+  @keyframes coriandolo { to { transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); opacity: 0; } }
+  .stelle { color: var(--forse); letter-spacing: 2px; }
+  .record-gioco { display: block; margin-top: 8px; font-family: var(--cifre); font-size: 12px; color: var(--forse); }
+  @media (prefers-reduced-motion: reduce) { .annuncio-grande { animation-duration: 2s; animation-name: annuncio-piano; } @keyframes annuncio-piano { 0%, 100% { opacity: 0; } 10%, 85% { opacity: 1; } } .medaglie-nuove .medaglia { animation: none; } }
   @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
 </style>
 </head>
@@ -156,12 +191,12 @@
     <div>
       <div class="occhiello">Gioca con il Polpo · braccio 4, Ti difende</div>
       <h1>Il carrello del Black Friday</h1>
-      <p>Tre negozi, tre regali, quaranta secondi ciascuno. Le trappole sono quelle che l'Antitrust ha davvero multato.</p>
+      <p>Tre negozi, tre regali, sempre meno tempo. Le trappole sono quelle che l'Antitrust ha davvero multato.</p>
     </div>
   </header>
   <section class="gioco" aria-labelledby="t-gioco">
     <h2 id="t-gioco" class="sr-only">Il gioco</h2>
-    <div class="barra-gioco"><span>Punti <b id="punti">0</b></span><span>Negozio <b id="negozio-n">1 / 3</b></span><span>Tempo <b id="tempo">40</b></span></div>
+    <div class="barra-gioco"><span>Punti <b id="punti">0</b></span><span>Negozio <b id="negozio-n">1 / 3</b></span><span>Tempo <b id="tempo">45</b></span><button type="button" class="suono" id="suono" aria-pressed="true">🔊 Suono</button></div>
     <p class="esito" id="esito" aria-live="polite"></p>
     <div class="palco palco-truffa">
       <div class="tavolo" hidden>
@@ -180,15 +215,18 @@
         <ol>
           <li><b>Tocca le trappole</b> che vedi: sconti finti, conti alla rovescia, recensioni gonfiate. Attento: toccare un'informazione corretta costa punti.</li>
           <li><b>Togli le caselle già spuntate</b> e <b>rifiuta</b> l'abbonamento che ti offrono a tutti i costi.</li>
-          <li><b>Alla cassa</b> controlla il riepilogo: alcuni costi compaiono solo lì. Hai 40 secondi per negozio.</li>
+          <li><b>Alla cassa</b> controlla il riepilogo: alcuni costi compaiono solo lì. Il primo negozio è il più facile; ogni negozio ha più trappole e meno tempo (45, 40, 35 secondi).</li>
+          <li>Ogni negozio vale <b>fino a tre stelle</b>: tutte le trappole senza falsi allarmi fanno il negozio perfetto, con 20 punti in più.</li>
         </ol>
-        <button type="button" class="btn btn-primario" id="gioca">Gioca</button>
+        <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
+        <div id="premi"></div>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
         <h2 id="t-fine">Fine dello shopping</h2>
         <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <div id="fine-premi"></div>
         <p id="fine-conto"></p>
-        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida qualcuno</button>
+        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
         <p><small>Tutte le trappole, con i casi e le multe: <a href="../../legge/antitrust/">Le trappole sanzionate</a>. Hai comprato e vuoi ripensarci? <a href="../../garanzia/">Recesso e garanzia</a>.</small></p>
       </div></div>
     </div>

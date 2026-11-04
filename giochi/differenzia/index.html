@@ -145,6 +145,41 @@
   #esito-lista li[data-esito="evitata"] .segno, #esito-lista li[data-esito="scoperta"] .segno { color: var(--si); }
   #esito-lista li[data-esito="caduto"] .segno { color: var(--accento); }
   #esito-lista small { color: var(--inchiostro-3); }
+  /* premi, sfide e sorprese (giochi/comune/premi.js) */
+  .barra-gioco .suono { all: unset; cursor: pointer; font-size: 12px; color: var(--inchiostro-3); padding: 2px 6px; border: 1px solid var(--riga); border-radius: 999px; }
+  .barra-gioco .suono:focus-visible { outline: 2px solid var(--accento); }
+  #fase { color: var(--forse); }
+  #scudo { color: var(--forse); font-size: 16px; }
+  #scudo[hidden] { display: none; }
+  .scelta-partita { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .scelta-partita .btn { margin: 0; }
+  .scelta-partita small { color: var(--inchiostro-3); flex-basis: 100%; }
+  .banner-sfida { padding: 10px 14px; border: 2px solid var(--forse); border-radius: 8px; color: var(--inchiostro) !important; }
+  .banner-sfida b { color: var(--forse); font-size: 1.15em; }
+  .vicino { font-size: 14px !important; margin: 6px 0; }
+  .vicino b { color: var(--inchiostro); }
+  .titolo-polpo { font-family: var(--titoli); font-size: clamp(22px, 3.4vw, 30px); color: var(--inchiostro) !important; margin: 6px 0 4px; line-height: 1.1; }
+  .sfida-esito { font-weight: 700; margin: 4px 0; }
+  .sfida-esito.si { color: var(--si) !important; }
+  .sfida-esito.no { color: var(--accento) !important; }
+  .medaglie-nuove .medaglia { display: inline-block; margin: 4px 6px 0 0; padding: 4px 10px; border: 1px solid var(--forse); border-radius: 999px; color: var(--inchiostro); font-size: 14px; animation: medaglia .6s ease both; }
+  @keyframes medaglia { from { transform: scale(.4) rotate(-12deg); opacity: 0; } 70% { transform: scale(1.12); } }
+  details.medaglie { margin: 10px 0 0; font-size: 14px; }
+  details.medaglie summary { cursor: pointer; color: var(--inchiostro-2); font-family: var(--cifre); font-size: 12.5px; letter-spacing: .04em; }
+  details.medaglie ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 6px; }
+  details.medaglie li { padding: 6px 10px; border: 1px dashed var(--riga); border-radius: 8px; color: var(--inchiostro-3); filter: grayscale(1); opacity: .7; }
+  details.medaglie li.presa { border: 1px solid var(--forse); color: var(--inchiostro); filter: none; opacity: 1; }
+  details.medaglie small { display: block; font-size: 12px; color: var(--inchiostro-3); }
+  .annuncio-grande { position: absolute; left: 50%; top: 34%; z-index: 5; transform: translate(-50%, -50%); width: max-content; max-width: 92%; text-align: center; pointer-events: none;
+    font-family: var(--titoli); font-weight: 800; font-size: clamp(22px, 4.4vw, 40px); line-height: 1.05; color: var(--forse); text-shadow: 0 3px 0 var(--fondo), 0 0 24px var(--fondo);
+    animation: annuncio 1.4s ease both; }
+  @keyframes annuncio { 0% { transform: translate(-50%, -50%) scale(.6); opacity: 0; } 15% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { transform: translate(-50%, -64%); opacity: 0; } }
+  .coriandoli { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .coriandoli i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: coriandolo 1.2s cubic-bezier(.2,.7,.4,1) forwards; }
+  @keyframes coriandolo { to { transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); opacity: 0; } }
+  .stelle { color: var(--forse); letter-spacing: 2px; }
+  .record-gioco { display: block; margin-top: 8px; font-family: var(--cifre); font-size: 12px; color: var(--forse); }
+  @media (prefers-reduced-motion: reduce) { .annuncio-grande { animation-duration: 2s; animation-name: annuncio-piano; } @keyframes annuncio-piano { 0%, 100% { opacity: 0; } 10%, 85% { opacity: 1; } } .medaglie-nuove .medaglia { animation: none; } }
   @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
 </style>
 </head>
@@ -161,7 +196,7 @@
   </header>
   <section class="gioco" aria-labelledby="t-gioco">
     <h2 id="t-gioco" class="sr-only">Il gioco</h2>
-    <div class="barra-gioco" aria-live="off"><span>Punti <b id="punti">0</b></span><span>Tempo <b id="tempo">90</b></span><span id="vite" aria-label="3 vite su 3">♥♥♥</span><span id="serie"></span></div>
+    <div class="barra-gioco" aria-live="off"><span>Punti <b id="punti">0</b></span><span>Tempo <b id="tempo">90</b></span><span id="vite" aria-label="3 vite su 3">♥♥♥</span><span id="serie"></span><span id="fase"></span><button type="button" class="suono" id="suono" aria-pressed="true">🔊 Suono</button></div>
     <p class="esito" id="esito" aria-live="polite"></p>
     <div class="palco">
       <canvas id="tela" tabindex="0" aria-label="Campo di gioco: i rifiuti cadono verso sei contenitori. Con la tastiera, le frecce destra e sinistra spostano il Polpo sotto un contenitore, lo spazio lancia lì il rifiuto più in basso; i tasti da 1 a 6 scelgono direttamente il contenitore." role="application"></canvas>
@@ -170,18 +205,21 @@
         <p>I rifiuti cadono e il Polpo corre sotto di loro. Afferrali: il Polpo li tiene con un tentacolo e li porta nel bidone giusto.</p>
         <ol>
           <li><b>Trascina</b> il rifiuto nel suo bidone, con il mouse o con il dito. Oppure <b>lancialo</b> con uno swipe veloce verso il bidone.</li>
-          <li>Hai <b>90 secondi e tre vite</b>: ogni errore ne toglie una. Cinque giusti di fila raddoppiano i punti.</li>
-          <li>Alcune regole <b>cambiano da Comune a Comune</b>: il gioco te lo dice.</li>
+          <li>Hai <b>90 secondi e tre vite</b>: ogni errore ne toglie una. Cinque giusti di fila raddoppiano i punti, dieci li triplicano.</li>
+          <li>Si comincia facile, con carta, plastica, vetro e umido; poi <b>si aprono il secco e l'isola ecologica</b> e arrivano i rifiuti che <b>cambiano da Comune a Comune</b>.</li>
+          <li>Ogni tanto cade un <b>rifiuto d'oro</b>: se lo metti nel bidone giusto vale il triplo e ti restituisce una vita.</li>
         </ol>
         <p><small>Con la tastiera: le frecce spostano il Polpo sotto un bidone, lo spazio gli fa lanciare lì il rifiuto più in basso; i tasti da 1 a 6 scelgono il bidone; P mette in pausa.</small></p>
-        <button type="button" class="btn btn-primario" id="gioca">Gioca</button>
+        <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
+        <div id="premi"></div>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
         <h2 id="t-fine">Fine della partita</h2>
         <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <div id="fine-premi"></div>
         <p><b>Dove hai sbagliato</b></p>
         <ul id="fine-errori"></ul>
-        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Condividi il risultato</button>
+        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
       </div></div>
     </div>
   </section>

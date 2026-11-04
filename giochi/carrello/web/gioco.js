@@ -2,7 +2,8 @@
 // trappole: tocca quelle che vedi, togli le caselle già spuntate, rifiuta l'abbonamento. Alla cassa
 // compaiono i costi nascosti. Poi il conto e i casi veri sanzionati dall'Antitrust.
 import { NEGOZI, CASI, NORME } from '../src/negozi.js';
-import { SECONDI, nuovoNegozio, tocca, conto, esiti, punti, trappole, testoCondivisione } from '../src/regole.js';
+import { secondiPer, nuovoNegozio, tocca, conto, esiti, punti, trappole, testoCondivisione, stelle, perfetto, disponi, evitabile, PREMIO_PERFETTO, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -10,9 +11,16 @@ const euro = (x) => x.toLocaleString('it-IT', { minimumFractionDigits: 2, maximu
 const meno = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let k = 0, n = null, s = null, passo = 'prodotto', fineTempo = 0, orologio = 0, totale = { punti: 0, viste: 0, trappole: 0, inPiu: 0, abbonamenti: 0 };
-const pagina = $('#pagina'), polpo = $('.tavolo .logo-polpo');
+const pagina = $('#pagina'), polpo = $('.tavolo .logo-polpo'), palco = $('.palco-truffa');
+let modo = 'libera', seme = '', rng = Math.random, risultati = [], tuttiVisti = false;
+const sfida = preparaApertura({ gioco: 'carrello', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
+const STELLE = (n) => '★'.repeat(n) + '☆'.repeat(3 - n);
 
-function nuovaPartita() {
+function nuovaPartita(m = modo) {
+  modo = m;
+  seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
+  rng = caso(`${seme}-carrello`);
+  risultati = [];
   k = 0; totale = { punti: 0, viste: 0, trappole: 0, inPiu: 0, abbonamenti: 0 };
   $('#apertura').hidden = true; $('#fine').hidden = true; $('#esito-negozio').hidden = true; $('.tavolo').hidden = false;
   window.scrollTo({ top: $('.barra-gioco').getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
@@ -20,13 +28,25 @@ function nuovaPartita() {
 }
 
 function apriNegozio() {
-  n = NEGOZI[k]; s = nuovoNegozio(n); passo = 'prodotto';
-  fineTempo = performance.now() + SECONDI * 1000 * (meno ? 1.5 : 1);
+  n = disponi(NEGOZI[k], rng); s = nuovoNegozio(n); passo = 'prodotto'; tuttiVisti = false;
+  fineTempo = performance.now() + secondiPer(k) * 1000 * (meno ? 1.5 : 1);
   $('#esito-negozio').hidden = true; $('.tavolo').hidden = false;
   disegna();
   cancelAnimationFrame(orologio);
   orologio = requestAnimationFrame(batti);
-  annuncia(`${n.nome}: compra «${n.regalo}» senza cadere nelle trappole.`);
+  annuncia(`${n.nome}: compra «${n.regalo}» senza cadere nelle trappole. ${secondiPer(k)} secondi.`);
+  annuncioGrande(palco, `Negozio ${k + 1} di ${NEGOZI.length}: ${n.nome}`);
+}
+
+/** Quando hai visto o evitato tutte le trappole che si vedono già sulla pagina del prodotto. */
+function controllaTutte() {
+  if (tuttiVisti || passo !== 'prodotto') return;
+  const sulProdotto = esiti(n, s).filter(({ e }) => e.tipo !== 'costo');
+  if (sulProdotto.every((x) => x.esito === 'evitata' || x.esito === 'scoperta')) {
+    tuttiVisti = true;
+    annuncioGrande(palco, 'Pagina pulita! Ora la cassa');
+    const b = pagina.getBoundingClientRect(); coriandoli(b.left + b.width / 2, b.top + 80, 20); suona('serie');
+  }
 }
 
 let ultimoConto = 59;
@@ -116,11 +136,17 @@ function paga(scaduto = false) {
   const p = punti(n, s, scaduto ? 0 : resta);
   const viste = lista.filter((x) => x.esito === 'evitata' || x.esito === 'scoperta').length;
   totale.punti += p; totale.viste += viste; totale.trappole += lista.length; totale.inPiu += c.inPiu; totale.abbonamenti += c.abbonamento;
+  const st = stelle(n, s);
+  risultati.push({ stelle: st, inPiu: evitabile(n, s), abbonamento: c.abbonamento, falsi: s.falsi.length, restaFrazione: scaduto ? 0 : resta / secondiPer(k) });
   $('#punti').textContent = totale.punti;
   reagisci(viste >= lista.length - 1);
+  if (st === 3) {
+    annuncioGrande(palco, `Negozio perfetto! +${PREMIO_PERFETTO}`);
+    const b = palco.getBoundingClientRect(); coriandoli(b.left + b.width / 2, b.top + 100, 40); suona('premio');
+  } else suona(st >= 2 ? 'si' : 'no');
   const icona = { evitata: '✓', scoperta: '✓', caduto: '✗', sfuggita: '·' };
   const parola = { evitata: 'evitata', scoperta: 'scoperta', caduto: 'ci sei cascato', sfuggita: 'non l\'hai vista' };
-  $('#esito-titolo').textContent = `${scaduto ? 'Tempo scaduto: ' : ''}${n.nome}, ${viste} trappole su ${lista.length}`;
+  $('#esito-titolo').innerHTML = `<span class="stelle" aria-label="${st} stelle su 3">${STELLE(st)}</span> ${esc(`${scaduto ? 'Tempo scaduto: ' : ''}${n.nome}, ${viste} trappole su ${lista.length}`)}`;
   $('#esito-conto').innerHTML = `Hai pagato <b>${euro(c.totale)}</b>${c.inPiu > 0 ? `, di cui <b>${euro(c.inPiu)}</b> per trappole` : ''}${c.abbonamento ? `, e hai attivato un abbonamento da ${euro(c.abbonamento)} l'anno` : ''}. ${s.falsi.length ? `Falsi allarmi: ${s.falsi.length}. ` : ''}Punti: ${p}.`;
   $('#esito-lista').innerHTML = lista.map(({ e, esito }) => {
     const caso = CASI[e.caso], norma = NORME[e.norma];
@@ -135,15 +161,16 @@ function paga(scaduto = false) {
 }
 
 function fine() {
-  let record = 0;
-  try { record = Math.max(+localStorage.getItem('polpo-carrello-record') || 0, totale.punti); localStorage.setItem('polpo-carrello-record', String(record)); } catch { record = totale.punti; }
   $('#esito-negozio').hidden = true; $('.tavolo').hidden = true;
   $('#fine-punti').textContent = totale.punti;
-  $('#fine-dettaglio').textContent = `Trappole scoperte o evitate: ${totale.viste} su ${totale.trappole} · record ${record}`;
+  $('#fine-dettaglio').textContent = `Trappole scoperte o evitate: ${totale.viste} su ${totale.trappole} · ${risultati.map((r, i) => `${NEGOZI[i].nome} ${STELLE(r.stelle)}`).join(' · ')}`;
   $('#fine-conto').textContent = totale.inPiu > 0 || totale.abbonamenti > 0
     ? `Nei tre negozi hai pagato ${euro(totale.inPiu)} in più per le trappole${totale.abbonamenti ? `, più ${euro(totale.abbonamenti)} l'anno di abbonamenti` : ''}.`
     : 'Non hai pagato un euro in più: sei pronto per il Black Friday.';
   $('#fine').hidden = false;
+  chiudiPartita({ gioco: 'carrello', punti: totale.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
+    guadagnate: medaglieGuadagnate(risultati), soglie: TITOLI, el: $('#fine-premi'), palco });
+  $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   $('#rigioca').focus();
 }
 
@@ -162,7 +189,9 @@ pagina.addEventListener('click', (ev) => {
   else if (r === 'falso') { annuncia(`Qui non c'è trappola: ${e.spiega} (−5 punti)`, 'no'); reagisci(false); }
   else if (r === 'evitata') { annuncia(`Bene: ${e.spiega}`, 'si'); reagisci(true); }
   else if (r === 'caduto') { annuncia(`Ci sei cascato: ${e.spiega}`, 'no'); reagisci(false); }
+  suona(r === 'scoperta' || r === 'evitata' ? 'si' : r === 'falso' || r === 'caduto' ? 'no' : 'si');
   disegna();
+  controllaTutte();
 });
 pagina.addEventListener('change', (ev) => {
   const b = ev.target.closest('input[data-id]');
@@ -173,17 +202,15 @@ pagina.addEventListener('change', (ev) => {
   if (e.trappola && r === 'tolta') { annuncia(`Bene, l'hai tolta: ${e.spiega}`, 'si'); reagisci(true); }
   else if (e.trappola) annuncia(`L'hai rimessa: ${e.testo} costa ${euro(e.euro)}.`, 'no');
   else annuncia(r === 'aggiunta' ? `Aggiunta: ${e.testo}. L'hai scelta tu, va bene.` : `Tolta: ${e.testo}.`);
+  if (e.trappola) suona(r === 'tolta' ? 'si' : 'no');
   disegna();
+  controllaTutte();
 });
 $('#prossimo').addEventListener('click', () => { k += 1; if (k < NEGOZI.length) apriNegozio(); else fine(); });
-$('#gioca').addEventListener('click', nuovaPartita);
-$('#rigioca').addEventListener('click', nuovaPartita);
-$('#condividi').addEventListener('click', async () => {
-  const testo = testoCondivisione(totale.viste, totale.trappole, totale.inPiu), url = location.href.split('#')[0];
-  try {
-    if (navigator.share) await navigator.share({ title: 'Il carrello del Black Friday', text: testo, url });
-    else { await navigator.clipboard.writeText(`${testo} ${url}`); $('#condividi').textContent = 'Copiato'; }
-  } catch { /* condivisione annullata */ }
-});
+$('#gioca').addEventListener('click', () => nuovaPartita(sfida ? 'sfida' : 'libera'));
+$('#gioca-giorno').addEventListener('click', () => nuovaPartita('giorno'));
+$('#rigioca').addEventListener('click', () => nuovaPartita());
+$('#condividi').addEventListener('click', () => condividi({ titolo: 'Il carrello del Black Friday', testo: testoCondivisione(totale.viste, totale.trappole, totale.inPiu), punti: totale.punti, seme, bottone: $('#condividi') }));
+pulsanteSuono($('#suono'));
 
-if (location.hash === '#prova') window.carrelloProva = { negozio: () => n && n.id, stato: () => s && JSON.parse(JSON.stringify(s)), totale: () => ({ ...totale }), passo: () => passo };
+if (location.hash === '#prova') window.carrelloProva = { negozio: () => n && n.id, stato: () => s && JSON.parse(JSON.stringify(s)), totale: () => ({ ...totale }), passo: () => passo, risultati: () => [...risultati], seme: () => seme };

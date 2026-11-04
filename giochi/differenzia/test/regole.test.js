@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { CONTENITORI, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione, VITE } from '../src/regole.js';
+import { CONTENITORI, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione, VITE, FASI, fase, ammessi, difficolta, traguardo, medaglieGuadagnate, MEDAGLIE } from '../src/regole.js';
 
 const dati = JSON.parse(readFileSync(new URL('../src/rifiuti.json', import.meta.url), 'utf8'));
 const ids = CONTENITORI.map((c) => c.id);
@@ -66,4 +66,27 @@ test('mescola non perde nulla e il testo da condividere non ha dati personali', 
   assert.deepEqual(new Set(m.map((r) => r.id)), new Set(dati.rifiuti.map((r) => r.id)));
   const t = testoCondivisione({ ...nuovoStato(), giusti: 12, errori: 3, punti: 150 });
   assert.match(t, /12 rifiuti su 15/);
+});
+
+test('si comincia facile: nel riscaldamento cadono solo rifiuti dei bidoni aperti, i «dipende» arrivano dopo', () => {
+  assert.equal(fase(0), 0); assert.equal(fase(25), 1); assert.equal(fase(50), 2); assert.equal(fase(89), 3);
+  const primi = ammessi(dati.rifiuti, 0);
+  assert.ok(primi.length >= 20, `pochi rifiuti facili: ${primi.length}`);
+  assert.ok(primi.every((r) => FASI[0].bidoni.includes(r.contenitore)), 'un rifiuto facile va in un bidone ancora chiuso');
+  assert.ok(ammessi(dati.rifiuti, 1).every((r) => difficolta(r) < 3));
+  assert.equal(ammessi(dati.rifiuti, 2).length, dati.rifiuti.length);
+});
+
+test('rifiuto d\'oro: triplo dei punti e una vita in più; serie festeggiate; medaglie', () => {
+  let s = segna(nuovoStato(), 'sbagliato');
+  s = segna(s, 'giusto', { oro: true });
+  assert.equal(s.punti, 30);
+  assert.equal(s.vite, VITE);
+  s = segna(s, 'giusto', { oro: true });
+  assert.equal(s.vite, VITE); // mai più delle vite iniziali
+  assert.equal(traguardo(10), 'Serie da 10: punti tripli!');
+  assert.equal(traguardo(7), null);
+  const m = medaglieGuadagnate({ ...nuovoStato(), migliore: 12, ori: 3, difficili: 5, punti: 900 }, true);
+  assert.deepEqual(m.sort(), ['comune', 'maestro', 'oro', 'prima', 'pulito', 'serie10']);
+  for (const id of m) assert.ok(MEDAGLIE[id]);
 });

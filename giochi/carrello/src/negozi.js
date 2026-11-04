@@ -31,6 +31,7 @@ export const CASI = {
   PS12525: { impresa: 'General Logistics Systems (GLS)', euro: 8000000, anno: 2025, pratica: 'un contributo «green» imposto ai clienti', url: B(2025, 5, 28) },
 };
 
+// Dal più facile al più difficile: il primo negozio insegna, l'ultimo ha più trappole e meno tempo.
 export const NEGOZI = [
   {
     id: 'casa', nome: 'Casa Comoda', dominio: 'casacomoda.esempio', icona: '🛋️',
@@ -49,6 +50,22 @@ export const NEGOZI = [
     ],
   },
   {
+    id: 'tech', nome: 'TecnoBaleno', dominio: 'tecnobaleno.esempio', icona: '🎧',
+    regalo: 'Cuffie senza fili «Onda»', prezzo: 59,
+    elementi: [
+      { id: 'recensioni', tipo: 'info', dove: 'prezzo', testo: '★★★★★ 4,9 · 2.431 recensioni verificate', trappola: 'recensioni', caso: 'PS12962', norma: 'art23',
+        spiega: '«Verificate» deve voler dire che chi recensisce ha comprato davvero. Recensioni non controllate spacciate per vere sono vietate.' },
+      { id: 'resi', tipo: 'info', dove: 'prezzo', testo: 'Reso gratuito entro 30 giorni', spiega: 'Più dei 14 giorni previsti dalla legge per ripensarci: nessuna trappola.' },
+      { id: 'green', tipo: 'casella', testo: 'Contributo spedizione green', euro: 1.5, spuntata: true, trappola: 'non-richiesti', caso: 'PS12525', norma: 'art65',
+        spiega: 'Un contributo «verde» aggiunto senza chiederti niente. L\'Antitrust ha multato un corriere per un contributo simile imposto ai clienti.' },
+      { id: 'estensione', tipo: 'casella', testo: 'Garanzia estesa 3 anni', euro: 14.9, spuntata: false, spiega: 'Un\'aggiunta facoltativa, non spuntata: decidi tu.' },
+      { id: 'consegna', tipo: 'costo', testo: 'Consegna veloce (calcolata al checkout)', euro: 4.9, trappola: 'costi-nascosti', caso: 'PS12717', norma: 'art21',
+        spiega: 'Il costo della consegna compare solo alla fine. Va detto chiaramente prima, insieme al prezzo.' },
+      { id: 'meno40', tipo: 'info', dove: 'prezzo', testo: 'Black Friday −40% sul prezzo consigliato', trappola: 'falsi-sconti', caso: 'PS12704', norma: 'art17bis',
+        spiega: 'Lo sconto va mostrato rispetto al prezzo più basso degli ultimi 30 giorni, non a un «prezzo consigliato» mai praticato.' },
+    ],
+  },
+  {
     id: 'viaggio', nome: 'Viaggi Lampo', dominio: 'viaggilampo.esempio', icona: '⛴️',
     regalo: 'Traghetto per due, andata e ritorno', prezzo: 118,
     elementi: [
@@ -64,22 +81,6 @@ export const NEGOZI = [
         spiega: 'Commissioni che spuntano solo alla fine. Il prezzo mostrato all\'inizio deve già comprendere tutto.' },
       { id: 'carta', tipo: 'costo', testo: 'Supplemento pagamento con carta', euro: 3, trappola: 'sovrapprezzo-carta', caso: 'PS12727', norma: 'art62',
         spiega: 'Far pagare di più a chi usa la carta (o PayPal, o il bonifico) è vietato, a qualunque importo.' },
-    ],
-  },
-  {
-    id: 'tech', nome: 'TecnoBaleno', dominio: 'tecnobaleno.esempio', icona: '🎧',
-    regalo: 'Cuffie senza fili «Onda»', prezzo: 59,
-    elementi: [
-      { id: 'recensioni', tipo: 'info', dove: 'prezzo', testo: '★★★★★ 4,9 · 2.431 recensioni verificate', trappola: 'recensioni', caso: 'PS12962', norma: 'art23',
-        spiega: '«Verificate» deve voler dire che chi recensisce ha comprato davvero. Recensioni non controllate spacciate per vere sono vietate.' },
-      { id: 'resi', tipo: 'info', dove: 'prezzo', testo: 'Reso gratuito entro 30 giorni', spiega: 'Più dei 14 giorni previsti dalla legge per ripensarci: nessuna trappola.' },
-      { id: 'green', tipo: 'casella', testo: 'Contributo spedizione green', euro: 1.5, spuntata: true, trappola: 'non-richiesti', caso: 'PS12525', norma: 'art65',
-        spiega: 'Un contributo «verde» aggiunto senza chiederti niente. L\'Antitrust ha multato un corriere per un contributo simile imposto ai clienti.' },
-      { id: 'estensione', tipo: 'casella', testo: 'Garanzia estesa 3 anni', euro: 14.9, spuntata: false, spiega: 'Un\'aggiunta facoltativa, non spuntata: decidi tu.' },
-      { id: 'consegna', tipo: 'costo', testo: 'Consegna veloce (calcolata al checkout)', euro: 4.9, trappola: 'costi-nascosti', caso: 'PS12717', norma: 'art21',
-        spiega: 'Il costo della consegna compare solo alla fine. Va detto chiaramente prima, insieme al prezzo.' },
-      { id: 'meno40', tipo: 'info', dove: 'prezzo', testo: 'Black Friday −40% sul prezzo consigliato', trappola: 'falsi-sconti', caso: 'PS12704', norma: 'art17bis',
-        spiega: 'Lo sconto va mostrato rispetto al prezzo più basso degli ultimi 30 giorni, non a un «prezzo consigliato» mai praticato.' },
     ],
   },
 ];

@@ -2,7 +2,8 @@
 // affidabile (o usa i pulsanti, o le frecce della tastiera). Dopo ogni risposta il Polpo spiega
 // il perché e mostra i segnali che vede lo strumento «È una truffa?». Tutto resta nel browser.
 import { MESSAGGI, FONTI } from '../src/messaggi.js';
-import { scegliPartita, giusto, nuovoStato, segna, finita, testoCondivisione, SECONDI, VITE } from '../src/regole.js';
+import { scegliPartita, giusto, nuovoStato, segna, finita, testoCondivisione, SECONDI, VITE, bonusSerie, LIVELLI, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 import { analizza } from '../../../truffe/src/segnali.js';
 
 const $ = (s) => document.querySelector(s);
@@ -11,10 +12,14 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 const CANALI = { sms: ['💬', 'SMS'], whatsapp: ['🟢', 'WhatsApp'], email: ['✉️', 'Email'], telefonata: ['📞', 'Telefonata'], sito: ['🌐', 'Sito o QR'], social: ['📣', 'Social'] };
 
 let partita = [], stato = nuovoStato(), corrente = null, inizio = 0, durata = 0, timer = 0, attesa = false, errori = [];
-const carta = $('#carta'), polpo = $('.tavolo .logo-polpo');
+const carta = $('#carta'), polpo = $('.tavolo .logo-polpo'), palco = $('.palco-truffa');
+let modo = 'libera', seme = '';
+const sfida = preparaApertura({ gioco: 'truffa', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
 
-function nuovaPartita() {
-  partita = scegliPartita(MESSAGGI);
+function nuovaPartita(m = modo) {
+  modo = m;
+  seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
+  partita = scegliPartita(MESSAGGI, caso(`${seme}-truffa`));
   stato = nuovoStato(); errori = [];
   $('#apertura').hidden = true; $('#fine').hidden = true; $('.tavolo').hidden = false;
   window.scrollTo({ top: $('.barra-gioco').getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
@@ -26,12 +31,19 @@ function aggiornaBarra() {
   $('#numero').textContent = `${Math.min(stato.indice + 1, partita.length)} / ${partita.length}`;
   $('#vite').textContent = '♥'.repeat(Math.max(0, stato.vite)) + '♡'.repeat(Math.max(0, VITE - stato.vite));
   $('#vite').setAttribute('aria-label', `${stato.vite} vite su ${VITE}`);
+  $('#scudo').hidden = !stato.scudo;
+  $('#serie').textContent = stato.serie >= 2 ? `serie ${stato.serie}${bonusSerie(stato.serie + 1) ? ' · +5' : ''}` : '';
 }
 
 function mostra() {
   aggiornaBarra();
   if (finita(stato, partita.length)) return fine();
+  const prima = corrente;
   corrente = partita[stato.indice];
+  if (!prima || prima.livello !== corrente.livello) { // un livello nuovo: si annuncia, come nei giochi a livelli
+    annuncioGrande(palco, LIVELLI[corrente.livello]);
+    if (prima) suona('serie');
+  }
   const [icona, canale] = CANALI[corrente.canale];
   carta.className = 'carta entra';
   carta.style.transform = '';
@@ -66,13 +78,16 @@ function rispondi(risposta) {
   cancelAnimationFrame(timer);
   const rimasto = Math.max(0, 1 - (performance.now() - inizio) / durata);
   const m = corrente;
-  let ok;
+  let ok, parato = false;
   if (risposta === null) {
     ok = false;
     stato = { ...stato, indice: stato.indice + 1, serie: 0 }; // tempo scaduto: niente punti, nessuna vita persa
   } else {
     ok = giusto(m, risposta);
-    stato = segna(stato, ok, rimasto);
+    const prima = stato;
+    parato = !ok && prima.scudo;
+    stato = segna(stato, ok, rimasto, { livello: m.livello, cascato: m.truffa && risposta === 'affidabile' });
+    festeggia(prima, ok, rimasto, m);
   }
   if (!ok) errori.push(m);
   carta.className = `carta esce ${risposta === 'truffa' ? 'a-sinistra' : risposta === 'affidabile' ? 'a-destra' : 'ferma'}`;
@@ -81,7 +96,7 @@ function rispondi(risposta) {
   void polpo.getBoundingClientRect();
   polpo.classList.add(ok ? 'contento' : 'triste');
   const segnali = analizza(m.testo).segnali;
-  const verdetto = risposta === null ? 'Tempo scaduto.' : ok ? 'Giusto!' : 'Sbagliato.';
+  const verdetto = risposta === null ? 'Tempo scaduto.' : ok ? 'Giusto!' : parato ? 'Sbagliato, ma lo scudo ti ha salvato.' : 'Sbagliato.';
   $('#spiega-titolo').textContent = `${verdetto} ${m.truffa ? 'È una truffa.' : 'È un messaggio affidabile.'}`;
   $('#spiega-titolo').dataset.tono = ok ? 'si' : 'no';
   $('#spiega-perche').textContent = m.perche;
@@ -100,12 +115,24 @@ function rispondi(risposta) {
   $('#avanti').focus({ preventScroll: true });
 }
 
+/** Le sorprese: lo scudo conquistato, lo scudo che para un errore, la risposta lampo, le serie. */
+function festeggia(prima, ok, rimasto, m) {
+  const b = carta.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + 40;
+  if (!ok && prima.scudo) { annuncioGrande(palco, 'Lo scudo del Polpo ha parato l\'errore!'); suona('serie'); return; }
+  if (!ok) { suona('no'); return; }
+  if (stato.scudo && !prima.scudo) { annuncioGrande(palco, '5 di fila: hai lo scudo del Polpo!'); coriandoli(x, y, 30); suona('premio'); return; }
+  if (m.livello === 3 && rimasto > 0.75) { annuncioGrande(palco, 'Colpo d\'occhio!'); coriandoli(x, y, 18); suona('serie'); return; }
+  if (stato.serie === 3) { annuncioGrande(palco, 'Serie da 3: +5 a risposta'); suona('serie'); return; }
+  suona('si');
+}
+
 function fine() {
   corrente = null;
-  let record = 0;
-  try { record = Math.max(+localStorage.getItem('polpo-truffa-record') || 0, stato.punti); localStorage.setItem('polpo-truffa-record', String(record)); } catch { record = stato.punti; }
   $('#fine-punti').textContent = stato.punti;
-  $('#fine-dettaglio').textContent = `${stato.giuste} giusti su ${stato.indice} messaggi · serie migliore ${stato.migliore} · record ${record}`;
+  $('#fine-dettaglio').textContent = `${stato.giuste} giusti su ${stato.indice} messaggi · serie migliore ${stato.migliore}${stato.parati ? ` · ${stato.parati} errori parati dallo scudo` : ''}`;
+  chiudiPartita({ gioco: 'truffa', punti: stato.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
+    guadagnate: medaglieGuadagnate(stato, partita.length), soglie: TITOLI, el: $('#fine-premi'), palco });
+  $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   $('#fine-errori').innerHTML = errori.length
     ? errori.map((m) => `<li><b>${CANALI[m.canale][0]} ${esc(m.mittente)}</b>: ${m.truffa ? 'era una truffa' : 'era affidabile'}. ${esc(m.perche)}</li>`).join('')
     : '<li>Nessun errore: sei pronto per insegnarlo ai tuoi genitori.</li>';
@@ -150,14 +177,10 @@ document.addEventListener('keydown', (e) => {
   else if (!attesa && (e.key === 'ArrowRight' || e.key === 'a' || e.key === 'A')) { rispondi('affidabile'); e.preventDefault(); }
   else if (attesa && corrente && (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') && document.activeElement !== $('#avanti')) { mostra(); e.preventDefault(); }
 });
-$('#gioca').addEventListener('click', nuovaPartita);
-$('#rigioca').addEventListener('click', nuovaPartita);
-$('#condividi').addEventListener('click', async () => {
-  const testo = testoCondivisione(stato), url = location.href.split('#')[0];
-  try {
-    if (navigator.share) await navigator.share({ title: 'Truffa o no?', text: testo, url });
-    else { await navigator.clipboard.writeText(`${testo} ${url}`); $('#condividi').textContent = 'Copiato'; }
-  } catch { /* condivisione annullata */ }
-});
+$('#gioca').addEventListener('click', () => nuovaPartita(sfida ? 'sfida' : 'libera'));
+$('#gioca-giorno').addEventListener('click', () => nuovaPartita('giorno'));
+$('#rigioca').addEventListener('click', () => nuovaPartita());
+$('#condividi').addEventListener('click', () => condividi({ titolo: 'Truffa o no?', testo: testoCondivisione(stato), punti: stato.punti, seme, bottone: $('#condividi') }));
+pulsanteSuono($('#suono'));
 
-if (location.hash === '#prova') window.truffaProva = { corrente: () => corrente && { id: corrente.id, truffa: corrente.truffa }, stato: () => ({ ...stato }) };
+if (location.hash === '#prova') window.truffaProva = { corrente: () => corrente && { id: corrente.id, truffa: corrente.truffa, livello: corrente.livello }, stato: () => ({ ...stato }), seme: () => seme, partita: () => partita.map((m) => m.id) };
