@@ -27,8 +27,8 @@ BRACCIA = [
      'M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20', [('Red flag sugli appalti', 'appalti/')]),
     ('vita', 'Ti porta a firmare', 'Referendum e leggi di iniziativa popolare aperti, con il link per firmare.',
      'M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10', [('Raccolte firme in corso', 'raccolte-firme/')]),
-    ('vita', 'Si prende cura dei luoghi', 'La buca in strada, gli alberi da piantare, la salute dei fiumi.',
-     'M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11', [('Segnalazioni urbane', 'segnalazioni/'), ('Alberi per il futuro', 'alberi/'), ('Fiumi Puliti', 'https://www.fiumipuliti.it/')]),
+    ('vita', 'Si prende cura dei luoghi', 'La buca in strada, chi raccoglie i rifiuti e quando, gli alberi da piantare, la salute dei fiumi.',
+     'M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11', [('Segnalazioni urbane', 'segnalazioni/'), ('Chi raccoglie i rifiuti?', 'raccolta/'), ('Alberi per il futuro', 'alberi/'), ('Fiumi Puliti', 'https://www.fiumipuliti.it/')]),
 ]
 LATI = {'burocrazia': 'Davanti alla burocrazia', 'vita': 'Dentro la vita pubblica'}
 
@@ -77,6 +77,7 @@ PAROLE = [
     ('https://www.fiumipuliti.it/', ['fiume', 'fiumi', 'torrente', 'acqua inquinata']),
     ('giochi/carrello/', ['carrello', 'negozio online', 'sconto vero', 'sconti veri', 'shopping', 'casella spuntata', 'caselle spuntate']),
     ('giochi/truffa/', ['gioco delle truffe', 'allenarmi', 'sfida', 'riconoscere le truffe', 'imparare a riconoscere']),
+    ('raccolta/', ['quando passa', 'calendario della raccolta', 'calendario raccolta', 'giorni della raccolta', 'raccolta dei rifiuti', 'raccolta rifiuti', 'chi raccoglie', 'porta a porta', 'ingombranti', 'spazzatura', 'immondizia', 'netturbin', 'gestore dei rifiuti', 'gestore rifiuti', 'bidone rotto', 'non hanno ritirato', 'non passano']),
     ('giochi/differenzia/', ['differenziata', 'dove si butta', 'dove butto', 'dove va buttat', 'in quale bidone', 'quale bidone', 'riciclo', 'riciclare', 'cartone della pizza', 'secco', 'umido']),
     ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),
     ('legge/interrogazioni/', ['interrogazion', 'interpellanz', 'parlamentar', 'il governo non risponde', 'il ministero non risponde']),

@@ -29,6 +29,8 @@ import { lettera as letteraAtt, destinatario as destAtt } from '../liste-attesa/
 import { valuta as valutaTruffa } from '../truffe/src/regole.js';
 import { DOMANDE as D_TRU } from '../truffe/src/domande.js';
 import { sitiPubblici } from '../truffe/src/segnali.js';
+import { indicizza as indicizzaRaccolta, cerca as cercaRaccolta, scheda as schedaRaccolta, testo as testoRaccolta, DIRITTI as DIRITTI_RACCOLTA } from '../raccolta/src/regole.js';
+import DATI_RACCOLTA from '../raccolta/src/dati/raccolta.js';
 import { controlli as controlliBilancio, ripartizione, entrate as entrateBilancio, FONTI as FONTI_BILANCIO } from '../bilancio-comune/src/spiegazioni.js';
 import { INDICATORI, livello, PAROLE_LIVELLO, procedure, FONTI as FONTI_APPALTI } from '../appalti/src/indicatori.js';
 import { cercaIn } from '../comune/schede.js';
@@ -43,7 +45,7 @@ import { lettera as letteraPa, destinatario as destinatarioPa } from '../reclami
 import RACCOLTE, { LETTO as LETTO_FIRME, SERIE as SERIE_FIRME } from '../raccolte-firme/dati/raccolte.js';
 import { stima as stimaFirme, LIVELLI as LIVELLI_FIRME, dettaglio as dettaglioFirme, FONTI as FONTI_FIRME } from '../raccolte-firme/src/stima.js';
 
-export const INFO = { name: 'agenti-civici', title: 'Polpo civico', version: '0.8.0' };
+export const INFO = { name: 'agenti-civici', title: 'Polpo civico', version: '0.9.0' };
 const AVVERTENZA = 'Stima informativa basata su norme pubbliche verificate all\'11/10/2026: non è un parere legale. Decide sempre l\'ente o il giudice competente.';
 
 let indiceEnti = null;
@@ -196,7 +198,8 @@ const STRUMENTI_SCHEDE = [
 STRUMENTI_SCHEDE.push(
   ['garanzia', 'Si è rotto o ci ho ripensato', 'Garanzia legale di due anni (12 mesi in più con la riparazione per i contratti dal 31/7/2026), obbligo di riparazione del fabbricante, recesso di 14 giorni dagli acquisti online e fuori dai negozi, rimborso entro 14 giorni: date calcolate e lettere, dal Codice del consumo vigente. Strumento: garanzia_recesso.'],
   ['liste-attesa', 'La visita nei tempi', 'Tempi massimi delle visite e degli esami per classe di priorità (U 72 ore, B 10 giorni, D 30/60, P 120) dal Piano nazionale liste d\'attesa 2026-2028, percorso di tutela a carico dell\'ASL con il solo ticket, richiesta all\'ASL pronta. Strumento: visita_nei_tempi.'],
-  ['truffe', 'È una truffa?', 'Segnali di truffa in SMS, email, chat e telefonate: domini che imitano banche, Poste ed enti pubblici, siti oscurati dalla CONSOB, conto di sicurezza, codici, «ciao mamma»; cosa fare subito e scadenze per contestare alla banca (13 mesi) e per la querela (3 mesi). Strumento: e_una_truffa.']
+  ['truffe', 'È una truffa?', 'Segnali di truffa in SMS, email, chat e telefonate: domini che imitano banche, Poste ed enti pubblici, siti oscurati dalla CONSOB, conto di sicurezza, codici, «ciao mamma»; cosa fare subito e scadenze per contestare alla banca (13 mesi) e per la querela (3 mesi). Strumento: e_una_truffa.'],
+  ['raccolta', 'Chi raccoglie i rifiuti?', 'Per ogni Comune italiano il gestore della raccolta dei rifiuti (dalla Ricerca operatori di ARERA), il sito, il telefono, la pagina del calendario della raccolta e la PEC del Comune; i diritti di chi paga la TARI: calendario pubblico, 30 giorni di preavviso, numero verde, ingombranti gratis a domicilio. Strumento: raccolta_rifiuti.'],
 );
 
 const SCHEDE = [
@@ -396,6 +399,7 @@ TOOLS.push(
   { name: 'garanzia_recesso', title: 'Si è rotto o ci ho ripensato', description: 'Garanzia legale e recesso dal Codice del consumo vigente: per un oggetto difettoso calcola la fine della garanzia del venditore (due anni, 12 mesi in più con la riparazione per i contratti dal 31/7/2026), la prescrizione e la presunzione del primo anno, e l\'obbligo di riparazione del fabbricante; per un acquisto online o fuori dai negozi calcola l\'ultimo giorno per recedere (14 giorni, 12 mesi in più senza informativa) e il termine del rimborso; prepara la lettera al venditore.', inputSchema: schema(D_GAR, { oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
   { name: 'visita_nei_tempi', title: 'La visita nei tempi', description: 'Liste d\'attesa: dalla classe di priorità della ricetta (U, B, D, P) e dalla data del primo contatto con il CUP calcola il tempo massimo del Piano nazionale 2026-2028, il richiamo dalla prelista e la disdetta; se la data proposta è oltre il termine prepara la richiesta all\'ASL di attivare il percorso di tutela (DL 73/2024 art. 3), pagando solo il ticket. L\'ASL si indica con asl_nome.', inputSchema: schema(D_ATT, { asl_nome: { type: 'string', description: 'Nome dell\'azienda sanitaria, es. «ASL Bari»' }, oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
   { name: 'e_una_truffa', title: 'È una truffa?', description: 'Controlla un messaggio sospetto (SMS, email, chat, telefonata): segnali di truffa con regole scritte, domini che imitano banche, Poste, corrieri ed enti pubblici, siti oscurati dalla CONSOB, richieste di codici o di spostare soldi; dice cosa fare subito e, se c\'è stato un pagamento, le scadenze per contestare alla banca e per la querela. Non dice mai che un messaggio è sicuro. Non mettere nel testo dati personali.', inputSchema: schema(D_TRU, { oggi: { type: 'string', description: 'Data di riferimento AAAA-MM-GG' } }) },
+  { name: 'raccolta_rifiuti', title: 'Chi raccoglie i rifiuti?', description: 'Chi raccoglie i rifiuti in un Comune italiano (gestore della raccolta e trasporto secondo la Ricerca operatori di ARERA), con sito, telefono, pagina del calendario della raccolta trovata sul sito del gestore e PEC del Comune; e i diritti di chi paga la TARI secondo ARERA (TITR e TQRIF): calendario e orari pubblici, 30 giorni di preavviso per i cambi, numero verde gratuito, ritiro gratuito degli ingombranti almeno una volta al mese, tempi per i disservizi. Non conosce i giorni di raccolta: rimanda al calendario del gestore.', inputSchema: { type: 'object', properties: { comune: { type: 'string', description: 'Nome del Comune, es. «Treviso»' }, provincia: { type: 'string', description: 'Sigla della provincia, se ci sono Comuni con lo stesso nome, es. «LE»' } }, required: ['comune'] } },
 );
 
 const TITOLI = { valuta_reclamo: 'Mi rimborsano? Reclami e rimborsi', valuta_prestazioni: 'Mi spetta: bonus e prestazioni', valuta_multa: 'Faccio ricorso? Controllo della multa', cerca_ente: 'Cerca un ente pubblico', prepara_accesso_atti: 'Chiedo gli atti' };
@@ -404,7 +408,21 @@ for (const t of TOOLS) {
   t.annotations = { title: t.title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 }
 
-const GESTORI = { garanzia_recesso: rispostaGaranzia, visita_nei_tempi: rispostaAttesa, e_una_truffa: rispostaTruffa, raccolte_firme: rispostaFirme, prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
+let indiceRaccolta = null;
+function rispostaRaccolta({ comune = '', provincia = '' } = {}) {
+  const idx = (indiceRaccolta ||= indicizzaRaccolta(DATI_RACCOLTA));
+  const trovati = cercaRaccolta(idx, `${comune} ${provincia}`.trim(), 5);
+  if (!trovati.length) return { content: [{ type: 'text', text: `Nessun Comune trovato per «${comune}». Controlla come è scritto o aggiungi la sigla della provincia.` }], isError: true };
+  if (trovati.length > 1 && normalizzaNome(trovati[0].nome) === normalizzaNome(trovati[1].nome) && !provincia) {
+    return { content: [{ type: 'text', text: `Ci sono più Comuni di nome ${trovati[0].nome}: ${trovati.filter((r) => normalizzaNome(r.nome) === normalizzaNome(trovati[0].nome)).map((r) => `${r.nome} (${r.sigla}, ${r.regione})`).join('; ')}. Indica la provincia.` }] };
+  }
+  const s = schedaRaccolta(idx, trovati[0]);
+  const fonti = `Fonti: ${DATI_RACCOLTA.fonti.arera.titolo} (${DATI_RACCOLTA.fonti.arera.url}); ${DIRITTI_RACCOLTA.map((d) => d.fonte).filter((x, i, a) => a.indexOf(x) === i).join('; ')}. La pagina del calendario è trovata in automatico sul sito del gestore: va controllata.`;
+  return { content: [{ type: 'text', text: `${testoRaccolta(s)}\n\n${fonti}\nStrumento: ${SITO}raccolta/` }], structuredContent: s };
+}
+const normalizzaNome = (t) => norm(t).replace(/[^a-z0-9]+/g, ' ').trim();
+
+const GESTORI = { raccolta_rifiuti: rispostaRaccolta, garanzia_recesso: rispostaGaranzia, visita_nei_tempi: rispostaAttesa, e_una_truffa: rispostaTruffa, raccolte_firme: rispostaFirme, prepara_segnalazione: rispostaSegnalazione, reclamo_pa: rispostaReclamoPa, trova_pratica: rispostaPratica, bilancio_comune: rispostaBilancio, appalti_ente: rispostaAppalti, search: rispostaSearch, fetch: rispostaFetch, valuta_reclamo: rispostaReclamo, valuta_prestazioni: rispostaPrestazioni, valuta_multa: rispostaMulta, cerca_ente: rispostaEnte, prepara_accesso_atti: rispostaAccesso };
 
 
 export const ISTRUZIONI = [

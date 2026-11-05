@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--icone--><link rel="icon" href="src/icona-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="src/icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="src/icona-180.png"><!--/icone-->
+<title>Chi raccoglie i rifiuti?</title>
+<meta name="description" content="Scrivi il tuo Comune: chi raccoglie i rifiuti, il sito e il telefono del gestore, dove trovi il calendario della raccolta e i tuoi diritti (ingombranti gratis, numero verde, preavviso), dai dati ARERA per tutti i Comuni italiani.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  body:has(.foto-testata) .scena-testata { display: none; }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Il Polpo civico">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico</b>
+  <div class="famiglia-voci">
+  <a href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a>
+  <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../garanzia/" data-strumento="garanzia">Garanzia e recesso</a>
+    <a href="../liste-attesa/" data-strumento="liste-attesa">Liste d'attesa</a>
+    <a href="../truffe/" data-strumento="truffe">È una truffa?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+    <a href="../raccolta/" data-strumento="raccolta" aria-current="page">Chi raccoglie i rifiuti?</a>
+  <a href="../storie/">Le storie</a>
+  <a href="../legge/">Il Polpo legge</a>
+  </div>
+    <!--sostieni--><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a><!--/sostieni-->
+    <script>(() => { const v = document.currentScript.parentElement.querySelector('.famiglia-voci'), a = v && v.querySelector('[aria-current="page"]'); if (a && v.scrollWidth > v.clientWidth) v.scrollLeft = a.offsetLeft - 16; })();</script>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:raccolta--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Tre bidoni della raccolta differenziata e un calendario con un giorno cerchiato: chi raccoglie i rifiuti e quando" preserveAspectRatio="xMidYMid meet"><path class="s-l" d="M36 50 H84 M40 50 L44 126 H76 L80 50 M52 42 H68 V50" style="fill:var(--carta)"/><path class="s-l" d="M52 64 V112 M68 64 V112"/><path class="s-l" d="M98 58 H146 M102 58 L106 126 H138 L142 58 M114 50 H130 V58" style="fill:var(--carta)"/><circle class="s-p" cx="122" cy="92" r="12"/><path class="s-l" d="M160 66 H208 M164 66 L168 126 H200 L204 66 M176 58 H192 V66" style="fill:var(--carta)"/><path class="s-l" d="M176 84 L192 108 M192 84 L176 108"/><rect class="s-l" x="226" y="30" width="72" height="80" rx="6" style="fill:var(--carta)"/><path class="s-l" d="M226 50 H298 M244 22 V36 M280 22 V36 M238 64 H248 M256 64 H266 M274 64 H284 M238 80 H248 M256 80 H266 M238 96 H248"/><circle class="s-l" cx="279" cy="80" r="9"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C34 112 36 106 40 100 M80 90 C88 90 94 92 102 92 M142 92 C150 92 156 94 166 94 M204 96 C216 96 230 90 240 84 C252 78 262 76 270 78"/></svg></div><!--/scena-->
+      <!--logo:raccolta--><div class="titolo-logo"><svg class="logo-strumento logo-polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo civico, braccio 8: Si prende cura dei luoghi"><g transform="rotate(-315)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(315) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-270)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(270) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-225)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(225) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(-180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(180) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg><h1>Chi raccoglie i rifiuti?</h1></div><!--/logo-->
+      <!--braccio--><a class="braccio-segno" href="../#braccio-8"><span class="bs-icona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></svg></span><span class="bs-testo"><span class="bs-n">Braccio 08 di 8 del Polpo</span>Si prende cura dei luoghi</span></a><!--/braccio-->
+      <p class="promessa">Scrivi il tuo Comune: ti diciamo chi raccoglie i rifiuti, dove trovi il calendario della raccolta, come contattarlo e cosa deve garantirti per legge.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Tutti i Comuni italiani,</b> dall'elenco ufficiale dei gestori dell'Autorità (ARERA).</li>
+      <li><b>Il calendario dal sito del gestore:</b> il collegamento alla pagina giusta, quando c'è.</li>
+      <li><b>Nessun dato inviato.</b> La ricerca avviene nel tuo browser.</li>
+    </ul>
+  </header>
+  
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Prova con un esempio</span>
+    <button type="button" data-esempio="Treviso">Treviso</button>
+    <button type="button" data-esempio="Bologna">Bologna</button>
+    <button type="button" data-esempio="Bari">Bari</button>
+    <button type="button" data-esempio="Luogosanto">Un paese piccolo</button>
+  </div>
+
+  <div id="foto" hidden></div>
+
+  <main class="corpo">
+    <div class="colonna">
+      
+      <form class="colonna" id="questionario" autocomplete="off" novalidate></form>
+    </div>
+    <div class="colonna appiccicosa" id="esito" aria-live="polite"></div>
+  </main>
+
+  <!--braccia--><nav class="braccia-polpo" aria-label="Le otto braccia del Polpo"><a class="bp-polpo" href="../"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg><span>Le otto braccia del Polpo</span></a><ol><li><a class="bp-braccio" href="../#braccio-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></svg><span>01 · Fa i conti dei tuoi diritti</span></a></li><li><a class="bp-braccio" href="../#braccio-2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></svg><span>02 · Scrive le lettere</span></a></li><li><a class="bp-braccio" href="../#braccio-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></svg><span>03 · Trova la strada</span></a></li><li><a class="bp-braccio" href="../#braccio-4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></svg><span>04 · Ti difende</span></a></li><li><a class="bp-braccio" href="../#braccio-5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></svg><span>05 · Legge i conti del Comune</span></a></li><li><a class="bp-braccio" href="../#braccio-6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></svg><span>06 · Controlla gli appalti</span></a></li><li><a class="bp-braccio" href="../#braccio-7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></svg><span>07 · Ti porta a firmare</span></a></li><li><a class="bp-braccio" href="../#braccio-8" aria-current="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></svg><span>08 · Si prende cura dei luoghi</span></a></li></ol><a class="bp-chiedi" href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a></nav><!--/braccia-->
+
+  <footer class="piede">
+    <!--crediti--><p class="crediti">Il Polpo civico è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
+    <p><b>Chi raccoglie i rifiuti? non sostituisce il gestore.</b> Il gestore di ogni Comune viene dalla «Ricerca operatori» dell'Autorità di regolazione per energia reti e ambiente (ARERA), dove sono gli stessi gestori a inserire i dati (licenza CC BY-SA 4.0); la PEC del Comune dall'Indice delle pubbliche amministrazioni (CC BY 4.0). La pagina del calendario è trovata in automatico sul sito del gestore e può essere sbagliata o cambiare indirizzo a inizio anno: se trovi un errore, segnalalo.</p><p>Non è un sito della pubblica amministrazione. Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Dimentica il Comune salvato su questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

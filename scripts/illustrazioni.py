@@ -169,6 +169,14 @@ SCENE = {
         + persona(296, 132, 0.9, rossa=True) +
         f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/>',
         'Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite', '0 0 320 140'),
+    'raccolta': svg(
+        '<path class="s-l" d="M36 50 H84 M40 50 L44 126 H76 L80 50 M52 42 H68 V50" style="fill:var(--carta)"/><path class="s-l" d="M52 64 V112 M68 64 V112"/>'
+        '<path class="s-l" d="M98 58 H146 M102 58 L106 126 H138 L142 58 M114 50 H130 V58" style="fill:var(--carta)"/><circle class="s-p" cx="122" cy="92" r="12"/>'
+        '<path class="s-l" d="M160 66 H208 M164 66 L168 126 H200 L204 66 M176 58 H192 V66" style="fill:var(--carta)"/><path class="s-l" d="M176 84 L192 108 M192 84 L176 108"/>'
+        '<rect class="s-l" x="226" y="30" width="72" height="80" rx="6" style="fill:var(--carta)"/><path class="s-l" d="M226 50 H298 M244 22 V36 M280 22 V36 M238 64 H248 M256 64 H266 M274 64 H284 M238 80 H248 M256 80 H266 M238 96 H248"/>'
+        '<circle class="s-l" cx="279" cy="80" r="9"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 106 40 100 M80 90 C88 90 94 92 102 92 M142 92 C150 92 156 94 166 94 M204 96 C216 96 230 90 240 84 C252 78 262 76 270 78"/>',
+        'Tre bidoni della raccolta differenziata e un calendario con un giorno cerchiato: chi raccoglie i rifiuti e quando', '0 0 320 140'),
     'truffe': svg(
         '<rect class="s-l" x="56" y="16" width="70" height="116" rx="10" style="fill:var(--carta)"/><path class="s-l" d="M82 122 H100"/>'
         '<path class="s-l" d="M66 36 H116 V70 H80 L72 78 V70 H66 Z" style="fill:var(--carta)"/><path class="s-p" d="M72 46 H110 V52 H72 Z"/><path class="s-l" d="M72 60 H100"/>'
@@ -212,7 +220,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe', 'raccolta']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
@@ -306,6 +314,7 @@ LOGHI = {
     'raccolte-firme': ('Raccolte firme in corso', _logo('<path class="lg-i" d="M17 12 H41 L47 18 V52 H17 Z M41 12 V18 H47 M23 24 H39 M23 31 H35"/>', 'M12 50 C18 50 20 42 25 42 S30 48 34 44 S40 38 44 42 L52 34', (9, 50))),
     'garanzia': ('Si è rotto o ci ho ripensato', _logo('<path class="lg-i" d="M20 12 H44 V52 L40 48 L36 52 L32 48 L28 52 L24 48 L20 52 Z M26 22 H38 M26 30 H38"/>', 'M10 40 C10 28 18 22 26 38 M22 36 L26 39 L29 34', (9, 44))),
     'liste-attesa': ('La visita nei tempi', _logo('<path class="lg-i" d="M14 18 H50 V52 H14 Z M14 28 H50 M24 12 V22 M40 12 V22"/>', 'M10 53 C20 53 24 46 28 40 L34 34', (8, 53))),
+    'raccolta': ('Chi raccoglie i rifiuti?', _logo('<path class="lg-i" d="M17 22 H47 M21 22 L24 52 H40 L43 22 M27 15 H37 V22 M29 30 V44 M35 30 V44"/>', 'M8 52 C14 52 16 46 20 42', (8, 52))),
     'truffe': ('È una truffa?', _logo('<path class="lg-i" d="M16 10 H38 V54 H16 Z M23 48 H31"/>', 'M48 8 V30 C48 40 36 40 36 31 V28', (48, 8))),
     'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
 }
@@ -331,7 +340,7 @@ def favicon(nome):
 def applica_loghi():
     nomi_h1 = {'assistente': 'Chiedi al Polpo', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
-               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?'}
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?', 'raccolta': 'Chi raccoglie i rifiuti?'}
     for t, h1 in nomi_h1.items():
         cartella = os.path.join(REPO, t)
         open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))

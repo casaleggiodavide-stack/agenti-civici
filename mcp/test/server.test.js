@@ -26,7 +26,7 @@ test('server MCP: tredici strumenti, risposte con fonti e documenti', async () =
     { id: 5, method: 'tools/call', params: { name: 'prepara_accesso_atti', arguments: { cosa: 'Elenco delle consulenze affidate nel 2025 con importo e affidatario', ente_nome: 'Comune di Lecce', oggi: '2026-10-11' } } },
   ]);
   assert.equal(init.result.serverInfo.name, 'agenti-civici');
-  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch', 'bilancio_comune', 'appalti_ente', 'prepara_segnalazione', 'reclamo_pa', 'raccolte_firme', 'trova_pratica', 'garanzia_recesso', 'visita_nei_tempi', 'e_una_truffa']);
+  assert.deepEqual(lista.result.tools.map((t) => t.name), ['valuta_reclamo', 'valuta_prestazioni', 'valuta_multa', 'cerca_ente', 'prepara_accesso_atti', 'search', 'fetch', 'bilancio_comune', 'appalti_ente', 'prepara_segnalazione', 'reclamo_pa', 'raccolte_firme', 'trova_pratica', 'garanzia_recesso', 'visita_nei_tempi', 'e_una_truffa', 'raccolta_rifiuti']);
   const tm = multa.result.content[0].text;
   assert.match(tm, /Verbale spedito dopo 99 giorni/);
   assert.match(tm, /protocollo\.prefna@pec\.interno\.it/);
@@ -86,4 +86,14 @@ test('server MCP: segnalazione e reclamo alla PA con destinatari, scadenze e let
   const r = gestisci({ jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'reclamo_pa', arguments: { problema: 'ritardo', data_domanda: '2026-06-03', ente_nome: 'Comune di Bari', oggi: '2026-10-25' } } }).result;
   assert.match(r.content[0].text, /potere sostitutivo/);
   assert.match(r.content[0].text, /2027-07-03/);
+});
+
+test('raccolta_rifiuti: gestore del Comune con le fonti ARERA', async () => {
+  const { gestisci } = await import('../nucleo.js');
+  const r = await gestisci({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'raccolta_rifiuti', arguments: { comune: 'Acqui Terme' } } });
+  const t = r.result.content[0].text;
+  assert.match(t, /Acqui Terme \(AL\): la raccolta dei rifiuti la fa/);
+  assert.match(t, /ARERA/);
+  const no = await gestisci({ jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'raccolta_rifiuti', arguments: { comune: 'Paese che non esiste' } } });
+  assert.equal(no.result.isError, true);
 });
