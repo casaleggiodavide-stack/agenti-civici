@@ -46,8 +46,8 @@ export function cerca(indice, testo, limite = 8) {
 /** Tutto quello che serve sapere per un Comune. */
 export function scheda(indice, riga) {
   const gestori = riga.gestori.map((i) => {
-    const [nome, piva, sito, telefono, calendario, inEconomia] = indice.gestori[i];
-    return { nome, piva, sito, telefono, calendario, inEconomia: !!inEconomia };
+    const [nome, piva, sito, telefono, calendario, inEconomia, eCalendario] = indice.gestori[i];
+    return { nome, piva, sito, telefono, calendario, eCalendario: !!eCalendario, inEconomia: !!inEconomia };
   });
   const anno = new Date().getFullYear();
   return {
@@ -65,7 +65,7 @@ export function testo(s) {
   if (!s.gestori.length) righe.push(`Per ${s.comune} (${s.provincia}) l'elenco di ARERA non indica un gestore della raccolta: chiedi al Comune${s.pecComune ? ` (PEC ${s.pecComune})` : ''}.`);
   for (const g of s.gestori) {
     righe.push(`${s.comune} (${s.provincia}): la raccolta dei rifiuti la fa ${g.nome}${g.inEconomia ? ' (gestione diretta del Comune)' : ''}.`);
-    if (g.calendario) righe.push(`Calendario (pagina trovata in automatico sul sito del gestore): ${g.calendario}`);
+    if (g.calendario) righe.push(`${g.eCalendario ? 'Calendario' : 'Pagina sulla raccolta'} (trovata in automatico sul sito del gestore): ${g.calendario}`);
     if (g.sito) righe.push(`Sito: ${g.sito}`);
     if (g.telefono) righe.push(`Telefono: ${g.telefono}`);
   }

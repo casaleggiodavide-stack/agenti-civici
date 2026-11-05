@@ -10,6 +10,7 @@ import json
 import os
 import re
 import unicodedata
+import urllib.parse
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATI = os.path.expanduser('~/dati-civici/raccolta')
@@ -30,6 +31,24 @@ def telefono(contatti):
         if m:
             return re.sub(r'[\s./-]+', ' ', m.group(1)).strip()
     return ''
+
+
+SCARTA = re.compile(r'selezion|concors|graduatori|assunzion|bando|gara|avviso-pubblico|/(de|en|fr|sl)/?$|%20|var_http|login|news|notizi|/tag/|trashed|/object/|non[- _.%]*domestic|comunicat|evento|eventi/', re.I)
+CHIAVI = re.compile(r'calendar|porta[-_ ]?a[-_ ]?porta|raccolta|differenziat|rifiut|eco[-_]?calendario|quando[-_ ]passa', re.I)
+
+
+def calendario_buono(c, slug_comuni):
+    """Tiene la pagina trovata solo se ha l'aria di essere quella giusta per tutti i Comuni del gestore."""
+    url, testo = c['url'], c.get('testo', '')
+    parti = urllib.parse.urlsplit(url)
+    if c.get('punti', 0) < 5 or '.' not in parti.netloc or SCARTA.search(url) or SCARTA.search(testo):
+        return False
+    if not CHIAVI.search(f'{testo} {parti.path}'):
+        return False
+    percorso = norm(urllib.parse.unquote(parti.path))
+    if any(f' {sl} ' in f' {percorso} ' for sl in slug_comuni if len(sl) > 3):
+        return False  # il calendario di un solo Comune: non vale per gli altri serviti dallo stesso gestore
+    return True
 
 
 def bel_nome(nome):
@@ -65,6 +84,10 @@ def main():
             pec_comuni[(norm(comune), prov)] = (pec, sito)
 
     gestori, indice_g = [], {}
+    comuni_di = {}
+    for c in arera['elenco']:
+        for o in arera['comuni'].get(c['istat']) or []:
+            comuni_di.setdefault(o['piva'], set()).add(norm(c['comune'].replace('_', ' ')))
 
     def gestore(piva, nome):
         if piva in indice_g:
@@ -73,10 +96,12 @@ def main():
         sito = (op.get('Sito Internet') or '').strip()
         if sito and not sito.startswith('http'):
             sito = 'https://' + sito
-        cal = (siti.get(piva) or {}).get('candidati') or []
+        cal = [c for c in (siti.get(piva) or {}).get('candidati') or [] if calendario_buono(c, comuni_di.get(piva, set()))]
         nome_g = bel_nome(op.get('Società') or nome)
         e_comune = norm(nome_g).startswith(('comune ', 'gemeinde ', 'unione ', 'citta di ')) or norm(nome_g).startswith('comunita')
-        gestori.append([nome_g, piva, sito, telefono([op.get('Contatti Cliente'), op.get('Contatti Cliente2')]), cal[0]['url'] if cal else '', 1 if e_comune else 0])
+        c0 = cal[0] if cal else None
+        e_calendario = 1 if c0 and re.search(r'calendar', f"{c0['url']} {c0.get('testo', '')}", re.I) else 0
+        gestori.append([nome_g, piva, sito, telefono([op.get('Contatti Cliente'), op.get('Contatti Cliente2')]), c0['url'] if c0 else '', 1 if e_comune else 0, e_calendario])
         indice_g[piva] = len(gestori) - 1
         return indice_g[piva]
 

@@ -71,11 +71,11 @@ function mostra(s, scorri = true) {
       <p class="occhiello">${x.inEconomia ? 'Gestione diretta del Comune' : 'Gestore della raccolta'}</p>
       <h3>${esc(x.nome)}</h3>
       <div class="azioni-doc">
-        ${x.calendario ? link(x.calendario, '🗓️ Il calendario della raccolta', 'btn btn-primario') : ''}
+        ${x.calendario ? link(x.calendario, x.eCalendario ? '🗓️ Il calendario della raccolta' : '🗓️ La raccolta sul sito del gestore', 'btn btn-primario') : ''}
         ${x.sito ? link(x.sito, x.calendario ? 'Il sito' : 'Il sito del gestore', x.calendario ? 'btn' : 'btn btn-primario') : ''}
         ${x.telefono ? tel(x.telefono) : ''}
       </div>
-      ${x.calendario ? '<p class="aiuto">Pagina trovata in automatico sul sito del gestore: se è sbagliata, segnalalo qui sotto.</p>' : ''}
+      ${x.calendario ? `<p class="aiuto">Pagina trovata in automatico sul sito del gestore${x.eCalendario ? '' : ': di solito da lì si arriva al calendario del tuo Comune'}. Se è sbagliata, segnalalo qui sotto.</p>` : ''}
       ${!x.sito && x.inEconomia && s.sitoComune ? `<div class="azioni-doc">${link(s.sitoComune, 'Il sito del Comune')}</div>` : ''}
     </div>`).join('');
   const senzaCalendario = !g.some((x) => x.calendario);

@@ -13,7 +13,7 @@ const FINTI = indicizza({
     ['999999', 'Senzagestore', 'XX', 'Molise', [], 'comune@pec.it', ''],
   ],
   gestori: [
-    ['Contarina S.p.A.', '02196020263', 'https://contarina.it', '800 07 66 11', 'https://contarina.it/cittadino/raccolta-differenziata/eco-calendario', 0],
+    ['Contarina S.p.A.', '02196020263', 'https://contarina.it', '800 07 66 11', 'https://contarina.it/cittadino/raccolta-differenziata/eco-calendario', 0, 1],
     ['Comune di Castro', '00000000001', '', '', '', 1],
     ['Gestore Esempio S.r.l.', '00000000002', 'https://esempio.it', '', '', 0],
   ],
@@ -32,6 +32,7 @@ test('la scheda: gestore, calendario, gestione diretta, più gestori, nessun ges
   const t = scheda(FINTI, cerca(FINTI, 'treviso')[0]);
   assert.equal(t.gestori[0].nome, 'Contarina S.p.A.');
   assert.match(t.gestori[0].calendario, /eco-calendario/);
+  assert.equal(t.gestori[0].eCalendario, true);
   assert.equal(t.sitoComune, 'https://www.comune.treviso.it');
   assert.ok(!t.segnala.includes('postacertificata'), 'nel link di segnalazione niente PEC o dati personali');
   assert.equal(scheda(FINTI, cerca(FINTI, 'castro le')[0]).gestori[0].inEconomia, true);
