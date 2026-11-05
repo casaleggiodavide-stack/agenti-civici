@@ -1,0 +1,45 @@
+# Pubblica la classifica condivisa dei giochi su Cloudflare Workers (piano gratuito) con il database D1.
+# Serve una volta sola, nelle impostazioni del repository (Secrets and variables > Actions):
+#   CLOUDFLARE_API_TOKEN   token con i permessi «Workers Scripts: Edit» e «D1: Edit»
+#   CLOUDFLARE_ACCOUNT_ID  l'identificativo dell'account Cloudflare
+# Senza i due segreti il workflow non fa niente. Si ripubblica da sé quando cambiano le regole dei giochi,
+# perché il servizio ricalcola i punti con le stesse regole del browser.
+name: Classifica
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['classifica/**', 'giochi/*/src/**', 'giochi/comune/premi.js', 'giochi/comune/nomi.js', '.github/workflows/classifica.yml']
+concurrency: classifica
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Ci sono i segreti?
+        id: segreti
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "Segreti Cloudflare assenti: niente da pubblicare."; fi
+      - name: Prove
+        if: steps.segreti.outputs.ok == '1'
+        run: node --test classifica/test/*.test.js giochi/comune/test/*.test.js
+      - name: Database D1
+        if: steps.segreti.outputs.ok == '1'
+        working-directory: classifica
+        run: |
+          trova() { npx --yes wrangler@4 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const x=JSON.parse(s).find(d=>d.name==='polpo-classifica');process.stdout.write(x?x.uuid:'')})"; }
+          ID=$(trova)
+          if [ -z "$ID" ]; then npx --yes wrangler@4 d1 create polpo-classifica; ID=$(trova); fi
+          test -n "$ID"
+          sed -i "s/DA_SCRIVERE/$ID/" wrangler.toml
+          npx --yes wrangler@4 d1 execute polpo-classifica --remote --file schema.sql
+      - name: Pubblica il servizio
+        if: steps.segreti.outputs.ok == '1'
+        working-directory: classifica
+        run: npx --yes wrangler@4 deploy

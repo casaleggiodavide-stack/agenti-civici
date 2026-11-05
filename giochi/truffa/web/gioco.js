@@ -3,6 +3,7 @@
 // il perché e mostra i segnali che vede lo strumento «È una truffa?». Tutto resta nel browser.
 import { MESSAGGI, FONTI } from '../src/messaggi.js';
 import { scegliPartita, giusto, nuovoStato, segna, finita, testoCondivisione, SECONDI, VITE, bonusSerie, LIVELLI, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { classificaFine, inTesta } from '../../comune/classifica.js';
 import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 import { analizza } from '../../../truffe/src/segnali.js';
 
@@ -13,14 +14,15 @@ const CANALI = { sms: ['💬', 'SMS'], whatsapp: ['🟢', 'WhatsApp'], email: ['
 
 let partita = [], stato = nuovoStato(), corrente = null, inizio = 0, durata = 0, timer = 0, attesa = false, errori = [];
 const carta = $('#carta'), polpo = $('.tavolo .logo-polpo'), palco = $('.palco-truffa');
-let modo = 'libera', seme = '';
+let modo = 'libera', seme = '', mosse = [];
 const sfida = preparaApertura({ gioco: 'truffa', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
+inTesta('truffa', $('#in-testa'));
 
 function nuovaPartita(m = modo) {
   modo = m;
   seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
   partita = scegliPartita(MESSAGGI, caso(`${seme}-truffa`));
-  stato = nuovoStato(); errori = [];
+  stato = nuovoStato(); errori = []; mosse = [];
   $('#apertura').hidden = true; $('#fine').hidden = true; $('.tavolo').hidden = false;
   window.scrollTo({ top: $('.barra-gioco').getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
   mostra();
@@ -76,7 +78,8 @@ function rispondi(risposta) {
   if (attesa || !corrente) return;
   attesa = true;
   cancelAnimationFrame(timer);
-  const rimasto = Math.max(0, 1 - (performance.now() - inizio) / durata);
+  const rimasto = Math.round(Math.max(0, 1 - (performance.now() - inizio) / durata) * 100) / 100; // arrotondato: la classifica rifà gli stessi conti
+  mosse.push([risposta === 'truffa' ? 't' : risposta === 'affidabile' ? 'a' : '-', risposta === null ? 0 : rimasto]);
   const m = corrente;
   let ok, parato = false;
   if (risposta === null) {
@@ -132,6 +135,7 @@ function fine() {
   $('#fine-dettaglio').textContent = `${stato.giuste} giusti su ${stato.indice} messaggi · serie migliore ${stato.migliore}${stato.parati ? ` · ${stato.parati} errori parati dallo scudo` : ''}`;
   chiudiPartita({ gioco: 'truffa', punti: stato.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
     guadagnate: medaglieGuadagnate(stato, partita.length), soglie: TITOLI, el: $('#fine-premi'), palco });
+  classificaFine({ gioco: 'truffa', el: $('#fine-classifica'), seme, delGiorno: modo === 'giorno', partita: { risposte: mosse } });
   $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   $('#fine-errori').innerHTML = errori.length
     ? errori.map((m) => `<li><b>${CANALI[m.canale][0]} ${esc(m.mittente)}</b>: ${m.truffa ? 'era una truffa' : 'era affidabile'}. ${esc(m.perche)}</li>`).join('')

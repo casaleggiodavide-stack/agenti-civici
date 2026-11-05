@@ -193,6 +193,25 @@ CSS = '''
   @keyframes coriandolo { to { transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); opacity: 0; } }
   .stelle { color: var(--forse); letter-spacing: 2px; }
   .record-gioco { display: block; margin-top: 8px; font-family: var(--cifre); font-size: 12px; color: var(--forse); }
+  .classifica { margin: 14px 0 6px; padding: 14px 16px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .titolo-classifica { font-family: var(--titoli); font-size: 22px; color: var(--inchiostro) !important; margin: 0 0 8px; }
+  .schede-classifica { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .schede-classifica button { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 12px; letter-spacing: .04em; padding: 5px 12px; border: 1px solid var(--riga); border-radius: 999px; color: var(--inchiostro-2); }
+  .schede-classifica button[aria-selected="true"] { border-color: var(--forse); color: var(--inchiostro); }
+  .schede-classifica button:focus-visible, .link:focus-visible { outline: 2px solid var(--accento); }
+  ol.podio { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 2px !important; }
+  ol.podio li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 6px 8px; border-radius: 6px; }
+  ol.podio li:nth-child(-n+3) .pos { color: var(--forse); }
+  ol.podio li.mio { background: color-mix(in srgb, var(--forse) 16%, transparent); }
+  ol.podio .pos { font-family: var(--cifre); font-size: 13px; color: var(--inchiostro-3); }
+  ol.podio .chi { color: var(--inchiostro); overflow-wrap: anywhere; }
+  ol.podio small { color: var(--inchiostro-3); font-size: 12px; }
+  ol.podio b { font-family: var(--cifre); color: var(--inchiostro); }
+  .invito-classifica label { display: grid; gap: 4px; font-size: 14px; color: var(--inchiostro-2); max-width: 320px; }
+  .invito-classifica select { font: inherit; font-size: 16px; padding: 6px 8px; background: var(--fondo); color: var(--inchiostro); border: 1px solid var(--riga); border-radius: 6px; }
+  .nome-classifica b { color: var(--forse); }
+  .link { all: unset; cursor: pointer; color: var(--accento); text-decoration: underline; }
+  #in-testa[hidden] { display: none; }
   @media (prefers-reduced-motion: reduce) { .annuncio-grande { animation-duration: 2s; animation-name: annuncio-piano; } @keyframes annuncio-piano { 0%, 100% { opacity: 0; } 10%, 85% { opacity: 1; } } .medaglie-nuove .medaglia { animation: none; } }
   @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
 '''
@@ -268,11 +287,13 @@ def differenzia():
         <p><small>Con la tastiera: le frecce spostano il Polpo sotto un bidone, lo spazio gli fa lanciare lì il rifiuto più in basso; i tasti da 1 a 6 scelgono il bidone; P mette in pausa.</small></p>
         <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
         <div id="premi"></div>
+        <p class="vicino" id="in-testa" hidden></p>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
         <h2 id="t-fine">Fine della partita</h2>
         <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
         <div id="fine-premi"></div>
+        <div id="fine-classifica" class="classifica" hidden></div>
         <p><b>Dove hai sbagliato</b></p>
         <ul id="fine-errori"></ul>
         <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
@@ -331,11 +352,13 @@ def truffa():
         </ol>
         <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
         <div id="premi"></div>
+        <p class="vicino" id="in-testa" hidden></p>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
         <h2 id="t-fine">Fine della partita</h2>
         <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
         <div id="fine-premi"></div>
+        <div id="fine-classifica" class="classifica" hidden></div>
         <p><b>Dove hai sbagliato</b></p>
         <ul id="fine-errori"></ul>
         <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
@@ -392,11 +415,13 @@ def carrello():
         </ol>
         <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
         <div id="premi"></div>
+        <p class="vicino" id="in-testa" hidden></p>
       </div></div>
       <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
         <h2 id="t-fine">Fine dello shopping</h2>
         <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
         <div id="fine-premi"></div>
+        <div id="fine-classifica" class="classifica" hidden></div>
         <p id="fine-conto"></p>
         <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
         <p><small>Tutte le trappole, con i casi e le multe: <a href="../../legge/antitrust/">Le trappole sanzionate</a>. Hai comprato e vuoi ripensarci? <a href="../../garanzia/">Recesso e garanzia</a>.</small></p>
@@ -426,7 +451,7 @@ def carrello():
 def ingresso():
     schede = ''.join(f'<li><a href="{d}/">{casa.polpo_mini(b, classe="st-polpo")}<div><b>{esc(t)}</b><span>{esc(s)}</span><span class="record-gioco" data-gioco="{d}"></span></div></a></li>' for d, t, s, b in GIOCHI)
     corpo = f'''  <main class="gioco"><ul class="schede-giochi">{schede}</ul>
-  <p class="nota" style="margin-top:22px">Giochi brevi per imparare cose che servono. Ogni giorno c'è una sfida nuova, uguale per tutti, e puoi sfidare un amico sulla stessa partita. Nessuna registrazione, nessun dato inviato: record e medaglie restano nel tuo browser. Ogni regola ha la sua fonte.</p></main>'''
+  <p class="nota" style="margin-top:22px">Giochi brevi per imparare cose che servono. Ogni giorno c'è una sfida nuova, uguale per tutti, e puoi sfidare un amico sulla stessa partita. Nessuna registrazione: record e medaglie restano nel tuo browser. La classifica condivisa è facoltativa e usa un nome inventato, senza dati personali (<a href="https://github.com/casaleggiodavide-stack/agenti-civici/blob/main/docs/classifica.md">come funziona</a>). Ogni regola ha la sua fonte.</p></main>'''
     return cornice('../', 'Gioca con il Polpo', 'I giochi del Polpo civico: imparare giocando la raccolta differenziata e i propri diritti.',
                    'Il Polpo civico · giochi', 'Gioca con il Polpo', 'Partite da un minuto e mezzo per imparare cose che servono, con la fonte di ogni regola.', corpo,
                    script='''<script>

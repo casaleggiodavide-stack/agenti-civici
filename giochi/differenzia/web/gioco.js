@@ -4,9 +4,11 @@
 //   - oppure lancialo con uno swipe veloce verso il bidone;
 //   - con la tastiera, le frecce spostano il Polpo sotto un bidone e lo spazio gli fa
 //     afferrare il rifiuto più in basso e lanciarlo lì (i tasti da 1 a 6 scelgono il bidone).
-// Tutto avviene nel browser: nessun dato esce da qui. Il record resta sul tuo dispositivo.
+// Il gioco gira nel browser; record e medaglie restano sul tuo dispositivo. Solo se scegli la classifica
+// condivisa partono il nome inventato e le mosse della partita (giochi/comune/classifica.js).
 import { CONTENITORI, DURATA, VITE, valuta, segna, perso, nuovoStato, bersaglio, ritmo, mescola, moltiplicatore, testoCondivisione,
   FASI, fase, ammessi, difficolta, ogniOro, traguardo, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { classificaFine, inTesta } from '../../comune/classifica.js';
 import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 import DATI from '../src/rifiuti.js';
 
@@ -27,9 +29,10 @@ let px = 0, colonna = Math.floor(N / 2), conTastiera = false, umore = null;
 // il rifiuto tenuto dal tentacolo mentre lo trascini
 let presa = null;
 // la partita ripetibile: stesso seme, stessi rifiuti nello stesso ordine (sfida del giorno, sfida a un amico)
-let modo = 'libera', seme = '', rng = Math.random, faseOra = 0, codaFase = -1, generati = 0, finitoIlTempo = false;
+let modo = 'libera', seme = '', rng = Math.random, faseOra = 0, codaFase = -1, generati = 0, finitoIlTempo = false, mosse = [];
 const palco = tela.parentElement;
 const sfida = preparaApertura({ gioco: 'differenzia', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
+inTesta('differenzia', $('#in-testa'));
 
 function leggiColori() {
   const cs = getComputedStyle(document.documentElement);
@@ -67,7 +70,7 @@ function nuovaPartita(m = modo) {
   seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
   rng = caso(`${seme}-differenzia`);
   stato = nuovoStato(); attivi = []; volo = []; scritte = []; sbagli = []; presa = null; umore = null;
-  coda = []; codaFase = -1; faseOra = 0; generati = 0; finitoIlTempo = false;
+  coda = []; codaFase = -1; faseOra = 0; generati = 0; finitoIlTempo = false; mosse = [];
   misura();
   const barra = document.querySelector('.barra-gioco');
   window.scrollTo({ top: barra.getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
@@ -106,7 +109,9 @@ function genera(ora) {
 }
 
 function lancia(o, indice) {
+  if (stato.vite <= 0) return; // partita finita: si aspetta il riquadro finale
   const c = CONTENITORI[indice];
+  mosse.push([o.r.id, c.id, o.oro ? 1 : 0]); // le mosse, per il controllo dei punti della classifica
   const esito = valuta(o.r, c.id);
   const vitePrima = stato.vite;
   stato = segna(stato, esito, { oro: o.oro, difficile: difficolta(o.r) === 3 });
@@ -165,6 +170,7 @@ function fine() {
   $('#fine-dettaglio').textContent = `${stato.giusti} giusti su ${totale} lanci · serie migliore ${stato.migliore}${stato.ori ? ` · ${stato.ori} d'oro` : ''}`;
   chiudiPartita({ gioco: 'differenzia', punti: stato.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
     guadagnate: medaglieGuadagnate(stato, finitoIlTempo), soglie: TITOLI, el: $('#fine-premi'), palco });
+  classificaFine({ gioco: 'differenzia', el: $('#fine-classifica'), seme, delGiorno: modo === 'giorno', partita: { lanci: mosse } });
   $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   const unici = [...new Map(sbagli.map((s) => [s.r.id, s])).values()];
   $('#fine-errori').innerHTML = unici.length
@@ -194,6 +200,8 @@ function passo(ora) {
     }
     for (const o of attivi.filter((x) => x.y > quota && !(presa && presa.o === x))) {
       attivi = attivi.filter((x) => x !== o);
+      if (stato.vite <= 0) continue;
+      mosse.push([o.r.id, '', 0]);
       stato = perso(stato);
       scritte.push({ x: o.x, y: quota, testo: 'a terra', t0: ora, colore: colori.ink3 });
     }

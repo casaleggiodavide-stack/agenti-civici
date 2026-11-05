@@ -3,6 +3,7 @@
 // compaiono i costi nascosti. Poi il conto e i casi veri sanzionati dall'Antitrust.
 import { NEGOZI, CASI, NORME } from '../src/negozi.js';
 import { secondiPer, nuovoNegozio, tocca, conto, esiti, punti, trappole, testoCondivisione, stelle, perfetto, disponi, evitabile, PREMIO_PERFETTO, MEDAGLIE, medaglieGuadagnate, TITOLI } from '../src/regole.js';
+import { classificaFine, inTesta } from '../../comune/classifica.js';
 import { caso, semeDelGiorno, semeNuovo, preparaApertura, chiudiPartita, condividi, annuncioGrande, coriandoli, suona, pulsanteSuono } from '../../comune/premi.js';
 
 const $ = (s) => document.querySelector(s);
@@ -12,15 +13,16 @@ const meno = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let k = 0, n = null, s = null, passo = 'prodotto', fineTempo = 0, orologio = 0, totale = { punti: 0, viste: 0, trappole: 0, inPiu: 0, abbonamenti: 0 };
 const pagina = $('#pagina'), polpo = $('.tavolo .logo-polpo'), palco = $('.palco-truffa');
-let modo = 'libera', seme = '', rng = Math.random, risultati = [], tuttiVisti = false;
+let modo = 'libera', seme = '', rng = Math.random, risultati = [], tuttiVisti = false, mosse = [];
 const sfida = preparaApertura({ gioco: 'carrello', catalogo: MEDAGLIE, el: $('#premi'), bottone: $('#gioca') });
+inTesta('carrello', $('#in-testa'));
 const STELLE = (n) => '★'.repeat(n) + '☆'.repeat(3 - n);
 
 function nuovaPartita(m = modo) {
   modo = m;
   seme = modo === 'sfida' && sfida?.seme ? sfida.seme : modo === 'giorno' ? semeDelGiorno() : semeNuovo();
   rng = caso(`${seme}-carrello`);
-  risultati = [];
+  risultati = []; mosse = [];
   k = 0; totale = { punti: 0, viste: 0, trappole: 0, inPiu: 0, abbonamenti: 0 };
   $('#apertura').hidden = true; $('#fine').hidden = true; $('#esito-negozio').hidden = true; $('.tavolo').hidden = false;
   window.scrollTo({ top: $('.barra-gioco').getBoundingClientRect().top + window.scrollY - 6, behavior: 'auto' });
@@ -131,11 +133,12 @@ function disegna() {
 
 function paga(scaduto = false) {
   cancelAnimationFrame(orologio);
-  const resta = Math.max(0, (fineTempo - performance.now()) / 1000);
+  const resta = Math.round(Math.max(0, (fineTempo - performance.now()) / 1000) * 10) / 10; // arrotondato: la classifica rifà gli stessi conti
   const c = conto(n, s), lista = esiti(n, s);
   const p = punti(n, s, scaduto ? 0 : resta);
   const viste = lista.filter((x) => x.esito === 'evitata' || x.esito === 'scoperta').length;
   totale.punti += p; totale.viste += viste; totale.trappole += lista.length; totale.inPiu += c.inPiu; totale.abbonamenti += c.abbonamento;
+  mosse.push({ trovati: s.trovati, falsi: s.falsi, caselle: s.caselle, scelta: s.scelta, resta: scaduto ? 0 : resta });
   const st = stelle(n, s);
   risultati.push({ stelle: st, inPiu: evitabile(n, s), abbonamento: c.abbonamento, falsi: s.falsi.length, restaFrazione: scaduto ? 0 : resta / secondiPer(k) });
   $('#punti').textContent = totale.punti;
@@ -170,6 +173,7 @@ function fine() {
   $('#fine').hidden = false;
   chiudiPartita({ gioco: 'carrello', punti: totale.punti, delGiorno: modo === 'giorno', sfida: modo === 'sfida' ? sfida : null, catalogo: MEDAGLIE,
     guadagnate: medaglieGuadagnate(risultati), soglie: TITOLI, el: $('#fine-premi'), palco });
+  classificaFine({ gioco: 'carrello', el: $('#fine-classifica'), seme, delGiorno: modo === 'giorno', partita: { negozi: mosse } });
   $('#rigioca').textContent = modo === 'sfida' ? 'Riprova la sfida' : modo === 'giorno' ? 'Riprova la sfida del giorno' : 'Gioca ancora';
   $('#rigioca').focus();
 }

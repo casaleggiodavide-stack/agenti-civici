@@ -1,0 +1,14 @@
+# La classifica condivisa del Polpo civico su Cloudflare Workers (piano gratuito).
+# database_id viene scritto dal workflow .github/workflows/classifica.yml al momento della pubblicazione.
+name = "polpo-classifica"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+ORIGINI = "https://casaleggiodavide-stack.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "polpo-classifica"
+database_id = "DA_SCRIVERE"
