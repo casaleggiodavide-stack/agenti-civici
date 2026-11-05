@@ -52,7 +52,7 @@ test('ogni diritto ha la sua fonte ARERA', () => {
 });
 
 test('i dati: Comuni con codice ISTAT, sigla e gestori validi; siti in https o http; niente persone', () => {
-  assert.ok(DATI.comuni.length > 0);
+  assert.ok(DATI.comuni.length >= 7800, `${DATI.comuni.length} Comuni`);
   const visti = new Set();
   for (const [istat, nome, sigla, regione, gestori] of DATI.comuni) {
     assert.match(istat, /^\d{6}$/, nome);
