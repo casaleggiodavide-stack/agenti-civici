@@ -8,6 +8,7 @@ Strumenti aperti al servizio del cittadino, che funzionano **senza chiedere nien
 
 | Strumento | Cosa fa |
 |---|---|
+| [Per te](per-te/) | Una scheda che cresce con le risposte: dal Comune (e, se vuoi, chi vive in casa e la fascia ISEE) il dato che conta da ogni strumento, con il confronto e il passo da fare. Rifiuti, Prefettura per le multe, difensore civico, PEC del Comune, bilancio e appalti accanto alla mediana dei Comuni simili, aiuti probabili e possibili dal motore di Mi spetta, scadenze vicine. Tutto nel browser. Dati: `scripts/per-te-dati.py`; progetto in `docs/per-te.md`. |
 | [Chiedi al Polpo](assistente/) | In conversazione: gli porti le tue carte e racconti il problema con parole tue, lo Scrivano fa le domande che servono e usa i motori di regole dei tre strumenti qui sotto. Funziona quando la pagina è aperta dentro un assistente AI, con l'account di chi la usa; altrove rimanda agli strumenti. |
 | [Mi spetta](mi-spetta/) | A quali bonus e prestazioni pubbliche hai diritto: 24 prestazioni nazionali e 67 misure regionali (tutte le Regioni e le Province autonome) con le regole 2026, importi, requisiti, come chiederle, fonti. |
 | [Faccio ricorso?](faccio-ricorso/) | Controlla una multa stradale: termini, motivi oggettivi, confronto dei costi, Prefettura competente con PEC, ricorso al Prefetto o al Giudice di Pace pronto da firmare. |

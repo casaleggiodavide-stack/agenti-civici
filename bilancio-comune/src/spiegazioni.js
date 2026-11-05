@@ -103,7 +103,13 @@ export function controlli(s, simili) {
     }
   }
 
-  if (pdi.tempestivita !== undefined) {
+  // Valori fuori da ogni possibilità (pagare mesi prima della fattura, o anni dopo) sono errori di compilazione del rendiconto.
+  if (pdi.tempestivita !== undefined && !tempestivitaPlausibile(pdi.tempestivita)) {
+    out.push({ id: 'pagamenti', tono: 'neutro',
+      titolo: 'L\'indicatore dei pagamenti non è attendibile',
+      testo: `Nel rendiconto l'indicatore di tempestività dei pagamenti vale ${Math.round(pdi.tempestivita).toLocaleString('it-IT')} giorni: un valore impossibile, quasi sempre un errore di compilazione. Il dato giusto è nella sezione «Amministrazione trasparente» del sito del Comune, alla voce «Pagamenti».`,
+      fonte: FONTI.pagamenti });
+  } else if (pdi.tempestivita !== undefined) {
     const g = pdi.tempestivita;
     out.push({ id: 'pagamenti', tono: g <= 0 ? 'si' : g <= 30 ? 'forse' : 'no',
       titolo: g <= 0 ? `Paga i fornitori in tempo${g < 0 ? ` (in media ${Math.round(-g)} giorni prima della scadenza)` : ''}` : `Paga i fornitori in ritardo: in media ${Math.round(g)} giorni dopo la scadenza`,
@@ -171,4 +177,9 @@ function euroGrandi(n) {
   if (a >= 1e6) return `${f.format(a / 1e6)} milioni di euro`;
   if (a >= 1e5) return `${Math.round(a / 1000)} mila euro`;
   return `${new Intl.NumberFormat('it-IT', { useGrouping: 'always' }).format(Math.round(a))} euro`;
+}
+
+/** L'indicatore di tempestività (giorni medi di ritardo, negativi se in anticipo) è credibile tra -60 e +730 giorni. */
+export function tempestivitaPlausibile(g) {
+  return typeof g === 'number' && g >= -60 && g <= 730;
 }

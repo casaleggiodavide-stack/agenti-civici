@@ -109,8 +109,10 @@ $$('[data-esempio]').forEach((b) => b.addEventListener('click', async () => {
 }));
 $('#cancella')?.addEventListener('click', () => { memoria.cancella(); campo.value = ''; $('#esito').innerHTML = ''; });
 
+// Apertura diretta da un altro strumento: #istat=026086 (l'ancora non arriva al server)
 (async () => {
-  const ultimo = memoria.leggi({});
+  const ancora = /(?:^|[#&])istat=(\d{6})/.exec(location.hash)?.[1];
+  const ultimo = ancora ? { istat: ancora } : memoria.leggi({});
   if (ultimo?.istat) {
     const idx = await carica();
     const r = idx.righe.find((x) => x.istat === ultimo.istat);

@@ -32,9 +32,10 @@ def marchio(s):
 
 
 def segno(t, s):
-    if t == 'assistente':
+    if t in ('assistente', 'per-te'):
+        cosa = 'usa tutte e otto le braccia' if t == 'assistente' else 'mette insieme le otto braccia per te'
         return (f'<!--braccio--><a class="braccio-segno polpo-intero" href="../"><span class="bs-icona">{marchio(s)}</span>'
-                f'<span class="bs-testo"><span class="bs-n">Il Polpo in persona</span>usa tutte e otto le braccia</span></a><!--/braccio-->')
+                f'<span class="bs-testo"><span class="bs-n">Il Polpo in persona</span>{cosa}</span></a><!--/braccio-->')
     k = DI[t]
     return (f'<!--braccio--><a class="braccio-segno" href="../#braccio-{k + 1}"><span class="bs-icona">{icona(k)}</span>'
             f'<span class="bs-testo"><span class="bs-n">Braccio {k + 1:02d} di 8 del Polpo</span>{BRACCIA[k][1]}</span></a><!--/braccio-->')
@@ -59,7 +60,7 @@ def metti(s, nome, blocco, dove):
 
 def main():
     n = 0
-    for t in sorted(list(DI) + ['assistente']):
+    for t in sorted(list(DI) + ['assistente', 'per-te']):
         p = os.path.join(REPO, t, 'index.html')
         s = open(p, encoding='utf-8').read()
         def in_testata(s, b):

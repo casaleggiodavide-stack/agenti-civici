@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--icone--><link rel="icon" href="src/icona-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="src/icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="src/icona-180.png"><!--/icone-->
+<title>Per te</title>
+<meta name="description" content="Dimmi dove abiti e chi vive con te: una scheda con quello che vale per te, presa da tutti gli strumenti del Polpo civico. Chi raccoglie i rifiuti, la Prefettura per le multe, il difensore civico, i conti e gli appalti del Comune, gli aiuti probabili per la tua famiglia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  body:has(.foto-testata) .scena-testata { display: none; }
+  .risultati-enti { list-style: none; margin: 6px 0 0; padding: 0; border: 1px solid var(--riga); border-radius: 6px; overflow: hidden; background: var(--carta); }
+  .risultati-enti li + li { border-top: 1px solid var(--riga-tenue); }
+  .risultati-enti button { all: unset; box-sizing: border-box; display: block; width: 100%; padding: 9px 12px; cursor: pointer; font-size: var(--s0); }
+  .risultati-enti button:hover, .risultati-enti button:focus-visible { background: var(--accento-tenue); outline: none; }
+  .risultati-enti small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  .domanda-per-te fieldset { border: 0; padding: 0; margin: 0 0 16px; }
+  .domanda-per-te legend { font-weight: 600; margin-bottom: 8px; }
+  .pillole { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pillole label { position: relative; }
+  .pillole input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .pillole span { display: inline-block; padding: 8px 14px; border: 1px solid var(--riga); border-radius: 999px; background: var(--carta); font-size: var(--s0); cursor: pointer; }
+  .pillole input:checked + span { border-color: var(--accento); background: var(--accento-tenue); font-weight: 600; }
+  .pillole input:focus-visible + span { outline: 2px solid var(--accento); outline-offset: 2px; }
+  .contatori { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  .contatore { display: grid; gap: 4px; font-size: var(--s-1); color: var(--inchiostro-2); }
+  .contatore input { width: 6.5em; }
+  .spunta { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: var(--s0); }
+  .spunta input { accent-color: var(--accento); width: 18px; height: 18px; margin: 0; }
+  .risposte-per-te ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .risposte-per-te li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding-bottom: 8px; border-bottom: 1px solid var(--riga-tenue); }
+  .risposte-per-te li span { color: var(--inchiostro-3); font-size: var(--s-1); flex-basis: 100%; }
+  .testa-scheda .titolo-scheda, .scheda-vuota .titolo-vuota { font-family: var(--titoli); font-size: var(--s3); font-weight: 800; line-height: 1.05; margin: 2px 0 4px; letter-spacing: -0.03em; }
+  .gruppo-per-te { margin-top: 22px; }
+  .gruppo-per-te h3 { font-family: var(--cifre); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3); font-weight: 600; margin: 0 0 10px; }
+  .riquadri { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; }
+  .riquadro { background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .riquadro[data-tono="si"] { border-color: color-mix(in srgb, var(--si) 55%, var(--riga)); }
+  .riquadro[data-tono="forse"] { border-color: color-mix(in srgb, var(--forse) 60%, var(--riga)); }
+  .riquadro[data-tono="no"] { border-color: color-mix(in srgb, var(--no) 60%, var(--riga)); }
+  .riquadro p { margin: 0; }
+  .r-etichetta { display: flex; justify-content: space-between; gap: 8px; font-size: var(--s-1); color: var(--inchiostro-3); }
+  .r-segno { font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--sul-accento); background: var(--accento); padding: 1px 7px; border-radius: 4px; }
+  .r-titolo { font-weight: 800; font-size: var(--s1); line-height: 1.2; color: var(--inchiostro); text-wrap: balance; }
+  .r-testo { font-size: var(--s0); color: var(--inchiostro-2); line-height: 1.45; }
+  .r-fonte { font-size: var(--s-1); color: var(--inchiostro-3); margin-top: auto !important; }
+  .riquadro .azioni-doc { margin-top: 4px; }
+  .riquadro .azioni-doc .btn { font-size: var(--s-1); padding: 6px 12px; }
+  .prossima-per-te { margin: 22px 0 0; padding: 12px 16px; border: 1px dashed var(--accento); border-radius: 8px; color: var(--inchiostro-2); }
+  .prossima-per-te span { color: var(--accento); font-weight: 800; }
+  @media (prefers-reduced-motion: no-preference) { .riquadro { animation: entra .35s ease-out both; } @keyframes entra { from { opacity: 0; transform: translateY(6px); } } }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Il Polpo civico">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico</b>
+  <div class="famiglia-voci">
+  <a href="../per-te/" data-strumento="per-te" aria-current="page">Per te</a>
+  <a href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a>
+  <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../garanzia/" data-strumento="garanzia">Garanzia e recesso</a>
+    <a href="../liste-attesa/" data-strumento="liste-attesa">Liste d'attesa</a>
+    <a href="../truffe/" data-strumento="truffe">È una truffa?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+    <a href="../raccolta/" data-strumento="raccolta">Chi raccoglie i rifiuti?</a>
+  <a href="../storie/">Le storie</a>
+  <a href="../legge/">Il Polpo legge</a>
+  </div>
+    <!--sostieni--><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a><!--/sostieni-->
+    <script>(() => { const v = document.currentScript.parentElement.querySelector('.famiglia-voci'), a = v && v.querySelector('[aria-current="page"]'); if (a && v.scrollWidth > v.clientWidth) v.scrollLeft = a.offsetLeft - 16; })();</script>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:per-te--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Un segnaposto sul Comune e una scheda che si riempie di riquadri: quello che vale per te" preserveAspectRatio="xMidYMid meet"><circle class="s-l" cx="66" cy="62" r="26" style="fill:var(--carta)"/><path class="s-l" d="M66 88 L66 120 M52 120 H80"/><circle class="s-p" cx="66" cy="62" r="10"/><rect class="s-l" x="150" y="18" width="150" height="112" rx="8" style="fill:var(--carta)"/><rect class="s-p" x="164" y="32" width="56" height="10" rx="3"/><path class="s-l" d="M164 54 H286 M164 64 H252"/><rect class="s-l" x="164" y="78" width="56" height="38" rx="4"/><rect class="s-l" x="230" y="78" width="56" height="38" rx="4"/><path class="s-l" d="M172 90 H210 M172 100 H200 M238 90 H276 M238 100 H262"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C38 110 40 100 44 92 M92 62 C110 62 124 50 150 48 M258 116 C258 124 254 130 248 134"/></svg></div><!--/scena-->
+      <!--logo:per-te--><div class="titolo-logo"><svg class="logo-strumento logo-polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo civico"><g transform="rotate(0)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-135) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-180) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(225)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-225) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(270)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-270) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(315)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-315) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg><h1>Per te</h1></div><!--/logo-->
+      <!--braccio--><a class="braccio-segno polpo-intero" href="../"><span class="bs-icona"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg></span><span class="bs-testo"><span class="bs-n">Il Polpo in persona</span>mette insieme le otto braccia per te</span></a><!--/braccio-->
+      <p class="promessa">Una domanda alla volta, a partire dal Comune dove abiti. A ogni risposta la scheda si allunga con quello che vale per te: il dato che conta, il confronto con i Comuni simili e il passo da fare.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Tre domande, a fasce:</b> niente nomi, date, codice fiscale o cifre esatte. Ogni domanda si può saltare.</li>
+      <li><b>Le regole degli altri strumenti:</b> gli aiuti li calcola il motore di Mi spetta, i conti vengono dai dati ufficiali.</li>
+      <li><b>Resta sul tuo dispositivo.</b> Nessun server: la prossima volta la scheda è già pronta, e la cancelli quando vuoi.</li>
+    </ul>
+  </header>
+  
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Prova con un esempio</span>
+    <button type="button" data-esempio="treviso">Treviso, due figli piccoli</button>
+    <button type="button" data-esempio="bari">Bari, in pensione da solo</button>
+    <button type="button" data-esempio="piccolo">Un paese piccolo</button>
+  </div>
+  <div class="avviso" id="avviso-esempio" hidden>
+    <span>Stai guardando un esempio, non i tuoi dati.</span>
+    <button type="button" id="esci-esempio">Ricomincia con i tuoi dati</button>
+  </div>
+
+  <div id="foto" hidden></div>
+
+  <main class="corpo">
+    <div class="colonna">
+      
+      <form class="colonna" id="questionario" autocomplete="off" novalidate></form>
+    </div>
+    <div class="colonna appiccicosa" id="esito" aria-live="polite"></div>
+  </main>
+
+  <!--braccia--><nav class="braccia-polpo" aria-label="Le otto braccia del Polpo"><a class="bp-polpo" href="../"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg><span>Le otto braccia del Polpo</span></a><ol><li><a class="bp-braccio" href="../#braccio-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></svg><span>01 · Fa i conti dei tuoi diritti</span></a></li><li><a class="bp-braccio" href="../#braccio-2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></svg><span>02 · Scrive le lettere</span></a></li><li><a class="bp-braccio" href="../#braccio-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></svg><span>03 · Trova la strada</span></a></li><li><a class="bp-braccio" href="../#braccio-4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></svg><span>04 · Ti difende</span></a></li><li><a class="bp-braccio" href="../#braccio-5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></svg><span>05 · Legge i conti del Comune</span></a></li><li><a class="bp-braccio" href="../#braccio-6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></svg><span>06 · Controlla gli appalti</span></a></li><li><a class="bp-braccio" href="../#braccio-7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></svg><span>07 · Ti porta a firmare</span></a></li><li><a class="bp-braccio" href="../#braccio-8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></svg><span>08 · Si prende cura dei luoghi</span></a></li></ol><a class="bp-chiedi" href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a></nav><!--/braccia-->
+
+  <footer class="piede">
+    <!--crediti--><p class="crediti">Il Polpo civico è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
+    <p><b>Per te non sostituisce gli uffici né i singoli strumenti.</b> La scheda mette insieme quello che calcolano gli altri strumenti del Polpo civico: il bilancio dai rendiconti della Ragioneria Generale dello Stato (OpenBDAP), gli appalti dai dati aperti ANAC, il gestore dei rifiuti dall'elenco ARERA, le PEC dall'Indice delle pubbliche amministrazioni, gli aiuti dal motore di regole di Mi spetta. Con le risposte a fasce gli aiuti sono «probabili» o «possibili», mai certi: il controllo completo si fa in Mi spetta.</p><p>Non è un sito della pubblica amministrazione. Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Cancella la mia scheda da questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

@@ -95,7 +95,7 @@ def main():
 
     # gli strumenti
     n = 0
-    for t in sorted(set(braccia.DI) | {'assistente'}):
+    for t in sorted(set(braccia.DI) | {'assistente', 'per-te'}):
         k = braccia.DI.get(t)
         svg = icona_strumento(k)
         with open(os.path.join(REPO, t, 'src', 'icona.svg'), 'w', encoding='utf-8') as f:

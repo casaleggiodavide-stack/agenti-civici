@@ -270,6 +270,43 @@ def blocco():
     </section>
   </header>
 
+  <section class="per-te-casa" aria-labelledby="t-per-te">
+    <div class="pt-testo">
+      <p class="occhiello">Per te</p>
+      <h2 id="t-per-te">Dimmi dove abiti</h2>
+      <p>Una scheda con quello che vale per te, presa da tutte le braccia: chi raccoglie i rifiuti, dove mandare il ricorso per una multa, come vanno i conti del tuo Comune e, se vuoi, gli aiuti per la tua famiglia.</p>
+    </div>
+    <form class="per-te-form" action="per-te/" novalidate>
+      <label for="per-te-comune">Il tuo Comune</label>
+      <input id="per-te-comune" type="text" autocomplete="off" placeholder="es. Treviso">
+      <button type="submit" class="btn btn-primario">Fai la mia scheda</button>
+    </form>
+    <p class="per-te-pronta" hidden></p>
+    <script>
+    /* Il nome del Comune passa alla pagina «Per te» con la memoria della scheda del browser, mai nell'indirizzo. */
+    (() => {{
+      const s = document.currentScript.parentElement;
+      const f = s.querySelector('.per-te-form'), t = s.querySelector('#per-te-comune'), pronta = s.querySelector('.per-te-pronta');
+      f.addEventListener('submit', (e) => {{
+        e.preventDefault();
+        try {{ if (t.value.trim()) sessionStorage.setItem('polpo-per-te-cerca', t.value.trim().slice(0, 80)); }} catch {{ /* niente */ }}
+        location.href = 'per-te/';
+      }});
+      try {{
+        const p = JSON.parse(localStorage.getItem('polpo-profilo-v1') || '{{}}');
+        if (p && p.nome) {{
+          pronta.hidden = false;
+          pronta.innerHTML = '';
+          const a = document.createElement('a');
+          a.href = 'per-te/'; a.className = 'btn';
+          a.textContent = 'La tua scheda di ' + p.nome + ' è pronta →';
+          pronta.append(a);
+        }}
+      }} catch {{ /* niente */ }}
+    }})();
+    </script>
+  </section>
+
   {letture()}
 
   <section class="tutte" id="cosa-puoi-fare" aria-labelledby="t-tutte">
@@ -444,6 +481,14 @@ CSS = '''/*casa*/
   .g-leggi, .tessera-leggi { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin: 10px 0 0; font-size: 14.5px; }
   .g-leggi span, .tessera-leggi span { font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
   .tessera-leggi { margin-top: 4px; grid-column: 2; }
+  .per-te-casa { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 14px 32px; align-items: center; margin: 8px 0 40px; padding: 22px 26px; background: var(--carta); border: 1px solid var(--accento); border-radius: 8px; }
+  .per-te-casa h2 { margin: 2px 0 6px; font-size: var(--s3); }
+  .per-te-casa .pt-testo p:last-child { margin: 0; color: var(--inchiostro-2); }
+  .per-te-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .per-te-form label { flex-basis: 100%; font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); }
+  .per-te-form input { flex: 1 1 180px; min-width: 0; max-width: none; }
+  .per-te-pronta { grid-column: 1 / -1; margin: 0; }
+  @media (max-width: 760px) { .per-te-casa { grid-template-columns: 1fr; padding: 18px; } }
 /*/casa*/'''
 
 

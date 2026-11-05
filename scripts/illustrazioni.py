@@ -169,6 +169,13 @@ SCENE = {
         + persona(296, 132, 0.9, rossa=True) +
         f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/>',
         'Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite', '0 0 320 140'),
+    'per-te': svg(
+        '<circle class="s-l" cx="66" cy="62" r="26" style="fill:var(--carta)"/><path class="s-l" d="M66 88 L66 120 M52 120 H80"/><circle class="s-p" cx="66" cy="62" r="10"/>'
+        '<rect class="s-l" x="150" y="18" width="150" height="112" rx="8" style="fill:var(--carta)"/>'
+        '<rect class="s-p" x="164" y="32" width="56" height="10" rx="3"/><path class="s-l" d="M164 54 H286 M164 64 H252"/>'
+        '<rect class="s-l" x="164" y="78" width="56" height="38" rx="4"/><rect class="s-l" x="230" y="78" width="56" height="38" rx="4"/><path class="s-l" d="M172 90 H210 M172 100 H200 M238 90 H276 M238 100 H262"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C38 110 40 100 44 92 M92 62 C110 62 124 50 150 48 M258 116 C258 124 254 130 248 134"/>',
+        'Un segnaposto sul Comune e una scheda che si riempie di riquadri: quello che vale per te', '0 0 320 140'),
     'raccolta': svg(
         '<path class="s-l" d="M36 50 H84 M40 50 L44 126 H76 L80 50 M52 42 H68 V50" style="fill:var(--carta)"/><path class="s-l" d="M52 64 V112 M68 64 V112"/>'
         '<path class="s-l" d="M98 58 H146 M102 58 L106 126 H138 L142 58 M114 50 H130 V58" style="fill:var(--carta)"/><circle class="s-p" cx="122" cy="92" r="12"/>'
@@ -220,7 +227,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe', 'raccolta']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe', 'raccolta', 'per-te']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
@@ -318,6 +325,7 @@ LOGHI = {
     'truffe': ('È una truffa?', _logo('<path class="lg-i" d="M16 10 H38 V54 H16 Z M23 48 H31"/>', 'M48 8 V30 C48 40 36 40 36 31 V28', (48, 8))),
     'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
 }
+LOGHI['per-te'] = ('Per te', LOGHI['assistente'][1])
 
 STILE_LOGO = ('.lg-f{fill:var(--carta,#FFFDF8);stroke:var(--inchiostro,#17202E);stroke-width:2.4}'
               '.lg-i{fill:none;stroke:var(--inchiostro,#17202E);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}'
@@ -340,7 +348,7 @@ def favicon(nome):
 def applica_loghi():
     nomi_h1 = {'assistente': 'Chiedi al Polpo', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
-               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?', 'raccolta': 'Chi raccoglie i rifiuti?'}
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?', 'raccolta': 'Chi raccoglie i rifiuti?', 'per-te': 'Per te'}
     for t, h1 in nomi_h1.items():
         cartella = os.path.join(REPO, t)
         open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))
