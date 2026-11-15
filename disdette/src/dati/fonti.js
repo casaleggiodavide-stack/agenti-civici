@@ -1,0 +1,314 @@
+// Fonti verificate per «Disdici un abbonamento». File generato da
+// scripts/disdette-dati.py da disdette/dati/fonti.json: non modificarlo a mano.
+
+export default {
+ "verificato": "2026-11-15",
+ "regole": {
+  "bersani_c3": {
+   "testo": "Nei contratti con operatori di telefonia, di reti televisive e di comunicazione elettronica puoi recedere o passare a un altro operatore in ogni momento, senza vincoli di tempo, con un preavviso di non più di 30 giorni e senza spese che non siano giustificate da costi dell'operatore. Le clausole contrarie sono nulle.",
+   "giorni": 30,
+   "norma": {
+    "titolo": "D.l. 7/2007, convertito dalla legge 40/2007, art. 1, comma 3",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1"
+   }
+  },
+  "bersani_c3bis": {
+   "testo": "Il recesso o il cambio di operatore deve essere semplice e di immediata attivazione: si può fare con le stesse forme usate per attivare il contratto e, in ogni caso, anche per via telematica.",
+   "norma": {
+    "titolo": "D.l. 7/2007, art. 1, comma 3-bis",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1"
+   }
+  },
+  "bersani_c3ter": {
+   "testo": "I contratti con offerte promozionali che comprendono beni e servizi non possono durare più di 24 mesi; se esci prima, i costi devono essere equi e proporzionati al valore del contratto e alla durata residua della promozione.",
+   "mesi": 24,
+   "norma": {
+    "titolo": "D.l. 7/2007, art. 1, comma 3-ter",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1"
+   }
+  },
+  "bersani_c3quater": {
+   "testo": "Gli operatori non possono attivare servizi in abbonamento senza il tuo consenso espresso e documentato.",
+   "norma": {
+    "titolo": "D.l. 7/2007, art. 1, comma 3-quater",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1"
+   }
+  },
+  "cce_c1": {
+   "testo": "I contratti di comunicazione elettronica con i consumatori non possono vincolarti per più di 24 mesi, e almeno un'offerta deve durare al massimo 12 mesi.",
+   "mesi": 24,
+   "norma": {
+    "titolo": "D.lgs. 259/2003 (Codice delle comunicazioni elettroniche), art. 98-septiesdecies, comma 1",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies"
+   }
+  },
+  "cce_c4": {
+   "testo": "Dopo il rinnovo automatico puoi recedere in qualsiasi momento con un preavviso di massimo un mese, senza penali né costi di disattivazione, salvo il servizio usato durante il preavviso. Almeno 2 mesi prima del rinnovo l'operatore deve avvisarti della fine del vincolo e di come disdire.",
+   "norma": {
+    "titolo": "D.lgs. 259/2003, art. 98-septiesdecies, comma 4",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies"
+   }
+  },
+  "cce_c5": {
+   "testo": "Se l'operatore cambia le condizioni del contratto, deve avvisarti almeno 30 giorni prima e puoi recedere o cambiare operatore senza penali né costi di disattivazione entro 60 giorni dalla comunicazione. Non vale per le modifiche solo a tuo vantaggio, puramente amministrative o imposte dalla legge.",
+   "giorni": 60,
+   "norma": {
+    "titolo": "D.lgs. 259/2003, art. 98-septiesdecies, comma 5",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies"
+   }
+  },
+  "cce_c6": {
+   "testo": "Se la connessione è in modo significativo, continuo o ricorrente peggiore di quanto promesso nel contratto, puoi recedere senza costi, ferme restando gli indennizzi.",
+   "norma": {
+    "titolo": "D.lgs. 259/2003, art. 98-septiesdecies, comma 6; delibera AGCOM 307/23/CONS, all. B, art. 6-bis",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies"
+   }
+  },
+  "cce_c7": {
+   "testo": "Quando hai diritto di recedere prima della scadenza, l'operatore non può chiederti nulla, salvo il telefono o il modem abbinato al contratto che decidi di tenere: al massimo il valore residuo concordato o la quota di canone che resta, se è minore.",
+   "norma": {
+    "titolo": "D.lgs. 259/2003, art. 98-septiesdecies, comma 7",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies"
+   }
+  },
+  "agcom_preavviso": {
+   "testo": "Il preavviso per recedere o passare a un altro operatore non può superare 30 giorni, e nello stesso tempo l'operatore deve completare la disattivazione.",
+   "giorni": 30,
+   "norma": {
+    "titolo": "Delibera AGCOM 487/18/CONS, allegato A, punti 9-11",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2030-10-2018.pdf"
+   }
+  },
+  "agcom_costi": {
+   "testo": "I costi di disattivazione o trasferimento devono essere resi noti nell'offerta e alla firma, e non possono superare il minore tra i costi reali dell'operatore e il valore del contratto, cioè la media dei canoni mensili che l'operatore si aspetta di incassare (il «prezzo implicito»).",
+   "norma": {
+    "titolo": "Delibera AGCOM 487/18/CONS, allegato A, punti 17-22 e 34-36",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2030-10-2018.pdf"
+   }
+  },
+  "agcom_sconti": {
+   "testo": "Gli sconti di una promozione si possono chiedere indietro solo entro la differenza tra i canoni al prezzo implicito e i canoni che hai pagato davvero fino al recesso, in modo equo e proporzionato alla durata residua della promozione.",
+   "norma": {
+    "titolo": "Delibera AGCOM 487/18/CONS, allegato A, punti 23-27",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2030-10-2018.pdf"
+   }
+  },
+  "agcom_rate": {
+   "testo": "Se recedi con rate ancora da pagare (telefono, modem, attivazione), scegli tu se continuare a pagarle alle scadenze previste o saldarle tutte insieme, senza costi in più. Se non chiedi niente, restano a rate.",
+   "norma": {
+    "titolo": "Delibera AGCOM 487/18/CONS, allegato A, punti 28-31; delibera 307/23/CONS, allegato B, art. 5, comma 6",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%203-1-2024%201704274121784.pdf"
+   }
+  },
+  "agcom_estranei": {
+   "testo": "L'operatore non può chiederti, quando esci, costi estranei alla disattivazione, come quelli di attivazione mai addebitati, né il costo di un servizio o prodotto non previsto alla firma.",
+   "norma": {
+    "titolo": "Delibera AGCOM 487/18/CONS, allegato A, punto 31 (Consiglio di Stato, sentenza 4773/2015)",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2030-10-2018.pdf"
+   }
+  },
+  "agcom_24mesi": {
+   "testo": "Nei contratti con rinnovo automatico firmati dopo la pubblicazione della delibera 307/23/CONS (3 gennaio 2024), dopo il ventiquattresimo mese puoi recedere in qualsiasi momento con preavviso di massimo un mese, senza penali né costi di disattivazione.",
+   "data": "2024-01-03",
+   "norma": {
+    "titolo": "Delibera AGCOM 307/23/CONS, allegato B, art. 5, comma 5",
+    "url": "https://www.agcom.it/provvedimenti/delibera-307-23-cons"
+   }
+  },
+  "agcom_dopo_chiusura": {
+   "testo": "Dopo la data di efficacia del recesso o del passaggio a un altro operatore non ti possono addebitare nulla; se succede, devono stornare o rimborsare subito.",
+   "norma": {
+    "titolo": "Delibera AGCOM 307/23/CONS, allegato B, art. 8, comma 2",
+    "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%203-1-2024%201704274121784.pdf"
+   }
+  },
+  "conciliaweb": {
+   "testo": "Per le controversie con gli operatori di telefonia, internet e pay TV il tentativo di conciliazione è gratuito e obbligatorio prima di andare dal giudice: si fa online su ConciliaWeb con SPID, CIE o eIDAS, dopo il reclamo all'operatore.",
+   "norma": {
+    "titolo": "AGCOM, contenzioso tra utenti e operatori (ConciliaWeb, delibera 203/18/CONS)",
+    "url": "https://www.agcom.it/agcom-per-te/i-miei-diritti/contenzioso-tra-utenti-e-operatori"
+   },
+   "piattaforma": "https://conciliaweb.agcom.it/"
+  },
+  "misurainternet": {
+   "testo": "Per dimostrare che la connessione fissa va peggio di quanto promesso serve la misura con il programma ufficiale gratuito di AGCOM, sul sito MisuraInternet.",
+   "norma": {
+    "titolo": "AGCOM, MisuraInternet",
+    "url": "https://www.misurainternet.it/"
+   }
+  },
+  "cdc_33": {
+   "testo": "Si presumono vessatorie, cioè squilibrate a tuo danno, le clausole che: ti fanno pagare una penale manifestamente eccessiva (lett. f); fissano un termine eccessivamente anticipato per la disdetta, per far scattare il rinnovo (lett. i); permettono al fornitore di cambiare le condizioni senza un giustificato motivo scritto nel contratto (lett. m); gli permettono di aumentare il prezzo senza che tu possa recedere (lett. o).",
+   "norma": {
+    "titolo": "Codice del consumo (d.lgs. 206/2005), art. 33, comma 2, lettere f, i, m, o",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art33"
+   }
+  },
+  "cdc_36": {
+   "testo": "Le clausole vessatorie sono nulle, mentre il resto del contratto resta valido. La nullità opera solo a tuo vantaggio.",
+   "norma": {
+    "titolo": "Codice del consumo, art. 36",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art36"
+   }
+  },
+  "cc_1341": {
+   "testo": "Nei contratti su moduli o formulari, la clausola di tacita proroga o rinnovo vale solo se l'hai approvata specificamente per iscritto (la seconda firma accanto all'elenco delle clausole).",
+   "norma": {
+    "titolo": "Codice civile, art. 1341, secondo comma",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1341"
+   }
+  },
+  "cdc_52": {
+   "testo": "Per i contratti conclusi a distanza (online, al telefono) o fuori dai locali del venditore hai 14 giorni per ripensarci, senza dare motivi e senza costi. Per i servizi i giorni si contano dalla firma del contratto.",
+   "giorni": 14,
+   "norma": {
+    "titolo": "Codice del consumo, art. 52, commi 1 e 2",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art52"
+   }
+  },
+  "cdc_52_30": {
+   "testo": "Se il contratto è stato concluso durante una visita a casa tua che non avevi chiesto, o durante una gita organizzata per vendere, i giorni per ripensarci sono 30.",
+   "giorni": 30,
+   "norma": {
+    "titolo": "Codice del consumo, art. 52, comma 1-bis",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art52"
+   }
+  },
+  "cdc_53": {
+   "testo": "Se non ti hanno informato del diritto di ripensamento, il periodo finisce 12 mesi dopo la fine del periodo normale.",
+   "mesi": 12,
+   "norma": {
+    "titolo": "Codice del consumo, art. 53, comma 1",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art53"
+   }
+  },
+  "cdc_54": {
+   "testo": "Per ripensarci basta il modulo tipo o una qualsiasi dichiarazione esplicita della tua decisione; tocca a te dimostrare di averla mandata in tempo.",
+   "norma": {
+    "titolo": "Codice del consumo, art. 54",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art54"
+   }
+  },
+  "cdc_54bis": {
+   "testo": "Per i contratti conclusi su un sito o un'app dal 19 giugno 2026, il venditore deve offrire per tutto il periodo di ripensamento una funzione ben visibile «recedere dal contratto qui», con il pulsante «conferma recesso» e una ricevuta immediata con data e ora. Il recesso è in tempo se lo invii prima della scadenza.",
+   "data": "2026-06-19",
+   "norma": {
+    "titolo": "Codice del consumo, art. 54-bis (inserito dal d.lgs. 209/2025, che recepisce la direttiva (UE) 2023/2673)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art54bis"
+   }
+  },
+  "cdc_56": {
+   "testo": "Dopo il ripensamento il fornitore deve rimborsarti tutti i pagamenti entro 14 giorni da quando è stato informato.",
+   "giorni": 14,
+   "norma": {
+    "titolo": "Codice del consumo, art. 56",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art56"
+   }
+  },
+  "cdc_57": {
+   "testo": "Se hai chiesto tu che il servizio partisse subito, durante i giorni di ripensamento, e poi recedi, paghi solo la parte di servizio ricevuta fino a quando hai comunicato il recesso.",
+   "norma": {
+    "titolo": "Codice del consumo, art. 57, comma 3",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art57"
+   }
+  },
+  "cdc_59": {
+   "testo": "Non puoi ripensarci quando il servizio è già stato del tutto eseguito con il tuo consenso espresso (lett. a), né per un contenuto digitale non su supporto materiale (un film comprato, un gioco, un programma da scaricare) che hai chiesto di ricevere subito accettando di perdere il recesso, con la conferma del venditore (lett. o).",
+   "norma": {
+    "titolo": "Codice del consumo, art. 59, comma 1, lettere a e o",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art59"
+   }
+  },
+  "cdc_65bis": {
+   "testo": "Nei contratti di servizi a durata determinata con rinnovo automatico, il fornitore deve avvisarti 30 giorni prima della scadenza, per iscritto, con SMS o in un altro modo telematico che hai indicato, della data entro cui puoi mandare la disdetta. Se non lo fa, puoi recedere in qualsiasi momento, senza spese, fino alla scadenza successiva.",
+   "giorni": 30,
+   "norma": {
+    "titolo": "Codice del consumo, art. 65-bis (inserito dalla legge 214/2023, art. 14)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art65bis"
+   }
+  },
+  "cdc_66quinquies": {
+   "testo": "Per un servizio, un contenuto digitale, luce o gas che non hai chiesto non devi pagare nulla: il tuo silenzio non vale come consenso.",
+   "norma": {
+    "titolo": "Codice del consumo, art. 66-quinquies",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art66quinquies"
+   }
+  },
+  "cap_170bis": {
+   "testo": "La polizza RC auto dura un anno (o un anno più una frazione, se lo chiedi), si chiude da sola alla scadenza e non può essere rinnovata tacitamente. L'assicurazione deve avvisarti della scadenza almeno 30 giorni prima e tenere attiva la copertura fino a 15 giorni dopo, solo finché non parte la nuova polizza. Lo stesso vale per le garanzie accessorie (furto, incendio…) nello stesso contratto o in uno firmato insieme.",
+   "giorni": 15,
+   "norma": {
+    "titolo": "D.lgs. 209/2005 (Codice delle assicurazioni private), art. 170-bis, commi 1 e 1-bis (inserito dal d.l. 179/2012, art. 22)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-07;209~art170bis"
+   }
+  },
+  "cc_1899": {
+   "testo": "Una polizza danni di più anni con premio ridotto rispetto a quella annuale, se supera i cinque anni, si può disdire dopo il quinto anno con preavviso di 60 giorni: il recesso vale dalla fine dell'annualità in cui lo mandi. Ogni proroga tacita non può durare più di due anni. Non vale per le polizze vita.",
+   "giorni": 60,
+   "data": "2009-08-15",
+   "norma": {
+    "titolo": "Codice civile, art. 1899, commi 1-3 (testo della legge 99/2009, art. 21)",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1899"
+   }
+  },
+  "ivass_reclami": {
+   "testo": "Con l'assicurazione: prima il reclamo scritto all'impresa; se non risponde entro 45 giorni o la risposta non ti soddisfa, puoi rivolgerti all'IVASS o all'Arbitro Assicurativo (online, 20 euro restituiti se vinci, dal 15 gennaio 2026).",
+   "giorni": 45,
+   "norma": {
+    "titolo": "IVASS, Arbitro Assicurativo e guida ai reclami",
+    "url": "https://www.ivass.it/consumatori/aas/index.html"
+   }
+  },
+  "arera_cambio": {
+   "testo": "Per cambiare fornitore di luce o gas non devi disdire niente: firmi il nuovo contratto e dai al nuovo venditore la procura a recedere per te dal vecchio.",
+   "norma": {
+    "titolo": "ARERA, delibera 302/2016/R/com, allegato A, artt. 3 e 6.1",
+    "url": "https://www.arera.it/fileadmin/allegati/docs/16/302-16all_ti.pdf"
+   }
+  },
+  "arera_cessazione": {
+   "testo": "Se chiudi la fornitura senza passare a un altro venditore, scrivi tu al venditore: il preavviso non può superare un mese da quando riceve la comunicazione.",
+   "mesi": 1,
+   "norma": {
+    "titolo": "ARERA, delibera 302/2016/R/com, allegato A, artt. 5.1 e 6.2",
+    "url": "https://www.arera.it/fileadmin/allegati/docs/16/302-16all_ti.pdf"
+   }
+  },
+  "arera_penali": {
+   "testo": "Per le famiglie il recesso da luce e gas non può avere penali né spese di chiusura: le clausole contrarie si considerano non scritte.",
+   "norma": {
+    "titolo": "ARERA, delibera 302/2016/R/com, allegato A, art. 6.5",
+    "url": "https://www.arera.it/fileadmin/allegati/docs/16/302-16all_ti.pdf"
+   }
+  },
+  "arera_oneri_luce": {
+   "testo": "Solo per la luce a prezzo fisso e a tempo determinato (o a tempo indeterminato con prezzo fisso per un periodo) il venditore può prevedere un onere di recesso anticipato, fino alla fine del prezzo fisso: deve essere scritto nell'offerta e nel contratto, approvato con una firma specifica, proporzionato e non superiore alla perdita diretta del venditore, che la deve dimostrare. Decade se il venditore ha cambiato le condizioni da solo. Non vale per le offerte PLACET né per il gas.",
+   "norma": {
+    "titolo": "D.lgs. 210/2021, art. 7, commi 4 e 5; ARERA, delibera 302/2016/R/com, allegato A, art. 6.6",
+    "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2021-11-08;210~art7"
+   }
+  },
+  "arera_conciliazione": {
+   "testo": "Per luce e gas il Servizio Conciliazione di ARERA è gratuito e online: lo chiedi dopo un reclamo scritto al venditore, se la risposta non ti soddisfa o se non arriva entro 40 giorni. È obbligatorio prima di andare dal giudice.",
+   "giorni": 40,
+   "norma": {
+    "titolo": "ARERA, Servizio Conciliazione",
+    "url": "https://www.arera.it/consumatori/conciliazione"
+   }
+  },
+  "agcm": {
+   "testo": "Pratiche scorrette, come rendere difficile la disdetta o attivare servizi non richiesti, si possono segnalare all'Autorità garante della concorrenza e del mercato.",
+   "norma": {
+    "titolo": "AGCM, segnalazioni dei consumatori",
+    "url": "https://www.agcm.it/segnalazioni/"
+   }
+  },
+  "eccnet": {
+   "testo": "Se il fornitore ha sede in un altro Paese dell'Unione europea, il Centro europeo consumatori ti aiuta gratis.",
+   "norma": {
+    "titolo": "Centro europeo consumatori Italia (ECC-Net)",
+    "url": "https://www.ecc-netitalia.it/"
+   }
+  }
+ }
+};

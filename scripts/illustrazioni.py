@@ -169,6 +169,65 @@ SCENE = {
         + persona(296, 132, 0.9, rossa=True) +
         f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 108 40 104 M130 92 C160 92 176 96 192 82 M272 80 C280 84 284 90 288 96"/>',
         'Un calendario con una data cerchiata, un orologio e una persona in attesa: i tempi massimi delle visite', '0 0 320 140'),
+    'progetti-comune': svg(
+        '<path class="s-l" d="M36 70 L76 48 L116 70 Z" style="fill:var(--carta)"/><rect class="s-l" x="42" y="70" width="68" height="54" style="fill:var(--carta)"/><path class="s-l" d="M70 124 V100 H82 V124 M52 82 H62 M90 82 H100"/>'
+        '<path class="s-l" d="M170 126 V22 M150 22 H286 M170 34 L190 22 M262 22 V58"/><rect class="s-l" x="252" y="58" width="20" height="14" style="fill:var(--carta)"/>'
+        '<rect class="s-l" x="196" y="82" width="96" height="42" rx="3" style="fill:var(--carta)"/><circle class="s-p" cx="220" cy="103" r="12"/><path class="s-l" d="M240 96 H282 M240 106 H272 M240 116 H262"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 106 42 102 M110 104 C140 104 160 112 196 108"/>',
+        'Un municipio, una gru e il cartello di un cantiere con il codice del progetto: i fondi europei nel tuo Comune', '0 0 320 140'),
+    'bollette': svg(
+        '<rect class="s-l" x="40" y="22" width="78" height="104" rx="5" style="fill:var(--carta)"/><path class="s-l" d="M52 40 H106 M52 52 H96 M52 64 H100 M52 98 H106"/><rect class="s-p" x="52" y="74" width="40" height="12" rx="2"/>'
+        '<path class="s-l" d="M170 86 C152 74 154 40 178 36 C202 40 204 74 186 86 Z M172 92 H184 M173 100 H183" style="fill:var(--carta)"/>'
+        '<path class="s-l" d="M250 120 C228 112 230 86 246 70 C246 84 256 86 256 72 C272 88 274 112 250 120 Z" style="fill:var(--accento-tenue)"/>'
+        '<path class="s-l" d="M290 40 V84 M280 74 L290 86 L300 74"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 36 104 40 98 M118 80 C134 80 146 70 156 64 M200 60 C226 48 270 40 286 42"/>',
+        'Una bolletta, una lampadina, una fiamma del gas e una freccia che scende: quanto risparmi cambiando offerta', '0 0 320 140'),
+    'imu': svg(
+        '<path class="s-l" d="M40 72 L80 40 L120 72" style="fill:var(--carta)"/><rect class="s-l" x="48" y="72" width="64" height="52" style="fill:var(--carta)"/><path class="s-l" d="M74 124 V98 H90 V124"/><rect class="s-l" x="120" y="94" width="34" height="30" style="fill:var(--carta)"/>'
+        '<rect class="s-l" x="176" y="26" width="64" height="98" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M186 42 H230 M186 54 H230 M186 66 H218 M186 90 H206 M210 90 H230 M186 104 H206 M210 104 H230"/><rect class="s-p" x="210" y="84" width="20" height="12"/>'
+        '<rect class="s-l" x="254" y="44" width="50" height="50" rx="4" style="fill:var(--carta)"/><path class="s-l" d="M254 58 H304 M266 38 V50 M292 38 V50"/><circle class="s-l" cx="279" cy="76" r="9"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 110 38 100 46 94 M154 108 C164 104 170 98 176 92 M240 70 C246 68 250 66 254 66"/>',
+        'Una casa con il box, un modello F24 e un calendario con il 16 cerchiato: quanto paghi di IMU e quando', '0 0 320 140'),
+    'eletti': svg(
+        '<rect class="s-l" x="30" y="92" width="44" height="32" style="fill:var(--carta)"/><path class="s-l" d="M30 92 L52 78 L74 92 M48 124 V108 H56 V124"/>'
+        '<rect class="s-l" x="88" y="78" width="50" height="46" style="fill:var(--carta)"/><path class="s-l" d="M98 90 V114 M113 90 V114 M128 90 V114"/>'
+        '<rect class="s-l" x="152" y="62" width="58" height="62" style="fill:var(--carta)"/><path class="s-l" d="M162 76 V114 M181 76 V114 M200 76 V114"/>'
+        '<path class="s-l" d="M226 124 V64 H290 V124 M234 64 C234 40 282 40 282 64" style="fill:var(--carta)"/><path class="s-l" d="M240 80 V114 M258 80 V114 M276 80 V114"/>'
+        '<circle class="s-p" cx="294" cy="30" r="14"/><circle class="s-l" cx="294" cy="30" r="14"/>'
+        f'{NODO(24, 132, 4)}<path class="s-t" d="M28 130 C60 132 100 130 140 130 C180 130 220 130 290 130"/>',
+        'Cinque edifici dal municipio al Parlamento e la cerchia di stelle europea: chi ti rappresenta a ogni livello', '0 0 320 140'),
+    'disdette': svg(
+        '<rect class="s-l" x="40" y="54" width="92" height="56" rx="8" style="fill:var(--carta)"/><path class="s-l" d="M52 70 H96 M52 82 H84"/><rect class="s-p" x="100" y="88" width="22" height="14" rx="2"/>'
+        '<path class="s-l" d="M150 30 L196 76 M196 30 L150 76"/><circle class="s-l" cx="146" cy="26" r="9" style="fill:var(--carta)"/><circle class="s-l" cx="200" cy="26" r="9" style="fill:var(--carta)"/>'
+        '<rect class="s-l" x="214" y="70" width="86" height="54" rx="3" style="fill:var(--carta)"/><path class="s-l" d="M214 70 L257 102 L300 70"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 112 38 108 44 106 M132 84 C150 84 160 60 173 53 M196 60 C214 66 224 74 230 82"/>',
+        'Una tessera d\'abbonamento, una forbice aperta e una busta: disdire un contratto', '0 0 320 140'),
+    'affitto': svg(
+        '<rect class="s-l" x="48" y="24" width="64" height="102" rx="3" style="fill:var(--carta)"/><circle class="s-l" cx="100" cy="80" r="4"/><rect class="s-p" x="60" y="36" width="40" height="30" rx="2"/>'
+        '<path class="s-l" d="M140 50 m-10 0 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M150 50 H186 M174 50 V60 M182 50 V58"/>'
+        '<path class="s-l" d="M216 112 C200 112 196 90 214 82 C224 70 262 70 272 84 L286 84 L284 96 C280 104 276 108 270 112 Z" style="fill:var(--carta)"/><path class="s-l" d="M236 76 H252 M226 112 V122 M262 112 V122"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C36 110 40 104 48 100 M112 76 C124 70 128 62 130 56 M186 54 C204 60 214 70 224 78"/>',
+        'Una porta di casa, le chiavi e un salvadanaio per il deposito: i diritti di chi è in affitto e di chi affitta', '0 0 320 140'),
+    'condominio': svg(
+        '<rect class="s-l" x="36" y="24" width="72" height="102" style="fill:var(--carta)"/><path class="s-l" d="M36 58 H108 M36 92 H108 M48 36 H60 M84 36 H96 M48 70 H60 M84 70 H96 M66 126 V104 H78 V126"/>'
+        '<path class="s-l" d="M140 96 H232 M150 96 V122 M222 96 V122"/><rect class="s-p" x="168" y="84" width="34" height="10" rx="1"/>'
+        '<path class="s-l" d="M266 40 V112 M246 112 H286 M240 52 H292 M240 52 L232 74 H248 Z M292 52 L284 74 H300 Z" style="fill:var(--carta)"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C32 112 34 108 36 104 M108 76 C130 80 150 82 168 86 M202 88 C220 80 230 70 240 62"/>',
+        'Un piccolo condominio, il tavolo dell\'assemblea con il verbale e una bilancia: delibere, millesimi e conti', '0 0 320 140'),
+    'pensione': svg(
+        '<path class="s-l" d="M36 98 H140 M44 98 V124 M132 98 V124 M36 86 H140"/>'
+        '<rect class="s-l" x="168" y="26" width="64" height="76" rx="4" style="fill:var(--carta)"/><path class="s-l" d="M168 44 H232 M180 20 V32 M220 20 V32"/><circle class="s-p" cx="200" cy="72" r="13"/><circle class="s-l" cx="200" cy="72" r="13"/>'
+        '<path class="s-l" d="M260 40 H300 M260 120 H300 M264 40 C264 70 296 70 296 80 C296 90 264 90 264 120 M296 40 C296 70 264 70 264 80" style="fill:none"/><path class="s-p" d="M270 112 L290 112 L280 100 Z"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C40 108 60 100 80 92 M140 90 C156 86 164 80 187 74 M213 72 C240 70 250 66 262 62"/>',
+        'Una panchina, un calendario con un giorno cerchiato e una clessidra: quando vai in pensione', '0 0 320 140'),
+    'tasse': svg(
+        '<path class="s-l" d="M56 116 C36 116 30 88 52 80 C62 66 104 66 114 80 L128 80 L126 94 C122 104 116 110 108 116 Z" style="fill:var(--carta)"/><path class="s-l" d="M76 74 H94 M66 116 V126 M100 116 V126"/>'
+        '<circle class="s-p" cx="150" cy="56" r="8"/><circle class="s-p" cx="174" cy="40" r="8"/>'
+        '<path class="s-l" d="M206 28 H222 V40 H234 V56 H222 V68 H206 V56 H194 V40 H206 Z" style="fill:var(--carta)"/>'
+        '<path class="s-l" d="M250 84 H290 V118 H250 Z M270 84 V118" style="fill:var(--carta)"/>'
+        '<path class="s-l" d="M210 124 V92 M202 92 H226 L218 84 H210"/>'
+        f'{NODO(24, 120, 5)}<path class="s-t" d="M30 118 C34 106 36 98 40 92 M120 76 C136 66 140 60 144 58 M180 36 C190 34 194 40 196 44 M178 48 C210 70 236 84 250 96"/>',
+        'Un salvadanaio da cui escono monete verso la croce della farmacia, un libro e un lampione: dove finiscono le tasse', '0 0 320 140'),
     'per-te': svg(
         '<circle class="s-l" cx="66" cy="62" r="26" style="fill:var(--carta)"/><path class="s-l" d="M66 88 L66 120 M52 120 H80"/><circle class="s-p" cx="66" cy="62" r="10"/>'
         '<rect class="s-l" x="150" y="18" width="150" height="112" rx="8" style="fill:var(--carta)"/>'
@@ -227,7 +286,7 @@ def inserisci(testo, ancora, nome):
     return testo.replace(ancora, ancora + blocco, 1)
 
 
-STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe', 'raccolta', 'per-te']
+STRUMENTI = ['assistente', 'mi-spetta', 'faccio-ricorso', 'chiedo-gli-atti', 'mi-rimborsano', 'bilancio-comune', 'appalti', 'navigatore', 'segnalazioni', 'reclami-pa', 'raccolte-firme', 'garanzia', 'liste-attesa', 'truffe', 'raccolta', 'per-te', 'progetti-comune', 'bollette', 'imu', 'eletti', 'disdette', 'affitto', 'condominio', 'pensione', 'tasse']
 
 # Pagine con un loro foglio di stile (Atlante, catalogo): stesse classi, colori presi dai loro token
 STILE_ESTERNO = '''<style>
@@ -326,6 +385,11 @@ LOGHI = {
     'mcp': ('Server MCP', _logo('<path class="lg-i" d="M22 20 V12 M34 20 V12 M17 20 H39 V30 C39 38 34 42 28 42 C22 42 17 38 17 30 Z M28 42 V48"/>', 'M28 48 C28 54 38 54 44 48 S50 38 52 34', (52, 31))),
 }
 LOGHI['per-te'] = ('Per te', LOGHI['assistente'][1])
+for _n, _t, _da in [('progetti-comune', 'I fondi europei nel mio Comune', 'bilancio-comune'), ('bollette', 'Quanto risparmi in bolletta?', 'mi-rimborsano'),
+                    ('imu', 'Quanto pago di IMU?', 'bilancio-comune'), ('eletti', 'Chi ti rappresenta', 'raccolte-firme'), ('disdette', 'Disdici un abbonamento', 'garanzia'),
+                    ('affitto', 'Affitto: i tuoi diritti', 'reclami-pa'), ('condominio', 'Condominio: i tuoi diritti', 'reclami-pa'), ('pensione', 'Quando vado in pensione?', 'mi-spetta'),
+                    ('tasse', 'Dove finiscono le mie tasse', 'bilancio-comune')]:
+    LOGHI[_n] = (_t, LOGHI[_da][1])  # il logo vero degli strumenti è il Polpo con il suo braccio (braccia-strumenti.py)
 
 STILE_LOGO = ('.lg-f{fill:var(--carta,#FFFDF8);stroke:var(--inchiostro,#17202E);stroke-width:2.4}'
               '.lg-i{fill:none;stroke:var(--inchiostro,#17202E);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}'
@@ -348,7 +412,7 @@ def favicon(nome):
 def applica_loghi():
     nomi_h1 = {'assistente': 'Chiedi al Polpo', 'navigatore': 'Navigatore dei servizi', 'mi-spetta': 'Mi spetta', 'faccio-ricorso': 'Faccio ricorso?',
                'chiedo-gli-atti': 'Chiedo gli atti', 'mi-rimborsano': 'Mi rimborsano?', 'reclami-pa': 'Reclami alla PA', 'segnalazioni': 'Segnalazioni urbane',
-               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?', 'raccolta': 'Chi raccoglie i rifiuti?', 'per-te': 'Per te'}
+               'bilancio-comune': 'Il bilancio del mio Comune', 'appalti': 'Red flag sugli appalti', 'raccolte-firme': 'Raccolte firme in corso', 'garanzia': 'Si è rotto o ci ho ripensato', 'liste-attesa': 'La visita nei tempi', 'truffe': 'È una truffa?', 'raccolta': 'Chi raccoglie i rifiuti?', 'per-te': 'Per te', 'progetti-comune': 'I fondi europei nel mio Comune', 'bollette': 'Quanto risparmi in bolletta?', 'imu': 'Quanto pago di IMU?', 'eletti': 'Chi ti rappresenta', 'disdette': 'Disdici un abbonamento', 'affitto': 'Affitto: i tuoi diritti', 'condominio': 'Condominio: i tuoi diritti', 'pensione': 'Quando vado in pensione?', 'tasse': 'Dove finiscono le mie tasse'}
     for t, h1 in nomi_h1.items():
         cartella = os.path.join(REPO, t)
         open(os.path.join(cartella, 'src', 'logo.svg'), 'w', encoding='utf-8').write(favicon(t))

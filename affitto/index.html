@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--icone--><link rel="icon" href="src/icona-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="src/icona.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="src/icona-180.png"><!--/icone-->
+<title>Affitto: i tuoi diritti</title>
+<meta name="description" content="Per chi è in affitto e per chi affitta una casa: andarsene prima, disdetta e scadenze, deposito con gli interessi legali, aumento ISTAT, spese condominiali, contratto non registrato, morosità e sfratto, riparazioni. Termini calcolati, scadenze in calendario e lettera pronta da firmare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="src/comune/stile.css">
+<style>
+  body:has(.foto-testata) .scena-testata { display: none; }
+  .numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px 18px; margin: 8px 0 0; }
+  .numeri div { display: grid; gap: 2px; }
+  .numeri dt { font-size: var(--s-1); color: var(--inchiostro-3); }
+  .numeri dd { margin: 0; }
+  .numeri dd b { font-family: var(--cifre); font-variant-numeric: tabular-nums; font-size: var(--s1); }
+  .numeri dd small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  .controlli .c-att .segno { color: var(--forse); }
+  .scorri-x { overflow-x: auto; }
+  .tab-interessi { width: 100%; border-collapse: collapse; font-size: var(--s-1); margin-top: 8px; }
+  .tab-interessi { min-width: 660px; }
+  .tab-interessi th, .tab-interessi td { white-space: nowrap; }
+  .tab-interessi td:last-child { white-space: normal; min-width: 16em; }
+  .tab-interessi th, .tab-interessi td { border-bottom: 1px solid var(--riga-tenue); padding: 6px 8px; text-align: left; vertical-align: top; }
+  .tab-interessi th { font-family: var(--cifre); font-weight: 400; font-size: 11px; text-transform: uppercase; color: var(--inchiostro-3); }
+  .tab-interessi .num { font-family: var(--cifre); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  th button.ordina { all: unset; cursor: pointer; }
+  th button.ordina::after { content: ' \2195'; opacity: .5; }
+  th button.ordina:focus-visible { outline: 2px solid var(--accento); }
+  .collegamenti { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: var(--s0); }
+  .nota-fonti { font-size: var(--s-1); color: var(--inchiostro-3); }
+</style>
+</head>
+<body>
+<div class="max">
+  <nav class="famiglia" aria-label="Il Polpo civico">
+    <b class="marchio"><svg class="segno-marchio" viewBox="0 0 64 70" width="22" height="24" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg>Il Polpo civico</b>
+  <div class="famiglia-voci">
+  <a href="../per-te/" data-strumento="per-te">Per te</a>
+  <a href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a>
+  <a href="../navigatore/" data-strumento="navigatore">Navigatore</a>
+    <a href="../mi-spetta/" data-strumento="mi-spetta">Mi spetta</a>
+    <a href="../pensione/" data-strumento="pensione">Pensione</a>
+    <a href="../imu/" data-strumento="imu">IMU</a>
+    <a href="../bollette/" data-strumento="bollette">Bollette</a>
+    <a href="../faccio-ricorso/" data-strumento="faccio-ricorso">Faccio ricorso?</a>
+    <a href="../chiedo-gli-atti/" data-strumento="chiedo-gli-atti">Chiedo gli atti</a>
+    <a href="../mi-rimborsano/" data-strumento="mi-rimborsano">Mi rimborsano?</a>
+    <a href="../disdette/" data-strumento="disdette">Disdette</a>
+    <a href="../garanzia/" data-strumento="garanzia">Garanzia e recesso</a>
+    <a href="../affitto/" data-strumento="affitto" aria-current="page">Affitto</a>
+    <a href="../condominio/" data-strumento="condominio">Condominio</a>
+    <a href="../liste-attesa/" data-strumento="liste-attesa">Liste d'attesa</a>
+    <a href="../truffe/" data-strumento="truffe">È una truffa?</a>
+    <a href="../bilancio-comune/" data-strumento="bilancio-comune">Il bilancio del Comune</a>
+    <a href="../progetti-comune/" data-strumento="progetti-comune">Fondi europei</a>
+    <a href="../tasse/" data-strumento="tasse">Le mie tasse</a>
+    <a href="../appalti/" data-strumento="appalti">Red flag appalti</a>
+    <a href="../eletti/" data-strumento="eletti">Chi ti rappresenta</a>
+    <a href="../segnalazioni/" data-strumento="segnalazioni">Segnalazioni</a>
+    <a href="../reclami-pa/" data-strumento="reclami-pa">Reclami alla PA</a>
+    <a href="../raccolte-firme/" data-strumento="raccolte-firme">Raccolte firme</a>
+    <a href="../alberi/" data-strumento="alberi">Alberi per il futuro</a>
+    <a href="../raccolta/" data-strumento="raccolta">Chi raccoglie i rifiuti?</a>
+  <a href="../storie/">Le storie</a>
+  <a href="../legge/">Il Polpo legge</a>
+  </div>
+    <!--sostieni--><a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a><!--/sostieni-->
+    <script>(() => { const v = document.currentScript.parentElement.querySelector('.famiglia-voci'), a = v && v.querySelector('[aria-current="page"]'); if (a && v.scrollWidth > v.clientWidth) v.scrollLeft = a.offsetLeft - 16; })();</script>
+  </nav>
+
+  <header class="testata">
+    <div>
+      <!--scena:affitto--><div class="scena scena-testata"><svg class="scena-svg" viewBox="0 0 320 140" role="img" aria-label="Una porta di casa, le chiavi e un salvadanaio per il deposito: i diritti di chi è in affitto e di chi affitta" preserveAspectRatio="xMidYMid meet"><rect class="s-l" x="48" y="24" width="64" height="102" rx="3" style="fill:var(--carta)"/><circle class="s-l" cx="100" cy="80" r="4"/><rect class="s-p" x="60" y="36" width="40" height="30" rx="2"/><path class="s-l" d="M140 50 m-10 0 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0 M150 50 H186 M174 50 V60 M182 50 V58"/><path class="s-l" d="M216 112 C200 112 196 90 214 82 C224 70 262 70 272 84 L286 84 L284 96 C280 104 276 108 270 112 Z" style="fill:var(--carta)"/><path class="s-l" d="M236 76 H252 M226 112 V122 M262 112 V122"/><circle class="s-r" cx="24" cy="120" r="5"/><path class="s-t" d="M30 118 C36 110 40 104 48 100 M112 76 C124 70 128 62 130 56 M186 54 C204 60 214 70 224 78"/></svg></div><!--/scena-->
+      <!--logo:affitto--><div class="titolo-logo"><svg class="logo-strumento logo-polpo" viewBox="-300 -300 600 600" role="img" aria-label="Il Polpo civico, braccio 4: Ti difende"><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-135) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-180) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg><h1>Affitto: i tuoi diritti</h1></div><!--/logo-->
+      <!--braccio--><a class="braccio-segno" href="../#braccio-4"><span class="bs-icona"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></svg></span><span class="bs-testo"><span class="bs-n">Braccio 04 di 8 del Polpo</span>Ti difende</span></a><!--/braccio-->
+      <p class="promessa">Vuoi lasciare la casa, ti hanno mandato la disdetta, aspetti il deposito, ti chiedono un aumento? Dal tuo contratto calcoliamo i termini di legge, li mettiamo in calendario e prepariamo la lettera. Vale per chi è in affitto e per chi affitta.</p>
+    </div>
+    <ul class="garanzie">
+      <li><b>Le regole scritte,</b> dalla legge 431/1998, dalla legge 392/1978 e dal codice civile, verificate su Normattiva.</li>
+      <li><b>Gli interessi sul deposito,</b> anno per anno con il tasso legale fissato da ogni decreto del Ministero dell'economia.</li>
+      <li><b>Nessun dato inviato.</b> Nomi, indirizzi e importi restano su questo dispositivo. La lettera la firmi e la mandi tu.</li>
+    </ul>
+  </header>
+  
+
+  <div class="esempi">
+    <span class="esempi-etichetta">Prova con un esempio</span>
+    <button type="button" data-esempio="recesso">Mi trasferiscono per lavoro</button>
+    <button type="button" data-esempio="disdetta">Disdetta senza motivo alla prima scadenza</button>
+    <button type="button" data-esempio="deposito">Il deposito dopo otto anni</button>
+    <button type="button" data-esempio="aumento">Aumento ISTAT con la cedolare secca</button>
+    <button type="button" data-esempio="sfratto">Due mesi non pagati, è arrivato lo sfratto</button>
+    <button type="button" data-esempio="proprietario">Proprietario: rivoglio la casa per mio figlio</button>
+  </div>
+  <div class="avviso" id="avviso-esempio" hidden>
+    <span>Stai guardando un esempio, non i tuoi dati.</span>
+    <button type="button" id="esci-esempio">Ricomincia con i tuoi dati</button>
+  </div>
+
+  <div id="foto" hidden></div>
+
+  <main class="corpo">
+    <div class="colonna">
+      
+      <form class="colonna" id="questionario" autocomplete="off" novalidate></form>
+    </div>
+    <div class="colonna appiccicosa" id="esito" aria-live="polite"></div>
+  </main>
+
+  <!--braccia--><nav class="braccia-polpo" aria-label="Le otto braccia del Polpo"><a class="bp-polpo" href="../"><svg class="segno-marchio" viewBox="0 0 64 70" aria-hidden="true"><path d="M15 35 C12 12 52 12 49 35 M15 35 C11 40 5 41 3 48 M21 38 C19 47 13 51 11 59 M29 39 C29 49 25 55 21 64 M37 39 C38 46 37 50 34 56" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round"/><circle cx="26" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="38" cy="28" r="4.2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M30.2 28 H33.8" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="28.5" r="1.4" fill="currentColor"/><circle cx="38" cy="28.5" r="1.4" fill="currentColor"/><path class="m-filo" d="M49 35 C55 39 58 43 58 49 V66 H41 V55 H52 V61 H46" fill="none" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-nodo" cx="46" cy="61" r="3.6"/></svg><span>Le otto braccia del Polpo</span></a><ol><li><a class="bp-braccio" href="../#braccio-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></svg><span>01 · Fa i conti dei tuoi diritti</span></a></li><li><a class="bp-braccio" href="../#braccio-2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></svg><span>02 · Scrive le lettere</span></a></li><li><a class="bp-braccio" href="../#braccio-3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></svg><span>03 · Trova la strada</span></a></li><li><a class="bp-braccio" href="../#braccio-4" aria-current="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></svg><span>04 · Ti difende</span></a></li><li><a class="bp-braccio" href="../#braccio-5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></svg><span>05 · Legge i conti del Comune</span></a></li><li><a class="bp-braccio" href="../#braccio-6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></svg><span>06 · Controlla gli appalti</span></a></li><li><a class="bp-braccio" href="../#braccio-7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></svg><span>07 · Ti porta a firmare</span></a></li><li><a class="bp-braccio" href="../#braccio-8"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></svg><span>08 · Si prende cura dei luoghi</span></a></li></ol><a class="bp-chiedi" href="../assistente/" data-strumento="assistente">Chiedi al Polpo</a></nav><!--/braccia-->
+
+  <footer class="piede">
+    <!--crediti--><p class="crediti">Il Polpo civico è promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a>, senza fini di lucro. Gli strumenti sono gratuiti, senza pubblicità e senza tracciamento: vivono grazie a chi li sostiene. <a class="sostieni" href="https://www.gianrobertocasaleggio.com/donazioni/" target="_blank" rel="noopener">Sostieni l'iniziativa</a></p><!--/crediti-->
+    <p><b>Affitto: i tuoi diritti non è un avvocato, non è un sindacato degli inquilini né un'associazione dei proprietari.</b> Applica la legge 431/1998, la legge 392/1978, il codice civile, il codice di procedura civile, il decreto ministeriale del 16 gennaio 2017 sui contratti concordati, transitori e per studenti, e le norme fiscali sulla registrazione e sulla cedolare secca, verificate su Normattiva e sulla Gazzetta Ufficiale il 15 novembre 2026. I tassi degli interessi legali vengono dai decreti del Ministero dell'economia riportati nell'articolo 1284 del codice civile. Per i valori del canone concordato valgono gli accordi territoriali depositati presso il tuo Comune. Per le cause in tribunale serve un avvocato.</p><p>Non è un sito della pubblica amministrazione. Codice aperto, nessun tracciamento.</p>
+    <p><button type="button" class="link" id="cancella">Cancella le risposte da questo dispositivo</button></p>
+  </footer>
+</div>
+<script type="module" src="web/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+ "titolo": "Quando vado in pensione?",
+ "descrizione": "Mese e anno di nascita, contributi e lavoro: per ogni pensione prevista dalla legge (vecchiaia, anticipata, contributiva, precoci, APE sociale, Opzione donna, Quota 103, usuranti) la prima data possibile con la finestra, i requisiti uno per uno e le scadenze. Regole 2026-2028 verificate su Normattiva e INPS.",
+ "promessa": "Per ogni pensione che la legge prevede oggi: la prima data possibile, i requisiti uno per uno e cosa ti manca.",
+ "garanzie": [
+  [
+   "Basta mese e anno di nascita.",
+   "Il giorno non serve: le risposte restano su questo dispositivo."
+  ],
+  [
+   "Regole scritte, con la fonte.",
+   "Fornero, legge di bilancio 2026, decreto sulla speranza di vita e circolari INPS 2026."
+  ],
+  [
+   "L'importo non lo inventiamo.",
+   "Per quello c'è il simulatore dell'INPS: ti diciamo dove."
+  ]
+ ],
+ "esempi": [
+  [
+   "vecchiaia",
+   "Vecchiaia a 67 anni e 1 mese"
+  ],
+  [
+   "anticipata",
+   "Donna, dipendente di un Comune"
+  ],
+  [
+   "precoce",
+   "Lavoratore precoce in un lavoro gravoso"
+  ],
+  [
+   "contributivo",
+   "Contributivo puro, 64 anni"
+  ],
+  [
+   "ape",
+   "Caregiver, APE sociale"
+  ]
+ ],
+ "stile": "  .uscita h2 { margin-top: 2px; }\n  .quando-uscita { font-size: var(--s1); color: var(--inchiostro) !important; }\n  .uscita .manca { color: var(--inchiostro) !important; }\n  .uscita .note { margin: 8px 0 0; padding-left: 18px; font-size: var(--s-1); color: var(--inchiostro-2); display: grid; gap: 4px; }\n  .fonti-uscita { font-size: var(--s-1) !important; color: var(--inchiostro-3) !important; }\n  .fonti-uscita a { color: var(--inchiostro-2); }\n  .mancanti { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }\n  .mancanti .vai-a, .verdetto .vai-a { background: none; border: 0; padding: 0; color: var(--accento); text-decoration: underline; cursor: pointer; font: inherit; }\n  .ordinabile th button { all: unset; cursor: pointer; display: block; }\n  .ordinabile th[aria-sort=\"descending\"] button::after { content: \" ↓\"; } .ordinabile th[aria-sort=\"ascending\"] button::after { content: \" ↑\"; }\n  .confronto td.n { font-family: var(--cifre); font-variant-numeric: tabular-nums; white-space: nowrap; }\n  .confronto small { color: var(--inchiostro-3); }\n  .confronto td.n small { display: block; font-family: var(--testo, inherit); }\n  #d-contributi_anni input, #d-contributi_mesi input, #d-mesi_anno input, #d-nascita_anno input, #d-figli input { max-width: 140px; }\n",
+ "piede": [
+  "Questo strumento non sostituisce l'INPS né un patronato: legge le regole e fa i conti con i dati che inserisci, ma la data vera la stabilisce l'INPS sul tuo estratto conto contributivo. Requisiti e finestre vengono da d.l. 201/2011 art. 24, legge 199/2025 (bilancio 2026), decreto direttoriale 19 dicembre 2025, legge 232/2016, d.l. 4/2019, d.lgs. 67/2011 e dalle circolari INPS n. 19 e n. 28 del 2026, verificati il 15 novembre 2026; l'elenco completo è in pensione/dati/fonti.json.",
+  "Non calcola l'importo e non dà consigli su quando conviene uscire. APE sociale vale fino al 31 dicembre 2026 salvo proroga; la legge di bilancio 2027 è in discussione e può cambiare queste regole.",
+  "Per una verifica gratuita con il tuo estratto conto rivolgiti a un patronato. Le date sono calcolate al mese: chi ha periodi all'estero, nelle casse professionali o da riscattare deve farle controllare."
+ ]
+}

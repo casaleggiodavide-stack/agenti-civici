@@ -1,0 +1,179 @@
+{
+ "verificato_il": "2026-11-15",
+ "nota": "Requisiti in mesi (età e contributi). Ogni tabella per anno vale dal 1° gennaio dell'anno indicato fino al successivo. Dal 2029 i requisiti vanno adeguati di nuovo alla speranza di vita con un decreto che a novembre 2026 non c'è ancora: lo strumento usa i valori del 2028 e lo dice. Robots.txt controllati il 15/11/2026: inps.it (vieta solo /content/dam/inps-site/moduli/*.pdf), normattiva.it (vieta solo /ricerca/ e /mfr/ricerca/), gazzettaufficiale.it (nessun robots.txt). Il sito lavoro.gov.it vieta ClaudeBot e anthropic-ai: non è stato letto.",
+ "fonti": {
+  "dl201_art24": {
+   "titolo": "D.l. 201/2011 (riforma Fornero), art. 24, commi 6, 7, 10, 11 e 12",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2011-12-06;201~art24",
+   "nota": "Testo vigente letto su Normattiva il 15/11/2026 (versione in vigore dal 1/1/2027). Comma 7: 20 anni di contributi; per chi ha il primo contributo dopo il 1/1/1996 l'importo deve essere almeno pari all'assegno sociale, salvo a 70 anni (adeguati) con 5 anni di contributi effettivi. Comma 7-bis abrogato dalla legge 199/2025. Comma 10: 42 anni e 10 mesi gli uomini, 41 anni e 10 mesi le donne, finestra di 3 mesi; per CPDEL, CPS, CPI e CPUG finestra di 3 mesi se i requisiti sono maturati entro il 2024, 4 nel 2025, 5 nel 2026, 7 nel 2027, 9 dal 2028. Comma 11: anticipata contributiva, previa cessazione del rapporto di lavoro, con 20 anni di contribuzione effettiva e prima rata almeno 3 volte l'assegno sociale (2,8 donne con un figlio, 2,6 con due o più); 3,2 dal 2030; tetto di 5 volte il minimo fino all'età di vecchiaia; finestra di 3 mesi.",
+   "verificato_il": "2026-11-15"
+  },
+  "l199_2025": {
+   "titolo": "Legge 30 dicembre 2025, n. 199 (bilancio 2026), art. 1, commi 162-163, 185-190, 194-195",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-12-30;199",
+   "nota": "Comma 162: APE sociale fino al 31/12/2026 a 63 anni e 5 mesi. Comma 163: APE non cumulabile con redditi da lavoro, salvo lavoro autonomo occasionale fino a 5.000 euro lordi l'anno. Comma 185: l'aumento di 3 mesi del decreto 19/12/2025 si applica per 1 mese nel 2027 e per intero dal 2028. Commi 186-187: niente aumento 2027-2028 per vecchiaia e anticipata di gravosi (7 anni negli ultimi 10 o 6 negli ultimi 7) e usuranti con almeno 30 anni di contributi. Comma 188: precoci gravosi o usuranti restano a 41 anni. Comma 189: usuranti del d.lgs. 67/2011 senza aumento fino al 2028. Comma 190: chi è in APE sociale non beneficia del comma 186. Comma 195: abrogata la possibilità di usare la previdenza complementare per raggiungere le soglie di importo. Nessuna proroga di Opzione donna e pensione anticipata flessibile (Quota 103).",
+   "verificato_il": "2026-11-15"
+  },
+  "dd_2025_12_19": {
+   "titolo": "Decreto direttoriale MEF-Lavoro 19 dicembre 2025, adeguamento dei requisiti alla speranza di vita dal 2027 (G.U. Serie generale n. 301 del 30/12/2025)",
+   "url": "https://www.gazzettaufficiale.it/eli/gu/2025/12/30/301/SG/html",
+   "nota": "Dal 1/1/2027 i requisiti sono aumentati di 3 mesi e le quote di 0,3; la legge 199/2025, comma 185, lo applica per 1 mese nel 2027 e per 3 mesi dal 2028.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_circ_28_2026": {
+   "titolo": "INPS, circolare n. 28 del 16 marzo 2026: requisiti 2027-2028",
+   "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/03/Circolare_15199/Allegati/16640_Circolare-numero-28-del-16-03-2026.pdf",
+   "nota": "Vecchiaia 67a1m (2027) e 67a3m (2028); vecchiaia contributiva con 5 anni 71a1m e 71a3m; anticipata 42a11m/41a11m (2027) e 43a1m/42a1m (2028); anticipata contributiva 64a1m con 20a1m (2027) e 64a3m con 20a3m (2028); precoci 41a1m (2027) e 41a3m (2028), 41 anni per i gravosi; gravosi 7 su 10 e usuranti: vecchiaia a 66a7m con 30 anni; gravosi 6 su 7: 67 anni con 30; anticipata dei gravosi ferma a 42a10m/41a10m; usuranti con quote 97,6/98,6/99,6/100,6 fino al 2028.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_circ_19_2026": {
+   "titolo": "INPS, circolare n. 19 del 25 febbraio 2026: legge di bilancio 2026, APE sociale, Opzione donna, Quota 103",
+   "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/02/Circolare_15179/Allegati/16591_Circolare-numero-19-del-25-02-2026.pdf",
+   "nota": "APE sociale prorogata al 31/12/2026, domande di riconoscimento entro il 31 marzo, il 15 luglio e non oltre il 30 novembre 2026 (messaggio n. 128 del 14/1/2026). Opzione donna resta solo per chi ha i requisiti al 31/12/2024; pensione anticipata flessibile (Quota 103) solo per chi li ha al 31/12/2025.",
+   "verificato_il": "2026-11-15"
+  },
+  "l232_2016": {
+   "titolo": "Legge 232/2016, art. 1, commi 179-186 (APE sociale), 199-203 (lavoratori precoci) e 206 (usuranti)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-12-11;232~art1",
+   "nota": "Comma 179: APE sociale per disoccupati che hanno finito la NASpI, caregiver da 6 mesi, invalidi almeno al 74% (30 anni di contributi) e gravosi (36 anni). Comma 179-bis: per le donne 12 mesi in meno per figlio, al massimo 2 anni. Comma 180: serve la cessazione del lavoro. Comma 181: tetto 1.500 euro al mese. Comma 199: 41 anni di contributi per chi ha contributi prima del 1996 (L. 335/1995, art. 1, commi 12 e 13), almeno 12 mesi di lavoro effettivo prima dei 19 anni e una delle condizioni a)-d); per i disoccupati la NASpI deve essere finita da almeno 3 mesi. Comma 206: domanda per gli usuranti entro il 1° maggio dell'anno precedente.",
+   "verificato_il": "2026-11-15"
+  },
+  "dl4_2019_art16": {
+   "titolo": "D.l. 4/2019, art. 16, comma 1-bis (Opzione donna)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2019-01-28;4~art16",
+   "nota": "Requisiti entro il 31/12/2024: 35 anni di contributi e 61 anni, un anno in meno per figlio fino a due; condizioni: caregiver da 6 mesi, invalidità almeno 74%, licenziate o dipendenti di imprese con tavolo di crisi (per queste la riduzione di due anni vale sempre). Calcolo contributivo. Comma 2: decorrenza dell'art. 12 del d.l. 78/2010.",
+   "verificato_il": "2026-11-15"
+  },
+  "dl4_2019_art17": {
+   "titolo": "D.l. 4/2019, art. 17 (decorrenza per i lavoratori precoci)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2019-01-28;4~art17",
+   "nota": "Finestra di 3 mesi; per CPDEL, CPS, CPI e CPUG 3 mesi entro il 2024, 4 nel 2025, 5 nel 2026, 7 nel 2027, 9 dal 2028.",
+   "verificato_il": "2026-11-15"
+  },
+  "dl4_2019_art14": {
+   "titolo": "D.l. 4/2019, art. 14 (Quota 100 e 102) e art. 14.1 (pensione anticipata flessibile, Quota 103)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2019-01-28;4~art14",
+   "nota": "Quota 100: 62 anni e 38 di contributi entro il 31/12/2021; Quota 102: 64 e 38 nel 2022; il diritto maturato si può esercitare anche dopo. Finestra 3 mesi (privati) e 6 mesi (pubblici). Non cumulabile con redditi da lavoro fino all'età di vecchiaia, salvo lavoro autonomo occasionale fino a 5.000 euro.",
+   "verificato_il": "2026-11-15"
+  },
+  "dlgs67_2011": {
+   "titolo": "D.lgs. 67/2011, art. 1 (lavori usuranti)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2011-04-21;67~art1",
+   "nota": "Mansioni usuranti, notturni, linea a catena, autisti del trasporto pubblico; attività svolta almeno 7 anni negli ultimi 10 o per metà della vita lavorativa; 35 anni di contributi; requisiti della tabella B della legge 247/2007, non adeguati alla speranza di vita fino al 2028 (comma 4 come modificato dalla legge 199/2025).",
+   "verificato_il": "2026-11-15"
+  },
+  "dl78_2010_art12": {
+   "titolo": "D.l. 78/2010, art. 12, comma 2 (finestra di 12 o 18 mesi) e comma 12-bis (speranza di vita)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2010-05-31;78~art12",
+   "nota": "Decorrenza dopo 12 mesi per i dipendenti e 18 mesi per artigiani, commercianti, coltivatori diretti e gestione separata; per la scuola art. 59, comma 9, legge 449/1997. Adeguamento biennale dei requisiti alla speranza di vita con decreto direttoriale.",
+   "verificato_il": "2026-11-15"
+  },
+  "l449_1997_art59": {
+   "titolo": "Legge 449/1997, art. 59, comma 9 (scuola: pensione dal 1° settembre)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1997-12-27;449~art59",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_q103": {
+   "titolo": "INPS, scheda «Pensione anticipata flessibile (legge di bilancio 2024 e 2025)»",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-anticipata-flessibile-legge-di-bilancio-2024-e-legge-di-bilancio-2025-.html",
+   "nota": "Aggiornata il 12/6/2026: 62 anni e 41 di contributi maturati entro il 31/12/2025; finestra 7 mesi privati e autonomi, 9 mesi pubblici; calcolo contributivo; tetto 4 volte il minimo fino all'età di vecchiaia; non cumulabile con redditi da lavoro salvo autonomo occasionale fino a 5.000 euro.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_precoci": {
+   "titolo": "INPS, scheda «Pensione per i lavoratori precoci - Domanda»",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-per-i-lavoratori-precoci---domanda.html",
+   "nota": "Aggiornata il 12/6/2026: domanda di riconoscimento delle condizioni entro il 31 marzo, il 15 luglio e comunque entro il 30 novembre di ogni anno; le domande dopo il 31 marzo valgono solo se restano risorse; solo dopo l'esito positivo la domanda di pensione.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_ape": {
+   "titolo": "INPS, scheda «APE Sociale - Verifica requisiti»",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.ape-sociale---anticipo-pensionistico---verifica-requisiti.html",
+   "nota": "Indennità dal primo giorno del mese successivo alla domanda, se ci sono tutti i requisiti; 36 anni per i gravosi, 32 per alcuni operai edili e ceramisti; fino a 1.500 euro al mese per 12 mensilità, senza rivalutazione. La scheda letta il 15/11/2026 è ferma al 2025: per il 2026 valgono la legge 199/2025 e la circolare 19/2026.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_usuranti": {
+   "titolo": "INPS, scheda «Benefici previdenziali per gli addetti a lavori usuranti»",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50732.benefici-previdenziali-per-gli-addetti-a-lavori-usuranti.html",
+   "nota": "Dal 2017 nessuna finestra mobile; domanda di riconoscimento entro il 1° maggio dell'anno precedente a quello in cui maturano i requisiti; se in ritardo la decorrenza slitta di 1, 2 o 3 mesi (messaggio INPS 793/2020).",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_vecchiaia": {
+   "titolo": "INPS, scheda «Pensione di vecchiaia»",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.pensione-di-vecchiaia.html",
+   "nota": "Decorrenza dal primo giorno del mese successivo ai requisiti (dipendenti privati e autonomi) o al giorno dopo la cessazione (dipendenti pubblici); se la domanda arriva dopo, dal mese successivo alla domanda. Per i dipendenti serve la fine del rapporto di lavoro.",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_assegno_sociale": {
+   "titolo": "INPS, scheda «Assegno sociale» (546,24 euro al mese nel 2026)",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-sociale-50184.assegno-sociale.html",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_pensione_futura": {
+   "titolo": "INPS, «La mia pensione futura»: simulazione dell'importo",
+   "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.la-mia-pensione-futura-simulazione-della-propria-pensione-50033.la-mia-pensione-futura-simulazione-della-propria-pensione.html",
+   "verificato_il": "2026-11-15"
+  },
+  "inps_posizione": {
+   "titolo": "INPS, «Posizione contributiva»: l'estratto conto",
+   "url": "https://www.inps.it/it/it/previdenza/posizione-contributiva.html",
+   "verificato_il": "2026-11-15"
+  }
+ },
+ "valori": {
+  "assegno_sociale_2026": 546.24,
+  "ape_tetto_mensile": 1500,
+  "ape_scadenza": "2026-12-31",
+  "ape_domande_2026": ["2026-03-31", "2026-07-15", "2026-11-30"],
+  "precoci_domande": ["03-31", "07-15", "11-30"],
+  "usuranti_domanda": "05-01",
+  "opzione_donna_entro": "2024-12-31",
+  "quota103_entro": "2025-12-31",
+  "quota102_entro": "2022-12-31",
+  "quota100_entro": "2021-12-31"
+ },
+ "requisiti": {
+  "vecchiaia_eta": [[2019, 804], [2027, 805], [2028, 807]],
+  "vecchiaia_contributi": 240,
+  "vecchiaia71_eta": [[2019, 852], [2027, 853], [2028, 855]],
+  "vecchiaia71_contributi": 60,
+  "vecchiaia_gravosi_7su10_eta": [[2019, 799]],
+  "vecchiaia_gravosi_6su7_eta": [[2019, 804]],
+  "gravosi_contributi": 360,
+  "anticipata_uomini": [[2019, 514], [2027, 515], [2028, 517]],
+  "anticipata_donne": [[2019, 502], [2027, 503], [2028, 505]],
+  "anticipata_gravosi_uomini": [[2019, 514]],
+  "anticipata_gravosi_donne": [[2019, 502]],
+  "anticipata_finestra": [[2019, 3]],
+  "anticipata_finestra_cpdel": [[2019, 3], [2025, 4], [2026, 5], [2027, 7], [2028, 9]],
+  "contributiva_eta": [[2019, 768], [2027, 769], [2028, 771]],
+  "contributiva_contributi": [[2019, 240], [2027, 241], [2028, 243]],
+  "contributiva_finestra": 3,
+  "contributiva_soglia": [[2019, 3.0], [2030, 3.2]],
+  "contributiva_soglia_donna_1figlio": 2.8,
+  "contributiva_soglia_donna_2figli": 2.6,
+  "precoci_contributi": [[2019, 492], [2027, 493], [2028, 495]],
+  "precoci_gravosi_contributi": [[2019, 492]],
+  "ape_eta": 761,
+  "ape_contributi": 360,
+  "ape_contributi_gravosi": 432,
+  "opzione_donna_eta": 732,
+  "opzione_donna_contributi": 420,
+  "opzione_donna_finestra_dipendenti": 12,
+  "opzione_donna_finestra_autonome": 18,
+  "quota103_eta": 744,
+  "quota103_contributi": 492,
+  "quota103_finestra_2023": [3, 6],
+  "quota103_finestra_2024": [7, 9],
+  "quota102_eta": 768,
+  "quota100_eta": 744,
+  "quota100_contributi": 456,
+  "quota100_finestra": [3, 6],
+  "usuranti_contributi": 420,
+  "usuranti": {
+   "usurante": { "dipendente": [733, 97.6], "autonomo": [745, 98.6] },
+   "notturno_72_77": { "dipendente": [745, 98.6], "autonomo": [757, 99.6] },
+   "notturno_64_71": { "dipendente": [757, 99.6], "autonomo": [769, 100.6] }
+  },
+  "usuranti_validi_fino": 2028
+ }
+}
