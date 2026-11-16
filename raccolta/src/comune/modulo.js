@@ -76,11 +76,11 @@ export function creaModulo({ form, sezioni, domande, chiave, alCambio }) {
       $('#d-' + d.id, form).hidden = !vis;
       if (!vis && stato.risposte[d.id] !== undefined) delete stato.risposte[d.id];
     }
-    // Una sezione senza domande visibili sparisce.
+    // Una sezione senza domande visibili sparisce (salvo `sempre: true`, per le sezioni con campi aggiunti dallo strumento).
     for (const s of sezioni) {
       const sue = domande.filter((d) => d.sezione === s.id);
       const el = $('#s-' + s.id, form);
-      if (el) el.hidden = sue.length > 0 && sue.every((d) => d.visibile && !d.visibile(stato.risposte));
+      if (el) el.hidden = !s.sempre && sue.length > 0 && sue.every((d) => d.visibile && !d.visibile(stato.risposte));
     }
     // Numerazione solo delle sezioni visibili.
     const visibili = sezioni.filter((s) => !$('#s-' + s.id, form)?.hidden);

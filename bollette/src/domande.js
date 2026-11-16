@@ -4,7 +4,7 @@
 
 export const SEZIONI = [
   { id: 'cosa', titolo: 'Cosa vuoi confrontare' },
-  { id: 'dove', titolo: 'Dove arriva la fornitura', aiuto: 'Il Comune decide quali offerte valgono lì e, per il gas, le tariffe di rete e le imposte.' },
+  { id: 'dove', sempre: true, titolo: 'Dove arriva la fornitura', aiuto: 'Il Comune decide quali offerte valgono lì e, per il gas, le tariffe di rete e le imposte.' },
   { id: 'luce', titolo: 'La luce', aiuto: 'Prendi l\'ultima bolletta della luce: i dati sono nella prima o nella seconda pagina.' },
   { id: 'gas', titolo: 'Il gas', aiuto: 'Prendi l\'ultima bolletta del gas: i dati sono nella prima o nella seconda pagina.' },
   { id: 'oggi', titolo: 'Quanto paghi oggi', aiuto: 'Serve per dirti quanto risparmieresti. Se non lo sai, mostriamo comunque le offerte più convenienti.' },
