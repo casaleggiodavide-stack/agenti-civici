@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--icone--><link rel="icon" href="../../comune/icona-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../../comune/marchio.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../comune/icona-180.png"><!--/icone-->
+<title>Indovina il Comune · Il Polpo civico</title>
+<meta name="description" content="Gioco: indovina il Comune misterioso in sei tentativi, con indizi dai conti dei Comuni (spesa, debiti, appalti, PNRR, rifiuti), dalla provincia e dalla distanza. Ogni giorno una sfida nuova, uguale per tutti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../comune/stile.css">
+<style>
+  .storie-testa { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin: 28px 0 8px; }
+  .storie-testa .logo-polpo { width: 110px; height: 110px; }
+  .storie-testa h1 { margin: 0; font-size: var(--s4); line-height: 1; }
+  .storie-testa p { margin: 8px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
+  @media (max-width: 560px) { .storie-testa { grid-template-columns: minmax(0, 1fr); } .storie-testa .logo-polpo { width: 80px; height: 80px; } }
+  .gioco { max-width: 860px; margin: 18px auto 0; }
+  .palco { position: relative; border: 1px solid var(--riga); border-radius: 6px; background: var(--fondo); overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .palco canvas { display: block; width: 100%; outline: none; }
+  .palco canvas:focus-visible { box-shadow: inset 0 0 0 3px var(--accento); }
+  .barra-gioco { display: flex; gap: 6px 18px; flex-wrap: wrap; align-items: baseline; justify-content: space-between; padding: 6px 2px; font-family: var(--cifre); font-size: 13px; color: var(--inchiostro-2); }
+  .barra-gioco b { font-family: var(--titoli); font-size: 22px; color: var(--inchiostro); letter-spacing: -0.02em; }
+  #vite { color: var(--accento); font-size: 18px; letter-spacing: 2px; }
+  #serie { color: var(--accento); }
+  .esito { min-height: 42px; margin: 0 0 8px; font-size: 14px; line-height: 1.35; color: var(--inchiostro-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .esito[data-tono="no"] { color: var(--accento); }
+  .esito[data-tono="si"] { color: var(--si); }
+  .esito[data-tono="forse"] { color: var(--forse); }
+  .velo { position: absolute; inset: 0; display: grid; place-items: center; padding: 18px; background: color-mix(in srgb, var(--fondo) 88%, transparent); overflow-y: auto; }
+  .velo[hidden] { display: none; }
+  .velo-box { max-width: 520px; text-align: left; }
+  .velo-box h2 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 10px; line-height: 1.05; }
+  .velo-box p, .velo-box li { color: var(--inchiostro-2); font-size: var(--s0); }
+  .velo-box ol, .velo-box ul { padding-left: 18px; display: grid; gap: 6px; }
+  .velo-box .btn { margin: 8px 10px 0 0; }
+  #fine-punti { font-family: var(--titoli); font-size: clamp(48px, 9vw, 80px); line-height: 1; color: var(--accento); display: block; }
+  #fine-errori { max-height: 40vh; overflow-y: auto; }
+  .regole-gioco { max-width: 860px; margin: 48px auto 0; padding-top: 24px; border-top: 2px solid var(--inchiostro); }
+  .regole-gioco h2 { font-size: clamp(26px, 3.8vw, 38px); margin: 0 0 10px; }
+  .regole-gioco p { color: var(--inchiostro-2); }
+  .regole-gioco .scorri { overflow-x: auto; }
+  .ordinabile { width: 100%; border-collapse: collapse; font-size: var(--s0); }
+  .ordinabile th { text-align: left; border-bottom: 1px solid var(--inchiostro-3); padding: 0; white-space: nowrap; }
+  .ordinabile th button { all: unset; cursor: pointer; display: block; padding: 8px 10px 8px 0; font-family: var(--cifre); font-size: 11.5px; letter-spacing: .04em; color: var(--inchiostro-3); }
+  .ordinabile th button:focus-visible { outline: 2px solid var(--accento); }
+  .ordinabile th[aria-sort] button { color: var(--inchiostro); }
+  .ordinabile th[aria-sort="descending"] button::after { content: " ↓"; color: var(--accento); }
+  .ordinabile th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--accento); }
+  .ordinabile td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--riga-tenue); color: var(--inchiostro-2); vertical-align: top; }
+  .ordinabile td:first-child { color: var(--inchiostro); font-weight: 600; }
+  .schede-giochi { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px; }
+  .schede-giochi a { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; padding: 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 4px; text-decoration: none; color: var(--inchiostro-2); }
+  .schede-giochi a:hover { border-color: var(--accento); }
+  .schede-giochi b { display: block; font-family: var(--titoli); font-size: 21px; color: var(--inchiostro); margin-bottom: 6px; }
+  .st-polpo { width: 46px; height: 46px; overflow: visible; }
+  .regole-gioco ol.lista { padding-left: 20px; display: grid; gap: 8px; color: var(--inchiostro-2); }
+  .palco-truffa { padding: 16px; touch-action: auto; }
+  .palco-truffa .velo { position: relative; inset: auto; background: none; padding: 6px 0; display: block; }
+  .palco-truffa .velo[hidden], .tavolo[hidden] { display: none; }
+  .tavolo { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 6px; }
+  .tavolo .logo-polpo { width: 76px; height: 76px; overflow: visible; transition: transform .2s; }
+  .tavolo .logo-polpo.contento { animation: salta .5s ease; }
+  .tavolo .logo-polpo.triste { animation: scuoti .5s ease; }
+  @keyframes salta { 40% { transform: translateY(-14px) scale(1.05); } }
+  @keyframes scuoti { 20%, 60% { transform: rotate(-9deg); } 40%, 80% { transform: rotate(9deg); } }
+  .mazzo { position: relative; }
+  .carta { position: relative; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 18px; padding: 16px 18px 22px; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; outline: none; overflow: hidden; }
+  .carta:focus-visible { box-shadow: 0 0 0 3px var(--accento); }
+  .carta.entra { animation: entra .28s ease; }
+  .carta.esce { transition: transform .35s ease, opacity .35s; }
+  .carta.esce.a-sinistra { transform: translateX(-30px) rotate(-3deg); }
+  .carta.esce.a-destra { transform: translateX(30px) rotate(3deg); }
+  @keyframes entra { from { transform: translateY(18px) scale(.97); opacity: 0; } }
+  .carta[data-verso="truffa"] { box-shadow: 0 0 0 3px var(--accento); }
+  .carta[data-verso="affidabile"] { box-shadow: 0 0 0 3px var(--si); }
+  .carta-testa { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 13px; color: #5d6270; margin-bottom: 8px; }
+  .carta-icona { font-size: 18px; }
+  .carta-canale { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .carta-mittente { font-weight: 700; color: #1d1f24; overflow-wrap: anywhere; }
+  .carta-testo { margin: 0; font-size: 17px; line-height: 1.45; overflow-wrap: anywhere; }
+  .carta-tempo { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: #e3e1da; }
+  .carta-tempo i { display: block; height: 100%; width: 100%; background: var(--accento); }
+  .carta-timbro { position: absolute; top: 14px; right: 14px; font-family: var(--cifre); font-weight: 700; font-size: 14px; letter-spacing: .12em; padding: 4px 10px; border: 3px solid currentColor; border-radius: 6px; transform: rotate(8deg); opacity: 0; }
+  .carta.esce .carta-timbro { opacity: 1; color: var(--accento); }
+  .scelte { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .scelte[hidden] { display: none; }
+  .scelte .btn { justify-content: center; padding: 14px 10px; font-size: 13px; }
+  #no { border-color: var(--accento); color: var(--accento); }
+  #si { border-color: var(--si); color: var(--si); }
+  .spiega { margin-top: 14px; padding: 16px 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .spiega[hidden] { display: none; }
+  #spiega-titolo { margin: 0 0 6px; font-family: var(--titoli); font-size: 22px; }
+  #spiega-titolo[data-tono="si"] { color: var(--si); }
+  #spiega-titolo[data-tono="no"] { color: var(--accento); }
+  .spiega p, .spiega li { color: var(--inchiostro-2); font-size: var(--s0); }
+  .spiega ul { padding-left: 18px; margin: 4px 0 0; display: grid; gap: 4px; }
+  .spiega-et { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3) !important; margin: 10px 0 0; }
+  #spiega-fonte { font-size: 13px; margin: 10px 0 0; }
+  .finestra { color-scheme: light; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); }
+  .finestra-barra { display: flex; gap: 10px; align-items: center; padding: 8px 12px; background: #e3e1da; font-size: 12.5px; color: #5d6270; }
+  .pallini i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #c9c5bc; margin-right: 4px; }
+  .indirizzo { flex: 1; background: #fff; border-radius: 999px; padding: 3px 12px; font-family: var(--cifre); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .negozio-testa { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #1d1f24; color: #fff; }
+  .negozio-testa span { font-family: var(--cifre); font-size: 11px; letter-spacing: .14em; background: #ff4a36; color: #0b0b0a; padding: 3px 8px; border-radius: 4px; }
+  .negozio-corpo { padding: 16px; display: grid; gap: 14px; }
+  .negozio-corpo h3 { margin: 0; font-size: 20px; color: #1d1f24; }
+  .prodotto { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .foto-prodotto { aspect-ratio: 1; display: grid; place-items: center; font-size: 56px; background: #f4f2ec; border-radius: 10px; }
+  .prezzo { font-family: var(--titoli); font-size: 30px; margin: 4px 0 8px; color: #1d1f24; }
+  .etichette { display: flex; flex-wrap: wrap; gap: 6px; }
+  .etichetta, .voce { all: unset; cursor: pointer; position: relative; font-size: 13.5px; padding: 6px 10px; border: 1.5px dashed #c9c5bc; border-radius: 8px; color: #1d1f24; background: #fff; }
+  .etichetta:focus-visible, .voce:focus-visible { outline: 3px solid var(--accento); }
+  .etichetta.conto { color: #c2362b; font-weight: 700; }
+  .etichetta.vista, .voce.vista { border: 2px solid #ff4a36; background: #fdecea; }
+  .etichetta.falso { border-style: solid; border-color: #9aa1ae; opacity: .7; }
+  .bollino { position: absolute; top: -9px; right: -6px; font-family: var(--cifre); font-size: 10px; letter-spacing: .06em; background: #ff4a36; color: #0b0b0a; padding: 1px 6px; border-radius: 999px; }
+  .opzioni { display: grid; gap: 6px; }
+  .opzione { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid #e3e1da; border-radius: 8px; font-size: 14.5px; color: #1d1f24; cursor: pointer; }
+  .opzione b { margin-left: auto; font-family: var(--cifre); font-size: 13px; }
+  .opzione input { width: 20px; height: 20px; accent-color: #1d1f24; }
+  .scelta { padding: 12px; border-radius: 10px; background: #fff4d6; color: #1d1f24; display: grid; gap: 8px; justify-items: start; }
+  .scelta p { margin: 0; font-weight: 700; }
+  .scelta .grande { all: unset; cursor: pointer; background: #16734a; color: #fff; font-weight: 700; padding: 12px 18px; border-radius: 10px; font-size: 16px; }
+  .scelta .piccolo { all: unset; cursor: pointer; color: #5d6270; font-size: 12px; text-decoration: underline; }
+  .scelta .grande:focus-visible, .scelta .piccolo:focus-visible { outline: 3px solid var(--accento); }
+  .scelta-fatta { margin: 0; font-size: 14px; color: #5d6270; }
+  .cassa { justify-self: start; }
+  .riepilogo { width: 100%; border-collapse: collapse; font-size: 15px; color: #1d1f24; }
+  .riepilogo td { padding: 6px 0; border-bottom: 1px solid #e3e1da; }
+  .riepilogo td.n { text-align: right; font-family: var(--cifre); white-space: nowrap; padding-left: 10px; }
+  .riepilogo .tot td { font-weight: 800; font-size: 17px; border-bottom: 0; }
+  .nota-abb { margin: 0; color: #c2362b; font-size: 13.5px; }
+  .azioni-cassa { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+  .esito-negozio { margin-top: 6px; }
+  .esito-negozio[hidden] { display: none; }
+  .esito-negozio h2 { font-size: clamp(24px, 3.6vw, 34px); margin: 0 0 8px; }
+  #esito-lista { list-style: none; padding: 0; display: grid; gap: 10px; margin: 14px 0; }
+  #esito-lista li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 12px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; color: var(--inchiostro-2); font-size: var(--s0); }
+  #esito-lista li b { color: var(--inchiostro); }
+  .segno { font-family: var(--cifre); font-size: 20px; font-weight: 700; text-align: center; }
+  #esito-lista li[data-esito="evitata"] .segno, #esito-lista li[data-esito="scoperta"] .segno { color: var(--si); }
+  #esito-lista li[data-esito="caduto"] .segno { color: var(--accento); }
+  #esito-lista small { color: var(--inchiostro-3); }
+  /* premi, sfide e sorprese (giochi/comune/premi.js) */
+  .barra-gioco .suono { all: unset; cursor: pointer; font-size: 12px; color: var(--inchiostro-3); padding: 2px 6px; border: 1px solid var(--riga); border-radius: 999px; }
+  .barra-gioco .suono:focus-visible { outline: 2px solid var(--accento); }
+  #fase { color: var(--forse); }
+  #scudo { color: var(--forse); font-size: 16px; }
+  #scudo[hidden] { display: none; }
+  .scelta-partita { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .scelta-partita .btn { margin: 0; }
+  .scelta-partita small { color: var(--inchiostro-3); flex-basis: 100%; }
+  .banner-sfida { padding: 10px 14px; border: 2px solid var(--forse); border-radius: 8px; color: var(--inchiostro) !important; }
+  .banner-sfida b { color: var(--forse); font-size: 1.15em; }
+  .vicino { font-size: 14px !important; margin: 6px 0; }
+  .vicino b { color: var(--inchiostro); }
+  .titolo-polpo { font-family: var(--titoli); font-size: clamp(22px, 3.4vw, 30px); color: var(--inchiostro) !important; margin: 6px 0 4px; line-height: 1.1; }
+  .sfida-esito { font-weight: 700; margin: 4px 0; }
+  .sfida-esito.si { color: var(--si) !important; }
+  .sfida-esito.no { color: var(--accento) !important; }
+  .medaglie-nuove .medaglia { display: inline-block; margin: 4px 6px 0 0; padding: 4px 10px; border: 1px solid var(--forse); border-radius: 999px; color: var(--inchiostro); font-size: 14px; animation: medaglia .6s ease both; }
+  @keyframes medaglia { from { transform: scale(.4) rotate(-12deg); opacity: 0; } 70% { transform: scale(1.12); } }
+  details.medaglie { margin: 10px 0 0; font-size: 14px; }
+  details.medaglie summary { cursor: pointer; color: var(--inchiostro-2); font-family: var(--cifre); font-size: 12.5px; letter-spacing: .04em; }
+  details.medaglie ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 6px; }
+  details.medaglie li { padding: 6px 10px; border: 1px dashed var(--riga); border-radius: 8px; color: var(--inchiostro-3); filter: grayscale(1); opacity: .7; }
+  details.medaglie li.presa { border: 1px solid var(--forse); color: var(--inchiostro); filter: none; opacity: 1; }
+  details.medaglie small { display: block; font-size: 12px; color: var(--inchiostro-3); }
+  .annuncio-grande { position: absolute; left: 50%; top: 34%; z-index: 5; transform: translate(-50%, -50%); width: max-content; max-width: 92%; text-align: center; pointer-events: none;
+    font-family: var(--titoli); font-weight: 800; font-size: clamp(22px, 4.4vw, 40px); line-height: 1.05; color: var(--forse); text-shadow: 0 3px 0 var(--fondo), 0 0 24px var(--fondo);
+    animation: annuncio 1.4s ease both; }
+  @keyframes annuncio { 0% { transform: translate(-50%, -50%) scale(.6); opacity: 0; } 15% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { transform: translate(-50%, -64%); opacity: 0; } }
+  .coriandoli { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .coriandoli i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: coriandolo 1.2s cubic-bezier(.2,.7,.4,1) forwards; }
+  @keyframes coriandolo { to { transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); opacity: 0; } }
+  .stelle { color: var(--forse); letter-spacing: 2px; }
+  .record-gioco { display: block; margin-top: 8px; font-family: var(--cifre); font-size: 12px; color: var(--forse); }
+  .classifica { margin: 14px 0 6px; padding: 14px 16px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .titolo-classifica { font-family: var(--titoli); font-size: 22px; color: var(--inchiostro) !important; margin: 0 0 8px; }
+  .schede-classifica { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .schede-classifica button { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 12px; letter-spacing: .04em; padding: 5px 12px; border: 1px solid var(--riga); border-radius: 999px; color: var(--inchiostro-2); }
+  .schede-classifica button[aria-selected="true"] { border-color: var(--forse); color: var(--inchiostro); }
+  .schede-classifica button:focus-visible, .link:focus-visible { outline: 2px solid var(--accento); }
+  ol.podio { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 2px !important; }
+  ol.podio li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 6px 8px; border-radius: 6px; }
+  ol.podio li:nth-child(-n+3) .pos { color: var(--forse); }
+  ol.podio li.mio { background: color-mix(in srgb, var(--forse) 16%, transparent); }
+  ol.podio .pos { font-family: var(--cifre); font-size: 13px; color: var(--inchiostro-3); }
+  ol.podio .chi { color: var(--inchiostro); overflow-wrap: anywhere; }
+  ol.podio small { color: var(--inchiostro-3); font-size: 12px; }
+  ol.podio b { font-family: var(--cifre); color: var(--inchiostro); }
+  .invito-classifica label { display: grid; gap: 4px; font-size: 14px; color: var(--inchiostro-2); max-width: 320px; }
+  .invito-classifica select { font: inherit; font-size: 16px; padding: 6px 8px; background: var(--fondo); color: var(--inchiostro); border: 1px solid var(--riga); border-radius: 6px; }
+  .nome-classifica b { color: var(--forse); }
+  .link { all: unset; cursor: pointer; color: var(--accento); text-decoration: underline; }
+  #in-testa[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) { .annuncio-grande { animation-duration: 2s; animation-name: annuncio-piano; } @keyframes annuncio-piano { 0%, 100% { opacity: 0; } 10%, 85% { opacity: 1; } } .medaglie-nuove .medaglia { animation: none; } }
+  @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="max">
+  <div class="banda-sostieni"><span><a href="../../">← Il Polpo civico</a> · <a href="../../giochi/">Gioca con il Polpo</a></span><span>Promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a></span></div>
+  <header class="storie-testa">
+    <svg class="logo-polpo" viewBox="-300 -300 600 600" aria-hidden="true"><g transform="rotate(-180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(180) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-135) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg>
+    <div>
+      <div class="occhiello">Gioca con il Polpo · braccio 5, Legge i conti del Comune</div>
+      <h1>Indovina il Comune</h1>
+      <p>Un Comune misterioso, sei tentativi, un indizio in più a ogni errore. Tutti i numeri vengono dai conti pubblici dei Comuni.</p>
+    </div>
+  </header>
+<style>
+  .palco-comune { padding: 16px; }
+  .palco-comune .tavolo { grid-template-columns: 64px minmax(0, 1fr); }
+  .palco-comune .tavolo .logo-polpo { width: 64px; height: 64px; }
+  .ic-livello { margin: 0 0 10px; font-family: var(--cifre); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--inchiostro-3); }
+  .ic-indizi { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+  .ic-indizio { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 10px 12px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .ic-indizio b { font-family: var(--titoli); font-size: 17px; color: var(--inchiostro); }
+  .ic-indizio p { margin: 2px 0 4px; color: var(--inchiostro-2); font-size: var(--s0); line-height: 1.45; }
+  .ic-indizio small { color: var(--inchiostro-3); font-size: 12px; }
+  .ic-indizio small a { color: var(--inchiostro-3); }
+  .ic-n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--forse); color: var(--forse); font-family: var(--cifre); font-size: 13px; }
+  .ic-coperti { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 14px 0 0; font-size: 13px; color: var(--inchiostro-3); }
+  .ic-coperti:empty { display: none; }
+  .ic-chip { display: inline-flex; gap: 6px; align-items: center; padding: 3px 10px 3px 4px; border: 1px dashed var(--riga); border-radius: 999px; }
+  .ic-chip .ic-n { width: 20px; height: 20px; font-size: 11px; border-color: var(--riga); color: var(--inchiostro-3); }
+  .ic-indizio.nuovo { animation: ic-entra .5s ease both; border-color: var(--forse); }
+  @keyframes ic-entra { from { transform: translateY(-6px); opacity: 0; } }
+  .ic-prova { position: relative; display: grid; gap: 6px; }
+  .ic-prova[hidden] { display: none; }
+  .ic-prova label { font-size: 14px; color: var(--inchiostro-2); }
+  .ic-riga { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .ic-riga input { font: inherit; font-size: 17px; padding: 10px 12px; min-width: 0; background: var(--fondo); color: var(--inchiostro); border: 1.5px solid var(--inchiostro-3); border-radius: 10px; }
+  .ic-riga input:focus-visible { outline: 3px solid var(--accento); outline-offset: 1px; }
+  .ic-sug { list-style: none; margin: 0; padding: 0; border: 1px solid var(--riga); border-radius: 8px; overflow: hidden; background: var(--carta); max-height: 300px; overflow-y: auto; }
+  .ic-sug[hidden] { display: none; }
+  .ic-sug li { padding: 9px 12px; cursor: pointer; font-size: var(--s0); color: var(--inchiostro); }
+  .ic-sug li + li { border-top: 1px solid var(--riga-tenue); }
+  .ic-sug li[aria-selected="true"], .ic-sug li:hover { background: var(--accento-tenue); }
+  .ic-sug li.vuoto { cursor: default; color: var(--inchiostro-3); }
+  .ic-sug small { display: block; color: var(--inchiostro-3); font-size: var(--s-1); }
+  #aiuto { margin: 10px 0 0; font-size: 14px; }
+  #aiuto:disabled { color: var(--inchiostro-3); cursor: default; text-decoration: none; }
+  .ic-tentativi { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .ic-tentativo { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 10px 12px; border: 1px solid var(--riga); border-radius: 8px; }
+  .ic-tentativo[data-r="stessa"] { border-color: var(--forse); }
+  .ic-tentativo[data-r="confinante"] { border-color: color-mix(in srgb, var(--forse) 55%, var(--accento)); }
+  .ic-tentativo[data-r="giusto"] { border-color: var(--si); }
+  .ic-tentativo b { color: var(--inchiostro); }
+  .ic-tentativo small { color: var(--inchiostro-3); }
+  .ic-tentativo p { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 14px; color: var(--inchiostro-2); }
+  .ic-q { font-size: 18px; line-height: 1.3; text-align: center; }
+  .ic-q small { display: block; font-family: var(--cifre); font-size: 11px; color: var(--inchiostro-3); }
+  .ic-dir { display: inline-flex; align-items: center; gap: 4px; }
+  .ic-freccia { width: 18px; height: 18px; fill: var(--accento); flex: none; }
+  #fine-quadrati { font-size: 22px; letter-spacing: 2px; margin: 6px 0; }
+  .ic-scheda-testa { margin: 14px 0 6px; color: var(--inchiostro-2) !important; }
+  .ic-scheda { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .ic-scheda th, .ic-scheda td { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--riga-tenue); color: var(--inchiostro-2); vertical-align: top; }
+  .ic-scheda thead th { font-family: var(--cifre); font-size: 11px; letter-spacing: .04em; color: var(--inchiostro-3); border-bottom-color: var(--inchiostro-3); }
+  .ic-scheda tbody th { color: var(--inchiostro); font-weight: 600; }
+  .ic-scheda td a { color: var(--inchiostro-3); font-size: 12.5px; }
+  .ic-link { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ic-link .btn { margin: 0 !important; }
+  .scelta-livello { border: 0; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .scelta-livello[hidden] { display: none; }
+  .scelta-livello legend { font-size: 14px; color: var(--inchiostro-2); margin-bottom: 6px; padding: 0; }
+  .scelta-livello label { display: inline-flex; gap: 6px; align-items: center; padding: 6px 12px; border: 1px solid var(--riga); border-radius: 999px; font-size: 14px; color: var(--inchiostro-2); cursor: pointer; }
+  .scelta-livello label:has(input:checked) { border-color: var(--forse); color: var(--inchiostro); }
+  .scelta-livello input { accent-color: var(--accento); }
+  .scelta-livello input:focus-visible { outline: 2px solid var(--accento); }
+  #serie-apertura[hidden] { display: none; }
+  @media (max-width: 560px) { .palco-comune { padding: 10px; } .palco-comune .tavolo { grid-template-columns: minmax(0, 1fr); } .palco-comune .tavolo .logo-polpo { width: 48px; height: 48px; } .ic-scheda { font-size: 13px; } }
+  @media (prefers-reduced-motion: reduce) { .ic-indizio.nuovo { animation: none; } }
+</style>
+  <section class="gioco" aria-labelledby="t-gioco">
+    <h2 id="t-gioco" class="sr-only">Il gioco</h2>
+    <div class="barra-gioco"><span>Tentativo <b id="n-tentativo">1 / 6</b></span><span>Indizi <b id="n-indizi">1 / 6</b></span><span>Se indovini ora <b id="vale">0</b></span><span id="serie"></span><button type="button" class="suono" id="suono" aria-pressed="true">🔊 Suono</button></div>
+    <p class="esito" id="esito" aria-live="polite"></p>
+    <div class="palco palco-truffa palco-comune">
+      <div class="tavolo" hidden>
+        <svg class="logo-polpo" viewBox="-300 -300 600 600" aria-hidden="true"><g transform="rotate(-180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(180) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-135) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg>
+        <div>
+          <p class="ic-livello" id="ic-livello"></p>
+          <h3 class="sr-only">Gli indizi</h3>
+          <ol class="ic-indizi" id="indizi"></ol>
+          <form class="ic-prova" id="prova" autocomplete="off" role="search">
+            <label for="campo">Scrivi un Comune e scegli dai suggerimenti</label>
+            <div class="ic-riga"><input type="text" id="campo" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggerimenti" placeholder="es. Pavia, Lecce, Bra" enterkeyhint="go" spellcheck="false"><button type="submit" class="btn btn-primario">Prova</button></div>
+            <ul class="ic-sug" id="suggerimenti" role="listbox" aria-label="Comuni suggeriti" hidden></ul>
+          </form>
+          <button type="button" class="link" id="aiuto">Chiedi un indizio in più</button>
+          <h3 class="sr-only">I tuoi tentativi</h3>
+          <ol class="ic-tentativi" id="tentativi"></ol>
+          <p class="ic-coperti" id="coperti"></p>
+        </div>
+      </div>
+      <div class="velo" id="apertura"><div class="velo-box">
+        <h2>Indovina il Comune</h2>
+        <p>Il Polpo ha in mente un Comune italiano. Tu hai sei tentativi per indovinarlo.</p>
+        <ol>
+          <li>Si parte con un indizio: <b>dove sta e quanto è grande</b>. A ogni tentativo sbagliato se ne apre un altro, dai conti del Comune (spesa, debiti, appalti, PNRR, rifiuti) fino alla <b>provincia</b>, per ultima.</li>
+          <li>Per ogni Comune che scrivi il Polpo ti dice se è nella <b>stessa Regione</b> o in una <b>confinante</b>, se il misterioso ha <b>più o meno abitanti</b>, e <b>da che parte</b> e <b>quanto lontano</b> sta.</li>
+          <li>Meno tentativi e meno indizi usi, più punti fai. Puoi anche chiedere un indizio senza sprecare un tentativo, ma costa punti.</li>
+          <li>La <b>sfida del giorno</b> è la stessa per tutti e si gioca una volta: lunedì e martedì un capoluogo, da mercoledì a venerdì un Comune sopra i 30.000 abitanti, nel fine settimana uno da 10.000 a 30.000.</li>
+        </ol>
+        <p id="giorno-livello" class="vicino"></p>
+        <p id="serie-apertura" class="vicino" hidden></p>
+        <fieldset class="scelta-livello" id="scelta-livello"><legend>Partita libera: scegli i Comuni</legend><label><input type="radio" name="livello" value="capoluoghi" checked> Capoluoghi</label><label><input type="radio" name="livello" value="medi"> Medi</label><label><input type="radio" name="livello" value="tutti"> Tutti</label></fieldset>
+        <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è lo stesso Comune per tutti, oggi: confrontati con chi vuoi.</small></div>
+        <div id="premi"></div>
+        <p class="vicino" id="in-testa" hidden></p>
+      </div></div>
+      <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
+        <h2 id="t-fine">Fine della partita</h2>
+        <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <p id="fine-quadrati" aria-hidden="true"></p>
+        <div id="fine-premi"></div>
+        <div id="fine-classifica" class="classifica" hidden></div>
+        <div id="scheda"></div>
+        <button type="button" class="btn btn-primario" id="rigioca">Un altro Comune</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="regole-gioco" aria-labelledby="t-regole">
+    <div class="occhiello">I dati del gioco</div>
+    <h2 id="t-regole">Sei indizi, tutti dai dati pubblici</h2>
+    <p>Il gioco usa gli stessi dati degli strumenti del Polpo: 7.893 Comuni dall'elenco ISTAT, 7.736 con i numeri per tutti gli indizi. Quando manca un numero, l'indizio lo dice. «Comuni simili» vuol dire stessa fascia di abitanti: la mediana è il valore di mezzo, metà dei Comuni sta sopra e metà sotto. Un numero alto o basso non è un giudizio: dipende da quanti servizi fa il Comune, da quanti turisti ha, da come conta le spese.</p>
+    <div class="scorri"><table class="ordinabile" id="t-indizi"><thead><tr><th scope="col" data-k="0" data-tipo="n"><button type="button">N.</button></th><th scope="col" data-k="1" data-tipo="t"><button type="button">Indizio</button></th><th scope="col" data-k="2" data-tipo="t"><button type="button">Che cosa dice</button></th><th scope="col" data-k="3" data-tipo="t"><button type="button">Fonte</button></th><th scope="col" data-k="4" data-tipo="t"><button type="button">Anno</button></th></tr></thead><tbody><tr><td class="n" data-v="1">1</td><td data-v="Dove e quanto è grande">Dove e quanto è grande</td><td data-v="La ripartizione geografica (Nord-ovest, Nord-est, Centro, Sud, Isole) e la fascia di abitanti. Se nel gruppo del giorno ci sono meno di tre Comuni con la stessa fascia nella stessa ripartizione, la fascia si allarga a quelle vicine.">La ripartizione geografica (Nord-ovest, Nord-est, Centro, Sud, Isole) e la fascia di abitanti. Se nel gruppo del giorno ci sono meno di tre Comuni con la stessa fascia nella stessa ripartizione, la fascia si allarga a quelle vicine.</td><td data-v="ISTAT, Codici statistici delle unità amministrative territoriali (elenco dei Comuni, CC BY 4.0)"><a href="https://www.istat.it/classificazione/codici-dei-comuni-delle-province-e-delle-regioni/" target="_blank" rel="noopener">ISTAT, Codici statistici delle unità amministrative territoriali (elenco dei Comuni, CC BY 4.0)</a> · <a href="https://demo.istat.it/app/?i=POS&amp;l=it" target="_blank" rel="noopener">ISTAT, popolazione residente al 1° gennaio 2025 (CC BY 4.0)</a></td><td data-v="ISTAT, abitanti al 1° gennaio 2025">ISTAT, abitanti al 1° gennaio 2025</td></tr><tr><td class="n" data-v="2">2</td><td data-v="Quanto spende">Quanto spende</td><td data-v="La spesa impegnata nell&#x27;anno per servizi e opere (senza partite di giro), divisa per gli abitanti, accanto alla mediana dei Comuni della stessa fascia di abitanti.">La spesa impegnata nell&#x27;anno per servizi e opere (senza partite di giro), divisa per gli abitanti, accanto alla mediana dei Comuni della stessa fascia di abitanti.</td><td data-v="Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori"><a href="https://openbdap.rgs.mef.gov.it/it/FET/Analizza" target="_blank" rel="noopener">Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori</a></td><td data-v="rendiconti 2025 (o 2024)">rendiconti 2025 (o 2024)</td></tr><tr><td class="n" data-v="3">3</td><td data-v="Debiti e incassi">Debiti e incassi</td><td data-v="Il debito per abitante (Piano degli indicatori, indicatore 10.4) e la quota delle entrate proprie accertate nell&#x27;anno (tributi ed entrate extratributarie) davvero incassata.">Il debito per abitante (Piano degli indicatori, indicatore 10.4) e la quota delle entrate proprie accertate nell&#x27;anno (tributi ed entrate extratributarie) davvero incassata.</td><td data-v="Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori"><a href="https://openbdap.rgs.mef.gov.it/it/FET/Analizza" target="_blank" rel="noopener">Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori</a></td><td data-v="rendiconti 2025">rendiconti 2025</td></tr><tr><td class="n" data-v="4">4</td><td data-v="Appalti e PNRR">Appalti e PNRR</td><td data-v="La quota del valore degli appalti affidata senza gara, e il numero di progetti del PNRR localizzati sul territorio del Comune.">La quota del valore degli appalti affidata senza gara, e il numero di progetti del PNRR localizzati sul territorio del Comune.</td><td data-v="ANAC, Banca dati nazionale dei contratti pubblici, dati aperti (CC BY-SA 4.0)"><a href="https://dati.anticorruzione.it/opendata" target="_blank" rel="noopener">ANAC, Banca dati nazionale dei contratti pubblici, dati aperti (CC BY-SA 4.0)</a> · <a href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/localizzazione-dei-progetti-del-pnrr.html" target="_blank" rel="noopener">Italia Domani, open data del PNRR: localizzazione dei progetti</a></td><td data-v="appalti 2025, PNRR estrazione del 2026-06-13">appalti 2025, PNRR estrazione del 2026-06-13</td></tr><tr><td class="n" data-v="5">5</td><td data-v="Rifiuti">Rifiuti</td><td data-v="La spesa per i rifiuti per abitante (programma 09.03 del bilancio) e chi fa la raccolta, con quanti Comuni serve. Nel nome del gestore il gioco copre le parole che svelerebbero il Comune, la provincia o la Regione.">La spesa per i rifiuti per abitante (programma 09.03 del bilancio) e chi fa la raccolta, con quanti Comuni serve. Nel nome del gestore il gioco copre le parole che svelerebbero il Comune, la provincia o la Regione.</td><td data-v="Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori"><a href="https://openbdap.rgs.mef.gov.it/it/FET/Analizza" target="_blank" rel="noopener">Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori</a> · <a href="https://www.arera.it/area-operatori/ricerca-operatori" target="_blank" rel="noopener">ARERA, Ricerca operatori: raccolta e trasporto dei rifiuti urbani (CC BY-SA 4.0)</a></td><td data-v="ARERA, elenco degli operatori">ARERA, elenco degli operatori</td></tr><tr><td class="n" data-v="6">6</td><td data-v="La provincia">La provincia</td><td data-v="La provincia o città metropolitana e la Regione: l&#x27;ultimo indizio, il più preciso.">La provincia o città metropolitana e la Regione: l&#x27;ultimo indizio, il più preciso.</td><td data-v="ISTAT, Codici statistici delle unità amministrative territoriali (elenco dei Comuni, CC BY 4.0)"><a href="https://www.istat.it/classificazione/codici-dei-comuni-delle-province-e-delle-regioni/" target="_blank" rel="noopener">ISTAT, Codici statistici delle unità amministrative territoriali (elenco dei Comuni, CC BY 4.0)</a></td><td data-v="ISTAT, codici al 2026">ISTAT, codici al 2026</td></tr></tbody></table></div>
+    <p class="nota">Tocca i titoli delle colonne per ordinare.</p>
+    <h2>Le difficoltà</h2>
+    <p>Il Comune del giorno si sceglie dalla data, da un elenco rimescolato una volta per tutte: ogni difficoltà ha i suoi giorni e il suo elenco, che si ricomincia solo quando è finito. Così lo stesso Comune non torna prima di un anno.</p>
+    <div class="scorri"><table class="ordinabile" id="t-livelli"><thead><tr><th scope="col" data-k="0" data-tipo="t"><button type="button">Difficoltà</button></th><th scope="col" data-k="1" data-tipo="t"><button type="button">Quando</button></th><th scope="col" data-k="2" data-tipo="t"><button type="button">Comuni</button></th><th scope="col" data-k="3" data-tipo="n"><button type="button">Quanti</button></th><th scope="col" data-k="4" data-tipo="n"><button type="button">Punti</button></th></tr></thead><tbody><tr><td data-v="Capoluoghi">Capoluoghi</td><td data-v="Sfida del lunedì e del martedì; partita libera">Sfida del lunedì e del martedì; partita libera</td><td data-v="i capoluoghi di provincia e di città metropolitana">i capoluoghi di provincia e di città metropolitana</td><td class="n" data-v="119">119</td><td class="n" data-v="1.0">×1</td></tr><tr><td data-v="Sopra i 30.000">Sopra i 30.000</td><td data-v="Sfida da mercoledì a venerdì">Sfida da mercoledì a venerdì</td><td data-v="i Comuni sopra i 30.000 abitanti che non sono capoluoghi">i Comuni sopra i 30.000 abitanti che non sono capoluoghi</td><td class="n" data-v="192">192</td><td class="n" data-v="1.3">×1,3</td></tr><tr><td data-v="Da 10.000 a 30.000">Da 10.000 a 30.000</td><td data-v="Sfida del sabato e della domenica">Sfida del sabato e della domenica</td><td data-v="i Comuni da 10.000 a 30.000 abitanti che non sono capoluoghi">i Comuni da 10.000 a 30.000 abitanti che non sono capoluoghi</td><td class="n" data-v="868">868</td><td class="n" data-v="1.6">×1,6</td></tr><tr><td data-v="Medi">Medi</td><td data-v="Partita libera">Partita libera</td><td data-v="tutti i Comuni da 10.000 abitanti in su">tutti i Comuni da 10.000 abitanti in su</td><td class="n" data-v="1177">1.177</td><td class="n" data-v="1.3">×1,3</td></tr><tr><td data-v="Tutti">Tutti</td><td data-v="Partita libera">Partita libera</td><td data-v="tutti i Comuni con i dati per gli indizi, anche i più piccoli">tutti i Comuni con i dati per gli indizi, anche i più piccoli</td><td class="n" data-v="7736">7.736</td><td class="n" data-v="2.0">×2</td></tr></tbody></table></div>
+    <h2>Regione giusta, confinante o lontana</h2>
+    <p>Dopo ogni tentativo il Polpo confronta la Regione del Comune che hai scritto con quella del misterioso. Le Regioni confinanti sono quelle che si toccano via terra, controllate sui confini ISTAT; Sicilia e Sardegna non confinano con nessuno. La freccia e la distanza vanno dal centro del tuo Comune al centro del misterioso, calcolati sui confini ISTAT al 1° gennaio 2026.</p>
+    <div class="scorri"><table class="ordinabile" id="t-regioni"><thead><tr><th scope="col" data-k="0" data-tipo="t"><button type="button">Regione</button></th><th scope="col" data-k="1" data-tipo="t"><button type="button">Ripartizione</button></th><th scope="col" data-k="2" data-tipo="n"><button type="button">Regioni confinanti</button></th><th scope="col" data-k="3" data-tipo="n"><button type="button">Comuni nel gioco</button></th></tr></thead><tbody><tr><td data-v="Abruzzo">Abruzzo</td><td data-v="Sud">Sud</td><td class="n" data-v="3">Lazio, Marche, Molise</td><td class="n" data-v="296">296</td></tr><tr><td data-v="Basilicata">Basilicata</td><td data-v="Sud">Sud</td><td class="n" data-v="3">Calabria, Campania, Puglia</td><td class="n" data-v="131">131</td></tr><tr><td data-v="Calabria">Calabria</td><td data-v="Sud">Sud</td><td class="n" data-v="1">Basilicata</td><td class="n" data-v="391">391</td></tr><tr><td data-v="Campania">Campania</td><td data-v="Sud">Sud</td><td class="n" data-v="4">Basilicata, Lazio, Molise, Puglia</td><td class="n" data-v="543">543</td></tr><tr><td data-v="Emilia-Romagna">Emilia-Romagna</td><td data-v="Nord-est">Nord-est</td><td class="n" data-v="6">Liguria, Lombardia, Marche, Piemonte, Toscana, Veneto</td><td class="n" data-v="324">324</td></tr><tr><td data-v="Friuli-Venezia Giulia">Friuli-Venezia Giulia</td><td data-v="Nord-est">Nord-est</td><td class="n" data-v="1">Veneto</td><td class="n" data-v="215">215</td></tr><tr><td data-v="Lazio">Lazio</td><td data-v="Centro">Centro</td><td class="n" data-v="6">Abruzzo, Campania, Marche, Molise, Toscana, Umbria</td><td class="n" data-v="373">373</td></tr><tr><td data-v="Liguria">Liguria</td><td data-v="Nord-ovest">Nord-ovest</td><td class="n" data-v="3">Emilia-Romagna, Piemonte, Toscana</td><td class="n" data-v="233">233</td></tr><tr><td data-v="Lombardia">Lombardia</td><td data-v="Nord-ovest">Nord-ovest</td><td class="n" data-v="4">Emilia-Romagna, Piemonte, Trentino-Alto Adige, Veneto</td><td class="n" data-v="1477">1.477</td></tr><tr><td data-v="Marche">Marche</td><td data-v="Centro">Centro</td><td class="n" data-v="5">Abruzzo, Emilia-Romagna, Lazio, Toscana, Umbria</td><td class="n" data-v="225">225</td></tr><tr><td data-v="Molise">Molise</td><td data-v="Sud">Sud</td><td class="n" data-v="4">Abruzzo, Campania, Lazio, Puglia</td><td class="n" data-v="135">135</td></tr><tr><td data-v="Piemonte">Piemonte</td><td data-v="Nord-ovest">Nord-ovest</td><td class="n" data-v="4">Emilia-Romagna, Liguria, Lombardia, Valle d&#x27;Aosta</td><td class="n" data-v="1172">1.172</td></tr><tr><td data-v="Puglia">Puglia</td><td data-v="Sud">Sud</td><td class="n" data-v="3">Basilicata, Campania, Molise</td><td class="n" data-v="255">255</td></tr><tr><td data-v="Sardegna">Sardegna</td><td data-v="Isole">Isole</td><td class="n" data-v="0">nessuna (è un&#x27;isola)</td><td class="n" data-v="373">373</td></tr><tr><td data-v="Sicilia">Sicilia</td><td data-v="Isole">Isole</td><td class="n" data-v="0">nessuna (è un&#x27;isola)</td><td class="n" data-v="336">336</td></tr><tr><td data-v="Toscana">Toscana</td><td data-v="Centro">Centro</td><td class="n" data-v="5">Emilia-Romagna, Lazio, Liguria, Marche, Umbria</td><td class="n" data-v="271">271</td></tr><tr><td data-v="Trentino-Alto Adige">Trentino-Alto Adige</td><td data-v="Nord-est">Nord-est</td><td class="n" data-v="2">Lombardia, Veneto</td><td class="n" data-v="275">275</td></tr><tr><td data-v="Umbria">Umbria</td><td data-v="Centro">Centro</td><td class="n" data-v="3">Lazio, Marche, Toscana</td><td class="n" data-v="92">92</td></tr><tr><td data-v="Valle d&#x27;Aosta">Valle d&#x27;Aosta</td><td data-v="Nord-ovest">Nord-ovest</td><td class="n" data-v="1">Piemonte</td><td class="n" data-v="74">74</td></tr><tr><td data-v="Veneto">Veneto</td><td data-v="Nord-est">Nord-est</td><td class="n" data-v="4">Emilia-Romagna, Friuli-Venezia Giulia, Lombardia, Trentino-Alto Adige</td><td class="n" data-v="545">545</td></tr></tbody></table></div>
+    <p class="nota">Fonti: <a href="https://www.istat.it/classificazione/codici-dei-comuni-delle-province-e-delle-regioni/" target="_blank" rel="noopener">ISTAT, Codici statistici delle unità amministrative territoriali (elenco dei Comuni, CC BY 4.0)</a>; <a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/" target="_blank" rel="noopener">ISTAT, Confini delle unità amministrative a fini statistici al 1° gennaio 2026, versione generalizzata (CC BY 4.0)</a>; <a href="https://demo.istat.it/app/?i=POS&amp;l=it" target="_blank" rel="noopener">ISTAT, popolazione residente al 1° gennaio 2025 (CC BY 4.0)</a>; <a href="https://openbdap.rgs.mef.gov.it/it/FET/Analizza" target="_blank" rel="noopener">Ragioneria Generale dello Stato, OpenBDAP: rendiconti dei Comuni e Piano degli indicatori</a>; <a href="https://www.arera.it/area-operatori/ricerca-operatori" target="_blank" rel="noopener">ARERA, Ricerca operatori: raccolta e trasporto dei rifiuti urbani (CC BY-SA 4.0)</a>; <a href="https://dati.anticorruzione.it/opendata" target="_blank" rel="noopener">ANAC, Banca dati nazionale dei contratti pubblici, dati aperti (CC BY-SA 4.0)</a>; <a href="https://www.italiadomani.gov.it/content/sogei-ng/it/it/catalogo-open-data/localizzazione-dei-progetti-del-pnrr.html" target="_blank" rel="noopener">Italia Domani, open data del PNRR: localizzazione dei progetti</a>. Aggiornato al 2026-11-15. Vuoi i numeri veri del tuo Comune? <a href="../../per-te/">Per te</a> li mette insieme.</p>
+  </section>
+</div>
+<script>
+/* Tabelle ordinabili: un clic sul titolo ordina, un secondo clic inverte. */
+document.querySelectorAll('table.ordinabile').forEach((t) => {
+  const corpo = t.tBodies[0];
+  t.querySelectorAll('th button').forEach((b) => b.addEventListener('click', () => {
+    const th = b.parentElement, k = +th.dataset.k, num = th.dataset.tipo === 'n';
+    const verso = th.getAttribute('aria-sort') === 'descending' ? 1 : th.getAttribute('aria-sort') === 'ascending' ? -1 : (num ? -1 : 1);
+    t.querySelectorAll('th').forEach((x) => x.removeAttribute('aria-sort'));
+    th.setAttribute('aria-sort', verso < 0 ? 'descending' : 'ascending');
+    const righe = [...corpo.rows].sort((a, c) => {
+      const x = a.cells[k].dataset.v, y = c.cells[k].dataset.v;
+      return (num ? x - y : x.localeCompare(y, 'it')) * verso;
+    });
+    righe.forEach((r) => corpo.appendChild(r));
+  }));
+});
+</script>
+<script type="module" src="web/gioco.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+{
+  "id": "visita",
+  "titolo": "La visita fuori tempo",
+  "pratica": "Il medico ti prescrive una prima visita cardiologica. Il centro di prenotazione (CUP) ti dà una data lontanissima. Vuoi farla nei tempi, senza pagare di più.",
+  "strumento": "liste-attesa",
+  "livello": 3,
+  "bivi": [
+    {
+      "tipo": "documento",
+      "domanda": "Dove trovi entro quando ti spetta la visita?",
+      "scelte": [
+        { "testo": "Sul foglio di prenotazione del CUP", "giusta": false, "giorni": 5, "perche": "Il CUP ti dà una data, ma il tempo massimo dipende dalla classe che il medico scrive sulla ricetta." },
+        { "testo": "Nella lettera di priorità sulla ricetta: U, B, D o P", "giusta": true },
+        { "testo": "Da nessuna parte: senza urgenza non c'è un tempo massimo", "giusta": false, "giorni": 60, "perche": "Ogni classe ha un tempo massimo: anche la P, programmata, ha 120 giorni. Se la classe manca, chiedila al medico." }
+      ],
+      "spiega": "La classe è sulla ricetta, in alto accanto al codice: U entro 72 ore, B 10 giorni, D 30 o 60, P 120. Vale per la prima visita o il primo esame, non per i controlli.",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/domande.js:21"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Sulla ricetta c'è D, per una prima visita. Quanti giorni al massimo?",
+      "scelte": [
+        { "testo": "60 giorni", "giusta": false, "giorni": 30, "perche": "60 giorni valgono per gli esami in classe D, come un'ecografia. Per le visite sono 30." },
+        { "testo": "10 giorni", "giusta": false, "giorni": 30, "perche": "10 giorni sono della classe B, breve. La D, differibile, per le visite ne ha 30." },
+        { "testo": "30 giorni", "giusta": true }
+      ],
+      "spiega": "Classe D, differibile: 30 giorni per le visite, 60 per gli esami. La stessa lettera dà un termine diverso a seconda di cosa ti hanno prescritto.",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/regole.js:18"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Da quando si contano i 30 giorni?",
+      "scelte": [
+        { "testo": "Dalla data scritta sulla ricetta", "giusta": false, "giorni": 30, "perche": "Il tempo massimo non parte dalla ricetta: parte dal giorno in cui contatti per la prima volta il CUP." },
+        { "testo": "Dal primo contatto con il CUP", "giusta": true },
+        { "testo": "Dal giorno in cui il CUP ti richiama con una data", "giusta": false, "giorni": 30, "perche": "Il conteggio non aspetta il richiamo: parte dal tuo primo contatto con il CUP." }
+      ],
+      "spiega": "Conta il giorno della prima telefonata o del primo passaggio al CUP: segnalo. Si contano i giorni di calendario, salvo regole diverse del piano della tua Regione.",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/domande.js:30"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il CUP non ha date: ti mette in lista e ti richiamerà. Per una visita in classe D, entro quando deve chiamarti?",
+      "scelte": [
+        { "testo": "Entro 10 giorni dal primo contatto", "giusta": true },
+        { "testo": "Entro 15 giorni dal primo contatto", "giusta": false, "giorni": 30, "perche": "15 giorni valgono per gli esami in classe D. Per le visite in classe D il richiamo va fatto entro 10." },
+        { "testo": "Basta che ti chiami entro i 30 giorni", "giusta": false, "giorni": 30, "perche": "Il richiamo ha un termine suo, più corto del tempo massimo: per le visite in classe D, 10 giorni dal primo contatto." }
+      ],
+      "spiega": "Chi va in lista senza data va registrato al primo contatto e richiamato entro 5 giorni (B), 10 (visite D), 15 (esami D) o 30 (P). Se non succede, scrivi all'Azienda sanitaria (ASL).",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/regole.js:22"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Ti richiamano con una data di tre mesi dopo, ben oltre il termine. Cosa fai?",
+      "scelte": [
+        { "testo": "Rifiuto e prenoto in un'altra struttura", "giusta": false, "giorni": 60, "perche": "Chi rifiuta la prima data nella sua zona per prenotare altrove perde la garanzia dei tempi. Prima chiedi la tutela all'ASL." },
+        { "testo": "Accetto intanto la data e scrivo subito all'ASL", "giusta": true },
+        { "testo": "Faccio la visita privata e poi chiedo il rimborso", "giusta": false, "giorni": 60, "perche": "Il Piano nazionale esclude il rimborso di visite già pagate privatamente: la richiesta va fatta prima, all'ASL." }
+      ],
+      "spiega": "Accettando la data tieni il posto e non perdi nulla. Intanto chiedi all'ASL il percorso di tutela: una data nei tempi, senza costi oltre al ticket.",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/regole.js:99"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "A chi mandi la lettera per chiedere il percorso di tutela?",
+      "scelte": [
+        { "testo": "Al CUP che ti ha dato la data", "giusta": false, "giorni": 15, "perche": "Il CUP prenota. I tempi deve garantirli l'Azienda sanitaria della tua residenza: scrivi a lei." },
+        { "testo": "Al medico che ha scritto la ricetta", "giusta": false, "giorni": 15, "perche": "Il medico stabilisce la classe. I tempi li deve garantire l'Azienda sanitaria della tua residenza." },
+        { "testo": "All'Azienda sanitaria (ASL) della mia residenza", "giusta": true }
+      ],
+      "spiega": "Scrivi all'ASL della tua residenza, alla Direzione generale e all'Ufficio relazioni con il pubblico, dalla tua PEC o email. Allega la ricetta e la prova della prenotazione.",
+      "fonte": { "norma": "Piano nazionale di governo delle liste d'attesa 2026-2028 (DM Salute 26/6/2026)", "url": "https://www.gazzettaufficiale.it/eli/gu/2026/08/24/195/so/32/sg/pdf" },
+      "rif": "liste-attesa/src/domande.js:7"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Che cosa chiedi nella lettera all'ASL?",
+      "scelte": [
+        { "testo": "Di essere spostato in cima alla lista del CUP", "giusta": false, "giorni": 10, "perche": "Non chiedi un posto in lista: chiedi la visita entro il termine, anche in libera professione o in strutture accreditate." },
+        { "testo": "La visita in libera professione, pagando la tariffa del medico", "giusta": false, "giorni": 30, "perche": "Anche in libera professione in ospedale (intramoenia) paghi al massimo il ticket: il resto non tocca a te." },
+        { "testo": "La visita nei tempi, anche in libera professione o accreditata, col ticket", "giusta": true }
+      ],
+      "spiega": "L'ASL deve darti la visita entro il termine, anche in libera professione in ospedale, con prestazioni aggiuntive o in strutture private accreditate, senza costi oltre al ticket.",
+      "fonte": { "norma": "D.l. 73/2024, art. 3, commi 10 e 10-bis", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2024-06-07;73~art3" },
+      "rif": "liste-attesa/src/documento.js:25"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "L'ASL ti fissa la visita nei tempi, di lunedì, ma non puoi andare. Settimana senza festivi: entro quando disdici?",
+      "scelte": [
+        { "testo": "Entro sabato: due giorni prima", "giusta": false, "giorni": 30, "perche": "Contano due giorni lavorativi: sabato, domenica e festivi non valgono. Per un lunedì, entro giovedì." },
+        { "testo": "Basta non presentarsi, se sono esente dal ticket", "giusta": false, "giorni": 30, "perche": "Chi non si presenta senza aver disdetto paga il ticket anche se è esente." },
+        { "testo": "Entro giovedì: due giorni lavorativi prima", "giusta": true }
+      ],
+      "spiega": "Disdici almeno due giorni lavorativi prima dell'appuntamento: sabato e festivi non contano. Se non ti presenti senza disdetta, paghi il ticket anche se sei esente.",
+      "fonte": { "norma": "D.l. 73/2024, art. 3", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2024-06-07;73~art3" },
+      "rif": "liste-attesa/src/regole.js:90"
+    }
+  ]
+}

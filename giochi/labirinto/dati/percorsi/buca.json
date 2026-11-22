@@ -1,0 +1,149 @@
+{
+  "id": "buca",
+  "titolo": "La buca sotto casa",
+  "pratica": "Nella tua via, in centro città, c'è una buca profonda che si allarga. Vuoi farla riparare: a chi scrivere, come, cosa allegare e cosa fare se nessuno risponde.",
+  "strumento": "segnalazioni",
+  "livello": 1,
+  "bivi": [
+    {
+      "tipo": "ufficio",
+      "domanda": "La buca è in una via del centro abitato, tra i cartelli di inizio e fine città. Di chi è la strada?",
+      "scelte": [
+        {
+          "testo": "Della Provincia",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "La Provincia ha le strade provinciali, con la sigla SP. Una via dentro il centro abitato è del Comune."
+        },
+        {
+          "testo": "Del Comune",
+          "giusta": true
+        },
+        {
+          "testo": "Dell'ANAS",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "L'ANAS gestisce le strade statali, con la sigla SS. Una via dentro il centro abitato è del Comune."
+        }
+      ],
+      "spiega": "Dentro il centro abitato la strada è del Comune, salvo i tratti di strade statali, regionali o provinciali nei centri fino a 10.000 abitanti. Nel dubbio scrivi al Comune: deve inoltrare.",
+      "fonte": {
+        "norma": "Codice della strada, art. 2, comma 7",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art2"
+      },
+      "rif": "segnalazioni/dati/fonti.json:39"
+    },
+    {
+      "tipo": "documento",
+      "domanda": "Prima di scrivere: cosa prepari da allegare alla segnalazione?",
+      "scelte": [
+        {
+          "testo": "Niente: il nome della via basta",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Senza un punto preciso la segnalazione rischia di restare ferma. Servono indirizzo o coordinate, e le foto."
+        },
+        {
+          "testo": "Solo una descrizione, senza foto",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Una foto da vicino e una da lontano, con un riferimento riconoscibile, valgono più di molte parole."
+        },
+        {
+          "testo": "Foto da vicino e da lontano, con indirizzo o posizione",
+          "giusta": true
+        }
+      ],
+      "spiega": "Allega foto con la data e un riferimento riconoscibile (civico, cartello, palo), più l'indirizzo o le coordinate. La segnalazione prova anche che l'ente sapeva del pericolo.",
+      "fonte": {
+        "norma": "Codice civile, art. 2051",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2051"
+      },
+      "rif": "segnalazioni/dati/fonti.json:73"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Come mandi la segnalazione al Comune?",
+      "scelte": [
+        {
+          "testo": "Con una telefonata all'ufficio tecnico",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "Una telefonata non lascia traccia. La PEC prova l'invio e la consegna, e poi chiedi la ricevuta con il protocollo."
+        },
+        {
+          "testo": "Dalla tua PEC, chiedendo il numero di protocollo",
+          "giusta": true
+        },
+        {
+          "testo": "Con una lettera senza firma, per non esporti",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "Una segnalazione firmata vale di più di una anonima, e ti serve un recapito per avere risposta."
+        }
+      ],
+      "spiega": "La PEC (posta elettronica certificata) prova invio e consegna; senza PEC usa l'email e conserva la ricevuta. Per ogni segnalazione hai diritto a una ricevuta con il protocollo.",
+      "fonte": {
+        "norma": "L. 241/1990, art. 18-bis",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art18bis"
+      },
+      "rif": "segnalazioni/src/regole.js:146"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Hai mandato la PEC. La legge dà al Comune un termine fisso per rispondere alla tua segnalazione?",
+      "scelte": [
+        {
+          "testo": "Sì: 30 giorni, sempre, come per ogni domanda",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "I 30 giorni valgono per i procedimenti che nascono da un'istanza. Una segnalazione non apre sempre un procedimento con obbligo di risposta."
+        },
+        {
+          "testo": "No, e quindi non puoi chiedere più nulla",
+          "giusta": false,
+          "giorni": 60,
+          "perche": "Riparare resta un dovere dell'ente proprietario della strada: dopo circa 30 giorni senza novità puoi sollecitare."
+        },
+        {
+          "testo": "No: dopo circa 30 giorni senza novità mandi un sollecito",
+          "giusta": true
+        }
+      ],
+      "spiega": "Una segnalazione non apre sempre un procedimento con risposta obbligatoria entro 30 giorni. Dopo circa 30 giorni senza novità sollecita: non è un termine di legge, è un tempo ragionevole.",
+      "fonte": {
+        "norma": "L. 241/1990, art. 2",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2"
+      },
+      "rif": "segnalazioni/dati/fonti.json:1095"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Anche il sollecito resta senza risposta e la buca è sempre lì. Cosa puoi fare ancora?",
+      "scelte": [
+        {
+          "testo": "Chiedere gli atti della pratica e scrivere al difensore civico",
+          "giusta": true
+        },
+        {
+          "testo": "Niente: era solo una segnalazione",
+          "giusta": false,
+          "giorni": 60,
+          "perche": "Riparare la strada è un compito dell'ente proprietario. Puoi ancora chiedere gli atti e rivolgerti al difensore civico."
+        },
+        {
+          "testo": "Chiamare il 112 per sapere quando faranno i lavori",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "Il 112 è per i pericoli immediati, non per sapere i tempi: quelli li chiedi con l'accesso agli atti."
+        }
+      ],
+      "spiega": "La manutenzione è compito dell'ente proprietario. Chiedi gli atti (stato della pratica, interventi previsti) e scrivi al difensore civico; se il pericolo è serio, esposto a polizia locale o carabinieri.",
+      "fonte": {
+        "norma": "Codice della strada, art. 14",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art14"
+      },
+      "rif": "segnalazioni/src/regole.js:163"
+    }
+  ]
+}

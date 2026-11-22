@@ -1,0 +1,227 @@
+{
+  "id": "deposito",
+  "titolo": "Il deposito che non torna",
+  "pratica": "Hai un contratto 4+4 e ti trasferiscono per lavoro. Lasci la casa prima della scadenza, ma il proprietario non ti restituisce il deposito cauzionale.",
+  "strumento": "affitto",
+  "livello": 3,
+  "bivi": [
+    {
+      "tipo": "diritto",
+      "domanda": "Il contratto non ha la clausola di recesso. Con il trasferimento di lavoro, puoi andartene prima della scadenza?",
+      "scelte": [
+        {
+          "testo": "No: devi aspettare la fine dei quattro anni",
+          "giusta": false,
+          "giorni": 60,
+          "perche": "Con gravi motivi l'inquilino può lasciare la casa in qualsiasi momento, anche se il contratto non lo prevede."
+        },
+        {
+          "testo": "Sì, per gravi motivi, con sei mesi di preavviso",
+          "giusta": true
+        },
+        {
+          "testo": "Sì, con un mese di preavviso",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Per i gravi motivi il preavviso è di sei mesi, e fino ad allora paghi il canone."
+        }
+      ],
+      "spiega": "Con gravi motivi l'inquilino può recedere in qualsiasi momento, con sei mesi di preavviso. Nella lettera scrivi fatti concreti, nati dopo la firma, come il trasferimento.",
+      "fonte": {
+        "norma": "L. 431/1998, art. 3, comma 6",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1998-12-09;431~art3"
+      },
+      "rif": "affitto/dati/fonti.json:151"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Da quando si contano i sei mesi di preavviso?",
+      "scelte": [
+        {
+          "testo": "Dal giorno in cui spedisci la lettera",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Conta il giorno in cui il proprietario la riceve, non quello della spedizione: mandala qualche giorno prima e conserva la ricevuta."
+        },
+        {
+          "testo": "Dal primo giorno del mese successivo",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Non si aspetta il mese dopo: i sei mesi partono dal giorno in cui il proprietario riceve la lettera."
+        },
+        {
+          "testo": "Dal giorno in cui il proprietario riceve la lettera",
+          "giusta": true
+        }
+      ],
+      "spiega": "Il preavviso parte dalla ricezione della lettera. Mandala con raccomandata con ricevuta di ritorno: la ricevuta prova la data che conta.",
+      "fonte": {
+        "norma": "L. 431/1998, art. 3, comma 6",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1998-12-09;431~art3"
+      },
+      "rif": "affitto/src/regole.js:287"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Il contratto finisce prima della scadenza. A chi va comunicata la fine del contratto?",
+      "scelte": [
+        {
+          "testo": "All'ufficio anagrafe del Comune, quando cambi residenza",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "La fine anticipata del contratto va comunicata all'ufficio dell'Agenzia delle Entrate dove il contratto è registrato."
+        },
+        {
+          "testo": "A nessuno: il contratto finisce da solo",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "Quando il contratto finisce prima della scadenza, la risoluzione va comunicata entro trenta giorni all'Agenzia delle Entrate."
+        },
+        {
+          "testo": "All'Agenzia delle Entrate dove è registrato, entro 30 giorni",
+          "giusta": true
+        }
+      ],
+      "spiega": "Se il contratto finisce prima della scadenza, la risoluzione va comunicata entro trenta giorni all'ufficio dell'Agenzia delle Entrate dove è registrato. Decidete voi chi lo fa.",
+      "fonte": {
+        "norma": "D.P.R. 131/1986, art. 17, comma 1",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1986-04-26;131~art17"
+      },
+      "rif": "affitto/dati/fonti.json:189"
+    },
+    {
+      "tipo": "documento",
+      "domanda": "Il giorno della riconsegna delle chiavi, che cosa prepari?",
+      "scelte": [
+        {
+          "testo": "Un verbale firmato da entrambi, con foto datate e contatori",
+          "giusta": true
+        },
+        {
+          "testo": "Niente: basta restituire le chiavi",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Serve un verbale di riconsegna: stato della casa, foto con data, letture dei contatori e numero di chiavi."
+        },
+        {
+          "testo": "Un verbale scritto solo da te, senza la firma del proprietario",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Il verbale di riconsegna va firmato da tutti e due: tu e il proprietario."
+        }
+      ],
+      "spiega": "Alla riconsegna fai un verbale: stato della casa, foto con data, letture dei contatori, numero di chiavi, firmato da entrambi. Ti serve anche per discutere eventuali trattenute.",
+      "fonte": {
+        "norma": "Codice civile, art. 1590",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1590"
+      },
+      "rif": "affitto/src/regole.js:404"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Hai riconsegnato le chiavi. Entro quanti giorni il proprietario deve restituirti il deposito?",
+      "scelte": [
+        {
+          "testo": "Entro 30 giorni dalla riconsegna",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "La legge non fissa un numero di giorni: il deposito va restituito alla riconsegna, salvo le somme trattenute e documentate."
+        },
+        {
+          "testo": "La legge non fissa giorni: va reso alla riconsegna",
+          "giusta": true
+        },
+        {
+          "testo": "Entro sei mesi, il tempo di fare i conti",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Nessuna legge dà sei mesi al proprietario: il deposito va restituito alla riconsegna della casa."
+        }
+      ],
+      "spiega": "Il deposito garantisce gli obblighi fino alla fine del contratto: va restituito alla riconsegna, salvo le somme documentate per danni oltre il normale uso o canoni e spese non pagati.",
+      "fonte": {
+        "norma": "L. 392/1978, art. 11",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1978-07-27;392~art11"
+      },
+      "rif": "affitto/src/regole.js:398"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il deposito l'hai versato alla firma, tre anni fa, e non hai mai avuto interessi. Da quando si contano?",
+      "scelte": [
+        {
+          "testo": "Dal versamento, con il tasso legale di ogni anno",
+          "giusta": true
+        },
+        {
+          "testo": "Solo dal giorno della riconsegna",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Gli interessi maturano da quando hai versato il deposito: il proprietario doveva pagarteli alla fine di ogni anno."
+        },
+        {
+          "testo": "Dal versamento, con il tasso di quest'anno per tutto il periodo",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Il tasso legale lo fissa ogni anno un decreto del Ministero dell'economia: per ogni anno si usa il suo tasso."
+        }
+      ],
+      "spiega": "Il deposito produce interessi legali, da pagare all'inquilino alla fine di ogni anno. Se non li hai avuti, si contano dal versamento alla riconsegna, anno per anno.",
+      "fonte": {
+        "norma": "L. 392/1978, art. 11",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1978-07-27;392~art11"
+      },
+      "rif": "affitto/dati/fonti.json:246"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Il proprietario trattiene 400 euro per ridipingere pareti ingiallite dagli anni. Può farlo?",
+      "scelte": [
+        {
+          "testo": "Sì: ridipingere tocca sempre all'inquilino",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Il normale uso e la vecchiaia della casa non si pagano. Si possono trattenere solo danni oltre il normale uso, documentati."
+        },
+        {
+          "testo": "No: si trattengono solo danni oltre il normale uso, documentati",
+          "giusta": true
+        }
+      ],
+      "spiega": "Riconsegni la casa come l'hai ricevuta, salvo l'usura del normale uso; della vecchiaia non rispondi. Chiedi per iscritto il dettaglio delle voci, con fatture o preventivi.",
+      "fonte": {
+        "norma": "Codice civile, art. 1590",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1590"
+      },
+      "rif": "affitto/dati/fonti.json:270"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Il proprietario non risponde. Come chiedi il deposito con gli interessi?",
+      "scelte": [
+        {
+          "testo": "Con una telefonata o un messaggio",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "Serve una lettera scritta, con raccomandata con ricevuta di ritorno: deposito, interessi, eventuali trattenute e IBAN."
+        },
+        {
+          "testo": "Un'email generica, senza importi",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "La lettera va per raccomandata con ricevuta di ritorno e deve contenere il conto: deposito più interessi legali, meno le trattenute."
+        },
+        {
+          "testo": "Raccomandata con ricevuta di ritorno: importo, interessi, IBAN",
+          "giusta": true
+        }
+      ],
+      "spiega": "La lettera chiede il deposito con gli interessi legali di ogni anno e indica il conto su cui pagare. Se non pagano, rivolgiti a un sindacato degli inquilini o a un avvocato.",
+      "fonte": {
+        "norma": "L. 392/1978, art. 11",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1978-07-27;392~art11"
+      },
+      "rif": "affitto/src/documento.js:67"
+    }
+  ]
+}

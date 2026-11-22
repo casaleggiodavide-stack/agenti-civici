@@ -10,8 +10,13 @@ import { MESSAGGI } from '../../giochi/truffa/src/messaggi.js';
 import * as C from '../../giochi/carrello/src/regole.js';
 import { NEGOZI } from '../../giochi/carrello/src/negozi.js';
 import { caso } from '../../giochi/comune/premi.js';
+import { punteggio as indovinaComune } from '../../giochi/indovina-comune/src/regole.js';
+import { punteggio as labirinto } from '../../giochi/labirinto/src/regole.js';
+import { punteggio as piuOMeno } from '../../giochi/piu-o-meno/src/regole.js';
 
-export const GIOCHI = ['differenzia', 'truffa', 'carrello'];
+export const GIOCHI = ['differenzia', 'truffa', 'carrello', 'indovina-comune', 'labirinto', 'piu-o-meno'];
+/** Giochi in cui chi rigioca la sfida del giorno conosce già le risposte: nella classifica «oggi» conta solo il primo invio. */
+export const SOLO_PRIMO_INVIO = new Set(['indovina-comune', 'labirinto', 'piu-o-meno']);
 
 class Rifiutata extends Error {}
 const no = (perche) => { throw new Rifiutata(perche); };
@@ -82,5 +87,10 @@ export function punteggio(gioco, partita, seme) {
   if (gioco === 'differenzia') return differenzia(partita);
   if (gioco === 'truffa') return truffa(partita, seme);
   if (gioco === 'carrello') return carrello(partita);
+  // i giochi nuovi ricalcolano da sé: un loro errore vuol dire mosse impossibili
+  const altri = { 'indovina-comune': indovinaComune, labirinto, 'piu-o-meno': piuOMeno };
+  if (altri[gioco]) {
+    try { return altri[gioco](partita, seme); } catch (e) { return no(e.message || 'mosse impossibili'); }
+  }
   return no('gioco sconosciuto');
 }

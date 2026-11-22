@@ -1,0 +1,81 @@
+{
+  "id": "disdetta",
+  "titolo": "Internet di casa da disdire",
+  "pratica": "Hai internet a casa con un gestore telefonico: firmato online a febbraio 2024, vincolo di 24 mesi, poi rinnovato da solo. Vuoi chiudere il contratto.",
+  "strumento": "disdette",
+  "livello": 2,
+  "bivi": [
+    {
+      "tipo": "termine",
+      "domanda": "Prima del rinnovo automatico, quanto prima doveva avvisarti il gestore che il vincolo stava finendo?",
+      "scelte": [
+        { "testo": "Almeno 30 giorni prima, come per la palestra", "giusta": false, "giorni": 30, "perche": "Per telefono e internet la legge chiede di più: almeno 2 mesi prima, con le istruzioni per disdire." },
+        { "testo": "Almeno 2 mesi prima, spiegandoti come disdire", "giusta": true },
+        { "testo": "Non deve avvisarti: il rinnovo è scritto nel contratto", "giusta": false, "giorni": 30, "perche": "L'avviso è un obbligo del gestore: almeno 2 mesi prima del rinnovo, per email, lettera o SMS, con le modalità di disdetta." }
+      ],
+      "spiega": "Almeno 2 mesi prima del rinnovo il gestore deve avvisarti della fine del vincolo e di come disdire. Dopo il rinnovo puoi recedere quando vuoi, con un mese di preavviso al massimo.",
+      "fonte": { "norma": "D.lgs. 259/2003, art. 98-septiesdecies, comma 4", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2003-08-01;259~art98septiesdecies" },
+      "rif": "disdette/dati/fonti.json:37"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Il contratto si è rinnovato da solo. Puoi recedere adesso o devi aspettare la prossima scadenza?",
+      "scelte": [
+        { "testo": "Devo aspettare: il rinnovo mi lega per altri 24 mesi", "giusta": false, "giorni": 60, "perche": "Il rinnovo non crea un nuovo vincolo: dopo il rinnovo automatico puoi recedere in qualsiasi momento." },
+        { "testo": "Solo se dimostro che internet va peggio del promesso", "giusta": false, "giorni": 60, "perche": "Quella è una strada per uscire gratis prima del tempo. Per recedere non devi dare nessun motivo." },
+        { "testo": "Posso recedere adesso, in qualsiasi momento", "giusta": true }
+      ],
+      "spiega": "Con telefono e internet puoi recedere o passare a un altro gestore in ogni momento, senza vincoli di tempo. Le clausole contrarie sono nulle.",
+      "fonte": { "norma": "D.l. 7/2007, convertito dalla legge 40/2007, art. 1, comma 3", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1" },
+      "rif": "disdette/dati/fonti.json:7"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Il contratto è di febbraio 2024 e i 24 mesi sono passati. Cosa può chiederti il gestore per uscire?",
+      "scelte": [
+        { "testo": "Solo il canone del mese di preavviso e le rate che restano", "giusta": true },
+        { "testo": "La penale per l'uscita anticipata", "giusta": false, "giorni": 30, "perche": "Per i contratti firmati dal 3 gennaio 2024, dopo il ventiquattresimo mese niente penali né costi di disattivazione." },
+        { "testo": "Indietro gli sconti della promozione", "giusta": false, "giorni": 30, "perche": "La promozione è finita: non resta una durata su cui calcolare gli sconti da restituire." }
+      ],
+      "spiega": "Firmato dopo il 3 gennaio 2024 e passati i 24 mesi, esci senza penali né costi di disattivazione. Restano il canone del mese di preavviso ed eventuali rate di modem o telefono.",
+      "fonte": { "norma": "Delibera AGCOM 307/23/CONS, allegato B, art. 5, comma 5", "url": "https://www.agcom.it/provvedimenti/delibera-307-23-cons" },
+      "rif": "disdette/dati/fonti.json:85"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Avevi attivato internet online. Come puoi mandare il recesso?",
+      "scelte": [
+        { "testo": "Solo con raccomandata alla sede legale", "giusta": false, "giorni": 10, "perche": "La raccomandata va bene, ma non è l'unica via: puoi recedere come hai attivato, e sempre anche online." },
+        { "testo": "Solo di persona, in un negozio del gestore", "giusta": false, "giorni": 10, "perche": "Il negozio vale se hai firmato lì. Il recesso si fa con le stesse forme dell'attivazione e sempre anche online." },
+        { "testo": "Online dall'area clienti, oppure con PEC o raccomandata", "giusta": true }
+      ],
+      "spiega": "Il recesso dev'essere semplice: con le stesse forme usate per attivare e, in ogni caso, anche per via telematica. PEC (posta elettronica certificata) o raccomandata danno la prova più solida della data.",
+      "fonte": { "norma": "D.l. 7/2007, art. 1, comma 3-bis", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2007-01-31;7~art1" },
+      "rif": "disdette/dati/fonti.json:14"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Le condizioni del gestore chiedono 45 giorni di preavviso. Quanto può durare al massimo?",
+      "scelte": [
+        { "testo": "45 giorni: li ho accettati firmando", "giusta": false, "giorni": 30, "perche": "Le clausole con un preavviso più lungo di 30 giorni sono nulle, anche se le hai firmate." },
+        { "testo": "30 giorni da quando il gestore riceve la disdetta", "giusta": true },
+        { "testo": "60 giorni, come per le modifiche del contratto", "giusta": false, "giorni": 30, "perche": "I 60 giorni sono il tempo per uscire gratis dopo una modifica delle condizioni, non il preavviso." }
+      ],
+      "spiega": "Il preavviso non può superare 30 giorni da quando il gestore riceve la richiesta, e in quel tempo deve completare la disattivazione. Paghi il servizio fino a quel giorno.",
+      "fonte": { "norma": "Delibera AGCOM 487/18/CONS, allegato A, punti 9-11", "url": "https://www.agcom.it/sites/default/files/migration/attachment/Allegato%2030-10-2018.pdf" },
+      "rif": "disdette/dati/fonti.json:58"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "La linea è chiusa, ma il gestore continua ad addebitarti il canone. Il reclamo non è servito. Dove vai?",
+      "scelte": [
+        { "testo": "Dal giudice di pace, subito", "giusta": false, "giorni": 15, "perche": "Prima del giudice serve il tentativo di conciliazione: per telefono, internet e pay TV è gratuito e obbligatorio." },
+        { "testo": "Alla conciliazione gratuita online, su ConciliaWeb", "giusta": true },
+        { "testo": "Al Servizio Conciliazione dell'autorità per l'energia", "giusta": false, "giorni": 15, "perche": "Quel servizio è per luce e gas. Per telefono e internet la conciliazione si fa su ConciliaWeb." }
+      ],
+      "spiega": "Dopo la chiusura non possono addebitarti nulla e devono stornare o rimborsare subito. Se il reclamo non basta, c'è ConciliaWeb dell'Autorità per le comunicazioni: online e gratis.",
+      "fonte": { "norma": "AGCOM, contenzioso tra utenti e operatori (ConciliaWeb, delibera 203/18/CONS)", "url": "https://www.agcom.it/agcom-per-te/i-miei-diritti/contenzioso-tra-utenti-e-operatori" },
+      "rif": "disdette/dati/fonti.json:97"
+    }
+  ]
+}

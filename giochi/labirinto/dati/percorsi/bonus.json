@@ -1,0 +1,68 @@
+{
+  "id": "bonus",
+  "titolo": "L'assegno per i figli",
+  "pratica": "Hai due figli piccoli e vuoi l'Assegno unico. Non hai mai fatto l'ISEE e non sai da dove cominciare.",
+  "strumento": "mi-spetta",
+  "livello": 1,
+  "bivi": [
+    {
+      "tipo": "ufficio",
+      "domanda": "A chi chiedi l'Assegno unico per i figli?",
+      "scelte": [
+        { "testo": "All'ufficio servizi sociali del Comune", "giusta": false, "giorni": 15, "perche": "Al Comune si chiede l'assegno di maternità dei Comuni, che è un'altra cosa. L'Assegno unico lo paga l'INPS." },
+        { "testo": "All'INPS", "giusta": true },
+        { "testo": "All'Agenzia delle Entrate, nel 730", "giusta": false, "giorni": 15, "perche": "Nel 730 metti la detrazione per i figli dai 21 ai 29 anni. L'Assegno unico è un assegno mensile dell'INPS." }
+      ],
+      "spiega": "L'Assegno unico è un assegno mensile dell'INPS per ogni figlio fino a 21 anni, senza limiti di età se il figlio ha una disabilità.",
+      "fonte": { "norma": "INPS, circolare n. 7 del 30/1/2026 sull'Assegno unico 2026", "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15152/Allegati/16548_Circolare-numero-7-del-30-01-2026.pdf" },
+      "rif": "mi-spetta/src/prestazioni/famiglia.js:40"
+    },
+    {
+      "tipo": "documento",
+      "domanda": "Cosa fai prima della domanda, per avere l'importo che ti spetta davvero?",
+      "scelte": [
+        { "testo": "Niente: l'ISEE lo calcola l'INPS da sola", "giusta": false, "giorni": 5, "perche": "L'ISEE non arriva da solo: prima presenti la DSU, la dichiarazione per l'ISEE, online all'INPS o gratis al CAF." },
+        { "testo": "Porti il 730 dell'anno scorso", "giusta": false, "giorni": 5, "perche": "Per l'importo dell'Assegno unico conta l'ISEE, non il 730. L'ISEE si ottiene presentando la DSU." },
+        { "testo": "Fai la DSU per l'ISEE, online all'INPS o gratis al CAF", "giusta": true }
+      ],
+      "spiega": "Prima fai la DSU (la dichiarazione per l'ISEE), online all'INPS o gratis in un CAF. Con l'ISEE l'INPS calcola l'assegno con la sua tabella 2026.",
+      "fonte": { "norma": "INPS, scheda Assegno unico e universale per i figli a carico", "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html" },
+      "rif": "mi-spetta/src/prestazioni/famiglia.js:88"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "L'ISEE non è ancora pronto. Se fai la domanda adesso, cosa succede?",
+      "scelte": [
+        { "testo": "Ti spetta comunque il minimo: 58,30 € al mese per figlio minorenne", "giusta": true },
+        { "testo": "Non ti spetta niente finché non hai l'ISEE", "giusta": false, "giorni": 60, "perche": "L'Assegno unico spetta a tutti: senza ISEE prendi il minimo, con l'ISEE di più." },
+        { "testo": "Prendi il massimo, 203,80 € al mese per figlio", "giusta": false, "giorni": 5, "perche": "Senza ISEE l'INPS paga il minimo, 58,30 € per figlio minorenne. Fino a 203,80 € si arriva solo con l'ISEE, nelle fasce più basse." }
+      ],
+      "spiega": "Senza ISEE l'assegno spetta lo stesso, al minimo. Con l'ISEE potresti avere fino a 203,80 € al mese per ogni figlio minorenne.",
+      "fonte": { "norma": "INPS, tabella degli importi 2026 (allegato 1 alla circolare 7/2026)", "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/01/Circolare_15152/Allegati/16549_Circolare-numero-7-del-30-01-2026_Allegato-n-1.pdf" },
+      "rif": "mi-spetta/src/prestazioni/famiglia.js:67"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Hai fatto la DSU. Come presenti la domanda di Assegno unico?",
+      "scelte": [
+        { "testo": "Con una raccomandata alla sede INPS della tua città", "giusta": false, "giorni": 10, "perche": "La domanda si presenta in tre modi: sul sito inps.it, al contact center 803 164 o con un patronato." },
+        { "testo": "Online su inps.it, al contact center 803 164 o con un patronato", "giusta": true }
+      ],
+      "spiega": "La domanda si fa una volta all'INPS, con l'IBAN per i pagamenti, e continua negli anni seguenti: poi comunichi solo i cambiamenti, come la nascita di un altro figlio.",
+      "fonte": { "norma": "INPS, scheda Assegno unico e universale per i figli a carico", "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html" },
+      "rif": "mi-spetta/src/prestazioni/famiglia.js:87"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "L'anno dopo l'assegno continua. Entro quando rinnovi l'ISEE per non perdere gli arretrati?",
+      "scelte": [
+        { "testo": "Non serve: l'ISEE vale per sempre", "giusta": false, "giorni": 30, "perche": "L'ISEE va rinnovato ogni anno. È la domanda di Assegno unico che continua da sola, non l'ISEE." },
+        { "testo": "Entro il 31 dicembre", "giusta": false, "giorni": 30, "perche": "Per non perdere gli arretrati dell'Assegno unico la data è il 30 giugno di ogni anno." },
+        { "testo": "Entro il 30 giugno", "giusta": true }
+      ],
+      "spiega": "La domanda resta valida, ma l'ISEE si rifà ogni anno: rinnovalo entro il 30 giugno per non perdere gli arretrati.",
+      "fonte": { "norma": "INPS, scheda Assegno unico e universale per i figli a carico", "url": "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html" },
+      "rif": "mi-spetta/src/prestazioni/famiglia.js:87"
+    }
+  ]
+}

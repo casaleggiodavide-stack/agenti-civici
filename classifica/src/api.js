@@ -3,7 +3,7 @@
 //   POST   /classifica/<gioco>                      una partita: { giocatore, nome: [c, a, n], regione, seme, giorno, partita }
 //   DELETE /classifica/giocatore/<codice>           toglie il giocatore da tutte le classifiche
 // db: { esegui(sql, parametri), tutte(sql, parametri) }, entrambe asincrone.
-import { punteggio, eRifiutata, GIOCHI } from './verifica.js';
+import { punteggio, eRifiutata, GIOCHI, SOLO_PRIMO_INVIO } from './verifica.js';
 import { nome as nomeDa, regioneValida } from '../../giochi/comune/nomi.js';
 import { semeDelGiorno, giornoPrima } from '../../giochi/comune/premi.js';
 
@@ -67,7 +67,10 @@ export function crea({ db, adesso = () => new Date() }) {
     const oggi = semeDelGiorno(adesso()), quando = adesso().toISOString(), regione = regioneValida(b.regione);
     const delGiorno = b.giorno === true && (seme === oggi || seme === giornoPrima(oggi)); // una partita iniziata prima di mezzanotte vale per il suo giorno
     if (delGiorno) {
-      await db.esegui(`INSERT INTO giornate (gioco, giorno, giocatore, nome, regione, punti, quando) VALUES (?, ?, ?, ?, ?, ?, ?)
+      await db.esegui(SOLO_PRIMO_INVIO.has(gioco)
+        ? `INSERT INTO giornate (gioco, giorno, giocatore, nome, regione, punti, quando) VALUES (?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT (gioco, giorno, giocatore) DO NOTHING`
+        : `INSERT INTO giornate (gioco, giorno, giocatore, nome, regione, punti, quando) VALUES (?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT (gioco, giorno, giocatore) DO UPDATE SET nome = excluded.nome, regione = excluded.regione,
         quando = CASE WHEN excluded.punti > punti THEN excluded.quando ELSE quando END, punti = MAX(punti, excluded.punti)`, [gioco, seme, b.giocatore, nome, regione, punti, quando]);
     }

@@ -1,0 +1,81 @@
+{
+  "id": "multa",
+  "titolo": "La multa arrivata a casa",
+  "pratica": "Ti arriva per posta un verbale per eccesso di velocità preso dall'autovelox. Sulla busta, la spedizione risulta 120 giorni dopo il fatto.",
+  "strumento": "faccio-ricorso",
+  "livello": 2,
+  "bivi": [
+    {
+      "tipo": "termine",
+      "domanda": "Vivi in Italia e il verbale è stato spedito 120 giorni dopo l'infrazione. È in regola?",
+      "scelte": [
+        { "testo": "Sì: l'ente ha 360 giorni per spedirlo", "giusta": false, "giorni": 30, "perche": "I 360 giorni valgono solo per chi risiede all'estero. Per chi vive in Italia sono 90." },
+        { "testo": "No: andava spedito entro 90 giorni dalla violazione", "giusta": true },
+        { "testo": "Sì: si contano solo i giorni lavorativi, e sono meno di 90", "giusta": false, "giorni": 30, "perche": "Si contano i giorni di calendario, sabati e festivi compresi: 120 giorni sono oltre il limite." }
+      ],
+      "spiega": "Il verbale va spedito entro 90 giorni dalla violazione (360 per chi vive all'estero). Conta la data di spedizione: oltre il termine, l'obbligo di pagare si estingue.",
+      "fonte": { "norma": "Codice della Strada, art. 201, commi 1 e 5", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art201" },
+      "rif": "faccio-ricorso/src/regole.js:42"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Vuoi contestare il verbale. Intanto ti conviene pagare con lo sconto del 30% entro 5 giorni?",
+      "scelte": [
+        { "testo": "Sì: paghi meno, e col ricorso poi riavrai i soldi", "giusta": false, "giorni": 60, "perche": "Il pagamento chiude la questione: dopo, il ricorso non è più possibile." },
+        { "testo": "Meglio chiedere di pagare a rate, così non perdi il ricorso", "giusta": false, "giorni": 60, "perche": "Chiedere le rate vuol dire rinunciare al ricorso." },
+        { "testo": "No: se paghi, non puoi più fare ricorso", "giusta": true }
+      ],
+      "spiega": "Lo sconto del 30% conviene solo se decidi di non fare ricorso. Pagare, anche con lo sconto, o chiedere le rate chiude la contestazione.",
+      "fonte": { "norma": "Codice della Strada, art. 202", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art202" },
+      "rif": "faccio-ricorso/src/regole.js:250"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Il tuo motivo è oggettivo: la notifica tardiva. A chi fai ricorso, spendendo meno?",
+      "scelte": [
+        { "testo": "Al Prefetto: il ricorso è gratis", "giusta": true },
+        { "testo": "Al Giudice di pace: è gratis anche lì", "giusta": false, "giorni": 15, "perche": "Dal Giudice di pace paghi il contributo unificato, 43 € per multe fino a 1.100 €, più 27 € di anticipazioni." },
+        { "testo": "A tutti e due, per avere due possibilità", "giusta": false, "giorni": 15, "perche": "Il ricorso al Prefetto e quello al Giudice di pace sono alternativi: ne scegli uno." }
+      ],
+      "spiega": "Il ricorso al Prefetto è gratuito e, se non decide entro 180 giorni, si intende accolto. Se lo respinge, paghi almeno il doppio della sanzione minima, più le spese.",
+      "fonte": { "norma": "Codice della Strada, art. 203", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art203" },
+      "rif": "faccio-ricorso/src/regole.js:252"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Quanto tempo hai per mandare il ricorso al Prefetto?",
+      "scelte": [
+        { "testo": "30 giorni dalla notifica", "giusta": false, "giorni": 30, "perche": "30 giorni è il termine per il Giudice di pace. Per il Prefetto i giorni sono 60." },
+        { "testo": "60 giorni dalla notifica, più tutto agosto", "giusta": false, "giorni": 30, "perche": "Per il Prefetto non ci sono proroghe per agosto o per i festivi: il sessantesimo giorno è l'ultimo." },
+        { "testo": "60 giorni dalla notifica, senza proroghe", "giusta": true }
+      ],
+      "spiega": "Il ricorso al Prefetto va mandato entro 60 giorni dalla notifica. La sospensione di agosto e i festivi non allungano il termine.",
+      "fonte": { "norma": "Codice della Strada, art. 203", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art203" },
+      "rif": "faccio-ricorso/src/regole.js:272"
+    },
+    {
+      "tipo": "documento",
+      "domanda": "Cosa alleghi al ricorso per provare che il verbale è partito tardi?",
+      "scelte": [
+        { "testo": "La carta di circolazione del veicolo", "giusta": false, "giorni": 5, "perche": "La carta di circolazione serve quando i dati del veicolo sono sbagliati. Per la notifica tardiva serve la data di spedizione." },
+        { "testo": "La busta o l'avviso di ricevimento con la data di spedizione", "giusta": true },
+        { "testo": "Basta la copia del verbale", "giusta": false, "giorni": 5, "perche": "Oltre al verbale e a un documento d'identità serve la prova della data: la busta o l'avviso di ricevimento." }
+      ],
+      "spiega": "Al ricorso alleghi la copia del verbale, un documento d'identità e la busta o l'avviso con la data di spedizione (o la ricevuta, se è arrivato via PEC).",
+      "fonte": { "norma": "Codice della Strada, art. 201, comma 1", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art201" },
+      "rif": "faccio-ricorso/src/documento.js:20"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il verbale toglie anche punti dalla patente. Entro quando comunichi chi era alla guida?",
+      "scelte": [
+        { "testo": "Entro 5 giorni, come per lo sconto", "giusta": false, "giorni": 30, "perche": "I 5 giorni valgono solo per lo sconto del 30%. Per dire chi guidava hai 60 giorni dalla notifica." },
+        { "testo": "Entro 60 giorni dalla notifica", "giusta": true },
+        { "testo": "Non serve: i punti li perde chi ha l'auto intestata", "giusta": false, "giorni": 30, "perche": "La comunicazione serve proprio a togliere i punti alla persona giusta. Va fatta entro 60 giorni dalla notifica." }
+      ],
+      "spiega": "Comunica chi guidava entro 60 giorni. Se fai ricorso, scrivilo anche lì: per la Cassazione il ricorso pendente giustifica la mancata comunicazione, ma non tutti i giudici concordano.",
+      "fonte": { "norma": "Codice della Strada, art. 126-bis, comma 2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art126bis" },
+      "rif": "faccio-ricorso/src/regole.js:274"
+    }
+  ]
+}

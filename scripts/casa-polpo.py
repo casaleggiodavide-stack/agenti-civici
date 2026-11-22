@@ -47,6 +47,9 @@ GIOCHI_CASA = [
     ('giochi/differenzia/', 'Il Polpo differenzia', 'Il gioco della raccolta differenziata: lancia ogni rifiuto nel bidone giusto. Sai dove va il cartone della pizza?', 7),
     ('giochi/truffa/', 'Truffa o no?', 'SMS, WhatsApp, email e telefonate da smistare in pochi secondi: truffa o affidabile? Poi il perché.', 3),
     ('giochi/carrello/', 'Il carrello del Black Friday', 'Tre negozi online con le trappole che l\'Antitrust ha multato: compra il regalo senza pagare un euro in più.', 3),
+    ('giochi/indovina-comune/', 'Indovina il Comune', 'Ogni giorno un Comune misterioso: sei tentativi, e a ogni errore un indizio vero dai suoi conti.', 4),
+    ('giochi/piu-o-meno/', 'Più o meno', 'Due contratti pubblici veri: quale è costato di più? Dalla mensa scolastica alle luminarie.', 5),
+    ('giochi/labirinto/', 'Il filo del labirinto', 'Una pratica da chiudere in un labirinto di bivi: ogni strada sbagliata costa giorni.', 2),
 ]
 
 
@@ -88,6 +91,9 @@ PAROLE = [
     ('progetti-comune/', ['pnrr', 'fondi europei', 'next generation', 'progetti del comune', 'cantiere', 'opere pubbliche', 'cup ', 'soggetto attuatore', 'italia domani', 'coesione', 'finanziamenti europei']),
     ('tasse/', ['dove finiscono le tasse', 'dove vanno le tasse', 'dove vanno le mie tasse', 'le mie tasse', 'spesa pubblica', 'addizionale regionale', 'addizionale comunale', 'debito pubblico', 'deficit', 'quanto pago di irpef', 'cuneo fiscale', 'aliquote irpef']),
     ('eletti/', ['chi mi rappresenta', 'chi ti rappresenta', 'sindaco', 'consiglio comunale', 'consigliere', 'giunta', 'assessore', 'deputato', 'senatore', 'europarlamentare', 'eurodeputato', 'presidente della regione', 'quando si vota', 'commissario prefettizio', 'collegio elettorale']),
+    ('giochi/indovina-comune/', ['indovina il comune', 'indovina', 'quiz comuni', 'gioco comuni', 'gioco dei comuni', 'comune misterioso', 'geografia', 'capoluoghi']),
+    ('giochi/piu-o-meno/', ['piu o meno', 'quanto costa', 'quanto e costato', 'gioco appalti', 'gioco dei contratti', 'contratti pubblici', 'luminarie', 'mensa scolastica']),
+    ('giochi/labirinto/', ['labirinto', 'filo di arianna', 'bivio', 'vicolo cieco', 'gioco della burocrazia', 'gioco delle pratiche']),
     ('legge/manovra/', ['manovra', 'legge di bilancio', 'finanziaria', 'irpef', 'cedolare secca', 'forfettario', 'flat tax']),
     ('legge/interrogazioni/', ['interrogazion', 'interpellanz', 'parlamentar', 'il governo non risponde', 'il ministero non risponde']),
     ('legge/antitrust/', ['black friday', 'antitrust', 'pratica scorretta', 'pratiche scorrette', 'finto sconto', 'sconto falso', 'abbonamento', 'disdetta', 'disdire', 'costi nascosti', 'recensioni false', 'greenwashing']),

@@ -1,0 +1,81 @@
+{
+  "id": "atti",
+  "titolo": "I documenti che il Comune non dà",
+  "pratica": "Vuoi vedere i documenti dell'appalto per rifare la piazza del tuo quartiere. Non riguardano una tua pratica. Il Comune prima tace, poi dice di no.",
+  "strumento": "chiedo-gli-atti",
+  "livello": 2,
+  "bivi": [
+    {
+      "tipo": "diritto",
+      "domanda": "Quei documenti non riguardano una tua pratica. Quale accesso chiedi?",
+      "scelte": [
+        { "testo": "Accesso documentale: spiego il mio interesse personale", "giusta": false, "giorni": 30, "perche": "Serve per i documenti che ti riguardano e chiede un interesse diretto, concreto e attuale. Qui non ce l'hai, e non ti serve." },
+        { "testo": "Accesso civico generalizzato: chiunque, senza motivare", "giusta": true },
+        { "testo": "Nessuno: solo i consiglieri comunali possono vederli", "giusta": false, "giorni": 60, "perche": "Con l'accesso civico generalizzato chiunque può chiedere documenti e dati dell'ente, senza spiegare perché." }
+      ],
+      "spiega": "L'accesso civico generalizzato (detto anche FOIA) è per tutti e non va motivato. L'accesso documentale della legge 241/1990 serve quando i documenti ti riguardano e dimostri il tuo interesse.",
+      "fonte": { "norma": "D.lgs. 33/2013, art. 5, comma 2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2013-03-14;33~art5" },
+      "rif": "chiedo-gli-atti/src/regole.js:27"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "A chi indirizzi la richiesta?",
+      "scelte": [
+        { "testo": "Al difensore civico regionale", "giusta": false, "giorni": 15, "perche": "Il difensore civico arriva dopo, contro un rifiuto. La richiesta va prima al Comune che ha i documenti." },
+        { "testo": "Al responsabile della trasparenza del Comune", "giusta": false, "giorni": 15, "perche": "Lui riceve l'accesso per i documenti che andavano pubblicati, e poi il riesame. La richiesta va all'ufficio che ha i dati." },
+        { "testo": "All'ufficio che ha i dati, tramite l'Ufficio relazioni con il pubblico", "giusta": true }
+      ],
+      "spiega": "La richiesta va all'ufficio del Comune che detiene i documenti, anche passando dall'Ufficio relazioni con il pubblico. Il responsabile della trasparenza entra in gioco con il riesame.",
+      "fonte": { "norma": "D.lgs. 33/2013, art. 5", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2013-03-14;33~art5" },
+      "rif": "chiedo-gli-atti/src/regole.js:107"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "La mandi dalla tua PEC (posta elettronica certificata) personale. Cosa devi aggiungere perché sia valida?",
+      "scelte": [
+        { "testo": "Niente: dalla mia PEC personale vale già come firmata", "giusta": true },
+        { "testo": "La copia del documento d'identità", "giusta": false, "giorni": 5, "perche": "Serve se scrivi da un'email normale. Dalla tua PEC personale la richiesta vale già come firmata." },
+        { "testo": "Una raccomandata di conferma", "giusta": false, "giorni": 10, "perche": "PEC personale, email con documento d'identità, firma digitale o modulo online dell'ente: sono tutte valide da sole." }
+      ],
+      "spiega": "La PEC personale vale come firma. Conserva la ricevuta di consegna: da quella data partono i 30 giorni per la risposta.",
+      "fonte": { "norma": "Codice dell'amministrazione digitale (d.lgs. 82/2005), art. 65", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-03-07;82~art65" },
+      "rif": "chiedo-gli-atti/src/regole.js:64"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il Comune tace. Quanto tempo aveva per risponderti, e cosa vale il suo silenzio?",
+      "scelte": [
+        { "testo": "60 giorni, se ci sono altre persone coinvolte", "giusta": false, "giorni": 30, "perche": "Se il Comune avvisa altre persone interessate, il termine resta sospeso al massimo 10 giorni per le loro opposizioni." },
+        { "testo": "30 giorni: dopo, il silenzio vale come rifiuto definitivo", "giusta": false, "giorni": 60, "perche": "Il silenzio-rifiuto vale per l'accesso documentale. Qui il Comune era obbligato a decidere: il passo dopo è il riesame, gratis." },
+        { "testo": "30 giorni dalla ricezione: poi chiedo il riesame", "giusta": true }
+      ],
+      "spiega": "Il Comune deve rispondere con un atto espresso e motivato entro 30 giorni dalla ricezione, più fino a 10 se avvisa altri interessati. Il silenzio non vale come rifiuto: chiedi il riesame.",
+      "fonte": { "norma": "D.lgs. 33/2013, art. 5, comma 6", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2013-03-14;33~art5" },
+      "rif": "chiedo-gli-atti/src/regole.js:122"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Poi arriva la risposta: «negato per motivi di riservatezza», e niente altro. Cosa fai?",
+      "scelte": [
+        { "testo": "Lo accetto: un no motivato non si contesta", "giusta": false, "giorni": 60, "perche": "Il rifiuto deve dire quale eccezione di legge si applica e quale danno concreto eviterebbe: le motivazioni generiche non bastano." },
+        { "testo": "Chiedo il riesame o vado dal difensore civico regionale: è gratis", "giusta": true },
+        { "testo": "Chiedo il riesame all'ufficio che ha detto no", "giusta": false, "giorni": 15, "perche": "Il riesame si chiede al responsabile della prevenzione della corruzione e della trasparenza del Comune, non all'ufficio." }
+      ],
+      "spiega": "Muoviti entro 30 giorni dalla risposta, come indica la Funzione pubblica. Il riesame va deciso in 20 giorni; per Comuni e Regioni c'è anche il difensore civico regionale, dove è in carica.",
+      "fonte": { "norma": "D.lgs. 33/2013, art. 5, commi 7 e 8", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2013-03-14;33~art5" },
+      "rif": "chiedo-gli-atti/src/regole.js:149"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il riesame conferma il no. Entro quando puoi ricorrere al TAR (tribunale amministrativo regionale), e come?",
+      "scelte": [
+        { "testo": "Entro 60 giorni dalla decisione", "giusta": false, "giorni": 30, "perche": "Sull'accesso il ricorso al TAR va fatto entro 30 giorni dalla decisione sul riesame." },
+        { "testo": "Entro 30 giorni, ma solo con un avvocato", "giusta": false, "giorni": 10, "perche": "In primo grado non serve l'avvocato: paghi 300 € di contributo unificato e lo notifichi al Comune e ad almeno un controinteressato." },
+        { "testo": "Entro 30 giorni, anche senza avvocato, con 300 € di contributo", "giusta": true }
+      ],
+      "spiega": "Hai 30 giorni dalla decisione sul riesame. Non contare sulla sospensione di agosto. Prima valuta se una nuova richiesta, più precisa, può darti gli stessi documenti gratis.",
+      "fonte": { "norma": "Codice del processo amministrativo, art. 116", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-07-02;104" },
+      "rif": "chiedo-gli-atti/src/regole.js:88"
+    }
+  ]
+}

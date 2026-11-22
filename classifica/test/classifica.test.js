@@ -86,3 +86,13 @@ test('richieste sbagliate', async () => {
   assert.equal((await chiama(g, 'GET', '/classifica/sconosciuto'))[0], 404);
   assert.equal((await g({ metodo: 'POST', percorso: '/classifica/truffa', query: new URLSearchParams(), corpo: '{', ip: 'x' }))[0], 400);
 });
+
+test('i giochi nuovi: mosse impossibili rifiutate, prima partita del giorno che resta', async () => {
+  const { punteggio, eRifiutata, GIOCHI, SOLO_PRIMO_INVIO } = await import('../src/verifica.js');
+  for (const g of ['indovina-comune', 'labirinto', 'piu-o-meno']) {
+    assert.ok(GIOCHI.includes(g) && SOLO_PRIMO_INVIO.has(g), g);
+    let errore = null;
+    try { punteggio(g, { mosse: 'a caso' }, '2026-11-22'); } catch (e) { errore = e; }
+    assert.ok(errore && eRifiutata(errore), `${g}: partita impossibile non rifiutata`);
+  }
+});

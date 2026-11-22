@@ -1,0 +1,105 @@
+{
+  "id": "delibera",
+  "titolo": "La delibera da contestare",
+  "pratica": "L'avviso dell'assemblea di condominio ti è arrivato tardi e non sei andato. Poi ricevi il verbale: c'è una delibera che vuoi contestare.",
+  "strumento": "condominio",
+  "livello": 3,
+  "bivi": [
+    {
+      "tipo": "termine",
+      "domanda": "L'avviso di convocazione ti è arrivato 3 giorni prima della riunione. È in regola?",
+      "scelte": [
+        { "testo": "Sì, basta che arrivi prima della riunione", "giusta": false, "giorni": 30, "perche": "L'avviso deve arrivare almeno cinque giorni prima della prima convocazione. Con tre giorni la delibera è annullabile." },
+        { "testo": "Sì, se era appeso in bacheca da una settimana", "giusta": false, "giorni": 10, "perche": "La bacheca non basta: l'avviso va mandato con raccomandata, PEC (posta elettronica certificata), fax o consegnato a mano." },
+        { "testo": "No: doveva arrivare almeno 5 giorni prima", "giusta": true }
+      ],
+      "spiega": "L'avviso, con ordine del giorno, luogo e ora, deve arrivare almeno 5 giorni prima della prima convocazione. Se è tardivo, chi non è stato convocato bene può chiedere l'annullamento.",
+      "fonte": { "norma": "Disposizioni di attuazione del codice civile, art. 66, comma 3", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-30;318~art66" },
+      "rif": "condominio/dati/fonti.json:60"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "In seconda convocazione è stato nominato l'amministratore: sì della maggioranza dei presenti, ma 400 millesimi su 1000. Basta?",
+      "scelte": [
+        { "testo": "Sì: in seconda convocazione basta un terzo del valore", "giusta": false, "giorni": 15, "perche": "Un terzo basta per le decisioni ordinarie. Per nominare o revocare l'amministratore serve sempre almeno la metà del valore." },
+        { "testo": "No: serve almeno la metà del valore, 500 millesimi", "giusta": true },
+        { "testo": "Sì: contano solo le persone, non i millesimi", "giusta": false, "giorni": 15, "perche": "Contano tutte e due: la maggioranza dei presenti e i millesimi richiesti, qui almeno la metà del valore dell'edificio." }
+      ],
+      "spiega": "Nomina e revoca dell'amministratore vanno sempre approvate dalla maggioranza dei presenti con almeno la metà del valore dell'edificio, anche in seconda convocazione.",
+      "fonte": { "norma": "Codice civile, art. 1136, comma 4", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1136" },
+      "rif": "condominio/dati/fonti.json:37"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Tu eri assente. Da quando partono i tuoi 30 giorni per impugnare la delibera?",
+      "scelte": [
+        { "testo": "Dal giorno dell'assemblea", "giusta": false, "giorni": 30, "perche": "Dal giorno dell'assemblea partono per chi era presente e ha votato contro o si è astenuto. Per gli assenti, dalla comunicazione." },
+        { "testo": "Da quando ti arriva il verbale con la delibera", "giusta": true },
+        { "testo": "Da quando l'amministratore esegue la delibera", "giusta": false, "giorni": 30, "perche": "L'esecuzione non c'entra: per chi era assente i 30 giorni partono da quando riceve la comunicazione della delibera." }
+      ],
+      "spiega": "Per gli assenti i 30 giorni partono da quando ricevono la comunicazione della delibera. Se il verbale non ti è arrivato, il termine non è partito: chiedilo all'amministratore.",
+      "fonte": { "norma": "Codice civile, art. 1137, comma 2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1137" },
+      "rif": "condominio/dati/fonti.json:82"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il verbale ti arriva il 20 luglio. Come si contano i 30 giorni?",
+      "scelte": [
+        { "testo": "Tutti i giorni di calendario, agosto compreso", "giusta": false, "giorni": 30, "perche": "Dal 1° al 31 agosto i 30 giorni si fermano e riprendono il 1° settembre." },
+        { "testo": "Giorni di calendario, ma agosto non si conta", "giusta": true },
+        { "testo": "Solo i giorni lavorativi", "giusta": false, "giorni": 30, "perche": "Si contano tutti i giorni, festivi compresi; solo agosto si salta. Se l'ultimo giorno è festivo, si passa al primo giorno non festivo." }
+      ],
+      "spiega": "Il giorno in cui arriva il verbale non si conta. Dal 1° al 31 agosto il termine si ferma e riprende a settembre; se l'ultimo giorno è festivo, slitta al primo non festivo.",
+      "fonte": { "norma": "L. 742/1969, art. 1, e Corte costituzionale, sentenza 49/1990", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1969-10-07;742~art1" },
+      "rif": "condominio/dati/fonti.json:94"
+    },
+    {
+      "tipo": "lettera",
+      "domanda": "Che cosa ferma davvero i 30 giorni?",
+      "scelte": [
+        { "testo": "Una lettera di contestazione all'amministratore", "giusta": false, "giorni": 60, "perche": "La lettera è utile per chiedere il riesame, ma da sola non ferma il termine. Passati i 30 giorni, la delibera annullabile resta valida." },
+        { "testo": "Chiedere al giudice di sospendere la delibera", "giusta": false, "giorni": 60, "perche": "La richiesta di sospensione fatta prima della causa non ferma i 30 giorni. Serve la domanda di mediazione." },
+        { "testo": "La domanda di mediazione, quando arriva al condominio", "giusta": true }
+      ],
+      "spiega": "La domanda di mediazione ferma il termine, una sola volta, dal momento in cui la comunicazione arriva al condominio, cioè all'amministratore. Puoi mandarla anche tu, oltre all'organismo.",
+      "fonte": { "norma": "D.lgs. 28/2010, art. 8, comma 2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-03-04;28~art8" },
+      "rif": "condominio/dati/fonti.json:128"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Dove depositi la domanda di mediazione?",
+      "scelte": [
+        { "testo": "In tribunale, direttamente: si fa prima", "giusta": false, "giorni": 15, "perche": "Per le liti di condominio la mediazione è obbligatoria: senza, la causa è improcedibile." },
+        { "testo": "Presso un organismo di mediazione dove si trova il condominio", "giusta": true },
+        { "testo": "Presso un organismo della città dove abiti tu", "giusta": false, "giorni": 15, "perche": "L'organismo va scelto nel luogo del giudice competente, cioè dove si trova il condominio, non dove abiti tu." }
+      ],
+      "spiega": "La domanda indica parti, oggetto e ragioni, con l'assistenza di un avvocato. Il primo incontro è tra 20 e 40 giorni dal deposito; la mediazione dura al massimo sei mesi, prorogabili.",
+      "fonte": { "norma": "D.lgs. 28/2010, artt. 4, 6 e 8", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-03-04;28~art8" },
+      "rif": "condominio/dati/fonti.json:139"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "La mediazione finisce senza accordo. Entro quando devi iniziare la causa?",
+      "scelte": [
+        { "testo": "Entro 30 giorni dal deposito del verbale della mediazione", "giusta": true },
+        { "testo": "Entro i 30 giorni che restavano dal verbale dell'assemblea", "giusta": false, "giorni": 30, "perche": "Il termine riparte da capo: hai altri 30 giorni dal deposito del verbale conclusivo presso l'organismo di mediazione." },
+        { "testo": "Quando vuoi: con la mediazione il termine non c'è più", "giusta": false, "giorni": 60, "perche": "Il termine c'è: 30 giorni dal deposito del verbale conclusivo. Passati quelli, la delibera annullabile resta valida." }
+      ],
+      "spiega": "Se la mediazione finisce senza accordo, la causa va iniziata entro un nuovo termine di 30 giorni dal deposito del verbale conclusivo presso l'organismo. Serve un avvocato.",
+      "fonte": { "norma": "D.lgs. 28/2010, art. 11, comma 4-bis", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-03-04;28~art11" },
+      "rif": "condominio/dati/fonti.json:133"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Una delibera di due mesi fa cambia per sempre, a maggioranza, i criteri per dividere le spese. Puoi ancora contestarla?",
+      "scelte": [
+        { "testo": "No: dopo 30 giorni ogni delibera resta valida", "giusta": false, "giorni": 60, "perche": "I 30 giorni valgono per le delibere annullabili. Cambiare a maggioranza i criteri di ripartizione delle spese è un caso di nullità." },
+        { "testo": "Sì, ma solo se avevi votato contro", "giusta": false, "giorni": 15, "perche": "La nullità può farla valere chiunque ne abbia interesse, non solo chi ha votato contro." },
+        { "testo": "Sì: è un caso di nullità, senza il limite dei 30 giorni", "giusta": true }
+      ],
+      "spiega": "Sono nulle le delibere con oggetto impossibile o illecito, fuori dai poteri dell'assemblea, o che cambiano a maggioranza i criteri di riparto. Decide il giudice, e prima serve la mediazione.",
+      "fonte": { "norma": "Cassazione, Sezioni Unite civili, sentenza 9839/2021", "url": "https://www.cortedicassazione.it/corte-di-cassazione/it/det_civile_sezioni_unite.page?contentId=SZC25488" },
+      "rif": "condominio/dati/fonti.json:106"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "garanzia",
+  "titolo": "La lavatrice che si blocca",
+  "pratica": "Hai comprato online una lavatrice e dopo 8 mesi si blocca. In più, le scarpe arrivate ieri dallo stesso negozio online non ti piacciono più.",
+  "strumento": "garanzia",
+  "livello": 1,
+  "bivi": [
+    {
+      "tipo": "ufficio",
+      "domanda": "La lavatrice non parte più. A chi chiedi di sistemarla in garanzia?",
+      "scelte": [
+        {
+          "testo": "Al produttore, la marca scritta sulla lavatrice",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "La garanzia legale è del venditore, anche se ti rimanda all'assistenza della marca."
+        },
+        {
+          "testo": "Al venditore che te l'ha venduta",
+          "giusta": true
+        },
+        {
+          "testo": "All'Autorità garante della concorrenza e del mercato",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "All'Autorità si segnala il venditore che nega la garanzia legale. Prima si scrive al venditore."
+        }
+      ],
+      "spiega": "Dei difetti risponde il venditore, non il produttore. Scrivigli per email, PEC o raccomandata, allega lo scontrino o la conferma dell'ordine e tieni la ricevuta.",
+      "fonte": {
+        "norma": "Codice del consumo, art. 133",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art133"
+      },
+      "rif": "garanzia/src/regole.js:99"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "L'hai ricevuta 8 mesi fa. Di quali difetti risponde il venditore?",
+      "scelte": [
+        {
+          "testo": "Di quelli comparsi entro due anni dalla consegna",
+          "giusta": true
+        },
+        {
+          "testo": "Solo di quelli del primo anno dall'acquisto",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Per un oggetto nuovo la garanzia dura due anni. Un anno vale solo per l'usato, e solo se il contratto lo scrive."
+        },
+        {
+          "testo": "Di quelli comparsi entro due anni dall'ordine",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Conta la consegna, non l'ordine: i due anni partono dal giorno in cui l'hai ricevuta."
+        }
+      ],
+      "spiega": "Il venditore risponde dei difetti comparsi entro due anni dalla consegna. Per far valere la garanzia hai 26 mesi dalla consegna; una lettera scritta interrompe il termine.",
+      "fonte": {
+        "norma": "Codice del consumo, art. 133",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art133"
+      },
+      "rif": "garanzia/src/regole.js:76"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Il venditore dice che tocca a te provare che il difetto c'era già alla consegna. Ha ragione?",
+      "scelte": [
+        {
+          "testo": "Sì: senza una perizia non ti spetta niente",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "La prova tocca a te solo se il difetto compare dopo un anno dalla consegna. Il tuo è comparso dopo 8 mesi."
+        },
+        {
+          "testo": "No: nel primo anno si presume che ci fosse già",
+          "giusta": true
+        }
+      ],
+      "spiega": "Un difetto comparso entro un anno dalla consegna si presume presente fin dall'inizio: è il venditore a dover dimostrare il contrario.",
+      "fonte": {
+        "norma": "Codice del consumo, art. 135",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art135"
+      },
+      "rif": "garanzia/src/regole.js:85"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Che cosa chiedi per primo al venditore?",
+      "scelte": [
+        {
+          "testo": "Subito la restituzione dei soldi",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Prima vengono riparazione o sostituzione. Sconto o restituzione solo se non arrivano in tempi ragionevoli, il difetto torna o è grave."
+        },
+        {
+          "testo": "La riparazione, pagando tu il pezzo",
+          "giusta": false,
+          "giorni": 60,
+          "perche": "In garanzia riparazione e sostituzione sono gratuite: non devi pagare niente."
+        },
+        {
+          "testo": "Riparazione o sostituzione, gratis",
+          "giusta": true
+        }
+      ],
+      "spiega": "Prima riparazione o sostituzione, gratis e in tempi ragionevoli. Se non arrivano o il difetto si ripresenta, chiedi uno sconto o la restituzione; per un difetto lieve, la restituzione no.",
+      "fonte": {
+        "norma": "Codice del consumo, art. 135-bis",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art135bis"
+      },
+      "rif": "garanzia/src/regole.js:94"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Le scarpe comprate online ti sono arrivate ieri e non le vuoi più. Entro quando puoi ripensarci?",
+      "scelte": [
+        {
+          "testo": "Entro 14 giorni dall'ordine",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Per un oggetto i 14 giorni partono dalla consegna, non dall'ordine."
+        },
+        {
+          "testo": "Non puoi: le scarpe non sono difettose",
+          "giusta": false,
+          "giorni": 60,
+          "perche": "Per gli acquisti online il ripensamento non richiede un difetto né un motivo: hai 14 giorni."
+        },
+        {
+          "testo": "Entro 14 giorni dalla consegna, senza dare un motivo",
+          "giusta": true
+        }
+      ],
+      "spiega": "Online hai 14 giorni dalla consegna per recedere, senza motivo e senza penali: usa il pulsante «recedere dal contratto qui» o scrivi per email o PEC. Il rimborso va fatto entro 14 giorni.",
+      "fonte": {
+        "norma": "Codice del consumo, art. 52",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2005-09-06;206~art52"
+      },
+      "rif": "garanzia/src/regole.js:128"
+    }
+  ]
+}

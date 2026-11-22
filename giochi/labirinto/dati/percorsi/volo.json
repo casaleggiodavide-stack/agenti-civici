@@ -1,0 +1,81 @@
+{
+  "id": "volo",
+  "titolo": "Il volo in ritardo",
+  "pratica": "Il tuo volo da un aeroporto italiano a una città europea a circa 2.000 km arriva con 4 ore e mezza di ritardo. Vuoi capire cosa ti spetta.",
+  "strumento": "mi-rimborsano",
+  "livello": 2,
+  "bivi": [
+    {
+      "tipo": "diritto",
+      "domanda": "Sei arrivato a destinazione con 4 ore e mezza di ritardo. Ti spetta una compensazione in denaro?",
+      "scelte": [
+        { "testo": "No: spetta solo se il volo viene cancellato", "giusta": false, "giorni": 60, "perche": "Per la Corte di giustizia (sentenza Sturgeon) un ritardo all'arrivo di 3 ore o più dà diritto alla compensazione come una cancellazione." },
+        { "testo": "Sì: spetta con 3 ore o più di ritardo all'arrivo", "giusta": true },
+        { "testo": "Sì, ma solo da 5 ore di ritardo in su", "giusta": false, "giorni": 60, "perche": "Le 5 ore servono per rinunciare al viaggio e avere il rimborso del biglietto. Per la compensazione bastano 3 ore." }
+      ],
+      "spiega": "Conta il ritardo all'arrivo alla destinazione finale, quando si apre il portellone, non quando l'aereo atterra.",
+      "fonte": { "norma": "Corte di giustizia UE, sentenza Sturgeon (C-402/07)", "url": "https://publications.europa.eu/resource/celex/62007CJ0402" },
+      "rif": "mi-rimborsano/src/regole.js:106"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "Il volo era dentro l'Europa, di circa 2.000 km in linea d'aria. Quanto chiedi a passeggero?",
+      "scelte": [
+        { "testo": "250 €", "giusta": false, "giorni": 10, "perche": "250 € valgono per i voli fino a 1.500 km. Per una tratta europea oltre 1.500 km sono 400 €." },
+        { "testo": "Il prezzo del biglietto", "giusta": false, "giorni": 10, "perche": "La compensazione è una cifra fissa che dipende dalla distanza. Il rimborso del biglietto è un'altra cosa, per chi rinuncia al viaggio." },
+        { "testo": "400 €", "giusta": true }
+      ],
+      "spiega": "La compensazione va da 250 € a 600 € secondo la distanza in linea d'aria. Si paga in denaro, non in buoni, se non sei d'accordo diversamente.",
+      "fonte": { "norma": "Regolamento (CE) 261/2004, art. 7", "url": "https://publications.europa.eu/resource/celex/32004R0261" },
+      "rif": "mi-rimborsano/src/regole.js:59"
+    },
+    {
+      "tipo": "diritto",
+      "domanda": "La compagnia dice che il ritardo è dovuto a un guasto tecnico dell'aereo. Perdi la compensazione?",
+      "scelte": [
+        { "testo": "No: i guasti rientrano nella normale attività della compagnia", "giusta": true },
+        { "testo": "Sì: un guasto è una circostanza eccezionale", "giusta": false, "giorni": 60, "perche": "Per la Corte di giustizia i problemi tecnici fanno parte della normale attività della compagnia: la compensazione è dovuta." },
+        { "testo": "Sì, a meno che tu non provi che il guasto non c'era", "giusta": false, "giorni": 30, "perche": "La prova tocca alla compagnia: è lei che deve dimostrare una circostanza eccezionale e di aver fatto il possibile per evitarla." }
+      ],
+      "spiega": "Possono escludere la compensazione maltempo, decisioni del controllo del traffico aereo, scioperi esterni e rischi per la sicurezza, se la compagnia li prova. Pasti, bevande e albergo spettano comunque.",
+      "fonte": { "norma": "Regolamento (CE) 261/2004, art. 5, par. 3", "url": "https://publications.europa.eu/resource/celex/32004R0261" },
+      "rif": "mi-rimborsano/src/regole.js:137"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "A chi chiedi la compensazione, e come?",
+      "scelte": [
+        { "testo": "A voce, al banco della compagnia in aeroporto", "giusta": false, "giorni": 10, "perche": "Va chiesta per iscritto, con il modulo online della compagnia o via PEC, e conservando la ricevuta." },
+        { "testo": "Alla società che gestisce l'aeroporto", "giusta": false, "giorni": 15, "perche": "La compensazione la deve la compagnia che ha operato il volo: è a lei che va la richiesta scritta." },
+        { "testo": "Per iscritto alla compagnia che ha operato il volo", "giusta": true }
+      ],
+      "spiega": "Scrivi alla compagnia che ha operato il volo, con il suo modulo online o via PEC, allegando biglietto e carta d'imbarco. Conta chi opera il volo, anche se il biglietto è di un'altra compagnia.",
+      "fonte": { "norma": "ENAC, Modalità di reclamo per negato imbarco, cancellazione e ritardo", "url": "https://www.enac.gov.it/passeggeri/diritti-dei-passeggeri/modalita-di-reclamo-per-negato-imbarco-cancellazione-ritardo/" },
+      "rif": "mi-rimborsano/src/regole.js:177"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Entro quando conviene mandare il reclamo scritto alla compagnia?",
+      "scelte": [
+        { "testo": "Con calma: hai 2 anni, come dice la Convenzione di Montreal", "giusta": false, "giorni": 30, "perche": "La Cassazione (ordinanza 4427/2024) ha escluso i 2 anni di Montreal per la compensazione, senza dire quale termine valga." },
+        { "testo": "Subito, e comunque entro 6 mesi dal volo", "giusta": true },
+        { "testo": "Non c'è fretta: hai sempre 10 anni", "giusta": false, "giorni": 30, "perche": "La legge non fissa un termine chiaro e i giudici non sono d'accordo. Alcune compagnie rifiutano i reclami oltre 6 mesi." }
+      ],
+      "spiega": "La legge non fissa un termine chiaro: l'ENAC consiglia di reclamare entro 6 mesi. Scrivi con PEC o raccomandata, così hai la prova della data.",
+      "fonte": { "norma": "ENAC, Modalità di reclamo per negato imbarco, cancellazione e ritardo", "url": "https://www.enac.gov.it/passeggeri/diritti-dei-passeggeri/modalita-di-reclamo-per-negato-imbarco-cancellazione-ritardo/" },
+      "rif": "mi-rimborsano/src/regole.js:154"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Sono passati 30 giorni dal reclamo e la compagnia non risponde. Cosa fai per avere i soldi?",
+      "scelte": [
+        { "testo": "Fai subito causa al Giudice di pace", "giusta": false, "giorni": 10, "perche": "Prima del giudice la conciliazione è obbligatoria. Si chiede gratis su ConciliaWeb dell'Autorità dei trasporti o alla Camera di commercio." },
+        { "testo": "Chiedi la conciliazione gratuita all'Autorità dei trasporti", "giusta": true },
+        { "testo": "Reclami all'ENAC e aspetti che ti paghi", "giusta": false, "giorni": 15, "perche": "L'ENAC è gratis e sanziona la compagnia, ma non ti paga. E la segnalazione si fa dopo 6 settimane senza risposta." }
+      ],
+      "spiega": "Dopo 30 giorni senza risposta, o subito dopo un rifiuto, chiedi la conciliazione gratuita su ConciliaWeb, entro un anno dal reclamo. Serve prima di andare dal giudice.",
+      "fonte": { "norma": "Autorità di regolazione dei trasporti, delibera 21/2023, allegato A", "url": "https://www.autorita-trasporti.it/wp-content/uploads/2023/02/All.-A-delibera-n.-21_2023_signed.pdf" },
+      "rif": "mi-rimborsano/src/regole.js:161"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "ferma",
+  "titolo": "La pratica ferma in Comune",
+  "pratica": "Hai chiesto al Comune l'autorizzazione per aprire un negozio. Sono passati mesi e nessuno risponde. Vuoi far chiudere la pratica.",
+  "strumento": "reclami-pa",
+  "livello": 3,
+  "bivi": [
+    {
+      "tipo": "termine",
+      "domanda": "Nessuna legge o regolamento fissa un termine per la tua pratica. Entro quanto deve decidere il Comune?",
+      "scelte": [
+        { "testo": "Entro 90 giorni: è il termine normale degli uffici pubblici", "giusta": false, "giorni": 30, "perche": "90 giorni è il tetto dei termini che lo Stato e gli enti nazionali possono fissare. Se nessuno fissa un termine diverso, sono 30." },
+        { "testo": "Entro 30 giorni", "giusta": true },
+        { "testo": "Non c'è una scadenza: decide quando può", "giusta": false, "giorni": 60, "perche": "La scadenza c'è sempre: se nessuna legge o regolamento ne fissa una diversa, l'ufficio deve chiudere la pratica entro 30 giorni." }
+      ],
+      "spiega": "Se nessuna legge o regolamento fissa un termine diverso, l'ufficio deve chiudere la pratica con un provvedimento espresso entro 30 giorni.",
+      "fonte": { "norma": "L. 241/1990, art. 2, commi 1-2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2" },
+      "rif": "reclami-pa/dati/fonti.json:6"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Da quando partono i 30 giorni, e come si contano?",
+      "scelte": [
+        { "testo": "Dal giorno in cui hai firmato la domanda, solo giorni lavorativi", "giusta": false, "giorni": 30, "perche": "Non conta la firma ma il giorno in cui l'ente riceve la domanda. E i giorni sono di calendario, non lavorativi." },
+        { "testo": "Dalla comunicazione di avvio che ti manda l'ufficio", "giusta": false, "giorni": 30, "perche": "Per una domanda presentata da te il termine parte da quando l'ente la riceve, non dalla comunicazione di avvio." },
+        { "testo": "Da quando l'ente riceve la domanda, giorni di calendario", "giusta": true }
+      ],
+      "spiega": "Il termine decorre dal ricevimento della domanda e si conta in giorni di calendario. La ricevuta, o quella della PEC, prova la data.",
+      "fonte": { "norma": "L. 241/1990, art. 2, comma 6", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2" },
+      "rif": "reclami-pa/dati/fonti.json:12"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "L'ufficio ti chiede un certificato che non ha e tu lo mandi dopo 20 giorni. Che succede al termine?",
+      "scelte": [
+        { "testo": "Riparte da zero quando mandi il certificato", "giusta": false, "giorni": 30, "perche": "Non riparte da capo: resta sospeso per i giorni dell'attesa, una sola volta e al massimo per 30 giorni." },
+        { "testo": "Si allunga dei 20 giorni dell'attesa", "giusta": true },
+        { "testo": "L'ufficio può fermarlo a ogni nuova richiesta", "giusta": false, "giorni": 30, "perche": "La sospensione vale una sola volta, per massimo 30 giorni, e solo per documenti che l'ufficio non ha e non può avere da altri uffici pubblici." }
+      ],
+      "spiega": "Il termine si può sospendere una sola volta, per massimo 30 giorni, per chiedere documenti che l'ufficio non ha già: alla scadenza si aggiungono i giorni dell'attesa.",
+      "fonte": { "norma": "L. 241/1990, art. 2, comma 7", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2" },
+      "rif": "reclami-pa/dati/fonti.json:35"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Il termine è scaduto senza risposta. Chi deve chiudere la pratica al posto dell'ufficio fermo?",
+      "scelte": [
+        { "testo": "Il difensore civico: decide lui la pratica", "giusta": false, "giorni": 15, "perche": "Il difensore civico interviene presso l'ente per farla chiudere, ma non decide la pratica. Prima si chiede al titolare del potere sostitutivo." },
+        { "testo": "Il titolare del potere sostitutivo del Comune", "giusta": true },
+        { "testo": "L'Ufficio relazioni con il pubblico (URP)", "giusta": false, "giorni": 15, "perche": "L'URP informa sullo stato delle pratiche e raccoglie i reclami, ma non decide al posto dell'ufficio." }
+      ],
+      "spiega": "Ogni ente deve nominarlo e pubblicarne il nome sul sito, di solito in «Amministrazione trasparente». Se manca, tocca al dirigente generale. Chiedi anche il nome del responsabile del procedimento.",
+      "fonte": { "norma": "L. 241/1990, art. 2, comma 9-bis", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2" },
+      "rif": "reclami-pa/dati/fonti.json:55"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "La pratica riguarda l'avvio di un'impresa, quindi c'è l'indennizzo da ritardo. Entro quando chiedi l'intervento del titolare?",
+      "scelte": [
+        { "testo": "Entro 20 giorni dalla scadenza del termine", "giusta": true },
+        { "testo": "Entro un anno, come per il ricorso al giudice", "giusta": false, "giorni": 60, "perche": "Per l'indennizzo i giorni sono 20 dalla scadenza del termine, e sono perentori: passati quelli, l'indennizzo non si può più chiedere." },
+        { "testo": "Quando vuoi, finché la pratica resta ferma", "giusta": false, "giorni": 60, "perche": "Il limite c'è: 20 giorni perentori dalla scadenza del termine del procedimento. Dopo, l'indennizzo non si può più chiedere." }
+      ],
+      "spiega": "L'indennizzo è di 30 euro per ogni giorno di ritardo, fino a 2.000 euro, solo per pratiche su domanda che riguardano un'impresa. Va chiesto al titolare entro 20 giorni.",
+      "fonte": { "norma": "D.l. 69/2013, art. 28, commi 1 e 2", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2013-06-21;69~art28" },
+      "rif": "reclami-pa/dati/fonti.json:146"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Il termine originario era di 30 giorni. Quanto tempo ha il titolare del potere sostitutivo per chiudere la pratica?",
+      "scelte": [
+        { "testo": "Altri 30 giorni", "giusta": false, "giorni": 30, "perche": "Non ha di nuovo tutto il termine: ha la metà del termine originario, quindi 15 giorni." },
+        { "testo": "10 giorni", "giusta": false, "giorni": 30, "perche": "Dieci giorni sono quelli per rispondere a un preavviso di rigetto. Il titolare ha la metà del termine originario: 15 giorni su 30." },
+        { "testo": "15 giorni, la metà del termine originario", "giusta": true }
+      ],
+      "spiega": "Il titolare del potere sostitutivo deve concludere entro la metà del termine originario, con gli uffici interni o nominando un commissario.",
+      "fonte": { "norma": "L. 241/1990, art. 2, comma 9-ter", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art2" },
+      "rif": "reclami-pa/dati/fonti.json:65"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Anche il titolare del potere sostitutivo tace. A chi mandi l'istanza per avere aiuto?",
+      "scelte": [
+        { "testo": "Al difensore civico del Comune", "giusta": false, "giorni": 15, "perche": "Il difensore civico comunale è stato soppresso. I Comuni possono affidarne le funzioni, con una convenzione, a un altro difensore civico." },
+        { "testo": "Al Difensore civico per il digitale", "giusta": false, "giorni": 15, "perche": "Quello presso l'Agenzia per l'Italia digitale (AgID) segue servizi online, identità digitale e pagamenti, non le pratiche ferme." },
+        { "testo": "Al difensore civico regionale, se copre il tuo Comune", "giusta": true }
+      ],
+      "spiega": "Il difensore civico interviene presso l'ente per far chiudere la pratica. Per i Comuni serve una convenzione: controlla sul sito del difensore della tua regione. Scrivi per PEC.",
+      "fonte": { "norma": "L. 191/2009, art. 2, comma 186, lett. a)", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2009-12-23;191~art2-com186" },
+      "rif": "reclami-pa/dati/fonti.json:216"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Vuoi chiedere al TAR (tribunale amministrativo regionale) di obbligare il Comune a decidere. Entro quando?",
+      "scelte": [
+        { "testo": "Entro 30 giorni dalla scadenza del termine", "giusta": false, "giorni": 30, "perche": "I 30 giorni valgono per l'accesso agli atti negato. Contro il silenzio hai tempo finché dura, e comunque entro un anno dalla scadenza." },
+        { "testo": "Finché dura il silenzio, e al massimo un anno dalla scadenza", "giusta": true },
+        { "testo": "Entro un anno, anche da solo senza avvocato", "giusta": false, "giorni": 10, "perche": "Contro il silenzio serve un avvocato: da soli si può solo per l'accesso agli atti e pochi altri casi. Il contributo unificato è di 300 euro." }
+      ],
+      "spiega": "Il ricorso contro il silenzio si presenta finché dura l'inerzia e comunque entro un anno dalla scadenza del termine, contato per data. Dopo, puoi ripresentare la domanda.",
+      "fonte": { "norma": "Cod. proc. amm., art. 31, commi 1-3", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-07-02;104:2~art31" },
+      "rif": "reclami-pa/dati/fonti.json:96"
+    }
+  ]
+}

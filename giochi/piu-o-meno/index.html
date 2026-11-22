@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--icone--><link rel="icon" href="../../comune/icona-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../../comune/marchio.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../comune/icona-180.png"><!--/icone-->
+<title>Più o meno · Il Polpo civico</title>
+<meta name="description" content="Gioco sugli appalti pubblici: due contratti veri del 2025, dalla mensa scolastica alle luminarie, e devi indovinare quale è costato di più. Con importi ANAC, CIG e mediana della categoria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Atkinson+Hyperlegible+Next:wght@400;600;800&family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../comune/stile.css">
+<style>
+  .storie-testa { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin: 28px 0 8px; }
+  .storie-testa .logo-polpo { width: 110px; height: 110px; }
+  .storie-testa h1 { margin: 0; font-size: var(--s4); line-height: 1; }
+  .storie-testa p { margin: 8px 0 0; color: var(--inchiostro-2); max-width: 62ch; }
+  @media (max-width: 560px) { .storie-testa { grid-template-columns: minmax(0, 1fr); } .storie-testa .logo-polpo { width: 80px; height: 80px; } }
+  .gioco { max-width: 860px; margin: 18px auto 0; }
+  .palco { position: relative; border: 1px solid var(--riga); border-radius: 6px; background: var(--fondo); overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .palco canvas { display: block; width: 100%; outline: none; }
+  .palco canvas:focus-visible { box-shadow: inset 0 0 0 3px var(--accento); }
+  .barra-gioco { display: flex; gap: 6px 18px; flex-wrap: wrap; align-items: baseline; justify-content: space-between; padding: 6px 2px; font-family: var(--cifre); font-size: 13px; color: var(--inchiostro-2); }
+  .barra-gioco b { font-family: var(--titoli); font-size: 22px; color: var(--inchiostro); letter-spacing: -0.02em; }
+  #vite { color: var(--accento); font-size: 18px; letter-spacing: 2px; }
+  #serie { color: var(--accento); }
+  .esito { min-height: 42px; margin: 0 0 8px; font-size: 14px; line-height: 1.35; color: var(--inchiostro-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .esito[data-tono="no"] { color: var(--accento); }
+  .esito[data-tono="si"] { color: var(--si); }
+  .esito[data-tono="forse"] { color: var(--forse); }
+  .velo { position: absolute; inset: 0; display: grid; place-items: center; padding: 18px; background: color-mix(in srgb, var(--fondo) 88%, transparent); overflow-y: auto; }
+  .velo[hidden] { display: none; }
+  .velo-box { max-width: 520px; text-align: left; }
+  .velo-box h2 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 10px; line-height: 1.05; }
+  .velo-box p, .velo-box li { color: var(--inchiostro-2); font-size: var(--s0); }
+  .velo-box ol, .velo-box ul { padding-left: 18px; display: grid; gap: 6px; }
+  .velo-box .btn { margin: 8px 10px 0 0; }
+  #fine-punti { font-family: var(--titoli); font-size: clamp(48px, 9vw, 80px); line-height: 1; color: var(--accento); display: block; }
+  #fine-errori { max-height: 40vh; overflow-y: auto; }
+  .regole-gioco { max-width: 860px; margin: 48px auto 0; padding-top: 24px; border-top: 2px solid var(--inchiostro); }
+  .regole-gioco h2 { font-size: clamp(26px, 3.8vw, 38px); margin: 0 0 10px; }
+  .regole-gioco p { color: var(--inchiostro-2); }
+  .regole-gioco .scorri { overflow-x: auto; }
+  .ordinabile { width: 100%; border-collapse: collapse; font-size: var(--s0); }
+  .ordinabile th { text-align: left; border-bottom: 1px solid var(--inchiostro-3); padding: 0; white-space: nowrap; }
+  .ordinabile th button { all: unset; cursor: pointer; display: block; padding: 8px 10px 8px 0; font-family: var(--cifre); font-size: 11.5px; letter-spacing: .04em; color: var(--inchiostro-3); }
+  .ordinabile th button:focus-visible { outline: 2px solid var(--accento); }
+  .ordinabile th[aria-sort] button { color: var(--inchiostro); }
+  .ordinabile th[aria-sort="descending"] button::after { content: " ↓"; color: var(--accento); }
+  .ordinabile th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--accento); }
+  .ordinabile td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--riga-tenue); color: var(--inchiostro-2); vertical-align: top; }
+  .ordinabile td:first-child { color: var(--inchiostro); font-weight: 600; }
+  .schede-giochi { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px; }
+  .schede-giochi a { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; padding: 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 4px; text-decoration: none; color: var(--inchiostro-2); }
+  .schede-giochi a:hover { border-color: var(--accento); }
+  .schede-giochi b { display: block; font-family: var(--titoli); font-size: 21px; color: var(--inchiostro); margin-bottom: 6px; }
+  .st-polpo { width: 46px; height: 46px; overflow: visible; }
+  .regole-gioco ol.lista { padding-left: 20px; display: grid; gap: 8px; color: var(--inchiostro-2); }
+  .palco-truffa { padding: 16px; touch-action: auto; }
+  .palco-truffa .velo { position: relative; inset: auto; background: none; padding: 6px 0; display: block; }
+  .palco-truffa .velo[hidden], .tavolo[hidden] { display: none; }
+  .tavolo { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 6px; }
+  .tavolo .logo-polpo { width: 76px; height: 76px; overflow: visible; transition: transform .2s; }
+  .tavolo .logo-polpo.contento { animation: salta .5s ease; }
+  .tavolo .logo-polpo.triste { animation: scuoti .5s ease; }
+  @keyframes salta { 40% { transform: translateY(-14px) scale(1.05); } }
+  @keyframes scuoti { 20%, 60% { transform: rotate(-9deg); } 40%, 80% { transform: rotate(9deg); } }
+  .mazzo { position: relative; }
+  .carta { position: relative; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 18px; padding: 16px 18px 22px; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; outline: none; overflow: hidden; }
+  .carta:focus-visible { box-shadow: 0 0 0 3px var(--accento); }
+  .carta.entra { animation: entra .28s ease; }
+  .carta.esce { transition: transform .35s ease, opacity .35s; }
+  .carta.esce.a-sinistra { transform: translateX(-30px) rotate(-3deg); }
+  .carta.esce.a-destra { transform: translateX(30px) rotate(3deg); }
+  @keyframes entra { from { transform: translateY(18px) scale(.97); opacity: 0; } }
+  .carta[data-verso="truffa"] { box-shadow: 0 0 0 3px var(--accento); }
+  .carta[data-verso="affidabile"] { box-shadow: 0 0 0 3px var(--si); }
+  .carta-testa { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 13px; color: #5d6270; margin-bottom: 8px; }
+  .carta-icona { font-size: 18px; }
+  .carta-canale { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .carta-mittente { font-weight: 700; color: #1d1f24; overflow-wrap: anywhere; }
+  .carta-testo { margin: 0; font-size: 17px; line-height: 1.45; overflow-wrap: anywhere; }
+  .carta-tempo { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: #e3e1da; }
+  .carta-tempo i { display: block; height: 100%; width: 100%; background: var(--accento); }
+  .carta-timbro { position: absolute; top: 14px; right: 14px; font-family: var(--cifre); font-weight: 700; font-size: 14px; letter-spacing: .12em; padding: 4px 10px; border: 3px solid currentColor; border-radius: 6px; transform: rotate(8deg); opacity: 0; }
+  .carta.esce .carta-timbro { opacity: 1; color: var(--accento); }
+  .scelte { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .scelte[hidden] { display: none; }
+  .scelte .btn { justify-content: center; padding: 14px 10px; font-size: 13px; }
+  #no { border-color: var(--accento); color: var(--accento); }
+  #si { border-color: var(--si); color: var(--si); }
+  .spiega { margin-top: 14px; padding: 16px 18px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .spiega[hidden] { display: none; }
+  #spiega-titolo { margin: 0 0 6px; font-family: var(--titoli); font-size: 22px; }
+  #spiega-titolo[data-tono="si"] { color: var(--si); }
+  #spiega-titolo[data-tono="no"] { color: var(--accento); }
+  .spiega p, .spiega li { color: var(--inchiostro-2); font-size: var(--s0); }
+  .spiega ul { padding-left: 18px; margin: 4px 0 0; display: grid; gap: 4px; }
+  .spiega-et { font-family: var(--cifre); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--inchiostro-3) !important; margin: 10px 0 0; }
+  #spiega-fonte { font-size: 13px; margin: 10px 0 0; }
+  .finestra { color-scheme: light; background: var(--foglio, #fff); color: var(--foglio-inchiostro, #1d1f24); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 40px -20px rgba(0,0,0,.6); }
+  .finestra-barra { display: flex; gap: 10px; align-items: center; padding: 8px 12px; background: #e3e1da; font-size: 12.5px; color: #5d6270; }
+  .pallini i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #c9c5bc; margin-right: 4px; }
+  .indirizzo { flex: 1; background: #fff; border-radius: 999px; padding: 3px 12px; font-family: var(--cifre); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .negozio-testa { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #1d1f24; color: #fff; }
+  .negozio-testa span { font-family: var(--cifre); font-size: 11px; letter-spacing: .14em; background: #ff4a36; color: #0b0b0a; padding: 3px 8px; border-radius: 4px; }
+  .negozio-corpo { padding: 16px; display: grid; gap: 14px; }
+  .negozio-corpo h3 { margin: 0; font-size: 20px; color: #1d1f24; }
+  .prodotto { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .foto-prodotto { aspect-ratio: 1; display: grid; place-items: center; font-size: 56px; background: #f4f2ec; border-radius: 10px; }
+  .prezzo { font-family: var(--titoli); font-size: 30px; margin: 4px 0 8px; color: #1d1f24; }
+  .etichette { display: flex; flex-wrap: wrap; gap: 6px; }
+  .etichetta, .voce { all: unset; cursor: pointer; position: relative; font-size: 13.5px; padding: 6px 10px; border: 1.5px dashed #c9c5bc; border-radius: 8px; color: #1d1f24; background: #fff; }
+  .etichetta:focus-visible, .voce:focus-visible { outline: 3px solid var(--accento); }
+  .etichetta.conto { color: #c2362b; font-weight: 700; }
+  .etichetta.vista, .voce.vista { border: 2px solid #ff4a36; background: #fdecea; }
+  .etichetta.falso { border-style: solid; border-color: #9aa1ae; opacity: .7; }
+  .bollino { position: absolute; top: -9px; right: -6px; font-family: var(--cifre); font-size: 10px; letter-spacing: .06em; background: #ff4a36; color: #0b0b0a; padding: 1px 6px; border-radius: 999px; }
+  .opzioni { display: grid; gap: 6px; }
+  .opzione { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid #e3e1da; border-radius: 8px; font-size: 14.5px; color: #1d1f24; cursor: pointer; }
+  .opzione b { margin-left: auto; font-family: var(--cifre); font-size: 13px; }
+  .opzione input { width: 20px; height: 20px; accent-color: #1d1f24; }
+  .scelta { padding: 12px; border-radius: 10px; background: #fff4d6; color: #1d1f24; display: grid; gap: 8px; justify-items: start; }
+  .scelta p { margin: 0; font-weight: 700; }
+  .scelta .grande { all: unset; cursor: pointer; background: #16734a; color: #fff; font-weight: 700; padding: 12px 18px; border-radius: 10px; font-size: 16px; }
+  .scelta .piccolo { all: unset; cursor: pointer; color: #5d6270; font-size: 12px; text-decoration: underline; }
+  .scelta .grande:focus-visible, .scelta .piccolo:focus-visible { outline: 3px solid var(--accento); }
+  .scelta-fatta { margin: 0; font-size: 14px; color: #5d6270; }
+  .cassa { justify-self: start; }
+  .riepilogo { width: 100%; border-collapse: collapse; font-size: 15px; color: #1d1f24; }
+  .riepilogo td { padding: 6px 0; border-bottom: 1px solid #e3e1da; }
+  .riepilogo td.n { text-align: right; font-family: var(--cifre); white-space: nowrap; padding-left: 10px; }
+  .riepilogo .tot td { font-weight: 800; font-size: 17px; border-bottom: 0; }
+  .nota-abb { margin: 0; color: #c2362b; font-size: 13.5px; }
+  .azioni-cassa { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+  .esito-negozio { margin-top: 6px; }
+  .esito-negozio[hidden] { display: none; }
+  .esito-negozio h2 { font-size: clamp(24px, 3.6vw, 34px); margin: 0 0 8px; }
+  #esito-lista { list-style: none; padding: 0; display: grid; gap: 10px; margin: 14px 0; }
+  #esito-lista li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 12px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; color: var(--inchiostro-2); font-size: var(--s0); }
+  #esito-lista li b { color: var(--inchiostro); }
+  .segno { font-family: var(--cifre); font-size: 20px; font-weight: 700; text-align: center; }
+  #esito-lista li[data-esito="evitata"] .segno, #esito-lista li[data-esito="scoperta"] .segno { color: var(--si); }
+  #esito-lista li[data-esito="caduto"] .segno { color: var(--accento); }
+  #esito-lista small { color: var(--inchiostro-3); }
+  /* premi, sfide e sorprese (giochi/comune/premi.js) */
+  .barra-gioco .suono { all: unset; cursor: pointer; font-size: 12px; color: var(--inchiostro-3); padding: 2px 6px; border: 1px solid var(--riga); border-radius: 999px; }
+  .barra-gioco .suono:focus-visible { outline: 2px solid var(--accento); }
+  #fase { color: var(--forse); }
+  #scudo { color: var(--forse); font-size: 16px; }
+  #scudo[hidden] { display: none; }
+  .scelta-partita { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .scelta-partita .btn { margin: 0; }
+  .scelta-partita small { color: var(--inchiostro-3); flex-basis: 100%; }
+  .banner-sfida { padding: 10px 14px; border: 2px solid var(--forse); border-radius: 8px; color: var(--inchiostro) !important; }
+  .banner-sfida b { color: var(--forse); font-size: 1.15em; }
+  .vicino { font-size: 14px !important; margin: 6px 0; }
+  .vicino b { color: var(--inchiostro); }
+  .titolo-polpo { font-family: var(--titoli); font-size: clamp(22px, 3.4vw, 30px); color: var(--inchiostro) !important; margin: 6px 0 4px; line-height: 1.1; }
+  .sfida-esito { font-weight: 700; margin: 4px 0; }
+  .sfida-esito.si { color: var(--si) !important; }
+  .sfida-esito.no { color: var(--accento) !important; }
+  .medaglie-nuove .medaglia { display: inline-block; margin: 4px 6px 0 0; padding: 4px 10px; border: 1px solid var(--forse); border-radius: 999px; color: var(--inchiostro); font-size: 14px; animation: medaglia .6s ease both; }
+  @keyframes medaglia { from { transform: scale(.4) rotate(-12deg); opacity: 0; } 70% { transform: scale(1.12); } }
+  details.medaglie { margin: 10px 0 0; font-size: 14px; }
+  details.medaglie summary { cursor: pointer; color: var(--inchiostro-2); font-family: var(--cifre); font-size: 12.5px; letter-spacing: .04em; }
+  details.medaglie ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 6px; }
+  details.medaglie li { padding: 6px 10px; border: 1px dashed var(--riga); border-radius: 8px; color: var(--inchiostro-3); filter: grayscale(1); opacity: .7; }
+  details.medaglie li.presa { border: 1px solid var(--forse); color: var(--inchiostro); filter: none; opacity: 1; }
+  details.medaglie small { display: block; font-size: 12px; color: var(--inchiostro-3); }
+  .annuncio-grande { position: absolute; left: 50%; top: 34%; z-index: 5; transform: translate(-50%, -50%); width: max-content; max-width: 92%; text-align: center; pointer-events: none;
+    font-family: var(--titoli); font-weight: 800; font-size: clamp(22px, 4.4vw, 40px); line-height: 1.05; color: var(--forse); text-shadow: 0 3px 0 var(--fondo), 0 0 24px var(--fondo);
+    animation: annuncio 1.4s ease both; }
+  @keyframes annuncio { 0% { transform: translate(-50%, -50%) scale(.6); opacity: 0; } 15% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { transform: translate(-50%, -64%); opacity: 0; } }
+  .coriandoli { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .coriandoli i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: coriandolo 1.2s cubic-bezier(.2,.7,.4,1) forwards; }
+  @keyframes coriandolo { to { transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); opacity: 0; } }
+  .stelle { color: var(--forse); letter-spacing: 2px; }
+  .record-gioco { display: block; margin-top: 8px; font-family: var(--cifre); font-size: 12px; color: var(--forse); }
+  .classifica { margin: 14px 0 6px; padding: 14px 16px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .titolo-classifica { font-family: var(--titoli); font-size: 22px; color: var(--inchiostro) !important; margin: 0 0 8px; }
+  .schede-classifica { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .schede-classifica button { all: unset; cursor: pointer; font-family: var(--cifre); font-size: 12px; letter-spacing: .04em; padding: 5px 12px; border: 1px solid var(--riga); border-radius: 999px; color: var(--inchiostro-2); }
+  .schede-classifica button[aria-selected="true"] { border-color: var(--forse); color: var(--inchiostro); }
+  .schede-classifica button:focus-visible, .link:focus-visible { outline: 2px solid var(--accento); }
+  ol.podio { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 2px !important; }
+  ol.podio li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 6px 8px; border-radius: 6px; }
+  ol.podio li:nth-child(-n+3) .pos { color: var(--forse); }
+  ol.podio li.mio { background: color-mix(in srgb, var(--forse) 16%, transparent); }
+  ol.podio .pos { font-family: var(--cifre); font-size: 13px; color: var(--inchiostro-3); }
+  ol.podio .chi { color: var(--inchiostro); overflow-wrap: anywhere; }
+  ol.podio small { color: var(--inchiostro-3); font-size: 12px; }
+  ol.podio b { font-family: var(--cifre); color: var(--inchiostro); }
+  .invito-classifica label { display: grid; gap: 4px; font-size: 14px; color: var(--inchiostro-2); max-width: 320px; }
+  .invito-classifica select { font: inherit; font-size: 16px; padding: 6px 8px; background: var(--fondo); color: var(--inchiostro); border: 1px solid var(--riga); border-radius: 6px; }
+  .nome-classifica b { color: var(--forse); }
+  .link { all: unset; cursor: pointer; color: var(--accento); text-decoration: underline; }
+  #in-testa[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) { .annuncio-grande { animation-duration: 2s; animation-name: annuncio-piano; } @keyframes annuncio-piano { 0%, 100% { opacity: 0; } 10%, 85% { opacity: 1; } } .medaglie-nuove .medaglia { animation: none; } }
+  @media (max-width: 560px) { .tavolo { grid-template-columns: minmax(0, 1fr); } .tavolo .logo-polpo { width: 56px; height: 56px; } .carta-testo { font-size: 16px; } .prodotto { grid-template-columns: 76px minmax(0, 1fr); } .foto-prodotto { font-size: 40px; } .prezzo { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="max">
+  <div class="banda-sostieni"><span><a href="../../">← Il Polpo civico</a> · <a href="../../giochi/">Gioca con il Polpo</a></span><span>Promosso dall'<a href="https://www.gianrobertocasaleggio.com/" target="_blank" rel="noopener">Associazione Gianroberto Casaleggio</a></span></div>
+  <header class="storie-testa">
+    <svg class="logo-polpo" viewBox="-300 -300 600 600" aria-hidden="true"><g transform="rotate(-225)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(225) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(180) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg>
+    <div>
+      <div class="occhiello">Gioca con il Polpo · braccio 6, Controlla gli appalti</div>
+      <h1>Più o meno</h1>
+      <p>Due contratti pubblici veri: quale è costato di più? Venti coppie, tre vite, e dopo ogni risposta gli importi con il link al contratto.</p>
+    </div>
+  </header>
+  <style>
+  .palco-piu { padding: 16px; touch-action: manipulation; }
+  .tavolo-piu[hidden] { display: none; }
+  .domanda { display: flex; gap: 10px; align-items: center; margin: 0 0 10px; font-family: var(--titoli); font-size: clamp(20px, 3vw, 26px); color: var(--inchiostro); }
+  .domanda .logo-polpo { width: 52px; height: 52px; flex: none; overflow: visible; transition: transform .2s; }
+  .domanda .logo-polpo.contento { animation: salta .5s ease; }
+  .domanda .logo-polpo.triste { animation: scuoti .5s ease; }
+  .coppia { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; align-items: stretch; }
+  .contro { align-self: center; font-family: var(--cifre); font-size: 12px; letter-spacing: .1em; color: var(--inchiostro-3); }
+  .contratto { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 14px 14px 12px; border: 2px solid var(--riga); border-radius: 12px; background: var(--carta); color: var(--inchiostro-2); position: relative; transition: border-color .15s, transform .15s; }
+  .contratto:hover:not([aria-disabled="true"]) { border-color: var(--inchiostro-3); transform: translateY(-2px); }
+  .contratto:focus-visible { outline: 3px solid var(--accento); outline-offset: 2px; }
+  .contratto[aria-disabled="true"] { cursor: default; }
+  .contratto.entra { animation: entra .28s ease; }
+  .contratto[data-oro="1"] { border-color: var(--forse); box-shadow: 0 0 0 3px color-mix(in srgb, var(--forse) 25%, transparent); }
+  .contratto[data-esito="caro"] { border-color: var(--si); }
+  .contratto[data-esito="scelto-no"] { border-color: var(--accento); }
+  .c-cat { font-family: var(--cifre); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--inchiostro-3); display: block; }
+  .c-testo { display: block; font-size: 16.5px; line-height: 1.35; font-weight: 600; color: var(--inchiostro); overflow-wrap: anywhere; }
+  .c-orig { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; line-height: 1.35; color: var(--inchiostro-3); overflow-wrap: anywhere; }
+  .c-orig i { font-style: normal; font-family: var(--cifre); font-size: 10.5px; letter-spacing: .04em; }
+  .c-ente { display: block; font-size: 14px; color: var(--inchiostro-2); overflow-wrap: anywhere; }
+  .c-ente b { color: var(--inchiostro); font-weight: 600; }
+  .c-dove { display: block; font-size: 12.5px; color: var(--inchiostro-3); }
+  .c-importo { display: block; margin-top: auto; padding-top: 6px; font-family: var(--titoli); font-weight: 800; font-size: clamp(24px, 4vw, 32px); line-height: 1; color: var(--inchiostro); letter-spacing: -0.02em; }
+  .c-importo.coperto { color: var(--inchiostro-3); }
+  .c-oro { display: inline-block; align-self: flex-start; font-family: var(--cifre); font-size: 11px; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; background: var(--forse); color: #1d1f24; }
+  .c-timbro { position: absolute; top: 10px; right: 10px; font-family: var(--cifre); font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 3px 8px; border: 2px solid currentColor; border-radius: 6px; transform: rotate(6deg); color: var(--si); }
+  .tempo-piu { height: 6px; margin: 12px 0 0; background: var(--riga); border-radius: 3px; overflow: hidden; }
+  .tempo-piu i { display: block; height: 100%; width: 100%; background: var(--accento); }
+  .tempo-piu[hidden] { display: none; }
+  .aiuto-piu { margin: 8px 0 0; font-size: 12.5px; color: var(--inchiostro-3); }
+  .spiega-piu { margin-top: 14px; padding: 14px 16px; background: var(--carta); border: 1px solid var(--riga); border-radius: 8px; }
+  .spiega-piu[hidden] { display: none; }
+  #pm-verdetto { margin: 0 0 4px; font-family: var(--titoli); font-size: 22px; }
+  #pm-verdetto[data-tono="si"] { color: var(--si); }
+  #pm-verdetto[data-tono="no"] { color: var(--accento); }
+  .spiega-piu p, .spiega-piu li { color: var(--inchiostro-2); font-size: 14.5px; line-height: 1.45; }
+  #pm-dettagli { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 8px; }
+  #pm-dettagli li { padding: 8px 10px; border: 1px solid var(--riga-tenue, var(--riga)); border-radius: 8px; overflow-wrap: anywhere; }
+  #pm-dettagli li b { color: var(--inchiostro); }
+  .curiosita { padding: 8px 10px; border: 1px solid var(--forse); border-radius: 8px; color: var(--inchiostro) !important; }
+  .spiega-piu .fonte { font-size: 12.5px; color: var(--inchiostro-3); }
+  .regole-gioco details { margin-top: 18px; }
+  .regole-gioco details summary { cursor: pointer; font-weight: 600; color: var(--inchiostro); }
+  .regole-gioco td.n { text-align: right; font-family: var(--cifre); white-space: nowrap; }
+  @media (max-width: 620px) {
+    .coppia { grid-template-columns: minmax(0, 1fr); }
+    .contro { justify-self: center; }
+    .c-testo { font-size: 15.5px; }
+    .c-importo { font-size: 26px; }
+    .palco-piu { padding: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .contratto, .contratto.entra, .domanda .logo-polpo { animation: none !important; transition: none; } }
+</style>
+  <section class="gioco" aria-labelledby="t-gioco">
+    <h2 id="t-gioco" class="sr-only">Il gioco</h2>
+    <div class="barra-gioco"><span>Punti <b id="punti">0</b></span><span>Coppia <b id="numero">1 / 20</b></span><span id="vite" aria-label="3 vite su 3">♥♥♥</span><span id="serie"></span><span id="fase"></span><button type="button" class="suono" id="suono" aria-pressed="true">🔊 Suono</button></div>
+    <p class="esito" id="esito" aria-live="polite"></p>
+    <div class="palco palco-truffa palco-piu">
+      <div class="tavolo-piu" hidden>
+        <p class="domanda"><svg class="logo-polpo" viewBox="-300 -300 600 600" aria-hidden="true"><g transform="rotate(-225)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(225) scale(2.6) translate(-12 -12)" d="M17 7.5 A6.2 6.2 0 1 0 17 16.5 M5 10.5 H13 M5 13.5 H13"/></g></g><g transform="rotate(-180)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(180) scale(2.6) translate(-12 -12)" d="M5 19 L9 18 L19 8 L16 5 L6 15 Z M14 7 L17 10"/></g></g><g transform="rotate(-135)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(135) scale(2.6) translate(-12 -12)" d="M12 3 V21 M12 5 H17.5 L20 7.5 L17.5 10 H12 M12 12 H6.5 L4 14.5 L6.5 17 H12"/></g></g><g transform="rotate(-90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(90) scale(2.6) translate(-12 -12)" d="M12 3 L19 6 V11 C19 16 15.5 19 12 21 C8.5 19 5 16 5 11 V6 Z M9 12 L11 14 L15 10"/></g></g><g transform="rotate(-45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(45) scale(2.6) translate(-12 -12)" d="M4 20 H20 M7 20 V13 M11 20 V8 M15 20 V11 M19 20 V5"/></g></g><g transform="rotate(0)"><path class="pm-arto pm-attivo" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st pm-attivo" r="58"/><path class="pm-ic pm-attivo" transform="rotate(0) scale(2.6) translate(-12 -12)" d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 1 0 10.5 4 Z M15.5 15.5 L20 20"/></g></g><g transform="rotate(45)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-45) scale(2.6) translate(-12 -12)" d="M5 4 H15 L19 8 V20 H5 Z M8 13 L11 16 L16 10"/></g></g><g transform="rotate(90)"><path class="pm-arto" d="M70 0 C112 -42 140 40 182 0"/><g transform="translate(226 0)"><circle class="pm-st" r="58"/><path class="pm-ic" transform="rotate(-90) scale(2.6) translate(-12 -12)" d="M12 20 V11 M12 13 C12 8 8.5 6 5 6 C5 10 8 13 12 13 M12 11 C12 7 15 5 19 5 C19 9 16 11 12 11"/></g></g><g class="pm-testa" transform="scale(1.25)"><path class="pm-corpo" d="M-82 34 C-104 -96 104 -96 82 34 C64 64 -64 64 -82 34 Z"/><circle class="pm-lente" cx="-26" cy="-6" r="22"/><circle class="pm-lente" cx="26" cy="-6" r="22"/><path class="pm-lente" d="M-4 -6 H4"/><circle class="pm-occhio" cx="-26" cy="-4" r="8"/><circle class="pm-occhio" cx="26" cy="-4" r="8"/></g></svg><span id="pm-domanda">Quale è costato di più?</span></p>
+        <div class="coppia" role="group" aria-labelledby="pm-domanda">
+          <button type="button" class="contratto" id="pm-s"></button>
+          <span class="contro" aria-hidden="true">o</span>
+          <button type="button" class="contratto" id="pm-d"></button>
+        </div>
+        <div class="tempo-piu" id="pm-tempo" aria-hidden="true"><i></i></div>
+        <p class="aiuto-piu" id="pm-aiuto">Tocca il contratto che è costato di più. Con la tastiera: freccia sinistra o 1 per il primo, freccia destra o 2 per il secondo.</p>
+        <div class="spiega-piu" id="pm-spiega" hidden>
+          <p id="pm-verdetto"></p>
+          <p id="pm-confronto"></p>
+          <ul id="pm-dettagli"></ul>
+          <p id="pm-curiosita" class="curiosita" hidden></p>
+          <p class="fonte">Importi aggiudicati dichiarati ad ANAC; mediane calcolate sui contratti del 2025 della stessa categoria letti dal gioco. Fonte: <a href="https://dati.anticorruzione.it/opendata" target="_blank" rel="noopener">ANAC, Banca dati nazionale dei contratti pubblici: dati aperti 2025 (CC BY-SA 4.0)</a>.</p>
+          <button type="button" class="btn btn-primario" id="pm-avanti">Avanti</button>
+        </div>
+      </div>
+      <div class="velo" id="apertura"><div class="velo-box">
+        <h2>Più o meno</h2>
+        <p>Due contratti pubblici veri del 2025, presi dai dati ANAC: la mensa di una scuola, l'asfalto di una strada, le luminarie di Natale. Quale è costato di più?</p>
+        <ol>
+          <li><b>Tocca il contratto più caro</b> (o usa le frecce della tastiera). Se hai ragione vedi gli importi veri e arriva un contratto nuovo, da confrontare con quello appena svelato.</li>
+          <li>Hai <b>tre vite</b> e al massimo <b>venti coppie</b>. Si comincia con importi molto diversi e si finisce con contratti dello stesso ordine di grandezza, con meno tempo per decidere.</li>
+          <li><b>Colpo d'occhio</b>: se rispondi giusto in fretta, 5 punti in più. Dalla terza giusta di fila, altri 5. Ogni <b>cinque di fila</b> il Polpo ti ridà una vita persa.</li>
+          <li>Ogni tanto arriva un <b>contratto d'oro</b>, con una curiosità vera: se lo indovini vale 25 punti in più.</li>
+        </ol>
+        <p><small>Dopo ogni risposta: ente, anno, procedura, il CIG con il link alla scheda ufficiale ANAC e il confronto con la mediana della stessa categoria. Il gioco non dice se un prezzo è giusto: confronta fatti.</small></p>
+        <div class="scelta-partita"><button type="button" class="btn btn-primario" id="gioca">Gioca</button><button type="button" class="btn" id="gioca-giorno">Sfida del giorno</button><small>La sfida del giorno è la stessa partita per tutti, oggi: confrontati con chi vuoi.</small></div>
+        <div id="premi"></div>
+        <p class="vicino" id="in-testa" hidden></p>
+      </div></div>
+      <div class="velo" id="fine" hidden><div class="velo-box" role="dialog" aria-labelledby="t-fine">
+        <h2 id="t-fine">Fine della partita</h2>
+        <p><span id="fine-punti">0</span> <span id="fine-dettaglio"></span></p>
+        <div id="fine-premi"></div>
+        <div id="fine-classifica" class="classifica" hidden></div>
+        <p><b>Dove hai sbagliato</b></p>
+        <ul id="fine-errori"></ul>
+        <button type="button" class="btn btn-primario" id="rigioca">Gioca ancora</button><button type="button" class="btn" id="condividi">Sfida un amico</button>
+        <p><small>Vuoi guardare gli appalti del tuo Comune? <a href="../../appalti/">Red flag sugli appalti</a>.</small></p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="regole-gioco" aria-labelledby="t-regole">
+    <div class="occhiello">I dati del gioco</div>
+    <h2 id="t-regole">791 contratti veri, con il loro CIG</h2>
+    <p>I contratti vengono dalla Banca dati nazionale dei contratti pubblici di ANAC: procedure pubblicate nel 2025 e poi aggiudicate. L'importo è quello <b>aggiudicato</b> dichiarato dall'ente. Ogni CIG porta alla scheda ufficiale ANAC. Sono stati letti 79.050 contratti aggiudicati di 31 categorie riconoscibili; dopo le regole qui sotto ne restano 55.079, da cui vengono le mediane, e il mazzo del gioco ne tiene 791.</p>
+    <ol class="lista"><li>Solo contratti davvero aggiudicati, con l&#x27;importo di aggiudicazione dichiarato ad ANAC (esito «aggiudicata»): niente gare deserte, annullate o ancora in corso. <small>(991 contratti esclusi)</small></li><li>Fuori gli accordi quadro, le convenzioni, le adesioni, le concessioni, le proroghe, i rinnovi e le modifiche: il loro importo è un tetto massimo o un pezzo di un contratto già esistente, non la spesa di un contratto nuovo. <small>(9.906 contratti esclusi)</small></li><li>Fuori gli importi aggiudicati più alti del 10% della base d&#x27;asta o più bassi di un quinto (un ribasso oltre l&#x27;80% è quasi sempre un errore di battitura, per esempio euro al posto di migliaia). <small>(363 contratti esclusi)</small></li><li>Fuori i contratti sotto 1.500 euro (fra i più piccoli ci sono molti importi segnaposto, come 1.000 euro tondi) e quelli senza gara oltre 5 milioni (nei dati, quasi sempre il valore di un&#x27;intera convenzione nazionale; la stessa regola di «Red flag sugli appalti»). <small>(768 contratti esclusi)</small></li><li>Fuori i valori fuori scala per la loro categoria: meno di un centesimo o più di cinquanta volte la mediana dei contratti della stessa categoria. <small>(255 contratti esclusi)</small></li><li>Fuori i contratti vinti da una persona fisica (codice fiscale di 16 caratteri) e gli oggetti che nominano una persona o una ditta: il gioco non mostra mai chi ha vinto né chi ha firmato. <small>(9.983 contratti esclusi)</small></li><li>Solo oggetti chiari: niente codici, incarichi di progettazione o collaudo, lotti senza descrizione. Per ogni categoria 24 contratti scelti per varietà di regione, di ente e di importo, più il più caro e il meno caro dell&#x27;anno. <small>(1.705 contratti esclusi)</small></li></ol>
+    <p>Un contratto più caro non vuol dire un contratto sbagliato: cambiano la durata, la quantità, le dimensioni del Comune, quello che è compreso. L'oggetto in chiaro è riscritto da regole automatiche (minuscole, senza codici e formule di rito): sotto c'è sempre l'oggetto originale. Il confronto per abitante usa la popolazione ISTAT al 1° gennaio 2025 ed è mostrato solo per i Comuni.</p>
+    <h3>Le categorie</h3>
+    <div class="scorri"><table class="ordinabile" id="t-categorie"><thead><tr><th scope="col" data-k="0" data-tipo="t"><button type="button">Categoria</button></th><th scope="col" data-k="1" data-tipo="n"><button type="button">Nel mazzo</button></th><th scope="col" data-k="2" data-tipo="n" aria-sort="descending"><button type="button">Contratti 2025 letti</button></th><th scope="col" data-k="3" data-tipo="n"><button type="button">Mediana</button></th><th scope="col" data-k="4" data-tipo="n"><button type="button">Il meno caro</button></th><th scope="col" data-k="5" data-tipo="n"><button type="button">Il più caro</button></th></tr></thead><tbody><tr><td data-v="Luminarie di Natale">✨ Luminarie di Natale</td><td class="n" data-v="26">26</td><td class="n" data-v="1445">1.445</td><td class="n" data-v="13055">13.055 €</td><td class="n" data-v="3147">3.147 €</td><td class="n" data-v="470000">470.000 €</td></tr><tr><td data-v="Fuochi d&#x27;artificio">🎆 Fuochi d&#x27;artificio</td><td class="n" data-v="26">26</td><td class="n" data-v="204">204</td><td class="n" data-v="12373">12.373 €</td><td class="n" data-v="3500">3.500 €</td><td class="n" data-v="140000">140.000 €</td></tr><tr><td data-v="Mensa scolastica">🍝 Mensa scolastica</td><td class="n" data-v="26">26</td><td class="n" data-v="1507">1.507</td><td class="n" data-v="51000">51.000 €</td><td class="n" data-v="1550">1.550 €</td><td class="n" data-v="2379389">2.379.389 €</td></tr><tr><td data-v="Asfalto delle strade">🛣️ Asfalto delle strade</td><td class="n" data-v="26">26</td><td class="n" data-v="2784">2.784</td><td class="n" data-v="35749">35.749 €</td><td class="n" data-v="2350">2.350 €</td><td class="n" data-v="1596251">1.596.251 €</td></tr><tr><td data-v="Ambulanze">🚑 Ambulanze</td><td class="n" data-v="11">11</td><td class="n" data-v="12">12</td><td class="n" data-v="103600">103.600 €</td><td class="n" data-v="79600">79.600 €</td><td class="n" data-v="220079">220.079 €</td></tr><tr><td data-v="Computer e lavagne digitali per la scuola">💻 Computer e lavagne digitali per la scuola</td><td class="n" data-v="26">26</td><td class="n" data-v="480">480</td><td class="n" data-v="9228">9.228 €</td><td class="n" data-v="1678">1.678 €</td><td class="n" data-v="254880">254.880 €</td></tr><tr><td data-v="Pulizie">🧽 Pulizie</td><td class="n" data-v="26">26</td><td class="n" data-v="4498">4.498</td><td class="n" data-v="21619">21.619 €</td><td class="n" data-v="1500">1.500 €</td><td class="n" data-v="1038177">1.038.177 €</td></tr><tr><td data-v="Scuolabus e trasporto scolastico">🚌 Scuolabus e trasporto scolastico</td><td class="n" data-v="26">26</td><td class="n" data-v="2154">2.154</td><td class="n" data-v="36518">36.518 €</td><td class="n" data-v="1500">1.500 €</td><td class="n" data-v="1830701">1.830.701 €</td></tr><tr><td data-v="Sgombero neve e sale sulle strade">❄️ Sgombero neve e sale sulle strade</td><td class="n" data-v="26">26</td><td class="n" data-v="1363">1.363</td><td class="n" data-v="19900">19.900 €</td><td class="n" data-v="2435">2.435 €</td><td class="n" data-v="827160">827.160 €</td></tr><tr><td data-v="Giochi per i parchi">🛝 Giochi per i parchi</td><td class="n" data-v="26">26</td><td class="n" data-v="1102">1.102</td><td class="n" data-v="18876">18.876 €</td><td class="n" data-v="2917">2.917 €</td><td class="n" data-v="720758">720.758 €</td></tr><tr><td data-v="Defibrillatori">❤️ Defibrillatori</td><td class="n" data-v="26">26</td><td class="n" data-v="450">450</td><td class="n" data-v="13366">13.366 €</td><td class="n" data-v="1710">1.710 €</td><td class="n" data-v="501840">501.840 €</td></tr><tr><td data-v="Banchi e arredi per la scuola">🪑 Banchi e arredi per la scuola</td><td class="n" data-v="26">26</td><td class="n" data-v="634">634</td><td class="n" data-v="11356">11.356 €</td><td class="n" data-v="2642">2.642 €</td><td class="n" data-v="475190">475.190 €</td></tr><tr><td data-v="Strisce e cartelli stradali">🚸 Strisce e cartelli stradali</td><td class="n" data-v="26">26</td><td class="n" data-v="3364">3.364</td><td class="n" data-v="15735">15.735 €</td><td class="n" data-v="1743">1.743 €</td><td class="n" data-v="727530">727.530 €</td></tr><tr><td data-v="Disinfestazione (zanzare, topi, piccioni)">🦟 Disinfestazione (zanzare, topi, piccioni)</td><td class="n" data-v="26">26</td><td class="n" data-v="1285">1.285</td><td class="n" data-v="12792">12.792 €</td><td class="n" data-v="1740">1.740 €</td><td class="n" data-v="285698">285.698 €</td></tr><tr><td data-v="Bagnini sulle spiagge">🏖️ Bagnini sulle spiagge</td><td class="n" data-v="26">26</td><td class="n" data-v="100">100</td><td class="n" data-v="38645">38.645 €</td><td class="n" data-v="6080">6.080 €</td><td class="n" data-v="880960">880.960 €</td></tr><tr><td data-v="Centri estivi per bambini">☀️ Centri estivi per bambini</td><td class="n" data-v="26">26</td><td class="n" data-v="722">722</td><td class="n" data-v="16096">16.096 €</td><td class="n" data-v="1750">1.750 €</td><td class="n" data-v="738880">738.880 €</td></tr><tr><td data-v="Libri per le biblioteche">📚 Libri per le biblioteche</td><td class="n" data-v="26">26</td><td class="n" data-v="518">518</td><td class="n" data-v="9088">9.088 €</td><td class="n" data-v="1530">1.530 €</td><td class="n" data-v="240000">240.000 €</td></tr><tr><td data-v="Lampioni e illuminazione pubblica">💡 Lampioni e illuminazione pubblica</td><td class="n" data-v="26">26</td><td class="n" data-v="3000">3.000</td><td class="n" data-v="19505">19.505 €</td><td class="n" data-v="1600">1.600 €</td><td class="n" data-v="785721">785.721 €</td></tr><tr><td data-v="Taglio dell&#x27;erba e alberi">🌳 Taglio dell&#x27;erba e alberi</td><td class="n" data-v="26">26</td><td class="n" data-v="4074">4.074</td><td class="n" data-v="22000">22.000 €</td><td class="n" data-v="1500">1.500 €</td><td class="n" data-v="1030854">1.030.854 €</td></tr><tr><td data-v="Rifiuti e pulizia delle strade">🗑️ Rifiuti e pulizia delle strade</td><td class="n" data-v="26">26</td><td class="n" data-v="1136">1.136</td><td class="n" data-v="33950">33.950 €</td><td class="n" data-v="1703">1.703 €</td><td class="n" data-v="1734024">1.734.024 €</td></tr><tr><td data-v="Telecamere di videosorveglianza">📹 Telecamere di videosorveglianza</td><td class="n" data-v="26">26</td><td class="n" data-v="3129">3.129</td><td class="n" data-v="16457">16.457 €</td><td class="n" data-v="1550">1.550 €</td><td class="n" data-v="721094">721.094 €</td></tr><tr><td data-v="Pannelli solari sugli edifici pubblici">🔆 Pannelli solari sugli edifici pubblici</td><td class="n" data-v="26">26</td><td class="n" data-v="1284">1.284</td><td class="n" data-v="38230">38.230 €</td><td class="n" data-v="2400">2.400 €</td><td class="n" data-v="1769383">1.769.383 €</td></tr><tr><td data-v="Auto di servizio">🚓 Auto di servizio</td><td class="n" data-v="26">26</td><td class="n" data-v="832">832</td><td class="n" data-v="25760">25.760 €</td><td class="n" data-v="5000">5.000 €</td><td class="n" data-v="757466">757.466 €</td></tr><tr><td data-v="Divise e vestiario da lavoro">🦺 Divise e vestiario da lavoro</td><td class="n" data-v="26">26</td><td class="n" data-v="1599">1.599</td><td class="n" data-v="11957">11.957 €</td><td class="n" data-v="1710">1.710 €</td><td class="n" data-v="581450">581.450 €</td></tr><tr><td data-v="Buoni pasto per i dipendenti">🎫 Buoni pasto per i dipendenti</td><td class="n" data-v="26">26</td><td class="n" data-v="1441">1.441</td><td class="n" data-v="22638">22.638 €</td><td class="n" data-v="1693">1.693 €</td><td class="n" data-v="834300">834.300 €</td></tr><tr><td data-v="Ascensori">🛗 Ascensori</td><td class="n" data-v="26">26</td><td class="n" data-v="2997">2.997</td><td class="n" data-v="15000">15.000 €</td><td class="n" data-v="1525">1.525 €</td><td class="n" data-v="685603">685.603 €</td></tr><tr><td data-v="Cimiteri">🕯️ Cimiteri</td><td class="n" data-v="26">26</td><td class="n" data-v="4277">4.277</td><td class="n" data-v="22100">22.100 €</td><td class="n" data-v="1575">1.575 €</td><td class="n" data-v="970247">970.247 €</td></tr><tr><td data-v="Palestre e campi sportivi">🏀 Palestre e campi sportivi</td><td class="n" data-v="26">26</td><td class="n" data-v="3121">3.121</td><td class="n" data-v="26150">26.150 €</td><td class="n" data-v="1500">1.500 €</td><td class="n" data-v="1294192">1.294.192 €</td></tr><tr><td data-v="Vaccini">💉 Vaccini</td><td class="n" data-v="26">26</td><td class="n" data-v="316">316</td><td class="n" data-v="30010">30.010 €</td><td class="n" data-v="2520">2.520 €</td><td class="n" data-v="1711092">1.711.092 €</td></tr><tr><td data-v="Carta e cancelleria">📎 Carta e cancelleria</td><td class="n" data-v="26">26</td><td class="n" data-v="1525">1.525</td><td class="n" data-v="8926">8.926 €</td><td class="n" data-v="1514">1.514 €</td><td class="n" data-v="319415">319.415 €</td></tr><tr><td data-v="Caldaie e riscaldamento">🔥 Caldaie e riscaldamento</td><td class="n" data-v="26">26</td><td class="n" data-v="3726">3.726</td><td class="n" data-v="16709">16.709 €</td><td class="n" data-v="1500">1.500 €</td><td class="n" data-v="588908">588.908 €</td></tr></tbody></table></div>
+    <details id="elenco-contratti"><summary>Tutti i 791 contratti del mazzo, con il link ANAC</summary>
+    <div class="scorri"><table class="ordinabile" id="t-contratti"><thead><tr><th scope="col" data-k="0" data-tipo="t"><button type="button">Categoria</button></th><th scope="col" data-k="1" data-tipo="t"><button type="button">Oggetto originale</button></th><th scope="col" data-k="2" data-tipo="t"><button type="button">Ente</button></th><th scope="col" data-k="3" data-tipo="t"><button type="button">Regione</button></th><th scope="col" data-k="4" data-tipo="t"><button type="button">Procedura</button></th><th scope="col" data-k="5" data-tipo="n" aria-sort="descending"><button type="button">Importo aggiudicato</button></th><th scope="col" data-k="6" data-tipo="t"><button type="button">CIG</button></th></tr></thead><tbody></tbody></table></div>
+    </details>
+    <p class="nota">Tocca i titoli delle colonne per ordinare. Dati aggiornati al 2026-11-22; licenza dei dati ANAC: CC BY-SA 4.0. Il mazzo è preparato da <code>scripts/giochi-piu-o-meno-dati.py</code>.</p>
+  </section>
+</div>
+<script>
+/* Tabelle ordinabili: un clic sul titolo ordina, un secondo clic inverte. */
+document.querySelectorAll('table.ordinabile').forEach((t) => {
+  const corpo = t.tBodies[0];
+  t.querySelectorAll('th button').forEach((b) => b.addEventListener('click', () => {
+    const th = b.parentElement, k = +th.dataset.k, num = th.dataset.tipo === 'n';
+    const verso = th.getAttribute('aria-sort') === 'descending' ? 1 : th.getAttribute('aria-sort') === 'ascending' ? -1 : (num ? -1 : 1);
+    t.querySelectorAll('th').forEach((x) => x.removeAttribute('aria-sort'));
+    th.setAttribute('aria-sort', verso < 0 ? 'descending' : 'ascending');
+    const righe = [...corpo.rows].sort((a, c) => {
+      const x = a.cells[k].dataset.v, y = c.cells[k].dataset.v;
+      return (num ? x - y : x.localeCompare(y, 'it')) * verso;
+    });
+    righe.forEach((r) => corpo.appendChild(r));
+  }));
+});
+</script>
+<script type="module" src="web/gioco.js"></script>
+</body>
+</html>

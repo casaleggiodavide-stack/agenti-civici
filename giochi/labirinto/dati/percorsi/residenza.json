@@ -1,0 +1,149 @@
+{
+  "id": "residenza",
+  "titolo": "Casa nuova, residenza nuova",
+  "pratica": "Vai in affitto in un altro Comune. Devi spostare la residenza e poi ti servirà un certificato di residenza da dare a un privato.",
+  "strumento": "navigatore",
+  "livello": 1,
+  "bivi": [
+    {
+      "tipo": "ufficio",
+      "domanda": "Dove fai la dichiarazione di residenza?",
+      "scelte": [
+        {
+          "testo": "All'anagrafe del Comune che lasci",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "La dichiarazione va al Comune della nuova residenza: è lui che poi fa l'accertamento."
+        },
+        {
+          "testo": "All'Agenzia delle Entrate",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "La residenza è una pratica dell'anagrafe: si fa al Comune della nuova casa o online."
+        },
+        {
+          "testo": "All'anagrafe del nuovo Comune, o online sull'Anagrafe nazionale (ANPR)",
+          "giusta": true
+        }
+      ],
+      "spiega": "Ti rivolgi all'ufficio anagrafe del Comune della nuova residenza, di persona o con i suoi canali, oppure online sul portale ANPR con la tua identità digitale. Il servizio è gratuito.",
+      "fonte": {
+        "norma": "ANPR – Cambio di residenza",
+        "url": "https://www.anagrafenazionale.interno.it/area-cittadino/cambio-di-residenza/"
+      },
+      "rif": "navigatore/dati/schede-anagrafe-famiglia.json:18"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Hai traslocato. Entro quanto devi dichiarare la nuova residenza?",
+      "scelte": [
+        {
+          "testo": "Entro 20 giorni dal trasferimento",
+          "giusta": true
+        },
+        {
+          "testo": "Entro 90 giorni, con calma",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Il termine è più breve: la dichiarazione va resa entro 20 giorni dal trasferimento."
+        },
+        {
+          "testo": "Quando vuoi: non c'è un termine",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Il termine c'è: la dichiarazione va resa entro 20 giorni dal trasferimento."
+        }
+      ],
+      "spiega": "La dichiarazione va resa entro 20 giorni dal trasferimento. Gli effetti partono dalla data in cui la presenti.",
+      "fonte": {
+        "norma": "D.l. 5/2012, art. 5",
+        "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legge:2012-02-09;5~art5"
+      },
+      "rif": "navigatore/dati/schede-anagrafe-famiglia.json:44"
+    },
+    {
+      "tipo": "documento",
+      "domanda": "Vivi in affitto. Che cosa ti serve per la dichiarazione?",
+      "scelte": [
+        {
+          "testo": "Una marca da bollo da 16 €",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Il cambio di residenza è gratuito, anche online: diffida di chi chiede soldi per farlo."
+        },
+        {
+          "testo": "Estremi del contratto e carta d'identità del proprietario",
+          "giusta": true
+        },
+        {
+          "testo": "Il certificato di residenza del vecchio Comune",
+          "giusta": false,
+          "giorni": 5,
+          "perche": "Non serve: per l'affitto bastano gli estremi del contratto e la carta d'identità del proprietario."
+        }
+      ],
+      "spiega": "Chi è in affitto indica gli estremi del contratto e la carta d'identità del proprietario; chi è proprietario, gli estremi catastali. La pratica è gratuita.",
+      "fonte": {
+        "norma": "ANPR – Cambio di residenza",
+        "url": "https://www.anagrafenazionale.interno.it/area-cittadino/cambio-di-residenza/"
+      },
+      "rif": "navigatore/dati/schede-anagrafe-famiglia.json:34"
+    },
+    {
+      "tipo": "termine",
+      "domanda": "Hai presentato la dichiarazione. Entro quanto il Comune fa gli accertamenti?",
+      "scelte": [
+        {
+          "testo": "Entro 2 giorni lavorativi, e lì finisce tutto",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "In 2 giorni lavorativi il Comune registra la dichiarazione; poi ha fino a 45 giorni per l'accertamento."
+        },
+        {
+          "testo": "Non c'è limite: finché non controllano non sei residente",
+          "giusta": false,
+          "giorni": 30,
+          "perche": "Gli effetti partono dalla data della dichiarazione, e se in 45 giorni il Comune non segnala problemi vale il silenzio-assenso."
+        },
+        {
+          "testo": "Entro 45 giorni; se tace, la dichiarazione vale",
+          "giusta": true
+        }
+      ],
+      "spiega": "Il Comune registra la dichiarazione entro 2 giorni lavorativi e ha 45 giorni per l'accertamento. Se tace, vale il silenzio-assenso; gli effetti partono dalla data della dichiarazione.",
+      "fonte": {
+        "norma": "ANPR – Cambio di residenza",
+        "url": "https://www.anagrafenazionale.interno.it/area-cittadino/cambio-di-residenza/"
+      },
+      "rif": "navigatore/dati/schede-anagrafe-famiglia.json:43"
+    },
+    {
+      "tipo": "ufficio",
+      "domanda": "Ora ti serve un certificato di residenza da dare a un privato. Dove lo prendi, e quanto costa?",
+      "scelte": [
+        {
+          "testo": "Allo sportello del vecchio Comune, gratis",
+          "giusta": false,
+          "giorni": 15,
+          "perche": "Lo scarichi tu da ANPR, dove risulti iscritto. Ed è gratis solo se l'uso rientra nelle esenzioni di legge."
+        },
+        {
+          "testo": "Lo scarichi da ANPR: bollo da 16 €, se non hai un'esenzione",
+          "giusta": true
+        },
+        {
+          "testo": "Lo scarichi da ANPR, ed è sempre gratis",
+          "giusta": false,
+          "giorni": 10,
+          "perche": "Non è vero che online è sempre gratis: senza un motivo di esenzione si paga il bollo da 16 €."
+        }
+      ],
+      "spiega": "Su ANPR scarichi subito il certificato, che vale 3 mesi: gratis solo per gli usi esenti, se no bollo da 16 €. Per uffici pubblici, scuole e gestori di servizi pubblici basta l'autocertificazione.",
+      "fonte": {
+        "norma": "ANPR – Certificati ed estratti",
+        "url": "https://www.anagrafenazionale.interno.it/area-cittadino/certificati/"
+      },
+      "rif": "navigatore/dati/schede-anagrafe-famiglia.json:319"
+    }
+  ]
+}

@@ -24,7 +24,12 @@ GIOCHI = [  # cartella, titolo, sommario, braccio
     ('differenzia', 'Il Polpo differenzia', 'I rifiuti cadono: afferrali con un tentacolo e lanciali nel bidone giusto. Sai dove va il cartone della pizza?', 7),
     ('truffa', 'Truffa o no?', 'Arrivano SMS, WhatsApp, email e telefonate: scorri a sinistra se è una truffa, a destra se è affidabile. Poi il perché.', 3),
     ('carrello', 'Il carrello del Black Friday', 'Tre negozi online pieni delle trappole che l\'Antitrust ha multato: compra il regalo senza pagare un euro in più.', 3),
+    ('indovina-comune', 'Indovina il Comune', 'Ogni giorno un Comune misterioso: sei tentativi e un indizio in più a ogni errore, dai conti del Comune alla provincia.', 4),
+    ('piu-o-meno', 'Più o meno', 'Due contratti pubblici veri, dalla mensa scolastica alle luminarie: quale è costato di più? Con gli importi ANAC e il link a ogni contratto.', 5),
+    ('labirinto', 'Il filo del labirinto', 'Una pratica da chiudere e un labirinto di bivi: scegli l\'ufficio, il termine e la lettera giusti. Ogni strada sbagliata costa giorni.', 2),
 ]
+# Le pagine dei giochi nuovi le scrivono i loro generatori (scripts/giochi-<cartella>.py), che importano questo file.
+GENERATORI = ['giochi-indovina-comune.py', 'giochi-piu-o-meno.py', 'giochi-labirinto.py']
 
 CSS = '''
   .storie-testa { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; margin: 28px 0 8px; }
@@ -470,5 +475,8 @@ if __name__ == '__main__':
     n = differenzia()
     truffa()
     carrello()
+    import runpy
+    for g in GENERATORI:
+        runpy.run_path(os.path.join(REPO, 'scripts', g), run_name='__main__')
     open(os.path.join(REPO, 'giochi', 'index.html'), 'w', encoding='utf-8').write(ingresso())
-    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti), Truffa o no?, Il carrello del Black Friday')
+    print(f'giochi scritti: Il Polpo differenzia ({n} rifiuti), Truffa o no?, Il carrello del Black Friday, Indovina il Comune, Più o meno, Il filo del labirinto')
